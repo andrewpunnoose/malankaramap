@@ -34,10 +34,6 @@
 </head>
 <body class="bg-ivory dark:bg-midnight text-body dark:text-ivory/85 font-sans transition-colors duration-300">
 
-<audio id="bgMusic" loop>
-  <source src="audio.mp3" type="audio/mpeg">
-</audio>
-
 <!-- ==================== HEADER ==================== -->
 <header class="sticky top-0 z-50 bg-ivory/90 dark:bg-midnight/90 backdrop-blur-md border-b border-line dark:border-white/10">
   <div class="max-w-7xl mx-auto px-5 sm:px-8 h-16 sm:h-20 flex items-center justify-between gap-4">
@@ -57,6 +53,7 @@
       <a href="#map" class="text-body/80 dark:text-ivory/70 hover:text-sage-dark dark:hover:text-sage transition-colors">World Map</a>
       <a href="#discover" class="text-body/80 dark:text-ivory/70 hover:text-sage-dark dark:hover:text-sage transition-colors">Discover</a>
       <a href="#numbers" class="text-body/80 dark:text-ivory/70 hover:text-sage-dark dark:hover:text-sage transition-colors">Numbers</a>
+      <a href="#clergy" class="text-body/80 dark:text-ivory/70 hover:text-sage-dark dark:hover:text-sage transition-colors">Clergy</a>
       <a href="#legend" class="text-body/80 dark:text-ivory/70 hover:text-sage-dark dark:hover:text-sage transition-colors">Legend</a>
       <a href="#heritage" class="text-body/80 dark:text-ivory/70 hover:text-sage-dark dark:hover:text-sage transition-colors">Heritage</a>
       <a href="#report" class="font-sans not-italic text-[11px] font-semibold tracking-[0.08em] uppercase border border-ink dark:border-ivory/40 text-ink dark:text-ivory px-4 py-2 rounded-full hover:bg-ink hover:text-ivory dark:hover:bg-ivory dark:hover:text-midnight transition-colors">Report</a>
@@ -77,6 +74,7 @@
     <a href="#map" class="text-body/80 dark:text-ivory/70">World Map</a>
     <a href="#discover" class="text-body/80 dark:text-ivory/70">Discover</a>
     <a href="#numbers" class="text-body/80 dark:text-ivory/70">Numbers</a>
+    <a href="#clergy" class="text-body/80 dark:text-ivory/70">Clergy</a>
     <a href="#legend" class="text-body/80 dark:text-ivory/70">Legend</a>
     <a href="#colors" class="text-body/80 dark:text-ivory/70">Palette</a>
     <a href="#heritage" class="text-body/80 dark:text-ivory/70">Heritage</a>
@@ -269,11 +267,11 @@
         <span class="text-[10px] sm:text-[11px] tracking-wider uppercase text-body/60 dark:text-ivory/50 font-medium">Parishes</span>
       </div>
       <div class="border-b border-r border-line dark:border-white/10 p-5 sm:p-6 flex flex-col gap-2">
-        <span class="font-serif text-3xl sm:text-4xl text-ink dark:text-ivory">656</span>
+        <span class="font-serif text-3xl sm:text-4xl text-ink dark:text-ivory">655</span>
         <span class="text-[10px] sm:text-[11px] tracking-wider uppercase text-body/60 dark:text-ivory/50 font-medium">Chapels</span>
       </div>
       <div class="border-b border-r border-line dark:border-white/10 p-5 sm:p-6 flex flex-col gap-2">
-        <span class="font-serif text-3xl sm:text-4xl text-ink dark:text-ivory">168</span>
+        <span class="font-serif text-3xl sm:text-4xl text-ink dark:text-ivory">169</span>
         <span class="text-[10px] sm:text-[11px] tracking-wider uppercase text-body/60 dark:text-ivory/50 font-medium">Congregations</span>
       </div>
       <a href="cathedrals.html" class="group border-b border-r border-line dark:border-white/10 p-5 sm:p-6 flex flex-col gap-2 hover:bg-featured dark:hover:bg-white/5 transition">
@@ -322,6 +320,37 @@
       </div>
   </div>
   <p class="mt-6 font-sans text-xs sm:text-sm text-body/60 dark:text-ivory/50">Beyond the map: an estimated <strong class="text-sage-dark dark:text-sage font-semibold">1,706,012</strong> members across <strong class="text-sage-dark dark:text-sage font-semibold">32</strong> dioceses and <strong class="text-sage-dark dark:text-sage font-semibold">2</strong> titular sees worldwide.</p>
+</section>
+
+<!-- ==================== CLERGY ==================== -->
+<section class="px-5 sm:px-8 pb-16 sm:pb-24 max-w-6xl mx-auto" id="clergy">
+  <div class="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-3 mb-8 sm:mb-10">
+    <h2 class="font-serif italic font-normal text-[28px] sm:text-4xl text-ink dark:text-ivory">Who Serves the Church</h2>
+    <p class="font-serif italic text-sm text-body/55 dark:text-ivory/45">Drawn from the Church&rsquo;s 2023 clergy directory.</p>
+  </div>
+  <div class="grid grid-cols-2 lg:grid-cols-4 gap-px bg-line dark:bg-white/10 border border-line dark:border-white/10">
+    <a href="bishops.html" class="group bg-ivory dark:bg-midnight p-6 sm:p-8 flex flex-col gap-2 hover:bg-featured dark:hover:bg-white/5 transition-colors">
+      <span class="font-serif text-4xl sm:text-5xl text-ink dark:text-ivory group-hover:text-sage-dark dark:group-hover:text-sage transition-colors">31</span>
+      <span class="text-[11px] tracking-wider uppercase text-body/60 dark:text-ivory/50 font-medium">Bishops</span>
+      <span class="font-serif italic text-sage-dark dark:text-sage text-sm mt-1">View all &rarr;</span>
+    </a>
+    <a href="priests.html" class="group bg-ivory dark:bg-midnight p-6 sm:p-8 flex flex-col gap-2 hover:bg-featured dark:hover:bg-white/5 transition-colors">
+      <span class="font-serif text-4xl sm:text-5xl text-ink dark:text-ivory group-hover:text-sage-dark dark:group-hover:text-sage transition-colors">1,886</span>
+      <span class="text-[11px] tracking-wider uppercase text-body/60 dark:text-ivory/50 font-medium">Priests</span>
+      <span class="font-serif italic text-sage-dark dark:text-sage text-sm mt-1">By diocese &rarr;</span>
+    </a>
+    <a href="seminarians.html" class="group bg-ivory dark:bg-midnight p-6 sm:p-8 flex flex-col gap-2 hover:bg-featured dark:hover:bg-white/5 transition-colors">
+      <span class="font-serif text-4xl sm:text-5xl text-ink dark:text-ivory group-hover:text-sage-dark dark:group-hover:text-sage transition-colors">80</span>
+      <span class="text-[11px] tracking-wider uppercase text-body/60 dark:text-ivory/50 font-medium">Seminarians</span>
+      <span class="font-serif italic text-sage-dark dark:text-sage text-sm mt-1">By diocese &rarr;</span>
+    </a>
+    <a href="monks.html" class="group bg-ivory dark:bg-midnight p-6 sm:p-8 flex flex-col gap-2 hover:bg-featured dark:hover:bg-white/5 transition-colors">
+      <span class="font-serif text-4xl sm:text-5xl text-ink dark:text-ivory group-hover:text-sage-dark dark:group-hover:text-sage transition-colors">30</span>
+      <span class="text-[11px] tracking-wider uppercase text-body/60 dark:text-ivory/50 font-medium">Monks</span>
+      <span class="font-serif italic text-sage-dark dark:text-sage text-sm mt-1">By diocese &rarr;</span>
+    </a>
+  </div>
+  <p class="mt-6 font-sans text-xs sm:text-sm text-body/60 dark:text-ivory/50">Figures are drawn from the Church&rsquo;s official 2023 clergy directory and organized here by diocese.</p>
 </section>
 
 <!-- ==================== BAND ==================== -->
@@ -798,6 +827,9 @@
     <p class="font-sans text-xs sm:text-[13px] text-body/70 dark:text-ivory/55 leading-[1.7] pl-6 -indent-6">Malankara Orthodox Syrian Church. <em>Catholicate Day Collections Directory, 2024.</em> Catholicate Palace, Devalokam, Kottayam. <a href="https://mosc.in/uploads/2023/03/CDC-Book-2024-1.pdf" target="_blank" rel="noopener" class="text-sage-dark dark:text-sage hover:underline">mosc.in/uploads/2023/03/CDC-Book-2024-1.pdf</a></p>
     <p class="font-sans text-xs sm:text-[13px] text-body/70 dark:text-ivory/55 leading-[1.7] pl-6 -indent-6">Malankara Orthodox Syrian Church. <em>Catholicate Day Collections Directory, 2025.</em> Catholicate Palace, Devalokam, Kottayam. <a href="https://mosc.in/uploads/2023/03/CDC-Book-2025.pdf" target="_blank" rel="noopener" class="text-sage-dark dark:text-sage hover:underline">mosc.in/uploads/2023/03/CDC-Book-2025.pdf</a></p>
     <p class="font-sans text-xs sm:text-[13px] text-body/70 dark:text-ivory/55 leading-[1.7] pl-6 -indent-6">Malankara Orthodox Syrian Church. <em>Catholicate Day Collections Directory, 2026.</em> Catholicate Palace, Devalokam, Kottayam. <a href="https://mosc.in/uploads/2023/03/CDC-Book-2026_compressed_compressed.pdf" target="_blank" rel="noopener" class="text-sage-dark dark:text-sage hover:underline">mosc.in/uploads/2023/03/CDC-Book-2026_compressed_compressed.pdf</a></p>
+    <p class="font-sans text-xs sm:text-[13px] text-body/70 dark:text-ivory/55 leading-[1.7] pl-6 -indent-6">Akkara Kurian Writer. <em>Niranam Grandhavari.</em> Akkara Kunnumpurathu, 2009.</p>
+    <p class="font-sans text-xs sm:text-[13px] text-body/70 dark:text-ivory/55 leading-[1.7] pl-6 -indent-6"><em>Malankara Edavaka Pathrika</em>, 1892&ndash;1906.</p>
+    <p class="font-sans text-xs sm:text-[13px] text-body/70 dark:text-ivory/55 leading-[1.7] pl-6 -indent-6">St. Thomas Orthodox Vaidika Sanghom. <em>Clergy Directory, 2023.</em> Orthodox Theological Seminary, Kottayam. <a href="https://orthodoxvaidikasanghom.org/uploads/downloads/clergy-2023.pdf" target="_blank" rel="noopener" class="text-sage-dark dark:text-sage hover:underline">orthodoxvaidikasanghom.org/uploads/downloads/clergy-2023.pdf</a></p>
   </div>
 </section>
 
@@ -810,32 +842,6 @@
   <div class="font-sans text-[11px] tracking-wide text-ivory/45">Not affiliated with the Malankara Orthodox Syrian Church.</div>
   <div class="font-sans text-[11px] tracking-wide text-ivory/45 mt-1">&copy; Malankara Map, July 2026</div>
 </footer>
-<script>
-const music = document.getElementById("bgMusic");
-music.volume = 0;
 
-window.addEventListener("click", function () {
-  music.play();
-
-  const targetVolume = 0.5;     // End at 50%
-  const fadeDuration = 42000;   // 42 seconds
-  const interval = 100;         // Update every 100 ms
-
-  let volume = 0;
-  const step = targetVolume / (fadeDuration / interval);
-
-  const fade = setInterval(() => {
-    volume += step;
-
-    if (volume >= targetVolume) {
-      volume = targetVolume;
-      clearInterval(fade);
-    }
-
-    music.volume = volume;
-  }, interval);
-}, { once: true });
-</script>
 </body>
 </html>
-
