@@ -34,6 +34,10 @@
 </head>
 <body class="bg-ivory dark:bg-midnight text-body dark:text-ivory/85 font-sans transition-colors duration-300">
 
+<video id="bgMusic" loop style="display:none;">
+  <source src="audio/audio.mp4" type="video/mp4">
+</video>
+
 <!-- ==================== HEADER ==================== -->
 <header class="sticky top-0 z-50 bg-ivory/90 dark:bg-midnight/90 backdrop-blur-md border-b border-line dark:border-white/10">
   <div class="max-w-7xl mx-auto px-5 sm:px-8 h-16 sm:h-20 flex items-center justify-between gap-4">
@@ -265,11 +269,11 @@
         <span class="text-[10px] sm:text-[11px] tracking-wider uppercase text-body/60 dark:text-ivory/50 font-medium">Parishes</span>
       </div>
       <div class="border-b border-r border-line dark:border-white/10 p-5 sm:p-6 flex flex-col gap-2">
-        <span class="font-serif text-3xl sm:text-4xl text-ink dark:text-ivory">655</span>
+        <span class="font-serif text-3xl sm:text-4xl text-ink dark:text-ivory">656</span>
         <span class="text-[10px] sm:text-[11px] tracking-wider uppercase text-body/60 dark:text-ivory/50 font-medium">Chapels</span>
       </div>
       <div class="border-b border-r border-line dark:border-white/10 p-5 sm:p-6 flex flex-col gap-2">
-        <span class="font-serif text-3xl sm:text-4xl text-ink dark:text-ivory">169</span>
+        <span class="font-serif text-3xl sm:text-4xl text-ink dark:text-ivory">168</span>
         <span class="text-[10px] sm:text-[11px] tracking-wider uppercase text-body/60 dark:text-ivory/50 font-medium">Congregations</span>
       </div>
       <a href="cathedrals.html" class="group border-b border-r border-line dark:border-white/10 p-5 sm:p-6 flex flex-col gap-2 hover:bg-featured dark:hover:bg-white/5 transition">
@@ -806,6 +810,10 @@
   <div class="font-sans text-[11px] tracking-wide text-ivory/45">Not affiliated with the Malankara Orthodox Syrian Church.</div>
   <div class="font-sans text-[11px] tracking-wide text-ivory/45 mt-1">&copy; Malankara Map, July 2026</div>
 </footer>
-
+<script>
+window.addEventListener("click", function () {
+  document.getElementById("bgMusic").play();
+}, { once: true });
+</script>
 </body>
 </html>
