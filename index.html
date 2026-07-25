@@ -1,0 +1,911 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script>
+  (function(){
+    var saved = localStorage.getItem('malankara-theme');
+    if(saved === 'dark'){ document.documentElement.setAttribute('data-theme', 'dark'); }
+  })();
+</script>
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<title>Malankara Map — Global Directory</title>
+<meta name="description" content="Every parish, chapel, cathedral, and shrine of the Malankara Orthodox Syrian Church, mapped — 3,500+ locations across 32 dioceses worldwide.">
+<link rel="canonical" href="https://malankaramap.com/">
+
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Malankara Map">
+<meta property="og:title" content="Malankara Map">
+<meta property="og:description" content="Every parish, chapel, cathedral, and shrine of the Malankara Orthodox Syrian Church, mapped — 3,500+ locations across 32 dioceses worldwide.">
+<meta property="og:image" content="https://malankaramap.com/og-image.png">
+<meta property="og:url" content="https://malankaramap.com/">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Malankara Map">
+<meta name="twitter:description" content="Every parish, chapel, cathedral, and shrine of the Malankara Orthodox Syrian Church, mapped — 3,500+ locations across 32 dioceses worldwide.">
+<meta name="twitter:image" content="https://malankaramap.com/og-image.png">
+<style>
+  :root{
+    --ivory:#FAF8F4;
+    --ivory-2:#F2EFE8;
+    --ink:#1B1815;
+    --ink-soft: rgba(27,24,21,0.78);
+    --ink-faint: rgba(27,24,21,0.62);
+    --burgundy:#5E1B27;
+    --brass:#7C5E28;
+    --line: rgba(27,24,21,0.18);
+    --line-soft: rgba(27,24,21,0.12);
+    --font-display: 'Marcellus', Georgia, serif;
+    --font-body: 'Frank Ruhl Libre', Georgia, serif;
+    --font-ui: 'Marcellus', Georgia, serif;
+  }
+  [data-theme="dark"]{
+    --ivory:#18150F;
+    --ivory-2:#211C15;
+    --ink:#F2ECE0;
+    --ink-soft: rgba(242,236,224,0.74);
+    --ink-faint: rgba(242,236,224,0.55);
+    --burgundy:#D98A97;
+    --brass:#C9A455;
+    --line: rgba(242,236,224,0.20);
+    --line-soft: rgba(242,236,224,0.13);
+  }
+  [data-theme="dark"] .band{border-top:1px solid var(--line); border-bottom:1px solid var(--line);}
+  body, .stat-card, .legend-item, .color-item{transition: background-color .25s ease, color .25s ease, border-color .25s ease;}
+  @import url('https://fonts.googleapis.com/css2?family=Marcellus&family=Frank+Ruhl+Libre:wght@400;500;700&family=Cormorant+Garamond:ital,wght@1,500&family=Inter:wght@400;500;600&display=swap');
+
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--ivory);
+    color:var(--ink);
+    font-family:var(--font-body);
+    line-height:1.65;
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:1080px; margin:0 auto; padding:0 32px;}
+
+  /* ---- Header ---- */
+  header.top{
+    padding:30px 0 26px;
+    border-bottom:1px solid var(--line-soft);
+  }
+  .top-inner{display:flex; align-items:baseline; justify-content:space-between; gap:16px;}
+  .brand{display:flex; align-items:center; gap:14px;}
+  .brand .mark{
+    font-family:var(--font-display); font-size:26px; color:var(--brass); font-style:italic;
+  }
+  .cross-mark{width:30px; height:30px; flex-shrink:0; color:var(--ink);}
+  .brand-text .eyebrow{
+    font-family:var(--font-ui); font-size:10px; letter-spacing:.16em; text-transform:uppercase;
+    color:var(--brass); font-weight:600; margin-bottom:3px;
+  }
+  .brand-text .name{
+    font-family:var(--font-display); font-size:19px; font-style:italic; color:var(--ink);
+  }
+  nav.top-nav{font-family:var(--font-display); font-size:16px; font-style:italic;}
+  nav.top-nav a{
+    color:var(--ink-soft); text-decoration:none; margin-left:34px; letter-spacing:.01em;
+    transition:color .15s;
+  }
+  nav.top-nav a:hover{color:var(--burgundy);}
+  nav.top-nav a.report-link{
+    font-family:var(--font-ui); font-size:11px; font-style:normal;
+    letter-spacing:.08em; text-transform:uppercase;
+    border:1px solid var(--line); padding:8px 16px;
+    color:var(--ink-soft);
+  }
+  nav.top-nav a.report-link:hover{border-color:var(--ink); color:var(--ink);}
+
+  .theme-toggle{
+    width:34px; height:34px; flex-shrink:0;
+    border:1px solid var(--line); background:none; border-radius:50%;
+    display:flex; align-items:center; justify-content:center;
+    color:var(--ink-soft); cursor:pointer; margin-left:20px;
+    transition:border-color .15s, color .15s;
+  }
+  .theme-toggle:hover{border-color:var(--ink); color:var(--ink);}
+  .theme-toggle svg{width:16px; height:16px;}
+  .theme-toggle .icon-moon{display:none;}
+  [data-theme="dark"] .theme-toggle .icon-sun{display:none;}
+  [data-theme="dark"] .theme-toggle .icon-moon{display:block;}
+
+  /* ---- Hero ---- */
+  .hero{padding:96px 0 64px; text-align:center;}
+  .hero .eyebrow{
+    font-family:var(--font-ui);
+    font-size:11.5px; letter-spacing:.22em; text-transform:uppercase;
+    color:var(--brass); font-weight:600; margin-bottom:26px;
+  }
+  .hero h1{
+    font-family:var(--font-display);
+    font-weight:400;
+    font-size:clamp(44px, 6.4vw, 78px);
+    line-height:1.05;
+    letter-spacing:-.01em;
+    margin:0 0 26px;
+    color:var(--ink);
+  }
+  .hero h1 em{font-style:italic; color:var(--burgundy);}
+  .hero p.lede{
+    font-size:16.5px;
+    max-width:520px;
+    margin:0 auto;
+    color:var(--ink-soft);
+    font-weight:400;
+  }
+  .hero .rule{
+    width:1px; height:44px; background:var(--line);
+    margin:40px auto 0;
+  }
+
+  /* ---- Map ---- */
+  .map-section{padding:0 0 96px;}
+  .map-frame{
+    border:1px solid var(--line);
+    background:#18150F;
+  }
+  .map-frame iframe{display:block; width:100%; height:640px; border:0; filter:saturate(0.88) contrast(1.02);}
+  .map-caption{
+    display:flex; justify-content:space-between; align-items:baseline; flex-wrap:wrap; gap:10px;
+    margin-top:18px;
+    font-family:var(--font-display);
+    font-style:italic;
+    font-size:14px;
+    color:var(--ink-faint);
+    letter-spacing:.01em;
+  }
+  .map-caption a{color:var(--ink); text-decoration:none; border-bottom:1px solid var(--brass); padding-bottom:1px;}
+  .map-verified{
+    text-align:center; margin-top:14px;
+    font-family:var(--font-ui); font-size:11px; letter-spacing:.04em;
+    color:var(--ink-faint);
+  }
+
+  /* ---- Stats ---- */
+  .stats{padding:0 0 100px;}
+  .stats-head{
+    display:flex; align-items:baseline; justify-content:space-between; gap:20px;
+    margin-bottom:40px; flex-wrap:wrap;
+  }
+  .stats-head h2{
+    font-family:var(--font-display); font-weight:400; font-style:italic;
+    font-size:38px; color:var(--ink); margin:0 0 6px;
+  }
+  .stats-head p{font-family:var(--font-display); font-style:italic; font-size:15px; color:var(--ink-faint); margin:0; letter-spacing:.01em;}
+
+  .stats-track{
+    display:flex;
+    gap:0;
+    overflow-x:auto;
+    scroll-snap-type:x proximity;
+    border-top:1px solid var(--line);
+    border-bottom:1px solid var(--line);
+    -webkit-overflow-scrolling:touch;
+    scrollbar-width:thin;
+    scrollbar-color:var(--brass) transparent;
+  }
+  .stats-track::-webkit-scrollbar{height:4px;}
+  .stats-track::-webkit-scrollbar-thumb{background:rgba(156,122,62,0.4);}
+  .stat-card{
+    scroll-snap-align:start;
+    flex:0 0 156px;
+    border-right:1px solid var(--line);
+    padding:30px 22px 26px;
+    display:flex; flex-direction:column; gap:10px;
+  }
+  .stat-card:first-child{border-left:1px solid var(--line);}
+  .stat-card a{display:flex; flex-direction:column; gap:10px; text-decoration:none; color:inherit;}
+  .stat-card a:hover .n{color:var(--burgundy);}
+  .stat-card .n{
+    font-family:var(--font-display); font-weight:400;
+    font-size:36px; color:var(--ink); line-height:1;
+  }
+  .stat-card .l{
+    font-family:var(--font-ui);
+    font-size:10.5px; letter-spacing:.07em; text-transform:uppercase;
+    color:var(--ink-faint); font-weight:600;
+  }
+  .stats-foot{
+    margin-top:26px;
+    font-family:var(--font-ui);
+    font-size:12.5px;
+    color:var(--ink-faint);
+  }
+  .stats-foot strong{color:var(--burgundy); font-weight:600;}
+
+  /* ---- Band ---- */
+  .band{background:#18150F; color:#F2ECE0; padding:80px 0;}
+  .band .wrap{display:grid; grid-template-columns:1fr 1fr; gap:64px; max-width:680px;}
+  .band h3{
+    font-family:var(--font-display); font-style:italic; font-weight:400;
+    font-size:22px; color:#D9C48A; margin:0 0 14px;
+  }
+  .band p{font-family:var(--font-ui); font-size:14px; color:rgba(242,236,224,0.72); margin:0; line-height:1.7;}
+
+  /* ---- Photo ---- */
+  .photo-section{padding:0 0 96px;}
+  .photo-frame{border:1px solid var(--line); overflow:hidden;}
+  .photo-frame img{display:block; width:100%; height:auto;}
+  .photo-caption{
+    margin-top:18px;
+    font-family:var(--font-display); font-style:italic;
+    font-size:14px; color:var(--ink-faint);
+    text-align:center; letter-spacing:.01em;
+  }
+
+  /* ---- About ---- */
+  .about{padding:96px 0;}
+  .about-grid{display:grid; grid-template-columns:1.05fr 0.95fr; gap:72px; align-items:start;}
+  .about h2{
+    font-family:var(--font-display); font-weight:400; font-style:italic;
+    font-size:34px; color:var(--ink); margin:0 0 24px;
+  }
+  .about p{color:var(--ink-soft); font-size:15px; margin:0 0 16px; line-height:1.75;}
+  .timeline{border-left:1px solid var(--line); padding-left:28px; display:flex; flex-direction:column; gap:28px;}
+  .timeline .year{font-family:var(--font-ui); font-size:11px; font-weight:600; letter-spacing:.06em; color:var(--brass);}
+  .timeline p{margin:5px 0 0; font-size:14px; color:var(--ink-soft);}
+
+  /* ---- Discover ---- */
+  .discover{padding:0 0 100px;}
+  .discover-card{
+    border:1px solid var(--line);
+    padding:52px 48px;
+    text-align:center;
+  }
+  .discover-eyebrow{
+    font-family:var(--font-ui); font-size:11px; letter-spacing:.2em; text-transform:uppercase;
+    color:var(--brass); font-weight:600; margin-bottom:18px;
+  }
+  .discover-intro h2{
+    font-family:var(--font-display); font-weight:400; font-style:italic;
+    font-size:32px; color:var(--ink); margin:0 0 14px;
+  }
+  .discover-intro p{
+    font-size:15px; color:var(--ink-soft); max-width:460px; margin:0 auto 30px; line-height:1.75;
+  }
+  .discover-btn{
+    font-family:var(--font-ui); font-size:13px; letter-spacing:.1em; text-transform:uppercase;
+    background:none; border:1px solid var(--ink); color:var(--ink);
+    padding:14px 34px; cursor:pointer;
+    transition:background .15s, color .15s;
+  }
+  .discover-btn:hover{background:var(--ink); color:var(--ivory);}
+  .discover-btn:disabled{opacity:.5; cursor:default;}
+
+  .discover-result{display:none; text-align:left; margin-top:8px;}
+  .discover-result.show{display:block;}
+  .dr-diocese{
+    display:flex; align-items:center; gap:9px;
+    font-family:var(--font-ui); font-size:11px; letter-spacing:.1em; text-transform:uppercase;
+    color:var(--ink-faint); margin-bottom:16px;
+  }
+  .dr-dot{width:9px; height:9px; border-radius:50%; flex-shrink:0;}
+  .dr-name{
+    font-family:var(--font-display); font-weight:400; font-style:italic;
+    font-size:26px; color:var(--ink); margin:0 0 16px; line-height:1.25;
+  }
+  .dr-desc{font-size:14.5px; color:var(--ink-soft); line-height:1.8; margin:0 0 16px;}
+  .dr-desc:last-of-type{margin-bottom:28px;}
+  .dr-desc.empty{color:var(--ink-faint); font-style:italic;}
+  .dr-img{width:100%; height:auto; display:block; margin:0 0 20px; border:1px solid var(--line);}
+  .dr-again{
+    font-family:var(--font-display); font-style:italic; font-size:14px;
+    color:var(--burgundy); background:none; border:none; padding:0; cursor:pointer;
+    text-decoration:underline; text-underline-offset:3px;
+  }
+  @media (max-width:640px){
+    .discover-card{padding:40px 26px;}
+  }
+
+  /* ---- Legend ---- */
+  .legend-section{padding:0 0 100px;}
+  .legend-head{max-width:640px; margin-bottom:44px;}
+  .legend-head h2{
+    font-family:var(--font-display); font-weight:400; font-style:italic;
+    font-size:34px; color:var(--ink); margin:0 0 18px;
+  }
+  .legend-head p{font-size:15px; color:var(--ink-soft); line-height:1.8; margin:0;}
+  .legend-head p em{font-style:italic; color:var(--burgundy);}
+
+  .legend-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:2px;
+    background:var(--line);
+    border:1px solid var(--line);
+  }
+  .legend-item{
+    background:var(--ivory);
+    padding:16px 22px;
+    display:flex; align-items:baseline; gap:14px;
+  }
+  .legend-item .sym{
+    font-family:var(--font-display); font-style:italic; font-size:13px;
+    color:var(--brass); flex-shrink:0; width:118px;
+  }
+  .legend-item .def{font-family:var(--font-ui); font-size:12.5px; color:var(--ink-soft); line-height:1.5;}
+
+  .clarifications{
+    margin-top:44px;
+    max-width:720px;
+    display:flex; flex-direction:column; gap:14px;
+  }
+  .clarifications .c-label{
+    font-family:var(--font-ui); font-size:10.5px; letter-spacing:.14em; text-transform:uppercase;
+    color:var(--brass); font-weight:600; margin-bottom:6px;
+  }
+  .clarifications p{
+    font-family:var(--font-display); font-style:italic;
+    font-size:15px; color:var(--ink-soft); margin:0; line-height:1.6;
+    padding-left:18px; border-left:1px solid var(--line);
+  }
+
+  /* ---- Diocesan Colors ---- */
+  .colors-section{padding:0 0 100px;}
+  .colors-head{max-width:640px; margin-bottom:40px;}
+  .colors-head h2{
+    font-family:var(--font-display); font-weight:400; font-style:italic;
+    font-size:34px; color:var(--ink); margin:0 0 16px;
+  }
+  .colors-head p{font-size:15px; color:var(--ink-soft); line-height:1.8; margin:0;}
+  .colors-grid{
+    display:grid;
+    grid-template-columns:repeat(3, 1fr);
+    gap:1px;
+    background:var(--line);
+    border:1px solid var(--line);
+  }
+  .color-item{
+    background:var(--ivory);
+    padding:14px 18px;
+    display:flex; align-items:center; gap:12px;
+  }
+  .swatch{
+    width:16px; height:16px; border-radius:50%;
+    flex-shrink:0;
+    border:1px solid rgba(27,24,21,0.15);
+  }
+  .color-item .cnames{display:flex; flex-direction:column; gap:1px;}
+  .color-item .diocese{font-family:var(--font-ui); font-size:12.5px; color:var(--ink);}
+  .color-item .diocese a{color:inherit; text-decoration:none; border-bottom:1px solid var(--line);}
+  .color-item .diocese a:hover{color:var(--burgundy); border-color:var(--burgundy);}
+  .color-item .hue{font-family:var(--font-display); font-style:italic; font-size:11.5px; color:var(--brass);}
+  .color-item .year{font-family:var(--font-ui); font-size:10px; color:var(--ink-faint); letter-spacing:.02em;}
+
+  /* ---- Historical teaser ---- */
+  .historical{padding:0 0 100px;}
+  .historical-card{
+    display:flex; align-items:center; justify-content:space-between; gap:32px;
+    border-top:1px solid var(--line); border-bottom:1px solid var(--line);
+    padding:44px 4px;
+    text-decoration:none;
+    transition:opacity .15s;
+  }
+  .historical-card:hover{opacity:.7;}
+  .historical-text .eyebrow{
+    font-family:var(--font-ui); font-size:10.5px; letter-spacing:.16em; text-transform:uppercase;
+    color:var(--brass); font-weight:600; margin-bottom:10px;
+  }
+  .historical-text h3{
+    font-family:var(--font-display); font-weight:400; font-style:italic;
+    font-size:28px; color:var(--ink); margin:0 0 10px;
+  }
+  .historical-text p{font-size:14.5px; color:var(--ink-soft); margin:0; max-width:480px;}
+  .historical-arrow{
+    font-family:var(--font-display); font-style:italic; font-size:15px;
+    color:var(--burgundy); white-space:nowrap; flex-shrink:0;
+  }
+  @media (max-width:640px){
+    .historical-card{flex-direction:column; align-items:flex-start; gap:18px;}
+  }
+
+  /* ---- Report form ---- */
+  .report{padding:0 0 100px;}
+  .report-head{max-width:560px; margin:0 auto 40px; text-align:center;}
+  .report-head h2{
+    font-family:var(--font-display); font-weight:400; font-style:italic;
+    font-size:32px; color:var(--ink); margin:0 0 14px;
+  }
+  .report-head p{font-size:15px; color:var(--ink-soft); line-height:1.75; margin:0;}
+  .report-form{max-width:560px; margin:0 auto; display:flex; flex-direction:column; gap:20px;}
+  .report-row{display:flex; gap:20px;}
+  .report-field{flex:1; display:flex; flex-direction:column; gap:8px;}
+  .report-field label{
+    font-family:var(--font-ui); font-size:10.5px; letter-spacing:.1em; text-transform:uppercase;
+    color:var(--ink-faint);
+  }
+  .report-field input, .report-field textarea{
+    font-family:var(--font-body); font-size:14.5px; color:var(--ink);
+    border:none; border-bottom:1px solid var(--line); background:transparent;
+    padding:8px 2px; outline:none; resize:vertical;
+  }
+  .report-field input:focus, .report-field textarea:focus{border-color:var(--brass);}
+  .report-submit{
+    align-self:center; margin-top:8px;
+    font-family:var(--font-ui); font-size:13px; letter-spacing:.1em; text-transform:uppercase;
+    background:none; border:1px solid var(--ink); color:var(--ink);
+    padding:14px 34px; cursor:pointer;
+    transition:background .15s, color .15s;
+  }
+  .report-submit:hover{background:var(--ink); color:var(--ivory);}
+  .report-submit:disabled{opacity:.5; cursor:default;}
+  .report-status{text-align:center; font-family:var(--font-display); font-style:italic; font-size:15px; color:var(--burgundy); min-height:20px; margin-top:-4px;}
+  @media (max-width:640px){
+    .report-row{flex-direction:column; gap:20px;}
+  }
+
+  /* ---- Sources ---- */
+  .sources{padding:70px 0 90px; border-top:1px solid var(--line-soft);}
+  .sources h2{
+    font-family:var(--font-display); font-weight:400; font-style:italic;
+    font-size:24px; color:var(--ink); margin:0 0 8px;
+  }
+  .sources > .wrap > p.note{font-family:var(--font-ui); font-size:12.5px; color:var(--ink-faint); margin:0 0 28px;}
+  .bib{display:flex; flex-direction:column; gap:18px;}
+  .bib-item{
+    font-family:var(--font-ui); font-size:13px; color:var(--ink-soft);
+    padding-left:26px; text-indent:-26px; line-height:1.7;
+  }
+  .bib-item a{color:var(--burgundy); text-decoration:none; border-bottom:1px solid var(--line);}
+  .bib-item a:hover{border-color:var(--burgundy);}
+
+  /* ---- Footer ---- */
+  footer{
+    border-top:1px solid var(--line-soft);
+    padding:40px 0;
+    font-family:var(--font-display);
+    font-style:italic;
+    font-size:14px;
+    color:var(--ink-faint);
+    text-align:center;
+    letter-spacing:.01em;
+  }
+  footer .cross-mark{width:20px; height:20px; margin:0 auto 14px; opacity:.6;}
+  footer .footer-line{font-size:14px; color:var(--ink-soft); margin-bottom:10px;}
+  footer .footer-fine{
+    font-family:var(--font-ui); font-style:normal; font-size:11px;
+    letter-spacing:.03em; color:var(--ink-faint); margin-top:4px;
+  }
+
+  @media (max-width:820px){
+    .band .wrap{grid-template-columns:1fr; gap:32px;}
+    .about-grid{grid-template-columns:1fr; gap:36px;}
+    .colors-grid{grid-template-columns:repeat(2, 1fr);}
+  }
+  @media (max-width:640px){
+    nav.top-nav{display:none;}
+    .map-frame iframe{height:420px;}
+    .hero{padding:64px 0 48px;}
+    .wrap{padding:0 36px;}
+    .legend-grid{grid-template-columns:1fr;}
+    .colors-grid{grid-template-columns:1fr;}
+    .colors-section{padding-top:56px; border-top:1px solid var(--line-soft);}
+    .stats{padding-top:56px; border-top:1px solid var(--line-soft);}
+    .band{padding-top:64px;}
+    .about{padding-top:56px;}
+  }
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap top-inner">
+    <div class="brand">
+      <svg class="cross-mark" viewBox="0 0 40 40" fill="none">
+        <path d="M20 3 L20 37 M8 14 L32 14" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+        <path d="M20 3 C16 8 16 11 20 14 C24 11 24 8 20 3Z" fill="#9C7A3E"/>
+        <circle cx="20" cy="30" r="7" stroke="#9C7A3E" stroke-width="1.2" fill="none"/>
+      </svg>
+      <div class="brand-text">
+        <div class="eyebrow">Est. Apostolic Era &middot; AD 52</div>
+        <div class="name">Malankara Orthodox Syrian Church</div>
+      </div>
+    </div>
+    <nav class="top-nav">
+      <a href="#map">World Map</a>
+      <a href="#discover">Discover</a>
+      <a href="#numbers">Numbers</a>
+      <a href="#legend">Legend</a>
+      <a href="#heritage">Heritage</a>
+    </nav>
+    <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode" title="Toggle dark mode">
+      <svg class="icon-sun" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="4.2" stroke="currentColor" stroke-width="1.4"/><path d="M12 2.5v2.2M12 19.3v2.2M4.2 4.2l1.6 1.6M18.2 18.2l1.6 1.6M2.5 12h2.2M19.3 12h2.2M4.2 19.8l1.6-1.6M18.2 5.8l1.6-1.6" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg>
+      <svg class="icon-moon" viewBox="0 0 24 24" fill="none"><path d="M20 14.5A8.5 8.5 0 1 1 9.5 4a6.8 6.8 0 0 0 10.5 10.5Z" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"/></svg>
+    </button>
+  </div>
+</header>
+
+<script>
+(function(){
+  var btn = document.getElementById('themeToggle');
+  btn.addEventListener('click', function(){
+    var isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+    if(isDark){
+      document.documentElement.removeAttribute('data-theme');
+      localStorage.setItem('malankara-theme', 'light');
+    } else {
+      document.documentElement.setAttribute('data-theme', 'dark');
+      localStorage.setItem('malankara-theme', 'dark');
+    }
+  });
+})();
+</script>
+
+<section class="hero wrap">
+  <div class="eyebrow">A Global Communion &middot; Est. AD 52</div>
+  <h1>The Church,<br><em>mapped</em>.</h1>
+  <p class="lede">Under H.H. Baselios Marthoma Mathews III, Catholicos of the East, the Church's institutions now number over 3,500 worldwide — each parish mapped with its own family count. This is the largest Malankara Orthodox directory on the internet.</p>
+  <div class="rule"></div>
+</section>
+
+<section class="map-section wrap" id="map">
+  <div class="map-frame">
+    <iframe src="https://www.google.com/maps/d/u/0/embed?mid=1TRfC9ZEHxXfzwAWy-tv1UNdUEvzL9C0&ehbc=2E312F&noprof=1" allowfullscreen loading="lazy"></iframe>
+  </div>
+  <div class="map-caption">
+    <span>Click any marker to explore.</span>
+    <a href="https://www.google.com/maps/d/u/0/viewer?mid=1TRfC9ZEHxXfzwAWy-tv1UNdUEvzL9C0" target="_blank" rel="noopener">Open full map &rarr;</a>
+  </div>
+  <p class="map-verified">Sourced from the Church's official directories, and updated as parishes report changes.</p>
+</section>
+
+<section class="discover wrap" id="discover">
+  <div class="discover-card">
+    <div class="discover-eyebrow">560 Parishes, Their Own Words</div>
+
+    <div class="discover-intro" id="discoverIntro">
+      <h2>Open a page at random</h2>
+      <p>Behind every marker is a history someone chose to write down — a founding date, a first Qurbana, a handful of families who started meeting in a living room. Draw one.</p>
+      <button class="discover-btn" id="discoverBtn">Surprise Me</button>
+    </div>
+
+    <div class="discover-result" id="discoverResult">
+      <div class="dr-diocese"><span class="dr-dot" id="drDot"></span><span id="drDiocese"></span></div>
+      <h3 class="dr-name" id="drName"></h3>
+      <div id="drDescWrap"></div>
+      <button class="dr-again" id="drAgain">Show me another &rarr;</button>
+    </div>
+  </div>
+</section>
+
+<script>
+(function(){
+  var dioceseInfo = {
+    "Thiruvananthapuram": ["#817713","1979"], "Kollam": ["#757575","1877"],
+    "Kottarakkara-Punalur": ["#FF5252","2010"], "Adoor-Kadampanad": ["#1A237E","2002"],
+    "Thumpamon": ["#9C27B0","1877"], "Mavelikara": ["#E65100","2002"],
+    "Chengannur": ["#AFB42B","2002"], "Niranam": ["#000000","1877"],
+    "Nilackal": ["#FBC02D","2010"], "Kottayam": ["#0288D1","1877"],
+    "Kottayam Central": ["#880E4F","1982"], "Idukki": ["#795548","1982"],
+    "Kandanad East": ["#673AB7","2002"], "Kandanad West": ["#FFEA00","2002"],
+    "Angamaly": ["#F57C00","1877"], "Kochi": ["#558B2F","1877"],
+    "Thrissur": ["#424242","1982"], "Kunnamkulam": ["#A52714","1985"],
+    "Malabar": ["#4E342E","1953"], "Sulthan Bathery": ["#006064","1986"],
+    "Brahmavar": ["#3949AB","2010"], "Madras": ["#7CB342","1976"],
+    "Bangalore": ["#F9A825","2009"], "Bombay": ["#817713","1976"],
+    "Calcutta": ["#A52714","1979"], "Delhi": ["#558B2F","1976"],
+    "Ahmedabad": ["#880E4F","2009"], "Asia-Pacific": ["#3949AB","2024"],
+    "Northeast America": ["#9C27B0","2009"], "Southwest America": ["#F57C00","1979"],
+    "Canada": ["#0288D1","2024"], "UK-Europe-Africa": ["#0F9D58","2009"],
+    "Knanaya": ["#BDBDBD","1910"], "Evangelistic Association of the East": ["#C2185B","1924"],
+    "Proprietary Churches": ["#673AB7",""]
+  };
+
+  var churches = null, loading = false;
+  var btn = document.getElementById('discoverBtn');
+  var again = document.getElementById('drAgain');
+  var intro = document.getElementById('discoverIntro');
+  var result = document.getElementById('discoverResult');
+
+  function parseDescription(raw){
+    var images = [];
+    var text = raw.replace(/<img[^>]*src=["']([^"']+)["'][^>]*>/gi, function(m, src){
+      images.push(src);
+      return '\n\n';
+    });
+    text = text.replace(/<br\s*\/?>\s*<br\s*\/?>/gi, '\n\n');
+    text = text.replace(/<br\s*\/?>/gi, '\n');
+    text = text.replace(/<[^>]+>/g, ' ');
+    var div = document.createElement('div');
+    div.innerHTML = text;
+    text = div.textContent || div.innerText || '';
+    var paras = text.split(/\n{2,}/).map(function(p){ return p.replace(/\s+/g, ' ').trim(); }).filter(Boolean);
+    return { paras: paras, images: images };
+  }
+
+  function render(){
+    var c = churches[Math.floor(Math.random() * churches.length)];
+    document.getElementById('drName').textContent = c.n;
+    var info = dioceseInfo[c.d];
+    document.getElementById('drDot').style.background = info ? info[0] : '#9C7A3E';
+    var label = c.d || 'Diocese unrecorded';
+    if(info && info[1]){ label += ' \u00b7 Est. ' + info[1]; }
+    document.getElementById('drDiocese').textContent = label;
+
+    var wrap = document.getElementById('drDescWrap');
+    wrap.innerHTML = '';
+    if(c.ds){
+      var parsed = parseDescription(c.ds);
+      parsed.paras.forEach(function(p){
+        var el = document.createElement('p');
+        el.className = 'dr-desc';
+        el.textContent = p;
+        wrap.appendChild(el);
+      });
+      parsed.images.forEach(function(src){
+        var img = document.createElement('img');
+        img.className = 'dr-img';
+        img.src = src;
+        img.alt = c.n;
+        img.loading = 'lazy';
+        img.onerror = function(){ img.remove(); };
+        wrap.appendChild(img);
+      });
+    } else {
+      var el = document.createElement('p');
+      el.className = 'dr-desc empty';
+      el.textContent = 'No written history on file for this one yet \u2014 but it has its own pin on the map, and its own place in the Church.';
+      wrap.appendChild(el);
+    }
+    intro.style.display = 'none';
+    result.classList.add('show');
+  }
+
+  function go(){
+    if(churches){ render(); return; }
+    if(loading) return;
+    loading = true;
+    btn.disabled = true;
+    btn.textContent = 'Finding one\u2026';
+    fetch('churches.json').then(function(r){ return r.json(); }).then(function(data){
+      churches = data;
+      loading = false;
+      render();
+    }).catch(function(){
+      btn.disabled = false;
+      btn.textContent = 'Try Again';
+      loading = false;
+    });
+  }
+
+  btn.addEventListener('click', go);
+  again.addEventListener('click', go);
+})();
+</script>
+
+<section class="legend-section wrap" id="legend">
+  <div class="legend-head">
+    <h2>Reading the map</h2>
+    <p>The directory catalogues the Church's full institutional life — episcopal palaces, monasteries and convents, cathedrals, directly-administered churches, thronal churches and mission churches, parishes, congregations and communities, Catholicate centres and retreat centres, chapels, major and minor seminaries, malpanates, mission training centres, Bible schools, campus ministries, and youth and student centres. Each marker carries its own <em>symbol</em>, keyed below.</p>
+  </div>
+
+  <div class="legend-grid">
+    <div class="legend-item"><span class="sym">Historic building</span><span class="def">Episcopal palace</span></div>
+    <div class="legend-item"><span class="sym">Prayer</span><span class="def">Monastery or convent</span></div>
+    <div class="legend-item"><span class="sym">Diamond</span><span class="def">Archcathedral</span></div>
+    <div class="legend-item"><span class="sym">Star</span><span class="def">Cathedral</span></div>
+    <div class="legend-item"><span class="sym">Police station</span><span class="def">Church under the direct administration of the Catholicos (UDC)</span></div>
+    <div class="legend-item"><span class="sym">Pin</span><span class="def">Church, congregation, community, Catholicate centre, retreat centre, or chapel</span></div>
+    <div class="legend-item"><span class="sym">Death</span><span class="def">Dormant or closed church</span></div>
+    <div class="legend-item"><span class="sym">Caution</span><span class="def">Jacobite-occupied church (JOC)</span></div>
+    <div class="legend-item"><span class="sym">Help</span><span class="def">Church of undetermined specific location</span></div>
+    <div class="legend-item"><span class="sym">Graduation cap</span><span class="def">Seminary or educational centre</span></div>
+  </div>
+
+  <div class="clarifications">
+    <div class="c-label">A Few Clarifications</div>
+    <p>Churches claimed by more than one diocese carry more than one pin on the edifice.</p>
+    <p>Proprietary churches — typically owned by a family or clan association — are consecrated under Malankara Orthodox rites and operate outside diocesan administration.</p>
+    <p>Since the 1974 schism, parishes of the Knanaya Diocese fall under the direct jurisdiction of the Catholicos in Devalokam.</p>
+    <p>This map does not count digital congregations, such as the Good Shepherd Orthodox Family Fellowship.</p>
+  </div>
+</section>
+
+<section class="colors-section wrap" id="colors">
+  <div class="colors-head">
+    <h2>The map's palette</h2>
+    <p>Each diocese is traced in its own hue on the map, keyed below.</p>
+  </div>
+  <div class="colors-grid">
+    <div class="color-item"><span class="swatch" style="background:#817713"></span><span class="cnames"><span class="diocese"><a href="diocese-thiruvananthapuram.html">Thiruvananthapuram</a></span><span class="hue">Antique Bronze</span><span class="year">Est. 1979</span></span></div>
+    <div class="color-item"><span class="swatch" style="background:#757575"></span><span class="cnames"><span class="diocese"><a href="diocese-kollam.html">Kollam</a></span><span class="hue">Slate Grey</span><span class="year">Est. 1877</span></span></div>
+    <div class="color-item"><span class="swatch" style="background:#FF5252"></span><span class="cnames"><span class="diocese"><a href="diocese-kottarakkara-punalur.html">Kottarakkara&ndash;Punalur</a></span><span class="hue">Coral Red</span><span class="year">Est. 2010</span></span></div>
+    <div class="color-item"><span class="swatch" style="background:#1A237E"></span><span class="cnames"><span class="diocese"><a href="diocese-adoor-kadampanad.html">Adoor&ndash;Kadampanad</a></span><span class="hue">Midnight Indigo</span><span class="year">Est. 2002</span></span></div>
+    <div class="color-item"><span class="swatch" style="background:#9C27B0"></span><span class="cnames"><span class="diocese"><a href="diocese-thumpamon.html">Thumpamon</a></span><span class="hue">Royal Orchid</span><span class="year">Est. 1877</span></span></div>
+    <div class="color-item"><span class="swatch" style="background:#E65100"></span><span class="cnames"><span class="diocese"><a href="diocese-mavelikara.html">Mavelikara</a></span><span class="hue">Burnt Amber</span><span class="year">Est. 2002</span></span></div>
+    <div class="color-item"><span class="swatch" style="background:#AFB42B"></span><span class="cnames"><span class="diocese"><a href="diocese-chengannur.html">Chengannur</a></span><span class="hue">Olive Citron</span><span class="year">Est. 2002</span></span></div>
+    <div class="color-item"><span class="swatch" style="background:#000000"></span><span class="cnames"><span class="diocese"><a href="diocese-niranam.html">Niranam</a></span><span class="hue">Onyx</span><span class="year">Est. 1877</span></span></div>
+    <div class="color-item"><span class="swatch" style="background:#FBC02D"></span><span class="cnames"><span class="diocese"><a href="diocese-nilackal.html">Nilackal</a></span><span class="hue">Amber Gold</span><span class="year">Est. 2010</span></span></div>
+    <div class="color-item"><span class="swatch" style="background:#0288D1"></span><span class="cnames"><span class="diocese"><a href="diocese-kottayam.html">Kottayam</a></span><span class="hue">Cerulean Blue</span><span class="year">Est. 1877</span></span></div>
+    <div class="color-item"><span class="swatch" style="background:#880E4F"></span><span class="cnames"><span class="diocese"><a href="diocese-kottayam-central.html">Kottayam Central</a></span><span class="hue">Wine Magenta</span><span class="year">Est. 1982</span></span></div>
+    <div class="color-item"><span class="swatch" style="background:#795548"></span><span class="cnames"><span class="diocese"><a href="diocese-idukki.html">Idukki</a></span><span class="hue">Umber Brown</span><span class="year">Est. 1982</span></span></div>
+    <div class="color-item"><span class="swatch" style="background:#673AB7"></span><span class="cnames"><span class="diocese"><a href="diocese-kandanad-east.html">Kandanad East</a></span><span class="hue">Deep Violet</span><span class="year">Est. 2002</span></span></div>
+    <div class="color-item"><span class="swatch" style="background:#FFEA00"></span><span class="cnames"><span class="diocese"><a href="diocese-kandanad-west.html">Kandanad West</a></span><span class="hue">Golden Citrine</span><span class="year">Est. 2002</span></span></div>
+    <div class="color-item"><span class="swatch" style="background:#F57C00"></span><span class="cnames"><span class="diocese"><a href="diocese-angamaly.html">Angamaly</a></span><span class="hue">Tangerine</span><span class="year">Est. 1877</span></span></div>
+    <div class="color-item"><span class="swatch" style="background:#558B2F"></span><span class="cnames"><span class="diocese"><a href="diocese-kochi.html">Kochi</a></span><span class="hue">Forest Green</span><span class="year">Est. 1877</span></span></div>
+    <div class="color-item"><span class="swatch" style="background:#424242"></span><span class="cnames"><span class="diocese"><a href="diocese-thrissur.html">Thrissur</a></span><span class="hue">Charcoal</span><span class="year">Est. 1982<//span></span></div>
+    <div class="color-item"><span class="swatch" style="background:#A52714"></span><span class="cnames"><span class="diocese"><a href="diocese-kunnamkulam.html">Kunnamkulam</a></span><span class="hue">Brick Red</span><span class="year">Est. 1985</span></span></div>
+    <div class="color-item"><span class="swatch" style="background:#4E342E"></span><span class="cnames"><span class="diocese"><a href="diocese-malabar.html">Malabar</a></span><span class="hue">Espresso Brown</span><span class="year">Est. 1953</span></span></div>
+    <div class="color-item"><span class="swatch" style="background:#006064"></span><span class="cnames"><span class="diocese"><a href="diocese-sulthan-bathery.html">Sulthan Bathery</a></span><span class="hue">Deep Teal</span><span class="year">Est. 1986</span></span></div>
+    <div class="color-item"><span class="swatch" style="background:#3949AB"></span><span class="cnames"><span class="diocese"><a href="diocese-brahmavar.html">Brahmavar</a></span><span class="hue">Sapphire Blue</span><span class="year">Est. 2010</span></span></div>
+    <div class="color-item"><span class="swatch" style="background:#7CB342"></span><span class="cnames"><span class="diocese"><a href="diocese-madras.html">Madras</a></span><span class="hue">Moss Green</span><span class="year">Est. 1976</span></span></div>
+    <div class="color-item"><span class="swatch" style="background:#F9A825"></span><span class="cnames"><span class="diocese"><a href="diocese-bangalore.html">Bangalore</a></span><span class="hue">Marigold</span><span class="year">Est. 2009</span></span></div>
+    <div class="color-item"><span class="swatch" style="background:#817713"></span><span class="cnames"><span class="diocese"><a href="diocese-bombay.html">Bombay</a></span><span class="hue">Antique Bronze</span><span class="year">Est. 1976</span></span></div>
+    <div class="color-item"><span class="swatch" style="background:#A52714"></span><span class="cnames"><span class="diocese"><a href="diocese-calcutta.html">Calcutta</a></span><span class="hue">Brick Red</span><span class="year">Est. 1979</span></span></div>
+    <div class="color-item"><span class="swatch" style="background:#558B2F"></span><span class="cnames"><span class="diocese"><a href="diocese-delhi.html">Delhi</a></span><span class="hue">Forest Green</span><span class="year">Est. 1976</span></span></div>
+    <div class="color-item"><span class="swatch" style="background:#880E4F"></span><span class="cnames"><span class="diocese"><a href="diocese-ahmedabad.html">Ahmedabad</a></span><span class="hue">Wine Magenta</span><span class="year">Est. 2009</span></span></div>
+    <div class="color-item"><span class="swatch" style="background:#3949AB"></span><span class="cnames"><span class="diocese"><a href="diocese-asia-pacific.html">Asia&ndash;Pacific</a></span><span class="hue">Sapphire Blue</span><span class="year">Est. 2024</span></span></div>
+    <div class="color-item"><span class="swatch" style="background:#9C27B0"></span><span class="cnames"><span class="diocese"><a href="diocese-northeast-america.html">Northeast America</a></span><span class="hue">Royal Orchid</span><span class="year">Est. 2009</span></span></div>
+    <div class="color-item"><span class="swatch" style="background:#F57C00"></span><span class="cnames"><span class="diocese"><a href="diocese-southwest-america.html">Southwest America</a></span><span class="hue">Tangerine</span><span class="year">Est. 1979</span></span></div>
+    <div class="color-item"><span class="swatch" style="background:#0288D1"></span><span class="cnames"><span class="diocese"><a href="diocese-canada.html">Canada</a></span><span class="hue">Cerulean Blue</span><span class="year">Est. 2024</span></span></div>
+    <div class="color-item"><span class="swatch" style="background:#0F9D58"></span><span class="cnames"><span class="diocese"><a href="diocese-uk-europe-africa.html">UK&ndash;Europe&ndash;Africa</a></span><span class="hue">Emerald Green</span><span class="year">Est. 2009</span></span></div>
+    <div class="color-item"><span class="swatch" style="background:#BDBDBD"></span><span class="cnames"><span class="diocese"><a href="diocese-knanaya.html">Knanaya</a> <em style="font-style:italic; opacity:.6;">(titular see)</em></span><span class="hue">Silver Grey</span><span class="year">Est. 1910</span></span></div>
+    <div class="color-item"><span class="swatch" style="background:#C2185B"></span><span class="cnames"><span class="diocese"><a href="diocese-evangelistic-association-of-the-east.html">Evangelistic Assoc. of the East</a> <em style="font-style:italic; opacity:.6;">(titular see)</em></span><span class="hue">Raspberry Rose</span><span class="year">Est. 1924</span></span></div>
+    <div class="color-item"><span class="swatch" style="background:#673AB7"></span><span class="cnames"><span class="diocese"><a href="diocese-proprietary-churches.html">Proprietary Churches</a></span><span class="hue">Deep Violet</span></span></div>
+  </div>
+</section>
+
+<section class="stats wrap" id="numbers">
+  <div class="stats-head">
+    <h2>A Communion, in Numbers</h2>
+    <p>Every parish, chapel, and shrine accounted for — the full institutional life of the Church, gathered in one census.</p>
+  </div>
+  <div class="stats-track">
+    <div class="stat-card"><span class="n">1,834</span><span class="l">Parishes</span></div>
+    <div class="stat-card"><span class="n">654</span><span class="l">Chapels</span></div>
+    <div class="stat-card"><span class="n">170</span><span class="l">Congregations</span></div>
+    <div class="stat-card"><a href="cathedrals.html"><span class="n">61</span><span class="l">Cathedrals</span></a></div>
+    <div class="stat-card"><a href="monasteries.html"><span class="n">54</span><span class="l">Monasteries</span></a></div>
+    <div class="stat-card"><span class="n">34</span><span class="l">Palaces</span></div>
+    <div class="stat-card"><a href="convents.html"><span class="n">29</span><span class="l">Convents</span></a></div>
+    <div class="stat-card"><span class="n">28</span><span class="l">Catholicate Centres</span></div>
+    <div class="stat-card"><span class="n">22</span><span class="l">Independent Sunday Schools</span></div>
+    <div class="stat-card"><span class="n">19</span><span class="l">Seminaries</span></div>
+    <div class="stat-card"><span class="n">19</span><span class="l">Communities</span></div>
+    <div class="stat-card"><span class="n">15</span><span class="l">Qurbana Centres</span></div>
+    <div class="stat-card"><span class="n">9</span><span class="l">Independent Prayer Groups</span></div>
+    <div class="stat-card"><span class="n">8</span><span class="l">Student Centres</span></div>
+  </div>
+  <p class="stats-foot">Beyond the map: an estimated <strong>1,706,012</strong> members across <strong>32</strong> dioceses and <strong>2</strong> titular sees worldwide.</p>
+</section>
+
+<section class="band">
+  <div class="wrap">
+    <div>
+      <h3>Liturgy</h3>
+      <p>West Syriac rite, holding to the faith affirmed at Nicea, Constantinople, and Ephesus.</p>
+    </div>
+    <div>
+      <h3>Communion</h3>
+      <p>In fellowship with the Syriac, Coptic, Armenian, Ethiopian, and Eritrean Orthodox churches.</p>
+    </div>
+  </div>
+</section>
+
+
+<section class="about" id="heritage">
+  <div class="wrap about-grid">
+    <div>
+      <h2>Nineteen centuries,<br>one thread</h2>
+      <p>Tradition holds that the Apostle Thomas landed on the Malabar coast in AD 52, founding the first communities of worship in the region. Through centuries of contact with the Syrian churches, and later, colonial pressure, that lineage never broke.</p>
+      <p>In 1912, the Catholicate was re-established in India, affirming the Church's apostolic autonomy. Every marker on the map above carries a thread of that same unbroken story.</p>
+    </div>
+    <div class="timeline">
+      <div class="t-item">
+        <div class="year">AD 52</div>
+        <p>The Apostle Thomas arrives on the Malabar coast.</p>
+      </div>
+      <div class="t-item">
+        <div class="year">1653</div>
+        <p>The Coonan Cross Oath, a stand against colonial control.</p>
+      </div>
+      <div class="t-item">
+        <div class="year">1912</div>
+        <p>The Catholicate is re-established in India.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="historical wrap">
+  <a class="historical-card" href="1906.html">
+    <div class="historical-text">
+      <div class="eyebrow">1906 Edition</div>
+      <h3>The Malankara Church, a century before</h3>
+      <p>Before its worldwide expansion, the Church stood as seven dioceses alone. See how it was first mapped.</p>
+    </div>
+    <span class="historical-arrow">View the 1906 map &rarr;</span>
+  </a>
+</section>
+
+<section class="report wrap" id="report">
+  <div class="report-head">
+    <h2>Help us keep this accurate</h2>
+    <p>Is a location missing from the map, or listed incorrectly? Or do you have history about a parish we don't have yet? Tell us here.</p>
+  </div>
+  <form class="report-form" id="reportForm">
+    <input type="hidden" name="access_key" value="0620a475-9e9f-4fc7-8624-4d3cdbe4c75d">
+    <input type="hidden" name="subject" value="Malankara Map \u2014 Location Report">
+    <input type="checkbox" name="botcheck" style="display:none;">
+    <div class="report-row">
+      <div class="report-field">
+        <label for="rName">Your Name (optional)</label>
+        <input type="text" id="rName" name="name">
+      </div>
+      <div class="report-field">
+        <label for="rEmail">Your Email (optional, for a reply)</label>
+        <input type="email" id="rEmail" name="email">
+      </div>
+    </div>
+    <div class="report-field">
+      <label for="rLocation">Church / Location Name</label>
+      <input type="text" id="rLocation" name="location">
+    </div>
+    <div class="report-field">
+      <label for="rDetails">What's the location, and what's missing, wrong, or worth adding?</label>
+      <textarea id="rDetails" name="details" rows="4" required></textarea>
+    </div>
+    <button type="submit" class="report-submit" id="reportSubmit">Submit</button>
+    <div class="report-status" id="reportStatus"></div>
+  </form>
+</section>
+
+<script>
+(function(){
+  var form = document.getElementById('reportForm');
+  var status = document.getElementById('reportStatus');
+  var submitBtn = document.getElementById('reportSubmit');
+  form.addEventListener('submit', function(e){
+    e.preventDefault();
+    submitBtn.disabled = true;
+    submitBtn.textContent = 'Sending\u2026';
+    var data = Object.fromEntries(new FormData(form));
+    fetch('https://api.web3forms.com/submit', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+      body: JSON.stringify(data)
+    }).then(function(r){ return r.json(); }).then(function(res){
+      if(res.success){
+        status.textContent = 'Thank you \u2014 it\u2019s been sent.';
+        form.reset();
+        submitBtn.textContent = 'Submit';
+        submitBtn.disabled = false;
+      } else {
+        throw new Error('failed');
+      }
+    }).catch(function(){
+      status.textContent = 'Something went wrong \u2014 please try again.';
+      submitBtn.textContent = 'Submit';
+      submitBtn.disabled = false;
+    });
+  });
+})();
+</script>
+
+<section class="sources">
+  <div class="wrap">
+    <h2>On the family counts</h2>
+    <p class="note">Parish family figures shown on the map are drawn from the following church directories.</p>
+    <div class="bib">
+      <p class="bib-item">Malankara Orthodox Syrian Church. <em>Catholicate Day Collections Directory, 2022.</em> Catholicate Palace, Devalokam, Kottayam. <a href="https://mosc.in/uploads/2022/03/CDC-Book.pdf" target="_blank" rel="noopener">mosc.in/uploads/2022/03/CDC-Book.pdf</a></p>
+      <p class="bib-item">Malankara Orthodox Syrian Church. <em>Catholicate Day Collections Directory, 2024.</em> Catholicate Palace, Devalokam, Kottayam. <a href="https://mosc.in/uploads/2023/03/CDC-Book-2024-1.pdf" target="_blank" rel="noopener">mosc.in/uploads/2023/03/CDC-Book-2024-1.pdf</a></p>
+      <p class="bib-item">Malankara Orthodox Syrian Church. <em>Catholicate Day Collections Directory, 2025.</em> Catholicate Palace, Devalokam, Kottayam. <a href="https://mosc.in/uploads/2023/03/CDC-Book-2025.pdf" target="_blank" rel="noopener">mosc.in/uploads/2023/03/CDC-Book-2025.pdf</a></p>
+      <p class="bib-item">Malankara Orthodox Syrian Church. <em>Catholicate Day Collections Directory, 2026.</em> Catholicate Palace, Devalokam, Kottayam. <a href="https://mosc.in/uploads/2023/03/CDC-Book-2026_compressed_compressed.pdf" target="_blank" rel="noopener">mosc.in/uploads/2023/03/CDC-Book-2026_compressed_compressed.pdf</a></p>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <svg class="cross-mark" viewBox="0 0 40 40" fill="none">
+    <path d="M20 3 L20 37 M8 14 L32 14" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+  </svg>
+  <div class="footer-line">Created by Andrew Punnoose, with assistance from David George and Jerin George</div>
+  <div class="footer-fine">Not affiliated with the Malankara Orthodox Syrian Church.</div>
+  <div class="footer-fine">&copy; Malankara Map, July 2026</div>
+</footer>
+
+</body>
+</html>

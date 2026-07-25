@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script>
+  (function(){
+    var saved = localStorage.getItem('malankara-theme');
+    var theme = saved || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+    if(theme === 'dark'){ document.documentElement.setAttribute('data-theme', 'dark'); }
+  })();
+</script>
+<title>The Seven Dioceses, 1906 — Malankara Map</title>
+<meta name="description" content="The Malankara Orthodox Syrian Church as it stood in 1906, before its worldwide expansion — the original seven dioceses, mapped.">
+<link rel="canonical" href="https://malankaramap.com/1906.html">
+
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Malankara Map">
+<meta property="og:title" content="The Malankara Church, a Century Before">
+<meta property="og:description" content="The original seven dioceses of the Malankara Orthodox Syrian Church, as mapped in 1906 — where the story begins.">
+<meta property="og:image" content="https://malankaramap.com/og-image.png">
+<meta property="og:url" content="https://malankaramap.com/1906.html">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="The Malankara Church, a Century Before">
+<meta name="twitter:description" content="The original seven dioceses of the Malankara Orthodox Syrian Church, as mapped in 1906 — where the story begins.">
+<meta name="twitter:image" content="https://malankaramap.com/og-image.png">
+<style>
+  :root{
+    --ivory:#FAF8F4;
+    --ivory-2:#F2EFE8;
+    --ink:#1B1815;
+    --ink-soft: rgba(27,24,21,0.62);
+    --ink-faint: rgba(27,24,21,0.42);
+    --burgundy:#5E1B27;
+    --brass:#9C7A3E;
+    --line: rgba(27,24,21,0.12);
+    --line-soft: rgba(27,24,21,0.08);
+    --font-display: 'Marcellus', Georgia, serif;
+    --font-body: 'Frank Ruhl Libre', Georgia, serif;
+    --font-ui: 'Marcellus', Georgia, serif;
+  }
+  [data-theme="dark"]{
+    --ivory:#18150F;
+    --ivory-2:#211C15;
+    --ink:#F2ECE0;
+    --ink-soft: rgba(242,236,224,0.68);
+    --ink-faint: rgba(242,236,224,0.46);
+    --burgundy:#D98A97;
+    --brass:#C9A455;
+    --line: rgba(242,236,224,0.14);
+    --line-soft: rgba(242,236,224,0.09);
+  }
+  body{transition: background-color .25s ease, color .25s ease;}
+  @import url('https://fonts.googleapis.com/css2?family=Marcellus&family=Frank+Ruhl+Libre:wght@400;500;700&display=swap');
+
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--ivory);
+    color:var(--ink);
+    font-family:var(--font-body);
+    line-height:1.65;
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:1080px; margin:0 auto; padding:0 32px;}
+
+  header.top{padding:26px 0; border-bottom:1px solid var(--line-soft);}
+  .top-inner{display:flex; align-items:center; justify-content:space-between; gap:16px;}
+  .brand{display:flex; align-items:center; gap:14px;}
+  .cross-mark{width:26px; height:26px; flex-shrink:0; color:var(--ink);}
+  .brand-text .eyebrow{
+    font-family:var(--font-ui); font-size:10px; letter-spacing:.16em; text-transform:uppercase;
+    color:var(--brass); font-weight:600; margin-bottom:3px;
+  }
+  .brand-text .name{font-family:var(--font-display); font-size:17px; font-style:italic; color:var(--ink);}
+  .back-link{font-family:var(--font-display); font-style:italic; font-size:15px; color:var(--ink-soft); text-decoration:none;}
+  .back-link:hover{color:var(--burgundy);}
+  .theme-toggle{
+    width:34px; height:34px; flex-shrink:0;
+    border:1px solid var(--line); background:none; border-radius:50%;
+    display:flex; align-items:center; justify-content:center;
+    color:var(--ink-soft); cursor:pointer; margin-left:20px;
+    transition:border-color .15s, color .15s;
+  }
+  .theme-toggle:hover{border-color:var(--ink); color:var(--ink);}
+  .theme-toggle svg{width:16px; height:16px;}
+  .theme-toggle .icon-moon{display:none;}
+  [data-theme="dark"] .theme-toggle .icon-sun{display:none;}
+  [data-theme="dark"] .theme-toggle .icon-moon{display:block;}
+  .top-inner-right{display:flex; align-items:center;}
+
+  .hero{padding:88px 0 56px; text-align:center;}
+  .hero .eyebrow{
+    font-family:var(--font-ui); font-size:11.5px; letter-spacing:.22em; text-transform:uppercase;
+    color:var(--brass); font-weight:600; margin-bottom:24px;
+  }
+  .hero h1{
+    font-family:var(--font-display); font-weight:400;
+    font-size:clamp(38px, 5.6vw, 64px); line-height:1.08; letter-spacing:-.01em;
+    margin:0 0 24px; color:var(--ink);
+  }
+  .hero h1 em{font-style:italic; color:var(--burgundy);}
+  .hero p.lede{font-size:16px; max-width:560px; margin:0 auto; color:var(--ink-soft);}
+  .hero .rule{width:1px; height:40px; background:var(--line); margin:36px auto 0;}
+
+  .map-section{padding:0 0 90px;}
+  .map-frame{border:1px solid var(--line); background:#18150F;}
+  .map-frame iframe{display:block; width:100%; height:640px; border:0; filter:saturate(0.88) contrast(1.02);}
+  .map-caption{
+    margin-top:18px; font-family:var(--font-display); font-style:italic;
+    font-size:14px; color:var(--ink-faint); text-align:center;
+  }
+
+  .colors-section{padding:0 0 100px;}
+
+  /* ---- Synod section ---- */
+  .synod{padding:0 0 90px;}
+  .synod-box{max-width:640px; margin:0 auto; text-align:center;}
+  .synod-box .eyebrow{
+    font-family:var(--font-ui); font-size:11px; letter-spacing:.18em; text-transform:uppercase;
+    color:var(--brass); font-weight:600; margin-bottom:18px;
+  }
+  .synod-box h2{
+    font-family:var(--font-display); font-weight:400; font-style:italic;
+    font-size:30px; color:var(--ink); margin:0 0 20px;
+  }
+  .synod-box p{font-size:15px; color:var(--ink-soft); line-height:1.85; margin:0 0 16px;}
+  .colors-head{max-width:600px; margin:0 auto 40px; text-align:center;}
+  .colors-head h2{
+    font-family:var(--font-display); font-weight:400; font-style:italic;
+    font-size:30px; color:var(--ink); margin:0 0 14px;
+  }
+  .colors-head p{font-size:15px; color:var(--ink-soft); line-height:1.8; margin:0;}
+  .colors-grid{
+    display:grid; grid-template-columns:repeat(3, 1fr); gap:1px;
+    background:var(--line); border:1px solid var(--line);
+    max-width:820px; margin:0 auto;
+  }
+  .color-item{background:var(--ivory); padding:16px 20px; display:flex; align-items:center; gap:12px;}
+  .swatch{width:16px; height:16px; border-radius:50%; flex-shrink:0; border:1px solid rgba(27,24,21,0.15);}
+  .cnames{display:flex; flex-direction:column; gap:1px;}
+  .diocese{font-family:var(--font-ui); font-size:13px; color:var(--ink);}
+  .hue{font-family:var(--font-display); font-style:italic; font-size:11.5px; color:var(--brass);}
+
+  .note-section{padding:0 0 90px;}
+  .note-box{
+    max-width:640px; margin:0 auto; text-align:center;
+    border-top:1px solid var(--line); border-bottom:1px solid var(--line);
+    padding:34px 0;
+  }
+  .note-box p{
+    font-family:var(--font-display); font-style:italic; font-size:16px;
+    color:var(--ink-soft); margin:0; line-height:1.7;
+  }
+
+  footer{
+    border-top:1px solid var(--line-soft); padding:40px 0;
+    font-family:var(--font-display); font-style:italic; font-size:14px;
+    color:var(--ink-faint); text-align:center;
+  }
+  footer .cross-mark{width:20px; height:20px; margin:0 auto 14px; opacity:.6;}
+
+  @media (max-width:640px){
+    .wrap{padding:0 36px;}
+    .map-frame iframe{height:420px;}
+    .hero{padding:60px 0 44px;}
+    .colors-grid{grid-template-columns:1fr;}
+  }
+  @media (max-width:820px) and (min-width:641px){
+    .colors-grid{grid-template-columns:repeat(2, 1fr);}
+  }
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap top-inner">
+    <div class="brand">
+      <svg class="cross-mark" viewBox="0 0 40 40" fill="none">
+        <path d="M20 3 L20 37 M8 14 L32 14" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+        <path d="M20 3 C16 8 16 11 20 14 C24 11 24 8 20 3Z" fill="#9C7A3E"/>
+        <circle cx="20" cy="30" r="7" stroke="#9C7A3E" stroke-width="1.2" fill="none"/>
+      </svg>
+      <div class="brand-text">
+        <div class="eyebrow">1906 Edition</div>
+        <div class="name">The Seven Dioceses</div>
+      </div>
+    </div>
+    <div class="top-inner-right">
+      <a class="back-link" href="index.html">&larr; Back to the world map</a>
+      <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode" title="Toggle dark mode">
+        <svg class="icon-sun" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="4.2" stroke="currentColor" stroke-width="1.4"/><path d="M12 2.5v2.2M12 19.3v2.2M4.2 4.2l1.6 1.6M18.2 18.2l1.6 1.6M2.5 12h2.2M19.3 12h2.2M4.2 19.8l1.6-1.6M18.2 5.8l1.6-1.6" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg>
+        <svg class="icon-moon" viewBox="0 0 24 24" fill="none"><path d="M20 14.5A8.5 8.5 0 1 1 9.5 4a6.8 6.8 0 0 0 10.5 10.5Z" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"/></svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<script>
+(function(){
+  var btn = document.getElementById('themeToggle');
+  btn.addEventListener('click', function(){
+    var isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+    if(isDark){
+      document.documentElement.removeAttribute('data-theme');
+      localStorage.setItem('malankara-theme', 'light');
+    } else {
+      document.documentElement.setAttribute('data-theme', 'dark');
+      localStorage.setItem('malankara-theme', 'dark');
+    }
+  });
+})();
+</script>
+
+<section class="hero wrap">
+  <div class="eyebrow">A Century Before</div>
+  <h1>The Malankara Church,<br><em>a century before.</em></h1>
+  <p class="lede">Before its worldwide expansion, the Church was mapped in seven dioceses alone: Kollam, Thumpamon, Niranam, Kottayam, Kandanad, Angamaly, and Kochi — as drawn in the 1906 edition.</p>
+  <div class="rule"></div>
+</section>
+
+<section class="map-section wrap">
+  <div class="map-frame">
+    <iframe src="https://www.google.com/maps/d/u/0/embed?mid=1Kml4SoCKi-tJLEK4Max61dyZlSzuvww&ehbc=2E312F&noprof=1" width="640" height="480" allowfullscreen loading="lazy" style="width:100%; height:640px; border:0;"></iframe>
+  </div>
+  <p class="map-caption">The original seven dioceses, as they stood in 1906.</p>
+</section>
+
+<section class="synod wrap">
+  <div class="synod-box">
+    <div class="eyebrow">Founding &middot; 1877</div>
+    <h2>The Veliyanad Yogam</h2>
+    <p>At the <em>Veliyanad Yogam</em> in 1877, Patriarch H.H. Ignatius Peter III of Antioch proposed reorganizing the Malankara Church into seven dioceses, each under its own bishop. Though the proposal initially faced considerable opposition—including from Malankara Metropolitan Mar Dionysius V—and the <em>yogam</em> concluded without agreement, the seven-diocese structure was ultimately adopted and became the Church's enduring administrative framework.</p>
+
+    <p>The 1906 edition preserves this formative chapter in the Church's history.</p>
+  </div>
+</section>
+
+<section class="colors-section wrap">
+  <div class="colors-head">
+    <h2>The 1906 palette</h2>
+    <p>Each of the seven original dioceses, keyed by color.</p>
+  </div>
+  <div class="colors-grid">
+    <div class="color-item"><span class="swatch" style="background:#F57C00"></span><span class="cnames"><span class="diocese">Kollam</span><span class="hue">Tangerine</span><span class="year">Est. 1877</span></span></div>
+    <div class="color-item"><span class="swatch" style="background:#9C27B0"></span><span class="cnames"><span class="diocese">Thumpamon</span><span class="hue">Royal Orchid</span><span class="year">Est. 1877</span></span></div>
+    <div class="color-item"><span class="swatch" style="background:#0F9D58"></span><span class="cnames"><span class="diocese">Niranam</span><span class="hue">Emerald Green</span><span class="year">Est. 1877</span></span></div>
+    <div class="color-item"><span class="swatch" style="background:#FF5252"></span><span class="cnames"><span class="diocese">Kottayam</span><span class="hue">Coral Red</span><span class="year">Est. 1877</span></span></div>
+    <div class="color-item"><span class="swatch" style="background:#FBC02D"></span><span class="cnames"><span class="diocese">Kandanad</span><span class="hue">Amber Gold</span><span class="year">Est. 1877</span></span></div>
+    <div class="color-item"><span class="swatch" style="background:#0097A7"></span><span class="cnames"><span class="diocese">Angamaly</span><span class="hue">Peacock Teal</span><span class="year">Est. 1877</span></span></div>
+    <div class="color-item"><span class="swatch" style="background:#673AB7"></span><span class="cnames"><span class="diocese">Kochi</span><span class="hue">Deep Violet</span><span class="year">Est. 1876</span></span></div>
+  </div>
+</section>
+
+<section class="note-section wrap">
+  <div class="note-box">
+    <p>By the time of the modern directory, seven dioceses had grown to thirty-two, spanning six continents. This map is where that story begins.</p>
+  </div>
+</section>
+
+<footer>
+  <svg class="cross-mark" viewBox="0 0 40 40" fill="none">
+    <path d="M20 3 L20 37 M8 14 L32 14" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+  </svg>
+  Malankara Orthodox Syrian Church &middot; World Directory
+</footer>
+
+</body>
+</html>

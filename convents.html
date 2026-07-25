@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script>
+  (function(){
+    var saved = localStorage.getItem('malankara-theme');
+    if(saved === 'dark'){ document.documentElement.setAttribute('data-theme', 'dark'); }
+  })();
+</script>
+<title>Convents — Malankara Map</title>
+<meta name="description" content="Every convent of the Malankara Orthodox Syrian Church worldwide, listed alphabetically by name, with the diocese each belongs to.">
+<link rel="canonical" href="https://malankaramap.com/convents.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Malankara Map">
+<meta property="og:title" content="Convents — Malankara Map">
+<meta property="og:description" content="Every convent of the Malankara Orthodox Syrian Church worldwide, listed alphabetically by name, with the diocese each belongs to.">
+<meta property="og:image" content="https://malankaramap.com/og-image.png">
+<meta property="og:url" content="https://malankaramap.com/convents.html">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Convents — Malankara Map">
+<meta name="twitter:description" content="Every convent of the Malankara Orthodox Syrian Church worldwide, listed alphabetically by name, with the diocese each belongs to.">
+<meta name="twitter:image" content="https://malankaramap.com/og-image.png">
+<style>
+  :root{
+    --ivory:#FAF8F4; --ivory-2:#F2EFE8; --ink:#1B1815;
+    --ink-soft: rgba(27,24,21,0.62); --ink-faint: rgba(27,24,21,0.42);
+    --burgundy:#5E1B27; --brass:#9C7A3E;
+    --line: rgba(27,24,21,0.12); --line-soft: rgba(27,24,21,0.08);
+    --font-display: 'Marcellus', Georgia, serif;
+    --font-body: 'Frank Ruhl Libre', Georgia, serif;
+    --font-ui: 'Marcellus', Georgia, serif;
+  }
+  [data-theme="dark"]{
+    --ivory:#18150F; --ivory-2:#211C15; --ink:#F2ECE0;
+    --ink-soft: rgba(242,236,224,0.68); --ink-faint: rgba(242,236,224,0.46);
+    --burgundy:#D98A97; --brass:#C9A455;
+    --line: rgba(242,236,224,0.14); --line-soft: rgba(242,236,224,0.09);
+  }
+  body{transition: background-color .25s ease, color .25s ease;}
+  @import url('https://fonts.googleapis.com/css2?family=Marcellus&family=Frank+Ruhl+Libre:wght@400;500;700&display=swap');
+  *{box-sizing:border-box;} html{scroll-behavior:smooth;}
+  body{margin:0; background:var(--ivory); color:var(--ink); font-family:var(--font-body); line-height:1.65; -webkit-font-smoothing:antialiased;}
+  .wrap{max-width:900px; margin:0 auto; padding:0 32px;}
+  header.top{padding:26px 0; border-bottom:1px solid var(--line-soft);}
+  .top-inner{display:flex; align-items:center; justify-content:space-between; gap:16px;}
+  .brand{display:flex; align-items:center; gap:14px;}
+  .cross-mark{width:26px; height:26px; flex-shrink:0; color:var(--ink);}
+  .brand-text .eyebrow{font-family:var(--font-ui); font-size:10px; letter-spacing:.16em; text-transform:uppercase; color:var(--brass); font-weight:600; margin-bottom:3px;}
+  .brand-text .name{font-family:var(--font-display); font-size:17px; font-style:italic; color:var(--ink);}
+  .top-inner-right{display:flex; align-items:center;}
+  .back-link{font-family:var(--font-display); font-style:italic; font-size:15px; color:var(--ink-soft); text-decoration:none;}
+  .back-link:hover{color:var(--burgundy);}
+  .theme-toggle{width:34px; height:34px; flex-shrink:0; border:1px solid var(--line); background:none; border-radius:50%; display:flex; align-items:center; justify-content:center; color:var(--ink-soft); cursor:pointer; margin-left:20px; transition:border-color .15s, color .15s;}
+  .theme-toggle:hover{border-color:var(--ink); color:var(--ink);}
+  .theme-toggle svg{width:16px; height:16px;}
+  .theme-toggle .icon-moon{display:none;}
+  [data-theme="dark"] .theme-toggle .icon-sun{display:none;}
+  [data-theme="dark"] .theme-toggle .icon-moon{display:block;}
+
+  .hero{padding:70px 0 40px;}
+  .hero .eyebrow{font-family:var(--font-ui); font-size:11px; letter-spacing:.18em; text-transform:uppercase; color:var(--brass); font-weight:600; margin-bottom:18px;}
+  .hero h1{font-family:var(--font-display); font-weight:400; font-style:italic; font-size:clamp(32px, 5vw, 50px); line-height:1.1; margin:0 0 20px; color:var(--ink);}
+  .hero p.lede{font-size:15.5px; max-width:600px; color:var(--ink-soft); margin:0;}
+
+  .directory-section{padding:0 0 70px;}
+  .glist{list-style:decimal; margin:0; padding:0 0 0 22px; columns:2; column-gap:44px;}
+  .glist li{font-size:13.5px; color:var(--ink-soft); padding:7px 0 7px 6px; break-inside:avoid; border-bottom:1px solid var(--line-soft);}
+  .glist li a{color:inherit; text-decoration:none;}
+  .glist li .diocese-tag{display:block; font-family:var(--font-ui); font-size:10px; letter-spacing:.06em; text-transform:uppercase; color:var(--brass); margin-top:2px;}
+
+  .back-to-palette{padding:20px 0 90px;}
+  .back-to-palette a{font-family:var(--font-display); font-style:italic; font-size:15px; color:var(--burgundy); text-decoration:none;}
+  .back-to-palette a:hover{text-decoration:underline;}
+
+  footer{border-top:1px solid var(--line-soft); padding:40px 0; font-family:var(--font-display); font-style:italic; font-size:14px; color:var(--ink-faint); text-align:center;}
+  footer .cross-mark{width:20px; height:20px; margin:0 auto 14px; opacity:.6;}
+  footer .footer-line{font-size:14px; color:var(--ink-soft); margin-bottom:10px;}
+  footer .footer-fine{font-family:var(--font-ui); font-style:normal; font-size:11px; letter-spacing:.03em; color:var(--ink-faint); margin-top:4px;}
+
+  @media (max-width:640px){
+    .wrap{padding:0 30px;}
+    .glist{columns:1;}
+  }
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap top-inner">
+    <div class="brand">
+      <svg class="cross-mark" viewBox="0 0 40 40" fill="none">
+        <path d="M20 3 L20 37 M8 14 L32 14" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+        <path d="M20 3 C16 8 16 11 20 14 C24 11 24 8 20 3Z" fill="#9C7A3E"/>
+        <circle cx="20" cy="30" r="7" stroke="#9C7A3E" stroke-width="1.2" fill="none"/>
+      </svg>
+      <div class="brand-text">
+        <div class="eyebrow">Malankara Map</div>
+        <div class="name">Convents</div>
+      </div>
+    </div>
+    <div class="top-inner-right">
+      <a class="back-link" href="index.html#numbers">&larr; Back to the numbers</a>
+      <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode" title="Toggle dark mode">
+        <svg class="icon-sun" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="4.2" stroke="currentColor" stroke-width="1.4"/><path d="M12 2.5v2.2M12 19.3v2.2M4.2 4.2l1.6 1.6M18.2 18.2l1.6 1.6M2.5 12h2.2M19.3 12h2.2M4.2 19.8l1.6-1.6M18.2 5.8l1.6-1.6" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg>
+        <svg class="icon-moon" viewBox="0 0 24 24" fill="none"><path d="M20 14.5A8.5 8.5 0 1 1 9.5 4a6.8 6.8 0 0 0 10.5 10.5Z" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"/></svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<script>
+(function(){
+  var btn = document.getElementById('themeToggle');
+  btn.addEventListener('click', function(){
+    var isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+    if(isDark){
+      document.documentElement.removeAttribute('data-theme');
+      localStorage.setItem('malankara-theme', 'light');
+    } else {
+      document.documentElement.setAttribute('data-theme', 'dark');
+      localStorage.setItem('malankara-theme', 'dark');
+    }
+  });
+})();
+</script>
+
+<section class="hero wrap">
+  <div class="eyebrow">29 Worldwide &middot; A&ndash;Z</div>
+  <h1>Convents</h1>
+  <p class="lede">Every convent of the Malankara Orthodox Syrian Church worldwide, listed alphabetically by name, with the diocese each belongs to.</p>
+</section>
+
+<section class="directory-section wrap">
+  <ol class="glist">
+    <li><a href="diocese-thiruvananthapuram.html">Adichanalloor Gethsemane Convent</a><span class="diocese-tag">Thiruvananthapuram</span></li>
+    <li><a href="diocese-adoor-kadampanad.html">Adoor St. Mary&#x27;s Convent</a><span class="diocese-tag">Adoor-Kadampanad</span></li>
+    <li><a href="diocese-kunnamkulam.html">Adupputty St. Mary Magdalene Convent</a><span class="diocese-tag">Kunnamkulam</span></li>
+    <li><a href="diocese-kunnamkulam.html">Adupputty St. Mary Magdalene Convent (Kanipayyur)</a><span class="diocese-tag">Kunnamkulam</span></li>
+    <li><a href="diocese-madras.html">Ambalam Bethel Convent</a><span class="diocese-tag">Madras</span></li>
+    <li><a href="diocese-uk-europe-africa.html">Belfast Bethlehem St. Mary&#x27;s Convent</a><span class="diocese-tag">UK-Europe-Africa</span></li>
+    <li><a href="diocese-calcutta.html">Bhilai St. Thomas Convent</a><span class="diocese-tag">Calcutta</span></li>
+    <li><a href="diocese-bangalore.html">Bilikere St. Gregorios Convent</a><span class="diocese-tag">Bangalore</span></li>
+    <li><a href="diocese-southwest-america.html">Chicago St. Anne&#x27;s Convent</a><span class="diocese-tag">Southwest America</span></li>
+    <li><a href="diocese-adoor-kadampanad.html">Kadampanad South Nazareth Convent</a><span class="diocese-tag">Adoor-Kadampanad</span></li>
+    <li><a href="diocese-malabar.html">Kalanthode St. Gregorios Convent</a><span class="diocese-tag">Malabar</span></li>
+    <li><a href="diocese-kollam.html">Kallada Convent (Mathilakom)</a><span class="diocese-tag">Kollam</span></li>
+    <li><a href="diocese-kandanad-west.html">Kandanad Convent</a><span class="diocese-tag">Kandanad West</span></li>
+    <li><a href="diocese-kottayam.html">Kangazha Bethlehem St. Mary&#x27;s Convent</a><span class="diocese-tag">Kottayam</span></li>
+    <li><a href="diocese-kunnamkulam.html">Kanjiramuck St. Mary Magdalene Convent</a><span class="diocese-tag">Kunnamkulam</span></li>
+    <li><a href="diocese-angamaly.html">Kizhakkambalam-Njaralloor Bethlehem St. Mary&#x27;s Convent</a><span class="diocese-tag">Angamaly</span></li>
+    <li><a href="diocese-kottarakkara-punalur.html">Kottarakkara St. Basil Convent</a><span class="diocese-tag">Kottarakkara-Punalur</span></li>
+    <li><a href="diocese-chengannur.html">Kozhimala St. Mary’s Convent</a><span class="diocese-tag">Chengannur</span></li>
+    <li><a href="diocese-idukki.html">Kungiripetty Bethlehem St. Mary&#x27;s Convent</a><span class="diocese-tag">Idukki</span></li>
+    <li><a href="diocese-kunnamkulam.html">Mannapra St. Basil Convent</a><span class="diocese-tag">Kunnamkulam</span></li>
+    <li><a href="diocese-sulthan-bathery.html">Meppadi Mount Tabor Convent</a><span class="diocese-tag">Sulthan Bathery</span></li>
+    <li><a href="diocese-thiruvananthapuram.html">Parottukonam Convent</a><span class="diocese-tag">Thiruvananthapuram</span></li>
+    <li><a href="diocese-adoor-kadampanad.html">Pathanapuram Mount Tabor Convent</a><span class="diocese-tag">Adoor-Kadampanad</span></li>
+    <li><a href="diocese-kottayam.html">Pulikuttissery Bethany Hanna Convent</a><span class="diocese-tag">Kottayam</span></li>
+    <li><a href="diocese-malabar.html">Puthuppadi St. Paul&#x27;s Convent</a><span class="diocese-tag">Malabar</span></li>
+    <li><a href="diocese-kollam.html">Sooranad Basalel Convent</a><span class="diocese-tag">Kollam</span></li>
+    <li><a href="diocese-thiruvananthapuram.html">Sreekariyam Holy Cross Convent</a><span class="diocese-tag">Thiruvananthapuram</span></li>
+    <li><a href="diocese-kollam.html">Thevalakkara Bethania Convent</a><span class="diocese-tag">Kollam</span></li>
+    <li><a href="diocese-thumpamon.html">Thumpamon St. Mary&#x27;s Convent</a><span class="diocese-tag">Thumpamon</span></li>
+  </ol>
+</section>
+
+<div class="wrap back-to-palette">
+  <a href="index.html#numbers">&larr; Back to the numbers</a>
+</div>
+
+<footer>
+  <svg class="cross-mark" viewBox="0 0 40 40" fill="none">
+    <path d="M20 3 L20 37 M8 14 L32 14" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+  </svg>
+  <div class="footer-line">Created by Andrew Punnoose</div>
+  <div class="footer-fine">Not officially affiliated with the Malankara Orthodox Syrian Church.<br>&copy; Malankara Map, July 2026</div>
+</footer>
+
+</body>
+</html>

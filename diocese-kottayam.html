@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script>
+  (function(){
+    var saved = localStorage.getItem('malankara-theme');
+    if(saved === 'dark'){ document.documentElement.setAttribute('data-theme', 'dark'); }
+  })();
+</script>
+<title>Diocese of Kottayam — Malankara Map</title>
+<meta name="description" content="Diocese of Kottayam of the Malankara Orthodox Syrian Church — every parish, chapel, and institution, listed.">
+<link rel="canonical" href="https://malankaramap.com/diocese-kottayam.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Malankara Map">
+<meta property="og:title" content="Diocese of Kottayam — Malankara Map">
+<meta property="og:description" content="Every parish and institution of Diocese of Kottayam.">
+<meta property="og:image" content="https://malankaramap.com/og-image.png">
+<meta property="og:url" content="https://malankaramap.com/diocese-kottayam.html">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Diocese of Kottayam — Malankara Map">
+<meta name="twitter:description" content="Every parish and institution of Diocese of Kottayam.">
+<meta name="twitter:image" content="https://malankaramap.com/og-image.png">
+<style>
+  :root{
+    --ivory:#FAF8F4; --ivory-2:#F2EFE8; --ink:#1B1815;
+    --ink-soft: rgba(27,24,21,0.62); --ink-faint: rgba(27,24,21,0.42);
+    --burgundy:#5E1B27; --brass:#9C7A3E;
+    --line: rgba(27,24,21,0.12); --line-soft: rgba(27,24,21,0.08);
+    --font-display: 'Marcellus', Georgia, serif;
+    --font-body: 'Frank Ruhl Libre', Georgia, serif;
+    --font-ui: 'Marcellus', Georgia, serif;
+  }
+  [data-theme="dark"]{
+    --ivory:#18150F; --ivory-2:#211C15; --ink:#F2ECE0;
+    --ink-soft: rgba(242,236,224,0.68); --ink-faint: rgba(242,236,224,0.46);
+    --burgundy:#D98A97; --brass:#C9A455;
+    --line: rgba(242,236,224,0.14); --line-soft: rgba(242,236,224,0.09);
+  }
+  body{transition: background-color .25s ease, color .25s ease;}
+  @import url('https://fonts.googleapis.com/css2?family=Marcellus&family=Frank+Ruhl+Libre:wght@400;500;700&display=swap');
+  *{box-sizing:border-box;} html{scroll-behavior:smooth;}
+  body{margin:0; background:var(--ivory); color:var(--ink); font-family:var(--font-body); line-height:1.65; -webkit-font-smoothing:antialiased;}
+  .wrap{max-width:900px; margin:0 auto; padding:0 32px;}
+  header.top{padding:26px 0; border-bottom:1px solid var(--line-soft);}
+  .top-inner{display:flex; align-items:center; justify-content:space-between; gap:16px;}
+  .brand{display:flex; align-items:center; gap:14px;}
+  .cross-mark{width:26px; height:26px; flex-shrink:0; color:var(--ink);}
+  .brand-text .eyebrow{font-family:var(--font-ui); font-size:10px; letter-spacing:.16em; text-transform:uppercase; color:var(--brass); font-weight:600; margin-bottom:3px;}
+  .brand-text .name{font-family:var(--font-display); font-size:17px; font-style:italic; color:var(--ink);}
+  .top-inner-right{display:flex; align-items:center;}
+  .back-link{font-family:var(--font-display); font-style:italic; font-size:15px; color:var(--ink-soft); text-decoration:none;}
+  .back-link:hover{color:var(--burgundy);}
+  .theme-toggle{width:34px; height:34px; flex-shrink:0; border:1px solid var(--line); background:none; border-radius:50%; display:flex; align-items:center; justify-content:center; color:var(--ink-soft); cursor:pointer; margin-left:20px; transition:border-color .15s, color .15s;}
+  .theme-toggle:hover{border-color:var(--ink); color:var(--ink);}
+  .theme-toggle svg{width:16px; height:16px;}
+  .theme-toggle .icon-moon{display:none;}
+  [data-theme="dark"] .theme-toggle .icon-sun{display:none;}
+  [data-theme="dark"] .theme-toggle .icon-moon{display:block;}
+
+  .hero{padding:70px 0 40px;}
+  .hero .swatch{width:14px; height:14px; border-radius:50%; display:inline-block; margin-right:10px; vertical-align:middle;}
+  .hero .eyebrow{font-family:var(--font-ui); font-size:11px; letter-spacing:.18em; text-transform:uppercase; color:var(--brass); font-weight:600; margin-bottom:18px;}
+  .hero h1{font-family:var(--font-display); font-weight:400; font-style:italic; font-size:clamp(32px, 5vw, 50px); line-height:1.1; margin:0 0 20px; color:var(--ink);}
+  .hero p.lede{font-size:15.5px; max-width:600px; color:var(--ink-soft); margin:0;}
+
+  .glance{padding:0 0 50px;}
+  .glance h2{font-family:var(--font-ui); font-size:11px; letter-spacing:.14em; text-transform:uppercase; color:var(--ink-faint); font-weight:600; margin:0 0 18px;}
+  .glance-grid{display:flex; flex-wrap:wrap; gap:1px; background:var(--line); border:1px solid var(--line);}
+  .glance-item{background:var(--ivory); padding:16px 20px; min-width:120px; flex:1;}
+  .glance-item .n{font-family:var(--font-display); font-size:26px; color:var(--ink); line-height:1;}
+  .glance-item .l{font-family:var(--font-ui); font-size:10px; letter-spacing:.06em; text-transform:uppercase; color:var(--ink-faint); margin-top:6px; display:block;}
+
+  .history{padding:0 0 50px;}
+  .history p{font-size:15px; color:var(--ink-soft); line-height:1.8; margin:0; max-width:680px;}
+
+  .districts{padding:0 0 50px;}
+  .districts h2, .directory-section h2{font-family:var(--font-display); font-weight:400; font-style:italic; font-size:22px; color:var(--ink); margin:0 0 18px;}
+  .district-list{list-style:none; margin:0; padding:0; columns:2; column-gap:40px;}
+  .district-list li{font-size:14px; color:var(--ink-soft); padding:5px 0; break-inside:avoid;}
+
+  .directory-section{padding:0 0 44px;}
+  .cat-list{list-style:decimal; margin:0; padding:0 0 0 20px; columns:2; column-gap:40px;}
+  .cat-list li{font-size:13.5px; color:var(--ink-soft); padding:5px 0 5px 4px; break-inside:avoid;}
+
+  .community{padding:0 0 50px;}
+  .community h2{font-family:var(--font-display); font-weight:400; font-style:italic; font-size:22px; color:var(--ink); margin:0 0 14px;}
+  .community p{font-size:14.5px; color:var(--ink-soft); margin:0; max-width:680px;}
+  .community ul{list-style:none; margin:10px 0 0; padding:0;}
+  .community li{font-size:14.5px; color:var(--ink-soft); padding:3px 0;}
+  .community li span.pct{color:var(--ink); font-family:var(--font-ui);}
+
+ .back-to-palette{padding:20px 0 20px; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:14px;}
+.back-to-palette a{font-family:var(--font-display); font-style:italic; font-size:15px; color:var(--burgundy); text-decoration:none;}
+.next-diocese{padding:20px 0 90px; text-align:right; margin-top:-61px;}
+.next-diocese a{font-family:var(--font-display); font-style:italic; font-size:15px; color:var(--burgundy); text-decoration:none;}
+.next-diocese a:hover, .back-to-palette a:hover{text-decoration:underline;}
+
+  footer{border-top:1px solid var(--line-soft); padding:40px 0; font-family:var(--font-display); font-style:italic; font-size:14px; color:var(--ink-faint); text-align:center;}
+  footer .cross-mark{width:20px; height:20px; margin:0 auto 14px; opacity:.6;}
+  footer .footer-line{font-size:14px; color:var(--ink-soft); margin-bottom:10px;}
+  footer .footer-fine{font-family:var(--font-ui); font-style:normal; font-size:11px; letter-spacing:.03em; color:var(--ink-faint); margin-top:4px;}
+
+  @media (max-width:640px){
+    .wrap{padding:0 30px;}
+    .district-list, .cat-list{columns:1;}
+    .glance-item{min-width:100px;}
+  }
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap top-inner">
+    <div class="brand">
+      <svg class="cross-mark" viewBox="0 0 40 40" fill="none">
+        <path d="M20 3 L20 37 M8 14 L32 14" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+        <path d="M20 3 C16 8 16 11 20 14 C24 11 24 8 20 3Z" fill="#9C7A3E"/>
+        <circle cx="20" cy="30" r="7" stroke="#9C7A3E" stroke-width="1.2" fill="none"/>
+      </svg>
+      <div class="brand-text">
+        <div class="eyebrow">Malankara Map</div>
+        <div class="name">Diocese of Kottayam</div>
+      </div>
+    </div>
+    <div class="top-inner-right">
+      <a class="back-link" href="index.html#colors">&larr; Back to the palette</a>
+      <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode" title="Toggle dark mode">
+        <svg class="icon-sun" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="4.2" stroke="currentColor" stroke-width="1.4"/><path d="M12 2.5v2.2M12 19.3v2.2M4.2 4.2l1.6 1.6M18.2 18.2l1.6 1.6M2.5 12h2.2M19.3 12h2.2M4.2 19.8l1.6-1.6M18.2 5.8l1.6-1.6" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg>
+        <svg class="icon-moon" viewBox="0 0 24 24" fill="none"><path d="M20 14.5A8.5 8.5 0 1 1 9.5 4a6.8 6.8 0 0 0 10.5 10.5Z" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"/></svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<script>
+(function(){
+  var btn = document.getElementById('themeToggle');
+  btn.addEventListener('click', function(){
+    var isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+    if(isDark){
+      document.documentElement.removeAttribute('data-theme');
+      localStorage.setItem('malankara-theme', 'light');
+    } else {
+      document.documentElement.setAttribute('data-theme', 'dark');
+      localStorage.setItem('malankara-theme', 'dark');
+    }
+  });
+})();
+</script>
+
+<section class="hero wrap">
+  <div class="eyebrow"><span class="swatch" style="background:#0288D1"></span>162 Locations · Est. 1876</div>
+  <h1>Diocese of Kottayam</h1>
+  <p class="lede">The Diocese of Kottayam is one of the seven original dioceses established at the Mulanthuruthy Synod of 1876, when Patriarch Ignatius Peter III of Antioch divided the Malankara Church&#x27;s single metropolitan see into separate dioceses under their own bishops.</p>
+</section>
+
+<section class="glance wrap">
+  <h2>At a Glance</h2>
+  <div class="glance-grid">
+    <div class="glance-item"><div class="n">1876</div><span class="l">Established</span></div>
+    <div class="glance-item"><div class="n">3</div><span class="l">Monasteries</span></div>
+    <div class="glance-item"><div class="n">2</div><span class="l">Convents</span></div>
+    <div class="glance-item"><div class="n">3</div><span class="l">Cathedrals</span></div>
+    <div class="glance-item"><div class="n">108</div><span class="l">Churches</span></div>
+    <div class="glance-item"><div class="n">2</div><span class="l">Catholicate Centres</span></div>
+    <div class="glance-item"><div class="n">40</div><span class="l">Chapels</span></div>
+    <div class="glance-item"><div class="n">1</div><span class="l">Independent Prayer Groups</span></div>
+    <div class="glance-item"><div class="n">3</div><span class="l">Independent Sunday Schools</span></div>
+    <div class="glance-item"><div class="n">162</div><span class="l">Total Locations</span></div>
+  </div>
+</section>
+
+<section class="community wrap">
+  <h2>Community</h2>
+  <p>Caste-community breakdown across the Diocese of Kottayam's parishes and institutions:</p><ul><li>Nasrani <span class="pct">99%</span> (160)</li><li>Dalit <span class="pct">1%</span> (2)</li></ul>
+</section>
+
+<section class="directory-section wrap">
+  <h2>Monasteries</h2>
+  <ol class="cat-list">
+    <li>Kuzhimattom Bethany Monastery</li>
+    <li>Njaliankuzhy St. Basil Monastery</li>
+    <li>Pampady St. Kuriakose Monastery</li>
+  </ol>
+</section>
+
+<section class="directory-section wrap">
+  <h2>Convents</h2>
+  <ol class="cat-list">
+    <li>Kangazha Bethlehem St. Mary&#x27;s Convent</li>
+    <li>Pulikuttissery Bethany Hanna Convent</li>
+  </ol>
+</section>
+
+<section class="directory-section wrap">
+  <h2>Cathedrals</h2>
+  <ol class="cat-list">
+    <li>Kottayam St. Joseph Orthodox Cathedral</li>
+    <li>Manarcad St. Mary&#x27;s Orthodox Cathedral</li>
+    <li>Pampady St. John&#x27;s Orthodox Cathedral</li>
+  </ol>
+</section>
+
+<section class="directory-section wrap">
+  <h2>Churches</h2>
+  <ol class="cat-list">
+    <li>Amayannoor St. Mary&#x27;s Orthodox Church (Karattukunnel)</li>
+    <li>Amayannoor St. Thomas Orthodox Church (Kazhunnuvalam-Methranchery)</li>
+    <li>Anickadu-Pallickathodu St. Gregorios Orthodox Church</li>
+    <li>Areeparambu St. George Orthodox Church (Marottipuzha)</li>
+    <li>Areeparambu St. Mary&#x27;s Orthodox Church</li>
+    <li>Changanassery St. Thomas Orthodox Church</li>
+    <li>Cheeranchira St. Mary&#x27;s Orthodox Church</li>
+    <li>Chengalam St. Thomas Orthodox Church</li>
+    <li>Chennamkary St. Thomas Orthodox Church</li>
+    <li>Chingavanam St. John the Baptist&#x27;s Cheramar Orthodox Church</li>
+    <li>Ericadu St. Mary&#x27;s Orthodox Church</li>
+    <li>Ettumanoor St. George Orthodox Church</li>
+    <li>Kallumkathra St. George Orthodox Church</li>
+    <li>Kallumkathra St. George Orthodox Church (Manalel)</li>
+    <li>Kanam St. George Orthodox Church (Palathinkal)</li>
+    <li>Kanam St. Mary&#x27;s Orthodox Church</li>
+    <li>Kanam St. Thomas Orthodox Church (Vettuvelil)</li>
+    <li>Kangazha St. Mary&#x27;s Mount Orthodox Church (Chettedom)</li>
+    <li>Kangazha St. Thomas Orthodox Church</li>
+    <li>Kannukuzhy Mount Sinai St. Mary&#x27;s Orthodox Church</li>
+    <li>Kattakuzhi St. Gregorios Orthodox Church</li>
+    <li>Kochalummoodu Orthodox Centre</li>
+    <li>Kollad St. Paul&#x27;s Orthodox Church</li>
+    <li>Kooroppada St. John&#x27;s Orthodox Church (Edackattukunnu)</li>
+    <li>Koottickal St. Mary&#x27;s Orthodox Church</li>
+    <li>Kothala Sehion Orthodox Church</li>
+    <li>Kumarakom St. John the Baptist Orthodox Church (Puthenpally)</li>
+    <li>Kumarakom-Attamangalam St. John the Baptist Orthodox Church</li>
+    <li>Kumaramkode St. Gregorios Orthodox Church</li>
+    <li>Kuppapuram St. Thomas Orthodox Church</li>
+    <li>Kurichy St. Mary&#x27;s &amp; St. John&#x27;s Orthodox Church</li>
+    <li>Kurichy St. Mary&#x27;s Orthodox Church</li>
+    <li>Kurichy St. Peter&#x27;s &amp; St. Paul&#x27;s Orthodox Church</li>
+    <li>Kuzhimattom St. George Orthodox Church</li>
+    <li>Manarcadu St. George Orthodox Church (Karotte)</li>
+    <li>Meenadom East St. George Orthodox Church</li>
+    <li>Meenadom North St. Mary&#x27;s Orthodox Church</li>
+    <li>Meenadom St. Ignatius Orthodox Church</li>
+    <li>Meenadom St. Thomas Orthodox Church</li>
+    <li>Meenadom-Arani St. Mary&#x27;s Jerusalem Orthodox Church</li>
+    <li>Meenadom-Thekkekkara St. John&#x27;s Orthodox Church</li>
+    <li>Meenadom-Vadakkekara St. John&#x27;s Orthodox Church</li>
+    <li>Moolavattom St. Mary&#x27;s Orthodox Church</li>
+    <li>Mundakayam St. Ignatius Elias III Orthodox Church</li>
+    <li>Mundakayam St. Thomas Orthodox Church (Paingana)</li>
+    <li>Mundathanam St. John&#x27;s Orthodox Church</li>
+    <li>Nalunnakkal St. Addai&#x27;s Orthodox Church</li>
+    <li>Nalunnakkal St. Gregorios Orthodox Church</li>
+    <li>Nattassery St. George Orthodox Church (Ponpally)</li>
+    <li>Nedumavu St. Paul&#x27;s Orthodox Church</li>
+    <li>Neelimangalam St. Mary&#x27;s Orthodox Church</li>
+    <li>Njaliankuzhy St. Gregorios Orthodox Church</li>
+    <li>Njaliankuzhy St. Ignatius Orthodox Church</li>
+    <li>Olassa St. John&#x27;s Orthodox Church</li>
+    <li>Olassa St. Mary&#x27;s &amp; St. John&#x27;s Orthodox Church</li>
+    <li>Pachira Tabor St. Mary&#x27;s Orthodox Church</li>
+    <li>Pakkil St. Thomas Orthodox Church</li>
+    <li>Pala St. Mary&#x27;s Orthodox Church (Arunapuram)</li>
+    <li>Pallom St. Ignatius Orthodox Church</li>
+    <li>Pallom St. Mary’s Sehion Orthodox Church (Karamoodu)</li>
+    <li>Pallom St. Paul&#x27;s Orthodox Church</li>
+    <li>Pampady East St. Mary&#x27;s Orthodox Church</li>
+    <li>Pampady St. John&#x27;s Orthodox Church</li>
+    <li>Panampady St. Mary&#x27;s Orthodox Church</li>
+    <li>Pangada St. Mary&#x27;s Orthodox Church</li>
+    <li>Parampuzha St. George Orthodox Church</li>
+    <li>Parampuzha St. John&#x27;s Orthodox Church</li>
+    <li>Parampuzha St. Stephen&#x27;s Orthodox Church</li>
+    <li>Parathode St. George Gracey Memorial Orthodox Church</li>
+    <li>Pariyaram St. Ephrem Orthodox Church (Thottackad)</li>
+    <li>Pariyaram St. Peter&#x27;s Orthodox Church</li>
+    <li>Pariyaram St. Thomas Orthodox Church (Chackanchira)</li>
+    <li>Pathamuttom Holy Cross Orthodox Church</li>
+    <li>Peroor St. Ignatius Orthodox Church</li>
+    <li>Peroor St. Shmuni Orthodox Church</li>
+    <li>Pongamthanam St. Thomas Orthodox Church</li>
+    <li>Ponkunnam St. Mary&#x27;s Orthodox Church</li>
+    <li>Ponkunnam St. Thomas Orthodox Church</li>
+    <li>Pothenpuram St. Ignatius Orthodox Church</li>
+    <li>Purakulam Mar Osthathios and Cor-Episcopa Eapen Memorial Centre (Mount Olivet)</li>
+    <li>Puthuppally Nilackal Orthodox Church</li>
+    <li>Puthuppally St. George Orthodox Church</li>
+    <li>South Pampady St. Thomas Orthodox Church</li>
+    <li>Thengana St. Thomas Orthodox Church</li>
+    <li>Thiruvanchoor St. Mary&#x27;s Orthodox Church</li>
+    <li>Thiruvanchoor St. Thomas Orthodox Church</li>
+    <li>Thiruvarppu St. Shmuni Orthodox Church</li>
+    <li>Thottackad St. Ignatius Orthodox Church</li>
+    <li>Thottackad St. Mary&#x27;s Bethlehem Orthodox Church</li>
+    <li>Thrikkothamangalam St. James Orthodox Church</li>
+    <li>Thrikkothamangalam St. Mary&#x27;s Orthodox Church</li>
+    <li>Ullayam St. George Orthodox Church</li>
+    <li>Vadakkanmannoor St. Thomas Orthodox Church (Oravackal)</li>
+    <li>Vadavathoor St. Ephrem Orthodox Church</li>
+    <li>Vakathanam Jerusalem St. Mary&#x27;s Orthodox Church</li>
+    <li>Vakathanam St. John&#x27;s Orthodox Church</li>
+    <li>Vakathanam St. Peter&#x27;s and St. Paul&#x27;s Cheramar Orthodox Church</li>
+    <li>Vakathanam-Puthenchantha St. George Orthodox Church</li>
+    <li>Vakathanam-Puthenchantha St. Mary&#x27;s Orthodox Church</li>
+    <li>Vakathanam-Vettikunnel St. George Orthodox Church</li>
+    <li>Vazhoor St. George Orthodox Church</li>
+    <li>Vazhoor St. Peter&#x27;s Orthodox Church</li>
+    <li>Velloor St. Simon&#x27;s Orthodox Church (Karikkamattom)</li>
+    <li>Velloor St. Thomas Orthodox Church</li>
+    <li>Vellukutta St. Thomas Orthodox Church</li>
+  </ol>
+</section>
+
+<section class="directory-section wrap">
+  <h2>Catholicate Centres</h2>
+  <ol class="cat-list">
+    <li>Neelimangalam St. Gregorios Orthodox Catholicate Centre</li>
+    <li>Parathode St. George Orthodox Catholicate Centre</li>
+  </ol>
+</section>
+
+<section class="directory-section wrap">
+  <h2>Chapels</h2>
+  <ol class="cat-list">
+    <li>Amalagiri St. Mary&#x27;s Orthodox Chapel</li>
+    <li>Amayannoor St. Gregorios Orthodox Chapel</li>
+    <li>Areeparambu St. George Orthodox Chapel (Sinai Hill)</li>
+    <li>Arpookara St. Gregorios Orthodox Chapel</li>
+    <li>Changanassery St. Thomas Orthodox Chapel</li>
+    <li>Devagiri St. Dionysius Orthodox Chapel</li>
+    <li>Kaithamattom St. Gregorios Orthodox Chapel</li>
+    <li>Kallarackal St. Gregorios Orthodox Chapel</li>
+    <li>Kangazha St. Dionysius Orthodox Chapel</li>
+    <li>Kangazha-Devagiri St. Elias Orthodox Chapel</li>
+    <li>Kochalummoodu St. Gregorios Orthodox Chapel</li>
+    <li>Kochumattom St. Mary&#x27;s Orthodox Chapel</li>
+    <li>Kosamattam Kavala St. Mary&#x27;s Orthodox Chapel</li>
+    <li>Kumarakom St. Mary&#x27;s Orthodox Chapel</li>
+    <li>Manarcad St. Gregorios Orthodox Chapel (Erumapetty)</li>
+    <li>Manarcad St. Mary&#x27;s Orthodox Chapel</li>
+    <li>Manganam St. Mary&#x27;s Orthodox Chapel</li>
+    <li>Manganam St. Mary&#x27;s Orthodox Chapel [1]</li>
+    <li>Manganam-Mandiram Orthodox Union Chapel</li>
+    <li>Nedumavu St. Paul&#x27;s Orthodox Chapel</li>
+    <li>Olassa St. Gregorios Orthodox Chapel</li>
+    <li>Palachuvadu St. Ignatius Elias III Orthodox Chapel</li>
+    <li>Pampady Orthodox Chapel</li>
+    <li>Pampady St. Gregorios Orthodox Chapel (Kuriakose Gregorios College)</li>
+    <li>Pathamuttom St. Mary&#x27;s Orthodox Chapel</li>
+    <li>Peroor St. George Orthodox Chapel</li>
+    <li>Peroor St. Mary&#x27;s Orthodox Chapel</li>
+    <li>Puthuppally St. Behanan&#x27;s Orthodox Chapel</li>
+    <li>Puthuppally St. Mary&#x27;s Orthodox Chapel</li>
+    <li>Suryanarayanapuram St. George Orthodox Chapel</li>
+    <li>Thalappady Tabor St. George Orthodox Chapel</li>
+    <li>Thiruvanchoor St. George Orthodox Chapel</li>
+    <li>Thiruvanchoor St. Ignatius Elias III Orthodox Chapel</li>
+    <li>Thoothootty St. Gregorios Orthodox Chapel</li>
+    <li>Ullayam St. George Orthodox Chapel</li>
+    <li>Velloor St. Mary&#x27;s Orthodox Chapel</li>
+    <li>Velloothuruthy St. Mary&#x27;s Orthodox Chapel</li>
+    <li>Vettathu Kavala St. Gregorios Orthodox Chapel</li>
+    <li>Zakka Nagar St. Mary&#x27;s Orthodox Chapel</li>
+  </ol>
+</section>
+
+<section class="directory-section wrap">
+  <h2>Independent Prayer Groups</h2>
+  <ol class="cat-list">
+    <li>Puthuppally Paret Mar Ivanios Orthodox Prayer Group (Paret Mar Ivanios Hospital)</li>
+  </ol>
+</section>
+
+<section class="directory-section wrap">
+  <h2>Independent Sunday Schools</h2>
+  <ol class="cat-list">
+    <li>Chengalam South St. Thomas Orthodox Sunday School</li>
+    <li>Pangada Rev. Fr. P. P Geevarghese Ikarapadavil Memorial Sunday School</li>
+    <li>Vazhoor St. Paul&#x27;s Orthodox Sunday School</li>
+  </ol>
+</section>
+
+<div class="wrap back-to-palette">
+  <a href="index.html#colors">&larr; Back to the palette</a>
+</div>
+<div class="wrap next-diocese">
+  <a href="diocese-kottayam-central.html">Kottayam Central &rarr;</a>
+</div>
+
+<footer>
+  <svg class="cross-mark" viewBox="0 0 40 40" fill="none">
+    <path d="M20 3 L20 37 M8 14 L32 14" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+  </svg>
+  <div class="footer-line">Created by Andrew Punnoose</div>
+  <div class="footer-fine">Not officially affiliated with the Malankara Orthodox Syrian Church.<br>&copy; Malankara Map, July 2026</div>
+</footer>
+
+</body>
+</html>
