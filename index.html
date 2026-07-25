@@ -35,7 +35,7 @@
 <body class="bg-ivory dark:bg-midnight text-body dark:text-ivory/85 font-sans transition-colors duration-300">
 
 <audio id="bgMusic" loop>
-  <source src="audio.mp3" type="mpeg">
+  <source src="audio.mp3" type="audio/mpeg">
 </audio>
 
 <!-- ==================== HEADER ==================== -->
@@ -812,7 +812,11 @@
 </footer>
 <script>
 window.addEventListener("click", function () {
-  document.getElementById("bgMusic").play();
+  const music = document.getElementById("bgMusic");
+
+  music.play().catch(err => {
+    console.error("Music failed to play:", err);
+  });
 }, { once: true });
 </script>
 </body>
