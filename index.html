@@ -231,6 +231,28 @@
 })();
 </script>
 
+<!-- ==================== FIND THE NEAREST PARISH ==================== -->
+<section class="px-5 sm:px-8 pb-16 sm:pb-24 max-w-3xl mx-auto" id="nearest">
+  <div class="rounded-2xl border border-line dark:border-white/10 bg-white dark:bg-charcoal shadow-soft px-6 py-10 sm:px-14 sm:py-16 text-center">
+    <div class="text-[11px] tracking-[0.2em] uppercase text-taupe font-semibold mb-4 sm:mb-5">3,536 Locations, Mapped by Coordinate</div>
+    <h2 class="font-serif italic text-2xl sm:text-[32px] text-ink dark:text-ivory mb-3">Find your nearest parish</h2>
+    <p class="text-sm sm:text-[15px] text-body/80 dark:text-ivory/65 max-w-md mx-auto mb-8 leading-relaxed">Type any place in the world and we'll find the five closest churches, chapels, cathedrals, or other Malankara Orthodox locations to it.</p>
+
+    <form id="nearestForm" class="flex flex-col sm:flex-row gap-3 max-w-md mx-auto mb-3">
+      <input type="text" id="nearestInput" placeholder="e.g. Dallas, Texas" autocomplete="off"
+        class="flex-1 font-sans text-sm px-4 py-3 rounded-full border border-line dark:border-white/15 bg-ivory dark:bg-midnight text-ink dark:text-ivory placeholder:text-muted focus:outline-none focus:border-sage transition-colors">
+      <button type="submit" id="nearestBtn"
+        class="font-sans text-xs sm:text-[13px] font-semibold tracking-[0.1em] uppercase bg-sage text-white px-9 py-3 rounded-full hover:bg-sage-dark transition-colors disabled:opacity-50 disabled:cursor-default shrink-0">Find nearest</button>
+    </form>
+    <button type="button" id="nearestLocBtn" class="inline-flex items-center gap-1.5 font-serif italic text-sage-dark dark:text-sage hover:text-sage-dark transition-colors text-sm underline underline-offset-4 decoration-sage/40 disabled:opacity-50 disabled:cursor-default mb-2">
+      <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M12 3 V5.5 M12 18.5 V21 M3 12 H5.5 M18.5 12 H21"/></svg>
+      or use my current location
+    </button>
+    <p class="font-sans text-[11px] text-muted mb-6" id="nearestStatus">&nbsp;</p>
+
+    <div id="nearestResults" class="hidden text-left flex flex-col gap-3 mt-4"></div>
+  </div>
+</section>
 <!-- ==================== DISCOVER ==================== -->
 <section class="px-5 sm:px-8 pb-16 sm:pb-24 max-w-3xl mx-auto" id="discover">
   <div class="rounded-2xl border border-line dark:border-white/10 bg-white dark:bg-charcoal shadow-soft px-6 py-10 sm:px-14 sm:py-16 text-center">
@@ -250,28 +272,6 @@
       <div id="drDescWrap" class="space-y-4"></div>
       <button class="font-serif italic text-[15px] text-sage-dark dark:text-sage hover:text-sage transition-colors underline underline-offset-4 decoration-sage/40 mt-2" id="drAgain">Show me another &rarr;</button>
     </div>
-  </div>
-</section>
-<!-- ==================== FIND THE NEAREST PARISH ==================== -->
-<section class="px-5 sm:px-8 pb-16 sm:pb-24 max-w-3xl mx-auto" id="nearest">
-  <div class="rounded-2xl border border-line dark:border-white/10 bg-white dark:bg-charcoal shadow-soft px-6 py-10 sm:px-14 sm:py-16 text-center">
-    <div class="text-[11px] tracking-[0.2em] uppercase text-taupe font-semibold mb-4 sm:mb-5">3,536 Locations, Mapped by Coordinate</div>
-    <h2 class="font-serif italic text-2xl sm:text-[32px] text-ink dark:text-ivory mb-3">Find the nearest parish</h2>
-    <p class="text-sm sm:text-[15px] text-body/80 dark:text-ivory/65 max-w-md mx-auto mb-8 leading-relaxed">Type any place in the world and we'll find the five closest churches, chapels, cathedrals, or other Malankara Orthodox locations to it.</p>
-
-    <form id="nearestForm" class="flex flex-col sm:flex-row gap-3 max-w-md mx-auto mb-3">
-      <input type="text" id="nearestInput" placeholder="e.g. Dallas, Texas" autocomplete="off"
-        class="flex-1 font-sans text-sm px-4 py-3 rounded-full border border-line dark:border-white/15 bg-ivory dark:bg-midnight text-ink dark:text-ivory placeholder:text-muted focus:outline-none focus:border-sage transition-colors">
-      <button type="submit" id="nearestBtn"
-        class="font-sans text-xs sm:text-[13px] font-semibold tracking-[0.1em] uppercase bg-sage text-white px-9 py-3 rounded-full hover:bg-sage-dark transition-colors disabled:opacity-50 disabled:cursor-default shrink-0">Find nearest</button>
-    </form>
-    <button type="button" id="nearestLocBtn" class="inline-flex items-center gap-1.5 font-serif italic text-sage-dark dark:text-sage hover:text-sage-dark transition-colors text-sm underline underline-offset-4 decoration-sage/40 disabled:opacity-50 disabled:cursor-default mb-2">
-      <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M12 3 V5.5 M12 18.5 V21 M3 12 H5.5 M18.5 12 H21"/></svg>
-      or use my current location
-    </button>
-    <p class="font-sans text-[11px] text-muted mb-6" id="nearestStatus">&nbsp;</p>
-
-    <div id="nearestResults" class="hidden text-left flex flex-col gap-3 mt-4"></div>
   </div>
 </section>
 
