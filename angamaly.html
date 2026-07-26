@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script>
+  (function(){
+    var saved = localStorage.getItem('malankara-theme');
+    if(saved === 'dark'){ document.documentElement.classList.add('dark'); }
+  })();
+</script>
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Marcellus&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+  tailwind.config = {
+    darkMode: 'class',
+    theme: {
+      extend: {
+        colors: {
+          ivory: '#F8F7F4', cream: '#F2F0EB', charcoal: '#1F2937', midnight: '#111827',
+          sage: { DEFAULT: '#7A9E7E', dark: '#5E8062' }, taupe: '#8B7355',
+          gold: { DEFAULT: '#C8A24A', dark: '#B58E33' }, ink: '#111827', body: '#374151',
+          secondary: '#6B7280', muted: '#9CA3AF', line: '#E5E7EB', 'line-light': '#F3F4F6',
+          divider: '#D6D3D1', herobg: '#F6F8F4'
+        },
+        fontFamily: { serif: ['Marcellus','Georgia','serif'], sans: ['Inter','system-ui','sans-serif'] },
+        boxShadow: {
+          soft: '0 2px 12px rgba(17,24,39,0.06)', medium: '0 8px 30px rgba(17,24,39,0.10)',
+          large: '0 20px 60px rgba(17,24,39,0.16)'
+        }
+      }
+    }
+  }
+</script>
+<style>html{scroll-behavior:smooth;} ::selection{background:#7A9E7E;color:#fff;}</style>
+<title>Diocese of Angamaly — Malankara Map</title>
+<meta name="description" content="Diocese of Angamaly of the Malankara Orthodox Syrian Church — every parish, chapel, and institution, listed.">
+<link rel="canonical" href="https://malankaramap.com/angamaly">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Malankara Map">
+<meta property="og:title" content="Diocese of Angamaly — Malankara Map">
+<meta property="og:description" content="Diocese of Angamaly of the Malankara Orthodox Syrian Church — every parish, chapel, and institution, listed.">
+<meta property="og:image" content="https://malankaramap.com/og-image.png">
+<meta property="og:url" content="https://malankaramap.com/angamaly">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Diocese of Angamaly — Malankara Map">
+<meta name="twitter:description" content="Diocese of Angamaly of the Malankara Orthodox Syrian Church — every parish, chapel, and institution, listed.">
+<meta name="twitter:image" content="https://malankaramap.com/og-image.png">
+</head>
+<body class="bg-ivory dark:bg-midnight text-body dark:text-ivory/85 font-sans transition-colors duration-300">
+<audio id="bgMusic" loop>
+  <source src="audio.mp3" type="audio/mpeg">
+</audio>
+
+<header class="sticky top-0 z-50 bg-ivory/90 dark:bg-midnight/90 backdrop-blur-md border-b border-line dark:border-white/10">
+  <div class="max-w-4xl mx-auto px-5 sm:px-8 h-16 sm:h-20 flex items-center justify-between gap-4">
+    <a href="index.html" class="flex items-center gap-3 min-w-0">
+      <svg class="w-6 h-6 sm:w-7 sm:h-7 shrink-0 text-ink dark:text-ivory" viewBox="0 0 40 40" fill="none">
+        <path d="M20 3 L20 37 M8 14 L32 14" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+        <path d="M20 3 C16 8 16 11 20 14 C24 11 24 8 20 3Z" fill="#8B7355"/>
+        <circle cx="20" cy="30" r="7" stroke="#8B7355" stroke-width="1.2" fill="none"/>
+      </svg>
+      <div class="min-w-0">
+        <div class="text-[10px] tracking-[0.16em] uppercase text-taupe font-semibold truncate">Malankara Map</div>
+      </div>
+    </a>
+    <div class="flex items-center gap-4 shrink-0">
+      <a href="index.html#colors" class="hidden sm:block font-serif italic text-[15px] text-body/70 dark:text-ivory/60 hover:text-sage-dark dark:hover:text-sage transition-colors">&larr; Back to the palette</a>
+      <button class="w-9 h-9 sm:w-10 sm:h-10 rounded-full border border-line dark:border-white/15 flex items-center justify-center text-body/70 dark:text-ivory/70 hover:border-ink dark:hover:border-ivory hover:text-ink dark:hover:text-ivory transition-colors" id="themeToggle" aria-label="Toggle dark mode" title="Toggle dark mode">
+        <svg class="icon-sun w-4 h-4" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="4.2" stroke="currentColor" stroke-width="1.4"/><path d="M12 2.5v2.2M12 19.3v2.2M4.2 4.2l1.6 1.6M18.2 18.2l1.6 1.6M2.5 12h2.2M19.3 12h2.2M4.2 19.8l1.6-1.6M18.2 5.8l1.6-1.6" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg>
+        <svg class="icon-moon w-4 h-4 hidden" viewBox="0 0 24 24" fill="none"><path d="M20 14.5A8.5 8.5 0 1 1 9.5 4a6.8 6.8 0 0 0 10.5 10.5Z" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"/></svg>
+      </button>
+    </div>
+  </div>
+</header>
+<script>
+(function(){
+  var btn = document.getElementById('themeToggle');
+  var sun = btn.querySelector('.icon-sun');
+  var moon = btn.querySelector('.icon-moon');
+  function sync(){
+    var isDark = document.documentElement.classList.contains('dark');
+    sun.classList.toggle('hidden', isDark);
+    moon.classList.toggle('hidden', !isDark);
+  }
+  sync();
+  btn.addEventListener('click', function(){
+    var isDark = document.documentElement.classList.toggle('dark');
+    localStorage.setItem('malankara-theme', isDark ? 'dark' : 'light');
+    sync();
+  });
+})();
+</script>
+
+<section class="px-5 sm:px-8 pt-14 sm:pt-20 pb-10 sm:pb-12 max-w-4xl mx-auto text-center">
+  <div class="text-[11px] sm:text-xs tracking-[0.22em] uppercase text-taupe font-semibold mb-4 flex items-center justify-center gap-2.5">
+    <span class="w-3 h-3 rounded-full shrink-0 border border-ink/10 dark:border-ivory/20" style="background:#F57C00"></span>261 Locations · Est. 1876
+  </div>
+  <h1 class="font-serif italic font-normal text-3xl sm:text-5xl text-ink dark:text-ivory mb-5 leading-[1.1]">Diocese of Angamaly</h1>
+  <p class="text-[15px] text-body/80 dark:text-ivory/65 max-w-xl mx-auto leading-relaxed">Angamaly diocese also traces to the 1876 Synod of Mulanthuruthy, one of the church's original seven dioceses. Its early metropolitans included Kadavil Paulose Mar Athanasios and members of the Pulikottil family.</p>
+</section>
+
+<section class="px-5 sm:px-8 pb-14 sm:pb-16 max-w-4xl mx-auto">
+  <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-px bg-line dark:bg-white/10 border-l border-t border-line dark:border-white/10">
+      <div class="border-b border-r border-line dark:border-white/10 p-4 sm:p-5 flex flex-col gap-1.5">
+        <span class="font-serif text-2xl sm:text-3xl text-ink dark:text-ivory">1876</span>
+        <span class="text-[10px] sm:text-[11px] tracking-wider uppercase text-body/60 dark:text-ivory/50 font-medium">Established</span>
+      </div>
+      <div class="border-b border-r border-line dark:border-white/10 p-4 sm:p-5 flex flex-col gap-1.5">
+        <span class="font-serif text-2xl sm:text-3xl text-ink dark:text-ivory">2</span>
+        <span class="text-[10px] sm:text-[11px] tracking-wider uppercase text-body/60 dark:text-ivory/50 font-medium">Monasteries</span>
+      </div>
+      <div class="border-b border-r border-line dark:border-white/10 p-4 sm:p-5 flex flex-col gap-1.5">
+        <span class="font-serif text-2xl sm:text-3xl text-ink dark:text-ivory">1</span>
+        <span class="text-[10px] sm:text-[11px] tracking-wider uppercase text-body/60 dark:text-ivory/50 font-medium">Convents</span>
+      </div>
+      <div class="border-b border-r border-line dark:border-white/10 p-4 sm:p-5 flex flex-col gap-1.5">
+        <span class="font-serif text-2xl sm:text-3xl text-ink dark:text-ivory">3</span>
+        <span class="text-[10px] sm:text-[11px] tracking-wider uppercase text-body/60 dark:text-ivory/50 font-medium">Seminaries</span>
+      </div>
+      <div class="border-b border-r border-line dark:border-white/10 p-4 sm:p-5 flex flex-col gap-1.5">
+        <span class="font-serif text-2xl sm:text-3xl text-ink dark:text-ivory">4</span>
+        <span class="text-[10px] sm:text-[11px] tracking-wider uppercase text-body/60 dark:text-ivory/50 font-medium">Cathedrals</span>
+      </div>
+      <div class="border-b border-r border-line dark:border-white/10 p-4 sm:p-5 flex flex-col gap-1.5">
+        <span class="font-serif text-2xl sm:text-3xl text-ink dark:text-ivory">137</span>
+        <span class="text-[10px] sm:text-[11px] tracking-wider uppercase text-body/60 dark:text-ivory/50 font-medium">Churches</span>
+      </div>
+      <div class="border-b border-r border-line dark:border-white/10 p-4 sm:p-5 flex flex-col gap-1.5">
+        <span class="font-serif text-2xl sm:text-3xl text-ink dark:text-ivory">7</span>
+        <span class="text-[10px] sm:text-[11px] tracking-wider uppercase text-body/60 dark:text-ivory/50 font-medium">Catholicate Centres</span>
+      </div>
+      <div class="border-b border-r border-line dark:border-white/10 p-4 sm:p-5 flex flex-col gap-1.5">
+        <span class="font-serif text-2xl sm:text-3xl text-ink dark:text-ivory">104</span>
+        <span class="text-[10px] sm:text-[11px] tracking-wider uppercase text-body/60 dark:text-ivory/50 font-medium">Chapels</span>
+      </div>
+      <div class="border-b border-r border-line dark:border-white/10 p-4 sm:p-5 flex flex-col gap-1.5">
+        <span class="font-serif text-2xl sm:text-3xl text-ink dark:text-ivory">2</span>
+        <span class="text-[10px] sm:text-[11px] tracking-wider uppercase text-body/60 dark:text-ivory/50 font-medium">Student Centres</span>
+      </div>
+      <div class="border-b border-r border-line dark:border-white/10 p-4 sm:p-5 flex flex-col gap-1.5">
+        <span class="font-serif text-2xl sm:text-3xl text-ink dark:text-ivory">1</span>
+        <span class="text-[10px] sm:text-[11px] tracking-wider uppercase text-body/60 dark:text-ivory/50 font-medium">Independent Sunday Schools</span>
+      </div>
+      <div class="border-b border-r border-line dark:border-white/10 p-4 sm:p-5 flex flex-col gap-1.5">
+        <span class="font-serif text-2xl sm:text-3xl text-ink dark:text-ivory">261</span>
+        <span class="text-[10px] sm:text-[11px] tracking-wider uppercase text-body/60 dark:text-ivory/50 font-medium">Total Locations</span>
+      </div>
+  </div>
+</section>
+
+<section class="px-5 sm:px-8 py-14 sm:py-16 max-w-4xl mx-auto border-t border-line dark:border-white/10">
+  <h2 class="font-serif italic font-normal text-xl sm:text-2xl text-ink dark:text-ivory mb-2">Ecclesiastical Districts</h2>
+  <p class="font-sans text-xs text-muted mb-7">5 districts, listed alphabetically.</p>
+  <div class="grid grid-cols-1 sm:grid-cols-2 gap-px bg-line dark:bg-white/10 border border-line dark:border-white/10">
+      <div class="bg-ivory dark:bg-midnight p-3.5 sm:p-4 flex items-baseline gap-3">
+        <span class="font-serif italic text-taupe text-sm w-6 shrink-0">01</span>
+        <span class="text-xs sm:text-[13px] text-ink dark:text-ivory">Aluva</span>
+      </div>
+      <div class="bg-ivory dark:bg-midnight p-3.5 sm:p-4 flex items-baseline gap-3">
+        <span class="font-serif italic text-taupe text-sm w-6 shrink-0">02</span>
+        <span class="text-xs sm:text-[13px] text-ink dark:text-ivory">Kunnakurudy</span>
+      </div>
+      <div class="bg-ivory dark:bg-midnight p-3.5 sm:p-4 flex items-baseline gap-3">
+        <span class="font-serif italic text-taupe text-sm w-6 shrink-0">03</span>
+        <span class="text-xs sm:text-[13px] text-ink dark:text-ivory">Kuruppampady</span>
+      </div>
+      <div class="bg-ivory dark:bg-midnight p-3.5 sm:p-4 flex items-baseline gap-3">
+        <span class="font-serif italic text-taupe text-sm w-6 shrink-0">04</span>
+        <span class="text-xs sm:text-[13px] text-ink dark:text-ivory">Munnar</span>
+      </div>
+      <div class="bg-ivory dark:bg-midnight p-3.5 sm:p-4 flex items-baseline gap-3">
+        <span class="font-serif italic text-taupe text-sm w-6 shrink-0">05</span>
+        <span class="text-xs sm:text-[13px] text-ink dark:text-ivory">Pothanicad</span>
+      </div>
+  </div>
+</section>
+
+<section class="px-5 sm:px-8 pb-10 sm:pb-12 max-w-4xl mx-auto">
+  <h2 class="font-serif italic font-normal text-lg sm:text-xl text-ink dark:text-ivory mb-5">Monasteries</h2>
+  <ol class="list-decimal marker:text-taupe marker:font-serif columns-1 sm:columns-2 gap-x-10 pl-5 space-y-1.5 text-[13.5px] text-body/75 dark:text-ivory/60 [&_li]:break-inside-avoid [&_a]:hover:text-sage-dark [&_a]:dark:hover:text-sage">
+    <li>Kizhakkambalam-Njaralloor Bethlehem Monastery</li>
+    <li>Kodanad Zion Monastery</li>
+  </ol>
+</section>
+<section class="px-5 sm:px-8 pb-10 sm:pb-12 max-w-4xl mx-auto">
+  <h2 class="font-serif italic font-normal text-lg sm:text-xl text-ink dark:text-ivory mb-5">Convents</h2>
+  <ol class="list-decimal marker:text-taupe marker:font-serif columns-1 sm:columns-2 gap-x-10 pl-5 space-y-1.5 text-[13.5px] text-body/75 dark:text-ivory/60 [&_li]:break-inside-avoid [&_a]:hover:text-sage-dark [&_a]:dark:hover:text-sage">
+    <li>Kizhakkambalam-Njaralloor Bethlehem St. Mary's Convent</li>
+  </ol>
+</section>
+<section class="px-5 sm:px-8 pb-10 sm:pb-12 max-w-4xl mx-auto">
+  <h2 class="font-serif italic font-normal text-lg sm:text-xl text-ink dark:text-ivory mb-5">Seminaries</h2>
+  <ol class="list-decimal marker:text-taupe marker:font-serif columns-1 sm:columns-2 gap-x-10 pl-5 space-y-1.5 text-[13.5px] text-body/75 dark:text-ivory/60 [&_li]:break-inside-avoid [&_a]:hover:text-sage-dark [&_a]:dark:hover:text-sage">
+    <li>Aluva Thrikkunnathu Major Seminary</li>
+    <li>Kothamangalam Malpanate</li>
+    <li>Kuruppampady Malpanate</li>
+  </ol>
+</section>
+<section class="px-5 sm:px-8 pb-10 sm:pb-12 max-w-4xl mx-auto">
+  <h2 class="font-serif italic font-normal text-lg sm:text-xl text-ink dark:text-ivory mb-5">Cathedrals</h2>
+  <ol class="list-decimal marker:text-taupe marker:font-serif columns-1 sm:columns-2 gap-x-10 pl-5 space-y-1.5 text-[13.5px] text-body/75 dark:text-ivory/60 [&_li]:break-inside-avoid [&_a]:hover:text-sage-dark [&_a]:dark:hover:text-sage">
+    <li>Kothamangalam St. Mary's Orthodox Cathedral</li>
+    <li>Kunnakkurudy St. George Orthodox Cathedral</li>
+    <li>Kuruppampady St. Mary's Orthodox Cathedral</li>
+    <li>Perumbavoor Bethel Suloqo St. Thomas Orthodox Cathedral</li>
+  </ol>
+</section>
+<section class="px-5 sm:px-8 pb-10 sm:pb-12 max-w-4xl mx-auto">
+  <h2 class="font-serif italic font-normal text-lg sm:text-xl text-ink dark:text-ivory mb-5">Churches</h2>
+  <ol class="list-decimal marker:text-taupe marker:font-serif columns-1 sm:columns-2 gap-x-10 pl-5 space-y-1.5 text-[13.5px] text-body/75 dark:text-ivory/60 [&_li]:break-inside-avoid [&_a]:hover:text-sage-dark [&_a]:dark:hover:text-sage">
+    <li>Adimali St. George Orthodox Church</li>
+    <li>Adimali St. Thomas Orthodox Church</li>
+    <li>Akaparambu St. Sabor and St. Aphroth Orthodox Church</li>
+    <li>Alattuchira Bethlehem Saint Mary's Orthodox Church</li>
+    <li>Allapra St. James the Just Orthodox Church</li>
+    <li>Aluva St. Mary's Orthodox Church (Thrikkunnathu)</li>
+    <li>Aluva-Veliyathunad St. Thomas Orthodox Church (U.C. College)</li>
+    <li>Ambalamugal St. Gregorios Orthodox Church</li>
+    <li>Angamaly St. Gregorios Orthodox Church</li>
+    <li>Angamaly St. Mary's Orthodox Church</li>
+    <li>Aruvappara St. Basil Orthodox Church</li>
+    <li>Ayamkara Bethel St. George Orthodox Church</li>
+    <li>Azhakam Hermon St. Mary's Orthodox Church</li>
+    <li>Chathamattom Carmel St. Peter's and St. Paul's Orthodox Church</li>
+    <li>Chathamattom Salem St. Mary's Orthodox Church</li>
+    <li>Chelad St. Ananias House St. Stephen's Orthodox Church</li>
+    <li>Chembankuzhy St. John's Orthodox Church</li>
+    <li>Chemmannar St. Mary's Orthodox Church</li>
+    <li>Chenkara-Bhoothathankettu St. Ignatius Orthodox Church (Mudiyara)</li>
+    <li>Cheriya Vappalassery St. Ignatius Elias III Orthodox Church</li>
+    <li>Cheruthottukunnel St. George Orthodox Church</li>
+    <li>Choorakode St. George Orthodox Church</li>
+    <li>Chundakuzhy St. George Orthodox Church</li>
+    <li>East Marady-Kurukkunnapuram St. Mary's Orthodox Church</li>
+    <li>Edakkunnu St. Mary's Orthodox Church</li>
+    <li>Eloor St. Gregorios Orthodox Church</li>
+    <li>Illithode St. Basil Orthodox Church</li>
+    <li>Inchathotty St. Gregorios Orthodox Church</li>
+    <li>Inchoor St. Thomas Sehion Orthodox Church</li>
+    <li>Josegiri St. Mary's Orthodox Church</li>
+    <li>Kadathy St. Peter's and St. Paul's Orthodox Church</li>
+    <li>Kakkanad Bethlehem St. Thomas Orthodox Church (Nilampathinjamugal)</li>
+    <li>Kalamassery St. George Orthodox Church</li>
+    <li>Kalampoor St. Mary's Orthodox Church</li>
+    <li>Kallar St. Mary's Orthodox Church</li>
+    <li>Kambilikandam St. Mary's Orthodox Church</li>
+    <li>Kangarappady St. George Orthodox Church</li>
+    <li>Karakunnam St. Mary's Orthodox Church</li>
+    <li>Karayamparambu St. George Orthodox Church</li>
+    <li>Karimattom St. Mary's Orthodox Church</li>
+    <li>Kavalangad St. John the Baptist Orthodox Church</li>
+    <li>Keezhillam-Udayagiri St. Gregorios Orthodox Church</li>
+    <li>Kidangoor St. Basil Yeldho Orthodox Church</li>
+    <li>Kizhakkambalam St. Peter's and St. Paul's Orthodox Church</li>
+    <li>Kodanad St. Mulk Orthodox Church</li>
+    <li>Koompanpara St. George Orthodox Church</li>
+    <li>Kothamangalam St. Basil Yeldho Orthodox Church (Damascos)</li>
+    <li>Kothamangalam St. Thomas Orthodox Church</li>
+    <li>Kottappady-Kalkunnel St. George Orthodox Church</li>
+    <li>Kottappady-Naganchery Hebron St. George Orthodox Church</li>
+    <li>Kottappady-Vadakkumbhagam Horeb St. George Orthodox Church</li>
+    <li>Krariyeli St. Mary's Orthodox Church</li>
+    <li>Kulapparachal Bethlehem St. Mary's Orthodox Church</li>
+    <li>Kutta St. George Orthodox Church</li>
+    <li>Kuttamangalam-Sehiyonkunnu St. Mary's Orthodox Church (Nampooricoupe)</li>
+    <li>Kuttianchal-Seenaikunnu St. George Orthodox Church</li>
+    <li>Machiplavu St. George Orthodox Church</li>
+    <li>Malayidam Thuruth St. Mary's Orthodox Church</li>
+    <li>Mamalakandam St. Basil Orthodox Church</li>
+    <li>Mangathotty St. Gregorios Orthodox Church</li>
+    <li>Manikandanchal St. Basil Yeldho Orthodox Church</li>
+    <li>Manjapra St. George Orthodox Church</li>
+    <li>Mankulam St. George Orthodox Church</li>
+    <li>Mannoor Bethlehem St. George Orthodox Church</li>
+    <li>Maramangalam Kadesh St. George Orthodox Church</li>
+    <li>Marayoor St. George Orthodox Church</li>
+    <li>Mattoor St. George Orthodox Church</li>
+    <li>Mazhuvannoor St. Thomas Orthodox Church</li>
+    <li>Mekkad St. Mary's Orthodox Church</li>
+    <li>Methala-Bethaniyakunnu St. Mary's Orthodox Church (Triveni)</li>
+    <li>Mookkannoor Sehion St. George Orthodox Church</li>
+    <li>Mudavoor St. George Orthodox Church</li>
+    <li>Mulavoor St. Mary's Orthodox Church</li>
+    <li>Mullaringad St. Mary's Orthodox Church</li>
+    <li>Munnar St. Mary's Orthodox Church</li>
+    <li>Murickassery St. George Orthodox Church</li>
+    <li>Murickumthotty Sehion St. George Orthodox Church</li>
+    <li>Muttukad St. Thomas Orthodox Church</li>
+    <li>Naduvattam St. Mary's Orthodox Church</li>
+    <li>Nayathode St. George Orthodox Church</li>
+    <li>Nedumbassery St. George Orthodox Church</li>
+    <li>Nedungapra St. Mary's Orthodox Church</li>
+    <li>Nellimolam Sehion St. Mary's Orthodox Church</li>
+    <li>North Paravur St. Thomas Orthodox Church</li>
+    <li>Odakkali St. Mary's Orthodox Church</li>
+    <li>Oorakkad St. Thomas Orthodox Church</li>
+    <li>Padicup St. Mary's Orthodox Church</li>
+    <li>Pallikkara St. Basil and St. Gregory Orthodox Church</li>
+    <li>Pallikkara St. Mary's Orthodox Church</li>
+    <li>Panickankudy St. Gregorios Orthodox Church</li>
+    <li>Paniely St. George Orthodox Church</li>
+    <li>Pareekanni St. George Orthodox Church</li>
+    <li>Parethumukal St. Thomas Orthodox Church</li>
+    <li>Pathinalam Mile St. Ignatius Orthodox Church</li>
+    <li>Pazhamthottam St. Mary's Orthodox Church</li>
+    <li>Pazhayaviduthi St. Mary's Orthodox Church</li>
+    <li>Peechanicadu St. Peter's Orthodox Church</li>
+    <li>Peechanicadu Tabor St. George Orthodox Church</li>
+    <li>Peechanicadu-Chakkaraparambu Gethsemane St. Thomas Orthodox Church</li>
+    <li>Perumani St. George Orthodox Church</li>
+    <li>Pindimana St. John the Baptist Orthodox Church</li>
+    <li>Poickattussery St. Behanan's Orthodox Church</li>
+    <li>Poothamkutty St. Mary's Orthodox Church</li>
+    <li>Pothanicad-Umminikkunnu St. Mary's Orthodox Church</li>
+    <li>Pukkattupady St. George Orthodox Church</li>
+    <li>Pulickathotty St. Mary's Orthodox Church</li>
+    <li>Pulinthanam St. John's Bethphage Orthodox Church</li>
+    <li>Punnekkad Gethsemane St. George Orthodox Church</li>
+    <li>Rajakumari-Galeelakunnu St. John's Orthodox Church</li>
+    <li>Rakkad St. Mary's Orthodox Church</li>
+    <li>Santhanpara-Shalomkunnu St. George Orthodox Church</li>
+    <li>South Marady-Erattiyanikunnu St. George Orthodox Church</li>
+    <li>South Vazhakulam St. George Orthodox Church</li>
+    <li>Thalakode Bethlehem St. Mary's Orthodox Church</li>
+    <li>Thamarachal St. Mary's Orthodox Church</li>
+    <li>Thattekad St. Mary's Orthodox Church</li>
+    <li>Thavalappara St. Mary's Orthodox Church</li>
+    <li>Thengod St. Mary's Orthodox Church</li>
+    <li>Thokkupara St. George Orthodox Church</li>
+    <li>Tholely-Seenaigiri St. Mary's Orthodox Church</li>
+    <li>Thopramkudy St. Mary's Orthodox Church</li>
+    <li>Thottikkanam St. George Orthodox Church</li>
+    <li>Thousand Acre St. George Orthodox Church</li>
+    <li>Thrikkalathoor St. George Orthodox Church</li>
+    <li>Thuruthiply St. Mary's Orthodox Church</li>
+    <li>Thuruthiply St. Thomas Orthodox Church</li>
+    <li>Thuruthissery St. Sabor and St. Aphroth Orthodox Church</li>
+    <li>Vadattupara St. George Orthodox Church</li>
+    <li>Valara St. Peter's and St. Paul's Orthodox Church</li>
+    <li>Valayanchirangara St. Peter's and St. Paul's Orthodox Church</li>
+    <li>Vazhappilly East St. Mary's Orthodox Church</li>
+    <li>Veettoor St. Mary's Orthodox Church</li>
+    <li>Vellathooval St. George Orthodox Church</li>
+    <li>Vengola St. Behanan's Orthodox Church</li>
+    <li>Vengoor St. Kauma Orthodox Church</li>
+    <li>Vettampara St. George Orthodox Church (Kulangattukuzhy)</li>
+    <li>Vilangu St. Mary's Orthodox Church</li>
+  </ol>
+</section>
+<section class="px-5 sm:px-8 pb-10 sm:pb-12 max-w-4xl mx-auto">
+  <h2 class="font-serif italic font-normal text-lg sm:text-xl text-ink dark:text-ivory mb-5">Catholicate Centres</h2>
+  <ol class="list-decimal marker:text-taupe marker:font-serif columns-1 sm:columns-2 gap-x-10 pl-5 space-y-1.5 text-[13.5px] text-body/75 dark:text-ivory/60 [&_li]:break-inside-avoid [&_a]:hover:text-sage-dark [&_a]:dark:hover:text-sage">
+    <li>East Marady St. Gregorios Orthodox Catholicate Centre</li>
+    <li>Kambilikandam St. Thomas Orthodox Catholicate Centre</li>
+    <li>Kavalangad St. Gregorios Orthodox Catholicate Centre (Opra)</li>
+    <li>Kuruppampady St. Thomas Orthodox Catholicate Centre</li>
+    <li>Mudavoor St. Gregorios Orthodox Catholicate Centre</li>
+    <li>Pulinthanam St. Thomas Orthodox Catholicate Centre</li>
+    <li>Vengoor St. Thomas Orthodox Catholicate Centre</li>
+  </ol>
+</section>
+<section class="px-5 sm:px-8 pb-10 sm:pb-12 max-w-4xl mx-auto">
+  <h2 class="font-serif italic font-normal text-lg sm:text-xl text-ink dark:text-ivory mb-5">Chapels</h2>
+  <ol class="list-decimal marker:text-taupe marker:font-serif columns-1 sm:columns-2 gap-x-10 pl-5 space-y-1.5 text-[13.5px] text-body/75 dark:text-ivory/60 [&_li]:break-inside-avoid [&_a]:hover:text-sage-dark [&_a]:dark:hover:text-sage">
+    <li>Aimury East St. Mary's Orthodox Chapel</li>
+    <li>Aimury West St. Thomas Orthodox Chapel</li>
+    <li>Airapuram South St. Gregorios Orthodox Chapel</li>
+    <li>Alinchuvadu St. Basil Yeldho Orthodox Chapel</li>
+    <li>Aluva St. Gregorios Orthodox Chapel</li>
+    <li>Aluva-Mahilalayam Orthodox Union Chapel</li>
+    <li>Ambalampady St. Gregorios Orthodox Chapel</li>
+    <li>Anachal St. Mary's Orthodox Chapel</li>
+    <li>Anappara St. John the Baptist Orthodox Chapel</li>
+    <li>Angadikadavu St. George Orthodox Chapel</li>
+    <li>Asamannoor St. Thomas Orthodox Chapel</li>
+    <li>Athani St. George Orthodox Chapel</li>
+    <li>Bavapady St. Gregorios Orthodox Chapel</li>
+    <li>Bhoothathankettu St. George Orthodox Chapel</li>
+    <li>Chakalamugal St. George Orthodox Chapel</li>
+    <li>Chakkalakudy St. Basil Yeldho Orthodox Chapel</li>
+    <li>Chelad St. George Orthodox Chapel</li>
+    <li>Chemmalapady St. Ignatius Elias III Orthodox Chapel</li>
+    <li>Cheranganal St. Basil Yeldho Orthodox Chapel</li>
+    <li>Cherunellad St. Mary's Orthodox Chapel</li>
+    <li>Cherunellad St. Thomas Orthodox Chapel</li>
+    <li>Chittanadu Orthodox Chapel</li>
+    <li>East Kadathy St. George Orthodox Chapel</li>
+    <li>East Marady St. George Orthodox Chapel</li>
+    <li>Eloor Orthodox Chapel</li>
+    <li>Erumely St. George Orthodox Chapel</li>
+    <li>Ezhikkara St. Mary's Orthodox Chapel</li>
+    <li>Infopark Highway St. Gregorios Orthodox Chapel</li>
+    <li>Kakkanad St. George Orthodox Chapel</li>
+    <li>Kalladu St. Mary's Orthodox Chapel</li>
+    <li>Karakkattukunnu St. Basil Yeldho Orthodox Chapel</li>
+    <li>Karimattom St. George Orthodox Chapel</li>
+    <li>Karimugal St. Ignatius Elias III Orthodox Chapel</li>
+    <li>Karingazha St. Gregorios Orthodox Chapel</li>
+    <li>Karukadom St. Mary's Orthodox Chapel</li>
+    <li>Karukulam St. Mary's Orthodox Chapel</li>
+    <li>Kavalangad St. Gregorios Orthodox Chapel</li>
+    <li>Kayanad St. George Orthodox Chapel</li>
+    <li>Keezhillam Canal St. Basil Yeldho Orthodox Chapel</li>
+    <li>Kizhakkambalam St. Peter's and St. Paul's Orthodox Chapel</li>
+    <li>Kizhakkambalam-Njaralloor Bethlehem Orthodox Chapel</li>
+    <li>Kombanad St. Gregorios Orthodox Chapel</li>
+    <li>Koratty Government Leprosy Hospital St. George Orthodox Chapel</li>
+    <li>Kothamangalam Orthodox Church Centre &amp; Orthodox Chapel (Kala Nagar)</li>
+    <li>Kothamangalam St. James Orthodox Chapel (M.A. College)</li>
+    <li>Kottappady St. Basil Orthodox Chapel</li>
+    <li>Kulambeppady St. Gregorios Orthodox Chapel</li>
+    <li>Kulangattukuzhy St. Basil Yeldho Orthodox Chapel</li>
+    <li>Kunnakkurudy West St. Kuriakose Orthodox Chapel</li>
+    <li>Kunnatholi Kavala St. Gregorios Orthodox Chapel</li>
+    <li>Kurishumukal St. John Chrysostom Orthodox Chapel</li>
+    <li>Kuruppampady-Malecruz St. Kuriakose Orthodox Chapel</li>
+    <li>Kuttipadam St. George Orthodox Chapel</li>
+    <li>Machanthuruth St. Gregorios Abdul Jaleel Orthodox Chapel</li>
+    <li>Malamuri St. Mary's Orthodox Chapel</li>
+    <li>Malecruz St. Thomas Orthodox Chapel</li>
+    <li>Malippara St. Basil Orthodox Chapel</li>
+    <li>Manary St. Athanasius Paulose of Aluva Orthodox Chapel</li>
+    <li>Mangalathunada St. George Orthodox Chapel</li>
+    <li>Mangattukara St. George Orthodox Chapel</li>
+    <li>Maniyankallu St. Mary's Orthodox Chapel</li>
+    <li>Manjapra St. Gregorios Orthodox Chapel</li>
+    <li>Maruthukavala St. Basil Yeldho Orthodox Chapel</li>
+    <li>Mekkad St. Ignatius Elias III Orthodox Chapel</li>
+    <li>Muthamkuzhy St. George Orthodox Chapel</li>
+    <li>Nayathode St. John's Orthodox Chapel</li>
+    <li>Neduvannoor St. George Orthodox Chapel</li>
+    <li>Neduvannoor St. Gregorios Orthodox Chapel</li>
+    <li>Neendapara St. Basil Yeldho Orthodox Chapel</li>
+    <li>Nellad Junction St. John the Baptist Orthodox Chapel</li>
+    <li>Njalookkara St. Ignatius Elias III Orthodox Chapel</li>
+    <li>North Paravur St. Gregorios Abdul Jaleel Orthodox Chapel</li>
+    <li>Oonjappara St. Stephen's Orthodox Chapel</li>
+    <li>Orna St. George Orthodox Chapel</li>
+    <li>Paingottoor St. Gregorios Orthodox Chapel</li>
+    <li>Pandikkad St. Basil Yeldho and St. Kuriakose Orthodox Chapel</li>
+    <li>Pankulam St. Thomas Orthodox Chapel</li>
+    <li>Para St. Mary's Orthodox Chapel</li>
+    <li>Parekurish St. Basil Orthodox Chapel</li>
+    <li>Payipra St. Ignatius Elias III Orthodox Chapel</li>
+    <li>Peechanicadu St. Mary's &amp; St. Thomas Orthodox Chapel</li>
+    <li>Peringala St. Gregorios Orthodox Chapel</li>
+    <li>Perumannoor St. Mary's Orthodox Chapel</li>
+    <li>Pidavoor St. George Orthodox Chapel</li>
+    <li>Pindimana St. George Orthodox Chapel</li>
+    <li>Poickattussery St. Gregorios of Parumala Orthodox Chapel</li>
+    <li>Poickattussery St. Kuriakose Orthodox Chapel</li>
+    <li>Pulinchode St. George Orthodox Chapel</li>
+    <li>Punnoppady St. Mary's Orthodox Chapel</li>
+    <li>Ramalloor St. Basil Yeldho Orthodox Chapel</li>
+    <li>South Marady St. Gregorios Orthodox Chapel</li>
+    <li>Thankalam St. Thomas Orthodox Chapel</li>
+    <li>Thattamugal St. Mary's Orthodox Chapel</li>
+    <li>Thiruvilamkunnu St. George Orthodox Chapel</li>
+    <li>Vadakkekara St. George Orthodox Chapel</li>
+    <li>Vadattupara St. Basil Orthodox Chapel</li>
+    <li>Valarakuthu St. George Orthodox Chapel</li>
+    <li>Valiyapara St. Mary's Orthodox Chapel</li>
+    <li>Varappillymyal St. John the Baptist Orthodox Chapel</li>
+    <li>Vattakattupady St. Gregorios Orthodox Chapel</li>
+    <li>Vazhappilly St. George Orthodox Chapel</li>
+    <li>Venduvazhy St. George Orthodox Chapel</li>
+    <li>Vettampara St. Mary's and St. George Orthodox Chapel</li>
+    <li>West Morakkala St. Thomas Orthodox Chapel</li>
+  </ol>
+</section>
+<section class="px-5 sm:px-8 pb-10 sm:pb-12 max-w-4xl mx-auto">
+  <h2 class="font-serif italic font-normal text-lg sm:text-xl text-ink dark:text-ivory mb-5">Student Centres</h2>
+  <ol class="list-decimal marker:text-taupe marker:font-serif columns-1 sm:columns-2 gap-x-10 pl-5 space-y-1.5 text-[13.5px] text-body/75 dark:text-ivory/60 [&_li]:break-inside-avoid [&_a]:hover:text-sage-dark [&_a]:dark:hover:text-sage">
+    <li>Aluva MGOCSM Student Centre</li>
+    <li>Perumbavoor St. Gregorios Memorial Orthodox Youth Centre</li>
+  </ol>
+</section>
+<section class="px-5 sm:px-8 pb-10 sm:pb-12 max-w-4xl mx-auto">
+  <h2 class="font-serif italic font-normal text-lg sm:text-xl text-ink dark:text-ivory mb-5">Independent Sunday Schools</h2>
+  <ol class="list-decimal marker:text-taupe marker:font-serif columns-1 sm:columns-2 gap-x-10 pl-5 space-y-1.5 text-[13.5px] text-body/75 dark:text-ivory/60 [&_li]:break-inside-avoid [&_a]:hover:text-sage-dark [&_a]:dark:hover:text-sage">
+    <li>Rayamangalam St. George Orthodox Sunday School</li>
+  </ol>
+</section>
+
+<div class="px-5 sm:px-8 py-6 max-w-4xl mx-auto flex items-center justify-between font-serif italic text-[15px]">
+  <a href="index.html#colors" class="text-sage-dark dark:text-sage hover:underline">&larr; Back to the palette</a>
+  <a href="kochi" class="text-sage-dark dark:text-sage hover:underline">Kochi &rarr;</a>
+</div>
+
+<footer class="bg-charcoal text-center px-5 py-12 sm:py-14">
+  <svg class="w-5 h-5 mx-auto mb-4 opacity-60 text-ivory" viewBox="0 0 40 40" fill="none">
+    <path d="M20 3 L20 37 M8 14 L32 14" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+  </svg>
+  <div class="font-serif italic text-sm sm:text-[15px] text-ivory/85 mb-2">Managed by Andrew Punnoose</div>
+  <div class="font-sans text-[11px] tracking-wide text-ivory/45">Not affiliated with the Malankara Orthodox Syrian Church.</div>
+  <div class="font-sans text-[11px] tracking-wide text-ivory/45 mt-1">&copy; Malankara Map, July 2026</div>
+</footer>
+
+<script>
+const music = document.getElementById("bgMusic");
+music.volume = 0;
+
+window.addEventListener("click", function () {
+  music.play();
+
+  const targetVolume = 0.5;     // End at 50%
+  const fadeDuration = 42000;   // 42 seconds
+  const interval = 100;         // Update every 100 ms
+
+  let volume = 0;
+  const step = targetVolume / (fadeDuration / interval);
+
+  const fade = setInterval(() => {
+    volume += step;
+
+    if (volume >= targetVolume) {
+      volume = targetVolume;
+      clearInterval(fade);
+    }
+
+    music.volume = volume;
+  }, interval);
+}, { once: true });
+</script>
+</body>
+</html>

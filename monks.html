@@ -12,14 +12,14 @@
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
 <title>Monks — Malankara Map</title>
 <meta name="description" content="The Rambans (monastics) of the Malankara Orthodox Syrian Church, organized by diocese, from the Church's 2023 clergy directory.">
-<link rel="canonical" href="https://malankaramap.com/monks.html">
+<link rel="canonical" href="https://malankaramap.com/monks">
 
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Malankara Map">
 <meta property="og:title" content="Monks — Malankara Map">
 <meta property="og:description" content="The Rambans (monastics) of the Malankara Orthodox Syrian Church, organized by diocese, from the Church's 2023 clergy directory.">
 <meta property="og:image" content="https://malankaramap.com/og-image.png">
-<meta property="og:url" content="https://malankaramap.com/monks.html">
+<meta property="og:url" content="https://malankaramap.com/monks">
 
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Monks — Malankara Map">
@@ -33,6 +33,10 @@
 <link rel="stylesheet" href="styles.css">
 </head>
 <body class="bg-ivory dark:bg-midnight text-body dark:text-ivory/85 font-sans transition-colors duration-300">
+<audio id="bgMusic" loop>
+  <source src="audio.mp3" type="audio/mpeg">
+</audio>
+
 
 <!-- ==================== HEADER ==================== -->
 <header class="sticky top-0 z-50 bg-ivory/90 dark:bg-midnight/90 backdrop-blur-md border-b border-line dark:border-white/10">
@@ -388,5 +392,31 @@
   <div class="font-sans text-[11px] tracking-wide text-ivory/45 mt-1">&copy; Malankara Map, July 2026</div>
 </footer>
 
+<script>
+const music = document.getElementById("bgMusic");
+music.volume = 0;
+
+window.addEventListener("click", function () {
+  music.play();
+
+  const targetVolume = 0.5;     // End at 50%
+  const fadeDuration = 42000;   // 42 seconds
+  const interval = 100;         // Update every 100 ms
+
+  let volume = 0;
+  const step = targetVolume / (fadeDuration / interval);
+
+  const fade = setInterval(() => {
+    volume += step;
+
+    if (volume >= targetVolume) {
+      volume = targetVolume;
+      clearInterval(fade);
+    }
+
+    music.volume = volume;
+  }, interval);
+}, { once: true });
+</script>
 </body>
 </html>

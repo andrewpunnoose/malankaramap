@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script>
+  (function(){
+    var saved = localStorage.getItem('malankara-theme');
+    if(saved === 'dark'){ document.documentElement.classList.add('dark'); }
+  })();
+</script>
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<title>Metropolitans — Malankara Map</title>
+<meta name="description" content="The Holy Episcopal Synod of the Malankara Orthodox Syrian Church — every Metropolitan and Assistant Bishop, from the 2023 clergy directory. Only the Catholicos holds full metropolitan status under the Hudaya Canon.">
+<link rel="canonical" href="https://malankaramap.com/metropolitans">
+
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Malankara Map">
+<meta property="og:title" content="Metropolitans — Malankara Map">
+<meta property="og:description" content="The Holy Episcopal Synod of the Malankara Orthodox Syrian Church — every Metropolitan and Assistant Bishop, from the 2023 clergy directory. Only the Catholicos holds full metropolitan status under the Hudaya Canon.">
+<meta property="og:image" content="https://malankaramap.com/og-image.png">
+<meta property="og:url" content="https://malankaramap.com/metropolitans">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Metropolitans — Malankara Map">
+<meta name="twitter:description" content="The Holy Episcopal Synod of the Malankara Orthodox Syrian Church — every Metropolitan and Assistant Bishop, from the 2023 clergy directory.">
+<meta name="twitter:image" content="https://malankaramap.com/og-image.png">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Marcellus&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="styles.css">
+</head>
+<body class="bg-ivory dark:bg-midnight text-body dark:text-ivory/85 font-sans transition-colors duration-300">
+<audio id="bgMusic" loop>
+  <source src="audio.mp3" type="audio/mpeg">
+</audio>
+
+
+<!-- ==================== HEADER ==================== -->
+<header class="sticky top-0 z-50 bg-ivory/90 dark:bg-midnight/90 backdrop-blur-md border-b border-line dark:border-white/10">
+  <div class="max-w-7xl mx-auto px-5 sm:px-8 h-16 sm:h-20 flex items-center justify-between gap-4">
+    <a href="index.html" class="flex items-center gap-3 min-w-0">
+      <svg class="w-7 h-7 sm:w-8 sm:h-8 shrink-0 text-ink dark:text-ivory" viewBox="0 0 40 40" fill="none">
+        <path d="M20 3 L20 37 M8 14 L32 14" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+        <path d="M20 3 C16 8 16 11 20 14 C24 11 24 8 20 3Z" fill="#8B7355"/>
+        <circle cx="20" cy="30" r="7" stroke="#8B7355" stroke-width="1.2" fill="none"/>
+      </svg>
+      <div class="min-w-0">
+        <div class="text-[10px] tracking-[0.16em] uppercase text-taupe font-semibold truncate">Est. Apostolic Era &middot; AD 52</div>
+        <div class="font-serif italic text-[15px] sm:text-[17px] text-ink dark:text-ivory truncate">Malankara Orthodox Syrian Church</div>
+      </div>
+    </a>
+
+    <nav class="hidden md:flex items-center gap-8 font-serif italic text-[15px] shrink-0">
+      <a href="index.html#map" class="text-body/80 dark:text-ivory/70 hover:text-sage-dark dark:hover:text-sage transition-colors">World Map</a>
+      <a href="index.html#discover" class="text-body/80 dark:text-ivory/70 hover:text-sage-dark dark:hover:text-sage transition-colors">Discover</a>
+      <a href="index.html#numbers" class="text-body/80 dark:text-ivory/70 hover:text-sage-dark dark:hover:text-sage transition-colors">Numbers</a>
+      <a href="index.html#clergy" class="text-body/80 dark:text-ivory/70 hover:text-sage-dark dark:hover:text-sage transition-colors">Clergy</a>
+      <a href="index.html#legend" class="text-body/80 dark:text-ivory/70 hover:text-sage-dark dark:hover:text-sage transition-colors">Legend</a>
+      <a href="index.html#heritage" class="text-body/80 dark:text-ivory/70 hover:text-sage-dark dark:hover:text-sage transition-colors">Heritage</a>
+      <a href="index.html#report" class="font-sans not-italic text-[11px] font-semibold tracking-[0.08em] uppercase border border-ink dark:border-ivory/40 text-ink dark:text-ivory px-4 py-2 rounded-full hover:bg-ink hover:text-ivory dark:hover:bg-ivory dark:hover:text-midnight transition-colors">Report</a>
+    </nav>
+
+    <div class="flex items-center gap-2 shrink-0">
+      <button class="w-9 h-9 sm:w-10 sm:h-10 rounded-full border border-line dark:border-white/15 flex items-center justify-center text-body/70 dark:text-ivory/70 hover:border-ink dark:hover:border-ivory hover:text-ink dark:hover:text-ivory transition-colors" id="themeToggle" aria-label="Toggle dark mode" title="Toggle dark mode">
+        <svg class="icon-sun w-4 h-4" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="4.2" stroke="currentColor" stroke-width="1.4"/><path d="M12 2.5v2.2M12 19.3v2.2M4.2 4.2l1.6 1.6M18.2 18.2l1.6 1.6M2.5 12h2.2M19.3 12h2.2M4.2 19.8l1.6-1.6M18.2 5.8l1.6-1.6" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg>
+        <svg class="icon-moon w-4 h-4 hidden" viewBox="0 0 24 24" fill="none"><path d="M20 14.5A8.5 8.5 0 1 1 9.5 4a6.8 6.8 0 0 0 10.5 10.5Z" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"/></svg>
+      </button>
+      <button class="md:hidden w-9 h-9 sm:w-10 sm:h-10 rounded-full border border-line dark:border-white/15 flex items-center justify-center text-body/70 dark:text-ivory/70" id="mobileMenuBtn" aria-label="Open menu">
+        <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+      </button>
+    </div>
+  </div>
+
+  <div id="mobileMenu" class="hidden md:hidden border-t border-line dark:border-white/10 bg-ivory dark:bg-midnight px-5 py-5 flex flex-col gap-4 font-serif italic text-base">
+    <a href="index.html#map" class="text-body/80 dark:text-ivory/70">World Map</a>
+    <a href="index.html#discover" class="text-body/80 dark:text-ivory/70">Discover</a>
+    <a href="index.html#numbers" class="text-body/80 dark:text-ivory/70">Numbers</a>
+    <a href="index.html#clergy" class="text-body/80 dark:text-ivory/70">Clergy</a>
+    <a href="index.html#legend" class="text-body/80 dark:text-ivory/70">Legend</a>
+    <a href="index.html#colors" class="text-body/80 dark:text-ivory/70">Palette</a>
+    <a href="index.html#heritage" class="text-body/80 dark:text-ivory/70">Heritage</a>
+    <a href="index.html#report" class="font-sans not-italic text-sm font-semibold tracking-wide uppercase text-sage-dark dark:text-sage">Report an Issue</a>
+  </div>
+</header>
+
+<script>
+(function(){
+  var btn = document.getElementById('themeToggle');
+  var sun = btn.querySelector('.icon-sun');
+  var moon = btn.querySelector('.icon-moon');
+  function sync(){
+    var isDark = document.documentElement.classList.contains('dark');
+    sun.classList.toggle('hidden', isDark);
+    moon.classList.toggle('hidden', !isDark);
+  }
+  sync();
+  btn.addEventListener('click', function(){
+    var isDark = document.documentElement.classList.toggle('dark');
+    localStorage.setItem('malankara-theme', isDark ? 'dark' : 'light');
+    sync();
+  });
+  var menuBtn = document.getElementById('mobileMenuBtn');
+  var menu = document.getElementById('mobileMenu');
+  menuBtn.addEventListener('click', function(){ menu.classList.toggle('hidden'); });
+  menu.querySelectorAll('a').forEach(function(a){
+    a.addEventListener('click', function(){ menu.classList.add('hidden'); });
+  });
+})();
+</script>
+
+<!-- ==================== PAGE HERO ==================== -->
+<section class="bg-herobg dark:bg-midnight px-5 sm:px-8 pt-14 sm:pt-20 pb-10 sm:pb-14 text-center">
+  <div class="max-w-2xl mx-auto">
+    <a href="index.html#clergy" class="font-sans text-[11px] tracking-[0.14em] uppercase text-taupe hover:text-sage-dark dark:hover:text-sage transition-colors">&larr; Back to Malankara Map</a>
+    <p class="text-[11px] sm:text-xs tracking-[0.22em] uppercase text-taupe font-semibold mt-6 mb-4 sm:mb-5">The Holy Episcopal Synod</p>
+    <h1 class="font-serif font-normal text-[36px] leading-[1.1] sm:text-5xl md:text-6xl tracking-tight text-ink dark:text-ivory mb-4 sm:mb-5"><em class="italic text-sage-dark dark:text-sage">31</em> Metropolitans</h1>
+    <p class="text-[15px] sm:text-base text-body/80 dark:text-ivory/65 max-w-lg mx-auto leading-relaxed">The Catholicos of the East and Malankara Metropolitan, together with the Metropolitans and Assistant Bishops who lead each diocese worldwide.</p>
+    <div class="w-px h-8 sm:h-10 bg-gold/70 mx-auto mt-7 sm:mt-9"></div>
+  </div>
+</section>
+
+<section class="px-5 sm:px-8 pb-10 sm:pb-12 max-w-2xl mx-auto">
+  <div class="border-l border-line dark:border-white/10 pl-5 sm:pl-6">
+    <div class="font-sans text-[10.5px] tracking-[0.14em] uppercase text-taupe font-semibold mb-2.5">A Point of Canon</div>
+    <p class="font-serif italic text-[15px] text-body/75 dark:text-ivory/60 leading-[1.75]">The only metropolitan in Malankara, from the perspective of the <em class="not-italic font-semibold"><i>Hudaya Canon</i></em>, is the Malankara Metropolitan &mdash; that is, the Catholicos. Every other bishop, i.e. every diocesan metropolitan, is merely an <i>episcopa</i>; in other words, they are titular metropolitans, who do not have the right to consecrate <i>Myron</i>, ordain bishops, or convene a local Synod.</p>
+  </div>
+</section>
+
+<section class="px-5 sm:px-8 pb-16 sm:pb-24 max-w-2xl mx-auto">
+  <ol class="flex flex-col">
+      <li class="flex gap-3 py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
+        <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">1.</span>
+        <span class="text-[14.5px] text-body/85 dark:text-ivory/70">H.H. Baselios Marthoma Mathews III</span>
+      </li>
+      <li class="flex gap-3 py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
+        <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">2.</span>
+        <span class="text-[14.5px] text-body/85 dark:text-ivory/70">H.G. Dr. Thomas Mar Athanasios</span>
+      </li>
+      <li class="flex gap-3 py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
+        <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">3.</span>
+        <span class="text-[14.5px] text-body/85 dark:text-ivory/70">H.G. Dr. Yuhanon Mar Meletius</span>
+      </li>
+      <li class="flex gap-3 py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
+        <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">4.</span>
+        <span class="text-[14.5px] text-body/85 dark:text-ivory/70">H.G. Kuriakose Mar Clemis</span>
+      </li>
+      <li class="flex gap-3 py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
+        <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">5.</span>
+        <span class="text-[14.5px] text-body/85 dark:text-ivory/70">H.G. Zachariah Mar Anthonios</span>
+      </li>
+      <li class="flex gap-3 py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
+        <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">6.</span>
+        <span class="text-[14.5px] text-body/85 dark:text-ivory/70">H.G. Dr. Geevarghese Mar Coorilos</span>
+      </li>
+      <li class="flex gap-3 py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
+        <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">7.</span>
+        <span class="text-[14.5px] text-body/85 dark:text-ivory/70">H.G. Zachariah Mar Nicholovos</span>
+      </li>
+      <li class="flex gap-3 py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
+        <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">8.</span>
+        <span class="text-[14.5px] text-body/85 dark:text-ivory/70">H.G. Dr. Yakoob Mar Irenaios</span>
+      </li>
+      <li class="flex gap-3 py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
+        <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">9.</span>
+        <span class="text-[14.5px] text-body/85 dark:text-ivory/70">H.G. Dr. Gabriel Mar Gregorios</span>
+      </li>
+      <li class="flex gap-3 py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
+        <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">10.</span>
+        <span class="text-[14.5px] text-body/85 dark:text-ivory/70">H.G. Dr. Yuhanon Mar Chrisostomos</span>
+      </li>
+      <li class="flex gap-3 py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
+        <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">11.</span>
+        <span class="text-[14.5px] text-body/85 dark:text-ivory/70">H.G. Yuhanon Mar Polycarpos</span>
+      </li>
+      <li class="flex gap-3 py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
+        <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">12.</span>
+        <span class="text-[14.5px] text-body/85 dark:text-ivory/70">H.G. Mathews Mar Theodosius</span>
+      </li>
+      <li class="flex gap-3 py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
+        <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">13.</span>
+        <span class="text-[14.5px] text-body/85 dark:text-ivory/70">H.G. Dr. Joseph Mar Dionysius</span>
+      </li>
+      <li class="flex gap-3 py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
+        <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">14.</span>
+        <span class="text-[14.5px] text-body/85 dark:text-ivory/70">H.G. Abraham Mar Epiphanios</span>
+      </li>
+      <li class="flex gap-3 py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
+        <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">15.</span>
+        <span class="text-[14.5px] text-body/85 dark:text-ivory/70">H.G. Dr. Mathews Mar Thimothios</span>
+      </li>
+      <li class="flex gap-3 py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
+        <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">16.</span>
+        <span class="text-[14.5px] text-body/85 dark:text-ivory/70">H.G. Alexios Mar Eusebius</span>
+      </li>
+      <li class="flex gap-3 py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
+        <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">17.</span>
+        <span class="text-[14.5px] text-body/85 dark:text-ivory/70">H.G. Dr. Yuhanon Mar Diascoros</span>
+      </li>
+      <li class="flex gap-3 py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
+        <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">18.</span>
+        <span class="text-[14.5px] text-body/85 dark:text-ivory/70">H.G. Dr. Yuhanon Mar Demetrios</span>
+      </li>
+      <li class="flex gap-3 py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
+        <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">19.</span>
+        <span class="text-[14.5px] text-body/85 dark:text-ivory/70">H.G. Dr. Yuhanon Mar Theovodoros</span>
+      </li>
+      <li class="flex gap-3 py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
+        <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">20.</span>
+        <span class="text-[14.5px] text-body/85 dark:text-ivory/70">H.G. Yakob Mar Elias</span>
+      </li>
+      <li class="flex gap-3 py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
+        <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">21.</span>
+        <span class="text-[14.5px] text-body/85 dark:text-ivory/70">H.G. Dr. Joshua Mar Nicodimos</span>
+      </li>
+      <li class="flex gap-3 py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
+        <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">22.</span>
+        <span class="text-[14.5px] text-body/85 dark:text-ivory/70">H.G. Dr. Zacharias Mar Aprem</span>
+      </li>
+      <li class="flex gap-3 py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
+        <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">23.</span>
+        <span class="text-[14.5px] text-body/85 dark:text-ivory/70">H.G. Dr. Geevarghese Mar Yulios</span>
+      </li>
+      <li class="flex gap-3 py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
+        <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">24.</span>
+        <span class="text-[14.5px] text-body/85 dark:text-ivory/70">H.G. Dr. Abraham Mar Seraphim</span>
+      </li>
+      <li class="flex gap-3 py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
+        <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">25.</span>
+        <span class="text-[14.5px] text-body/85 dark:text-ivory/70">H.G. Abraham Mar Stephanos</span>
+      </li>
+      <li class="flex gap-3 py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
+        <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">26.</span>
+        <span class="text-[14.5px] text-body/85 dark:text-ivory/70">H.G. Thomas Mar Ivanios</span>
+      </li>
+      <li class="flex gap-3 py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
+        <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">27.</span>
+        <span class="text-[14.5px] text-body/85 dark:text-ivory/70">H.G. Dr. Geevarghese Mar Theophilos</span>
+      </li>
+      <li class="flex gap-3 py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
+        <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">28.</span>
+        <span class="text-[14.5px] text-body/85 dark:text-ivory/70">H.G. Geevarghese Mar Philoxenos</span>
+      </li>
+      <li class="flex gap-3 py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
+        <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">29.</span>
+        <span class="text-[14.5px] text-body/85 dark:text-ivory/70">H.G. Geevarghese Mar Pachomios</span>
+      </li>
+      <li class="flex gap-3 py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
+        <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">30.</span>
+        <span class="text-[14.5px] text-body/85 dark:text-ivory/70">H.G. Dr. Geevarghese Mar Barnabas</span>
+      </li>
+      <li class="flex gap-3 py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
+        <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">31.</span>
+        <span class="text-[14.5px] text-body/85 dark:text-ivory/70">H.G. Zachariah Mar Severios</span>
+      </li>
+  </ol>
+</section>
+
+<!-- ==================== FOOTER ==================== -->
+<footer class="bg-charcoal text-center px-5 py-12 sm:py-14">
+  <svg class="w-5 h-5 mx-auto mb-4 opacity-60 text-ivory" viewBox="0 0 40 40" fill="none">
+    <path d="M20 3 L20 37 M8 14 L32 14" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+  </svg>
+  <div class="font-serif italic text-sm sm:text-[15px] text-ivory/85 mb-2">Created by Andrew Punnoose, with assistance from David George and Jerin George</div>
+  <div class="font-sans text-[11px] tracking-wide text-ivory/45">Not affiliated with the Malankara Orthodox Syrian Church.</div>
+  <div class="font-sans text-[11px] tracking-wide text-ivory/45 mt-1">&copy; Malankara Map, July 2026</div>
+</footer>
+
+<script>
+const music = document.getElementById("bgMusic");
+music.volume = 0;
+
+window.addEventListener("click", function () {
+  music.play();
+
+  const targetVolume = 0.5;     // End at 50%
+  const fadeDuration = 42000;   // 42 seconds
+  const interval = 100;         // Update every 100 ms
+
+  let volume = 0;
+  const step = targetVolume / (fadeDuration / interval);
+
+  const fade = setInterval(() => {
+    volume += step;
+
+    if (volume >= targetVolume) {
+      volume = targetVolume;
+      clearInterval(fade);
+    }
+
+    music.volume = volume;
+  }, interval);
+}, { once: true });
+</script>
+</body>
+</html>

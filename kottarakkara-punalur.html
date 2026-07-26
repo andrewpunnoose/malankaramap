@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script>
+  (function(){
+    var saved = localStorage.getItem('malankara-theme');
+    if(saved === 'dark'){ document.documentElement.classList.add('dark'); }
+  })();
+</script>
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Marcellus&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+  tailwind.config = {
+    darkMode: 'class',
+    theme: {
+      extend: {
+        colors: {
+          ivory: '#F8F7F4', cream: '#F2F0EB', charcoal: '#1F2937', midnight: '#111827',
+          sage: { DEFAULT: '#7A9E7E', dark: '#5E8062' }, taupe: '#8B7355',
+          gold: { DEFAULT: '#C8A24A', dark: '#B58E33' }, ink: '#111827', body: '#374151',
+          secondary: '#6B7280', muted: '#9CA3AF', line: '#E5E7EB', 'line-light': '#F3F4F6',
+          divider: '#D6D3D1', herobg: '#F6F8F4'
+        },
+        fontFamily: { serif: ['Marcellus','Georgia','serif'], sans: ['Inter','system-ui','sans-serif'] },
+        boxShadow: {
+          soft: '0 2px 12px rgba(17,24,39,0.06)', medium: '0 8px 30px rgba(17,24,39,0.10)',
+          large: '0 20px 60px rgba(17,24,39,0.16)'
+        }
+      }
+    }
+  }
+</script>
+<style>html{scroll-behavior:smooth;} ::selection{background:#7A9E7E;color:#fff;}</style>
+<title>Diocese of Kottarakkara-Punalur — Malankara Map</title>
+<meta name="description" content="Diocese of Kottarakkara-Punalur of the Malankara Orthodox Syrian Church — every parish, chapel, and institution, listed.">
+<link rel="canonical" href="https://malankaramap.com/kottarakkara-punalur">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Malankara Map">
+<meta property="og:title" content="Diocese of Kottarakkara-Punalur — Malankara Map">
+<meta property="og:description" content="Diocese of Kottarakkara-Punalur of the Malankara Orthodox Syrian Church — every parish, chapel, and institution, listed.">
+<meta property="og:image" content="https://malankaramap.com/og-image.png">
+<meta property="og:url" content="https://malankaramap.com/kottarakkara-punalur">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Diocese of Kottarakkara-Punalur — Malankara Map">
+<meta name="twitter:description" content="Diocese of Kottarakkara-Punalur of the Malankara Orthodox Syrian Church — every parish, chapel, and institution, listed.">
+<meta name="twitter:image" content="https://malankaramap.com/og-image.png">
+</head>
+<body class="bg-ivory dark:bg-midnight text-body dark:text-ivory/85 font-sans transition-colors duration-300">
+<audio id="bgMusic" loop>
+  <source src="audio.mp3" type="audio/mpeg">
+</audio>
+
+<header class="sticky top-0 z-50 bg-ivory/90 dark:bg-midnight/90 backdrop-blur-md border-b border-line dark:border-white/10">
+  <div class="max-w-4xl mx-auto px-5 sm:px-8 h-16 sm:h-20 flex items-center justify-between gap-4">
+    <a href="index.html" class="flex items-center gap-3 min-w-0">
+      <svg class="w-6 h-6 sm:w-7 sm:h-7 shrink-0 text-ink dark:text-ivory" viewBox="0 0 40 40" fill="none">
+        <path d="M20 3 L20 37 M8 14 L32 14" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+        <path d="M20 3 C16 8 16 11 20 14 C24 11 24 8 20 3Z" fill="#8B7355"/>
+        <circle cx="20" cy="30" r="7" stroke="#8B7355" stroke-width="1.2" fill="none"/>
+      </svg>
+      <div class="min-w-0">
+        <div class="text-[10px] tracking-[0.16em] uppercase text-taupe font-semibold truncate">Malankara Map</div>
+      </div>
+    </a>
+    <div class="flex items-center gap-4 shrink-0">
+      <a href="index.html#colors" class="hidden sm:block font-serif italic text-[15px] text-body/70 dark:text-ivory/60 hover:text-sage-dark dark:hover:text-sage transition-colors">&larr; Back to the palette</a>
+      <button class="w-9 h-9 sm:w-10 sm:h-10 rounded-full border border-line dark:border-white/15 flex items-center justify-center text-body/70 dark:text-ivory/70 hover:border-ink dark:hover:border-ivory hover:text-ink dark:hover:text-ivory transition-colors" id="themeToggle" aria-label="Toggle dark mode" title="Toggle dark mode">
+        <svg class="icon-sun w-4 h-4" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="4.2" stroke="currentColor" stroke-width="1.4"/><path d="M12 2.5v2.2M12 19.3v2.2M4.2 4.2l1.6 1.6M18.2 18.2l1.6 1.6M2.5 12h2.2M19.3 12h2.2M4.2 19.8l1.6-1.6M18.2 5.8l1.6-1.6" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg>
+        <svg class="icon-moon w-4 h-4 hidden" viewBox="0 0 24 24" fill="none"><path d="M20 14.5A8.5 8.5 0 1 1 9.5 4a6.8 6.8 0 0 0 10.5 10.5Z" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"/></svg>
+      </button>
+    </div>
+  </div>
+</header>
+<script>
+(function(){
+  var btn = document.getElementById('themeToggle');
+  var sun = btn.querySelector('.icon-sun');
+  var moon = btn.querySelector('.icon-moon');
+  function sync(){
+    var isDark = document.documentElement.classList.contains('dark');
+    sun.classList.toggle('hidden', isDark);
+    moon.classList.toggle('hidden', !isDark);
+  }
+  sync();
+  btn.addEventListener('click', function(){
+    var isDark = document.documentElement.classList.toggle('dark');
+    localStorage.setItem('malankara-theme', isDark ? 'dark' : 'light');
+    sync();
+  });
+})();
+</script>
+
+<section class="px-5 sm:px-8 pt-14 sm:pt-20 pb-10 sm:pb-12 max-w-4xl mx-auto text-center">
+  <div class="text-[11px] sm:text-xs tracking-[0.22em] uppercase text-taupe font-semibold mb-4 flex items-center justify-center gap-2.5">
+    <span class="w-3 h-3 rounded-full shrink-0 border border-ink/10 dark:border-ivory/20" style="background:#FF5252"></span>78 Locations · Est. 2010
+  </div>
+  <h1 class="font-serif italic font-normal text-3xl sm:text-5xl text-ink dark:text-ivory mb-5 leading-[1.1]">Diocese of Kottarakkara-Punalur</h1>
+  <p class="text-[15px] text-body/80 dark:text-ivory/65 max-w-xl mx-auto leading-relaxed">The diocese was created by dividing the existing Thiruvananthapuram and Kollam dioceses, becoming one of the church's dioceses worldwide. It was established in 2010.</p>
+</section>
+
+<section class="px-5 sm:px-8 pb-14 sm:pb-16 max-w-4xl mx-auto">
+  <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-px bg-line dark:bg-white/10 border-l border-t border-line dark:border-white/10">
+      <div class="border-b border-r border-line dark:border-white/10 p-4 sm:p-5 flex flex-col gap-1.5">
+        <span class="font-serif text-2xl sm:text-3xl text-ink dark:text-ivory">2010</span>
+        <span class="text-[10px] sm:text-[11px] tracking-wider uppercase text-body/60 dark:text-ivory/50 font-medium">Established</span>
+      </div>
+      <div class="border-b border-r border-line dark:border-white/10 p-4 sm:p-5 flex flex-col gap-1.5">
+        <span class="font-serif text-2xl sm:text-3xl text-ink dark:text-ivory">1</span>
+        <span class="text-[10px] sm:text-[11px] tracking-wider uppercase text-body/60 dark:text-ivory/50 font-medium">Palaces</span>
+      </div>
+      <div class="border-b border-r border-line dark:border-white/10 p-4 sm:p-5 flex flex-col gap-1.5">
+        <span class="font-serif text-2xl sm:text-3xl text-ink dark:text-ivory">3</span>
+        <span class="text-[10px] sm:text-[11px] tracking-wider uppercase text-body/60 dark:text-ivory/50 font-medium">Monasteries</span>
+      </div>
+      <div class="border-b border-r border-line dark:border-white/10 p-4 sm:p-5 flex flex-col gap-1.5">
+        <span class="font-serif text-2xl sm:text-3xl text-ink dark:text-ivory">1</span>
+        <span class="text-[10px] sm:text-[11px] tracking-wider uppercase text-body/60 dark:text-ivory/50 font-medium">Convents</span>
+      </div>
+      <div class="border-b border-r border-line dark:border-white/10 p-4 sm:p-5 flex flex-col gap-1.5">
+        <span class="font-serif text-2xl sm:text-3xl text-ink dark:text-ivory">1</span>
+        <span class="text-[10px] sm:text-[11px] tracking-wider uppercase text-body/60 dark:text-ivory/50 font-medium">Seminaries</span>
+      </div>
+      <div class="border-b border-r border-line dark:border-white/10 p-4 sm:p-5 flex flex-col gap-1.5">
+        <span class="font-serif text-2xl sm:text-3xl text-ink dark:text-ivory">66</span>
+        <span class="text-[10px] sm:text-[11px] tracking-wider uppercase text-body/60 dark:text-ivory/50 font-medium">Churches</span>
+      </div>
+      <div class="border-b border-r border-line dark:border-white/10 p-4 sm:p-5 flex flex-col gap-1.5">
+        <span class="font-serif text-2xl sm:text-3xl text-ink dark:text-ivory">6</span>
+        <span class="text-[10px] sm:text-[11px] tracking-wider uppercase text-body/60 dark:text-ivory/50 font-medium">Chapels</span>
+      </div>
+      <div class="border-b border-r border-line dark:border-white/10 p-4 sm:p-5 flex flex-col gap-1.5">
+        <span class="font-serif text-2xl sm:text-3xl text-ink dark:text-ivory">78</span>
+        <span class="text-[10px] sm:text-[11px] tracking-wider uppercase text-body/60 dark:text-ivory/50 font-medium">Total Locations</span>
+      </div>
+  </div>
+</section>
+
+<section class="px-5 sm:px-8 py-14 sm:py-16 max-w-4xl mx-auto border-t border-line dark:border-white/10">
+  <h2 class="font-serif italic font-normal text-xl sm:text-2xl text-ink dark:text-ivory mb-2">Ecclesiastical Districts</h2>
+  <p class="font-sans text-xs text-muted mb-7">7 districts, listed alphabetically.</p>
+  <div class="grid grid-cols-1 sm:grid-cols-2 gap-px bg-line dark:bg-white/10 border border-line dark:border-white/10">
+      <div class="bg-ivory dark:bg-midnight p-3.5 sm:p-4 flex items-baseline gap-3">
+        <span class="font-serif italic text-taupe text-sm w-6 shrink-0">01</span>
+        <span class="text-xs sm:text-[13px] text-ink dark:text-ivory">Chemmanthoor</span>
+      </div>
+      <div class="bg-ivory dark:bg-midnight p-3.5 sm:p-4 flex items-baseline gap-3">
+        <span class="font-serif italic text-taupe text-sm w-6 shrink-0">02</span>
+        <span class="text-xs sm:text-[13px] text-ink dark:text-ivory">Chengamanad</span>
+      </div>
+      <div class="bg-ivory dark:bg-midnight p-3.5 sm:p-4 flex items-baseline gap-3">
+        <span class="font-serif italic text-taupe text-sm w-6 shrink-0">03</span>
+        <span class="text-xs sm:text-[13px] text-ink dark:text-ivory">Kalayapuram</span>
+      </div>
+      <div class="bg-ivory dark:bg-midnight p-3.5 sm:p-4 flex items-baseline gap-3">
+        <span class="font-serif italic text-taupe text-sm w-6 shrink-0">04</span>
+        <span class="text-xs sm:text-[13px] text-ink dark:text-ivory">Kottarakkara</span>
+      </div>
+      <div class="bg-ivory dark:bg-midnight p-3.5 sm:p-4 flex items-baseline gap-3">
+        <span class="font-serif italic text-taupe text-sm w-6 shrink-0">05</span>
+        <span class="text-xs sm:text-[13px] text-ink dark:text-ivory">Nellikkunnam</span>
+      </div>
+      <div class="bg-ivory dark:bg-midnight p-3.5 sm:p-4 flex items-baseline gap-3">
+        <span class="font-serif italic text-taupe text-sm w-6 shrink-0">06</span>
+        <span class="text-xs sm:text-[13px] text-ink dark:text-ivory">Punalur</span>
+      </div>
+      <div class="bg-ivory dark:bg-midnight p-3.5 sm:p-4 flex items-baseline gap-3">
+        <span class="font-serif italic text-taupe text-sm w-6 shrink-0">07</span>
+        <span class="text-xs sm:text-[13px] text-ink dark:text-ivory">Thenmala</span>
+      </div>
+  </div>
+</section>
+
+<section class="px-5 sm:px-8 pb-10 sm:pb-12 max-w-4xl mx-auto">
+  <h2 class="font-serif italic font-normal text-lg sm:text-xl text-ink dark:text-ivory mb-5">Palaces</h2>
+  <ol class="list-decimal marker:text-taupe marker:font-serif columns-1 sm:columns-2 gap-x-10 pl-5 space-y-1.5 text-[13.5px] text-body/75 dark:text-ivory/60 [&_li]:break-inside-avoid [&_a]:hover:text-sage-dark [&_a]:dark:hover:text-sage">
+    <li>Punalur Gregorian Palace</li>
+  </ol>
+</section>
+<section class="px-5 sm:px-8 pb-10 sm:pb-12 max-w-4xl mx-auto">
+  <h2 class="font-serif italic font-normal text-lg sm:text-xl text-ink dark:text-ivory mb-5">Monasteries</h2>
+  <ol class="list-decimal marker:text-taupe marker:font-serif columns-1 sm:columns-2 gap-x-10 pl-5 space-y-1.5 text-[13.5px] text-body/75 dark:text-ivory/60 [&_li]:break-inside-avoid [&_a]:hover:text-sage-dark [&_a]:dark:hover:text-sage">
+    <li>Chengamanad Bethlehem Monastery</li>
+    <li>Kottarakkara St. Gregorios Mount Monastery</li>
+    <li>Kulamudy St. George Monastery</li>
+  </ol>
+</section>
+<section class="px-5 sm:px-8 pb-10 sm:pb-12 max-w-4xl mx-auto">
+  <h2 class="font-serif italic font-normal text-lg sm:text-xl text-ink dark:text-ivory mb-5">Convents</h2>
+  <ol class="list-decimal marker:text-taupe marker:font-serif columns-1 sm:columns-2 gap-x-10 pl-5 space-y-1.5 text-[13.5px] text-body/75 dark:text-ivory/60 [&_li]:break-inside-avoid [&_a]:hover:text-sage-dark [&_a]:dark:hover:text-sage">
+    <li>Kottarakkara St. Basil Convent</li>
+  </ol>
+</section>
+<section class="px-5 sm:px-8 pb-10 sm:pb-12 max-w-4xl mx-auto">
+  <h2 class="font-serif italic font-normal text-lg sm:text-xl text-ink dark:text-ivory mb-5">Seminaries</h2>
+  <ol class="list-decimal marker:text-taupe marker:font-serif columns-1 sm:columns-2 gap-x-10 pl-5 space-y-1.5 text-[13.5px] text-body/75 dark:text-ivory/60 [&_li]:break-inside-avoid [&_a]:hover:text-sage-dark [&_a]:dark:hover:text-sage">
+    <li>Kottarakkara-Kottappuram St. Ignatius Minor Seminary</li>
+  </ol>
+</section>
+<section class="px-5 sm:px-8 pb-10 sm:pb-12 max-w-4xl mx-auto">
+  <h2 class="font-serif italic font-normal text-lg sm:text-xl text-ink dark:text-ivory mb-5">Churches</h2>
+  <ol class="list-decimal marker:text-taupe marker:font-serif columns-1 sm:columns-2 gap-x-10 pl-5 space-y-1.5 text-[13.5px] text-body/75 dark:text-ivory/60 [&_li]:break-inside-avoid [&_a]:hover:text-sage-dark [&_a]:dark:hover:text-sage">
+    <li>Aippalloor St. George Salem Orthodox Church</li>
+    <li>Alakuzhy St. Gregorios Orthodox Church</li>
+    <li>Ambalakara St. George Orthodox Church</li>
+    <li>Ambanad St. George Orthodox Church</li>
+    <li>Ampalathumkala St. George Orthodox Church</li>
+    <li>Ampalathumkala St. Jacob Baradaeus Orthodox Church</li>
+    <li>Aringada St. Mary's Orthodox Church</li>
+    <li>Avaneeswaram St. Mary's Orthodox Church</li>
+    <li>Chakkuvarakkal St. Ephrem Orthodox Church</li>
+    <li>Chakkuvarakkal St. Ignatius Orthodox Church</li>
+    <li>Chaliakkara St. Mary's Orthodox Church</li>
+    <li>Chemmanthoor St. George Orthodox Church (Jayabharatham)</li>
+    <li>Chemmanthoor St. John's Orthodox Church</li>
+    <li>Chempanaruvi St. Gregorios Orthodox Church (Kadampupara)</li>
+    <li>Edamon St. Mary's Orthodox Church</li>
+    <li>Elampal Jerusalem Orthodox Church</li>
+    <li>Elampal St. George Orthodox Church</li>
+    <li>Kalayapuram St. Basil and St. Gregory Orthodox Church</li>
+    <li>Kalayapuram St. George Orthodox Church (Poovattoor East)</li>
+    <li>Kalayapuram St. Mary's Orthodox Church</li>
+    <li>Karavaloor Bethel Orthodox Church</li>
+    <li>Karavaloor St. George Orthodox Church</li>
+    <li>Karavoor St. George Orthodox Church</li>
+    <li>Kariyara-Chitrapuri St. Gregorios Orthodox Church (Mount Aether)</li>
+    <li>Kizhakketheruvu St. Peter's and St. Paul's Orthodox Church</li>
+    <li>Kottarakkara Orthodox Church</li>
+    <li>Kottarakkara-Kottappuram Church (Pulamon)</li>
+    <li>Kulamudy St. George Orthodox Church</li>
+    <li>Kunnicode St. George Orthodox Church (Njaracadu)</li>
+    <li>Kuttiyil Bhagom St. George Orthodox Church</li>
+    <li>Manalil St. Gregorios Orthodox Church</li>
+    <li>Marangadu St. Gregorios Orthodox Church</li>
+    <li>Melila St. George Orthodox Church</li>
+    <li>Mylom St. Stephen's Orthodox Church</li>
+    <li>Narickal St. Mary's Orthodox Church</li>
+    <li>Nedumpara St. George Orthodox Church</li>
+    <li>Neeleswaram St. Mary's Orthodox Church</li>
+    <li>Nellikunnam St. George Orthodox Church</li>
+    <li>Nellikunnam St. Gregorios Orthodox Church</li>
+    <li>Odanavattom St. George Orthodox Church</li>
+    <li>Ottakkal St. John's Orthodox Church</li>
+    <li>Padinjaretheruvu St. George Orthodox Church</li>
+    <li>Palanirappu St. Basil and St. Gregory Orthodox Church</li>
+    <li>Pattamala St. George Orthodox Church (Kizhakketheruvu)</li>
+    <li>Perumkuzhy St. George Orthodox Church</li>
+    <li>Punalur Papermill St. George Orthodox Church</li>
+    <li>Puthuthadam St. George Orthodox Church</li>
+    <li>Sadanandapuram St. Gregorios Orthodox Church</li>
+    <li>Shenkottai St. Gregorios Malankara Orthodox Mission Church</li>
+    <li>Shenkottai-Vallam St. Gregorios Malankara Orthodox Church (Siluvai Mukku)</li>
+    <li>Thenmala St. George Orthodox Church</li>
+    <li>Tholicode St. George Orthodox Church</li>
+    <li>Thrikkannamangal St. George Orthodox Church</li>
+    <li>Uliyanad Bethel St. George Orthodox Church</li>
+    <li>Uliyanad St. George and St. Mary's Orthodox Church</li>
+    <li>Ummannoor St. Simeon the Stylite's Orthodox Church</li>
+    <li>Urukunnu St. George Orthodox Church</li>
+    <li>Vadacode St. John's Orthodox Church</li>
+    <li>Valacode St. George Orthodox Church</li>
+    <li>Valacode St. Mary's Knanaya Syrian Church</li>
+    <li>Valakom Orthodox Church</li>
+    <li>Valakom St. Gregorios Orthodox Church</li>
+    <li>Vengoor St. Barsauma Orthodox Church</li>
+    <li>Vengoor St. Stephen's Orthodox Church</li>
+    <li>Vilayanthoor St. Thomas Orthodox Church</li>
+    <li>Villoor St. Mary's Orthodox Church</li>
+  </ol>
+</section>
+<section class="px-5 sm:px-8 pb-10 sm:pb-12 max-w-4xl mx-auto">
+  <h2 class="font-serif italic font-normal text-lg sm:text-xl text-ink dark:text-ivory mb-5">Chapels</h2>
+  <ol class="list-decimal marker:text-taupe marker:font-serif columns-1 sm:columns-2 gap-x-10 pl-5 space-y-1.5 text-[13.5px] text-body/75 dark:text-ivory/60 [&_li]:break-inside-avoid [&_a]:hover:text-sage-dark [&_a]:dark:hover:text-sage">
+    <li>Kottarakkara St. Gregorios Orthodox Chapel</li>
+    <li>Kulamudy Mount Tabor St. Mary's Orthodox Chapel</li>
+    <li>Manjamankala St. George Orthodox Chapel</li>
+    <li>Nellippally St. George Orthodox Chapel</li>
+    <li>Tholicode St. George Orthodox Chapel (Kailasam Estate)</li>
+    <li>Vanmala St. Gregorios Orthodox Chapel</li>
+  </ol>
+</section>
+
+<div class="px-5 sm:px-8 py-6 max-w-4xl mx-auto flex items-center justify-between font-serif italic text-[15px]">
+  <a href="index.html#colors" class="text-sage-dark dark:text-sage hover:underline">&larr; Back to the palette</a>
+  <a href="adoor-kadampanad" class="text-sage-dark dark:text-sage hover:underline">Adoor-Kadampanad &rarr;</a>
+</div>
+
+<footer class="bg-charcoal text-center px-5 py-12 sm:py-14">
+  <svg class="w-5 h-5 mx-auto mb-4 opacity-60 text-ivory" viewBox="0 0 40 40" fill="none">
+    <path d="M20 3 L20 37 M8 14 L32 14" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+  </svg>
+  <div class="font-serif italic text-sm sm:text-[15px] text-ivory/85 mb-2">Managed by Andrew Punnoose</div>
+  <div class="font-sans text-[11px] tracking-wide text-ivory/45">Not affiliated with the Malankara Orthodox Syrian Church.</div>
+  <div class="font-sans text-[11px] tracking-wide text-ivory/45 mt-1">&copy; Malankara Map, July 2026</div>
+</footer>
+
+<script>
+const music = document.getElementById("bgMusic");
+music.volume = 0;
+
+window.addEventListener("click", function () {
+  music.play();
+
+  const targetVolume = 0.5;     // End at 50%
+  const fadeDuration = 42000;   // 42 seconds
+  const interval = 100;         // Update every 100 ms
+
+  let volume = 0;
+  const step = targetVolume / (fadeDuration / interval);
+
+  const fade = setInterval(() => {
+    volume += step;
+
+    if (volume >= targetVolume) {
+      volume = targetVolume;
+      clearInterval(fade);
+    }
+
+    music.volume = volume;
+  }, interval);
+}, { once: true });
+</script>
+</body>
+</html>
