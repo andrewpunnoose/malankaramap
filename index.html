@@ -56,7 +56,64 @@
     <nav class="hidden md:flex items-center gap-8 font-serif italic text-[15px] shrink-0">
       <a href="#map" class="text-body/80 dark:text-ivory/70 hover:text-sage-dark dark:hover:text-sage transition-colors">World Map</a>
       <a href="#nearest" class="text-body/80 dark:text-ivory/70 hover:text-sage-dark dark:hover:text-sage transition-colors">Nearest</a>
-      <a href="#discover" class="text-body/80 dark:text-ivory/70 hover:text-sage-dark dark:hover:text-sage transition-colors">Discover</a>
+      <a href="#discover" class="text-body/80 dark:text-ivory/70 hover:text-sage-dark dark:hover:text-sage transition-colors">Random</a>
+      <div class="relative group">
+        <a href="nations" class="flex items-center gap-1 text-body/80 dark:text-ivory/70 hover:text-sage-dark dark:hover:text-sage transition-colors">
+          Discover
+          <svg class="w-3 h-3 mt-0.5 opacity-60" viewBox="0 0 24 24" fill="none"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+        <div class="hidden group-hover:block absolute left-1/2 -translate-x-1/2 top-full pt-3 z-50">
+          <div class="bg-ivory dark:bg-midnight border border-line dark:border-white/10 rounded-xl shadow-large px-3 py-3 font-sans not-italic text-[13px] w-56 max-h-64 overflow-y-auto">
+        <div class="flex flex-col">
+          <a href="nations" class="block px-2 py-1.5 rounded hover:bg-featured dark:hover:bg-white/10 text-sage-dark dark:text-sage font-semibold transition-colors truncate">All Nations &rarr;</a>
+          <a href="armenia" class="block px-2 py-1.5 rounded hover:bg-featured dark:hover:bg-white/10 text-body/80 dark:text-ivory/70 hover:text-sage-dark dark:hover:text-sage transition-colors truncate">Armenia</a>
+          <a href="australia" class="block px-2 py-1.5 rounded hover:bg-featured dark:hover:bg-white/10 text-body/80 dark:text-ivory/70 hover:text-sage-dark dark:hover:text-sage transition-colors truncate">Australia</a>
+          <a href="austria" class="block px-2 py-1.5 rounded hover:bg-featured dark:hover:bg-white/10 text-body/80 dark:text-ivory/70 hover:text-sage-dark dark:hover:text-sage transition-colors truncate">Austria</a>
+          <a href="bahrain" class="block px-2 py-1.5 rounded hover:bg-featured dark:hover:bg-white/10 text-body/80 dark:text-ivory/70 hover:text-sage-dark dark:hover:text-sage transition-colors truncate">Bahrain</a>
+          <a href="belgium" class="block px-2 py-1.5 rounded hover:bg-featured dark:hover:bg-white/10 text-body/80 dark:text-ivory/70 hover:text-sage-dark dark:hover:text-sage transition-colors truncate">Belgium</a>
+          <a href="botswana" class="block px-2 py-1.5 rounded hover:bg-featured dark:hover:bg-white/10 text-body/80 dark:text-ivory/70 hover:text-sage-dark dark:hover:text-sage transition-colors truncate">Botswana</a>
+          <a href="bulgaria" class="block px-2 py-1.5 rounded hover:bg-featured dark:hover:bg-white/10 text-body/80 dark:text-ivory/70 hover:text-sage-dark dark:hover:text-sage transition-colors truncate">Bulgaria</a>
+          <a href="canada" class="block px-2 py-1.5 rounded hover:bg-featured dark:hover:bg-white/10 text-body/80 dark:text-ivory/70 hover:text-sage-dark dark:hover:text-sage transition-colors truncate">Canada</a>
+          <a href="ecuador" class="block px-2 py-1.5 rounded hover:bg-featured dark:hover:bg-white/10 text-body/80 dark:text-ivory/70 hover:text-sage-dark dark:hover:text-sage transition-colors truncate">Ecuador</a>
+          <a href="ethiopia" class="block px-2 py-1.5 rounded hover:bg-featured dark:hover:bg-white/10 text-body/80 dark:text-ivory/70 hover:text-sage-dark dark:hover:text-sage transition-colors truncate">Ethiopia</a>
+          <a href="france" class="block px-2 py-1.5 rounded hover:bg-featured dark:hover:bg-white/10 text-body/80 dark:text-ivory/70 hover:text-sage-dark dark:hover:text-sage transition-colors truncate">France</a>
+          <a href="georgia" class="block px-2 py-1.5 rounded hover:bg-featured dark:hover:bg-white/10 text-body/80 dark:text-ivory/70 hover:text-sage-dark dark:hover:text-sage transition-colors truncate">Georgia</a>
+          <a href="germany" class="block px-2 py-1.5 rounded hover:bg-featured dark:hover:bg-white/10 text-body/80 dark:text-ivory/70 hover:text-sage-dark dark:hover:text-sage transition-colors truncate">Germany</a>
+          <a href="india" class="block px-2 py-1.5 rounded hover:bg-featured dark:hover:bg-white/10 text-body/80 dark:text-ivory/70 hover:text-sage-dark dark:hover:text-sage transition-colors truncate">India</a>
+          <a href="indonesia" class="block px-2 py-1.5 rounded hover:bg-featured dark:hover:bg-white/10 text-body/80 dark:text-ivory/70 hover:text-sage-dark dark:hover:text-sage transition-colors truncate">Indonesia</a>
+          <a href="ireland" class="block px-2 py-1.5 rounded hover:bg-featured dark:hover:bg-white/10 text-body/80 dark:text-ivory/70 hover:text-sage-dark dark:hover:text-sage transition-colors truncate">Ireland</a>
+          <a href="israel" class="block px-2 py-1.5 rounded hover:bg-featured dark:hover:bg-white/10 text-body/80 dark:text-ivory/70 hover:text-sage-dark dark:hover:text-sage transition-colors truncate">Israel</a>
+          <a href="italy" class="block px-2 py-1.5 rounded hover:bg-featured dark:hover:bg-white/10 text-body/80 dark:text-ivory/70 hover:text-sage-dark dark:hover:text-sage transition-colors truncate">Italy</a>
+          <a href="kuwait" class="block px-2 py-1.5 rounded hover:bg-featured dark:hover:bg-white/10 text-body/80 dark:text-ivory/70 hover:text-sage-dark dark:hover:text-sage transition-colors truncate">Kuwait</a>
+          <a href="latvia" class="block px-2 py-1.5 rounded hover:bg-featured dark:hover:bg-white/10 text-body/80 dark:text-ivory/70 hover:text-sage-dark dark:hover:text-sage transition-colors truncate">Latvia</a>
+          <a href="lesotho" class="block px-2 py-1.5 rounded hover:bg-featured dark:hover:bg-white/10 text-body/80 dark:text-ivory/70 hover:text-sage-dark dark:hover:text-sage transition-colors truncate">Lesotho</a>
+          <a href="lithuania" class="block px-2 py-1.5 rounded hover:bg-featured dark:hover:bg-white/10 text-body/80 dark:text-ivory/70 hover:text-sage-dark dark:hover:text-sage transition-colors truncate">Lithuania</a>
+          <a href="luxembourg" class="block px-2 py-1.5 rounded hover:bg-featured dark:hover:bg-white/10 text-body/80 dark:text-ivory/70 hover:text-sage-dark dark:hover:text-sage transition-colors truncate">Luxembourg</a>
+          <a href="malaysia" class="block px-2 py-1.5 rounded hover:bg-featured dark:hover:bg-white/10 text-body/80 dark:text-ivory/70 hover:text-sage-dark dark:hover:text-sage transition-colors truncate">Malaysia</a>
+          <a href="malta" class="block px-2 py-1.5 rounded hover:bg-featured dark:hover:bg-white/10 text-body/80 dark:text-ivory/70 hover:text-sage-dark dark:hover:text-sage transition-colors truncate">Malta</a>
+          <a href="netherlands" class="block px-2 py-1.5 rounded hover:bg-featured dark:hover:bg-white/10 text-body/80 dark:text-ivory/70 hover:text-sage-dark dark:hover:text-sage transition-colors truncate">Netherlands</a>
+          <a href="new-zealand" class="block px-2 py-1.5 rounded hover:bg-featured dark:hover:bg-white/10 text-body/80 dark:text-ivory/70 hover:text-sage-dark dark:hover:text-sage transition-colors truncate">New Zealand</a>
+          <a href="nigeria" class="block px-2 py-1.5 rounded hover:bg-featured dark:hover:bg-white/10 text-body/80 dark:text-ivory/70 hover:text-sage-dark dark:hover:text-sage transition-colors truncate">Nigeria</a>
+          <a href="oman" class="block px-2 py-1.5 rounded hover:bg-featured dark:hover:bg-white/10 text-body/80 dark:text-ivory/70 hover:text-sage-dark dark:hover:text-sage transition-colors truncate">Oman</a>
+          <a href="poland" class="block px-2 py-1.5 rounded hover:bg-featured dark:hover:bg-white/10 text-body/80 dark:text-ivory/70 hover:text-sage-dark dark:hover:text-sage transition-colors truncate">Poland</a>
+          <a href="portugal" class="block px-2 py-1.5 rounded hover:bg-featured dark:hover:bg-white/10 text-body/80 dark:text-ivory/70 hover:text-sage-dark dark:hover:text-sage transition-colors truncate">Portugal</a>
+          <a href="qatar" class="block px-2 py-1.5 rounded hover:bg-featured dark:hover:bg-white/10 text-body/80 dark:text-ivory/70 hover:text-sage-dark dark:hover:text-sage transition-colors truncate">Qatar</a>
+          <a href="rwanda" class="block px-2 py-1.5 rounded hover:bg-featured dark:hover:bg-white/10 text-body/80 dark:text-ivory/70 hover:text-sage-dark dark:hover:text-sage transition-colors truncate">Rwanda</a>
+          <a href="saudi-arabia" class="block px-2 py-1.5 rounded hover:bg-featured dark:hover:bg-white/10 text-body/80 dark:text-ivory/70 hover:text-sage-dark dark:hover:text-sage transition-colors truncate">Saudi Arabia</a>
+          <a href="singapore" class="block px-2 py-1.5 rounded hover:bg-featured dark:hover:bg-white/10 text-body/80 dark:text-ivory/70 hover:text-sage-dark dark:hover:text-sage transition-colors truncate">Singapore</a>
+          <a href="south-africa" class="block px-2 py-1.5 rounded hover:bg-featured dark:hover:bg-white/10 text-body/80 dark:text-ivory/70 hover:text-sage-dark dark:hover:text-sage transition-colors truncate">South Africa</a>
+          <a href="sri-lanka" class="block px-2 py-1.5 rounded hover:bg-featured dark:hover:bg-white/10 text-body/80 dark:text-ivory/70 hover:text-sage-dark dark:hover:text-sage transition-colors truncate">Sri Lanka</a>
+          <a href="sweden" class="block px-2 py-1.5 rounded hover:bg-featured dark:hover:bg-white/10 text-body/80 dark:text-ivory/70 hover:text-sage-dark dark:hover:text-sage transition-colors truncate">Sweden</a>
+          <a href="switzerland" class="block px-2 py-1.5 rounded hover:bg-featured dark:hover:bg-white/10 text-body/80 dark:text-ivory/70 hover:text-sage-dark dark:hover:text-sage transition-colors truncate">Switzerland</a>
+          <a href="uganda" class="block px-2 py-1.5 rounded hover:bg-featured dark:hover:bg-white/10 text-body/80 dark:text-ivory/70 hover:text-sage-dark dark:hover:text-sage transition-colors truncate">Uganda</a>
+          <a href="united-arab-emirates" class="block px-2 py-1.5 rounded hover:bg-featured dark:hover:bg-white/10 text-body/80 dark:text-ivory/70 hover:text-sage-dark dark:hover:text-sage transition-colors truncate">United Arab Emirates</a>
+          <a href="united-kingdom" class="block px-2 py-1.5 rounded hover:bg-featured dark:hover:bg-white/10 text-body/80 dark:text-ivory/70 hover:text-sage-dark dark:hover:text-sage transition-colors truncate">United Kingdom</a>
+          <a href="united-states" class="block px-2 py-1.5 rounded hover:bg-featured dark:hover:bg-white/10 text-body/80 dark:text-ivory/70 hover:text-sage-dark dark:hover:text-sage transition-colors truncate">United States</a>
+          <a href="yemen" class="block px-2 py-1.5 rounded hover:bg-featured dark:hover:bg-white/10 text-body/80 dark:text-ivory/70 hover:text-sage-dark dark:hover:text-sage transition-colors truncate">Yemen</a>
+        </div>
+          </div>
+        </div>
+      </div>
       <div class="relative group">
         <a href="#colors" class="flex items-center gap-1 text-body/80 dark:text-ivory/70 hover:text-sage-dark dark:hover:text-sage transition-colors">
           Dioceses
@@ -125,7 +182,8 @@
   <div id="mobileMenu" class="hidden md:hidden border-t border-line dark:border-white/10 bg-ivory dark:bg-midnight px-5 py-5 flex flex-col gap-4 font-serif italic text-base">
     <a href="#map" class="text-body/80 dark:text-ivory/70">World Map</a>
     <a href="#nearest" class="text-body/80 dark:text-ivory/70">Nearest</a>
-    <a href="#discover" class="text-body/80 dark:text-ivory/70">Discover</a>
+    <a href="#discover" class="text-body/80 dark:text-ivory/70">Random</a>
+    <a href="nations" class="text-sage-dark dark:text-sage font-semibold">All Nations &rarr;</a>
     <a href="#numbers" class="text-body/80 dark:text-ivory/70">Institutions</a>
     <a href="#clergy" class="text-body/80 dark:text-ivory/70">Clergy</a>
     <a href="#legend" class="text-body/80 dark:text-ivory/70">Legend</a>
