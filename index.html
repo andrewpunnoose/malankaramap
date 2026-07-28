@@ -349,15 +349,15 @@
     <h2 class="font-serif italic font-normal text-2xl sm:text-[34px] text-ink dark:text-ivory mb-4">The Church Today, Mapped Live</h2>
     <p class="text-[15px] text-body/75 dark:text-ivory/60 leading-[1.8]">Every parish, chapel, cathedral, and shrine across the globe today &mdash; plotted from the Church&rsquo;s current directories.</p>
   </div>
-  <div class="relative rounded-2xl overflow-hidden border border-line dark:border-white/10 shadow-medium bg-charcoal h-[360px] sm:h-[480px] md:h-[560px] lg:h-[640px]">
+  <div class="relative rounded-2xl overflow-hidden border border-line dark:border-white/10 shadow-medium bg-ivory dark:bg-charcoal h-[360px] sm:h-[480px] md:h-[560px] lg:h-[640px]">
     <iframe id="mapFrame" src="https://www.google.com/maps/d/u/0/embed?mid=1TRfC9ZEHxXfzwAWy-tv1UNdUEvzL9C0&ehbc=2E312F&noprof=1" allowfullscreen loading="lazy" class="absolute left-0 w-full border-0" style="top:-77px; height:calc(100% + 77px);"></iframe>
-    <div id="mapLoader" class="absolute inset-0 z-20 flex flex-col items-center justify-center gap-3.5 bg-charcoal transition-opacity duration-700">
+    <div id="mapLoader" class="absolute inset-0 z-20 flex flex-col items-center justify-center gap-3.5 bg-ivory dark:bg-charcoal transition-opacity duration-700">
       <div class="relative w-11 h-11 flex items-center justify-center">
         <span class="absolute inset-0 rounded-full border border-gold/50 animate-ping"></span>
         <span class="absolute inset-0 rounded-full border border-gold/25"></span>
         <svg class="relative w-5 h-5 text-gold" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21 C12 21 18 14.5 18 9.5 A6 6 0 0 0 6 9.5 C6 14.5 12 21 12 21 Z"/><circle cx="12" cy="9.5" r="2.1"/></svg>
       </div>
-      <p class="font-serif italic text-[13px] text-ivory/45 tracking-wide">Loading the map&hellip;</p>
+      <p class="font-serif italic text-[13px] text-body/50 dark:text-ivory/45 tracking-wide">Loading the map&hellip;</p>
     </div>
     <button id="locateBtn" type="button" class="absolute top-4 right-4 z-10 flex items-center gap-2 bg-ivory/95 dark:bg-midnight/95 backdrop-blur-sm text-ink dark:text-ivory text-xs sm:text-[13px] font-sans font-medium pl-3 pr-3.5 py-2.5 rounded-full shadow-medium border border-line dark:border-white/15 hover:bg-white dark:hover:bg-charcoal transition-colors">
       <svg id="locateIcon" class="w-4 h-4 text-sage-dark dark:text-sage shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M12 3 V5.5 M12 18.5 V21 M3 12 H5.5 M18.5 12 H21"/></svg>
@@ -983,62 +983,62 @@
     <p class="font-serif italic text-sm text-body/55 dark:text-ivory/45">Every parish, chapel, and shrine accounted for &mdash; the full institutional life of the Church, gathered in one census.</p>
   </div>
   <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-7 border-t border-l border-line dark:border-white/10">
-      <div class="border-b border-r border-line dark:border-white/10 p-5 sm:p-6 flex flex-col gap-2">
-        <span class="font-serif text-3xl sm:text-4xl text-ink dark:text-ivory">1,801</span>
+      <a href="type-parish-churches" class="group border-b border-r border-line dark:border-white/10 p-5 sm:p-6 flex flex-col gap-2 hover:bg-featured dark:hover:bg-white/5 transition">
+        <span class="font-serif text-3xl sm:text-4xl text-ink dark:text-ivory group-hover:text-sage-dark dark:group-hover:text-sage transition">1,801</span>
         <span class="text-[10px] sm:text-[11px] tracking-wider uppercase text-body/60 dark:text-ivory/50 font-medium">Parishes</span>
-      </div>
-      <div class="border-b border-r border-line dark:border-white/10 p-5 sm:p-6 flex flex-col gap-2">
-        <span class="font-serif text-3xl sm:text-4xl text-ink dark:text-ivory">655</span>
+      </a>
+      <a href="type-chapels" class="group border-b border-r border-line dark:border-white/10 p-5 sm:p-6 flex flex-col gap-2 hover:bg-featured dark:hover:bg-white/5 transition">
+        <span class="font-serif text-3xl sm:text-4xl text-ink dark:text-ivory group-hover:text-sage-dark dark:group-hover:text-sage transition">655</span>
         <span class="text-[10px] sm:text-[11px] tracking-wider uppercase text-body/60 dark:text-ivory/50 font-medium">Chapels</span>
-      </div>
-      <div class="border-b border-r border-line dark:border-white/10 p-5 sm:p-6 flex flex-col gap-2">
-        <span class="font-serif text-3xl sm:text-4xl text-ink dark:text-ivory">169</span>
+      </a>
+      <a href="type-congregations" class="group border-b border-r border-line dark:border-white/10 p-5 sm:p-6 flex flex-col gap-2 hover:bg-featured dark:hover:bg-white/5 transition">
+        <span class="font-serif text-3xl sm:text-4xl text-ink dark:text-ivory group-hover:text-sage-dark dark:group-hover:text-sage transition">169</span>
         <span class="text-[10px] sm:text-[11px] tracking-wider uppercase text-body/60 dark:text-ivory/50 font-medium">Congregations</span>
-      </div>
-      <a href="cathedrals" class="group border-b border-r border-line dark:border-white/10 p-5 sm:p-6 flex flex-col gap-2 hover:bg-featured dark:hover:bg-white/5 transition">
+      </a>
+      <a href="type-cathedrals" class="group border-b border-r border-line dark:border-white/10 p-5 sm:p-6 flex flex-col gap-2 hover:bg-featured dark:hover:bg-white/5 transition">
         <span class="font-serif text-3xl sm:text-4xl text-ink dark:text-ivory group-hover:text-sage-dark dark:group-hover:text-sage transition">61</span>
         <span class="text-[10px] sm:text-[11px] tracking-wider uppercase text-body/60 dark:text-ivory/50 font-medium">Cathedrals</span>
       </a>
-      <a href="monasteries" class="group border-b border-r border-line dark:border-white/10 p-5 sm:p-6 flex flex-col gap-2 hover:bg-featured dark:hover:bg-white/5 transition">
+      <a href="type-monasteries" class="group border-b border-r border-line dark:border-white/10 p-5 sm:p-6 flex flex-col gap-2 hover:bg-featured dark:hover:bg-white/5 transition">
         <span class="font-serif text-3xl sm:text-4xl text-ink dark:text-ivory group-hover:text-sage-dark dark:group-hover:text-sage transition">54</span>
         <span class="text-[10px] sm:text-[11px] tracking-wider uppercase text-body/60 dark:text-ivory/50 font-medium">Monasteries</span>
       </a>
-      <div class="border-b border-r border-line dark:border-white/10 p-5 sm:p-6 flex flex-col gap-2">
-        <span class="font-serif text-3xl sm:text-4xl text-ink dark:text-ivory">50</span>
+      <a href="type-qurbana-centres" class="group border-b border-r border-line dark:border-white/10 p-5 sm:p-6 flex flex-col gap-2 hover:bg-featured dark:hover:bg-white/5 transition">
+        <span class="font-serif text-3xl sm:text-4xl text-ink dark:text-ivory group-hover:text-sage-dark dark:group-hover:text-sage transition">50</span>
         <span class="text-[10px] sm:text-[11px] tracking-wider uppercase text-body/60 dark:text-ivory/50 font-medium">Qurbana Centres</span>
-      </div>
-      <div class="border-b border-r border-line dark:border-white/10 p-5 sm:p-6 flex flex-col gap-2">
-        <span class="font-serif text-3xl sm:text-4xl text-ink dark:text-ivory">35</span>
+      </a>
+      <a href="type-palaces" class="group border-b border-r border-line dark:border-white/10 p-5 sm:p-6 flex flex-col gap-2 hover:bg-featured dark:hover:bg-white/5 transition">
+        <span class="font-serif text-3xl sm:text-4xl text-ink dark:text-ivory group-hover:text-sage-dark dark:group-hover:text-sage transition">35</span>
         <span class="text-[10px] sm:text-[11px] tracking-wider uppercase text-body/60 dark:text-ivory/50 font-medium">Palaces</span>
-      </div>
-      <a href="convents" class="group border-b border-r border-line dark:border-white/10 p-5 sm:p-6 flex flex-col gap-2 hover:bg-featured dark:hover:bg-white/5 transition">
+      </a>
+      <a href="type-convents" class="group border-b border-r border-line dark:border-white/10 p-5 sm:p-6 flex flex-col gap-2 hover:bg-featured dark:hover:bg-white/5 transition">
         <span class="font-serif text-3xl sm:text-4xl text-ink dark:text-ivory group-hover:text-sage-dark dark:group-hover:text-sage transition">29</span>
         <span class="text-[10px] sm:text-[11px] tracking-wider uppercase text-body/60 dark:text-ivory/50 font-medium">Convents</span>
       </a>
-      <div class="border-b border-r border-line dark:border-white/10 p-5 sm:p-6 flex flex-col gap-2">
-        <span class="font-serif text-3xl sm:text-4xl text-ink dark:text-ivory">28</span>
+      <a href="type-catholicate-centres" class="group border-b border-r border-line dark:border-white/10 p-5 sm:p-6 flex flex-col gap-2 hover:bg-featured dark:hover:bg-white/5 transition">
+        <span class="font-serif text-3xl sm:text-4xl text-ink dark:text-ivory group-hover:text-sage-dark dark:group-hover:text-sage transition">28</span>
         <span class="text-[10px] sm:text-[11px] tracking-wider uppercase text-body/60 dark:text-ivory/50 font-medium">Catholicate Centres</span>
-      </div>
+      </a>
       <div class="border-b border-r border-line dark:border-white/10 p-5 sm:p-6 flex flex-col gap-2">
         <span class="font-serif text-3xl sm:text-4xl text-ink dark:text-ivory">22</span>
         <span class="text-[10px] sm:text-[11px] tracking-wider uppercase text-body/60 dark:text-ivory/50 font-medium">Communities</span>
       </div>
-      <div class="border-b border-r border-line dark:border-white/10 p-5 sm:p-6 flex flex-col gap-2">
-        <span class="font-serif text-3xl sm:text-4xl text-ink dark:text-ivory">22</span>
+      <a href="type-sunday-schools" class="group border-b border-r border-line dark:border-white/10 p-5 sm:p-6 flex flex-col gap-2 hover:bg-featured dark:hover:bg-white/5 transition">
+        <span class="font-serif text-3xl sm:text-4xl text-ink dark:text-ivory group-hover:text-sage-dark dark:group-hover:text-sage transition">22</span>
         <span class="text-[10px] sm:text-[11px] tracking-wider uppercase text-body/60 dark:text-ivory/50 font-medium">Independent Sunday Schools</span>
-      </div>
-      <div class="border-b border-r border-line dark:border-white/10 p-5 sm:p-6 flex flex-col gap-2">
-        <span class="font-serif text-3xl sm:text-4xl text-ink dark:text-ivory">19</span>
+      </a>
+      <a href="type-seminaries" class="group border-b border-r border-line dark:border-white/10 p-5 sm:p-6 flex flex-col gap-2 hover:bg-featured dark:hover:bg-white/5 transition">
+        <span class="font-serif text-3xl sm:text-4xl text-ink dark:text-ivory group-hover:text-sage-dark dark:group-hover:text-sage transition">19</span>
         <span class="text-[10px] sm:text-[11px] tracking-wider uppercase text-body/60 dark:text-ivory/50 font-medium">Seminaries</span>
-      </div>
-      <div class="border-b border-r border-line dark:border-white/10 p-5 sm:p-6 flex flex-col gap-2">
-        <span class="font-serif text-3xl sm:text-4xl text-ink dark:text-ivory">10</span>
+      </a>
+      <a href="type-prayer-groups" class="group border-b border-r border-line dark:border-white/10 p-5 sm:p-6 flex flex-col gap-2 hover:bg-featured dark:hover:bg-white/5 transition">
+        <span class="font-serif text-3xl sm:text-4xl text-ink dark:text-ivory group-hover:text-sage-dark dark:group-hover:text-sage transition">10</span>
         <span class="text-[10px] sm:text-[11px] tracking-wider uppercase text-body/60 dark:text-ivory/50 font-medium">Independent Prayer Groups</span>
-      </div>
-      <div class="border-b border-r border-line dark:border-white/10 p-5 sm:p-6 flex flex-col gap-2">
-        <span class="font-serif text-3xl sm:text-4xl text-ink dark:text-ivory">8</span>
+      </a>
+      <a href="type-student-centres" class="group border-b border-r border-line dark:border-white/10 p-5 sm:p-6 flex flex-col gap-2 hover:bg-featured dark:hover:bg-white/5 transition">
+        <span class="font-serif text-3xl sm:text-4xl text-ink dark:text-ivory group-hover:text-sage-dark dark:group-hover:text-sage transition">8</span>
         <span class="text-[10px] sm:text-[11px] tracking-wider uppercase text-body/60 dark:text-ivory/50 font-medium">Student Centres</span>
-      </div>
+      </a>
   </div>
   <p class="mt-6 font-sans text-xs sm:text-sm text-body/60 dark:text-ivory/50">Beyond the map: an estimated <strong class="text-sage-dark dark:text-sage font-semibold">1,706,012</strong> members across <strong class="text-sage-dark dark:text-sage font-semibold">32</strong> dioceses and <strong class="text-sage-dark dark:text-sage font-semibold">2</strong> titular sees worldwide.</p>
 </section>
