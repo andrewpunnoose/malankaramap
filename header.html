@@ -1,6 +1,23 @@
 <audio id="bgMusic" loop>
   <source src="audio.mp3" type="audio/mpeg">
 </audio>
+<style>
+/* Fix: the logo mark was rotating 180deg on hover, and since the
+   cross+circle artwork isn't symmetric, that flip made it look
+   like it was swinging off-center. Now the icon stays put and
+   only a plain (symmetric) ring around it animates. This overrides
+   the same rule name in the shared stylesheet if present. */
+.mark-spin{ position:relative; transition: transform .4s cubic-bezier(.16,.8,.24,1), box-shadow .5s ease; }
+.mark-spin::before{
+  content:''; position:absolute; inset:-4px; border-radius:50%;
+  border:1px dashed rgba(107,130,89,.4);
+  opacity:0; transform:scale(.82) rotate(0deg);
+  transition: opacity .4s ease, transform .6s cubic-bezier(.16,.8,.24,1);
+  pointer-events:none;
+}
+.group\/logo:hover .mark-spin{ transform: scale(1.06); box-shadow: 0 0 0 4px var(--sage-glow, rgba(107,130,89,.28)); }
+.group\/logo:hover .mark-spin::before{ opacity:1; transform:scale(1) rotate(160deg); }
+</style>
 <!-- ==================== HEADER ==================== -->
 <header class="sticky top-0 z-50 header-glass border-b border-line dark:border-white/10">
   <div class="header-edge"></div>
@@ -25,8 +42,7 @@
       </div>
     </a>
 
-    <nav class="hidden md:flex items-center gap-7 font-sans not-italic text-[11.5px] font-semibold tracking-[0.08em] uppercase shrink-0">
-      <a href="#globe" class="text-body/80 dark:text-ivory/70 hover:text-sage-dark dark:hover:text-sage transition-colors">The World</a>
+    <nav class="hidden md:flex items-center gap-8 font-serif italic text-[15px] shrink-0">
       <a href="#legend" class="text-body/80 dark:text-ivory/70 hover:text-sage-dark dark:hover:text-sage transition-colors">Legend</a>
       <div class="relative group">
         <a href="#colors" class="flex items-center gap-1 text-body/80 dark:text-ivory/70 hover:text-sage-dark dark:hover:text-sage transition-colors">
@@ -210,7 +226,6 @@
       <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg>
       Search the directory
     </button>
-    <a href="#globe" class="text-body/80 dark:text-ivory/70">The World</a>
     <a href="#legend" class="text-body/80 dark:text-ivory/70">Legend</a>
     <a href="#colors" class="text-body/80 dark:text-ivory/70">Dioceses</a>
     <a href="nations" class="text-body/80 dark:text-ivory/70">Nations</a>

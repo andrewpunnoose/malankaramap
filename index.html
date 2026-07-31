@@ -174,8 +174,16 @@
   opacity:.55; pointer-events:none;
 }
 
-.mark-spin{ transition: transform .6s cubic-bezier(.16,.8,.24,1), box-shadow .5s ease; }
-.group\/logo:hover .mark-spin{ transform: rotate(180deg); box-shadow: 0 0 0 4px var(--sage-glow); }
+.mark-spin{ position:relative; transition: transform .4s cubic-bezier(.16,.8,.24,1), box-shadow .5s ease; }
+.mark-spin::before{
+  content:''; position:absolute; inset:-4px; border-radius:50%;
+  border:1px dashed rgba(107,130,89,.4);
+  opacity:0; transform:scale(.82) rotate(0deg);
+  transition: opacity .4s ease, transform .6s cubic-bezier(.16,.8,.24,1);
+  pointer-events:none;
+}
+.group\/logo:hover .mark-spin{ transform: scale(1.06); box-shadow: 0 0 0 4px var(--sage-glow); }
+.group\/logo:hover .mark-spin::before{ opacity:1; transform:scale(1) rotate(160deg); }
 
 .live-dot{
   position:relative; width:6px; height:6px; border-radius:50%;
@@ -297,12 +305,29 @@
 }
 @keyframes loadSpin{ to{ transform: rotate(360deg); } }
 
+/* ============================================================
+   GRAIN — a whisper of texture across the whole site, the way a
+   fine paper stock or brushed leather catches light. Purely
+   decorative: fixed, non-interactive, sits above flow content
+   but below the header/command palette.
+   ============================================================ */
+.grain-overlay{
+  position:fixed; inset:0; z-index:3; pointer-events:none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.82' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-size: 140px 140px;
+  opacity: .05;
+  mix-blend-mode: overlay;
+}
+.dark .grain-overlay{ opacity: .07; mix-blend-mode: soft-light; }
+
+
 
 
 </style>
 </head>
 <body class="bg-ivory dark:bg-midnight text-body dark:text-ivory/85 font-sans transition-colors duration-300">
 <div id="loadVeil" class="load-veil" aria-hidden="true"><span class="load-mark"></span></div>
+<div class="grain-overlay" aria-hidden="true"></div>
 <script>
 (function(){
   var veil = document.getElementById('loadVeil');
@@ -346,8 +371,7 @@
       </div>
     </a>
 
-    <nav class="hidden md:flex items-center gap-7 font-sans not-italic text-[11.5px] font-semibold tracking-[0.08em] uppercase shrink-0">
-      <a href="#globe" class="text-body/80 dark:text-ivory/70 hover:text-sage-dark dark:hover:text-sage transition-colors">The World</a>
+    <nav class="hidden md:flex items-center gap-8 font-serif italic text-[15px] shrink-0">
       <a href="#legend" class="text-body/80 dark:text-ivory/70 hover:text-sage-dark dark:hover:text-sage transition-colors">Legend</a>
       <div class="relative group">
         <a href="#colors" class="flex items-center gap-1 text-body/80 dark:text-ivory/70 hover:text-sage-dark dark:hover:text-sage transition-colors">
@@ -531,7 +555,6 @@
       <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg>
       Search the directory
     </button>
-    <a href="#globe" class="text-body/80 dark:text-ivory/70">The World</a>
     <a href="#legend" class="text-body/80 dark:text-ivory/70">Legend</a>
     <a href="#colors" class="text-body/80 dark:text-ivory/70">Dioceses</a>
     <a href="nations" class="text-body/80 dark:text-ivory/70">Nations</a>
@@ -1939,63 +1962,79 @@ window.addEventListener("click", function () {
     );
   }
 
-  // -- lit, textured Earth --
+  // -- lit, textured Earth (night side, so the pins read as lit-up cities) --
   var loader = new THREE.TextureLoader();
   loader.crossOrigin = 'anonymous';
-  var earthMat = new THREE.MeshPhongMaterial({ color: 0x9fb08a, shininess: 6, specular: 0x1a2416 });
+  var earthMat = new THREE.MeshPhongMaterial({
+    color: 0x060a07, emissive: 0x0d1a12, emissiveIntensity: 0.6,
+    shininess: 14, specular: 0x1c2f22
+  });
   var earthMesh = new THREE.Mesh(new THREE.SphereGeometry(R, 64, 44), earthMat);
   globe.add(earthMesh);
 
-  loader.load('https://unpkg.com/three-globe/example/img/earth-blue-marble.jpg', function(tex){
+  loader.load('https://unpkg.com/three-globe/example/img/earth-night.jpg', function(tex){
     tex.anisotropy = renderer.capabilities.getMaxAnisotropy ? renderer.capabilities.getMaxAnisotropy() : 1;
-    earthMat.map = tex; earthMat.color.set(0xffffff); earthMat.needsUpdate = true;
-  });
-  loader.load('https://unpkg.com/three-globe/example/img/earth-topology.png', function(tex){
-    earthMat.bumpMap = tex; earthMat.bumpScale = 0.02; earthMat.needsUpdate = true;
+    earthMat.emissiveMap = tex; earthMat.emissive.set(0xffffff); earthMat.emissiveIntensity = 0.85;
+    earthMat.map = tex; earthMat.color.set(0x445540);
+    earthMat.needsUpdate = true;
   });
 
   // faint technical graticule, just above the surface
   var wire = new THREE.Mesh(
     new THREE.SphereGeometry(R * 1.004, 28, 18),
-    new THREE.MeshBasicMaterial({ color: 0x6b8259, wireframe: true, transparent: true, opacity: 0.10 })
+    new THREE.MeshBasicMaterial({ color: 0x6b8259, wireframe: true, transparent: true, opacity: 0.08 })
   );
   globe.add(wire);
 
   // atmosphere glow
   var glow = new THREE.Mesh(
     new THREE.SphereGeometry(R * 1.09, 32, 24),
-    new THREE.MeshBasicMaterial({ color: 0x7fb0e0, transparent: true, opacity: 0.07, side: THREE.BackSide })
+    new THREE.MeshBasicMaterial({ color: 0x6b8259, transparent: true, opacity: 0.09, side: THREE.BackSide })
   );
   globe.add(glow);
 
-  scene.add(new THREE.AmbientLight(0xffffff, 0.55));
-  var sun = new THREE.DirectionalLight(0xfff2dd, 1.05);
+  scene.add(new THREE.AmbientLight(0xffffff, 0.22));
+  var sun = new THREE.DirectionalLight(0xdcead0, 0.35);
   sun.position.set(-3, 2, 4);
   scene.add(sun);
 
-  // -- 3,536 plotted locations, one draw call --
-  function dotTexture(hex){
+  // -- 3,536 plotted locations, glowing bright against the night side --
+  function dotTexture(hex, soft){
     var c = document.createElement('canvas'); c.width = 32; c.height = 32;
     var ctx = c.getContext('2d');
     var g = ctx.createRadialGradient(16,16,0,16,16,16);
-    g.addColorStop(0, hex + 'FF'); g.addColorStop(0.45, hex + 'AA'); g.addColorStop(1, hex + '00');
+    if(soft){
+      g.addColorStop(0, hex + '55'); g.addColorStop(0.5, hex + '22'); g.addColorStop(1, hex + '00');
+    } else {
+      g.addColorStop(0, '#FFFFFF'); g.addColorStop(0.25, hex + 'FF'); g.addColorStop(0.6, hex + 'CC'); g.addColorStop(1, hex + '00');
+    }
     ctx.fillStyle = g; ctx.fillRect(0,0,32,32);
     return new THREE.CanvasTexture(c);
   }
 
   var positions = new Float32Array((FLAT.length / 2) * 3);
   for(var i = 0, j = 0; i < FLAT.length; i += 2, j += 3){
-    var v = latLonToVec3(FLAT[i], FLAT[i+1], R * 1.012);
+    var v = latLonToVec3(FLAT[i], FLAT[i+1], R * 1.014);
     positions[j] = v.x; positions[j+1] = v.y; positions[j+2] = v.z;
   }
   var pointsGeo = new THREE.BufferGeometry();
   pointsGeo.setAttribute('position', new THREE.BufferAttribute(positions, 3));
-  var pointsMat = new THREE.PointsMaterial({
-    map: dotTexture('#BA9450'), color: 0xBA9450, size: 0.026,
+
+  // soft outer halo layer -- the "glow"
+  var haloMat = new THREE.PointsMaterial({
+    map: dotTexture('#FFC978', true), color: 0xFFC978, size: 0.075,
+    transparent: true, depthWrite: false, sizeAttenuation: true,
+    blending: THREE.AdditiveBlending, opacity: 0.9
+  });
+  globe.add(new THREE.Points(pointsGeo, haloMat));
+
+  // bright core layer -- the actual pin
+  var coreMat = new THREE.PointsMaterial({
+    map: dotTexture('#FFD98F', false), color: 0xFFE7B8, size: 0.034,
     transparent: true, depthWrite: false, sizeAttenuation: true,
     blending: THREE.AdditiveBlending
   });
-  globe.add(new THREE.Points(pointsGeo, pointsMat));
+  globe.add(new THREE.Points(pointsGeo, coreMat));
 
   // a few quiet network arcs from the Kerala hub outward
   var hub = [10.0, 76.3];
@@ -2008,7 +2047,7 @@ window.addEventListener("click", function () {
     var curve = new THREE.QuadraticBezierCurve3(start, mid, end);
     var pts = curve.getPoints(40);
     var geo = new THREE.BufferGeometry().setFromPoints(pts);
-    var mat = new THREE.LineBasicMaterial({ color: 0xba9450, transparent: true, opacity: 0.16 });
+    var mat = new THREE.LineBasicMaterial({ color: 0xffc978, transparent: true, opacity: 0.2 });
     globe.add(new THREE.Line(geo, mat));
   });
 
