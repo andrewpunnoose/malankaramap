@@ -2,12 +2,21 @@
   <source src="audio.mp3" type="audio/mpeg">
 </audio>
 <style>
+/* Fix: fixed, z-[100], pt-24, and sm:pt-32 are not present in this
+   build's compiled Tailwind output, so the command-palette overlay
+   was not actually covering the viewport when opened. */
+#cmdOverlay{ position:fixed; z-index:100; padding-top:6rem; }
+@media (min-width:640px){ #cmdOverlay{ padding-top:8rem; } }
+</style>
+<style>
 /* Fix: the logo mark was rotating 180deg on hover, and since the
    cross+circle artwork isn't symmetric, that flip made it look
    like it was swinging off-center. Now the icon stays put and
    only a plain (symmetric) ring around it animates. This overrides
    the same rule name in the shared stylesheet if present. */
-.mark-spin{ position:relative; transition: transform .4s cubic-bezier(.16,.8,.24,1), box-shadow .5s ease; }
+.mark-spin{ position:relative; display:flex; align-items:center; justify-content:center; transition: transform .4s cubic-bezier(.16,.8,.24,1), box-shadow .5s ease; }
+.mark-spin svg.mark-icon{ width:24px; height:24px; }
+@media (min-width:640px){ .mark-spin svg.mark-icon{ width:29px; height:29px; } }
 .mark-spin::before{
   content:''; position:absolute; inset:-4px; border-radius:50%;
   border:1px dashed rgba(107,130,89,.4);
@@ -24,7 +33,7 @@
   <div class="max-w-7xl mx-auto px-5 sm:px-8 h-16 sm:h-20 flex items-center justify-between gap-4">
     <a href="https://malankaramap.com" class="flex items-center gap-3 min-w-0 group/logo">
       <span class="relative shrink-0 grid place-items-center w-9 h-9 sm:w-10 sm:h-10 rounded-full border border-sage/40 dark:border-sage/50 mark-spin">
-        <svg class="w-6 h-6 sm:w-[26px] sm:h-[26px] text-ink dark:text-ivory" viewBox="0 0 40 40" fill="none">
+        <svg class="mark-icon text-ink dark:text-ivory" viewBox="0 0 40 40" fill="none">
           <path d="M20 6 L20 34 M10 16 L30 16" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
           <path d="M20 6 C16.5 10 16.5 13 20 16 C23.5 13 23.5 10 20 6Z" fill="var(--thread)"/>
           <circle cx="20" cy="20" r="9" stroke="var(--thread)" stroke-width="1.2" fill="none"/>
@@ -32,7 +41,7 @@
       </span>
       <div class="min-w-0">
         <div class="flex items-center gap-2 mb-0.5">
-          <span class="text-[9.5px] sm:text-[10px] tracking-[0.18em] uppercase text-taupe font-semibold truncate">Est. Apostolic Era &middot; AD 52</span>
+          <span class="font-serif text-[9.5px] sm:text-[10px] tracking-[0.18em] uppercase text-taupe font-semibold truncate">Est. Apostolic Era &middot; AD 52</span>
           <span class="hidden sm:inline-flex items-center gap-1.5 pl-2 border-l border-line dark:border-white/15">
             <span class="live-dot"></span>
             <span class="text-[9.5px] tracking-[0.14em] uppercase text-sage-dark dark:text-sage font-semibold">Live &middot; 3,536</span>
@@ -143,7 +152,6 @@
           <a href="united-arab-emirates" class="block px-2 py-1.5 rounded hover:bg-featured dark:hover:bg-white/10 text-body/80 dark:text-ivory/70 hover:text-sage-dark dark:hover:text-sage transition-colors truncate">United Arab Emirates</a>
           <a href="united-kingdom" class="block px-2 py-1.5 rounded hover:bg-featured dark:hover:bg-white/10 text-body/80 dark:text-ivory/70 hover:text-sage-dark dark:hover:text-sage transition-colors truncate">United Kingdom</a>
           <a href="united-states" class="block px-2 py-1.5 rounded hover:bg-featured dark:hover:bg-white/10 text-body/80 dark:text-ivory/70 hover:text-sage-dark dark:hover:text-sage transition-colors truncate">United States</a>
-          <a href="yemen" class="block px-2 py-1.5 rounded hover:bg-featured dark:hover:bg-white/10 text-body/80 dark:text-ivory/70 hover:text-sage-dark dark:hover:text-sage transition-colors truncate">Yemen</a>
         </div>
           </div>
         </div>
@@ -160,7 +168,7 @@
           <a href="type-parish-churches" class="flex items-center justify-between gap-2 px-2 py-1.5 rounded hover:bg-featured dark:hover:bg-white/10 text-body/80 dark:text-ivory/70 hover:text-sage-dark dark:hover:text-sage transition-colors truncate"><span class="truncate">Parish Churches</span><span class="font-sans text-[11px] text-muted shrink-0">1768</span></a>
           <a href="type-chapels" class="flex items-center justify-between gap-2 px-2 py-1.5 rounded hover:bg-featured dark:hover:bg-white/10 text-body/80 dark:text-ivory/70 hover:text-sage-dark dark:hover:text-sage transition-colors truncate"><span class="truncate">Chapels</span><span class="font-sans text-[11px] text-muted shrink-0">643</span></a>
           <a href="type-cathedrals" class="flex items-center justify-between gap-2 px-2 py-1.5 rounded hover:bg-featured dark:hover:bg-white/10 text-body/80 dark:text-ivory/70 hover:text-sage-dark dark:hover:text-sage transition-colors truncate"><span class="truncate">Cathedrals</span><span class="font-sans text-[11px] text-muted shrink-0">60</span></a>
-          <a href="type-congregations" class="flex items-center justify-between gap-2 px-2 py-1.5 rounded hover:bg-featured dark:hover:bg-white/10 text-body/80 dark:text-ivory/70 hover:text-sage-dark dark:hover:text-sage transition-colors truncate"><span class="truncate">Congregations</span><span class="font-sans text-[11px] text-muted shrink-0">156</span></a>
+          <a href="type-congregations" class="flex items-center justify-between gap-2 px-2 py-1.5 rounded hover:bg-featured dark:hover:bg-white/10 text-body/80 dark:text-ivory/70 hover:text-sage-dark dark:hover:text-sage transition-colors truncate"><span class="truncate">Congregations</span><span class="font-sans text-[11px] text-muted shrink-0">155</span></a>
           <a href="type-monasteries" class="flex items-center justify-between gap-2 px-2 py-1.5 rounded hover:bg-featured dark:hover:bg-white/10 text-body/80 dark:text-ivory/70 hover:text-sage-dark dark:hover:text-sage transition-colors truncate"><span class="truncate">Monasteries</span><span class="font-sans text-[11px] text-muted shrink-0">55</span></a>
           <a href="type-convents" class="flex items-center justify-between gap-2 px-2 py-1.5 rounded hover:bg-featured dark:hover:bg-white/10 text-body/80 dark:text-ivory/70 hover:text-sage-dark dark:hover:text-sage transition-colors truncate"><span class="truncate">Convents</span><span class="font-sans text-[11px] text-muted shrink-0">25</span></a>
           <a href="type-palaces" class="flex items-center justify-between gap-2 px-2 py-1.5 rounded hover:bg-featured dark:hover:bg-white/10 text-body/80 dark:text-ivory/70 hover:text-sage-dark dark:hover:text-sage transition-colors truncate"><span class="truncate">Palaces</span><span class="font-sans text-[11px] text-muted shrink-0">34</span></a>
