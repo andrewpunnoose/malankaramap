@@ -1100,17 +1100,20 @@
 
   function render(){
     var c = churches[Math.floor(Math.random() * churches.length)];
-    document.getElementById('drName').textContent = c.n;
-    var info = dioceseInfo[c.d];
+    var name = c.n || c.name || c.Name || 'Unnamed location';
+    var diocese = c.d || c.diocese || c.Diocese || '';
+    var desc = getDesc(c);
+    document.getElementById('drName').textContent = name;
+    var info = dioceseInfo[diocese];
     document.getElementById('drDot').style.background = info ? info[0] : '#8B7355';
-    var label = c.d || 'Diocese unrecorded';
+    var label = diocese || 'Diocese unrecorded';
     if(info && info[1]){ label += ' \u00b7 Est. ' + info[1]; }
     document.getElementById('drDiocese').textContent = label;
 
     var wrap = document.getElementById('drDescWrap');
     wrap.innerHTML = '';
-    if(c.ds){
-      var parsed = parseDescription(c.ds);
+    if(desc){
+      var parsed = parseDescription(desc);
       parsed.paras.forEach(function(p){
         var el = document.createElement('p');
         el.className = 'text-[14.5px] text-body/80 dark:text-ivory/65 leading-[1.8]';
@@ -1120,7 +1123,7 @@
       parsed.images.forEach(function(src){
         var img = document.createElement('img');
         img.className = 'w-full h-auto block rounded-lg border border-line dark:border-white/10';
-        img.alt = c.n;
+        img.alt = name;
         img.loading = 'lazy';
         img.onerror = function(){ img.remove(); };
         wrap.appendChild(img);
@@ -1135,15 +1138,33 @@
     result.classList.remove('hidden');
   }
 
+  function wordCount(s){
+    if(!s) return 0;
+    var text = String(s).replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').trim();
+    return text ? text.split(' ').length : 0;
+  }
+
+  function getDesc(c){ return c.ds || c.description || c.desc || c.Description || ''; }
+
   function go(){
     if(churches){ render(); return; }
     if(loading) return;
     loading = true;
     btn.disabled = true;
     btn.textContent = 'Finding one\u2026';
-    fetch('churches.json').then(function(r){ return r.json(); }).then(function(data){
-      churches = data;
+    // malankara.json is the user-maintained export of the parish KML.
+    // Only entries with a real, substantial write-up (10+ words in the
+    // description) are eligible for "Surprise Me" — short or blank
+    // entries would make for a disappointing draw.
+    fetch('malankara.json').then(function(r){ return r.json(); }).then(function(data){
+      var all = Array.isArray(data) ? data : (data.features || data.locations || data.churches || []);
+      churches = all.filter(function(c){ return wordCount(getDesc(c)) >= 10; });
       loading = false;
+      if(!churches.length){
+        btn.disabled = false;
+        btn.textContent = 'None Available';
+        return;
+      }
       render();
     }).catch(function(){
       btn.disabled = false;
@@ -1702,7 +1723,7 @@
         <input type="text" id="rName" name="name" class="font-sans text-[14.5px] text-ink dark:text-ivory border-0 border-b border-line dark:border-white/15 bg-transparent py-2 outline-none focus:border-sage transition-colors">
       </div>
       <div class="flex flex-col gap-2">
-        <label for="rEmail" class="font-sans text-[10.5px] tracking-[0.1em] uppercase text-body/50 dark:text-ivory/40">Your Email (optional)</label>
+        <label for="rEmail" class="font-sans text-[10.5px] tracking-[0.1em] uppercase text-body/50 dark:text-ivory/40">Your Email (optional, for a reply)</label>
         <input type="email" id="rEmail" name="email" class="font-sans text-[14.5px] text-ink dark:text-ivory border-0 border-b border-line dark:border-white/15 bg-transparent py-2 outline-none focus:border-sage transition-colors">
       </div>
     </div>
@@ -1781,7 +1802,7 @@
   <svg class="mx-auto mb-5 text-gold" style="width:24px; height:24px; opacity:.7;" viewBox="0 0 40 40" fill="none">
     <path d="M20 6 L20 34 M10 16 L30 16" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
   </svg>
-  <div class="font-serif italic text-sm sm:text-[15px] text-ivory/85 mb-2">Managed by Andrew Punnoose</div>
+  <div class="font-serif italic text-sm sm:text-[15px] text-ivory/85 mb-2">Kept, thread by thread, by Andrew Punnoose</div>
   <div class="font-sans text-[11px] tracking-wide text-ivory/45">Not affiliated with the Malankara Orthodox Syrian Church.</div>
   <div class="font-sans text-[11px] tracking-wide text-ivory/45 mt-1">&copy; Malankara Map, July 2026</div>
 </footer>
