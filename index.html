@@ -238,9 +238,15 @@
    ============================================================ */
 .globe-section{
   background:
+    radial-gradient(ellipse 80% 60% at 50% 0%, rgba(107,130,89,.10), transparent 60%),
+    linear-gradient(180deg, #EEF0E6, #E7EBDD 55%, #EEF0E6);
+}
+.dark .globe-section{
+  background:
     radial-gradient(ellipse 80% 60% at 50% 0%, rgba(107,130,89,.16), transparent 60%),
     linear-gradient(180deg, #0B100C, #0E1712 55%, #0B100C);
 }
+.dark #globe .section-divider{ --div-line: rgba(247,245,238,.14); }
 .globe-grid{
   position:absolute; inset:0; opacity:.35; pointer-events:none;
   background-image:
@@ -258,13 +264,15 @@
 .globe-stage canvas:active{ cursor:grabbing; }
 .globe-ring{
   position:absolute; inset:-3.5%; border-radius:9999px;
-  border:1px solid rgba(186,148,80,.22);
+  border:1px solid rgba(186,148,80,.4);
   pointer-events:none;
 }
 .globe-ring::before{
   content:''; position:absolute; inset:-14px; border-radius:9999px;
-  border:1px dashed rgba(107,130,89,.18);
+  border:1px dashed rgba(107,130,89,.3);
 }
+.dark .globe-ring{ border-color: rgba(186,148,80,.22); }
+.dark .globe-ring::before{ border-color: rgba(107,130,89,.18); }
 .globe-fallback{
   width:82%; height:82%; border-radius:9999px;
   background: radial-gradient(circle at 32% 28%, rgba(107,130,89,.5), rgba(11,16,12,.9) 68%);
@@ -273,21 +281,101 @@
 .glass-pill{
   position:absolute; display:flex; flex-direction:column; gap:2px;
   padding:12px 18px; border-radius:16px;
-  background: rgba(27,36,23,.6);
-  border:1px solid rgba(247,245,238,.1);
+  background: rgba(16,20,13,.05);
+  border:1px solid rgba(16,20,13,.08);
   -webkit-backdrop-filter: blur(10px);
   backdrop-filter: blur(10px);
+  box-shadow: 0 14px 34px -18px rgba(16,20,13,.18);
+}
+.dark .glass-pill{
+  background: rgba(27,36,23,.6);
+  border:1px solid rgba(247,245,238,.1);
   box-shadow: 0 14px 34px -18px rgba(0,0,0,.6);
 }
-.glass-pill .count-num{ font-family: Marcellus, Georgia, serif; font-size:22px; color:#F6F4EC; line-height:1; }
-.glass-pill span:last-child{ font-size:10px; letter-spacing:.1em; text-transform:uppercase; color:rgba(247,245,238,.5); }
+.glass-pill .count-num{ font-family: Marcellus, Georgia, serif; font-size:22px; color:#10140D; line-height:1; }
+.dark .glass-pill .count-num{ color:#F6F4EC; }
+.glass-pill span:last-child{ font-size:10px; letter-spacing:.1em; text-transform:uppercase; color:rgba(16,20,13,.5); }
+.dark .glass-pill span:last-child{ color:rgba(247,245,238,.5); }
 .glass-pill--tl{ top:6%; left:-4%; }
 .glass-pill--br{ bottom:6%; right:-4%; }
 @media (max-width: 480px){
   .glass-pill--tl{ left:0; }
   .glass-pill--br{ right:0; }
 }
-.globe-stat{ padding-bottom:16px; border-bottom:1px solid rgba(247,245,238,.1); }
+.globe-stat{ padding-bottom:16px; border-bottom:1px solid rgba(16,20,13,.1); }
+.dark .globe-stat{ border-bottom:1px solid rgba(247,245,238,.1); }
+
+/* ============================================================
+   LIVING TIMELINE — horizontal scroll-through history
+   ============================================================ */
+.tl-track{
+  overflow-x:auto; overflow-y:hidden; cursor:grab;
+  -webkit-overflow-scrolling:touch;
+  scrollbar-width:none; -ms-overflow-style:none;
+  padding: 6px 0 10px;
+}
+.tl-track::-webkit-scrollbar{ display:none; }
+.tl-track.is-dragging{ cursor:grabbing; scroll-behavior:auto; }
+.tl-inner{
+  display:flex; align-items:stretch; position:relative;
+  height:290px;
+  padding: 0 max(1.25rem, calc(50vw - 36rem));
+  width:max-content;
+}
+.tl-inner::before{
+  content:''; position:absolute; left:0; right:0; top:145px; height:1px;
+  background: linear-gradient(90deg, transparent, rgba(16,20,13,.16) 2%, rgba(16,20,13,.16) 98%, transparent);
+}
+.dark .tl-inner::before{
+  background: linear-gradient(90deg, transparent, rgba(247,245,238,.16) 2%, rgba(247,245,238,.16) 98%, transparent);
+}
+.tl-card{ flex:0 0 190px; position:relative; padding:0 14px; }
+.tl-card .tl-dot{
+  position:absolute; top:145px; left:50%; transform:translate(-50%,-50%);
+  width:8px; height:8px; border-radius:50%; background:var(--thread); z-index:2;
+  box-shadow: 0 0 0 4px var(--herobg, #EEF0E6);
+}
+.dark .tl-card .tl-dot{ box-shadow: 0 0 0 4px #0E1712; }
+.tl-card.is-church .tl-dot{ width:5px; height:5px; background: rgba(107,130,89,.85); }
+.tl-card .tl-content{ position:absolute; left:6px; right:6px; text-align:center; display:flex; flex-direction:column; max-height:118px; overflow:hidden; }
+.tl-card.above .tl-content{ bottom:165px; flex-direction:column-reverse; justify-content:flex-start; }
+.tl-card.below .tl-content{ top:165px; }
+.tl-card .tl-year{
+  font-family: Marcellus, Georgia, serif; font-style:italic; font-size:14px;
+  color: var(--thread); margin-bottom:6px; line-height:1; flex-shrink:0;
+}
+.tl-card.above .tl-year{ margin-bottom:0; margin-top:6px; }
+.tl-card .tl-text{
+  font-family: Inter, system-ui, sans-serif; font-size:12px; line-height:1.5;
+  color: rgba(51,58,45,.78); overflow:hidden;
+}
+.dark .tl-card .tl-text{ color: rgba(247,245,238,.6); }
+.tl-card.is-church .tl-text{ font-style:italic; opacity:.82; }
+.tl-arrow{
+  flex-shrink:0; width:34px; height:34px; border-radius:9999px;
+  display:grid; place-items:center;
+  border:1px solid rgba(16,20,13,.14); color: rgb(16 20 13);
+  transition: background-color .2s ease, transform .2s ease;
+}
+.dark .tl-arrow{ border-color: rgba(247,245,238,.18); color: rgb(247 245 238); }
+.tl-arrow:hover{ background: rgba(107,130,89,.1); transform: translateY(-1px); }
+.tl-progress-track{
+  flex:1; height:2px; border-radius:2px; background: rgba(16,20,13,.1); position:relative; overflow:hidden;
+}
+.dark .tl-progress-track{ background: rgba(247,245,238,.14); }
+.tl-progress-bar{
+  position:absolute; left:0; top:0; bottom:0; width:2%; border-radius:2px;
+  background: var(--thread);
+}
+@media (max-width: 640px){
+  .tl-card{ flex-basis:150px; }
+  .tl-inner{ height:260px; }
+  .tl-inner::before{ top:130px; }
+  .tl-card .tl-dot{ top:130px; }
+  .tl-card .tl-content{ max-height:104px; }
+  .tl-card.above .tl-content{ bottom:146px; }
+  .tl-card.below .tl-content{ top:146px; }
+}
 
 /* ============================================================
    LOAD VEIL — the seamless opening moment
@@ -785,7 +873,7 @@
 <!-- ==================== GLOBE ==================== -->
 <section class="globe-section relative overflow-hidden" id="globe">
   <div class="globe-grid" aria-hidden="true"></div>
-  <div class="section-divider on-dark is-tight" aria-hidden="true">
+  <div class="section-divider is-tight" aria-hidden="true">
     <span class="section-divider__line"></span>
     <span class="section-divider__mark"><svg viewBox="0 0 24 24" width="13" height="13" fill="none"><path d="M12 2v20M2 12h20" stroke="currentColor" stroke-width="1" opacity=".55"/><rect x="9.5" y="9.5" width="5" height="5" transform="rotate(45 12 12)" fill="currentColor"/></svg></span>
     <span class="section-divider__line"></span>
@@ -793,8 +881,8 @@
   <div class="relative max-w-6xl mx-auto px-5 sm:px-8 py-16 sm:py-24">
     <div class="reveal max-w-xl mb-10 sm:mb-14">
       <div class="text-[10.5px] tracking-[0.2em] uppercase text-sage font-semibold mb-3 flex items-center gap-2"><span class="live-dot"></span>Real-time coverage</div>
-      <h2 class="font-serif italic font-normal text-[28px] sm:text-4xl text-ivory mb-4 leading-tight">One communion,<br>traced across the Earth</h2>
-      <p class="text-[15px] text-ivory/55 leading-[1.75]">Drag to turn it, scroll to zoom in. Every point is a real parish, chapel, or cathedral — 3,536 of them, plotted from Kerala's coast outward across six continents.</p>
+      <h2 class="font-serif italic font-normal text-[28px] sm:text-4xl text-ink dark:text-ivory mb-4 leading-tight">One communion,<br>traced across the Earth</h2>
+      <p class="text-[15px] text-body/70 dark:text-ivory/55 leading-[1.75]">Drag to turn it, scroll to zoom in. Every point is a real parish, chapel, or cathedral — 3,536 of them, plotted from Kerala's coast outward across six continents.</p>
     </div>
 
     <div class="grid grid-cols-1 lg:grid-cols-[1fr_auto] gap-8 lg:gap-14 items-center">
@@ -816,14 +904,14 @@
 
       <div class="reveal flex flex-col gap-5 lg:w-64" style="--reveal-delay:160ms">
         <div class="globe-stat">
-          <div class="font-serif text-3xl text-ivory">3,536</div>
-          <div class="text-[11px] tracking-wider uppercase text-ivory/45 font-medium mt-1">Locations mapped</div>
+          <div class="font-serif text-3xl text-ink dark:text-ivory">3,536</div>
+          <div class="text-[11px] tracking-wider uppercase text-body/50 dark:text-ivory/45 font-medium mt-1">Locations mapped</div>
         </div>
         <div class="globe-stat">
-          <div class="font-serif text-3xl text-ivory">6</div>
-          <div class="text-[11px] tracking-wider uppercase text-ivory/45 font-medium mt-1">Continents</div>
+          <div class="font-serif text-3xl text-ink dark:text-ivory">6</div>
+          <div class="text-[11px] tracking-wider uppercase text-body/50 dark:text-ivory/45 font-medium mt-1">Continents</div>
         </div>
-        <p class="text-[13px] text-ivory/40 leading-relaxed pt-1">Looking for one parish in particular? <a href="#nearest" class="text-sage underline underline-offset-4 decoration-sage/40 hover:text-ivory transition-colors">Find your nearest</a>, or type any place in the world to search all 3,536 locations.</p>
+        <p class="text-[13px] text-body/55 dark:text-ivory/40 leading-relaxed pt-1">Looking for one parish in particular? <a href="#nearest" class="text-sage underline underline-offset-4 decoration-sage/40 hover:text-ink dark:hover:text-ivory transition-colors">Find your nearest</a>, or type any place in the world to search all 3,536 locations.</p>
       </div>
     </div>
   </div>
@@ -892,6 +980,30 @@
     </div>
     <span class="font-serif italic text-sage-dark dark:text-sage shrink-0 text-sm sm:text-[15px] whitespace-nowrap">View the 1906 map <span style="display:inline-block;transition:transform .35s cubic-bezier(.16,.8,.24,1)">&rarr;</span></span>
   </a>
+</section>
+<!-- ==================== TIMELINE ==================== -->
+<section class="relative overflow-hidden pb-16 sm:pb-24" id="timeline">
+  <div class="section-divider is-tight" aria-hidden="true">
+    <span class="section-divider__line"></span>
+    <span class="section-divider__mark"><svg viewBox="0 0 24 24" width="13" height="13" fill="none"><path d="M12 2v20M2 12h20" stroke="currentColor" stroke-width="1" opacity=".5"/><rect x="9.5" y="9.5" width="5" height="5" transform="rotate(45 12 12)" fill="currentColor"/></svg></span>
+    <span class="section-divider__line"></span>
+  </div>
+  <div class="max-w-6xl mx-auto px-5 sm:px-8 mb-8 sm:mb-10">
+    <div class="reveal flex flex-col sm:flex-row sm:items-end sm:justify-between gap-3">
+      <h2 class="font-serif italic font-normal text-[28px] sm:text-4xl text-ink dark:text-ivory">Nineteen Centuries, Traced</h2>
+      <p class="font-serif italic text-sm text-body/55 dark:text-ivory/45 max-w-md">From the Apostle's landfall to the present communion &mdash; scroll sideways to move through the centuries.</p>
+    </div>
+  </div>
+  <div class="reveal">
+    <div id="tlTrack" class="tl-track" tabindex="0" aria-label="Scrollable historical timeline, 52 CE to 1974 CE">
+      <div id="tlInner" class="tl-inner"></div>
+    </div>
+    <div class="max-w-6xl mx-auto px-5 sm:px-8 mt-5 flex items-center gap-4">
+      <button id="tlPrev" type="button" class="tl-arrow" aria-label="Scroll to earlier events">&larr;</button>
+      <div class="tl-progress-track"><div id="tlProgressBar" class="tl-progress-bar"></div></div>
+      <button id="tlNext" type="button" class="tl-arrow" aria-label="Scroll to later events">&rarr;</button>
+    </div>
+  </div>
 </section>
 <!-- ==================== MAP ==================== -->
 <section class="px-5 sm:px-8 pb-16 sm:pb-24 max-w-6xl mx-auto" id="map">
@@ -1808,7 +1920,7 @@
         <input type="text" id="rName" name="name" class="font-sans text-[14.5px] text-ink dark:text-ivory border-0 border-b border-line dark:border-white/15 bg-transparent py-2 outline-none focus:border-sage transition-colors">
       </div>
       <div class="flex flex-col gap-2">
-        <label for="rEmail" class="font-sans text-[10.5px] tracking-[0.1em] uppercase text-body/50 dark:text-ivory/40">Your Email (optional)</label>
+        <label for="rEmail" class="font-sans text-[10.5px] tracking-[0.1em] uppercase text-body/50 dark:text-ivory/40">Your Email (optional, for a reply)</label>
         <input type="email" id="rEmail" name="email" class="font-sans text-[14.5px] text-ink dark:text-ivory border-0 border-b border-line dark:border-white/15 bg-transparent py-2 outline-none focus:border-sage transition-colors">
       </div>
     </div>
@@ -2243,6 +2355,383 @@ window.addEventListener("click", function () {
 })();
 </script>
 
+<script>
+/* ============================================================
+   LIVING TIMELINE — builds cards from data, and turns vertical
+   wheel / touch / drag input into horizontal movement.
+   ============================================================ */
+(function(){
+  var track = document.getElementById('tlTrack');
+  var inner = document.getElementById('tlInner');
+  if(!track || !inner) return;
+
+  var DATA = [
+[52,'52 CE','St. Thomas lands at Kodungalloor and later builds the present Arthat St. Mary\'s Orthodox Cathedral.',0],
+[54,'54 CE','St. Thomas establishes St. Mary\'s Orthodox Church at Niranam.',0],
+[54,'54 CE','St. Thomas raises the Nilackal Church deep in the Western Ghats.',0],
+[63,'63 CE','St. Thomas consecrates St. Mary\'s Orthodox Church at Thiruvithamcode.',0],
+[72,'72 CE','St. Thomas is martyred at Mylapore.',0],
+[325,'325 CE','Kadampanad St. Thomas Orthodox Cathedral is established.',1],
+[325,'325 CE','Thevalakkara St. Mary\'s Orthodox Church is founded around the same time.',1],
+[345,'345 CE','Seventy-two Syrian Christian families arrive from Mesopotamia, led by St. Thomas of Cana.',0],
+[350,'350 CE','Pazhanji St. Mary\'s Orthodox Cathedral is erected.',1],
+[400,'400 CE','Kottoor St. George Orthodox Chapel is raised.',1],
+[409,'409 CE','Angamaly St. Mary\'s Orthodox Church comes into being.',1],
+[500,'500 CE','Piravom Holy Kings Church takes root (later renamed in honour of St. Mary).',1],
+[650,'650 CE','Kolenchery St. Peter\'s and St. Paul\'s Orthodox Church is established.',1],
+[717,'717 CE','Thumpamon St. Mary\'s Orthodox Cathedral is founded.',1],
+[722,'722 CE','Karingachira St. George Orthodox Cathedral is erected.',1],
+[775,'775 CE','Kandanad St. Mary\'s Orthodox Cathedral is raised.',1],
+[800,'800 CE','Kadampanad St. Thomas Orthodox Cathedral comes into being, later rebuilt in 1200, 1800, and 1912.',1],
+[802,'802 CE','South Paravoor St. John the Baptist Orthodox Church takes root.',1],
+[824,'824 CE','Kayamkulam Kadeesa Orthodox Cathedral is established.',1],
+[825,'825 CE','Akaparambu St. Sabor and St. Aproth Orthodox Church is founded.',1],
+[825,'825 CE','Kallada West St. Mary\'s Orthodox Church is erected.',1],
+[829,'829 CE','Karthikapally St. Thomas Orthodox Cathedral is raised.',1],
+[835,'835 CE','Kundara St. Thomas Orthodox Church comes into being.',1],
+[865,'865 CE','Kadamattom St. George Orthodox Church takes root.',1],
+[905,'905 CE','St. Denaha, St. Rabban, Younan, and Maravan arrive in Malankara.',0],
+[905,'905 CE','Pallikkara-Morakkala St. Mary\'s Orthodox Church is established.',1],
+[910,'910 CE','Manarcad St. Mary\'s Orthodox Cathedral is founded.',1],
+[943,'943 CE','Mavelikara-Puthiyacavu St. Mary\'s Orthodox Cathedral is erected; it later grows into Malankara\'s largest parish.',1],
+[988,'988 CE','Mar Yohannan arrives in Malankara.',0],
+[1017,'1017 CE','Venmony St. Mary\'s Orthodox Church is established by the Pandalam Royal Family.',1],
+[1056,'1056 CE','Mar Yoseph arrives in Malankara.',0],
+[1096,'1096 CE','Vadakara St. John\'s Orthodox Church is raised.',1],
+[1100,'1100 CE','Kannamcode St. Thomas Orthodox Cathedral comes into being.',1],
+[1113,'1113 CE','Mamalassery St. Michael Orthodox Church takes root.',1],
+[1122,'1122 CE','Mar Yakob arrives in Malankara.',0],
+[1125,'1125 CE','Mulanthuruthy St. Thomas Orthodox Cathedral is established.',1],
+[1125,'1125 CE','Vettickal Dayara and Dayara Chapel is founded.',1],
+[1175,'1175 CE','Cheppad St. George Orthodox Church is erected.',1],
+[1175,'1175 CE','Nadamel St. Mary\'s Orthodox Church is raised.',1],
+[1221,'1221 CE','Mar Yoseph arrives in Malankara.',0],
+[1285,'1285 CE','Mar David arrives in Malankara.',0],
+[1300,'1300 CE','Kuruppampady St. Mary\'s Orthodox Cathedral comes into being.',1],
+[1300,'1300 CE','Karakunnam St. Mary\'s Orthodox Church takes root.',1],
+[1307,'1307 CE','Chempu St. Thomas Orthodox Church is established.',1],
+[1338,'1338 CE','Kothamangalam St. Mary\'s Orthodox Valiyapally is built by four Syrian merchants who bought the local land for trade with Tamil Nadu.',1],
+[1339,'1339 CE','Kallooppara St. Mary\'s Orthodox Church is founded.',1],
+[1407,'1407 CE','Mar Yahbalaha arrives in Malankara.',0],
+[1440,'1440 CE','Maramon Orthodox Church is erected.',1],
+[1455,'1455 CE','Kothamangalam St. Thomas Orthodox Church is founded by 18 families who separated from nearby Marth Maryam Valiyapally.',1],
+[1455,'1455 CE','Nechoor St. Thomas Orthodox Church is raised.',1],
+[1502,'1502 CE','Catholicos Eliya V ordains and sends Mar Yahbalaha, Mar Thoma, Mar Denha, and Mar Yakob to India.',0],
+[1519,'1519 CE','Kollam Kadeesa Orthodox Church comes into being.',1],
+[1550,'1550 CE','St. Mary\'s Knanaya Valiyapally, Kottayam takes root.',1],
+[1556,'1556 CE','Mar Abraham of the Church of the East arrives, later arrested and deported.',0],
+[1557,'1557 CE','Roman Uniate bishops Mar Yoseph and Mar Eliya arrive at Cochin.',0],
+[1557,'1557 CE','Puthuppally St. George Orthodox Church is established, later renamed for St. George.',1],
+[1560,'1560 CE','Mar Yoseph ordains two archdeacons for Northern and Southern Malankara.',0],
+[1561,'1561 CE','Mar Yoseph is deported to Portugal.',0],
+[1565,'1565 CE','Mar Abraham converts to Catholicism at Rome.',0],
+[1565,'1565 CE','Mulakulam St. John of Egypt Orthodox Church is founded.',1],
+[1566,'1566 CE','Mar Yoseph returns to Malankara.',0],
+[1566,'1566 CE','North Paravur St. Thomas Orthodox Church is erected.',1],
+[1570,'1570 CE','Mar Abraham returns to Malankara.',0],
+[1573,'1573 CE','Omalloor St. Thomas Orthodox Church is raised.',1],
+[1579,'1579 CE','Kottayam St. Mary\'s Orthodox Church comes into being.',1],
+[1580,'1580 CE','Mar Simeon arrives in Malankara.',0],
+[1580,'1580 CE','St. Mary\'s Knanaya Valiyapally, Kallissery takes root.',1],
+[1583,'1583 CE','The First Synod of Angamaly marks the Jesuits\' first attempt at Latinising the Church.',0],
+[1585,'1585 CE','Archdeacon Yohannan succeeds the late Archdeacon Geevarghese.',0],
+[1593,'1593 CE','Archdeacon Geevarghese of the Cross succeeds the late Archdeacon Yohannan.',0],
+[1597,'1597 CE','The Second Synod of Angamaly formally denies Latin doctrine and jurisdiction.',0],
+[1599,'1599 CE','The Synod of Diamper forces Latin rule on the St. Thomas Christians, burning the libraries of Angamaly and Chengannur.',0],
+[1603,'1603 CE','The Third Synod of Angamaly meets amid rising opposition to Diamper\'s decrees.',0],
+[1609,'1609 CE','A visiting Syrian bishop is excommunicated by Bishop Ros.',0],
+[1632,'1632 CE','The Synod of Edapally affirms the Archdeacon\'s authority over Church administration.',0],
+[1640,'1640 CE','Archdeacon Thoma succeeds the late Archdeacon Geevarghese of the Cross.',0],
+[1645,'1645 CE','An agreement standardises the Archdeacon\'s civil authority.',0],
+[1648,'1648 CE','Archdeacon Thoma appeals to Alexandria, Antioch, and Persia for spiritual support.',0],
+[1652,'1652 CE','Mar Ahatallah is detained, then murdered by the Portuguese at Mylapore.',0],
+[1653,'1653 CE','The Coonan Cross Oath: the community renounces Latin jurisdiction at Mattanchery.',0],
+[1653,'1653 CE','The Second Synod of Edapally elects Archdeacon Thoma as Primate.',0],
+[1653,'1653 CE','The Synod of Alangad ordains him bishop as Mar Thoma I.',0],
+[1665,'1665 CE','Patriarch Mor Gregorios \'Abd al-Jalil regularises Mar Thoma I\'s episcopate.',0],
+[1670,'1670 CE','Mar Thoma I and Mor Gregorios \'Abd al-Jalil ordain Mar Thoma II; both elder prelates pass within the year.',0],
+[1678,'1678 CE','Mar Anthrayos arrives and settles in the South.',0],
+[1685,'1685 CE','Maphrian-Catholicos St. Basil Yeldho and Mor Ivanios arrive in Malankara.',0],
+[1686,'1686 CE','Mar Thoma II passes away; the Synod of Chengannur affirms Miaphysite orthodoxy.',0],
+[1687,'1687 CE','Rakkad St. Mary\'s Orthodox Cathedral is established.',1],
+[1688,'1688 CE','Mar Thoma III passes away; Mor Ivanios ordains Mar Thoma IV, then himself passes.',0],
+[1700,'1700 CE','Kunnakkurudy St. George Orthodox Cathedral is founded, its construction completed in 1714.',1],
+[1708,'1708 CE','Mar Gabriel of Azerbaijan arrives in Malankara.',0],
+[1728,'1728 CE','Mar Thoma IV passes away.',0],
+[1731,'1731 CE','Mar Gabriel passes away.',0],
+[1731,'1731 CE','Kottayam Puthenangady St. Thomas Orthodox Church is erected.',1],
+[1742,'1742 CE','St. Thomas\' Knanaya Valiyapally, Ranni is raised.',1],
+[1748,'1748 CE','Mor Ivanios Yohannan, "the Iconoclast," arrives, then is detained by the Dutch.',0],
+[1751,'1751 CE','Maphrian Baselios Shukrallah arrives and begins re-ordaining priests.',0],
+[1751,'1751 CE','Chiralayam St. Lazarus Orthodox Church comes into being.',1],
+[1751,'1751 CE','Mattancherry St. George Orthodox Church takes root.',1],
+[1754,'1754 CE','First Synod of Mavelikara.',0],
+[1755,'1755 CE','Chathannoor St. George Orthodox Church is established.',1],
+[1764,'1764 CE','Mar Thoma VI is ordained; Maphrian Baselios Shukrallah passes away.',0],
+[1765,'1765 CE','Mar Thoma V passes away.',0],
+[1770,'1770 CE','Mar Thoma VI receives Syriac episcopal ordination as Mar Dionysius I.',0],
+[1772,'1772 CE','Mor Gregorios ordains Kattumangattu Kurian as Mar Koorilos.',0],
+[1773,'1773 CE','Mor Gregorios passes away.',0],
+[1774,'1774 CE','Mar Koorilos relocates to Thozhiyur, later forming the Malabar Independent Syrian Church.',0],
+[1789,'1789 CE','The Second Synod of Mavelikara furthers West Syriac liturgical practice.',0],
+[1789,'1789 CE','Kunnamkulam West Bazaar St. Lazarus Orthodox Church is founded.',1],
+[1792,'1792 CE','Elanjickal St. Basil and St. Gregory Orthodox Chapel is consecrated, and reconsecrated in 1912.',1],
+[1793,'1793 CE','Puthencavu St. Mary\'s Orthodox Cathedral is erected.',1],
+[1794,'1794 CE','Two monks are ordained; Mar Koorilos I of Thozhiyur ordains his brother bishop; Mor Ivanios passes away.',0],
+[1796,'1796 CE','Mar Thoma VI consecrates his nephew as Mar Thoma VII.',0],
+[1799,'1799 CE','Persecution at Alleppey; Mar Thoma VI briefly submits to Rome, then is reinstated at the Synod of Niranam.',0],
+[1805,'1805 CE','Mor Dioscorus arrives, and is later deported by the British.',0],
+[1805,'1805 CE','Kunnamkulam St. Matthias Orthodox Church, South Bazaar, is granted its church building.',1],
+[1806,'1806 CE','The Synod of Arthat proclaims the Malankara Church\'s Thomasine autocephaly.',0],
+[1808,'1808 CE','Mar Thoma VI invests the Vattipanam fund, then passes away; Mar Thoma VII succeeds him.',0],
+[1809,'1809 CE','Mar Thoma VII passes away; his nephew is controversially ordained Mar Thoma VIII.',0],
+[1809,'1809 CE','The First Synod of Kandanad conditionally accepts Mar Thoma VIII and orders two seminaries built.',0],
+[1811,'1811 CE','The British assert authority over Church affairs at the Third Synod of Mavelikara.',0],
+[1814,'1814 CE','Construction of the Kottayam Seminary is largely completed.',0],
+[1814,'1814 CE','Thiruvalla-Paliakkara St. George Orthodox Church is raised.',1],
+[1816,'1816 CE','Mar Thoma VIII ordains his uncle as Mar Thoma IX, then passes away.',0],
+[1816,'1816 CE','Mar Dionysius II, backed by the British, is proclaimed Metropolitan, ending the Pakalomattam line; he later dies.',0],
+[1816,'1816 CE','Puthencruz St. Peter\'s and St. Paul\'s Orthodox Church comes into being.',1],
+[1817,'1817 CE','Mar Thoma IX passes away; Mar Philoxenos II of Thozhiyur ordains Mar Dionysius III as Metropolitan.',0],
+[1818,'1818 CE','The Fourth Synod of Mavelikara rejects an Anglican reform proposal.',0],
+[1825,'1825 CE','Mar Dionysius III passes away of cholera; Mar Dionysius IV is ordained.',0],
+[1825,'1825 CE','Mor Athanasius Abdal Messih arrives and claims jurisdiction over Malankara.',0],
+[1826,'1826 CE','Mor Athanasius excommunicates Mar Philoxenos II and Mar Dionysius IV, then is deported by the British.',0],
+[1829,'1829 CE','Mar Dionysius IV assumes the office of Malankara Metropolitan.',0],
+[1835,'1835 CE','Anglican missionaries advance the “Wilson Proposals” for reform.',0],
+[1836,'1836 CE','The Fifth Synod of Mavelikara rejects the Wilson Proposals; Abraham Malpan\'s reforms lead to his excommunication.',0],
+[1837,'1837 CE','Mar Dionysius IV bans Protestant missionary preaching in Church parishes.',0],
+[1839,'1839 CE','Patriarch Elias II attempts to depose Mar Dionysius IV, without local effect.',0],
+[1840,'1840 CE','The Cochin Arbitration Award divides Church assets from the missionaries.',0],
+[1841,'1841 CE','Abraham Malpan sends his nephew, deacon Mathen, to Antioch.',0],
+[1842,'1842 CE','Patriarch Elias II consecrates Mathen as Mathews Mar Athanasius.',0],
+[1842,'1842 CE','St. George\'s Knanaya Valiyapally, Neelamperoor takes root.',1],
+[1843,'1843 CE','Mar Athanasius returns to Malankara and gains wide clerical support.',0],
+[1843,'1843 CE','The Second Synod of Kandanad ends in dissension over his loyalty to Orthodox tradition.',0],
+[1843,'1843 CE','The Synod of Kallumkathra declares Mar Athanasius the Patriarch\'s authorised head of the Church.',0],
+[1846,'1846 CE','Mor Yuyakim Koorilos arrives; Mar Dionysius IV abdicates in his favour.',0],
+[1847,'1847 CE','Mor Koorilos is accused of forging his Patriarchal mandate; Patriarch Elias II passes away.',0],
+[1849,'1849 CE','Patriarch Yakub II\'s envoy fails to gain recognition and returns to the Middle East.',0],
+[1852,'1852 CE','A state committee finds Mor Koorilos\'s documents forged and recognises Mar Athanasius.',0],
+[1853,'1853 CE','The First Synod of Kottayam, under Mar Athanasius, formulates the Chattavaryola canons.',0],
+[1855,'1855 CE','Mar Dionysius IV of Cheppad passes away.',0],
+[1856,'1856 CE','Patriarch Mor Gregorios \'Abd al-Nur visits and acknowledges Mar Athanasius.',0],
+[1857,'1857 CE','Mar Athanasius ordains Mar Koorilos IV of Thozhiyoor, prompting failed litigation against him.',0],
+[1860,'1860 CE','St. Jacob\'s Church, Ramamangalam is established.',1],
+[1861,'1861 CE','St. Stephen\'s Church, Veliyanad is founded.',1],
+[1861,'1861 CE','Mepral St. John\'s Orthodox Church is erected.',1],
+[1862,'1862 CE','Patriarch Yakub II urges the Church to nominate native clergy for episcopal ordination.',0],
+[1863,'1863 CE','The Synod of Kottoor selects Pulikkottil Ittoop Kathanar for the office.',0],
+[1865,'1865 CE','Patriarch Yakub II ordains him Mar Dionysius V, who returns to a cold reception.',0],
+[1865,'1865 CE','Thiruvalla-Kattapuram St. George Orthodox Church is raised.',1],
+[1866,'1866 CE','Karackal St. George Orthodox Church comes into being.',1],
+[1867,'1867 CE','Karuvatta St. Jacob Baradaeus Orthodox Church, Mankuzhy, takes root.',1],
+[1868,'1868 CE','Thomas Mar Athanasius is ordained, fuelling rumours of a rival “Patriarchate.”',0],
+[1869,'1869 CE','Mor Koorilos\'s support wanes as eighty-five parishes back Mar Athanasius at the Second Synod of Kottayam.',0],
+[1870,'1870 CE','The Third Synod of Kottayam forms a committee on Seminary administration.',0],
+[1870,'1870 CE','St. Simon\'s Church, Puthussery-Vakathanam is established.',1],
+[1870,'1870 CE','Thiruvalla-Kavumbhagom St. Mulk Orthodox Church is built.',1],
+[1872,'1872 CE','Mar Dionysius V establishes the Parumala Seminary; Peter IV is enthroned Patriarch of Antioch.',0],
+[1872,'1872 CE','Kanniattunirappu St. John the Baptist Orthodox Church is founded.',1],
+[1872,'1872 CE','St. John\'s Church, Thuruthicad is erected.',1],
+[1873,'1873 CE','The Synod of Parumala reconciles Mar Dionysius V and Mor Koorilos, forming the Malankara Christian Association.',0],
+[1874,'1874 CE','Mor Koorilos passes away; Patriarch Peter IV resolves to visit Malankara.',0],
+[1875,'1875 CE','Patriarch Peter IV arrives, excommunicates Mar Athanasius, and rallies royal support against him.',0],
+[1876,'1876 CE','The State withdraws its backing of Mar Athanasius.',0],
+[1876,'1876 CE','The Synod of Mulanthuruthy affirms Orthodoxy and forms the Church\'s Managing Committee.',0],
+[1876,'1876 CE','Patriarch Peter IV ordains four new bishops over the Committee\'s objection.',0],
+[1877,'1877 CE','The Synod of Veliyanad fractures over a plan to divide the Church into seven dioceses.',0],
+[1877,'1877 CE','Six new bishops are assigned dioceses; Mar Dionysius V reconciles with the Patriarch, assigned to Kollam.',0],
+[1877,'1877 CE','The new bishops fast forty days at Vettickal and recognise Mar Dionysius V as Primate.',0],
+[1877,'1877 CE','Thomas Mar Athanasius succeeds his late father as head of the Reformed faction.',0],
+[1878,'1878 CE','The Association Synod at Parumala names Mar Dionysius V President of the Church\'s governing bodies.',0],
+[1879,'1879 CE','The First Samudaya Case begins at Alleppey.',0],
+[1880,'1880 CE','St. John\'s Dayara Church, Chingavanam is raised.',1],
+[1884,'1884 CE','Mar Gregorios of Niranam assumes the see of Thumpamon; the District Court rules for Mar Dionysius V.',0],
+[1886,'1886 CE','Mar Dionysius V assumes the see of Cochin.',0],
+[1889,'1889 CE','The Patriarch\'s authority is ruled spiritual-only; the Reformed faction becomes the Mar Thoma Church.',0],
+[1889,'1889 CE','Fr. Alvares is ordained Mar Yulios Alvares for the Independent Catholics of Goa.',0],
+[1889,'1889 CE','Thiruvilamkunnu St. George Orthodox Chapel comes into being.',1],
+[1891,'1891 CE','Mar Athanasius of Kottayam assumes the see of Angamaly.',0],
+[1891,'1891 CE','St. John\'s Puthenpally, Chingavanam takes root.',1],
+[1892,'1892 CE','Fr. Vilatte is ordained Mar Timotheus for North America; Patriarch Peter IV moves to depose Mar Dionysius V.',0],
+[1892,'1892 CE','The Church\'s Synod dismisses the Patriarch\'s decree, defining Antioch\'s authority as conditional.',0],
+[1893,'1893 CE','St. Mary\'s Church, Eraviperoor is established.',1],
+[1894,'1894 CE','Patriarch Peter IV passes away; Patriarch Abded Mshiho II succeeds him.',0],
+[1894,'1894 CE','St. Mary\'s Church, Mannar is founded.',1],
+[1895,'1895 CE','Mepral Kalikavu St. Elias Orthodox Church is erected.',1],
+[1896,'1896 CE','Edavancadu St. Thomas Orthodox Church is raised.',1],
+[1897,'1897 CE','Elanthoor Karoor St. Peter\'s Orthodox Church comes into being.',1],
+[1900,'1900 CE','Palayam St. George Orthodox Cathedral is consecrated.',1],
+[1901,'1901 CE','The Association Yogam resolves to establish a Catholicate in Malankara.',0],
+[1902,'1902 CE','Mar Dionysius V assumes the sees of Niranam and Thumpamon on St. Gregorios\'s death.',0],
+[1902,'1902 CE','St. Mary\'s Church, Kattodu takes root.',1],
+[1903,'1903 CE','Anchal St. George Orthodox Church is erected.',1],
+[1903,'1903 CE','Vadakkanmannoor St. Thomas Orthodox Church, Oravackal, is established.',1],
+[1905,'1905 CE','Anandapally St. Kuriakose Orthodox Church is founded.',1],
+[1905,'1905 CE','St. Kuriakose\' Church, Aythala is erected.',1],
+[1906,'1906 CE','Patriarch Abded Aloho II is installed after Abded Mshiho II\'s Ottoman deposition.',0],
+[1907,'1907 CE','Mar Dionysius V assumes the see of Angamaly.',0],
+[1908,'1908 CE','The Association elects two bishops-elect, ordained at Jerusalem as Mar Dionysius and Mar Koorilos.',0],
+[1909,'1909 CE','Mar Dionysius V passes away; Vattasseril Mar Dionysius VI succeeds him.',0],
+[1909,'1909 CE','A dispute begins between Mar Dionysius VI and the lay Trustees over treasury authority.',0],
+[1909,'1909 CE','Patriarch Abded Aloho II demands temporal authority, which the Association denies.',0],
+[1910,'1910 CE','Two priests loyal to the Patriarch are ordained bishops; the Knanaya split from Malankara\'s jurisdiction.',0],
+[1910,'1910 CE','Patriarch Abded Aloho II asserts absolute jurisdiction; a pro-Patriarch faction forms.',0],
+[1911,'1911 CE','The Patriarch\'s faction seizes the Kottayam Seminary, beginning the Seminary Case.',0],
+[1911,'1911 CE','Patriarch Abded Aloho II deposes and excommunicates Mar Dionysius VI.',0],
+[1911,'1911 CE','Patriarch Abded Mshiho II declares the deposition invalid.',0],
+[1911,'1911 CE','The Malankara Association splits; a parallel Association meets at Aluva under the Patriarch\'s faction.',0],
+[1911,'1911 CE','Two hundred and fourteen parishes back Mar Dionysius VI at the Synod Yogam.',0],
+[1912,'1912 CE','Mar Dionysius VI\'s guard is martyred by the pro-Patriarch faction.',0],
+[1912,'1912 CE','Patriarch Abded Mshiho II tours Malankara amid litigation to restrict his visits.',0],
+[1912,'1912 CE','The Church requests, and the Patriarch agrees, to consecrate a Catholicos.',0],
+[1912,'1912 CE','Kallasseril Punnoose Ramban is ordained Geevarghese Mar Gregorios.',0],
+[1912,'1912 CE','Mar Ivanios of Kandanad is consecrated Catholicos of the East as Baselios Paulose I, at Niranam.',0],
+[1912,'1912 CE','St. Mary\'s Bethlehem Church, Veliyanad is raised.',1],
+[1913,'1913 CE','Two more bishops are ordained; Patriarch Abded Mshiho II departs; Cath. Paulose I passes away.',0],
+[1913,'1913 CE','The Vattipana Case begins, delaying the next Catholicos\'s consecration.',0],
+[1913,'1913 CE','St. Mary\'s Church, Thengeli comes into being.',1],
+[1913,'1913 CE','Mar Ignatios Church, Kurichy takes root.',1],
+[1914,'1914 CE','Karimattom St. Mary\'s Orthodox Church is established.',1],
+[1915,'1915 CE','Patriarch Abded Mshiho II and Patriarch Abded Aloho II both pass away.',0],
+[1916,'1916 CE','Nallila Bethel St. George Orthodox Pilgrim Church is consecrated, construction begun in 1915.',1],
+[1917,'1917 CE','Patriarch Elias III is installed after a two-year vacancy.',0],
+[1917,'1917 CE','Mar Koorilos passes away; Mar Athanasius leads the pro-Patriarch faction under Elias III.',0],
+[1917,'1917 CE','Kavalangad St. Gregorios Orthodox Chapel is built.',1],
+[1918,'1918 CE','Ranni-Perunad Bethany Monastery is founded.',1],
+[1919,'1919 CE','The District Court rules for Mar Dionysius VI; the ruling is appealed.',0],
+[1920,'1920 CE','Arthat St. Mary\'s Orthodox Church has its foundation stone laid.',1],
+[1921,'1921 CE','Kanakappalam St. George Orthodox Catholicate Centre is built.',1],
+[1923,'1923 CE','The High Court, then its Full Bench, reverses the ruling in favour of Mar Dionysius VI.',0],
+[1923,'1923 CE','Mar Dionysius VI travels to Mardin, where Patriarch Elias III annuls his deposition.',0],
+[1923,'1923 CE','Mar Alvares of Goa passes away.',0],
+[1925,'1925 CE','The Synod at Niranam designates Mar Philoxenos Catholicos-elect and elects five new bishops.',0],
+[1925,'1925 CE','Mar Philoxenos is consecrated Catholicos as Baselios Geevarghese I; Mar Ivanios of Thumpamon passes away.',0],
+[1925,'1925 CE','Thiruvalla St. Mary\'s Bethany Palatial Chapel is consecrated.',1],
+[1926,'1926 CE','Mar Dionysius VI seeks review of the High Court ruling; a rival faction ordains its own bishops.',0],
+[1926,'1926 CE','Mar Ivanios of Bethany writes to Rome without the Synod\'s consent, exploring union with the Papacy.',0],
+[1926,'1926 CE','St. Mary\'s Salem Church, Chingavanam is erected.',1],
+[1927,'1927 CE','Peace talks under Mar Dionysius VI advance a five-point settlement, though Mar Athanasius resists.',0],
+[1928,'1928 CE','The High Court\'s Full Bench rules for Mar Dionysius VI on Church assets.',0],
+[1928,'1928 CE','Cath. Geevarghese I passes away; Mar Gregorios of Niranam succeeds him.',0],
+[1928,'1928 CE','St. Mary\'s Church, Tiruvanvandur is raised.',1],
+[1929,'1929 CE','Mar Gregorios is consecrated Catholicos as Baselios Geevarghese II; two more bishops are ordained.',0],
+[1929,'1929 CE','The Synod affirms the Episcopal Synod as the Church\'s supreme authority.',0],
+[1929,'1929 CE','Vengal Bethany St. George Orthodox Church comes into being.',1],
+[1929,'1929 CE','St. Mary\'s Jerusalem Church, Kuttoor takes root.',1],
+[1930,'1930 CE','Bishops disavow Mar Ivanios\'s turn toward Rome; the Suspension Case against Mar Dionysius VI is rejected.',0],
+[1930,'1930 CE','Rome informs Mar Ivanios and Mar Theophilos they will be received as Uniate bishops.',0],
+[1930,'1930 CE','New bishops are elected; the divided pro-Patriarch faction asks Elias III to visit.',0],
+[1931,'1931 CE','Patriarch Elias III arrives in India but rejects arbitration; talks with Mar Dionysius VI collapse.',0],
+[1932,'1932 CE','Patriarch Elias III passes away at Manjinikkara and is entombed there.',0],
+[1932,'1932 CE','Mar Dionysius VI publishes the Church\'s first Constitution and declines a Patriarchal election invitation.',0],
+[1932,'1932 CE','Thiruvanchoor St. Ignatius Elias III Orthodox Chapel is established.',1],
+[1933,'1933 CE','Joseph Mar Severios is ordained for the see of Niranam.',0],
+[1933,'1933 CE','Pattazhy Mount Tabor Monastery, Madhuramala, has its first small church built.',1],
+[1934,'1934 CE','Mar Dionysius VI passes away.',0],
+[1934,'1934 CE','A new peace committee resolves that the Patriarch shall consecrate an autocephalous Catholicos.',0],
+[1934,'1934 CE','Cath. Geevarghese II and Mor Yulios exchange the kiss of peace; talks at Homs falter under pressure.',0],
+[1934,'1934 CE','The Catholicos returns safely after an assassination plot; the Church reaches 400,000 faithful.',0],
+[1934,'1934 CE','The Association Yogam approves the Church\'s Constitution and names the Catholicos as Malankara Metropolitan.',0],
+[1934,'1934 CE','Aralam St. George Orthodox Church, founded in 1932, is consecrated.',1],
+[1934,'1934 CE','Karimugal St. Ignatius Elias III Orthodox Chapel is founded.',1],
+[1934,'1934 CE','Nedungapra Edessa St. Thomas Orthodox Church, established 1933, is consecrated.',1],
+[1935,'1935 CE','Bishop Pekinham Walsh mediates peace terms, which the Patriarch rejects.',0],
+[1936,'1936 CE','Karikode Emmanuel St. George Orthodox Church is erected and consecrated.',1],
+[1936,'1936 CE','Koratty Government Leprosy Hospital St. George Orthodox Chapel is raised.',1],
+[1937,'1937 CE','Mar Severios of Niranam converts to the Uniate church.',0],
+[1938,'1938 CE','The pro-Patriarch faction sues for the Church\'s assets; Alexios Mar Thevodosios is ordained.',0],
+[1939,'1939 CE','Mar Dioscoros of the Knanaya converts to the Uniate church.',0],
+[1939,'1939 CE','Koratty East St. Kuriakose Orthodox Church, Chirangara, comes into being.',1],
+[1940,'1940 CE','Thoma Mar Dionysius is ordained for the see of Niranam.',0],
+[1941,'1941 CE','Peace talks at Aluva falter; Mar Thimothios of Kandanad unites with the Catholicate.',0],
+[1942,'1942 CE','Patriarch Aphrem I deposes Mar Thimothios of Kandanad.',0],
+[1943,'1943 CE','The District Court again rules against the pro-Patriarch faction; Mar Thimothios is assaulted.',0],
+[1946,'1946 CE','Two more bishops are ordained; the High Court\'s Majority Bench overturns the District Court\'s ruling.',0],
+[1947,'1947 CE','The Synod at Parumala canonises Cath. Baselios Yeldo and Mar Gregorios of Niranam as saints.',0],
+[1949,'1949 CE','The lay “Peace League” forms.',0],
+[1950,'1950 CE','A forced peace conference at Chingavanam is rejected by both Patriarchate and Catholicate.',0],
+[1951,'1951 CE','Mar Philoxenos of Thumpamon passes away; two more bishops are elected.',0],
+[1951,'1951 CE','The High Court dismisses the Church\'s review; Cath. Geevarghese II relocates to Devalokam Palace.',0],
+[1953,'1953 CE','Mar Athanasius of the pro-Patriarch faction passes away; five more bishops are ordained.',0],
+[1954,'1954 CE','Abraham Mar Clemis is ordained for the Knanaya; the Supreme Court orders the case reviewed.',0],
+[1956,'1956 CE','Emperor Haile Selassie of Ethiopia visits; the High Court again rules against the Catholicate.',0],
+[1957,'1957 CE','Patriarchs and prelates of Romania and Armenia visit Malankara.',0],
+[1957,'1957 CE','The pro-Patriarch faction names a rival Metropolitan; Patriarch Aphrem I dies and Yakub III succeeds him.',0],
+[1958,'1958 CE','The Supreme Court rules for Cath. Geevarghese II, upholding the Catholicate and Church Constitution.',0],
+[1958,'1958 CE','Patriarch Yakub III recognises Cath. Geevarghese II as Catholicos, ending the First Schism.',0],
+[1974,'1974 CE','Two priests are secretly consecrated bishops abroad, opening the Church\'s Second Schism.',0]
+];
+
+  var frag = document.createDocumentFragment();
+  DATA.forEach(function(item, i){
+    var year = item[0], label = item[1], text = item[2], isChurch = item[3];
+    var card = document.createElement('div');
+    card.className = 'tl-card ' + (i % 2 === 0 ? 'above' : 'below') + (isChurch ? ' is-church' : '');
+    var dot = document.createElement('div');
+    dot.className = 'tl-dot';
+    var content = document.createElement('div');
+    content.className = 'tl-content';
+    var yearEl = document.createElement('div');
+    yearEl.className = 'tl-year';
+    yearEl.textContent = label;
+    var textEl = document.createElement('div');
+    textEl.className = 'tl-text';
+    textEl.textContent = text;
+    content.appendChild(yearEl);
+    content.appendChild(textEl);
+    card.appendChild(dot);
+    card.appendChild(content);
+    frag.appendChild(card);
+  });
+  inner.appendChild(frag);
+
+  /* ---- wheel: vertical scroll input becomes horizontal movement ---- */
+  track.addEventListener('wheel', function(e){
+    if(Math.abs(e.deltaY) <= Math.abs(e.deltaX)) return;
+    e.preventDefault();
+    track.scrollLeft += e.deltaY;
+  }, { passive:false });
+
+  /* ---- pointer drag-to-scroll ---- */
+  var isDown = false, startX = 0, startScroll = 0;
+  track.addEventListener('pointerdown', function(e){
+    isDown = true;
+    track.classList.add('is-dragging');
+    startX = e.clientX;
+    startScroll = track.scrollLeft;
+    track.setPointerCapture(e.pointerId);
+  });
+  track.addEventListener('pointermove', function(e){
+    if(!isDown) return;
+    track.scrollLeft = startScroll - (e.clientX - startX);
+  });
+  function endDrag(){ isDown = false; track.classList.remove('is-dragging'); }
+  track.addEventListener('pointerup', endDrag);
+  track.addEventListener('pointercancel', endDrag);
+  track.addEventListener('pointerleave', function(){ if(isDown) endDrag(); });
+
+  /* ---- prev / next buttons ---- */
+  var prevBtn = document.getElementById('tlPrev');
+  var nextBtn = document.getElementById('tlNext');
+  var step = 420;
+  if(prevBtn) prevBtn.addEventListener('click', function(){ track.scrollBy({ left: -step, behavior: 'smooth' }); });
+  if(nextBtn) nextBtn.addEventListener('click', function(){ track.scrollBy({ left: step, behavior: 'smooth' }); });
+
+  /* ---- progress bar ---- */
+  var bar = document.getElementById('tlProgressBar');
+  function syncProgress(){
+    if(!bar) return;
+    var max = track.scrollWidth - track.clientWidth;
+    var pct = max > 0 ? (track.scrollLeft / max) * 100 : 0;
+    bar.style.width = Math.max(2, pct) + '%';
+  }
+  track.addEventListener('scroll', syncProgress, { passive:true });
+  syncProgress();
+  window.addEventListener('resize', syncProgress);
+})();
+</script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
 <script>
 /* ============================================================
@@ -2297,21 +2786,33 @@ window.addEventListener("click", function () {
     );
   }
 
-  // -- lit, textured Earth (night side, so the pins read as lit-up cities) --
+  // -- lit, textured Earth: night-lights map in dark mode (pins read as lit
+  //    cities), true-color day map in light mode (blue ocean, green/tan land) --
   var loader = new THREE.TextureLoader();
   loader.crossOrigin = 'anonymous';
-  var earthMat = new THREE.MeshPhongMaterial({
+
+  var nightMat = new THREE.MeshPhongMaterial({
     color: 0x060a07, emissive: 0x0d1a12, emissiveIntensity: 0.6,
     shininess: 14, specular: 0x1c2f22
   });
-  var earthMesh = new THREE.Mesh(new THREE.SphereGeometry(R, 64, 44), earthMat);
+  var dayMat = new THREE.MeshPhongMaterial({
+    color: 0xffffff, emissive: 0x08130d, emissiveIntensity: 0.08,
+    shininess: 6, specular: 0x2a3a28
+  });
+
+  var earthMesh = new THREE.Mesh(new THREE.SphereGeometry(R, 64, 44), nightMat);
   globe.add(earthMesh);
 
   loader.load('https://unpkg.com/three-globe/example/img/earth-night.jpg', function(tex){
     tex.anisotropy = renderer.capabilities.getMaxAnisotropy ? renderer.capabilities.getMaxAnisotropy() : 1;
-    earthMat.emissiveMap = tex; earthMat.emissive.set(0xffffff); earthMat.emissiveIntensity = 0.85;
-    earthMat.map = tex; earthMat.color.set(0x445540);
-    earthMat.needsUpdate = true;
+    nightMat.emissiveMap = tex; nightMat.emissive.set(0xffffff); nightMat.emissiveIntensity = 0.85;
+    nightMat.map = tex; nightMat.color.set(0x445540);
+    nightMat.needsUpdate = true;
+  });
+  loader.load('https://unpkg.com/three-globe/example/img/earth-blue-marble.jpg', function(tex){
+    tex.anisotropy = renderer.capabilities.getMaxAnisotropy ? renderer.capabilities.getMaxAnisotropy() : 1;
+    dayMat.map = tex;
+    dayMat.needsUpdate = true;
   });
 
   // faint technical graticule, just above the surface
@@ -2328,10 +2829,28 @@ window.addEventListener("click", function () {
   );
   globe.add(glow);
 
-  scene.add(new THREE.AmbientLight(0xffffff, 0.22));
+  var ambientLight = new THREE.AmbientLight(0xffffff, 0.22);
+  scene.add(ambientLight);
   var sun = new THREE.DirectionalLight(0xdcead0, 0.35);
   sun.position.set(-3, 2, 4);
   scene.add(sun);
+
+  // -- swap the globe's look between the night-city map (dark theme) and a
+  //    true-color day map (light theme), so it never clashes with the page --
+  function isDarkTheme(){ return document.documentElement.classList.contains('dark'); }
+  var globeIsDark = isDarkTheme();
+  function applyGlobeTheme(){
+    globeIsDark = isDarkTheme();
+    earthMesh.material = globeIsDark ? nightMat : dayMat;
+    ambientLight.intensity = globeIsDark ? 0.22 : 0.95;
+    sun.intensity = globeIsDark ? 0.35 : 1.1;
+    sun.color.set(globeIsDark ? 0xdcead0 : 0xfff6e2);
+    wire.material.color.set(globeIsDark ? 0x6b8259 : 0x4a6fa5);
+    wire.material.opacity = globeIsDark ? 0.08 : 0.05;
+    glow.material.color.set(globeIsDark ? 0x6b8259 : 0x9fc7ea);
+    glow.material.opacity = globeIsDark ? 0.09 : 0.16;
+  }
+  applyGlobeTheme();
 
   // -- 3,536 plotted locations, glowing bright against the night side --
   function dotTexture(hex, soft){
@@ -2449,6 +2968,7 @@ window.addEventListener("click", function () {
   canvas.addEventListener('touchend', function(e){ if(e.touches.length < 2) pinchDist = null; });
 
   function tick(){
+    if(isDarkTheme() !== globeIsDark){ applyGlobeTheme(); }
     if(autoSpin){ globe.rotation.y += 0.0014; }
     else if(!dragging && Math.abs(velX) > 0.00005){ globe.rotation.y += velX; velX *= 0.94; }
     renderer.render(scene, camera);
