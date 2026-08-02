@@ -18,13 +18,13 @@
 <meta property="og:site_name" content="Malankara Map">
 <meta property="og:title" content="Malankara Map">
 <meta property="og:description" content="Every parish, chapel, cathedral, and shrine of the Malankara Orthodox Syrian Church, mapped — 3,500+ locations across 32 dioceses worldwide.">
-<meta property="og:image" content="https://malankaramap.com/og-image.png">
+<meta property="og:image" content="https://malankaramap.com/og-image.png?v=2">
 <meta property="og:url" content="https://malankaramap.com/">
 
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Malankara Map">
 <meta name="twitter:description" content="Every parish, chapel, cathedral, and shrine of the Malankara Orthodox Syrian Church, mapped — 3,500+ locations across 32 dioceses worldwide.">
-<meta name="twitter:image" content="https://malankaramap.com/og-image.png">
+<meta name="twitter:image" content="https://malankaramap.com/og-image.png?v=2">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -318,12 +318,12 @@
 .tl-track.is-dragging{ cursor:grabbing; scroll-behavior:auto; }
 .tl-inner{
   display:flex; align-items:stretch; position:relative;
-  height:290px;
+  height:360px;
   padding: 0 max(1.25rem, calc(50vw - 36rem));
   width:max-content;
 }
 .tl-inner::before{
-  content:''; position:absolute; left:0; right:0; top:145px; height:1px;
+  content:''; position:absolute; left:0; right:0; top:180px; height:1px;
   background: linear-gradient(90deg, transparent, rgba(16,20,13,.16) 2%, rgba(16,20,13,.16) 98%, transparent);
 }
 .dark .tl-inner::before{
@@ -331,15 +331,15 @@
 }
 .tl-card{ flex:0 0 190px; position:relative; padding:0 14px; }
 .tl-card .tl-dot{
-  position:absolute; top:145px; left:50%; transform:translate(-50%,-50%);
+  position:absolute; top:180px; left:50%; transform:translate(-50%,-50%);
   width:8px; height:8px; border-radius:50%; background:var(--thread); z-index:2;
   box-shadow: 0 0 0 4px var(--herobg, #EEF0E6);
 }
 .dark .tl-card .tl-dot{ box-shadow: 0 0 0 4px #0E1712; }
 .tl-card.is-church .tl-dot{ width:5px; height:5px; background: rgba(107,130,89,.85); }
-.tl-card .tl-content{ position:absolute; left:6px; right:6px; text-align:center; display:flex; flex-direction:column; max-height:118px; overflow:hidden; }
-.tl-card.above .tl-content{ bottom:165px; flex-direction:column-reverse; justify-content:flex-start; }
-.tl-card.below .tl-content{ top:165px; }
+.tl-card .tl-content{ position:absolute; left:6px; right:6px; text-align:center; display:flex; flex-direction:column; max-height:150px; overflow:hidden; }
+.tl-card.above .tl-content{ bottom:200px; flex-direction:column-reverse; justify-content:flex-start; }
+.tl-card.below .tl-content{ top:200px; }
 .tl-card .tl-year{
   font-family: Marcellus, Georgia, serif; font-style:italic; font-size:14px;
   color: var(--thread); margin-bottom:6px; line-height:1; flex-shrink:0;
@@ -368,13 +368,13 @@
   background: var(--thread);
 }
 @media (max-width: 640px){
-  .tl-card{ flex-basis:150px; }
-  .tl-inner{ height:260px; }
-  .tl-inner::before{ top:130px; }
-  .tl-card .tl-dot{ top:130px; }
-  .tl-card .tl-content{ max-height:104px; }
-  .tl-card.above .tl-content{ bottom:146px; }
-  .tl-card.below .tl-content{ top:146px; }
+  .tl-card{ flex-basis:165px; }
+  .tl-inner{ height:400px; }
+  .tl-inner::before{ top:200px; }
+  .tl-card .tl-dot{ top:200px; }
+  .tl-card .tl-content{ max-height:170px; }
+  .tl-card.above .tl-content{ bottom:220px; }
+  .tl-card.below .tl-content{ top:220px; }
 }
 
 /* ============================================================
@@ -472,7 +472,7 @@
   background:
     radial-gradient(160% 120% at 0% 0%, rgba(186,148,80,.1), transparent 55%),
     radial-gradient(140% 100% at 100% 100%, rgba(107,130,89,.08), transparent 55%),
-    #211A13;
+    #1A2016;
   box-shadow: inset 0 1px 0 rgba(255,255,255,.04), inset 0 0 0 1px rgba(247,245,238,.05);
 }
 .texture-paper::before{
@@ -1920,7 +1920,7 @@
         <input type="text" id="rName" name="name" class="font-sans text-[14.5px] text-ink dark:text-ivory border-0 border-b border-line dark:border-white/15 bg-transparent py-2 outline-none focus:border-sage transition-colors">
       </div>
       <div class="flex flex-col gap-2">
-        <label for="rEmail" class="font-sans text-[10.5px] tracking-[0.1em] uppercase text-body/50 dark:text-ivory/40">Your Email (optional, for a reply)</label>
+        <label for="rEmail" class="font-sans text-[10.5px] tracking-[0.1em] uppercase text-body/50 dark:text-ivory/40">Your Email (optional)</label>
         <input type="email" id="rEmail" name="email" class="font-sans text-[14.5px] text-ink dark:text-ivory border-0 border-b border-line dark:border-white/15 bg-transparent py-2 outline-none focus:border-sage transition-colors">
       </div>
     </div>
@@ -1999,7 +1999,7 @@
   <svg class="mx-auto mb-5 text-gold" style="width:24px; height:24px; opacity:.7;" viewBox="0 0 40 40" fill="none">
     <path d="M20 6 L20 34 M10 16 L30 16" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
   </svg>
-  <div class="font-serif italic text-sm sm:text-[15px] text-ivory/85 mb-2">Kept, thread by thread, by Andrew Punnoose</div>
+  <div class="font-serif italic text-sm sm:text-[15px] text-ivory/85 mb-2">Managed by Andrew Punnoose</div>
   <div class="font-sans text-[11px] tracking-wide text-ivory/45">Not affiliated with the Malankara Orthodox Syrian Church.</div>
   <div class="font-sans text-[11px] tracking-wide text-ivory/45 mt-1">&copy; Malankara Map, July 2026</div>
 </footer>
@@ -2418,10 +2418,10 @@ window.addEventListener("click", function () {
 [1455,'1455 CE','Nechoor St. Thomas Orthodox Church is raised.',1],
 [1502,'1502 CE','Catholicos Eliya V ordains and sends Mar Yahbalaha, Mar Thoma, Mar Denha, and Mar Yakob to India.',0],
 [1519,'1519 CE','Kollam Kadeesa Orthodox Church comes into being.',1],
-[1550,'1550 CE','St. Mary\'s Knanaya Valiyapally, Kottayam takes root.',1],
+[1550,'1550 CE','Kottayam St. Mary\'s Knanaya Syrian Church takes root.',1],
 [1556,'1556 CE','Mar Abraham of the Church of the East arrives, later arrested and deported.',0],
 [1557,'1557 CE','Roman Uniate bishops Mar Yoseph and Mar Eliya arrive at Cochin.',0],
-[1557,'1557 CE','Puthuppally St. George Orthodox Church is established, later renamed for St. George.',1],
+[1557,'1557 CE','Puthuppally St. Mary\'s Orthodox Church is established, later rededicated to St. Behanan in 1640 and finally rededicated to St. George in 1750.',1],
 [1560,'1560 CE','Mar Yoseph ordains two archdeacons for Northern and Southern Malankara.',0],
 [1561,'1561 CE','Mar Yoseph is deported to Portugal.',0],
 [1565,'1565 CE','Mar Abraham converts to Catholicism at Rome.',0],
@@ -2432,7 +2432,7 @@ window.addEventListener("click", function () {
 [1573,'1573 CE','Omalloor St. Thomas Orthodox Church is raised.',1],
 [1579,'1579 CE','Kottayam St. Mary\'s Orthodox Church comes into being.',1],
 [1580,'1580 CE','Mar Simeon arrives in Malankara.',0],
-[1580,'1580 CE','St. Mary\'s Knanaya Valiyapally, Kallissery takes root.',1],
+[1580,'1580 CE','Kallissery St. Mary\'s Knanaya Syrian Church takes root.',1],
 [1583,'1583 CE','The First Synod of Angamaly marks the Jesuits\' first attempt at Latinising the Church.',0],
 [1585,'1585 CE','Archdeacon Yohannan succeeds the late Archdeacon Geevarghese.',0],
 [1593,'1593 CE','Archdeacon Geevarghese of the Cross succeeds the late Archdeacon Yohannan.',0],
@@ -2460,7 +2460,7 @@ window.addEventListener("click", function () {
 [1728,'1728 CE','Mar Thoma IV passes away.',0],
 [1731,'1731 CE','Mar Gabriel passes away.',0],
 [1731,'1731 CE','Kottayam Puthenangady St. Thomas Orthodox Church is erected.',1],
-[1742,'1742 CE','St. Thomas\' Knanaya Valiyapally, Ranni is raised.',1],
+[1742,'1742 CE','Ranni St. Thomas Knanaya Syrian Church is raised.',1],
 [1748,'1748 CE','Mor Ivanios Yohannan, "the Iconoclast," arrives, then is detained by the Dutch.',0],
 [1751,'1751 CE','Maphrian Baselios Shukrallah arrives and begins re-ordaining priests.',0],
 [1751,'1751 CE','Chiralayam St. Lazarus Orthodox Church comes into being.',1],
@@ -2475,7 +2475,7 @@ window.addEventListener("click", function () {
 [1774,'1774 CE','Mar Koorilos relocates to Thozhiyur, later forming the Malabar Independent Syrian Church.',0],
 [1789,'1789 CE','The Second Synod of Mavelikara furthers West Syriac liturgical practice.',0],
 [1789,'1789 CE','Kunnamkulam West Bazaar St. Lazarus Orthodox Church is founded.',1],
-[1792,'1792 CE','Elanjickal St. Basil and St. Gregory Orthodox Chapel is consecrated, and reconsecrated in 1912.',1],
+[1792,'1792 CE','Elanjickal St. Basil and St. Gregory Orthodox Chapel, at Niranam, is consecrated.',1],
 [1793,'1793 CE','Puthencavu St. Mary\'s Orthodox Cathedral is erected.',1],
 [1794,'1794 CE','Two monks are ordained; Mar Koorilos I of Thozhiyur ordains his brother bishop; Mor Ivanios passes away.',0],
 [1796,'1796 CE','Mar Thoma VI consecrates his nephew as Mar Thoma VII.',0],
@@ -2505,7 +2505,7 @@ window.addEventListener("click", function () {
 [1840,'1840 CE','The Cochin Arbitration Award divides Church assets from the missionaries.',0],
 [1841,'1841 CE','Abraham Malpan sends his nephew, deacon Mathen, to Antioch.',0],
 [1842,'1842 CE','Patriarch Elias II consecrates Mathen as Mathews Mar Athanasius.',0],
-[1842,'1842 CE','St. George\'s Knanaya Valiyapally, Neelamperoor takes root.',1],
+[1842,'1842 CE','Neelamperoor St. George Knanaya Syrian Church takes root.',1],
 [1843,'1843 CE','Mar Athanasius returns to Malankara and gains wide clerical support.',0],
 [1843,'1843 CE','The Second Synod of Kandanad ends in dissension over his loyalty to Orthodox tradition.',0],
 [1843,'1843 CE','The Synod of Kallumkathra declares Mar Athanasius the Patriarch\'s authorised head of the Church.',0],
@@ -2517,8 +2517,8 @@ window.addEventListener("click", function () {
 [1855,'1855 CE','Mar Dionysius IV of Cheppad passes away.',0],
 [1856,'1856 CE','Patriarch Mor Gregorios \'Abd al-Nur visits and acknowledges Mar Athanasius.',0],
 [1857,'1857 CE','Mar Athanasius ordains Mar Koorilos IV of Thozhiyoor, prompting failed litigation against him.',0],
-[1860,'1860 CE','St. Jacob\'s Church, Ramamangalam is established.',1],
-[1861,'1861 CE','St. Stephen\'s Church, Veliyanad is founded.',1],
+[1860,'1860 CE','Ramamangalam St. James the Just Knanaya Syrian Church is established by 18 families.',1],
+[1861,'1861 CE','Veliyanad St. Stephen\'s Knanaya Syrian Church is founded.',1],
 [1861,'1861 CE','Mepral St. John\'s Orthodox Church is erected.',1],
 [1862,'1862 CE','Patriarch Yakub II urges the Church to nominate native clergy for episcopal ordination.',0],
 [1863,'1863 CE','The Synod of Kottoor selects Pulikkottil Ittoop Kathanar for the office.',0],
@@ -2529,11 +2529,11 @@ window.addEventListener("click", function () {
 [1868,'1868 CE','Thomas Mar Athanasius is ordained, fuelling rumours of a rival “Patriarchate.”',0],
 [1869,'1869 CE','Mor Koorilos\'s support wanes as eighty-five parishes back Mar Athanasius at the Second Synod of Kottayam.',0],
 [1870,'1870 CE','The Third Synod of Kottayam forms a committee on Seminary administration.',0],
-[1870,'1870 CE','St. Simon\'s Church, Puthussery-Vakathanam is established.',1],
+[1870,'1870 CE','Puthussery St. Simon\'s Knanaya Syrian Church is established.',1],
 [1870,'1870 CE','Thiruvalla-Kavumbhagom St. Mulk Orthodox Church is built.',1],
 [1872,'1872 CE','Mar Dionysius V establishes the Parumala Seminary; Peter IV is enthroned Patriarch of Antioch.',0],
 [1872,'1872 CE','Kanniattunirappu St. John the Baptist Orthodox Church is founded.',1],
-[1872,'1872 CE','St. John\'s Church, Thuruthicad is erected.',1],
+[1872,'1872 CE','Thuruthicad St. John\'s Knanaya Syrian Church is consecrated by St. Gregorios of Parumala.',1],
 [1873,'1873 CE','The Synod of Parumala reconciles Mar Dionysius V and Mor Koorilos, forming the Malankara Christian Association.',0],
 [1874,'1874 CE','Mor Koorilos passes away; Patriarch Peter IV resolves to visit Malankara.',0],
 [1875,'1875 CE','Patriarch Peter IV arrives, excommunicates Mar Athanasius, and rallies royal support against him.',0],
@@ -2546,37 +2546,37 @@ window.addEventListener("click", function () {
 [1877,'1877 CE','Thomas Mar Athanasius succeeds his late father as head of the Reformed faction.',0],
 [1878,'1878 CE','The Association Synod at Parumala names Mar Dionysius V President of the Church\'s governing bodies.',0],
 [1879,'1879 CE','The First Samudaya Case begins at Alleppey.',0],
-[1880,'1880 CE','St. John\'s Dayara Church, Chingavanam is raised.',1],
+[1880,'1880 CE','Chingavanam St. John\'s Knanaya Syrian Dayara Church is raised.',1],
 [1884,'1884 CE','Mar Gregorios of Niranam assumes the see of Thumpamon; the District Court rules for Mar Dionysius V.',0],
 [1886,'1886 CE','Mar Dionysius V assumes the see of Cochin.',0],
 [1889,'1889 CE','The Patriarch\'s authority is ruled spiritual-only; the Reformed faction becomes the Mar Thoma Church.',0],
 [1889,'1889 CE','Fr. Alvares is ordained Mar Yulios Alvares for the Independent Catholics of Goa.',0],
 [1889,'1889 CE','Thiruvilamkunnu St. George Orthodox Chapel comes into being.',1],
 [1891,'1891 CE','Mar Athanasius of Kottayam assumes the see of Angamaly.',0],
-[1891,'1891 CE','St. John\'s Puthenpally, Chingavanam takes root.',1],
+[1891,'1891 CE','Chingavanam St. John\'s Knanaya Syrian New Church takes root.',1],
 [1892,'1892 CE','Fr. Vilatte is ordained Mar Timotheus for North America; Patriarch Peter IV moves to depose Mar Dionysius V.',0],
 [1892,'1892 CE','The Church\'s Synod dismisses the Patriarch\'s decree, defining Antioch\'s authority as conditional.',0],
-[1893,'1893 CE','St. Mary\'s Church, Eraviperoor is established.',1],
+[1893,'1893 CE','Eraviperoor St. Mary\'s Knanaya Syrian Church is established.',1],
 [1894,'1894 CE','Patriarch Peter IV passes away; Patriarch Abded Mshiho II succeeds him.',0],
-[1894,'1894 CE','St. Mary\'s Church, Mannar is founded.',1],
+[1894,'1894 CE','Mannar St. Mary\'s Knanaya Syrian Church is founded.',1],
 [1895,'1895 CE','Mepral Kalikavu St. Elias Orthodox Church is erected.',1],
 [1896,'1896 CE','Edavancadu St. Thomas Orthodox Church is raised.',1],
 [1897,'1897 CE','Elanthoor Karoor St. Peter\'s Orthodox Church comes into being.',1],
-[1900,'1900 CE','Palayam St. George Orthodox Cathedral is consecrated.',1],
+[1900,'1900 CE','Thiruvananthapuram St. George Orthodox Cathedral is consecrated.',1],
 [1901,'1901 CE','The Association Yogam resolves to establish a Catholicate in Malankara.',0],
 [1902,'1902 CE','Mar Dionysius V assumes the sees of Niranam and Thumpamon on St. Gregorios\'s death.',0],
-[1902,'1902 CE','St. Mary\'s Church, Kattodu takes root.',1],
+[1902,'1902 CE','Kattode St. Mary\'s Knanaya Syrian Church takes root.',1],
 [1903,'1903 CE','Anchal St. George Orthodox Church is erected.',1],
 [1903,'1903 CE','Vadakkanmannoor St. Thomas Orthodox Church, Oravackal, is established.',1],
 [1905,'1905 CE','Anandapally St. Kuriakose Orthodox Church is founded.',1],
-[1905,'1905 CE','St. Kuriakose\' Church, Aythala is erected.',1],
+[1905,'1905 CE','Aythala St. Kuriakose Knanaya Syrian Church is erected.',1],
 [1906,'1906 CE','Patriarch Abded Aloho II is installed after Abded Mshiho II\'s Ottoman deposition.',0],
 [1907,'1907 CE','Mar Dionysius V assumes the see of Angamaly.',0],
 [1908,'1908 CE','The Association elects two bishops-elect, ordained at Jerusalem as Mar Dionysius and Mar Koorilos.',0],
 [1909,'1909 CE','Mar Dionysius V passes away; Vattasseril Mar Dionysius VI succeeds him.',0],
 [1909,'1909 CE','A dispute begins between Mar Dionysius VI and the lay Trustees over treasury authority.',0],
 [1909,'1909 CE','Patriarch Abded Aloho II demands temporal authority, which the Association denies.',0],
-[1910,'1910 CE','Two priests loyal to the Patriarch are ordained bishops; the Knanaya split from Malankara\'s jurisdiction.',0],
+[1910,'1910 CE','Two priests loyal to the Patriarch are ordained bishops; the Knanaya become segregated from the rest of the dioceses.',0],
 [1910,'1910 CE','Patriarch Abded Aloho II asserts absolute jurisdiction; a pro-Patriarch faction forms.',0],
 [1911,'1911 CE','The Patriarch\'s faction seizes the Kottayam Seminary, beginning the Seminary Case.',0],
 [1911,'1911 CE','Patriarch Abded Aloho II deposes and excommunicates Mar Dionysius VI.',0],
@@ -2588,11 +2588,11 @@ window.addEventListener("click", function () {
 [1912,'1912 CE','The Church requests, and the Patriarch agrees, to consecrate a Catholicos.',0],
 [1912,'1912 CE','Kallasseril Punnoose Ramban is ordained Geevarghese Mar Gregorios.',0],
 [1912,'1912 CE','Mar Ivanios of Kandanad is consecrated Catholicos of the East as Baselios Paulose I, at Niranam.',0],
-[1912,'1912 CE','St. Mary\'s Bethlehem Church, Veliyanad is raised.',1],
+[1912,'1912 CE','Veliyanad Bethlehem St. Mary\'s Knanaya Syrian Church is raised.',1],
 [1913,'1913 CE','Two more bishops are ordained; Patriarch Abded Mshiho II departs; Cath. Paulose I passes away.',0],
 [1913,'1913 CE','The Vattipana Case begins, delaying the next Catholicos\'s consecration.',0],
-[1913,'1913 CE','St. Mary\'s Church, Thengeli comes into being.',1],
-[1913,'1913 CE','Mar Ignatios Church, Kurichy takes root.',1],
+[1913,'1913 CE','Thengeli St. Mary\'s Knanaya Syrian Church comes into being.',1],
+[1913,'1913 CE','Kurichy St. Ignatius Knanaya Syrian Church takes root.',1],
 [1914,'1914 CE','Karimattom St. Mary\'s Orthodox Church is established.',1],
 [1915,'1915 CE','Patriarch Abded Mshiho II and Patriarch Abded Aloho II both pass away.',0],
 [1916,'1916 CE','Nallila Bethel St. George Orthodox Pilgrim Church is consecrated, construction begun in 1915.',1],
@@ -2611,15 +2611,15 @@ window.addEventListener("click", function () {
 [1925,'1925 CE','Thiruvalla St. Mary\'s Bethany Palatial Chapel is consecrated.',1],
 [1926,'1926 CE','Mar Dionysius VI seeks review of the High Court ruling; a rival faction ordains its own bishops.',0],
 [1926,'1926 CE','Mar Ivanios of Bethany writes to Rome without the Synod\'s consent, exploring union with the Papacy.',0],
-[1926,'1926 CE','St. Mary\'s Salem Church, Chingavanam is erected.',1],
+[1926,'1926 CE','Chingavanam Salem St. Mary\'s Knanaya Syrian Church is erected.',1],
 [1927,'1927 CE','Peace talks under Mar Dionysius VI advance a five-point settlement, though Mar Athanasius resists.',0],
 [1928,'1928 CE','The High Court\'s Full Bench rules for Mar Dionysius VI on Church assets.',0],
 [1928,'1928 CE','Cath. Geevarghese I passes away; Mar Gregorios of Niranam succeeds him.',0],
-[1928,'1928 CE','St. Mary\'s Church, Tiruvanvandur is raised.',1],
+[1928,'1928 CE','Thiruvanvandoor St. Mary\'s Knanaya Syrian Church is raised.',1],
 [1929,'1929 CE','Mar Gregorios is consecrated Catholicos as Baselios Geevarghese II; two more bishops are ordained.',0],
 [1929,'1929 CE','The Synod affirms the Episcopal Synod as the Church\'s supreme authority.',0],
 [1929,'1929 CE','Vengal Bethany St. George Orthodox Church comes into being.',1],
-[1929,'1929 CE','St. Mary\'s Jerusalem Church, Kuttoor takes root.',1],
+[1929,'1929 CE','Kuttoor St. Mary\'s Jerusalem Knanaya Syrian Church takes root.',1],
 [1930,'1930 CE','Bishops disavow Mar Ivanios\'s turn toward Rome; the Suspension Case against Mar Dionysius VI is rejected.',0],
 [1930,'1930 CE','Rome informs Mar Ivanios and Mar Theophilos they will be received as Uniate bishops.',0],
 [1930,'1930 CE','New bishops are elected; the divided pro-Patriarch faction asks Elias III to visit.',0],
