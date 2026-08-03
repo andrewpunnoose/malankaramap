@@ -466,8 +466,8 @@
   position:absolute; inset:0; background-position:center 38%; background-size:cover;
   opacity:0; transition:opacity .6s ease;
 }
-.hero-photo--day{ background-image:url('assets/img/hero-day.jpg'); opacity:1; }
-.hero-photo--night{ background-image:url('assets/img/hero-night.jpg'); }
+.hero-photo--day{ background-image:url('hero-day.jpg'); opacity:1; }
+.hero-photo--night{ background-image:url('hero-night.jpg'); }
 .dark .hero-photo--day{ opacity:0; }
 .dark .hero-photo--night{ opacity:1; }
 .hero-scrim{
@@ -500,9 +500,23 @@
    BAND PHOTO — a real photograph behind the Liturgy/Communion
    band, dimmed to charcoal so the gold headings stay crisp.
    ============================================================ */
+.band-photo{ padding-top:32px; padding-bottom:32px; }
+@media (min-width:640px){ .band-photo{ padding-top:40px; padding-bottom:40px; } }
+.band-photo{ padding-top:24px; padding-bottom:24px; }
+@media (min-width:640px){ .band-photo{ padding-top:32px; padding-bottom:32px; } }
 .band-photo__img{
-  position:absolute; inset:0; background-image:url('assets/img/moments-interior.jpg');
+  position:absolute; inset:0; background-image:url('moments-interior.jpg');
   background-position:center 30%; background-size:cover; opacity:.55;
+}
+
+/* ============================================================
+   SNUG SPACING — sections sit close, almost touching, per request.
+   ============================================================ */
+.sec-tight{ padding-bottom:24px; }
+.sec-tight-y{ padding-top:24px; padding-bottom:24px; }
+@media (min-width:640px){
+  .sec-tight{ padding-bottom:32px; }
+  .sec-tight-y{ padding-top:32px; padding-bottom:32px; }
 }
 .band-photo__scrim{
   position:absolute; inset:0;
@@ -538,6 +552,21 @@
 .diocese-chip:hover{ background: rgba(186,148,80,.08); transform: translateY(-1px); position:relative; z-index:1; }
 .dark .diocese-chip:hover{ background: rgba(186,148,80,.1); }
 .diocese-chip:hover span[style^="background"]{ box-shadow: 0 0 0 3px rgba(186,148,80,.25); }
+
+.diocese-search{ position:relative; max-width:320px; }
+.diocese-search__icon{
+  position:absolute; left:14px; top:50%; transform:translateY(-50%);
+  width:16px; height:16px; color:var(--thread); opacity:.6; pointer-events:none;
+}
+.diocese-search__input{
+  width:100%; box-sizing:border-box; padding:10px 16px 10px 40px; font-size:14px;
+  font-family:Inter,system-ui,sans-serif; border-radius:999px;
+  background:var(--herobg,#EEF0E6); color:#10140D; border:1px solid rgba(16,20,13,.12);
+}
+.diocese-search__input::placeholder{ color:#96988c; }
+.diocese-search__input:focus{ outline:2px solid var(--thread); outline-offset:1px; }
+.dark .diocese-search__input{ background:#1A2016; color:#F7F5EE; border-color:rgba(247,245,238,.14); }
+.dark .diocese-search__input::placeholder{ color:rgba(247,245,238,.4); }
 
 /* ============================================================
    ORNAMENTAL DIVIDERS — replaces plain borders between sections
@@ -1004,7 +1033,7 @@
 </script>
 
 <!-- ==================== HERO ==================== -->
-<section class="hero-section relative overflow-hidden bg-herobg dark:bg-midnight px-5 sm:px-8 pt-16 sm:pt-24 pb-12 sm:pb-16 text-center" id="hero">
+<section class="hero-section relative overflow-hidden bg-herobg dark:bg-midnight px-5 sm:px-8 pt-16 sm:pt-24 sec-tight text-center" id="hero">
   <div class="hero-photo hero-photo--day" aria-hidden="true"></div>
   <div class="hero-photo hero-photo--night" aria-hidden="true"></div>
   <div class="hero-scrim" aria-hidden="true"></div>
@@ -1019,12 +1048,7 @@
 <!-- ==================== GLOBE ==================== -->
 <section class="globe-section relative overflow-hidden" id="globe">
   <div class="globe-grid" aria-hidden="true"></div>
-  <div class="section-divider is-tight" aria-hidden="true">
-    <span class="section-divider__line"></span>
-    <span class="section-divider__mark"><svg viewBox="0 0 24 24" width="13" height="13" fill="none"><path d="M12 2v20M2 12h20" stroke="currentColor" stroke-width="1" opacity=".55"/><rect x="9.5" y="9.5" width="5" height="5" transform="rotate(45 12 12)" fill="currentColor"/></svg></span>
-    <span class="section-divider__line"></span>
-  </div>
-  <div class="relative max-w-6xl mx-auto px-5 sm:px-8 py-16 sm:py-24">
+  <div class="relative max-w-6xl mx-auto px-5 sm:px-8 sec-tight-y">
     <div class="reveal max-w-xl mb-10 sm:mb-14">
       <div class="text-[10.5px] tracking-[0.2em] uppercase text-sage font-semibold mb-3 flex items-center gap-2"><span class="live-dot"></span>Real-time coverage</div>
       <h2 class="font-serif italic font-normal text-[28px] sm:text-4xl text-ink dark:text-ivory mb-4 leading-tight">One communion,<br>traced across the Earth</h2>
@@ -1063,12 +1087,7 @@
   </div>
 </section>
 <!-- ==================== HERITAGE / ABOUT ==================== -->
-<section class="px-5 sm:px-8 py-16 sm:py-24 max-w-6xl mx-auto" id="heritage">
-  <div class="section-divider is-tight" aria-hidden="true">
-    <span class="section-divider__line"></span>
-    <span class="section-divider__mark"><svg viewBox="0 0 24 24" width="13" height="13" fill="none"><path d="M12 2v20M2 12h20" stroke="currentColor" stroke-width="1" opacity=".5"/><rect x="9.5" y="9.5" width="5" height="5" transform="rotate(45 12 12)" fill="currentColor"/></svg></span>
-    <span class="section-divider__line"></span>
-  </div>
+<section class="px-5 sm:px-8 sec-tight-y max-w-6xl mx-auto" id="heritage">
   <div class="reveal grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-start">
     <div>
       <h2 class="font-serif italic font-normal text-2xl sm:text-[34px] text-ink dark:text-ivory mb-6 leading-tight">Nineteen centuries,<br>one thread</h2>
@@ -1092,17 +1111,9 @@
   </div>
 </section>
 <!-- ==================== BAND ==================== -->
-<section class="bg-charcoal band-photo relative py-14 sm:py-20">
+<section class="bg-charcoal band-photo relative">
   <div class="band-photo__img" aria-hidden="true"></div>
   <div class="band-photo__scrim" aria-hidden="true"></div>
-  <div class="section-divider on-dark is-tight relative" aria-hidden="true">
-    <span class="section-divider__line"></span>
-    <span class="section-divider__mark">
-      <svg viewBox="0 0 24 24" width="13" height="13" fill="none"><path d="M12 2v20M2 12h20" stroke="currentColor" stroke-width="1" opacity=".55"/><rect x="9.5" y="9.5" width="5" height="5" transform="rotate(45 12 12)" fill="currentColor"/></svg>
-    </span>
-    <span class="section-divider__line"></span>
-  </div>
-  <p class="reveal pull-quote on-dark relative max-w-2xl mx-auto px-5 sm:px-8 text-center mb-12 sm:mb-16">"The community renounces Latin jurisdiction" &mdash; the Coonan Cross Oath, 1653</p>
   <div class="reveal reveal-stagger relative max-w-4xl mx-auto px-5 sm:px-8 grid grid-cols-1 md:grid-cols-2 gap-10 sm:gap-16">
     <div>
       <h3 class="font-serif italic font-normal text-xl sm:text-2xl text-gold mb-3">Liturgy</h3>
@@ -1115,12 +1126,7 @@
   </div>
 </section>
 <!-- ==================== HISTORICAL TEASER ==================== -->
-<section class="px-5 sm:px-8 pb-16 sm:pb-24 max-w-6xl mx-auto">
-  <div class="section-divider is-tight" aria-hidden="true">
-    <span class="section-divider__line"></span>
-    <span class="section-divider__mark"><svg viewBox="0 0 24 24" width="13" height="13" fill="none"><path d="M12 2v20M2 12h20" stroke="currentColor" stroke-width="1" opacity=".5"/><rect x="9.5" y="9.5" width="5" height="5" transform="rotate(45 12 12)" fill="currentColor"/></svg></span>
-    <span class="section-divider__line"></span>
-  </div>
+<section class="px-5 sm:px-8 sec-tight max-w-6xl mx-auto">
   <a href="1906" class="reveal flex flex-col sm:flex-row sm:items-center sm:justify-between gap-5 border-t border-b border-line dark:border-white/10 py-10 sm:py-11 hover:opacity-70 transition-opacity">
     <div>
       <div class="text-[10.5px] tracking-[0.16em] uppercase text-taupe font-semibold mb-2.5">1906 Edition</div>
@@ -1131,12 +1137,7 @@
   </a>
 </section>
 <!-- ==================== TIMELINE ==================== -->
-<section class="relative overflow-hidden pb-16 sm:pb-24" id="timeline">
-  <div class="section-divider is-tight" aria-hidden="true">
-    <span class="section-divider__line"></span>
-    <span class="section-divider__mark"><svg viewBox="0 0 24 24" width="13" height="13" fill="none"><path d="M12 2v20M2 12h20" stroke="currentColor" stroke-width="1" opacity=".5"/><rect x="9.5" y="9.5" width="5" height="5" transform="rotate(45 12 12)" fill="currentColor"/></svg></span>
-    <span class="section-divider__line"></span>
-  </div>
+<section class="relative overflow-hidden sec-tight" id="timeline">
   <div class="max-w-6xl mx-auto px-5 sm:px-8 mb-8 sm:mb-10">
     <div class="reveal flex flex-col sm:flex-row sm:items-end sm:justify-between gap-3">
       <h2 class="font-serif italic font-normal text-[28px] sm:text-4xl text-ink dark:text-ivory">Nineteen Centuries, Traced</h2>
@@ -1156,12 +1157,7 @@
   </div>
 </section>
 <!-- ==================== MAP ==================== -->
-<section class="px-5 sm:px-8 pb-16 sm:pb-24 max-w-6xl mx-auto" id="map">
-  <div class="section-divider is-tight" aria-hidden="true">
-    <span class="section-divider__line"></span>
-    <span class="section-divider__mark"><svg viewBox="0 0 24 24" width="13" height="13" fill="none"><path d="M12 2v20M2 12h20" stroke="currentColor" stroke-width="1" opacity=".5"/><rect x="9.5" y="9.5" width="5" height="5" transform="rotate(45 12 12)" fill="currentColor"/></svg></span>
-    <span class="section-divider__line"></span>
-  </div>
+<section class="px-5 sm:px-8 sec-tight max-w-6xl mx-auto" id="map">
   <div class="reveal max-w-2xl mb-8 sm:mb-10">
     <div class="text-[10.5px] tracking-[0.16em] uppercase text-taupe font-semibold mb-2.5">Present Day</div>
     <h2 class="font-serif italic font-normal text-2xl sm:text-[34px] text-ink dark:text-ivory mb-4">The Church Today, Mapped Live</h2>
@@ -1247,7 +1243,7 @@
 })();
 </script>
 <!-- ==================== FIND THE NEAREST PARISH ==================== -->
-<section class="px-5 sm:px-8 pb-16 sm:pb-24 max-w-3xl mx-auto" id="nearest">
+<section class="px-5 sm:px-8 sec-tight max-w-3xl mx-auto" id="nearest">
   <div class="reveal premium-card texture-paper rounded-2xl border border-gold/25 shadow-soft px-6 py-10 sm:px-14 sm:py-16 text-center">
     <div class="text-[11px] tracking-[0.2em] uppercase text-taupe font-semibold mb-4 sm:mb-5">3,536 Locations, Mapped by Coordinate</div>
     <h2 class="font-serif italic text-2xl sm:text-[32px] text-ink dark:text-ivory mb-3">Find your nearest parish</h2>
@@ -1269,12 +1265,7 @@
   </div>
 </section>
 <!-- ==================== DISCOVER ==================== -->
-<section class="px-5 sm:px-8 pb-16 sm:pb-24 max-w-3xl mx-auto" id="discover">
-  <div class="section-divider is-tight" aria-hidden="true">
-    <span class="section-divider__line"></span>
-    <span class="section-divider__mark"><svg viewBox="0 0 24 24" width="13" height="13" fill="none"><path d="M12 2v20M2 12h20" stroke="currentColor" stroke-width="1" opacity=".5"/><rect x="9.5" y="9.5" width="5" height="5" transform="rotate(45 12 12)" fill="currentColor"/></svg></span>
-    <span class="section-divider__line"></span>
-  </div>
+<section class="px-5 sm:px-8 sec-tight max-w-3xl mx-auto" id="discover">
   <div class="reveal premium-card texture-paper rounded-2xl border border-gold/25 shadow-soft px-6 py-10 sm:px-14 sm:py-16 text-center">
     <div class="text-[11px] tracking-[0.2em] uppercase text-taupe font-semibold mb-4 sm:mb-5">560 Parishes, Their Own Words</div>
 
@@ -1421,12 +1412,7 @@
 })();
 </script>
 <!-- ==================== LEGEND ==================== -->
-<section class="px-5 sm:px-8 pb-16 sm:pb-24 max-w-6xl mx-auto" id="legend">
-  <div class="section-divider is-tight" aria-hidden="true">
-    <span class="section-divider__line"></span>
-    <span class="section-divider__mark"><svg viewBox="0 0 24 24" width="13" height="13" fill="none"><path d="M12 2v20M2 12h20" stroke="currentColor" stroke-width="1" opacity=".5"/><rect x="9.5" y="9.5" width="5" height="5" transform="rotate(45 12 12)" fill="currentColor"/></svg></span>
-    <span class="section-divider__line"></span>
-  </div>
+<section class="px-5 sm:px-8 sec-tight max-w-6xl mx-auto" id="legend">
   <div class="reveal max-w-2xl mb-10 sm:mb-11">
     <h2 class="font-serif italic font-normal text-2xl sm:text-[34px] text-ink dark:text-ivory mb-4">Reading the map</h2>
     <p class="text-[15px] text-body/80 dark:text-ivory/65 leading-[1.8]">The directory catalogues the Church's full institutional life &mdash; episcopal palaces, monasteries and convents, cathedrals, directly-administered churches, thronal churches and mission churches, parishes, congregations and communities, Catholicate centres and retreat centres, chapels, major and minor seminaries, malpanates, mission training centres, Bible schools, campus ministries, and youth and student centres. Each marker carries its own <em class="not-italic text-sage-dark dark:text-sage font-medium">symbol</em>, keyed below.</p>
@@ -1484,19 +1470,14 @@
   </div>
 </section>
 <!-- ==================== DIOCESAN PALETTE ==================== -->
-<section class="px-5 sm:px-8 pb-16 sm:pb-24 max-w-6xl mx-auto" id="colors">
-  <div class="section-divider is-tight" aria-hidden="true">
-    <span class="section-divider__line"></span>
-    <span class="section-divider__mark"><svg viewBox="0 0 24 24" width="13" height="13" fill="none"><path d="M12 2v20M2 12h20" stroke="currentColor" stroke-width="1" opacity=".5"/><rect x="9.5" y="9.5" width="5" height="5" transform="rotate(45 12 12)" fill="currentColor"/></svg></span>
-    <span class="section-divider__line"></span>
-  </div>
+<section class="px-5 sm:px-8 sec-tight max-w-6xl mx-auto" id="colors">
   <div class="reveal max-w-2xl mb-8 sm:mb-10">
     <h2 class="font-serif italic font-normal text-2xl sm:text-[34px] text-ink dark:text-ivory mb-4">The Dioceses</h2>
     <p class="text-[15px] text-body/75 dark:text-ivory/60 leading-[1.8]">Each diocese is traced in its own hue on the map, keyed below.</p>
   </div>
-  <div class="reveal relative max-w-sm mb-6 sm:mb-8">
-    <svg class="absolute left-3.5 top-1/2 -translate-y-1/2 w-4 h-4 text-muted pointer-events-none" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg>
-    <input type="text" id="dioceseFilter" placeholder="Search dioceses&hellip;" aria-label="Filter dioceses by name" class="w-full pl-10 pr-4 py-2.5 text-sm rounded-full bg-ivory dark:bg-charcoal border border-line dark:border-white/10 text-ink dark:text-ivory placeholder:text-muted focus:outline-none focus-visible:ring-2 focus-visible:ring-[var(--thread)]">
+  <div class="reveal diocese-search mb-6">
+    <svg class="diocese-search__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg>
+    <input type="text" id="dioceseFilter" placeholder="Search dioceses&hellip;" aria-label="Filter dioceses by name" class="diocese-search__input">
   </div>
   <p id="dioceseNoResults" class="hidden font-serif italic text-sm text-muted mb-6">No dioceses match that search.</p>
   <div class="reveal grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-px bg-line dark:bg-white/10 border border-line dark:border-white/10" id="dioceseGrid">
@@ -1804,12 +1785,7 @@
   </script>
 </section>
 <!-- ==================== NATIONS ==================== -->
-<section class="px-5 sm:px-8 pb-16 sm:pb-24 max-w-6xl mx-auto" id="nations">
-  <div class="section-divider is-tight" aria-hidden="true">
-    <span class="section-divider__line"></span>
-    <span class="section-divider__mark"><svg viewBox="0 0 24 24" width="13" height="13" fill="none"><path d="M12 2v20M2 12h20" stroke="currentColor" stroke-width="1" opacity=".5"/><rect x="9.5" y="9.5" width="5" height="5" transform="rotate(45 12 12)" fill="currentColor"/></svg></span>
-    <span class="section-divider__line"></span>
-  </div>
+<section class="px-5 sm:px-8 sec-tight max-w-6xl mx-auto" id="nations">
   <div class="reveal max-w-2xl mb-8 sm:mb-10">
     <h2 class="font-serif italic font-normal text-2xl sm:text-[34px] text-ink dark:text-ivory mb-4">The Nations</h2>
     <p class="text-[15px] text-body/75 dark:text-ivory/60 leading-[1.8]">From Kerala&rsquo;s coast to communities on every inhabited continent &mdash; the Church&rsquo;s reach today, by country.</p>
@@ -1861,12 +1837,7 @@
   </div>
 </section>
 <!-- ==================== NUMBERS ==================== -->
-<section class="px-5 sm:px-8 pb-16 sm:pb-24 max-w-6xl mx-auto" id="numbers">
-  <div class="section-divider is-tight" aria-hidden="true">
-    <span class="section-divider__line"></span>
-    <span class="section-divider__mark"><svg viewBox="0 0 24 24" width="13" height="13" fill="none"><path d="M12 2v20M2 12h20" stroke="currentColor" stroke-width="1" opacity=".5"/><rect x="9.5" y="9.5" width="5" height="5" transform="rotate(45 12 12)" fill="currentColor"/></svg></span>
-    <span class="section-divider__line"></span>
-  </div>
+<section class="px-5 sm:px-8 sec-tight max-w-6xl mx-auto" id="numbers">
   <div class="reveal flex flex-col sm:flex-row sm:items-end sm:justify-between gap-3 mb-8 sm:mb-10">
     <h2 class="font-serif italic font-normal text-[28px] sm:text-4xl text-ink dark:text-ivory">A Communion, in Numbers</h2>
     <p class="font-serif italic text-sm text-body/55 dark:text-ivory/45">Every parish, chapel, and shrine accounted for &mdash; the full institutional life of the Church, gathered in one census.</p>
@@ -1932,18 +1903,13 @@
   <p class="mt-6 font-sans text-xs sm:text-sm text-body/60 dark:text-ivory/50">Beyond the map: an estimated <strong class="text-sage-dark dark:text-sage font-semibold">1,706,012</strong> members across <strong class="text-sage-dark dark:text-sage font-semibold">32</strong> dioceses and <strong class="text-sage-dark dark:text-sage font-semibold">2</strong> titular sees worldwide.</p>
 </section>
 <!-- ==================== CLERGY ==================== -->
-<section class="px-5 sm:px-8 pb-16 sm:pb-24 max-w-6xl mx-auto" id="clergy">
-  <div class="section-divider is-tight" aria-hidden="true">
-    <span class="section-divider__line"></span>
-    <span class="section-divider__mark"><svg viewBox="0 0 24 24" width="13" height="13" fill="none"><path d="M12 2v20M2 12h20" stroke="currentColor" stroke-width="1" opacity=".5"/><rect x="9.5" y="9.5" width="5" height="5" transform="rotate(45 12 12)" fill="currentColor"/></svg></span>
-    <span class="section-divider__line"></span>
-  </div>
+<section class="px-5 sm:px-8 sec-tight max-w-6xl mx-auto" id="clergy">
   <div class="reveal flex flex-col sm:flex-row sm:items-end sm:justify-between gap-3 mb-8 sm:mb-10">
     <h2 class="font-serif italic font-normal text-[28px] sm:text-4xl text-ink dark:text-ivory">Who Serves the Church</h2>
     <p class="font-serif italic text-sm text-body/55 dark:text-ivory/45">Drawn from the Church&rsquo;s 2023 clergy directory.</p>
   </div>
   <div class="reveal clergy-photo mb-8 sm:mb-10 rounded-2xl overflow-hidden border border-line dark:border-white/10 shadow-medium">
-    <img src="assets/img/clergy-synod.jpg" alt="Bishops of the Holy Episcopal Synod, seated and standing together in choir dress" loading="lazy">
+    <img src="clergy-synod.jpg" alt="Bishops of the Holy Episcopal Synod, seated and standing together in choir dress" loading="lazy">
   </div>
   <div class="reveal reveal-stagger grid grid-cols-2 lg:grid-cols-5 gap-px bg-line dark:bg-white/10 border border-line dark:border-white/10">
     <a href="metropolitans" class="group bg-ivory dark:bg-midnight p-6 sm:p-8 flex flex-col gap-2 hover:bg-featured dark:hover:bg-white/5 transition-colors">
@@ -1975,12 +1941,7 @@
   <p class="mt-6 font-sans text-xs sm:text-sm text-body/60 dark:text-ivory/50">Figures are drawn from the Church&rsquo;s official 2023 clergy directory and organized here by diocese, ranked from metropolitans to deacons.</p>
 </section>
 <!-- ==================== CONSECRATIONS OF MYRON ==================== -->
-<section class="px-5 sm:px-8 pb-16 sm:pb-24 max-w-6xl mx-auto" id="myron">
-  <div class="section-divider is-tight" aria-hidden="true">
-    <span class="section-divider__line"></span>
-    <span class="section-divider__mark"><svg viewBox="0 0 24 24" width="13" height="13" fill="none"><path d="M12 2v20M2 12h20" stroke="currentColor" stroke-width="1" opacity=".5"/><rect x="9.5" y="9.5" width="5" height="5" transform="rotate(45 12 12)" fill="currentColor"/></svg></span>
-    <span class="section-divider__line"></span>
-  </div>
+<section class="px-5 sm:px-8 sec-tight max-w-6xl mx-auto" id="myron">
   <div class="reveal flex flex-col sm:flex-row sm:items-end sm:justify-between gap-3 mb-6">
     <h2 class="font-serif italic font-normal text-[28px] sm:text-4xl text-ink dark:text-ivory">Consecrations of Holy Myron</h2>
     <p class="font-serif italic text-sm text-body/55 dark:text-ivory/45 max-w-md">The sacred chrism used in every sacrament of initiation, consecrated only by the Patriarch or the Catholicos &mdash; a rite held only a handful of times in a generation.</p>
@@ -2079,14 +2040,9 @@
   </div>
 </section>
 <!-- ==================== REPORT FORM ==================== -->
-<section class="px-5 sm:px-8 pb-16 sm:pb-24 max-w-xl mx-auto" id="report">
-  <div class="section-divider is-tight" aria-hidden="true">
-    <span class="section-divider__line"></span>
-    <span class="section-divider__mark"><svg viewBox="0 0 24 24" width="13" height="13" fill="none"><path d="M12 2v20M2 12h20" stroke="currentColor" stroke-width="1" opacity=".5"/><rect x="9.5" y="9.5" width="5" height="5" transform="rotate(45 12 12)" fill="currentColor"/></svg></span>
-    <span class="section-divider__line"></span>
-  </div>
+<section class="px-5 sm:px-8 sec-tight max-w-xl mx-auto" id="report">
   <div class="reveal text-center mb-8 sm:mb-10">
-    <img src="assets/img/lamp-accent.jpg" alt="" aria-hidden="true" class="report-lamp mx-auto mb-5">
+    <img src="lamp-accent.jpg" alt="" aria-hidden="true" class="report-lamp mx-auto mb-5">
     <h2 class="font-serif italic font-normal text-2xl sm:text-[32px] text-ink dark:text-ivory mb-3">Help us keep this accurate</h2>
     <p class="text-[15px] text-body/75 dark:text-ivory/60 leading-[1.75]">Is a location missing from the map, or listed incorrectly? Or do you have history about a parish we don't have yet? Tell us here.</p>
   </div>
@@ -2149,12 +2105,7 @@
 })();
 </script>
 <!-- ==================== SOURCES ==================== -->
-<section class="px-5 sm:px-8 py-14 sm:py-20 max-w-4xl mx-auto url-wrap">
-  <div class="section-divider is-tight" aria-hidden="true">
-    <span class="section-divider__line"></span>
-    <span class="section-divider__mark"><svg viewBox="0 0 24 24" width="13" height="13" fill="none"><path d="M12 2v20M2 12h20" stroke="currentColor" stroke-width="1" opacity=".5"/><rect x="9.5" y="9.5" width="5" height="5" transform="rotate(45 12 12)" fill="currentColor"/></svg></span>
-    <span class="section-divider__line"></span>
-  </div>
+<section class="px-5 sm:px-8 sec-tight-y max-w-4xl mx-auto url-wrap">
   <h2 class="font-serif italic font-normal text-xl sm:text-2xl text-ink dark:text-ivory mb-2">Sources</h2>
   <p class="font-sans text-xs text-muted mb-7">Figures and details throughout this site are drawn from the following church directories and records.</p>
   <div class="flex flex-col gap-4">
@@ -2174,7 +2125,7 @@
   </div>
 </section>
 <!-- ==================== FOOTER ==================== -->
-<footer class="bg-charcoal relative text-center px-5 py-14 sm:py-20">
+<footer class="bg-charcoal relative text-center px-5 sec-tight-y">
   <div class="absolute" style="left:0; right:0; top:0; height:1px; background:linear-gradient(90deg, transparent, var(--thread) 50%, transparent); opacity:.6;"></div>
   <svg class="mx-auto mb-5 text-gold" style="width:24px; height:24px; opacity:.7;" viewBox="0 0 40 40" fill="none">
     <path d="M20 6 L20 34 M10 16 L30 16" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
