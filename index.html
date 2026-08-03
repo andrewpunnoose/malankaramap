@@ -351,6 +351,8 @@
 }
 .dark .tl-card .tl-text{ color: rgba(247,245,238,.6); }
 .tl-card.is-church .tl-text{ font-style:italic; opacity:.82; }
+.tl-card--long .tl-content{ max-height:185px; }
+.tl-card--long .tl-text{ font-size:10.5px; line-height:1.42; letter-spacing:-.01px; }
 .tl-card{
   opacity:0; transform: translateY(14px) scale(.97);
   transition: opacity .6s cubic-bezier(.16,.8,.24,1), transform .6s cubic-bezier(.16,.8,.24,1);
@@ -385,6 +387,7 @@
   .tl-card .tl-content{ max-height:170px; }
   .tl-card.above .tl-content{ bottom:220px; }
   .tl-card.below .tl-content{ top:220px; }
+  .tl-card--long .tl-content{ max-height:205px; }
 }
 
 /* ============================================================
@@ -478,6 +481,8 @@
   background: linear-gradient(180deg, rgba(16,20,13,.82) 0%, rgba(16,20,13,.92) 55%, #10140D 92%);
 }
 .hero-section > .relative{ position:relative; z-index:1; }
+.hero-section{ display:flex; flex-direction:column; justify-content:center; min-height:82vh; min-height:82svh; }
+@media (min-width:640px){ .hero-section{ min-height:90vh; min-height:90svh; } }
 
 /* ============================================================
    BACK TO TOP
@@ -615,12 +620,8 @@
 }
 .dark .texture-paper::before{ opacity:.09; mix-blend-mode:overlay; }
 
-/* corner brackets — a museum-label / letterpress-card flourish */
+/* corner brackets — removed in favor of a single clean border, per minimalist pass */
 .premium-card{ position:relative; }
-.premium-card::after{
-  content:''; position:absolute; inset:13px; border-radius:calc(1rem - 8px); pointer-events:none;
-  border:1px solid rgba(186,148,80,.2);
-}
 
 /* ============================================================
    MAGNETIC GLOW — primary buttons carry a soft light that
@@ -1094,7 +1095,7 @@
       <p class="text-[15px] text-body/80 dark:text-ivory/65 leading-[1.75] mb-4">Tradition holds that the Apostle Thomas landed on the Malabar coast in AD 52, founding the first communities of worship in the region. Through centuries of contact with the Syrian churches, and later, colonial pressure, that lineage never broke.</p>
       <p class="text-[15px] text-body/80 dark:text-ivory/65 leading-[1.75]">In 1912, the Catholicate was re-established in India, affirming the Church's apostolic autonomy. Every marker on the map above carries a thread of that same unbroken story.</p>
     </div>
-    <div class="border-l border-line dark:border-white/10 pl-6 sm:pl-8 flex flex-col gap-7">
+    <div class="border-l border-line dark:border-white/10 pl-6 sm:pl-8 flex flex-col gap-7 pb-3">
       <div>
         <div class="font-sans text-[11px] font-semibold tracking-[0.06em] text-taupe mb-1.5">AD 52</div>
         <p class="text-sm text-body/80 dark:text-ivory/65">The Apostle Thomas arrives on the Malabar coast.</p>
@@ -1144,6 +1145,7 @@
       <p class="font-serif italic text-sm text-body/55 dark:text-ivory/45 max-w-md">From the Apostle's landfall to the present communion &mdash; scroll sideways to move through the centuries.</p>
     </div>
     <p class="reveal mt-2 text-[11px] tracking-wide text-muted">Timeline data as of August 2, 2026.</p>
+    <div class="reveal mt-6 sm:mt-7 border-t border-line dark:border-white/10" aria-hidden="true"></div>
   </div>
   <div class="reveal">
     <div id="tlTrack" class="tl-track" tabindex="0" aria-label="Scrollable historical timeline, 52 CE to 1974 CE">
@@ -1471,13 +1473,15 @@
 </section>
 <!-- ==================== DIOCESAN PALETTE ==================== -->
 <section class="px-5 sm:px-8 sec-tight max-w-6xl mx-auto" id="colors">
-  <div class="reveal max-w-2xl mb-8 sm:mb-10">
-    <h2 class="font-serif italic font-normal text-2xl sm:text-[34px] text-ink dark:text-ivory mb-4">The Dioceses</h2>
-    <p class="text-[15px] text-body/75 dark:text-ivory/60 leading-[1.8]">Each diocese is traced in its own hue on the map, keyed below.</p>
-  </div>
-  <div class="reveal diocese-search mb-6">
-    <svg class="diocese-search__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg>
-    <input type="text" id="dioceseFilter" placeholder="Search dioceses&hellip;" aria-label="Filter dioceses by name" class="diocese-search__input">
+  <div class="reveal flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4 mb-6 sm:mb-8">
+    <div class="max-w-xl">
+      <h2 class="font-serif italic font-normal text-2xl sm:text-[34px] text-ink dark:text-ivory mb-2 sm:mb-3">The Dioceses</h2>
+      <p class="text-[15px] text-body/75 dark:text-ivory/60 leading-[1.8]">Each diocese is traced in its own hue on the map, keyed below.</p>
+    </div>
+    <div class="diocese-search shrink-0 w-full sm:w-auto">
+      <svg class="diocese-search__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg>
+      <input type="text" id="dioceseFilter" placeholder="Search dioceses&hellip;" aria-label="Filter dioceses by name" class="diocese-search__input">
+    </div>
   </div>
   <p id="dioceseNoResults" class="hidden font-serif italic text-sm text-muted mb-6">No dioceses match that search.</p>
   <div class="reveal grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-px bg-line dark:bg-white/10 border border-line dark:border-white/10" id="dioceseGrid">
@@ -1786,11 +1790,18 @@
 </section>
 <!-- ==================== NATIONS ==================== -->
 <section class="px-5 sm:px-8 sec-tight max-w-6xl mx-auto" id="nations">
-  <div class="reveal max-w-2xl mb-8 sm:mb-10">
-    <h2 class="font-serif italic font-normal text-2xl sm:text-[34px] text-ink dark:text-ivory mb-4">The Nations</h2>
-    <p class="text-[15px] text-body/75 dark:text-ivory/60 leading-[1.8]">From Kerala&rsquo;s coast to communities on every inhabited continent &mdash; the Church&rsquo;s reach today, by country.</p>
+  <div class="reveal flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4 mb-6 sm:mb-8">
+    <div class="max-w-xl">
+      <h2 class="font-serif italic font-normal text-2xl sm:text-[34px] text-ink dark:text-ivory mb-2 sm:mb-3">The Nations</h2>
+      <p class="text-[15px] text-body/75 dark:text-ivory/60 leading-[1.8]">From Kerala&rsquo;s coast to communities on every inhabited continent &mdash; the Church&rsquo;s reach today, by country.</p>
+    </div>
+    <div class="diocese-search shrink-0 w-full sm:w-auto">
+      <svg class="diocese-search__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg>
+      <input type="text" id="nationFilter" placeholder="Search nations&hellip;" aria-label="Filter nations by name" class="diocese-search__input">
+    </div>
   </div>
-  <div class="reveal grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-px bg-line dark:bg-white/10 border border-line dark:border-white/10">
+  <p id="nationNoResults" class="hidden font-serif italic text-sm text-muted mb-6">No nations match that search.</p>
+  <div class="reveal grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-px bg-line dark:bg-white/10 border border-line dark:border-white/10" id="nationGrid">
       <a href="armenia" class="bg-ivory dark:bg-midnight p-3.5 sm:p-4 text-[13px] sm:text-sm text-body/80 dark:text-ivory/70 hover:text-sage-dark dark:hover:text-sage hover:bg-featured dark:hover:bg-white/5 transition-colors truncate">Armenia</a>
       <a href="australia" class="bg-ivory dark:bg-midnight p-3.5 sm:p-4 text-[13px] sm:text-sm text-body/80 dark:text-ivory/70 hover:text-sage-dark dark:hover:text-sage hover:bg-featured dark:hover:bg-white/5 transition-colors truncate">Australia</a>
       <a href="austria" class="bg-ivory dark:bg-midnight p-3.5 sm:p-4 text-[13px] sm:text-sm text-body/80 dark:text-ivory/70 hover:text-sage-dark dark:hover:text-sage hover:bg-featured dark:hover:bg-white/5 transition-colors truncate">Austria</a>
@@ -1835,6 +1846,25 @@
       <a href="united-kingdom" class="bg-ivory dark:bg-midnight p-3.5 sm:p-4 text-[13px] sm:text-sm text-body/80 dark:text-ivory/70 hover:text-sage-dark dark:hover:text-sage hover:bg-featured dark:hover:bg-white/5 transition-colors truncate">United Kingdom</a>
       <a href="united-states" class="bg-ivory dark:bg-midnight p-3.5 sm:p-4 text-[13px] sm:text-sm text-body/80 dark:text-ivory/70 hover:text-sage-dark dark:hover:text-sage hover:bg-featured dark:hover:bg-white/5 transition-colors truncate">United States</a>
   </div>
+  <script>
+  (function(){
+    var input = document.getElementById('nationFilter');
+    var grid = document.getElementById('nationGrid');
+    var empty = document.getElementById('nationNoResults');
+    if(!input || !grid) return;
+    var items = Array.prototype.slice.call(grid.querySelectorAll('a'));
+    input.addEventListener('input', function(){
+      var q = input.value.trim().toLowerCase();
+      var visible = 0;
+      items.forEach(function(item){
+        var match = (item.textContent || '').toLowerCase().indexOf(q) !== -1;
+        item.style.display = match ? '' : 'none';
+        if(match){ visible++; }
+      });
+      empty.classList.toggle('hidden', visible !== 0);
+    });
+  })();
+  </script>
 </section>
 <!-- ==================== NUMBERS ==================== -->
 <section class="px-5 sm:px-8 sec-tight max-w-6xl mx-auto" id="numbers">
@@ -2040,7 +2070,7 @@
   </div>
 </section>
 <!-- ==================== REPORT FORM ==================== -->
-<section class="px-5 sm:px-8 sec-tight max-w-xl mx-auto" id="report">
+<section class="px-5 sm:px-8 sec-tight max-w-xl mx-auto pt-8 sm:pt-14" id="report">
   <div class="reveal text-center mb-8 sm:mb-10">
     <img src="lamp-accent.jpg" alt="" aria-hidden="true" class="report-lamp mx-auto mb-5">
     <h2 class="font-serif italic font-normal text-2xl sm:text-[32px] text-ink dark:text-ivory mb-3">Help us keep this accurate</h2>
@@ -2546,7 +2576,7 @@ window.addEventListener("click", function () {
 [1339,'1339 CE','Kallooppara St. Mary\'s Orthodox Church is founded.',1],
 [1355,'1355 CE','Kuruppampady St. Mary\'s Orthodox Cathedral comes into being.',1],
 [1407,'1407 CE','Mar Yahbalaha arrives in Malankara.',0],
-[1440,'1440 CE','Maramon Orthodox Church is erected.',1],
+[1440,'1440 CE','Maramon Orthodox Church is erected; the entire parish is excommunicated in 1836.',1],
 [1455,'1455 CE','Kothamangalam St. Thomas Orthodox Church is founded by 18 families who separated from nearby Marth Maryam Valiyapally.',1],
 [1455,'1455 CE','Nechoor St. Thomas Orthodox Church is raised.',1],
 [1502,'1502 CE','Catholicos Eliya V ordains and sends Mar Yahbalaha, Mar Thoma, Mar Denha, and Mar Yakob to India.',0],
@@ -2716,8 +2746,7 @@ window.addEventListener("click", function () {
 [1872,'1872 CE','Mar Dionysius V establishes the Parumala Seminary; Peter IV is enthroned Patriarch of Antioch.',0],
 [1872,'1872 CE','Kanniattunirappu St. John the Baptist Orthodox Church is founded.',1],
 [1872,'1872 CE','Thuruthicad St. John\'s Knanaya Syrian Church is consecrated by St. Gregorios of Parumala.',1],
-[1872,'1872 CE','Thuruthicad St. John\'s Knanaya Orthodox Church takes root.',1],
-[1872,'1872 CE','Vaikom Orthodox Church is established.',1],
+[1872,'1872 CE','Vaikom Orthodox Church is established, later becoming a Marthoma parish.',1],
 [1873,'1873 CE','The Synod of Parumala reconciles Mar Dionysius V and Mor Koorilos, forming the Malankara Christian Association.',0],
 [1873,'1873 CE','Manjapra St. George Orthodox Church is founded.',1],
 [1874,'1874 CE','Mor Koorilos passes away; Patriarch Peter IV resolves to visit Malankara.',0],
@@ -2729,6 +2758,7 @@ window.addEventListener("click", function () {
 [1876,'1876 CE','The State withdraws its backing of Mar Athanasius.',0],
 [1876,'1876 CE','The Synod of Mulanthuruthy affirms Orthodoxy and forms the Church\'s Managing Committee.',0],
 [1876,'1876 CE','Patriarch Peter IV ordains four new bishops over the Committee\'s objection.',0],
+[1876,'1876 CE','Patriarch Ignatius Peter IV consecrates Holy Myron at Mulanthuruthy St. Thomas Orthodox Cathedral.',0],
 [1876,'1876 CE','Kottappady Hebron St. George Orthodox Church is established.',1],
 [1876,'1876 CE','Peechanicad St. Peter\'s Orthodox Church is founded.',1],
 [1877,'1877 CE','The Synod of Veliyanad fractures over a plan to divide the Church into seven dioceses.',0],
@@ -2773,6 +2803,7 @@ window.addEventListener("click", function () {
 [1894,'1894 CE','Kizhumuri St. George Orthodox Church comes into being.',1],
 [1894,'1894 CE','Amayannoor-Vadakkanmannoor St. Thomas Orthodox Church takes root, by St. Gregorios of Parumala as a mission church for Dalit Hindu converts.',1],
 [1894,'1894 CE','Budhanoor St. Elias Orthodox Church is established.',1],
+[1895,'1895 CE','Chingavanam St. John the Baptist Orthodox Church is founded by St. Gregorios of Parumala as a mission church for Dalit Hindu converts.',1],
 [1895,'1895 CE','Mepral Kalikavu St. Elias Orthodox Church is erected.',1],
 [1895,'1895 CE','Mulakulam-Parel St. Peter\'s and St. Paul\'s Orthodox Church is founded.',1],
 [1895,'1895 CE','Valanjavattom St. Mary\'s Orthodox Church is erected.',1],
@@ -2834,6 +2865,7 @@ window.addEventListener("click", function () {
 [1911,'1911 CE','Patriarch Abded Mshiho II declares the deposition invalid.',0],
 [1911,'1911 CE','The Malankara Association splits; a parallel Association meets at Aluva under the Patriarch\'s faction.',0],
 [1911,'1911 CE','Two hundred and fourteen parishes back Mar Dionysius VI at the Synod Yogam.',0],
+[1911,'1911 CE','Patriarch Ignatius Abded Aloho II consecrates Holy Myron at Mulanthuruthy St. Thomas Orthodox Cathedral.',0],
 [1912,'1912 CE','Mar Dionysius VI\'s guard is martyred by the pro-Patriarch faction.',0],
 [1912,'1912 CE','Patriarch Abded Mshiho II tours Malankara amid litigation to restrict his visits.',0],
 [1912,'1912 CE','The Church requests, and the Patriarch agrees, to consecrate a Catholicos.',0],
@@ -2878,6 +2910,7 @@ window.addEventListener("click", function () {
 [1931,'1931 CE','Patriarch Elias III arrives in India but rejects arbitration; talks with Mar Dionysius VI collapse.',0],
 [1932,'1932 CE','Patriarch Elias III passes away at Manjinikkara and is entombed there.',0],
 [1932,'1932 CE','Mar Dionysius VI publishes the Church\'s first Constitution and declines a Patriarchal election invitation.',0],
+[1932,'1932 CE','Catholicos Baselios Geevarghese II consecrates Holy Myron for the first time, at Kottayam St. Thomas Orthodox Chapel, Chungam.',0],
 [1932,'1932 CE','Thiruvanchoor St. Ignatius Elias III Orthodox Chapel is established.',1],
 [1933,'1933 CE','Joseph Mar Severios is ordained for the see of Niranam.',0],
 [1933,'1933 CE','Pattazhy Mount Tabor Monastery, Madhuramala, has its first small church built.',1],
@@ -2894,6 +2927,7 @@ window.addEventListener("click", function () {
 [1936,'1936 CE','Koratty Government Leprosy Hospital St. George Orthodox Chapel is raised.',1],
 [1937,'1937 CE','Mar Severios of Niranam converts to the Uniate church.',0],
 [1938,'1938 CE','The pro-Patriarch faction sues for the Church\'s assets; Alexios Mar Thevodosios is ordained.',0],
+[1938,'1938 CE','The Diocese of Bahya Kerala, comprising parishes outside Kerala, is created; it is trifurcated in 1976 into the Dioceses of Madras, Bombay, and Delhi.',0],
 [1939,'1939 CE','Mar Dioscoros of the Knanaya converts to the Uniate church.',0],
 [1939,'1939 CE','Koratty East St. Kuriakose Orthodox Church, Chirangara, comes into being.',1],
 [1940,'1940 CE','Thoma Mar Dionysius is ordained for the see of Niranam.',0],
@@ -2906,21 +2940,49 @@ window.addEventListener("click", function () {
 [1950,'1950 CE','A forced peace conference at Chingavanam is rejected by both Patriarchate and Catholicate.',0],
 [1951,'1951 CE','Mar Philoxenos of Thumpamon passes away; two more bishops are elected.',0],
 [1951,'1951 CE','The High Court dismisses the Church\'s review; Cath. Geevarghese II relocates to Devalokam Palace.',0],
+[1951,'1951 CE','Catholicos Baselios Geevarghese II consecrates Holy Myron a second time, at Kottayam St. Thomas Orthodox Chapel, Chungam.',0],
 [1953,'1953 CE','Mar Athanasius of the pro-Patriarch faction passes away; five more bishops are ordained.',0],
+[1953,'1953 CE','The Diocese of Malabar is established.',0],
 [1954,'1954 CE','Abraham Mar Clemis is ordained for the Knanaya; the Supreme Court orders the case reviewed.',0],
 [1956,'1956 CE','Emperor Haile Selassie of Ethiopia visits; the High Court again rules against the Catholicate.',0],
 [1957,'1957 CE','Patriarchs and prelates of Romania and Armenia visit Malankara.',0],
 [1957,'1957 CE','The pro-Patriarch faction names a rival Metropolitan; Patriarch Aphrem I dies and Yakub III succeeds him.',0],
 [1958,'1958 CE','The Supreme Court rules for Cath. Geevarghese II, upholding the Catholicate and Church Constitution.',0],
 [1958,'1958 CE','Patriarch Yakub III recognises Cath. Geevarghese II as Catholicos, ending the First Schism.',0],
-[1974,'1974 CE','Two priests are secretly consecrated bishops abroad, opening the Church\'s Second Schism.',0]
+[1964,'1964 CE','In a historic act of reconciliation, Patriarch Ignatius Yakub III travels to Kerala to consecrate Augen Mar Timotheos as Catholicos Baselios Augen I, marking a brief reunion with the Patriarchate of Antioch that ultimately fails to prevent the coming schism.',0],
+[1967,'1967 CE','Catholicos Baselios Augen I consecrates Holy Myron at Kottayam St. Thomas Orthodox Chapel, Chungam.',0],
+[1970,'1970 CE','Patriarch Ignatius Yakub III issues Kalpana No. 203/70, arguing that St. Thomas the Apostle was never a priest or high priest and therefore could not have founded a \"Throne of St. Thomas the Apostle.\"',0],
+[1974,'1974 CE','Two priests are secretly consecrated bishops abroad, opening the Church\'s Second Schism.',0],
+[1976,'1976 CE','The Diocese of Bahya Kerala is trifurcated into the Dioceses of Madras, Bombay, and Delhi.',0],
+[1977,'1977 CE','Catholicos Baselios Marthoma Mathews I consecrates Holy Myron at Kottayam St. Thomas Orthodox Chapel, Chungam.',0],
+[1979,'1979 CE','The Diocese of Thiruvananthapuram is established.',0],
+[1979,'1979 CE','The Diocese of Calcutta is established.',0],
+[1979,'1979 CE','The Diocese of America is established.',0],
+[1982,'1982 CE','The Dioceses of Kottayam Central, Idukki, and Thrissur are established.',0],
+[1985,'1985 CE','The Diocese of Kunnamkulam is established.',0],
+[1986,'1986 CE','The Diocese of Sulthan Bathery is established.',0],
+[1988,'1988 CE','Catholicos Baselios Marthoma Mathews I consecrates Holy Myron a second time, at Devalokam Catholicate Chapel.',0],
+[1995,'1995 CE','The Supreme Court of India reaffirms the legal supremacy and validity of the 1934 Malankara Church Constitution.',0],
+[1999,'1999 CE','Catholicos Baselios Marthoma Mathews II consecrates Holy Myron at Devalokam Catholicate Chapel.',0],
+[2002,'2002 CE','The Dioceses of Adoor\u2013Kadampanad, Mavelikara, and Chengannur are established.',0],
+[2002,'2002 CE','The Kandanad Diocese is bifurcated into Kandanad West, for its Malankara Orthodox-majority parishes, and Kandanad East, for its schismatic-held parishes.',0],
+[2002,'2002 CE','The Angamaly Diocese is likewise bifurcated into Angamaly West and Angamaly East, a priest-led diocese for schismatic-held parishes; East later fades and West reverts to plain Angamaly Diocese.',0],
+[2009,'2009 CE','The Diocese of America is bifurcated into the Dioceses of Northeast America and Southwest America.',0],
+[2009,'2009 CE','The Diocese of Bangalore is established.',0],
+[2009,'2009 CE','The Diocese of Ahmedabad is established.',0],
+[2009,'2009 CE','The Diocese of UK\u2013Europe\u2013Africa is established.',0],
+[2009,'2009 CE','Catholicos Baselios Marthoma Didymos I consecrates Holy Myron at Devalokam Catholicate Chapel.',0],
+[2010,'2010 CE','The Dioceses of Kottarakkara\u2013Punalur, Nilackal, and Brahmavar are established.',0],
+[2017,'2017 CE','In <em>K.S. Varghese v. St. Peter\'s and St. Paul\'s Syrian Orthodox Church</em>, the Supreme Court rules the 1934 Constitution exclusively binding and enforceable across all Malankara parish churches, including its Knanaya and Evangelistic Association of the East parishes.',0],
+[2018,'2018 CE','Catholicos Baselios Marthoma Paulose II consecrates Holy Myron at Devalokam Catholicate Chapel.',0],
+[2024,'2024 CE','The Dioceses of Asia\u2013Pacific and Canada are established.',0]
 ];
 
   var frag = document.createDocumentFragment();
   DATA.forEach(function(item, i){
     var year = item[0], label = item[1], text = item[2], isChurch = item[3];
     var card = document.createElement('div');
-    card.className = 'tl-card ' + (i % 2 === 0 ? 'above' : 'below') + (isChurch ? ' is-church' : '');
+    card.className = 'tl-card ' + (i % 2 === 0 ? 'above' : 'below') + (isChurch ? ' is-church' : '') + (text.replace(/<[^>]+>/g,'').length > 150 ? ' tl-card--long' : '');
     var dot = document.createElement('div');
     dot.className = 'tl-dot';
     var content = document.createElement('div');
@@ -2930,7 +2992,7 @@ window.addEventListener("click", function () {
     yearEl.textContent = label;
     var textEl = document.createElement('div');
     textEl.className = 'tl-text';
-    textEl.textContent = text;
+    textEl.innerHTML = text;
     content.appendChild(yearEl);
     content.appendChild(textEl);
     card.appendChild(dot);
