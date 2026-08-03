@@ -351,6 +351,16 @@
 }
 .dark .tl-card .tl-text{ color: rgba(247,245,238,.6); }
 .tl-card.is-church .tl-text{ font-style:italic; opacity:.82; }
+.tl-card{
+  opacity:0; transform: translateY(14px) scale(.97);
+  transition: opacity .6s cubic-bezier(.16,.8,.24,1), transform .6s cubic-bezier(.16,.8,.24,1);
+}
+.tl-card.tl-in{ opacity:1; transform: translateY(0) scale(1); }
+.tl-card .tl-dot{ transition: transform .5s cubic-bezier(.34,1.56,.64,1) .1s, box-shadow .5s ease .1s; transform: translate(-50%,-50%) scale(0); }
+.tl-card.tl-in .tl-dot{ transform: translate(-50%,-50%) scale(1); }
+@media (prefers-reduced-motion: reduce){
+  .tl-card, .tl-card .tl-dot{ opacity:1 !important; transform:none !important; transition:none !important; }
+}
 .tl-arrow{
   flex-shrink:0; width:34px; height:34px; border-radius:9999px;
   display:grid; place-items:center;
@@ -436,6 +446,100 @@
 }
 
 /* ============================================================
+   ACCESSIBILITY — skip link + visible focus rings
+   ============================================================ */
+.skip-link{
+  position:fixed; left:1rem; top:-3rem; z-index:100;
+  background: var(--thread); color:#fff; font-family:Inter,system-ui,sans-serif;
+  font-size:13px; font-weight:600; padding:.65rem 1.1rem; border-radius:.5rem;
+  box-shadow:0 8px 24px rgba(16,20,13,.25); transition: top .2s ease;
+}
+.skip-link:focus{ top:1rem; }
+:focus-visible{ outline: 2px solid var(--thread); outline-offset: 3px; border-radius: 2px; }
+.dark :focus-visible{ outline-color: #d9bb7c; }
+
+/* ============================================================
+   HERO PHOTO — theme-aware background photograph behind the
+   hero copy, with a scrim so text stays readable in both modes.
+   ============================================================ */
+.hero-photo{
+  position:absolute; inset:0; background-position:center 38%; background-size:cover;
+  opacity:0; transition:opacity .6s ease;
+}
+.hero-photo--day{ background-image:url('assets/img/hero-day.jpg'); opacity:1; }
+.hero-photo--night{ background-image:url('assets/img/hero-night.jpg'); }
+.dark .hero-photo--day{ opacity:0; }
+.dark .hero-photo--night{ opacity:1; }
+.hero-scrim{
+  position:absolute; inset:0;
+  background: linear-gradient(180deg, rgba(238,240,230,.86) 0%, rgba(238,240,230,.93) 55%, var(--herobg,#EEF0E6) 92%);
+}
+.dark .hero-scrim{
+  background: linear-gradient(180deg, rgba(16,20,13,.82) 0%, rgba(16,20,13,.92) 55%, #10140D 92%);
+}
+.hero-section > .relative{ position:relative; z-index:1; }
+
+/* ============================================================
+   BACK TO TOP
+   ============================================================ */
+.back-to-top{
+  position:fixed; right:18px; bottom:18px; z-index:55;
+  width:42px; height:42px; border-radius:50%;
+  display:flex; align-items:center; justify-content:center;
+  background: var(--herobg,#EEF0E6); color:var(--thread);
+  border:1px solid rgba(16,20,13,.1); box-shadow:0 10px 28px rgba(16,20,13,.16);
+  opacity:0; transform:translateY(10px); pointer-events:none;
+  transition: opacity .3s ease, transform .3s ease, background .2s ease;
+}
+.dark .back-to-top{ background:#1A2016; border-color:rgba(247,245,238,.12); }
+.back-to-top.is-visible{ opacity:1; transform:translateY(0); pointer-events:auto; }
+.back-to-top:hover{ background: var(--thread); color:#fff; }
+@media print{ .back-to-top, .skip-link, .scroll-thread{ display:none !important; } }
+
+/* ============================================================
+   BAND PHOTO — a real photograph behind the Liturgy/Communion
+   band, dimmed to charcoal so the gold headings stay crisp.
+   ============================================================ */
+.band-photo__img{
+  position:absolute; inset:0; background-image:url('assets/img/moments-interior.jpg');
+  background-position:center 30%; background-size:cover; opacity:.55;
+}
+.band-photo__scrim{
+  position:absolute; inset:0;
+  background: linear-gradient(180deg, rgba(26,32,22,.88) 0%, rgba(26,32,22,.94) 60%, rgba(26,32,22,.97) 100%);
+}
+
+/* ============================================================
+   PULL QUOTE — larger italic serif line with a gold accent rule,
+   for the handful of dramatic turning points in the Church's story.
+   ============================================================ */
+.pull-quote{
+  font-family: Marcellus, Georgia, serif; font-style:italic;
+  font-size: 19px; line-height:1.5; color: var(--thread);
+  padding-top: 1.6rem; position:relative;
+}
+.pull-quote::before{
+  content:''; position:absolute; top:0; left:50%; transform:translateX(-50%);
+  width:38px; height:2px; background: var(--thread);
+}
+.pull-quote.on-dark{ color:#E9D5A3; }
+@media (min-width:640px){ .pull-quote{ font-size:22px; } }
+
+.report-lamp{
+  width:64px; height:64px; border-radius:50%; object-fit:cover;
+  box-shadow: 0 8px 24px rgba(16,20,13,.16), 0 0 0 4px var(--herobg,#EEF0E6);
+}
+.dark .report-lamp{ box-shadow: 0 8px 24px rgba(0,0,0,.4), 0 0 0 4px #10140D; }
+
+.clergy-photo img{ display:block; width:100%; height:260px; object-fit:cover; object-position:center 30%; }
+@media (min-width:640px){ .clergy-photo img{ height:340px; } }
+
+.diocese-chip{ transition: background .18s ease, transform .18s ease; }
+.diocese-chip:hover{ background: rgba(186,148,80,.08); transform: translateY(-1px); position:relative; z-index:1; }
+.dark .diocese-chip:hover{ background: rgba(186,148,80,.1); }
+.diocese-chip:hover span[style^="background"]{ box-shadow: 0 0 0 3px rgba(186,148,80,.25); }
+
+/* ============================================================
    ORNAMENTAL DIVIDERS — replaces plain borders between sections
    with a drawn thread + reliquary mark, so the transitions feel
    composed rather than mechanical.
@@ -515,15 +619,53 @@
   .premium-card:hover{ transform: translateY(-3px); box-shadow: 0 18px 40px rgba(16,20,13,.14); }
 }
 .premium-card > *{ position:relative; z-index:1; }
+
+/* ============================================================
+   PRINT — a clean, ink-light version for anyone printing the
+   timeline or church directory for offline reading/research.
+   ============================================================ */
+@media print{
+  .hero-photo, .hero-scrim, .band-photo__img, .band-photo__scrim,
+  #heroCanvas, .globe-section, .grain-overlay, #loadVeil,
+  header, #mapFrame, .globe-ring, #themeToggle, .report-lamp{
+    display:none !important;
+  }
+  body{ background:#fff !important; color:#111 !important; }
+  .bg-charcoal, .bg-midnight, .dark\:bg-midnight{ background:#fff !important; color:#111 !important; }
+  a{ color:#111 !important; text-decoration:underline; }
+  .text-ivory, .dark\:text-ivory, .text-gold{ color:#111 !important; }
+
+  /* unroll the horizontal timeline into a plain vertical list */
+  .tl-track{ overflow:visible !important; height:auto !important; }
+  .tl-inner{ display:block !important; height:auto !important; width:auto !important; padding:0 !important; }
+  .tl-inner::before{ display:none !important; }
+  .tl-card{ position:static !important; opacity:1 !important; transform:none !important; width:100% !important; flex:none !important; padding:8px 0 !important; border-bottom:1px solid #ccc; page-break-inside:avoid; }
+  .tl-card .tl-dot{ display:none !important; }
+  .tl-card .tl-content{ position:static !important; max-height:none !important; overflow:visible !important; text-align:left !important; display:block !important; }
+  .tl-card .tl-year{ color:#8a6d2f !important; }
+  .tl-card .tl-text{ color:#222 !important; }
+
+  section{ page-break-inside:avoid; }
+}
 </style>
 </head>
 <body class="bg-ivory dark:bg-midnight text-body dark:text-ivory/85 font-sans transition-colors duration-300">
+<a href="#hero" class="skip-link">Skip to content</a>
 <div id="loadVeil" class="load-veil" aria-hidden="true"><span class="load-mark"></span></div>
 <div class="grain-overlay" aria-hidden="true"></div>
 <div class="scroll-thread" aria-hidden="true" id="scrollThread"></div>
+<button type="button" class="back-to-top" id="backToTop" aria-label="Back to top">
+  <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M12 19V5M5 12l7-7 7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+</button>
 <script>
 (function(){
   var bar = document.getElementById('scrollThread');
+  var topBtn = document.getElementById('backToTop');
+  if(topBtn){
+    topBtn.addEventListener('click', function(){
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  }
   if(!bar) return;
   function update(){
     var h = document.documentElement;
@@ -531,6 +673,7 @@
     var max = h.scrollHeight - h.clientHeight;
     var pct = max > 0 ? scrolled / max : 0;
     bar.style.setProperty('--scroll-progress', pct.toFixed(4));
+    if(topBtn){ topBtn.classList.toggle('is-visible', scrolled > 700); }
   }
   document.addEventListener('scroll', update, { passive:true });
   window.addEventListener('resize', update);
@@ -861,7 +1004,10 @@
 </script>
 
 <!-- ==================== HERO ==================== -->
-<section class="relative overflow-hidden bg-herobg dark:bg-midnight px-5 sm:px-8 pt-16 sm:pt-24 pb-12 sm:pb-16 text-center">
+<section class="hero-section relative overflow-hidden bg-herobg dark:bg-midnight px-5 sm:px-8 pt-16 sm:pt-24 pb-12 sm:pb-16 text-center" id="hero">
+  <div class="hero-photo hero-photo--day" aria-hidden="true"></div>
+  <div class="hero-photo hero-photo--night" aria-hidden="true"></div>
+  <div class="hero-scrim" aria-hidden="true"></div>
   <canvas id="heroCanvas" aria-hidden="true"></canvas>
   <div class="relative max-w-2xl mx-auto">
     <p class="hero-in d1 text-[11px] sm:text-xs tracking-[0.22em] uppercase text-taupe font-semibold mb-5 sm:mb-6">A Global Communion &middot; Est. AD 52</p>
@@ -946,15 +1092,18 @@
   </div>
 </section>
 <!-- ==================== BAND ==================== -->
-<section class="bg-charcoal relative py-14 sm:py-20">
-  <div class="section-divider on-dark is-tight" aria-hidden="true">
+<section class="bg-charcoal band-photo relative py-14 sm:py-20">
+  <div class="band-photo__img" aria-hidden="true"></div>
+  <div class="band-photo__scrim" aria-hidden="true"></div>
+  <div class="section-divider on-dark is-tight relative" aria-hidden="true">
     <span class="section-divider__line"></span>
     <span class="section-divider__mark">
       <svg viewBox="0 0 24 24" width="13" height="13" fill="none"><path d="M12 2v20M2 12h20" stroke="currentColor" stroke-width="1" opacity=".55"/><rect x="9.5" y="9.5" width="5" height="5" transform="rotate(45 12 12)" fill="currentColor"/></svg>
     </span>
     <span class="section-divider__line"></span>
   </div>
-  <div class="reveal reveal-stagger max-w-4xl mx-auto px-5 sm:px-8 grid grid-cols-1 md:grid-cols-2 gap-10 sm:gap-16">
+  <p class="reveal pull-quote on-dark relative max-w-2xl mx-auto px-5 sm:px-8 text-center mb-12 sm:mb-16">"The community renounces Latin jurisdiction" &mdash; the Coonan Cross Oath, 1653</p>
+  <div class="reveal reveal-stagger relative max-w-4xl mx-auto px-5 sm:px-8 grid grid-cols-1 md:grid-cols-2 gap-10 sm:gap-16">
     <div>
       <h3 class="font-serif italic font-normal text-xl sm:text-2xl text-gold mb-3">Liturgy</h3>
       <p class="font-sans text-sm text-ivory/70 leading-relaxed">West Syriac rite, holding to the faith affirmed at Nicea, Constantinople, and Ephesus.</p>
@@ -993,6 +1142,7 @@
       <h2 class="font-serif italic font-normal text-[28px] sm:text-4xl text-ink dark:text-ivory">Nineteen Centuries, Traced</h2>
       <p class="font-serif italic text-sm text-body/55 dark:text-ivory/45 max-w-md">From the Apostle's landfall to the present communion &mdash; scroll sideways to move through the centuries.</p>
     </div>
+    <p class="reveal mt-2 text-[11px] tracking-wide text-muted">Timeline data as of August 2, 2026.</p>
   </div>
   <div class="reveal">
     <div id="tlTrack" class="tl-track" tabindex="0" aria-label="Scrollable historical timeline, 52 CE to 1974 CE">
@@ -1344,8 +1494,13 @@
     <h2 class="font-serif italic font-normal text-2xl sm:text-[34px] text-ink dark:text-ivory mb-4">The Dioceses</h2>
     <p class="text-[15px] text-body/75 dark:text-ivory/60 leading-[1.8]">Each diocese is traced in its own hue on the map, keyed below.</p>
   </div>
-  <div class="reveal grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-px bg-line dark:bg-white/10 border border-line dark:border-white/10">
-      <div class="bg-ivory dark:bg-midnight p-3.5 sm:p-4 flex items-center gap-3">
+  <div class="reveal relative max-w-sm mb-6 sm:mb-8">
+    <svg class="absolute left-3.5 top-1/2 -translate-y-1/2 w-4 h-4 text-muted pointer-events-none" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg>
+    <input type="text" id="dioceseFilter" placeholder="Search dioceses&hellip;" aria-label="Filter dioceses by name" class="w-full pl-10 pr-4 py-2.5 text-sm rounded-full bg-ivory dark:bg-charcoal border border-line dark:border-white/10 text-ink dark:text-ivory placeholder:text-muted focus:outline-none focus-visible:ring-2 focus-visible:ring-[var(--thread)]">
+  </div>
+  <p id="dioceseNoResults" class="hidden font-serif italic text-sm text-muted mb-6">No dioceses match that search.</p>
+  <div class="reveal grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-px bg-line dark:bg-white/10 border border-line dark:border-white/10" id="dioceseGrid">
+      <div class="bg-ivory dark:bg-midnight p-3.5 sm:p-4 flex items-center gap-3 diocese-chip">
         <span class="w-4 h-4 rounded-full shrink-0 border border-ink/10 dark:border-ivory/20" style="background:#817713"></span>
         <div class="flex flex-col gap-0.5 min-w-0">
           <span class="text-xs sm:text-[13px] text-ink dark:text-ivory"><a href="thiruvananthapuram" class="hover:text-sage-dark dark:hover:text-sage border-b border-transparent hover:border-sage-dark dark:hover:border-sage transition">Thiruvananthapuram</a></span>
@@ -1353,7 +1508,7 @@
           <span class="text-[10px] text-muted tracking-wide">Est. 1979</span>
         </div>
       </div>
-      <div class="bg-ivory dark:bg-midnight p-3.5 sm:p-4 flex items-center gap-3">
+      <div class="bg-ivory dark:bg-midnight p-3.5 sm:p-4 flex items-center gap-3 diocese-chip">
         <span class="w-4 h-4 rounded-full shrink-0 border border-ink/10 dark:border-ivory/20" style="background:#757575"></span>
         <div class="flex flex-col gap-0.5 min-w-0">
           <span class="text-xs sm:text-[13px] text-ink dark:text-ivory"><a href="kollam" class="hover:text-sage-dark dark:hover:text-sage border-b border-transparent hover:border-sage-dark dark:hover:border-sage transition">Kollam</a></span>
@@ -1361,7 +1516,7 @@
           <span class="text-[10px] text-muted tracking-wide">Est. 1877</span>
         </div>
       </div>
-      <div class="bg-ivory dark:bg-midnight p-3.5 sm:p-4 flex items-center gap-3">
+      <div class="bg-ivory dark:bg-midnight p-3.5 sm:p-4 flex items-center gap-3 diocese-chip">
         <span class="w-4 h-4 rounded-full shrink-0 border border-ink/10 dark:border-ivory/20" style="background:#FF5252"></span>
         <div class="flex flex-col gap-0.5 min-w-0">
           <span class="text-xs sm:text-[13px] text-ink dark:text-ivory"><a href="kottarakkara-punalur" class="hover:text-sage-dark dark:hover:text-sage border-b border-transparent hover:border-sage-dark dark:hover:border-sage transition">Kottarakkara&ndash;Punalur</a></span>
@@ -1369,7 +1524,7 @@
           <span class="text-[10px] text-muted tracking-wide">Est. 2010</span>
         </div>
       </div>
-      <div class="bg-ivory dark:bg-midnight p-3.5 sm:p-4 flex items-center gap-3">
+      <div class="bg-ivory dark:bg-midnight p-3.5 sm:p-4 flex items-center gap-3 diocese-chip">
         <span class="w-4 h-4 rounded-full shrink-0 border border-ink/10 dark:border-ivory/20" style="background:#1A237E"></span>
         <div class="flex flex-col gap-0.5 min-w-0">
           <span class="text-xs sm:text-[13px] text-ink dark:text-ivory"><a href="adoor-kadampanad" class="hover:text-sage-dark dark:hover:text-sage border-b border-transparent hover:border-sage-dark dark:hover:border-sage transition">Adoor&ndash;Kadampanad</a></span>
@@ -1377,7 +1532,7 @@
           <span class="text-[10px] text-muted tracking-wide">Est. 2002</span>
         </div>
       </div>
-      <div class="bg-ivory dark:bg-midnight p-3.5 sm:p-4 flex items-center gap-3">
+      <div class="bg-ivory dark:bg-midnight p-3.5 sm:p-4 flex items-center gap-3 diocese-chip">
         <span class="w-4 h-4 rounded-full shrink-0 border border-ink/10 dark:border-ivory/20" style="background:#9C27B0"></span>
         <div class="flex flex-col gap-0.5 min-w-0">
           <span class="text-xs sm:text-[13px] text-ink dark:text-ivory"><a href="thumpamon" class="hover:text-sage-dark dark:hover:text-sage border-b border-transparent hover:border-sage-dark dark:hover:border-sage transition">Thumpamon</a></span>
@@ -1385,7 +1540,7 @@
           <span class="text-[10px] text-muted tracking-wide">Est. 1877</span>
         </div>
       </div>
-      <div class="bg-ivory dark:bg-midnight p-3.5 sm:p-4 flex items-center gap-3">
+      <div class="bg-ivory dark:bg-midnight p-3.5 sm:p-4 flex items-center gap-3 diocese-chip">
         <span class="w-4 h-4 rounded-full shrink-0 border border-ink/10 dark:border-ivory/20" style="background:#E65100"></span>
         <div class="flex flex-col gap-0.5 min-w-0">
           <span class="text-xs sm:text-[13px] text-ink dark:text-ivory"><a href="mavelikara" class="hover:text-sage-dark dark:hover:text-sage border-b border-transparent hover:border-sage-dark dark:hover:border-sage transition">Mavelikara</a></span>
@@ -1393,7 +1548,7 @@
           <span class="text-[10px] text-muted tracking-wide">Est. 2002</span>
         </div>
       </div>
-      <div class="bg-ivory dark:bg-midnight p-3.5 sm:p-4 flex items-center gap-3">
+      <div class="bg-ivory dark:bg-midnight p-3.5 sm:p-4 flex items-center gap-3 diocese-chip">
         <span class="w-4 h-4 rounded-full shrink-0 border border-ink/10 dark:border-ivory/20" style="background:#AFB42B"></span>
         <div class="flex flex-col gap-0.5 min-w-0">
           <span class="text-xs sm:text-[13px] text-ink dark:text-ivory"><a href="chengannur" class="hover:text-sage-dark dark:hover:text-sage border-b border-transparent hover:border-sage-dark dark:hover:border-sage transition">Chengannur</a></span>
@@ -1401,7 +1556,7 @@
           <span class="text-[10px] text-muted tracking-wide">Est. 2002</span>
         </div>
       </div>
-      <div class="bg-ivory dark:bg-midnight p-3.5 sm:p-4 flex items-center gap-3">
+      <div class="bg-ivory dark:bg-midnight p-3.5 sm:p-4 flex items-center gap-3 diocese-chip">
         <span class="w-4 h-4 rounded-full shrink-0 border border-ink/10 dark:border-ivory/20" style="background:#000000"></span>
         <div class="flex flex-col gap-0.5 min-w-0">
           <span class="text-xs sm:text-[13px] text-ink dark:text-ivory"><a href="niranam" class="hover:text-sage-dark dark:hover:text-sage border-b border-transparent hover:border-sage-dark dark:hover:border-sage transition">Niranam</a></span>
@@ -1409,7 +1564,7 @@
           <span class="text-[10px] text-muted tracking-wide">Est. 1877</span>
         </div>
       </div>
-      <div class="bg-ivory dark:bg-midnight p-3.5 sm:p-4 flex items-center gap-3">
+      <div class="bg-ivory dark:bg-midnight p-3.5 sm:p-4 flex items-center gap-3 diocese-chip">
         <span class="w-4 h-4 rounded-full shrink-0 border border-ink/10 dark:border-ivory/20" style="background:#FBC02D"></span>
         <div class="flex flex-col gap-0.5 min-w-0">
           <span class="text-xs sm:text-[13px] text-ink dark:text-ivory"><a href="nilackal" class="hover:text-sage-dark dark:hover:text-sage border-b border-transparent hover:border-sage-dark dark:hover:border-sage transition">Nilackal</a></span>
@@ -1417,7 +1572,7 @@
           <span class="text-[10px] text-muted tracking-wide">Est. 2010</span>
         </div>
       </div>
-      <div class="bg-ivory dark:bg-midnight p-3.5 sm:p-4 flex items-center gap-3">
+      <div class="bg-ivory dark:bg-midnight p-3.5 sm:p-4 flex items-center gap-3 diocese-chip">
         <span class="w-4 h-4 rounded-full shrink-0 border border-ink/10 dark:border-ivory/20" style="background:#0288D1"></span>
         <div class="flex flex-col gap-0.5 min-w-0">
           <span class="text-xs sm:text-[13px] text-ink dark:text-ivory"><a href="kottayam" class="hover:text-sage-dark dark:hover:text-sage border-b border-transparent hover:border-sage-dark dark:hover:border-sage transition">Kottayam</a></span>
@@ -1425,7 +1580,7 @@
           <span class="text-[10px] text-muted tracking-wide">Est. 1877</span>
         </div>
       </div>
-      <div class="bg-ivory dark:bg-midnight p-3.5 sm:p-4 flex items-center gap-3">
+      <div class="bg-ivory dark:bg-midnight p-3.5 sm:p-4 flex items-center gap-3 diocese-chip">
         <span class="w-4 h-4 rounded-full shrink-0 border border-ink/10 dark:border-ivory/20" style="background:#880E4F"></span>
         <div class="flex flex-col gap-0.5 min-w-0">
           <span class="text-xs sm:text-[13px] text-ink dark:text-ivory"><a href="kottayam-central" class="hover:text-sage-dark dark:hover:text-sage border-b border-transparent hover:border-sage-dark dark:hover:border-sage transition">Kottayam Central</a></span>
@@ -1433,7 +1588,7 @@
           <span class="text-[10px] text-muted tracking-wide">Est. 1982</span>
         </div>
       </div>
-      <div class="bg-ivory dark:bg-midnight p-3.5 sm:p-4 flex items-center gap-3">
+      <div class="bg-ivory dark:bg-midnight p-3.5 sm:p-4 flex items-center gap-3 diocese-chip">
         <span class="w-4 h-4 rounded-full shrink-0 border border-ink/10 dark:border-ivory/20" style="background:#795548"></span>
         <div class="flex flex-col gap-0.5 min-w-0">
           <span class="text-xs sm:text-[13px] text-ink dark:text-ivory"><a href="idukki" class="hover:text-sage-dark dark:hover:text-sage border-b border-transparent hover:border-sage-dark dark:hover:border-sage transition">Idukki</a></span>
@@ -1441,7 +1596,7 @@
           <span class="text-[10px] text-muted tracking-wide">Est. 1982</span>
         </div>
       </div>
-      <div class="bg-ivory dark:bg-midnight p-3.5 sm:p-4 flex items-center gap-3">
+      <div class="bg-ivory dark:bg-midnight p-3.5 sm:p-4 flex items-center gap-3 diocese-chip">
         <span class="w-4 h-4 rounded-full shrink-0 border border-ink/10 dark:border-ivory/20" style="background:#673AB7"></span>
         <div class="flex flex-col gap-0.5 min-w-0">
           <span class="text-xs sm:text-[13px] text-ink dark:text-ivory"><a href="kandanad-east" class="hover:text-sage-dark dark:hover:text-sage border-b border-transparent hover:border-sage-dark dark:hover:border-sage transition">Kandanad East</a></span>
@@ -1449,7 +1604,7 @@
           <span class="text-[10px] text-muted tracking-wide">Est. 2002</span>
         </div>
       </div>
-      <div class="bg-ivory dark:bg-midnight p-3.5 sm:p-4 flex items-center gap-3">
+      <div class="bg-ivory dark:bg-midnight p-3.5 sm:p-4 flex items-center gap-3 diocese-chip">
         <span class="w-4 h-4 rounded-full shrink-0 border border-ink/10 dark:border-ivory/20" style="background:#FFEA00"></span>
         <div class="flex flex-col gap-0.5 min-w-0">
           <span class="text-xs sm:text-[13px] text-ink dark:text-ivory"><a href="kandanad-west" class="hover:text-sage-dark dark:hover:text-sage border-b border-transparent hover:border-sage-dark dark:hover:border-sage transition">Kandanad West</a></span>
@@ -1457,7 +1612,7 @@
           <span class="text-[10px] text-muted tracking-wide">Est. 2002</span>
         </div>
       </div>
-      <div class="bg-ivory dark:bg-midnight p-3.5 sm:p-4 flex items-center gap-3">
+      <div class="bg-ivory dark:bg-midnight p-3.5 sm:p-4 flex items-center gap-3 diocese-chip">
         <span class="w-4 h-4 rounded-full shrink-0 border border-ink/10 dark:border-ivory/20" style="background:#F57C00"></span>
         <div class="flex flex-col gap-0.5 min-w-0">
           <span class="text-xs sm:text-[13px] text-ink dark:text-ivory"><a href="angamaly" class="hover:text-sage-dark dark:hover:text-sage border-b border-transparent hover:border-sage-dark dark:hover:border-sage transition">Angamaly</a></span>
@@ -1465,7 +1620,7 @@
           <span class="text-[10px] text-muted tracking-wide">Est. 1877</span>
         </div>
       </div>
-      <div class="bg-ivory dark:bg-midnight p-3.5 sm:p-4 flex items-center gap-3">
+      <div class="bg-ivory dark:bg-midnight p-3.5 sm:p-4 flex items-center gap-3 diocese-chip">
         <span class="w-4 h-4 rounded-full shrink-0 border border-ink/10 dark:border-ivory/20" style="background:#558B2F"></span>
         <div class="flex flex-col gap-0.5 min-w-0">
           <span class="text-xs sm:text-[13px] text-ink dark:text-ivory"><a href="kochi" class="hover:text-sage-dark dark:hover:text-sage border-b border-transparent hover:border-sage-dark dark:hover:border-sage transition">Kochi</a></span>
@@ -1473,7 +1628,7 @@
           <span class="text-[10px] text-muted tracking-wide">Est. 1877</span>
         </div>
       </div>
-      <div class="bg-ivory dark:bg-midnight p-3.5 sm:p-4 flex items-center gap-3">
+      <div class="bg-ivory dark:bg-midnight p-3.5 sm:p-4 flex items-center gap-3 diocese-chip">
         <span class="w-4 h-4 rounded-full shrink-0 border border-ink/10 dark:border-ivory/20" style="background:#424242"></span>
         <div class="flex flex-col gap-0.5 min-w-0">
           <span class="text-xs sm:text-[13px] text-ink dark:text-ivory"><a href="thrissur" class="hover:text-sage-dark dark:hover:text-sage border-b border-transparent hover:border-sage-dark dark:hover:border-sage transition">Thrissur</a></span>
@@ -1481,7 +1636,7 @@
           <span class="text-[10px] text-muted tracking-wide">Est. 1982</span>
         </div>
       </div>
-      <div class="bg-ivory dark:bg-midnight p-3.5 sm:p-4 flex items-center gap-3">
+      <div class="bg-ivory dark:bg-midnight p-3.5 sm:p-4 flex items-center gap-3 diocese-chip">
         <span class="w-4 h-4 rounded-full shrink-0 border border-ink/10 dark:border-ivory/20" style="background:#A52714"></span>
         <div class="flex flex-col gap-0.5 min-w-0">
           <span class="text-xs sm:text-[13px] text-ink dark:text-ivory"><a href="kunnamkulam" class="hover:text-sage-dark dark:hover:text-sage border-b border-transparent hover:border-sage-dark dark:hover:border-sage transition">Kunnamkulam</a></span>
@@ -1489,7 +1644,7 @@
           <span class="text-[10px] text-muted tracking-wide">Est. 1985</span>
         </div>
       </div>
-      <div class="bg-ivory dark:bg-midnight p-3.5 sm:p-4 flex items-center gap-3">
+      <div class="bg-ivory dark:bg-midnight p-3.5 sm:p-4 flex items-center gap-3 diocese-chip">
         <span class="w-4 h-4 rounded-full shrink-0 border border-ink/10 dark:border-ivory/20" style="background:#4E342E"></span>
         <div class="flex flex-col gap-0.5 min-w-0">
           <span class="text-xs sm:text-[13px] text-ink dark:text-ivory"><a href="malabar" class="hover:text-sage-dark dark:hover:text-sage border-b border-transparent hover:border-sage-dark dark:hover:border-sage transition">Malabar</a></span>
@@ -1497,7 +1652,7 @@
           <span class="text-[10px] text-muted tracking-wide">Est. 1953</span>
         </div>
       </div>
-      <div class="bg-ivory dark:bg-midnight p-3.5 sm:p-4 flex items-center gap-3">
+      <div class="bg-ivory dark:bg-midnight p-3.5 sm:p-4 flex items-center gap-3 diocese-chip">
         <span class="w-4 h-4 rounded-full shrink-0 border border-ink/10 dark:border-ivory/20" style="background:#006064"></span>
         <div class="flex flex-col gap-0.5 min-w-0">
           <span class="text-xs sm:text-[13px] text-ink dark:text-ivory"><a href="sulthan-bathery" class="hover:text-sage-dark dark:hover:text-sage border-b border-transparent hover:border-sage-dark dark:hover:border-sage transition">Sulthan Bathery</a></span>
@@ -1505,7 +1660,7 @@
           <span class="text-[10px] text-muted tracking-wide">Est. 1986</span>
         </div>
       </div>
-      <div class="bg-ivory dark:bg-midnight p-3.5 sm:p-4 flex items-center gap-3">
+      <div class="bg-ivory dark:bg-midnight p-3.5 sm:p-4 flex items-center gap-3 diocese-chip">
         <span class="w-4 h-4 rounded-full shrink-0 border border-ink/10 dark:border-ivory/20" style="background:#3949AB"></span>
         <div class="flex flex-col gap-0.5 min-w-0">
           <span class="text-xs sm:text-[13px] text-ink dark:text-ivory"><a href="brahmavar" class="hover:text-sage-dark dark:hover:text-sage border-b border-transparent hover:border-sage-dark dark:hover:border-sage transition">Brahmavar</a></span>
@@ -1513,7 +1668,7 @@
           <span class="text-[10px] text-muted tracking-wide">Est. 2010</span>
         </div>
       </div>
-      <div class="bg-ivory dark:bg-midnight p-3.5 sm:p-4 flex items-center gap-3">
+      <div class="bg-ivory dark:bg-midnight p-3.5 sm:p-4 flex items-center gap-3 diocese-chip">
         <span class="w-4 h-4 rounded-full shrink-0 border border-ink/10 dark:border-ivory/20" style="background:#7CB342"></span>
         <div class="flex flex-col gap-0.5 min-w-0">
           <span class="text-xs sm:text-[13px] text-ink dark:text-ivory"><a href="madras" class="hover:text-sage-dark dark:hover:text-sage border-b border-transparent hover:border-sage-dark dark:hover:border-sage transition">Madras</a></span>
@@ -1521,7 +1676,7 @@
           <span class="text-[10px] text-muted tracking-wide">Est. 1976</span>
         </div>
       </div>
-      <div class="bg-ivory dark:bg-midnight p-3.5 sm:p-4 flex items-center gap-3">
+      <div class="bg-ivory dark:bg-midnight p-3.5 sm:p-4 flex items-center gap-3 diocese-chip">
         <span class="w-4 h-4 rounded-full shrink-0 border border-ink/10 dark:border-ivory/20" style="background:#F9A825"></span>
         <div class="flex flex-col gap-0.5 min-w-0">
           <span class="text-xs sm:text-[13px] text-ink dark:text-ivory"><a href="bangalore" class="hover:text-sage-dark dark:hover:text-sage border-b border-transparent hover:border-sage-dark dark:hover:border-sage transition">Bangalore</a></span>
@@ -1529,7 +1684,7 @@
           <span class="text-[10px] text-muted tracking-wide">Est. 2009</span>
         </div>
       </div>
-      <div class="bg-ivory dark:bg-midnight p-3.5 sm:p-4 flex items-center gap-3">
+      <div class="bg-ivory dark:bg-midnight p-3.5 sm:p-4 flex items-center gap-3 diocese-chip">
         <span class="w-4 h-4 rounded-full shrink-0 border border-ink/10 dark:border-ivory/20" style="background:#817713"></span>
         <div class="flex flex-col gap-0.5 min-w-0">
           <span class="text-xs sm:text-[13px] text-ink dark:text-ivory"><a href="bombay" class="hover:text-sage-dark dark:hover:text-sage border-b border-transparent hover:border-sage-dark dark:hover:border-sage transition">Bombay</a></span>
@@ -1537,7 +1692,7 @@
           <span class="text-[10px] text-muted tracking-wide">Est. 1976</span>
         </div>
       </div>
-      <div class="bg-ivory dark:bg-midnight p-3.5 sm:p-4 flex items-center gap-3">
+      <div class="bg-ivory dark:bg-midnight p-3.5 sm:p-4 flex items-center gap-3 diocese-chip">
         <span class="w-4 h-4 rounded-full shrink-0 border border-ink/10 dark:border-ivory/20" style="background:#A52714"></span>
         <div class="flex flex-col gap-0.5 min-w-0">
           <span class="text-xs sm:text-[13px] text-ink dark:text-ivory"><a href="calcutta" class="hover:text-sage-dark dark:hover:text-sage border-b border-transparent hover:border-sage-dark dark:hover:border-sage transition">Calcutta</a></span>
@@ -1545,7 +1700,7 @@
           <span class="text-[10px] text-muted tracking-wide">Est. 1979</span>
         </div>
       </div>
-      <div class="bg-ivory dark:bg-midnight p-3.5 sm:p-4 flex items-center gap-3">
+      <div class="bg-ivory dark:bg-midnight p-3.5 sm:p-4 flex items-center gap-3 diocese-chip">
         <span class="w-4 h-4 rounded-full shrink-0 border border-ink/10 dark:border-ivory/20" style="background:#558B2F"></span>
         <div class="flex flex-col gap-0.5 min-w-0">
           <span class="text-xs sm:text-[13px] text-ink dark:text-ivory"><a href="delhi" class="hover:text-sage-dark dark:hover:text-sage border-b border-transparent hover:border-sage-dark dark:hover:border-sage transition">Delhi</a></span>
@@ -1553,7 +1708,7 @@
           <span class="text-[10px] text-muted tracking-wide">Est. 1976</span>
         </div>
       </div>
-      <div class="bg-ivory dark:bg-midnight p-3.5 sm:p-4 flex items-center gap-3">
+      <div class="bg-ivory dark:bg-midnight p-3.5 sm:p-4 flex items-center gap-3 diocese-chip">
         <span class="w-4 h-4 rounded-full shrink-0 border border-ink/10 dark:border-ivory/20" style="background:#880E4F"></span>
         <div class="flex flex-col gap-0.5 min-w-0">
           <span class="text-xs sm:text-[13px] text-ink dark:text-ivory"><a href="ahmedabad" class="hover:text-sage-dark dark:hover:text-sage border-b border-transparent hover:border-sage-dark dark:hover:border-sage transition">Ahmedabad</a></span>
@@ -1561,7 +1716,7 @@
           <span class="text-[10px] text-muted tracking-wide">Est. 2009</span>
         </div>
       </div>
-      <div class="bg-ivory dark:bg-midnight p-3.5 sm:p-4 flex items-center gap-3">
+      <div class="bg-ivory dark:bg-midnight p-3.5 sm:p-4 flex items-center gap-3 diocese-chip">
         <span class="w-4 h-4 rounded-full shrink-0 border border-ink/10 dark:border-ivory/20" style="background:#3949AB"></span>
         <div class="flex flex-col gap-0.5 min-w-0">
           <span class="text-xs sm:text-[13px] text-ink dark:text-ivory"><a href="asia-pacific" class="hover:text-sage-dark dark:hover:text-sage border-b border-transparent hover:border-sage-dark dark:hover:border-sage transition">Asia&ndash;Pacific</a></span>
@@ -1569,7 +1724,7 @@
           <span class="text-[10px] text-muted tracking-wide">Est. 2024</span>
         </div>
       </div>
-      <div class="bg-ivory dark:bg-midnight p-3.5 sm:p-4 flex items-center gap-3">
+      <div class="bg-ivory dark:bg-midnight p-3.5 sm:p-4 flex items-center gap-3 diocese-chip">
         <span class="w-4 h-4 rounded-full shrink-0 border border-ink/10 dark:border-ivory/20" style="background:#9C27B0"></span>
         <div class="flex flex-col gap-0.5 min-w-0">
           <span class="text-xs sm:text-[13px] text-ink dark:text-ivory"><a href="northeast-america" class="hover:text-sage-dark dark:hover:text-sage border-b border-transparent hover:border-sage-dark dark:hover:border-sage transition">Northeast America</a></span>
@@ -1577,7 +1732,7 @@
           <span class="text-[10px] text-muted tracking-wide">Est. 2009</span>
         </div>
       </div>
-      <div class="bg-ivory dark:bg-midnight p-3.5 sm:p-4 flex items-center gap-3">
+      <div class="bg-ivory dark:bg-midnight p-3.5 sm:p-4 flex items-center gap-3 diocese-chip">
         <span class="w-4 h-4 rounded-full shrink-0 border border-ink/10 dark:border-ivory/20" style="background:#F57C00"></span>
         <div class="flex flex-col gap-0.5 min-w-0">
           <span class="text-xs sm:text-[13px] text-ink dark:text-ivory"><a href="southwest-america" class="hover:text-sage-dark dark:hover:text-sage border-b border-transparent hover:border-sage-dark dark:hover:border-sage transition">Southwest America</a></span>
@@ -1585,7 +1740,7 @@
           <span class="text-[10px] text-muted tracking-wide">Est. 2009</span>
         </div>
       </div>
-      <div class="bg-ivory dark:bg-midnight p-3.5 sm:p-4 flex items-center gap-3">
+      <div class="bg-ivory dark:bg-midnight p-3.5 sm:p-4 flex items-center gap-3 diocese-chip">
         <span class="w-4 h-4 rounded-full shrink-0 border border-ink/10 dark:border-ivory/20" style="background:#0288D1"></span>
         <div class="flex flex-col gap-0.5 min-w-0">
           <span class="text-xs sm:text-[13px] text-ink dark:text-ivory"><a href="canada" class="hover:text-sage-dark dark:hover:text-sage border-b border-transparent hover:border-sage-dark dark:hover:border-sage transition">Canada</a></span>
@@ -1593,7 +1748,7 @@
           <span class="text-[10px] text-muted tracking-wide">Est. 2024</span>
         </div>
       </div>
-      <div class="bg-ivory dark:bg-midnight p-3.5 sm:p-4 flex items-center gap-3">
+      <div class="bg-ivory dark:bg-midnight p-3.5 sm:p-4 flex items-center gap-3 diocese-chip">
         <span class="w-4 h-4 rounded-full shrink-0 border border-ink/10 dark:border-ivory/20" style="background:#0F9D58"></span>
         <div class="flex flex-col gap-0.5 min-w-0">
           <span class="text-xs sm:text-[13px] text-ink dark:text-ivory"><a href="uk-europe-africa" class="hover:text-sage-dark dark:hover:text-sage border-b border-transparent hover:border-sage-dark dark:hover:border-sage transition">UK&ndash;Europe&ndash;Africa</a></span>
@@ -1601,7 +1756,7 @@
           <span class="text-[10px] text-muted tracking-wide">Est. 2009</span>
         </div>
       </div>
-      <div class="bg-ivory dark:bg-midnight p-3.5 sm:p-4 flex items-center gap-3">
+      <div class="bg-ivory dark:bg-midnight p-3.5 sm:p-4 flex items-center gap-3 diocese-chip">
         <span class="w-4 h-4 rounded-full shrink-0 border border-ink/10 dark:border-ivory/20" style="background:#BDBDBD"></span>
         <div class="flex flex-col gap-0.5 min-w-0">
           <span class="text-xs sm:text-[13px] text-ink dark:text-ivory"><a href="knanaya" class="hover:text-sage-dark dark:hover:text-sage border-b border-transparent hover:border-sage-dark dark:hover:border-sage transition">Knanaya</a> <em class="text-muted italic font-normal">(titular see)</em></span>
@@ -1609,7 +1764,7 @@
           <span class="text-[10px] text-muted tracking-wide">Est. 1910</span>
         </div>
       </div>
-      <div class="bg-ivory dark:bg-midnight p-3.5 sm:p-4 flex items-center gap-3">
+      <div class="bg-ivory dark:bg-midnight p-3.5 sm:p-4 flex items-center gap-3 diocese-chip">
         <span class="w-4 h-4 rounded-full shrink-0 border border-ink/10 dark:border-ivory/20" style="background:#C2185B"></span>
         <div class="flex flex-col gap-0.5 min-w-0">
           <span class="text-xs sm:text-[13px] text-ink dark:text-ivory"><a href="evangelistic-association-of-the-east" class="hover:text-sage-dark dark:hover:text-sage border-b border-transparent hover:border-sage-dark dark:hover:border-sage transition">Evangelistic Assoc. of the East</a> <em class="text-muted italic font-normal">(titular see)</em></span>
@@ -1617,7 +1772,7 @@
           <span class="text-[10px] text-muted tracking-wide">Est. 1924</span>
         </div>
       </div>
-      <div class="bg-ivory dark:bg-midnight p-3.5 sm:p-4 flex items-center gap-3">
+      <div class="bg-ivory dark:bg-midnight p-3.5 sm:p-4 flex items-center gap-3 diocese-chip">
         <span class="w-4 h-4 rounded-full shrink-0 border border-ink/10 dark:border-ivory/20" style="background:#673AB7"></span>
         <div class="flex flex-col gap-0.5 min-w-0">
           <span class="text-xs sm:text-[13px] text-ink dark:text-ivory"><a href="proprietary-churches" class="hover:text-sage-dark dark:hover:text-sage border-b border-transparent hover:border-sage-dark dark:hover:border-sage transition">Proprietary Churches</a></span>
@@ -1626,6 +1781,27 @@
         </div>
       </div>
   </div>
+  <p class="mt-6 text-[11px] tracking-wide text-muted">Diocese data as of August 2, 2026.</p>
+  <script>
+  (function(){
+    var input = document.getElementById('dioceseFilter');
+    var grid = document.getElementById('dioceseGrid');
+    var empty = document.getElementById('dioceseNoResults');
+    if(!input || !grid) return;
+    var chips = Array.prototype.slice.call(grid.querySelectorAll('.diocese-chip'));
+    input.addEventListener('input', function(){
+      var q = input.value.trim().toLowerCase();
+      var visible = 0;
+      chips.forEach(function(chip){
+        var name = (chip.querySelector('a') || {}).textContent || '';
+        var match = name.toLowerCase().indexOf(q) !== -1;
+        chip.style.display = match ? '' : 'none';
+        if(match){ visible++; }
+      });
+      empty.classList.toggle('hidden', visible !== 0);
+    });
+  })();
+  </script>
 </section>
 <!-- ==================== NATIONS ==================== -->
 <section class="px-5 sm:px-8 pb-16 sm:pb-24 max-w-6xl mx-auto" id="nations">
@@ -1765,6 +1941,9 @@
   <div class="reveal flex flex-col sm:flex-row sm:items-end sm:justify-between gap-3 mb-8 sm:mb-10">
     <h2 class="font-serif italic font-normal text-[28px] sm:text-4xl text-ink dark:text-ivory">Who Serves the Church</h2>
     <p class="font-serif italic text-sm text-body/55 dark:text-ivory/45">Drawn from the Church&rsquo;s 2023 clergy directory.</p>
+  </div>
+  <div class="reveal clergy-photo mb-8 sm:mb-10 rounded-2xl overflow-hidden border border-line dark:border-white/10 shadow-medium">
+    <img src="assets/img/clergy-synod.jpg" alt="Bishops of the Holy Episcopal Synod, seated and standing together in choir dress" loading="lazy">
   </div>
   <div class="reveal reveal-stagger grid grid-cols-2 lg:grid-cols-5 gap-px bg-line dark:bg-white/10 border border-line dark:border-white/10">
     <a href="metropolitans" class="group bg-ivory dark:bg-midnight p-6 sm:p-8 flex flex-col gap-2 hover:bg-featured dark:hover:bg-white/5 transition-colors">
@@ -1907,6 +2086,7 @@
     <span class="section-divider__line"></span>
   </div>
   <div class="reveal text-center mb-8 sm:mb-10">
+    <img src="assets/img/lamp-accent.jpg" alt="" aria-hidden="true" class="report-lamp mx-auto mb-5">
     <h2 class="font-serif italic font-normal text-2xl sm:text-[32px] text-ink dark:text-ivory mb-3">Help us keep this accurate</h2>
     <p class="text-[15px] text-body/75 dark:text-ivory/60 leading-[1.75]">Is a location missing from the map, or listed incorrectly? Or do you have history about a parish we don't have yet? Tell us here.</p>
   </div>
@@ -2371,10 +2551,11 @@ window.addEventListener("click", function () {
 [54,'54 CE','St. Thomas raises the Nilackal Church deep in the Western Ghats.',0],
 [63,'63 CE','St. Thomas consecrates St. Mary\'s Orthodox Church at Thiruvithamcode.',0],
 [72,'72 CE','St. Thomas is martyred at Mylapore.',0],
-[325,'325 CE','Kadampanad St. Thomas Orthodox Cathedral is established.',1],
+[325,'325 CE','Kadampanad St. Thomas Orthodox Cathedral is established, later rebuilt in 1200, 1800, and 1912.',1],
 [325,'325 CE','Thevalakkara St. Mary\'s Orthodox Church is founded around the same time.',1],
 [345,'345 CE','Seventy-two Syrian Christian families arrive from Mesopotamia, led by St. Thomas of Cana.',0],
 [350,'350 CE','Pazhanji St. Mary\'s Orthodox Cathedral is erected.',1],
+[374,'374 CE','Chengannur St. Mary\'s Orthodox Church is established.',1],
 [400,'400 CE','Kottoor St. George Orthodox Chapel is raised.',1],
 [409,'409 CE','Angamaly St. Mary\'s Orthodox Church comes into being.',1],
 [500,'500 CE','Piravom Holy Kings Church takes root (later renamed in honour of St. Mary).',1],
@@ -2382,7 +2563,6 @@ window.addEventListener("click", function () {
 [717,'717 CE','Thumpamon St. Mary\'s Orthodox Cathedral is founded.',1],
 [722,'722 CE','Karingachira St. George Orthodox Cathedral is erected.',1],
 [775,'775 CE','Kandanad St. Mary\'s Orthodox Cathedral is raised.',1],
-[800,'800 CE','Kadampanad St. Thomas Orthodox Cathedral comes into being, later rebuilt in 1200, 1800, and 1912.',1],
 [802,'802 CE','South Paravoor St. John the Baptist Orthodox Church takes root.',1],
 [824,'824 CE','Kayamkulam Kadeesa Orthodox Cathedral is established.',1],
 [825,'825 CE','Akaparambu St. Sabor and St. Aproth Orthodox Church is founded.',1],
@@ -2403,15 +2583,17 @@ window.addEventListener("click", function () {
 [1122,'1122 CE','Mar Yakob arrives in Malankara.',0],
 [1125,'1125 CE','Mulanthuruthy St. Thomas Orthodox Cathedral is established.',1],
 [1125,'1125 CE','Vettickal Dayara and Dayara Chapel is founded.',1],
+[1134,'1134 CE','Mulakulam St. John of Egypt Orthodox Church is founded.',1],
 [1175,'1175 CE','Cheppad St. George Orthodox Church is erected.',1],
 [1175,'1175 CE','Nadamel St. Mary\'s Orthodox Church is raised.',1],
+[1205,'1205 CE','Pallikkara-Malecruz St. Thomas Orthodox Chapel is founded.',1],
 [1221,'1221 CE','Mar Yoseph arrives in Malankara.',0],
 [1285,'1285 CE','Mar David arrives in Malankara.',0],
-[1300,'1300 CE','Kuruppampady St. Mary\'s Orthodox Cathedral comes into being.',1],
 [1300,'1300 CE','Karakunnam St. Mary\'s Orthodox Church takes root.',1],
 [1307,'1307 CE','Chempu St. Thomas Orthodox Church is established.',1],
 [1338,'1338 CE','Kothamangalam St. Mary\'s Orthodox Valiyapally is built by four Syrian merchants who bought the local land for trade with Tamil Nadu.',1],
 [1339,'1339 CE','Kallooppara St. Mary\'s Orthodox Church is founded.',1],
+[1355,'1355 CE','Kuruppampady St. Mary\'s Orthodox Cathedral comes into being.',1],
 [1407,'1407 CE','Mar Yahbalaha arrives in Malankara.',0],
 [1440,'1440 CE','Maramon Orthodox Church is erected.',1],
 [1455,'1455 CE','Kothamangalam St. Thomas Orthodox Church is founded by 18 families who separated from nearby Marth Maryam Valiyapally.',1],
@@ -2425,7 +2607,6 @@ window.addEventListener("click", function () {
 [1560,'1560 CE','Mar Yoseph ordains two archdeacons for Northern and Southern Malankara.',0],
 [1561,'1561 CE','Mar Yoseph is deported to Portugal.',0],
 [1565,'1565 CE','Mar Abraham converts to Catholicism at Rome.',0],
-[1565,'1565 CE','Mulakulam St. John of Egypt Orthodox Church is founded.',1],
 [1566,'1566 CE','Mar Yoseph returns to Malankara.',0],
 [1566,'1566 CE','North Paravur St. Thomas Orthodox Church is erected.',1],
 [1570,'1570 CE','Mar Abraham returns to Malankara.',0],
@@ -2438,6 +2619,7 @@ window.addEventListener("click", function () {
 [1593,'1593 CE','Archdeacon Geevarghese of the Cross succeeds the late Archdeacon Yohannan.',0],
 [1597,'1597 CE','The Second Synod of Angamaly formally denies Latin doctrine and jurisdiction.',0],
 [1599,'1599 CE','The Synod of Diamper forces Latin rule on the St. Thomas Christians, burning the libraries of Angamaly and Chengannur.',0],
+[1599,'1599 CE','Kozhencherry St. Thomas Orthodox Church is raised.',1],
 [1603,'1603 CE','The Third Synod of Angamaly meets amid rising opposition to Diamper\'s decrees.',0],
 [1609,'1609 CE','A visiting Syrian bishop is excommunicated by Bishop Ros.',0],
 [1632,'1632 CE','The Synod of Edapally affirms the Archdeacon\'s authority over Church administration.',0],
@@ -2460,6 +2642,7 @@ window.addEventListener("click", function () {
 [1728,'1728 CE','Mar Thoma IV passes away.',0],
 [1731,'1731 CE','Mar Gabriel passes away.',0],
 [1731,'1731 CE','Kottayam Puthenangady St. Thomas Orthodox Church is erected.',1],
+[1735,'1735 CE','Kottarakkara Orthodox Church comes into being, later becoming a Marthoma church.',1],
 [1742,'1742 CE','Ranni St. Thomas Knanaya Syrian Church is raised.',1],
 [1748,'1748 CE','Mor Ivanios Yohannan, "the Iconoclast," arrives, then is detained by the Dutch.',0],
 [1751,'1751 CE','Maphrian Baselios Shukrallah arrives and begins re-ordaining priests.',0],
@@ -2473,6 +2656,7 @@ window.addEventListener("click", function () {
 [1772,'1772 CE','Mor Gregorios ordains Kattumangattu Kurian as Mar Koorilos.',0],
 [1773,'1773 CE','Mor Gregorios passes away.',0],
 [1774,'1774 CE','Mar Koorilos relocates to Thozhiyur, later forming the Malabar Independent Syrian Church.',0],
+[1774,'1774 CE','Kozhencherry St. Mary\'s Orthodox Chapel takes root, rebuilt in 1893.',1],
 [1789,'1789 CE','The Second Synod of Mavelikara furthers West Syriac liturgical practice.',0],
 [1789,'1789 CE','Kunnamkulam West Bazaar St. Lazarus Orthodox Church is founded.',1],
 [1792,'1792 CE','Elanjickal St. Basil and St. Gregory Orthodox Chapel, at Niranam, is consecrated.',1],
@@ -2480,97 +2664,213 @@ window.addEventListener("click", function () {
 [1794,'1794 CE','Two monks are ordained; Mar Koorilos I of Thozhiyur ordains his brother bishop; Mor Ivanios passes away.',0],
 [1796,'1796 CE','Mar Thoma VI consecrates his nephew as Mar Thoma VII.',0],
 [1799,'1799 CE','Persecution at Alleppey; Mar Thoma VI briefly submits to Rome, then is reinstated at the Synod of Niranam.',0],
+[1802,'1802 CE','Chakkarakadavu St. Mary\'s Orthodox Church is established.',1],
+[1804,'1804 CE','Chelakkara St. George Orthodox Church is founded.',1],
 [1805,'1805 CE','Mor Dioscorus arrives, and is later deported by the British.',0],
 [1805,'1805 CE','Kunnamkulam St. Matthias Orthodox Church, South Bazaar, is granted its church building.',1],
 [1806,'1806 CE','The Synod of Arthat proclaims the Malankara Church\'s Thomasine autocephaly.',0],
 [1808,'1808 CE','Mar Thoma VI invests the Vattipanam fund, then passes away; Mar Thoma VII succeeds him.',0],
 [1809,'1809 CE','Mar Thoma VII passes away; his nephew is controversially ordained Mar Thoma VIII.',0],
 [1809,'1809 CE','The First Synod of Kandanad conditionally accepts Mar Thoma VIII and orders two seminaries built.',0],
+[1809,'1809 CE','Arathil St. George Orthodox Church is erected.',1],
+[1810,'1810 CE','Chandanappally St. George Orthodox Church is raised.',1],
 [1811,'1811 CE','The British assert authority over Church affairs at the Third Synod of Mavelikara.',0],
+[1811,'1811 CE','Makkamkunnu St. Stephen\'s Orthodox Church comes into being.',1],
 [1814,'1814 CE','Construction of the Kottayam Seminary is largely completed.',0],
 [1814,'1814 CE','Thiruvalla-Paliakkara St. George Orthodox Church is raised.',1],
+[1815,'1815 CE','Vengola St. Behanan\'s Orthodox Church takes root.',1],
 [1816,'1816 CE','Mar Thoma VIII ordains his uncle as Mar Thoma IX, then passes away.',0],
 [1816,'1816 CE','Mar Dionysius II, backed by the British, is proclaimed Metropolitan, ending the Pakalomattam line; he later dies.',0],
 [1816,'1816 CE','Puthencruz St. Peter\'s and St. Paul\'s Orthodox Church comes into being.',1],
+[1816,'1816 CE','Erathodu St. George Orthodox Church is established.',1],
 [1817,'1817 CE','Mar Thoma IX passes away; Mar Philoxenos II of Thozhiyur ordains Mar Dionysius III as Metropolitan.',0],
+[1817,'1817 CE','Kallumkathra St. George Orthodox Church is founded, on the banks of the Meenachil.',1],
 [1818,'1818 CE','The Fourth Synod of Mavelikara rejects an Anglican reform proposal.',0],
 [1825,'1825 CE','Mar Dionysius III passes away of cholera; Mar Dionysius IV is ordained.',0],
 [1825,'1825 CE','Mor Athanasius Abdal Messih arrives and claims jurisdiction over Malankara.',0],
 [1826,'1826 CE','Mor Athanasius excommunicates Mar Philoxenos II and Mar Dionysius IV, then is deported by the British.',0],
+[1828,'1828 CE','Pampady St. John\'s Orthodox Church is erected.',1],
 [1829,'1829 CE','Mar Dionysius IV assumes the office of Malankara Metropolitan.',0],
+[1832,'1832 CE','Kurichy St. Peter\'s and St. Paul\'s Orthodox Church is raised.',1],
+[1834,'1834 CE','Mallappally St. Mary\'s Orthodox Church comes into being.',1],
 [1835,'1835 CE','Anglican missionaries advance the “Wilson Proposals” for reform.',0],
+[1835,'1835 CE','Perungalloor Orthodox Church takes root, later becoming a Marthoma church.',1],
 [1836,'1836 CE','The Fifth Synod of Mavelikara rejects the Wilson Proposals; Abraham Malpan\'s reforms lead to his excommunication.',0],
 [1837,'1837 CE','Mar Dionysius IV bans Protestant missionary preaching in Church parishes.',0],
+[1838,'1838 CE','Punthala Orthodox Church is established, later becoming a Marthoma church.',1],
 [1839,'1839 CE','Patriarch Elias II attempts to depose Mar Dionysius IV, without local effect.',0],
 [1840,'1840 CE','The Cochin Arbitration Award divides Church assets from the missionaries.',0],
 [1841,'1841 CE','Abraham Malpan sends his nephew, deacon Mathen, to Antioch.',0],
+[1841,'1841 CE','Vennikulam St. Behanan\'s Orthodox Church is founded.',1],
+[1841,'1841 CE','Kizhavalloor St. Peter\'s Orthodox Church is erected.',1],
 [1842,'1842 CE','Patriarch Elias II consecrates Mathen as Mathews Mar Athanasius.',0],
 [1842,'1842 CE','Neelamperoor St. George Knanaya Syrian Church takes root.',1],
 [1843,'1843 CE','Mar Athanasius returns to Malankara and gains wide clerical support.',0],
 [1843,'1843 CE','The Second Synod of Kandanad ends in dissension over his loyalty to Orthodox tradition.',0],
 [1843,'1843 CE','The Synod of Kallumkathra declares Mar Athanasius the Patriarch\'s authorised head of the Church.',0],
+[1843,'1843 CE','Nellickal St. Mary\'s Orthodox Church is raised.',1],
 [1846,'1846 CE','Mor Yuyakim Koorilos arrives; Mar Dionysius IV abdicates in his favour.',0],
 [1847,'1847 CE','Mor Koorilos is accused of forging his Patriarchal mandate; Patriarch Elias II passes away.',0],
+[1847,'1847 CE','Vakathanam St. John\'s Orthodox Church comes into being.',1],
 [1849,'1849 CE','Patriarch Yakub II\'s envoy fails to gain recognition and returns to the Middle East.',0],
+[1850,'1850 CE','Peringanad St. Shmuni Orthodox Church takes root, the first church in Malankara dedicated to St. Shmuni.',1],
+[1851,'1851 CE','Edathua St. George Orthodox Church is established.',1],
 [1852,'1852 CE','A state committee finds Mor Koorilos\'s documents forged and recognises Mar Athanasius.',0],
 [1853,'1853 CE','The First Synod of Kottayam, under Mar Athanasius, formulates the Chattavaryola canons.',0],
+[1853,'1853 CE','Kumarakom St. John the Baptist Orthodox Church is founded.',1],
 [1855,'1855 CE','Mar Dionysius IV of Cheppad passes away.',0],
 [1856,'1856 CE','Patriarch Mor Gregorios \'Abd al-Nur visits and acknowledges Mar Athanasius.',0],
 [1857,'1857 CE','Mar Athanasius ordains Mar Koorilos IV of Thozhiyoor, prompting failed litigation against him.',0],
+[1857,'1857 CE','Fort Kochi St. Peter\'s and St. Paul\'s Orthodox Church is erected.',1],
 [1860,'1860 CE','Ramamangalam St. James the Just Knanaya Syrian Church is established by 18 families.',1],
+[1860,'1860 CE','Thuruthiply St. Mary\'s Orthodox Church is raised.',1],
+[1860,'1860 CE','Thalavady East St. Mary\'s Orthodox Church comes into being.',1],
+[1860,'1860 CE','Kaipattoor St. Ignatius Orthodox Church takes root.',1],
+[1860,'1860 CE','Mezhuveli Holy Innocents Orthodox Church is established.',1],
+[1860,'1860 CE','Enathu Orthodox Church is founded, later becoming a Marthoma church.',1],
 [1861,'1861 CE','Veliyanad St. Stephen\'s Knanaya Syrian Church is founded.',1],
 [1861,'1861 CE','Mepral St. John\'s Orthodox Church is erected.',1],
+[1861,'1861 CE','Chengalam St. Thomas Orthodox Church is erected.',1],
+[1861,'1861 CE','Thalavady West St. Thomas Orthodox Church is raised.',1],
 [1862,'1862 CE','Patriarch Yakub II urges the Church to nominate native clergy for episcopal ordination.',0],
 [1863,'1863 CE','The Synod of Kottoor selects Pulikkottil Ittoop Kathanar for the office.',0],
+[1863,'1863 CE','Thottackad St. Ephrem Orthodox Church comes into being.',1],
+[1863,'1863 CE','Edavancadu St. Mary\'s Orthodox Church takes root.',1],
+[1863,'1863 CE','Mavelikara Orthodox Chapel is established.',1],
+[1864,'1864 CE','Chennithala St. George Orthodox Church is founded.',1],
 [1865,'1865 CE','Patriarch Yakub II ordains him Mar Dionysius V, who returns to a cold reception.',0],
 [1865,'1865 CE','Thiruvalla-Kattapuram St. George Orthodox Church is raised.',1],
+[1865,'1865 CE','Marady St. Mary\'s Orthodox Church is erected.',1],
+[1865,'1865 CE','Elampal Jerusalem Orthodox Church is raised, later becoming a Marthoma church.',1],
 [1866,'1866 CE','Karackal St. George Orthodox Church comes into being.',1],
+[1866,'1866 CE','Pallom St. Paul\'s Orthodox Church comes into being, founded by Anglican Syrian Christians who chose to return to Orthodoxy.',1],
+[1866,'1866 CE','Pooyappally St. Thomas Orthodox Church takes root.',1],
 [1867,'1867 CE','Karuvatta St. Jacob Baradaeus Orthodox Church, Mankuzhy, takes root.',1],
+[1867,'1867 CE','Thiruvankulam St. Peter\'s and St. Paul\'s Orthodox Church is established.',1],
+[1867,'1867 CE','Kaviyoor Orthodox Church is founded.',1],
+[1867,'1867 CE','Nedumpuram St. George Orthodox Church is erected.',1],
+[1867,'1867 CE','Umayattukara St. Thomas Orthodox Church is raised.',1],
 [1868,'1868 CE','Thomas Mar Athanasius is ordained, fuelling rumours of a rival “Patriarchate.”',0],
+[1868,'1868 CE','Vakathanam-Vallikkattu St. Mary\'s Orthodox Chapel comes into being, first as a monastery.',1],
 [1869,'1869 CE','Mor Koorilos\'s support wanes as eighty-five parishes back Mar Athanasius at the Second Synod of Kottayam.',0],
 [1870,'1870 CE','The Third Synod of Kottayam forms a committee on Seminary administration.',0],
 [1870,'1870 CE','Puthussery St. Simon\'s Knanaya Syrian Church is established.',1],
 [1870,'1870 CE','Thiruvalla-Kavumbhagom St. Mulk Orthodox Church is built.',1],
+[1870,'1870 CE','Vengoor St. Kauma Orthodox Church takes root.',1],
+[1870,'1870 CE','Karichal St. George Orthodox Church is established.',1],
+[1870,'1870 CE','Ayroor St. Behanan\'s Orthodox Church is founded.',1],
+[1871,'1871 CE','Chakkarakadavu St. George Orthodox Church is erected, also known as Cheriapally.',1],
+[1871,'1871 CE','Chelad Bes Ania St. Stephen\'s Orthodox Church is raised.',1],
+[1871,'1871 CE','Kundara St. Mary\'s Orthodox Church comes into being.',1],
 [1872,'1872 CE','Mar Dionysius V establishes the Parumala Seminary; Peter IV is enthroned Patriarch of Antioch.',0],
 [1872,'1872 CE','Kanniattunirappu St. John the Baptist Orthodox Church is founded.',1],
 [1872,'1872 CE','Thuruthicad St. John\'s Knanaya Syrian Church is consecrated by St. Gregorios of Parumala.',1],
+[1872,'1872 CE','Thuruthicad St. John\'s Knanaya Orthodox Church takes root.',1],
+[1872,'1872 CE','Vaikom Orthodox Church is established.',1],
 [1873,'1873 CE','The Synod of Parumala reconciles Mar Dionysius V and Mor Koorilos, forming the Malankara Christian Association.',0],
+[1873,'1873 CE','Manjapra St. George Orthodox Church is founded.',1],
 [1874,'1874 CE','Mor Koorilos passes away; Patriarch Peter IV resolves to visit Malankara.',0],
 [1875,'1875 CE','Patriarch Peter IV arrives, excommunicates Mar Athanasius, and rallies royal support against him.',0],
+[1875,'1875 CE','Kadathy St. Peter\'s and St. Paul\'s Orthodox Chapel is erected.',1],
+[1875,'1875 CE','Kollad St. Paul\'s Orthodox Church is raised.',1],
+[1875,'1875 CE','Manganam St. Peter\'s Orthodox Church comes into being.',1],
+[1875,'1875 CE','Pathichira St. John\'s Orthodox Church takes root.',1],
 [1876,'1876 CE','The State withdraws its backing of Mar Athanasius.',0],
 [1876,'1876 CE','The Synod of Mulanthuruthy affirms Orthodoxy and forms the Church\'s Managing Committee.',0],
 [1876,'1876 CE','Patriarch Peter IV ordains four new bishops over the Committee\'s objection.',0],
+[1876,'1876 CE','Kottappady Hebron St. George Orthodox Church is established.',1],
+[1876,'1876 CE','Peechanicad St. Peter\'s Orthodox Church is founded.',1],
 [1877,'1877 CE','The Synod of Veliyanad fractures over a plan to divide the Church into seven dioceses.',0],
 [1877,'1877 CE','Six new bishops are assigned dioceses; Mar Dionysius V reconciles with the Patriarch, assigned to Kollam.',0],
 [1877,'1877 CE','The new bishops fast forty days at Vettickal and recognise Mar Dionysius V as Primate.',0],
 [1877,'1877 CE','Thomas Mar Athanasius succeeds his late father as head of the Reformed faction.',0],
 [1878,'1878 CE','The Association Synod at Parumala names Mar Dionysius V President of the Church\'s governing bodies.',0],
 [1879,'1879 CE','The First Samudaya Case begins at Alleppey.',0],
+[1879,'1879 CE','Manakunnam St. Eugenius Orthodox Church is erected.',1],
+[1879,'1879 CE','Kuriannoor Orthodox Church is raised.',1],
 [1880,'1880 CE','Chingavanam St. John\'s Knanaya Syrian Dayara Church is raised.',1],
+[1880,'1880 CE','Chengaroor St. George Orthodox Church takes root.',1],
 [1884,'1884 CE','Mar Gregorios of Niranam assumes the see of Thumpamon; the District Court rules for Mar Dionysius V.',0],
+[1885,'1885 CE','Mulakulam-Mannookkunnu St. Mary\'s Orthodox Church is established.',1],
+[1885,'1885 CE','Parumala Sehion St. Peter\'s and St. Paul\'s Orthodox Church is founded.',1],
+[1885,'1885 CE','Koorthamala St. Mary\'s Orthodox Church is erected.',1],
+[1885,'1885 CE','Thonackadu St. George Orthodox Church is raised.',1],
 [1886,'1886 CE','Mar Dionysius V assumes the see of Cochin.',0],
+[1887,'1887 CE','Kumbazha St. Mary\'s Orthodox Church comes into being, originally built as Kumbazha Bethel Church.',1],
+[1888,'1888 CE','Mallappally St. Peter\'s and St. Paul\'s Orthodox Chapel takes root.',1],
 [1889,'1889 CE','The Patriarch\'s authority is ruled spiritual-only; the Reformed faction becomes the Mar Thoma Church.',0],
 [1889,'1889 CE','Fr. Alvares is ordained Mar Yulios Alvares for the Independent Catholics of Goa.',0],
 [1889,'1889 CE','Thiruvilamkunnu St. George Orthodox Chapel comes into being.',1],
+[1889,'1889 CE','Aluva St. Mary\'s Orthodox Church comes into being, the land acquired nine years earlier.',1],
+[1889,'1889 CE','Poickattussery St. Behanan\'s Orthodox Church is established.',1],
+[1889,'1889 CE','Anchery St. Peter\'s Orthodox Church is founded.',1],
+[1889,'1889 CE','Enathu St. Kuriakose Orthodox Church is erected, by Parumala Thirumeni.',1],
+[1889,'1889 CE','Kalayapuram St. Basil and St. Gregory Orthodox Church is raised.',1],
+[1890,'1890 CE','Kangazha St. Thomas Orthodox Church comes into being.',1],
+[1890,'1890 CE','Meenadom West St. Thomas Orthodox Church takes root.',1],
+[1890,'1890 CE','Nallila St. Gabriel Sooboro Orthodox Church is established.',1],
 [1891,'1891 CE','Mar Athanasius of Kottayam assumes the see of Angamaly.',0],
 [1891,'1891 CE','Chingavanam St. John\'s Knanaya Syrian New Church takes root.',1],
 [1892,'1892 CE','Fr. Vilatte is ordained Mar Timotheus for North America; Patriarch Peter IV moves to depose Mar Dionysius V.',0],
 [1892,'1892 CE','The Church\'s Synod dismisses the Patriarch\'s decree, defining Antioch\'s authority as conditional.',0],
+[1892,'1892 CE','Parampuzha St. John\'s Orthodox Church is founded.',1],
+[1892,'1892 CE','Kalanjoor St. George Orthodox Church is erected, by St. Gregorios of Parumala.',1],
+[1892,'1892 CE','Mukhathala St. Stephen\'s Orthodox Church is raised.',1],
 [1893,'1893 CE','Eraviperoor St. Mary\'s Knanaya Syrian Church is established.',1],
 [1894,'1894 CE','Patriarch Peter IV passes away; Patriarch Abded Mshiho II succeeds him.',0],
 [1894,'1894 CE','Mannar St. Mary\'s Knanaya Syrian Church is founded.',1],
+[1894,'1894 CE','Kizhumuri St. George Orthodox Church comes into being.',1],
+[1894,'1894 CE','Amayannoor-Vadakkanmannoor St. Thomas Orthodox Church takes root, by St. Gregorios of Parumala as a mission church for Dalit Hindu converts.',1],
+[1894,'1894 CE','Budhanoor St. Elias Orthodox Church is established.',1],
 [1895,'1895 CE','Mepral Kalikavu St. Elias Orthodox Church is erected.',1],
+[1895,'1895 CE','Mulakulam-Parel St. Peter\'s and St. Paul\'s Orthodox Church is founded.',1],
+[1895,'1895 CE','Valanjavattom St. Mary\'s Orthodox Church is erected.',1],
+[1895,'1895 CE','Ayroor-Mathappara St. Thomas Orthodox Church is raised.',1],
+[1895,'1895 CE','Prakkanam St. Mary\'s Orthodox Church comes into being, by 100 families.',1],
 [1896,'1896 CE','Edavancadu St. Thomas Orthodox Church is raised.',1],
+[1896,'1896 CE','Kottayam St. Elias Orthodox Chapel takes root, made a cathedral in 1966.',1],
+[1896,'1896 CE','Parakode St. Peter\'s and St. Paul\'s Orthodox Church is established.',1],
 [1897,'1897 CE','Elanthoor Karoor St. Peter\'s Orthodox Church comes into being.',1],
+[1897,'1897 CE','Pengamuck St. Peter\'s and St. Paul\'s Orthodox Church is founded.',1],
+[1897,'1897 CE','Vanchithra St. Ananias Orthodox Church is erected, by St. Gregorios of Parumala.',1],
+[1898,'1898 CE','Kaviyoor Sleeba Orthodox Church is raised.',1],
+[1899,'1899 CE','Cheruthottukunnel St. George Orthodox Church comes into being.',1],
+[1899,'1899 CE','Pallikkara-Kakkanad St. Mary\'s Orthodox Church takes root.',1],
+[1899,'1899 CE','Manthuka St. Thomas Orthodox Church is established.',1],
+[1899,'1899 CE','Ullannur St. Mary\'s Orthodox Church is founded.',1],
 [1900,'1900 CE','Thiruvananthapuram St. George Orthodox Cathedral is consecrated.',1],
+[1900,'1900 CE','Arazhy St. Mary\'s Orthodox Church is erected.',1],
+[1900,'1900 CE','Chunakkara St. Thomas Orthodox Church is raised.',1],
+[1900,'1900 CE','Thumpamon Kadeeshtha St. Mary\'s Orthodox Church comes into being.',1],
 [1901,'1901 CE','The Association Yogam resolves to establish a Catholicate in Malankara.',0],
+[1901,'1901 CE','Kuruppampady-Malecruz St. Kuriakose Orthodox Chapel takes root, by St. Gregorios of Parumala.',1],
+[1901,'1901 CE','Karavaloor Bethel Orthodox Church is established.',1],
 [1902,'1902 CE','Mar Dionysius V assumes the sees of Niranam and Thumpamon on St. Gregorios\'s death.',0],
 [1902,'1902 CE','Kattode St. Mary\'s Knanaya Syrian Church takes root.',1],
+[1902,'1902 CE','Karickode St. George Orthodox Church is founded.',1],
+[1902,'1902 CE','Kuzhimattom St. George Orthodox Church is erected.',1],
+[1902,'1902 CE','Eruvellipra St. Basil and St. Gregory Orthodox Church is raised.',1],
 [1903,'1903 CE','Anchal St. George Orthodox Church is erected.',1],
 [1903,'1903 CE','Vadakkanmannoor St. Thomas Orthodox Church, Oravackal, is established.',1],
+[1903,'1903 CE','Perumbavoor Bethel Suloko Orthodox Church comes into being.',1],
+[1903,'1903 CE','Pallikkara-Thamarachal St. Mary\'s Orthodox Chapel takes root.',1],
+[1903,'1903 CE','Mulakulam-Karmelkunnu St. George Orthodox Chapel is established.',1],
+[1903,'1903 CE','Kodumon St. Behanan\'s Orthodox Church is founded.',1],
+[1903,'1903 CE','Kottarakkara-Kuttiyil Bhagom St. George Orthodox Church is erected.',1],
+[1904,'1904 CE','Pallikkara-Kizhakkambalam St. Peter\'s and St. Paul\'s Orthodox Chapel is raised.',1],
+[1904,'1904 CE','Neeramukal St. Peter\'s and St. Paul\'s Orthodox Church comes into being.',1],
+[1904,'1904 CE','Parippu St. John\'s Orthodox Church takes root.',1],
+[1904,'1904 CE','Vakathanam-Vettikunnel St. George Orthodox Church is established, the first church consecrated after Kottayam Diocese was formed.',1],
+[1904,'1904 CE','Venmony Sehion Orthodox Church is founded.',1],
 [1905,'1905 CE','Anandapally St. Kuriakose Orthodox Church is founded.',1],
 [1905,'1905 CE','Aythala St. Kuriakose Knanaya Syrian Church is erected.',1],
+[1905,'1905 CE','Peechanicad Tabor St. George Orthodox Church is erected.',1],
+[1905,'1905 CE','Thrikkalathoor St. George Orthodox Church is raised.',1],
+[1905,'1905 CE','Peroor St. Shmuni Orthodox Church comes into being.',1],
+[1905,'1905 CE','Thottamon St. Thomas Orthodox Church takes root.',1],
+[1905,'1905 CE','Kottampally St. Elias Orthodox Church is established.',1],
 [1906,'1906 CE','Patriarch Abded Aloho II is installed after Abded Mshiho II\'s Ottoman deposition.',0],
+[1906,'1906 CE','Vazhoor St. Peter\'s Orthodox Church is founded.',1],
 [1907,'1907 CE','Mar Dionysius V assumes the see of Angamaly.',0],
 [1908,'1908 CE','The Association elects two bishops-elect, ordained at Jerusalem as Mar Dionysius and Mar Koorilos.',0],
 [1909,'1909 CE','Mar Dionysius V passes away; Vattasseril Mar Dionysius VI succeeds him.',0],
@@ -2594,6 +2894,7 @@ window.addEventListener("click", function () {
 [1913,'1913 CE','Thengeli St. Mary\'s Knanaya Syrian Church comes into being.',1],
 [1913,'1913 CE','Kurichy St. Ignatius Knanaya Syrian Church takes root.',1],
 [1914,'1914 CE','Karimattom St. Mary\'s Orthodox Church is established.',1],
+[1914,'1914 CE','Sooranad St. Basil and St. Gregory Orthodox Church is erected.',1],
 [1915,'1915 CE','Patriarch Abded Mshiho II and Patriarch Abded Aloho II both pass away.',0],
 [1916,'1916 CE','Nallila Bethel St. George Orthodox Pilgrim Church is consecrated, construction begun in 1915.',1],
 [1917,'1917 CE','Patriarch Elias III is installed after a two-year vacancy.',0],
@@ -2686,6 +2987,61 @@ window.addEventListener("click", function () {
     frag.appendChild(card);
   });
   inner.appendChild(frag);
+
+  var reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  /* ---- cards fade/pop in as they scroll into the track's viewport ---- */
+  var cardEls = inner.querySelectorAll('.tl-card');
+  if(reduceMotion || !('IntersectionObserver' in window)){
+    cardEls.forEach(function(c){ c.classList.add('tl-in'); });
+  } else {
+    var cardObserver = new IntersectionObserver(function(entries){
+      entries.forEach(function(entry){
+        if(entry.isIntersecting){
+          entry.target.classList.add('tl-in');
+          cardObserver.unobserve(entry.target);
+        }
+      });
+    }, { root: track, rootMargin: '80px', threshold: 0.15 });
+    cardEls.forEach(function(c){ cardObserver.observe(c); });
+  }
+
+  /* ---- one-time "peek" glide: the first time the timeline scrolls into
+     view, nudge it sideways on its own so it reads as scrollable, not static ---- */
+  function easeOutCubic(t){ return 1 - Math.pow(1 - t, 3); }
+  function animateScrollTo(target, duration, onDone){
+    var startX = track.scrollLeft;
+    var delta = target - startX;
+    var t0 = performance.now();
+    (function step(now){
+      var p = Math.min(1, (now - t0) / duration);
+      track.scrollLeft = startX + delta * easeOutCubic(p);
+      if(p < 1){ requestAnimationFrame(step); }
+      else if(onDone){ onDone(); }
+    })(t0);
+  }
+  function peekScroll(){
+    var maxScroll = track.scrollWidth - track.clientWidth;
+    var target = Math.min(180, maxScroll);
+    if(target <= 8) return;
+    animateScrollTo(target, 950, function(){
+      setTimeout(function(){ animateScrollTo(40, 750); }, 550);
+    });
+  }
+  if(!reduceMotion && 'IntersectionObserver' in window){
+    var timelineSection = document.getElementById('timeline');
+    if(timelineSection){
+      var peekObserver = new IntersectionObserver(function(entries){
+        entries.forEach(function(entry){
+          if(entry.isIntersecting){
+            peekScroll();
+            peekObserver.disconnect();
+          }
+        });
+      }, { threshold: 0.35 });
+      peekObserver.observe(timelineSection);
+    }
+  }
 
   /* ---- wheel: vertical scroll input becomes horizontal movement ---- */
   track.addEventListener('wheel', function(e){
