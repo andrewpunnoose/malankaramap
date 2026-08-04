@@ -483,12 +483,18 @@
 .hero-section > .relative{ position:relative; z-index:1; }
 .hero-section{ display:flex; flex-direction:column; justify-content:center; min-height:94vh; min-height:94svh; }
 @media (min-width:640px){ .hero-section{ min-height:90vh; min-height:90svh; } }
-.banner-flag{
-  width:180px; pointer-events:none;
-  filter: drop-shadow(0 14px 26px rgba(16,20,13,.22));
+.banner-flag-wrap{
+  position:relative; width:180px; aspect-ratio:330/186;
+  filter: drop-shadow(0 3px 6px rgba(16,20,13,.26)) drop-shadow(0 16px 30px rgba(16,20,13,.20));
+  pointer-events:none;
 }
-@media (min-width:640px){ .banner-flag{ width:230px; } }
-@media (min-width:1024px){ .banner-flag{ width:260px; } }
+@media (min-width:640px){ .banner-flag-wrap{ width:230px; } }
+@media (min-width:1024px){ .banner-flag-wrap{ width:260px; } }
+.banner-flag-wrap .pole{ position:absolute; left:0; top:0; width:100%; height:100%; }
+.banner-flag-wrap canvas.flag-canvas{
+  position:absolute; left:4.24%; top:-5.6%; width:92.73%; height:110.2%; display:block;
+  image-rendering:auto;
+}
 
 /* ============================================================
    BACK TO TOP
@@ -2170,21 +2176,13 @@
 <!-- ==================== BANNER ==================== -->
 <section class="px-5 sm:px-8 pt-2 pb-16 sm:pb-24 max-w-6xl mx-auto text-center" id="banner">
   <div class="reveal flex flex-col items-center gap-4 sm:gap-5">
-    <svg class="banner-flag" viewBox="0 0 330 186" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" role="img" aria-label="The Church&#8217;s flag, waving, bearing the crest and the motto My Lord and My God">
-      <defs>
-        <filter id="bannerWaveFilter" x="-20%" y="-30%" width="140%" height="160%">
-          <feTurbulence type="fractalNoise" baseFrequency="0.009 0.05" numOctaves="2" seed="11" result="turb">
-            <animate attributeName="baseFrequency" values="0.009 0.05;0.013 0.056;0.009 0.05" dur="6.5s" repeatCount="indefinite"/>
-          </feTurbulence>
-          <feDisplacementMap in="SourceGraphic" in2="turb" scale="13" xChannelSelector="R" yChannelSelector="G"/>
-        </filter>
-      </defs>
-      <rect x="2" y="0" width="5" height="186" rx="2" fill="#4a4438"/>
-      <circle cx="4.5" cy="5" r="5.5" fill="#4a4438"/>
-      <g filter="url(#bannerWaveFilter)">
-        <image href="hala.webp" xlink:href="hala.webp" x="14" y="6" width="306" height="172" preserveAspectRatio="none"/>
-      </g>
-    </svg>
+    <div class="banner-flag-wrap">
+      <svg class="pole" viewBox="0 0 330 186" xmlns="http://www.w3.org/2000/svg">
+        <rect x="2" y="0" width="5" height="186" rx="2" fill="#4a4438"/>
+        <circle cx="4.5" cy="5" r="5.5" fill="#4a4438"/>
+      </svg>
+      <canvas class="flag-canvas" width="612" height="344" data-src="hala.webp" role="img" aria-label="The Church&#8217;s flag, waving, bearing the crest and the motto My Lord and My God"></canvas>
+    </div>
     <p class="font-serif italic text-[13px] sm:text-sm text-body/55 dark:text-ivory/40 max-w-xs">Under this banner, since the Apostle&rsquo;s landfall.</p>
   </div>
 </section>
@@ -3413,6 +3411,140 @@ window.addEventListener("click", function () {
   if(sectionIds.indexOf(initial) !== -1){
     window.addEventListener('load', function(){ goTo(initial, false); });
   }
+})();
+</script>
+
+<script>
+/* Flag wave: mesh-interpolated per-pixel displacement (fast) with a
+   padded working buffer so the top/bottom edges can ripple into
+   transparent space instead of clipping at a hard rectangle. */
+(function(){
+  var canvases = document.querySelectorAll('canvas.flag-canvas');
+  if(!canvases.length) return;
+  var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  canvases.forEach(function(canvas){
+    var ctx = canvas.getContext('2d');
+    var img = new Image();
+    img.src = canvas.dataset.src;
+
+    // Working resolution: high enough to stay crisp, kept fast by only running
+    // trig at a coarse mesh (below) and interpolating per pixel instead of
+    // recomputing waves per pixel.
+    var Wc = 520;
+    var flagH = Math.round(Wc * 172 / 306);
+    var padPx = 28;              // vertical breathing room so top/bottom edges can ripple, not clip
+    var Hc = flagH + padPx * 2;
+    canvas.width = Wc;
+    canvas.height = Hc;
+
+    var src = document.createElement('canvas');
+    src.width = Wc; src.height = Hc;
+    var sctx = src.getContext('2d');
+    var srcData = null;
+
+    var visible = true;
+    var t = Math.random() * 20;
+    var last = null;
+
+    if('IntersectionObserver' in window){
+      var io = new IntersectionObserver(function(entries){ visible = entries[0].isIntersecting; }, { threshold: 0.01 });
+      io.observe(canvas);
+    }
+
+    img.onload = function(){
+      sctx.clearRect(0, 0, Wc, Hc);
+      sctx.drawImage(img, 0, 0, img.naturalWidth, img.naturalHeight, 0, padPx, Wc, flagH);
+      srcData = sctx.getImageData(0, 0, Wc, Hc).data;
+    };
+
+    var outImg = ctx.createImageData(Wc, Hc);
+    var out = outImg.data;
+
+    var gCols = 44, gRows = 20;
+    var gN = (gCols + 1) * (gRows + 1);
+    var gx = new Float32Array(gN), gy = new Float32Array(gN), gs = new Float32Array(gN);
+
+    function computeGrid(t){
+      for(var j = 0; j <= gRows; j++){
+        var y = j * Hc / gRows;
+        var rowBase = j * (gCols + 1);
+        for(var i = 0; i <= gCols; i++){
+          var x = i * Wc / gCols;
+          var p = x / Wc;
+          var amp = (9 + 5 * p) * p;
+          var phase = t - x * 0.024;
+          var w1 = Math.sin(phase), w2 = Math.sin(phase * 1.9 + 1.2 + y * 0.012), w3 = Math.sin(phase * 3.3 - 0.7 + y * 0.02);
+          var wave = 0.6 * w1 + 0.26 * w2 + 0.14 * w3;
+          var c1 = Math.cos(phase), c2 = Math.cos(phase * 1.9 + 1.2 + y * 0.012), c3 = Math.cos(phase * 3.3 - 0.7 + y * 0.02);
+          var slope = amp * (0.6 * c1 + 0.494 * c2 + 0.462 * c3) * -0.024;
+          var idx = rowBase + i;
+          gy[idx] = amp * wave;
+          gx[idx] = slope * 3.0;
+          gs[idx] = slope;
+        }
+      }
+    }
+
+    function frame(now){
+      requestAnimationFrame(frame);
+      if(!srcData || !visible) return;
+      if(last === null) last = now;
+      var dt = Math.min(48, now - last);
+      last = now;
+
+      computeGrid(t);
+
+      var cellW = Wc / gCols, cellH = Hc / gRows;
+
+      for(var y = 0; y < Hc; y++){
+        var gyF = y / cellH;
+        var gy0 = gyF | 0; if(gy0 >= gRows) gy0 = gRows - 1;
+        var fy = gyF - gy0;
+        var rowBase0 = gy0 * (gCols + 1), rowBase1 = (gy0 + 1) * (gCols + 1);
+
+        for(var x = 0; x < Wc; x++){
+          var gxF = x / cellW;
+          var gx0 = gxF | 0; if(gx0 >= gCols) gx0 = gCols - 1;
+          var fx = gxF - gx0;
+
+          var i00 = rowBase0 + gx0, i10 = i00 + 1, i01 = rowBase1 + gx0, i11 = i01 + 1;
+          var w00 = (1 - fx) * (1 - fy), w10 = fx * (1 - fy), w01 = (1 - fx) * fy, w11 = fx * fy;
+
+          var dx = gx[i00]*w00 + gx[i10]*w10 + gx[i01]*w01 + gx[i11]*w11;
+          var dyv = gy[i00]*w00 + gy[i10]*w10 + gy[i01]*w01 + gy[i11]*w11;
+          var slope = gs[i00]*w00 + gs[i10]*w10 + gs[i01]*w01 + gs[i11]*w11;
+
+          var sx = x - dx, sy = y - dyv;
+          var di = (y * Wc + x) * 4;
+
+          if(sx < 0 || sx >= Wc - 1 || sy < 0 || sy >= Hc - 1){ out[di+3] = 0; continue; }
+
+          var sx0 = sx | 0, sy0 = sy | 0;
+          var sxf = sx - sx0, syf = sy - sy0;
+          var si00 = (sy0 * Wc + sx0) * 4, si10 = si00 + 4, si01 = si00 + Wc * 4, si11 = si01 + 4;
+          var sw00 = (1 - sxf) * (1 - syf), sw10 = sxf * (1 - syf), sw01 = (1 - sxf) * syf, sw11 = sxf * syf;
+
+          var a = srcData[si00+3]*sw00 + srcData[si10+3]*sw10 + srcData[si01+3]*sw01 + srcData[si11+3]*sw11;
+          if(a < 4){ out[di+3] = 0; continue; }
+
+          var shadeMul = 1 + (slope < -0.34 ? -0.34 : (slope > 0.34 ? 0.34 : slope));
+          var r = (srcData[si00]  *sw00 + srcData[si10]  *sw10 + srcData[si01]  *sw01 + srcData[si11]  *sw11) * shadeMul;
+          var g = (srcData[si00+1]*sw00 + srcData[si10+1]*sw10 + srcData[si01+1]*sw01 + srcData[si11+1]*sw11) * shadeMul;
+          var b = (srcData[si00+2]*sw00 + srcData[si10+2]*sw10 + srcData[si01+2]*sw01 + srcData[si11+2]*sw11) * shadeMul;
+
+          out[di]   = r < 0 ? 0 : (r > 255 ? 255 : r);
+          out[di+1] = g < 0 ? 0 : (g > 255 ? 255 : g);
+          out[di+2] = b < 0 ? 0 : (b > 255 ? 255 : b);
+          out[di+3] = a;
+        }
+      }
+
+      ctx.putImageData(outImg, 0, 0);
+      if(!reduceMotion) t += dt * 0.0022;
+    }
+    requestAnimationFrame(frame);
+  });
 })();
 </script>
 </body>
