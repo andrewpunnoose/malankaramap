@@ -1,3 +1,4 @@
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
 <audio id="bgMusic" loop>
   <source src="audio.mp3" type="audio/mpeg">
 </audio>
@@ -39,21 +40,20 @@
       </span>
       <div class="min-w-0">
         <div class="flex items-center gap-2 mb-0.5">
-          <span class="font-serif text-[9.5px] sm:text-[10px] tracking-[0.18em] uppercase text-taupe font-semibold truncate">Est. Apostolic Era &middot; AD 52</span>
+          <span class="font-sans text-[9.5px] sm:text-[10px] tracking-[0.18em] uppercase text-taupe font-semibold truncate" data-en="Est. 52 CE" data-ml="സ്ഥാ. 52 CE">Est. 52 CE</span>
           <span class="hidden sm:inline-flex items-center gap-1.5 pl-2 border-l border-line dark:border-white/15">
             <span class="live-dot"></span>
-            <span class="text-[9.5px] tracking-[0.14em] uppercase text-sage-dark dark:text-sage font-semibold">Live &middot; 3,536</span>
+            <span class="font-sans text-[9.5px] tracking-[0.14em] uppercase text-sage-dark dark:text-sage font-semibold" data-en="Live &middot; 3,536" data-ml="തത്സമയം &middot; 3,536">Live &middot; 3,536</span>
           </span>
         </div>
-        <div class="font-serif italic text-[15px] sm:text-[17px] text-ink dark:text-ivory truncate">Malankara Orthodox Syrian Church</div>
+        <div class="font-serif italic text-[15px] sm:text-[17px] text-ink dark:text-ivory truncate" data-en="Malankara Church" data-ml="മലങ്കര സഭ">Malankara Church</div>
       </div>
     </a>
 
     <nav class="hidden md:flex items-center gap-8 font-serif italic text-[15px] shrink-0">
-      <a href="#legend" class="text-body/80 dark:text-ivory/70 hover:text-sage-dark dark:hover:text-sage transition-colors">Legend</a>
       <div class="relative group">
         <a href="#colors" class="flex items-center gap-1 text-body/80 dark:text-ivory/70 hover:text-sage-dark dark:hover:text-sage transition-colors">
-          Dioceses
+          <span data-en="Dioceses" data-ml="രൂപതകൾ">Dioceses</span>
           <svg class="w-3 h-3 mt-0.5 opacity-60" viewBox="0 0 24 24" fill="none"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
         </a>
         <div class="hidden group-hover:block absolute left-1/2 -translate-x-1/2 top-full pt-3 z-50">
@@ -100,7 +100,7 @@
       </div>
       <div class="relative group">
         <a href="nations" class="flex items-center gap-1 text-body/80 dark:text-ivory/70 hover:text-sage-dark dark:hover:text-sage transition-colors">
-          Nations
+          <span data-en="Nations" data-ml="രാഷ്ട്രങ്ങൾ">Nations</span>
           <svg class="w-3 h-3 mt-0.5 opacity-60" viewBox="0 0 24 24" fill="none"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
         </a>
         <div class="hidden group-hover:block absolute left-1/2 -translate-x-1/2 top-full pt-3 z-50">
@@ -156,7 +156,7 @@
       </div>
       <div class="relative group">
         <a href="#numbers" class="flex items-center gap-1 text-body/80 dark:text-ivory/70 hover:text-sage-dark dark:hover:text-sage transition-colors">
-          Institutions
+          <span data-en="Institutions" data-ml="സ്ഥാപനങ്ങൾ">Institutions</span>
           <svg class="w-3 h-3 mt-0.5 opacity-60" viewBox="0 0 24 24" fill="none"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
         </a>
         <div class="hidden group-hover:block absolute left-1/2 -translate-x-1/2 top-full pt-3 z-50">
@@ -185,7 +185,7 @@
       </div>
       <div class="relative group">
         <a href="#clergy" class="flex items-center gap-1 text-body/80 dark:text-ivory/70 hover:text-sage-dark dark:hover:text-sage transition-colors">
-          Clergy
+          <span data-en="Clergy" data-ml="വൈദികർ">Clergy</span>
           <svg class="w-3 h-3 mt-0.5 opacity-60" viewBox="0 0 24 24" fill="none"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
         </a>
         <div class="hidden group-hover:block absolute left-1/2 -translate-x-1/2 top-full pt-3 z-50">
@@ -217,6 +217,9 @@
         <svg class="icon-sound-on w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 9.5v5h3.2L12 18V6L7.2 9.5H4Z"/><path d="M15.5 9.2a4 4 0 0 1 0 5.6M18 6.8a7.5 7.5 0 0 1 0 10.4"/></svg>
         <svg class="icon-sound-off w-4 h-4 hidden" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 9.5v5h3.2L12 18V6L7.2 9.5H4Z"/><path d="M15.5 9.5l4.5 4.5M20 9.5l-4.5 4.5"/></svg>
       </button>
+      <button class="w-9 h-9 sm:w-10 sm:h-10 rounded-full border border-line dark:border-white/15 flex items-center justify-center text-body/70 dark:text-ivory/70 hover:border-ink dark:hover:border-ivory hover:text-ink dark:hover:text-ivory transition-colors" id="langToggle" aria-label="Switch to Malayalam" title="Switch to Malayalam">
+        <span id="langToggleLabel" class="text-[15px]" style="font-family:'Noto Serif Malayalam',serif;">മ</span>
+      </button>
       <button class="w-9 h-9 sm:w-10 sm:h-10 rounded-full border border-line dark:border-white/15 flex items-center justify-center text-body/70 dark:text-ivory/70 hover:border-ink dark:hover:border-ivory hover:text-ink dark:hover:text-ivory transition-colors" id="themeToggle" aria-label="Toggle dark mode" title="Toggle dark mode">
         <svg class="icon-sun w-4 h-4" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="4.2" stroke="currentColor" stroke-width="1.4"/><path d="M12 2.5v2.2M12 19.3v2.2M4.2 4.2l1.6 1.6M18.2 18.2l1.6 1.6M2.5 12h2.2M19.3 12h2.2M4.2 19.8l1.6-1.6M18.2 5.8l1.6-1.6" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg>
         <svg class="icon-moon w-4 h-4 hidden" viewBox="0 0 24 24" fill="none"><path d="M20 14.5A8.5 8.5 0 1 1 9.5 4a6.8 6.8 0 0 0 10.5 10.5Z" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"/></svg>
@@ -232,11 +235,10 @@
       <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg>
       Search the directory
     </button>
-    <a href="#legend" class="text-body/80 dark:text-ivory/70">Legend</a>
-    <a href="#colors" class="text-body/80 dark:text-ivory/70">Dioceses</a>
-    <a href="nations" class="text-body/80 dark:text-ivory/70">Nations</a>
-    <a href="#numbers" class="text-body/80 dark:text-ivory/70">Institutions</a>
-    <a href="#clergy" class="text-body/80 dark:text-ivory/70">Clergy</a>
+    <a href="#colors" class="text-body/80 dark:text-ivory/70" data-en="Dioceses" data-ml="രൂപതകൾ">Dioceses</a>
+    <a href="nations" class="text-body/80 dark:text-ivory/70" data-en="Nations" data-ml="രാഷ്ട്രങ്ങൾ">Nations</a>
+    <a href="#numbers" class="text-body/80 dark:text-ivory/70" data-en="Institutions" data-ml="സ്ഥാപനങ്ങൾ">Institutions</a>
+    <a href="#clergy" class="text-body/80 dark:text-ivory/70" data-en="Clergy" data-ml="വൈദികർ">Clergy</a>
     <a href="#report" class="font-sans not-italic text-sm font-semibold tracking-wide uppercase text-sage-dark dark:text-sage">Report an Issue</a>
   </div>
 </header>
@@ -255,6 +257,112 @@
   </div>
 </div>
 
+<script>
+/* ============================================================
+   LANGUAGE TOGGLE — switches header text (and any element
+   elsewhere on the page carrying data-en/data-ml) between
+   English and Malayalam. Choice persists across every page
+   that includes this header, via localStorage.
+
+   To make more of a page translatable, just add
+   data-en="English text" data-ml="Malayalam text" to any
+   element — this script will pick it up automatically.
+   ============================================================ */
+(function(){
+  var STORAGE_KEY = 'site-lang';
+  var toggle = document.getElementById('langToggle');
+  var label = document.getElementById('langToggleLabel');
+  if(!toggle || !label) return;
+
+  function applyLang(lang){
+    document.documentElement.setAttribute('lang', lang === 'ml' ? 'ml' : 'en');
+    document.querySelectorAll('[data-en][data-ml]').forEach(function(el){
+      el.textContent = lang === 'ml' ? el.getAttribute('data-ml') : el.getAttribute('data-en');
+      el.style.fontFamily = lang === 'ml' ? "'Noto Serif Malayalam', serif" : '';
+    });
+    if(lang === 'ml'){
+      label.textContent = 'Aa';
+      label.style.fontFamily = '';
+      label.className = 'font-sans text-[13px] font-semibold';
+      toggle.setAttribute('aria-label', 'Switch to English');
+      toggle.setAttribute('title', 'Switch to English');
+    } else {
+      label.textContent = '\u0d2e';
+      label.style.fontFamily = "'Noto Serif Malayalam', serif";
+      label.className = 'text-[15px]';
+      toggle.setAttribute('aria-label', 'Switch to Malayalam');
+      toggle.setAttribute('title', 'Switch to Malayalam');
+    }
+  }
+
+  var saved = null;
+  try { saved = localStorage.getItem(STORAGE_KEY); } catch(e){}
+  applyLang(saved === 'ml' ? 'ml' : 'en');
+
+  toggle.addEventListener('click', function(){
+    var next = document.documentElement.getAttribute('lang') === 'ml' ? 'en' : 'ml';
+    try { localStorage.setItem(STORAGE_KEY, next); } catch(e){}
+    applyLang(next);
+  });
+})();
+</script>
+<script>
+/* ============================================================
+   THEME TOGGLE, MOBILE MENU, MUSIC TOGGLE — self-contained so
+   this header works the same on every page that includes it.
+   ============================================================ */
+(function(){
+  var btn = document.getElementById('themeToggle');
+  if(!btn) return;
+  var sun = btn.querySelector('.icon-sun');
+  var moon = btn.querySelector('.icon-moon');
+  function sync(){
+    var isDark = document.documentElement.classList.contains('dark');
+    sun.classList.toggle('hidden', isDark);
+    moon.classList.toggle('hidden', !isDark);
+  }
+  sync();
+  btn.addEventListener('click', function(){
+    var isDark = document.documentElement.classList.toggle('dark');
+    localStorage.setItem('malankara-theme', isDark ? 'dark' : 'light');
+    sync();
+  });
+  var menuBtn = document.getElementById('mobileMenuBtn');
+  var menu = document.getElementById('mobileMenu');
+  if(menuBtn && menu){
+    menuBtn.addEventListener('click', function(){ menu.classList.toggle('hidden'); });
+    menu.querySelectorAll('a').forEach(function(a){
+      a.addEventListener('click', function(){ menu.classList.add('hidden'); });
+    });
+  }
+})();
+(function(){
+  var music = document.getElementById('bgMusic');
+  var mbtn = document.getElementById('musicToggle');
+  if(!music || !mbtn) return;
+  var onIcon = mbtn.querySelector('.icon-sound-on');
+  var offIcon = mbtn.querySelector('.icon-sound-off');
+  function sync(){
+    var playing = !music.paused;
+    onIcon.classList.toggle('hidden', !playing);
+    offIcon.classList.toggle('hidden', playing);
+    mbtn.setAttribute('aria-label', playing ? 'Pause background music' : 'Play background music');
+    mbtn.setAttribute('title', playing ? 'Pause background music' : 'Play background music');
+  }
+  music.addEventListener('play', sync);
+  music.addEventListener('pause', sync);
+  sync();
+  mbtn.addEventListener('click', function(e){
+    e.stopPropagation();
+    if (music.paused){
+      music.play();
+      if (music.volume === 0){ music.volume = 0.5; }
+    } else {
+      music.pause();
+    }
+  });
+})();
+</script>
 <script>
 /* ============================================================
    COMMAND PALETTE — indexes existing header links, no duplicate data.
