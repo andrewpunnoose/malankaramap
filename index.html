@@ -107,8 +107,8 @@ input::placeholder,textarea::placeholder{opacity:1;color:#9ca3af}
 audio,canvas,embed,iframe,img,object,svg,video{display:block;vertical-align:middle}
 img,video{max-width:100%;height:auto}
 [hidden]:where(:not([hidden=until-found])){display:none}
-html{scroll-behavior:smooth}
-body{-webkit-font-smoothing:antialiased}
+html{scroll-behavior:smooth;overflow-x:hidden;max-width:100%}
+body{-webkit-font-smoothing:antialiased;overflow-x:hidden;max-width:100%}
 ::-moz-selection{background:#6b8259;color:#fff}
 ::selection{background:#6b8259;color:#fff}
 .absolute{position:absolute}
@@ -1319,6 +1319,13 @@ body{-webkit-font-smoothing:antialiased}
 #cmdOverlay{ position:fixed; z-index:100; padding-top:6rem; }
 @media (min-width:640px){ #cmdOverlay{ padding-top:8rem; } }
 
+/* Fix: #nearestForm's centering (max-w-md + mx-auto) has proven
+   unreliable in production, leaving the search row stretched full-
+   width and out of alignment with the copy above it. Force it
+   explicitly so it doesn't depend on those utility classes alone. */
+#nearestForm{ width:100%; max-width:28rem; margin-left:auto; margin-right:auto; }
+#nearestLocBtn{ display:inline-flex; margin-left:auto; margin-right:auto; }
+
 /* Fix: sm:hidden / sm:inline are not present in this build's
    compiled Tailwind output (purged), so a hand-rolled pair of
    classes handles the mobile/desktop "Est." swap instead. */
@@ -2180,7 +2187,7 @@ L 704.6 52.4 L 705.2 50.6 L 705.8 48.9 L 706.3 47.2 L 706.6 45.5 L 706.9 43.8 L 
       <div class="min-w-0">
         <div class="flex items-center gap-2 mb-0.5">
           <span class="font-sans text-[9.5px] sm:text-[10px] tracking-[0.18em] uppercase text-taupe font-semibold truncate">
-            <span class="est-mobile" data-en="Est. 52 CE" data-ml="സ്ഥാ. 52">Est. 52 CE</span>
+            <span class="est-mobile" data-en="Est. 52 CE" data-ml="സ്ഥാ. ക്രി.വ. 52">Est. 52 CE</span>
             <span class="est-desktop" data-en="Est. 52 CE" data-ml="സ്ഥാ. ക്രി.വ. 52">Est. 52 CE</span>
           </span>
           <span class="hidden sm:inline-flex items-center gap-1.5 pl-2 border-l border-line dark:border-white/15">
@@ -2201,41 +2208,41 @@ L 704.6 52.4 L 705.2 50.6 L 705.8 48.9 L 706.3 47.2 L 706.6 45.5 L 706.9 43.8 L 
         <div class="hidden group-hover:block absolute left-1/2 -translate-x-1/2 top-full pt-3 z-50">
           <div class="megapanel bg-ivory dark:bg-midnight border border-line dark:border-white/10 rounded-2xl shadow-large px-3 py-3 font-sans not-italic text-[13px] font-normal normal-case tracking-normal w-56 max-h-64 overflow-y-auto">
         <div class="flex flex-col">
-<a href="adoor-kadampanad" class="block px-2 py-1.5 rounded hover:bg-featured dark:hover:bg-white/10 text-body/80 dark:text-ivory/70 hover:text-sage-dark dark:hover:text-sage transition-colors truncate"><span data-en="Adoor–Kadampanad" data-ml="അടൂർ–കടമ്പനാട്">Adoor–Kadampanad</span></a>
+<a href="adoor-kadampanad" class="block px-2 py-1.5 rounded hover:bg-featured dark:hover:bg-white/10 text-body/80 dark:text-ivory/70 hover:text-sage-dark dark:hover:text-sage transition-colors truncate"><span data-en="Adoor–Kadampanad" data-ml="അടൂർ-കടമ്പനാട്">Adoor–Kadampanad</span></a>
           <a href="ahmedabad" class="block px-2 py-1.5 rounded hover:bg-featured dark:hover:bg-white/10 text-body/80 dark:text-ivory/70 hover:text-sage-dark dark:hover:text-sage transition-colors truncate"><span data-en="Ahmedabad" data-ml="അഹമ്മദാബാദ്">Ahmedabad</span></a>
           <a href="angamaly" class="block px-2 py-1.5 rounded hover:bg-featured dark:hover:bg-white/10 text-body/80 dark:text-ivory/70 hover:text-sage-dark dark:hover:text-sage transition-colors truncate"><span data-en="Angamaly" data-ml="അങ്കമാലി">Angamaly</span></a>
-          <a href="asia-pacific" class="block px-2 py-1.5 rounded hover:bg-featured dark:hover:bg-white/10 text-body/80 dark:text-ivory/70 hover:text-sage-dark dark:hover:text-sage transition-colors truncate"><span data-en="Asia–Pacific" data-ml="ഏഷ്യ–പസഫിക്">Asia–Pacific</span></a>
+          <a href="asia-pacific" class="block px-2 py-1.5 rounded hover:bg-featured dark:hover:bg-white/10 text-body/80 dark:text-ivory/70 hover:text-sage-dark dark:hover:text-sage transition-colors truncate"><span data-en="Asia–Pacific" data-ml="ഏഷ്യ-പസഫിക്">Asia–Pacific</span></a>
           <a href="bangalore" class="block px-2 py-1.5 rounded hover:bg-featured dark:hover:bg-white/10 text-body/80 dark:text-ivory/70 hover:text-sage-dark dark:hover:text-sage transition-colors truncate"><span data-en="Bangalore" data-ml="ബാംഗ്ലൂർ">Bangalore</span></a>
-          <a href="bombay" class="block px-2 py-1.5 rounded hover:bg-featured dark:hover:bg-white/10 text-body/80 dark:text-ivory/70 hover:text-sage-dark dark:hover:text-sage transition-colors truncate"><span data-en="Bombay" data-ml="ബോംബെ">Bombay</span></a>
-          <a href="brahmavar" class="block px-2 py-1.5 rounded hover:bg-featured dark:hover:bg-white/10 text-body/80 dark:text-ivory/70 hover:text-sage-dark dark:hover:text-sage transition-colors truncate"><span data-en="Brahmavar" data-ml="ബ്രഹ്മാവർ">Brahmavar</span></a>
+          <a href="bombay" class="block px-2 py-1.5 rounded hover:bg-featured dark:hover:bg-white/10 text-body/80 dark:text-ivory/70 hover:text-sage-dark dark:hover:text-sage transition-colors truncate"><span data-en="Bombay" data-ml="മുംബൈ">Bombay</span></a>
+          <a href="brahmavar" class="block px-2 py-1.5 rounded hover:bg-featured dark:hover:bg-white/10 text-body/80 dark:text-ivory/70 hover:text-sage-dark dark:hover:text-sage transition-colors truncate"><span data-en="Brahmavar" data-ml="ബ്രഹ്മവാർ">Brahmavar</span></a>
           <a href="calcutta" class="block px-2 py-1.5 rounded hover:bg-featured dark:hover:bg-white/10 text-body/80 dark:text-ivory/70 hover:text-sage-dark dark:hover:text-sage transition-colors truncate"><span data-en="Calcutta" data-ml="കൽക്കട്ട">Calcutta</span></a>
           <a href="canada" class="block px-2 py-1.5 rounded hover:bg-featured dark:hover:bg-white/10 text-body/80 dark:text-ivory/70 hover:text-sage-dark dark:hover:text-sage transition-colors truncate"><span data-en="Canada" data-ml="കാനഡ">Canada</span></a>
           <a href="chengannur" class="block px-2 py-1.5 rounded hover:bg-featured dark:hover:bg-white/10 text-body/80 dark:text-ivory/70 hover:text-sage-dark dark:hover:text-sage transition-colors truncate"><span data-en="Chengannur" data-ml="ചെങ്ങന്നൂർ">Chengannur</span></a>
           <a href="delhi" class="block px-2 py-1.5 rounded hover:bg-featured dark:hover:bg-white/10 text-body/80 dark:text-ivory/70 hover:text-sage-dark dark:hover:text-sage transition-colors truncate"><span data-en="Delhi" data-ml="ഡൽഹി">Delhi</span></a>
-          <a href="evangelistic-association-of-the-east" class="block px-2 py-1.5 rounded hover:bg-featured dark:hover:bg-white/10 text-body/80 dark:text-ivory/70 hover:text-sage-dark dark:hover:text-sage transition-colors truncate"><span data-en="Evangelistic Assoc. of the East" data-ml="ഈസ്റ്റ് ഇവാഞ്ചലിസ്റ്റിക് അസോസിയേഷൻ">Evangelistic Assoc. of the East</span></a>
+          <a href="evangelistic-association-of-the-east" class="block px-2 py-1.5 rounded hover:bg-featured dark:hover:bg-white/10 text-body/80 dark:text-ivory/70 hover:text-sage-dark dark:hover:text-sage transition-colors truncate"><span data-en="Evangelistic Assoc. of the East" data-ml="പൗരസ്ത്യ സുവിശേഷ സമാജം">Evangelistic Assoc. of the East</span></a>
           <a href="idukki" class="block px-2 py-1.5 rounded hover:bg-featured dark:hover:bg-white/10 text-body/80 dark:text-ivory/70 hover:text-sage-dark dark:hover:text-sage transition-colors truncate"><span data-en="Idukki" data-ml="ഇടുക്കി">Idukki</span></a>
-          <a href="kandanad-east" class="block px-2 py-1.5 rounded hover:bg-featured dark:hover:bg-white/10 text-body/80 dark:text-ivory/70 hover:text-sage-dark dark:hover:text-sage transition-colors truncate"><span data-en="Kandanad East" data-ml="കണ്ടനാട് കിഴക്ക്">Kandanad East</span></a>
-          <a href="kandanad-west" class="block px-2 py-1.5 rounded hover:bg-featured dark:hover:bg-white/10 text-body/80 dark:text-ivory/70 hover:text-sage-dark dark:hover:text-sage transition-colors truncate"><span data-en="Kandanad West" data-ml="കണ്ടനാട് പടിഞ്ഞാറ്">Kandanad West</span></a>
-          <a href="knanaya" class="block px-2 py-1.5 rounded hover:bg-featured dark:hover:bg-white/10 text-body/80 dark:text-ivory/70 hover:text-sage-dark dark:hover:text-sage transition-colors truncate"><span data-en="Knanaya" data-ml="കനേനായ">Knanaya</span></a>
+          <a href="kandanad-east" class="block px-2 py-1.5 rounded hover:bg-featured dark:hover:bg-white/10 text-body/80 dark:text-ivory/70 hover:text-sage-dark dark:hover:text-sage transition-colors truncate"><span data-en="Kandanad East" data-ml="കണ്ടനാട്-ഈസ്റ്റ്">Kandanad East</span></a>
+          <a href="kandanad-west" class="block px-2 py-1.5 rounded hover:bg-featured dark:hover:bg-white/10 text-body/80 dark:text-ivory/70 hover:text-sage-dark dark:hover:text-sage transition-colors truncate"><span data-en="Kandanad West" data-ml="കണ്ടനാട്-വെസ്റ്റ്">Kandanad West</span></a>
+          <a href="knanaya" class="block px-2 py-1.5 rounded hover:bg-featured dark:hover:bg-white/10 text-body/80 dark:text-ivory/70 hover:text-sage-dark dark:hover:text-sage transition-colors truncate"><span data-en="Knanaya" data-ml="ക്നാനായ">Knanaya</span></a>
           <a href="kochi" class="block px-2 py-1.5 rounded hover:bg-featured dark:hover:bg-white/10 text-body/80 dark:text-ivory/70 hover:text-sage-dark dark:hover:text-sage transition-colors truncate"><span data-en="Kochi" data-ml="കൊച്ചി">Kochi</span></a>
           <a href="kollam" class="block px-2 py-1.5 rounded hover:bg-featured dark:hover:bg-white/10 text-body/80 dark:text-ivory/70 hover:text-sage-dark dark:hover:text-sage transition-colors truncate"><span data-en="Kollam" data-ml="കൊല്ലം">Kollam</span></a>
-          <a href="kottarakkara-punalur" class="block px-2 py-1.5 rounded hover:bg-featured dark:hover:bg-white/10 text-body/80 dark:text-ivory/70 hover:text-sage-dark dark:hover:text-sage transition-colors truncate"><span data-en="Kottarakkara–Punalur" data-ml="കോട്ടരക്കര–പുനലൂർ">Kottarakkara–Punalur</span></a>
+          <a href="kottarakkara-punalur" class="block px-2 py-1.5 rounded hover:bg-featured dark:hover:bg-white/10 text-body/80 dark:text-ivory/70 hover:text-sage-dark dark:hover:text-sage transition-colors truncate"><span data-en="Kottarakkara–Punalur" data-ml="കൊട്ടാരക്കര-പുനലൂർ">Kottarakkara–Punalur</span></a>
           <a href="kottayam" class="block px-2 py-1.5 rounded hover:bg-featured dark:hover:bg-white/10 text-body/80 dark:text-ivory/70 hover:text-sage-dark dark:hover:text-sage transition-colors truncate"><span data-en="Kottayam" data-ml="കോട്ടയം">Kottayam</span></a>
-          <a href="kottayam-central" class="block px-2 py-1.5 rounded hover:bg-featured dark:hover:bg-white/10 text-body/80 dark:text-ivory/70 hover:text-sage-dark dark:hover:text-sage transition-colors truncate"><span data-en="Kottayam Central" data-ml="കോട്ടയം സെൻട്രൽ">Kottayam Central</span></a>
+          <a href="kottayam-central" class="block px-2 py-1.5 rounded hover:bg-featured dark:hover:bg-white/10 text-body/80 dark:text-ivory/70 hover:text-sage-dark dark:hover:text-sage transition-colors truncate"><span data-en="Kottayam Central" data-ml="കോട്ടയം-സെൻട്രൽ">Kottayam Central</span></a>
           <a href="kunnamkulam" class="block px-2 py-1.5 rounded hover:bg-featured dark:hover:bg-white/10 text-body/80 dark:text-ivory/70 hover:text-sage-dark dark:hover:text-sage transition-colors truncate"><span data-en="Kunnamkulam" data-ml="കുന്നംകുളം">Kunnamkulam</span></a>
-          <a href="madras" class="block px-2 py-1.5 rounded hover:bg-featured dark:hover:bg-white/10 text-body/80 dark:text-ivory/70 hover:text-sage-dark dark:hover:text-sage transition-colors truncate"><span data-en="Madras" data-ml="മദ്രാസ്">Madras</span></a>
+          <a href="madras" class="block px-2 py-1.5 rounded hover:bg-featured dark:hover:bg-white/10 text-body/80 dark:text-ivory/70 hover:text-sage-dark dark:hover:text-sage transition-colors truncate"><span data-en="Madras" data-ml="ചെന്നൈ">Madras</span></a>
           <a href="malabar" class="block px-2 py-1.5 rounded hover:bg-featured dark:hover:bg-white/10 text-body/80 dark:text-ivory/70 hover:text-sage-dark dark:hover:text-sage transition-colors truncate"><span data-en="Malabar" data-ml="മലബാർ">Malabar</span></a>
           <a href="mavelikara" class="block px-2 py-1.5 rounded hover:bg-featured dark:hover:bg-white/10 text-body/80 dark:text-ivory/70 hover:text-sage-dark dark:hover:text-sage transition-colors truncate"><span data-en="Mavelikara" data-ml="മാവേലിക്കര">Mavelikara</span></a>
           <a href="nilackal" class="block px-2 py-1.5 rounded hover:bg-featured dark:hover:bg-white/10 text-body/80 dark:text-ivory/70 hover:text-sage-dark dark:hover:text-sage transition-colors truncate"><span data-en="Nilackal" data-ml="നിലയ്ക്കൽ">Nilackal</span></a>
           <a href="niranam" class="block px-2 py-1.5 rounded hover:bg-featured dark:hover:bg-white/10 text-body/80 dark:text-ivory/70 hover:text-sage-dark dark:hover:text-sage transition-colors truncate"><span data-en="Niranam" data-ml="നിരണം">Niranam</span></a>
-          <a href="northeast-america" class="block px-2 py-1.5 rounded hover:bg-featured dark:hover:bg-white/10 text-body/80 dark:text-ivory/70 hover:text-sage-dark dark:hover:text-sage transition-colors truncate"><span data-en="Northeast America" data-ml="നോർത്ത്ഈസ്റ്റ് അമേരിക്ക">Northeast America</span></a>
-          <a href="proprietary-churches" class="block px-2 py-1.5 rounded hover:bg-featured dark:hover:bg-white/10 text-body/80 dark:text-ivory/70 hover:text-sage-dark dark:hover:text-sage transition-colors truncate"><span data-en="Proprietary Churches" data-ml="സ്വകാര്യ ഇടവകകൾ">Proprietary Churches</span></a>
-          <a href="southwest-america" class="block px-2 py-1.5 rounded hover:bg-featured dark:hover:bg-white/10 text-body/80 dark:text-ivory/70 hover:text-sage-dark dark:hover:text-sage transition-colors truncate"><span data-en="Southwest America" data-ml="സൗത്ത്‌വെസ്റ്റ് അമേരിക്ക">Southwest America</span></a>
+          <a href="northeast-america" class="block px-2 py-1.5 rounded hover:bg-featured dark:hover:bg-white/10 text-body/80 dark:text-ivory/70 hover:text-sage-dark dark:hover:text-sage transition-colors truncate"><span data-en="Northeast America" data-ml="നോർത്ത്-ഈസ്റ്റ് അമേരിക്ക">Northeast America</span></a>
+          <a href="proprietary-churches" class="block px-2 py-1.5 rounded hover:bg-featured dark:hover:bg-white/10 text-body/80 dark:text-ivory/70 hover:text-sage-dark dark:hover:text-sage transition-colors truncate"><span data-en="Proprietary Churches" data-ml="കുടുംബപള്ളികൾ">Proprietary Churches</span></a>
+          <a href="southwest-america" class="block px-2 py-1.5 rounded hover:bg-featured dark:hover:bg-white/10 text-body/80 dark:text-ivory/70 hover:text-sage-dark dark:hover:text-sage transition-colors truncate"><span data-en="Southwest America" data-ml="സൗത്ത്-വെസ്റ്റ് അമേരിക്ക">Southwest America</span></a>
           <a href="sulthan-bathery" class="block px-2 py-1.5 rounded hover:bg-featured dark:hover:bg-white/10 text-body/80 dark:text-ivory/70 hover:text-sage-dark dark:hover:text-sage transition-colors truncate"><span data-en="Sulthan Bathery" data-ml="സുൽത്താൻ ബത്തേരി">Sulthan Bathery</span></a>
           <a href="thiruvananthapuram" class="block px-2 py-1.5 rounded hover:bg-featured dark:hover:bg-white/10 text-body/80 dark:text-ivory/70 hover:text-sage-dark dark:hover:text-sage transition-colors truncate"><span data-en="Thiruvananthapuram" data-ml="തിരുവനന്തപുരം">Thiruvananthapuram</span></a>
           <a href="thrissur" class="block px-2 py-1.5 rounded hover:bg-featured dark:hover:bg-white/10 text-body/80 dark:text-ivory/70 hover:text-sage-dark dark:hover:text-sage transition-colors truncate"><span data-en="Thrissur" data-ml="തൃശ്ശൂർ">Thrissur</span></a>
           <a href="thumpamon" class="block px-2 py-1.5 rounded hover:bg-featured dark:hover:bg-white/10 text-body/80 dark:text-ivory/70 hover:text-sage-dark dark:hover:text-sage transition-colors truncate"><span data-en="Thumpamon" data-ml="തുമ്പമൺ">Thumpamon</span></a>
-          <a href="uk-europe-africa" class="block px-2 py-1.5 rounded hover:bg-featured dark:hover:bg-white/10 text-body/80 dark:text-ivory/70 hover:text-sage-dark dark:hover:text-sage transition-colors truncate"><span data-en="UK–Europe–Africa" data-ml="യുകെ–യൂറോപ്പ്–ആഫ്രിക്ക">UK–Europe–Africa</span></a>
+          <a href="uk-europe-africa" class="block px-2 py-1.5 rounded hover:bg-featured dark:hover:bg-white/10 text-body/80 dark:text-ivory/70 hover:text-sage-dark dark:hover:text-sage transition-colors truncate"><span data-en="UK–Europe–Africa" data-ml="യു.കെ-യൂറോപ്പ്">UK–Europe–Africa</span></a>
         </div>
           </div>
         </div>
@@ -2307,18 +2314,18 @@ L 704.6 52.4 L 705.2 50.6 L 705.8 48.9 L 706.3 47.2 L 706.6 45.5 L 706.9 43.8 L 
           <a href="#numbers" class="block px-2 py-1.5 rounded hover:bg-featured dark:hover:bg-white/10 text-sage-dark dark:text-sage font-semibold transition-colors truncate"><span data-en="Overview &rarr;" data-ml="അവലോകനം &rarr;">Overview &rarr;</span></a>
           <a href="type-parish-churches" class="flex items-center justify-between gap-2 px-2 py-1.5 rounded hover:bg-featured dark:hover:bg-white/10 text-body/80 dark:text-ivory/70 hover:text-sage-dark dark:hover:text-sage transition-colors truncate"><span class="truncate"><span data-en="Parish Churches" data-ml="ഇടവക പള്ളികൾ">Parish Churches</span></span><span class="font-sans text-[11px] text-muted shrink-0">1768</span></a>
           <a href="type-chapels" class="flex items-center justify-between gap-2 px-2 py-1.5 rounded hover:bg-featured dark:hover:bg-white/10 text-body/80 dark:text-ivory/70 hover:text-sage-dark dark:hover:text-sage transition-colors truncate"><span class="truncate"><span data-en="Chapels" data-ml="ചാപ്പലുകൾ">Chapels</span></span><span class="font-sans text-[11px] text-muted shrink-0">643</span></a>
-          <a href="type-cathedrals" class="flex items-center justify-between gap-2 px-2 py-1.5 rounded hover:bg-featured dark:hover:bg-white/10 text-body/80 dark:text-ivory/70 hover:text-sage-dark dark:hover:text-sage transition-colors truncate"><span class="truncate"><span data-en="Cathedrals" data-ml="കത്തീഡ്രലുകൾ">Cathedrals</span></span><span class="font-sans text-[11px] text-muted shrink-0">60</span></a>
-          <a href="type-congregations" class="flex items-center justify-between gap-2 px-2 py-1.5 rounded hover:bg-featured dark:hover:bg-white/10 text-body/80 dark:text-ivory/70 hover:text-sage-dark dark:hover:text-sage transition-colors truncate"><span class="truncate"><span data-en="Congregations" data-ml="സഭാസമൂഹങ്ങൾ">Congregations</span></span><span class="font-sans text-[11px] text-muted shrink-0">155</span></a>
-          <a href="type-monasteries" class="flex items-center justify-between gap-2 px-2 py-1.5 rounded hover:bg-featured dark:hover:bg-white/10 text-body/80 dark:text-ivory/70 hover:text-sage-dark dark:hover:text-sage transition-colors truncate"><span class="truncate"><span data-en="Monasteries" data-ml="ആശ്രമങ്ങൾ">Monasteries</span></span><span class="font-sans text-[11px] text-muted shrink-0">55</span></a>
+          <a href="type-cathedrals" class="flex items-center justify-between gap-2 px-2 py-1.5 rounded hover:bg-featured dark:hover:bg-white/10 text-body/80 dark:text-ivory/70 hover:text-sage-dark dark:hover:text-sage transition-colors truncate"><span class="truncate"><span data-en="Cathedrals" data-ml="ഭദ്രാസനപള്ളികൾ">Cathedrals</span></span><span class="font-sans text-[11px] text-muted shrink-0">60</span></a>
+          <a href="type-congregations" class="flex items-center justify-between gap-2 px-2 py-1.5 rounded hover:bg-featured dark:hover:bg-white/10 text-body/80 dark:text-ivory/70 hover:text-sage-dark dark:hover:text-sage transition-colors truncate"><span class="truncate"><span data-en="Congregations" data-ml="കോൺഗ്രിഗേഷനുകൾ">Congregations</span></span><span class="font-sans text-[11px] text-muted shrink-0">155</span></a>
+          <a href="type-monasteries" class="flex items-center justify-between gap-2 px-2 py-1.5 rounded hover:bg-featured dark:hover:bg-white/10 text-body/80 dark:text-ivory/70 hover:text-sage-dark dark:hover:text-sage transition-colors truncate"><span class="truncate"><span data-en="Monasteries" data-ml="ദയറാകൾ">Monasteries</span></span><span class="font-sans text-[11px] text-muted shrink-0">55</span></a>
           <a href="type-convents" class="flex items-center justify-between gap-2 px-2 py-1.5 rounded hover:bg-featured dark:hover:bg-white/10 text-body/80 dark:text-ivory/70 hover:text-sage-dark dark:hover:text-sage transition-colors truncate"><span class="truncate"><span data-en="Convents" data-ml="കന്യാസ്ത്രീ മഠങ്ങൾ">Convents</span></span><span class="font-sans text-[11px] text-muted shrink-0">25</span></a>
           <a href="type-palaces" class="flex items-center justify-between gap-2 px-2 py-1.5 rounded hover:bg-featured dark:hover:bg-white/10 text-body/80 dark:text-ivory/70 hover:text-sage-dark dark:hover:text-sage transition-colors truncate"><span class="truncate"><span data-en="Palaces" data-ml="അരമനകൾ">Palaces</span></span><span class="font-sans text-[11px] text-muted shrink-0">34</span></a>
           <a href="type-qurbana-centres" class="flex items-center justify-between gap-2 px-2 py-1.5 rounded hover:bg-featured dark:hover:bg-white/10 text-body/80 dark:text-ivory/70 hover:text-sage-dark dark:hover:text-sage transition-colors truncate"><span class="truncate"><span data-en="Qurbana Centres" data-ml="കുർബാന കേന്ദ്രങ്ങൾ">Qurbana Centres</span></span><span class="font-sans text-[11px] text-muted shrink-0">34</span></a>
           <a href="type-catholicate-centres" class="flex items-center justify-between gap-2 px-2 py-1.5 rounded hover:bg-featured dark:hover:bg-white/10 text-body/80 dark:text-ivory/70 hover:text-sage-dark dark:hover:text-sage transition-colors truncate"><span class="truncate"><span data-en="Catholicate Centres" data-ml="കാതോലിക്കേറ്റ് കേന്ദ്രങ്ങൾ">Catholicate Centres</span></span><span class="font-sans text-[11px] text-muted shrink-0">27</span></a>
-          <a href="type-sunday-schools" class="flex items-center justify-between gap-2 px-2 py-1.5 rounded hover:bg-featured dark:hover:bg-white/10 text-body/80 dark:text-ivory/70 hover:text-sage-dark dark:hover:text-sage transition-colors truncate"><span class="truncate"><span data-en="Independent Sunday Schools" data-ml="സ്വതന്ത്ര ഞായറാഴ്ച സ്കൂളുകൾ">Independent Sunday Schools</span></span><span class="font-sans text-[11px] text-muted shrink-0">22</span></a>
-          <a href="type-communities" class="flex items-center justify-between gap-2 px-2 py-1.5 rounded hover:bg-featured dark:hover:bg-white/10 text-body/80 dark:text-ivory/70 hover:text-sage-dark dark:hover:text-sage transition-colors truncate"><span class="truncate"><span data-en="Communities" data-ml="സമൂഹങ്ങൾ">Communities</span></span><span class="font-sans text-[11px] text-muted shrink-0">21</span></a>
+          <a href="type-sunday-schools" class="flex items-center justify-between gap-2 px-2 py-1.5 rounded hover:bg-featured dark:hover:bg-white/10 text-body/80 dark:text-ivory/70 hover:text-sage-dark dark:hover:text-sage transition-colors truncate"><span class="truncate"><span data-en="Independent Sunday Schools" data-ml="സ്വതന്ത്ര ഞായർ പള്ളിക്കൂടങ്ങൾ">Independent Sunday Schools</span></span><span class="font-sans text-[11px] text-muted shrink-0">22</span></a>
+          <a href="type-communities" class="flex items-center justify-between gap-2 px-2 py-1.5 rounded hover:bg-featured dark:hover:bg-white/10 text-body/80 dark:text-ivory/70 hover:text-sage-dark dark:hover:text-sage transition-colors truncate"><span class="truncate"><span data-en="Communities" data-ml="കമ്മ്യൂണിറ്റികൾ">Communities</span></span><span class="font-sans text-[11px] text-muted shrink-0">21</span></a>
                       <a href="type-seminaries" class="flex items-center justify-between gap-2 px-2 py-1.5 rounded hover:bg-featured dark:hover:bg-white/10 text-body/80 dark:text-ivory/70 hover:text-sage-dark dark:hover:text-sage transition-colors truncate"><span class="truncate"><span data-en="Seminaries" data-ml="സെമിനാരികൾ">Seminaries</span></span><span class="font-sans text-[11px] text-muted shrink-0">20</span></a>
           <a href="type-student-centres" class="flex items-center justify-between gap-2 px-2 py-1.5 rounded hover:bg-featured dark:hover:bg-white/10 text-body/80 dark:text-ivory/70 hover:text-sage-dark dark:hover:text-sage transition-colors truncate"><span class="truncate"><span data-en="Student Centres" data-ml="വിദ്യാർത്ഥി കേന്ദ്രങ്ങൾ">Student Centres</span></span><span class="font-sans text-[11px] text-muted shrink-0">19</span></a>
-          <a href="type-prayer-groups" class="flex items-center justify-between gap-2 px-2 py-1.5 rounded hover:bg-featured dark:hover:bg-white/10 text-body/80 dark:text-ivory/70 hover:text-sage-dark dark:hover:text-sage transition-colors truncate"><span class="truncate"><span data-en="Independent Prayer Groups" data-ml="സ്വതന്ത്ര പ്രാർത്ഥനാ ഗ്രൂപ്പുകൾ">Independent Prayer Groups</span></span><span class="font-sans text-[11px] text-muted shrink-0">14</span></a>
+          <a href="type-prayer-groups" class="flex items-center justify-between gap-2 px-2 py-1.5 rounded hover:bg-featured dark:hover:bg-white/10 text-body/80 dark:text-ivory/70 hover:text-sage-dark dark:hover:text-sage transition-colors truncate"><span class="truncate"><span data-en="Independent Prayer Groups" data-ml="സ്വതന്ത്ര പ്രാർത്ഥന യോഗങ്ങൾ">Independent Prayer Groups</span></span><span class="font-sans text-[11px] text-muted shrink-0">14</span></a>
           <a href="type-shrines" class="flex items-center justify-between gap-2 px-2 py-1.5 rounded hover:bg-featured dark:hover:bg-white/10 text-body/80 dark:text-ivory/70 hover:text-sage-dark dark:hover:text-sage transition-colors truncate"><span class="truncate"><span data-en="Pilgrim Shrines" data-ml="തീർത്ഥാടന കേന്ദ്രങ്ങൾ">Pilgrim Shrines</span></span><span class="font-sans text-[11px] text-muted shrink-0">568</span></a>
           <a href="type-other-institutions" class="flex items-center justify-between gap-2 px-2 py-1.5 rounded hover:bg-featured dark:hover:bg-white/10 text-body/80 dark:text-ivory/70 hover:text-sage-dark dark:hover:text-sage transition-colors truncate"><span class="truncate"><span data-en="Other Institutions" data-ml="മറ്റ് സ്ഥാപനങ്ങൾ">Other Institutions</span></span><span class="font-sans text-[11px] text-muted shrink-0">25</span></a>
         </div>
@@ -2335,8 +2342,8 @@ L 704.6 52.4 L 705.2 50.6 L 705.8 48.9 L 706.3 47.2 L 706.6 45.5 L 706.9 43.8 L 
         <div class="flex flex-col">
           <a href="#clergy" class="block px-2 py-1.5 rounded hover:bg-featured dark:hover:bg-white/10 text-sage-dark dark:text-sage font-semibold transition-colors truncate"><span data-en="Overview &rarr;" data-ml="അവലോകനം &rarr;">Overview &rarr;</span></a>
           <a href="metropolitans" class="block px-2 py-1.5 rounded hover:bg-featured dark:hover:bg-white/10 text-body/80 dark:text-ivory/70 hover:text-sage-dark dark:hover:text-sage transition-colors truncate"><span data-en="Metropolitans" data-ml="മെത്രാപ്പോലീത്തന്മാർ">Metropolitans</span></a>
-          <a href="monks" class="block px-2 py-1.5 rounded hover:bg-featured dark:hover:bg-white/10 text-body/80 dark:text-ivory/70 hover:text-sage-dark dark:hover:text-sage transition-colors truncate"><span data-en="Monks" data-ml="സന്യാസിമാർ">Monks</span></a>
-          <a href="cor-episcopa" class="block px-2 py-1.5 rounded hover:bg-featured dark:hover:bg-white/10 text-body/80 dark:text-ivory/70 hover:text-sage-dark dark:hover:text-sage transition-colors truncate"><span data-en="Cor-Episcopas" data-ml="കോറെപ്പിസ്കോപ്പന്മാർ">Cor-Episcopas</span></a>
+          <a href="monks" class="block px-2 py-1.5 rounded hover:bg-featured dark:hover:bg-white/10 text-body/80 dark:text-ivory/70 hover:text-sage-dark dark:hover:text-sage transition-colors truncate"><span data-en="Monks" data-ml="റമ്പാന്മാർ">Monks</span></a>
+          <a href="cor-episcopa" class="block px-2 py-1.5 rounded hover:bg-featured dark:hover:bg-white/10 text-body/80 dark:text-ivory/70 hover:text-sage-dark dark:hover:text-sage transition-colors truncate"><span data-en="Cor-Episcopas" data-ml="കോറെപ്പിസ്കോപ്പമാർ">Cor-Episcopas</span></a>
           <a href="priests" class="block px-2 py-1.5 rounded hover:bg-featured dark:hover:bg-white/10 text-body/80 dark:text-ivory/70 hover:text-sage-dark dark:hover:text-sage transition-colors truncate"><span data-en="Priests" data-ml="വൈദികർ">Priests</span></a>
           <a href="deacons" class="block px-2 py-1.5 rounded hover:bg-featured dark:hover:bg-white/10 text-body/80 dark:text-ivory/70 hover:text-sage-dark dark:hover:text-sage transition-colors truncate"><span data-en="Deacons" data-ml="ശെമ്മാശന്മാർ">Deacons</span></a>
         </div>
@@ -2422,13 +2429,28 @@ L 704.6 52.4 L 705.2 50.6 L 705.8 48.9 L 706.3 47.2 L 706.6 45.5 L 706.9 43.8 L 
       el.textContent = lang === 'ml' ? el.getAttribute('data-ml') : el.getAttribute('data-en');
       el.style.fontFamily = lang === 'ml' ? "'Noto Serif Malayalam', serif" : '';
     });
+    // Elements that need to keep inline formatting (italics, colored
+    // spans, <br> line breaks) while translating carry data-en-html /
+    // data-ml-html instead of data-en/data-ml, and get their innerHTML
+    // swapped rather than their plain textContent.
+    document.querySelectorAll('[data-en-html][data-ml-html]').forEach(function(el){
+      el.innerHTML = lang === 'ml' ? el.getAttribute('data-ml-html') : el.getAttribute('data-en-html');
+      el.style.fontFamily = lang === 'ml' ? "'Noto Serif Malayalam', serif" : '';
+    });
     document.querySelectorAll('[data-en-placeholder][data-ml-placeholder]').forEach(function(el){
       el.setAttribute('placeholder', lang === 'ml' ? el.getAttribute('data-ml-placeholder') : el.getAttribute('data-en-placeholder'));
     });
+    // Timeline cards are built by a later script from raw year numbers,
+    // not data-en/data-ml, so they can't be picked up by the loops
+    // above. Re-format every date label already on the page (if the
+    // timeline has been built yet) using the shared formatter below.
+    document.querySelectorAll('.tl-year[data-tl-year]').forEach(function(el){
+      el.textContent = window.formatEraLabel(el.getAttribute('data-tl-year'), lang);
+    });
     if(lang === 'ml'){
-      label.textContent = 'Ma';
-      label.style.fontFamily = '';
-      label.className = 'font-sans text-[13px] font-semibold';
+      label.textContent = '\u0d2e';
+      label.style.fontFamily = "'Noto Serif Malayalam', serif";
+      label.className = 'text-[15px]';
       toggle.setAttribute('aria-label', 'Switch to English');
       toggle.setAttribute('title', 'Switch to English');
     } else {
@@ -2439,6 +2461,17 @@ L 704.6 52.4 L 705.2 50.6 L 705.8 48.9 L 706.3 47.2 L 706.6 45.5 L 706.9 43.8 L 
       toggle.setAttribute('title', 'Switch to Malayalam');
     }
   }
+  // Exposed so dynamically-generated content elsewhere on the page
+  // (timeline cards, search results, etc.) can format itself for the
+  // language currently in effect without waiting for a toggle click.
+  window.currentSiteLang = function(){ return document.documentElement.getAttribute('lang') === 'ml' ? 'ml' : 'en'; };
+  // Malayalam renders "CE" as the traditional ക്രി.വ. (Christian era)
+  // marker before the year, rather than "CE" after it — e.g. "52 CE"
+  // becomes "ക്രി.വ. 52". Shared so both the initial timeline build
+  // and every later language switch use the exact same formatting.
+  window.formatEraLabel = function(year, lang){
+    return lang === 'ml' ? ('\u0d15\u0d4d\u0d30\u0d3f.\u0d35. ' + year) : (year + ' CE');
+  };
 
   var saved = null;
   try { saved = localStorage.getItem(STORAGE_KEY); } catch(e){}
@@ -2612,8 +2645,8 @@ L 704.6 52.4 L 705.2 50.6 L 705.8 48.9 L 706.3 47.2 L 706.6 45.5 L 706.9 43.8 L 
   <div class="hero-scrim" aria-hidden="true"></div>
   <canvas id="heroCanvas" aria-hidden="true"></canvas>
   <div class="relative max-w-2xl mx-auto">
-    <p class="font-sans hero-in d1 text-[11px] sm:text-xs tracking-[0.22em] uppercase text-taupe font-semibold mb-5 sm:mb-6">A Global Communion &middot; Est. 52 CE</p>
-    <h1 class="hero-in d2 font-serif font-normal text-[42px] leading-[1.08] sm:text-6xl md:text-7xl lg:text-[80px] tracking-tight text-ink dark:text-ivory mb-5 sm:mb-7">The Church,<br><em class="italic text-sage-dark dark:text-sage">mapped</em>.</h1>
+    <p class="font-sans hero-in d1 text-[11px] sm:text-xs tracking-[0.22em] uppercase text-taupe font-semibold mb-5 sm:mb-6" data-en="A Global Communion · Est. 52 CE" data-ml="ഒരു ആഗോള കൂട്ടായ്മ · സ്ഥാ. ക്രി.വ. 52">A Global Communion &middot; Est. 52 CE</p>
+    <h1 class="hero-in d2 font-serif font-normal text-[42px] leading-[1.08] sm:text-6xl md:text-7xl lg:text-[80px] tracking-tight text-ink dark:text-ivory mb-5 sm:mb-7" data-en-html="The Church,<br><em class=&quot;italic text-sage-dark dark:text-sage&quot;>mapped</em>." data-ml-html="പരിശുദ്ധ സഭ,<br><em class=&quot;italic text-sage-dark dark:text-sage&quot;>ഒരു ഭൂപടത്തിൽ</em>">The Church,<br><em class="italic text-sage-dark dark:text-sage">mapped</em>.</h1>
     <p class="hero-in d3 text-[15px] sm:text-base md:text-[17px] text-body/90 dark:text-ivory/65 max-w-lg mx-auto leading-relaxed" data-en="Under the primacy of His Holiness Baselios Marthoma Mathews III, Catholicos of the East, the institutions of the Church number in excess of 3,500 worldwide, each parish catalogued together with its recorded family count." data-ml="പൗരസ്ത്യ കാതോലിക്കാ പരിശുദ്ധ ബസേലിയോസ് മാർത്തോമ്മാ മാത്യൂസ് തൃതീയൻ ബാവായുടെ അധ്യക്ഷതയിൽ, സഭയുടെ സ്ഥാപനങ്ങൾ ലോകമെമ്പാടും 3,500-ൽ അധികമായി വ്യാപിച്ചിരിക്കുന്നു; ഓരോ ഇടവകയും അതിന്റെ രേഖപ്പെടുത്തിയ കുടുംബ എണ്ണത്തോടൊപ്പം പട്ടികപ്പെടുത്തിയിരിക്കുന്നു.">Under the primacy of His Holiness Baselios Marthoma Mathews III, Catholicos of the East, the institutions of the Church number in excess of 3,500 worldwide, each parish catalogued together with its recorded family count.</p>
     <div class="hero-in d4 hero-thread"></div>
   </div>
@@ -2689,12 +2722,12 @@ L 704.6 52.4 L 705.2 50.6 L 705.8 48.9 L 706.3 47.2 L 706.6 45.5 L 706.9 43.8 L 
   <div class="band-photo__scrim" aria-hidden="true"></div>
   <div class="reveal reveal-stagger relative max-w-4xl mx-auto px-5 sm:px-8 grid grid-cols-1 md:grid-cols-2 gap-10 sm:gap-16">
     <div>
-      <h3 class="font-serif italic font-normal text-xl sm:text-2xl text-gold mb-3" data-en="Liturgy" data-ml="കുർബാനക്രമം">Liturgy</h3>
-      <p class="font-sans text-sm text-ivory/70 leading-relaxed" data-en="Of the West Syriac rite, holding to the faith affirmed at the Councils of Nicea, Constantinople, and Ephesus." data-ml="പാശ്ചാത്യ സുറിയാനി റീത്തിലുള്ളതും, നിഖ്യാ, കോൺസ്റ്റാന്റിനോപ്പിൾ, എഫേസൂസ് സൂനഹദോസുകളിൽ സ്ഥിരീകരിക്കപ്പെട്ട വിശ്വാസം മുറുകെപ്പിടിക്കുന്നതുമാണ്.">Of the West Syriac rite, holding to the faith affirmed at the Councils of Nicea, Constantinople, and Ephesus.</p>
+      <h3 class="font-serif italic font-normal text-xl sm:text-2xl text-gold mb-3" data-en="Liturgy" data-ml="കുർബ്ബാന ക്രമം">Liturgy</h3>
+      <p class="font-sans text-sm text-ivory/70 leading-relaxed" data-en="Of the West Syriac rite, holding to the faith affirmed at the Councils of Nicea, Constantinople, and Ephesus." data-ml="പാശ്ചാത്യ സുറിയാനി റീത്തിലുള്ളതും, നിഖ്യാ, കുസ്തന്തീനോപോലീസ്, എപ്പേസോസ് സുന്നഹദോസുകളിൽ സ്ഥിരീകരിക്കപ്പെട്ട വിശ്വാസം മുറുകെപ്പിടിക്കുന്നതുമാണ്.">Of the West Syriac rite, holding to the faith affirmed at the Councils of Nicea, Constantinople, and Ephesus.</p>
     </div>
     <div>
       <h3 class="font-serif italic font-normal text-xl sm:text-2xl text-gold mb-3" data-en="Communion" data-ml="കൂട്ടായ്മ">Communion</h3>
-      <p class="font-sans text-sm text-ivory/70 leading-relaxed" data-en="In communion with the Syriac, Coptic, Armenian, Ethiopian, and Eritrean Orthodox Churches." data-ml="സുറിയാനി, കോപ്റ്റിക്, അർമേനിയൻ, എത്യോപ്യൻ, എറിത്രിയൻ ഓർത്തഡോക്സ് സഭകളുമായി കൂട്ടായ്മയിലാണ്.">In communion with the Syriac, Coptic, Armenian, Ethiopian, and Eritrean Orthodox Churches.</p>
+      <p class="font-sans text-sm text-ivory/70 leading-relaxed" data-en="In communion with the Syriac, Coptic, Armenian, Ethiopian, and Eritrean Orthodox Churches. Together, this Oriental Orthodox communion numbers over 72 million members worldwide." data-ml="സുറിയാനി, കോപ്റ്റിക്, അർമേനിയൻ, എത്യോപ്യൻ, എറിത്രിയൻ ഓർത്തഡോക്സ് സഭകളുമായി കൂട്ടായ്മയിലാണ്. ഈ ഓറിയന്റൽ ഓർത്തഡോക്സ് കൂട്ടായ്മയിൽ ഒട്ട൚ക്ക് ലോകമെമപാടുമായി 7.2 കോടിയിലധികം അംഗങ്ങളുണ്ട്.">In communion with the Syriac, Coptic, Armenian, Ethiopian, and Eritrean Orthodox Churches.</p>
     </div>
   </div>
 </section>
@@ -2822,7 +2855,7 @@ L 704.6 52.4 L 705.2 50.6 L 705.8 48.9 L 706.3 47.2 L 706.6 45.5 L 706.9 43.8 L 
   <div class="reveal premium-card texture-paper rounded-2xl border border-gold/25 shadow-medium px-6 py-10 sm:px-14 sm:py-16 text-center">
     <div class="font-sans text-[11px] tracking-[0.2em] uppercase text-taupe font-semibold mb-4 sm:mb-5" data-en="3,536 Locations, Mapped by Coordinate" data-ml="3,536 സ്ഥലങ്ങൾ, കോർഡിനേറ്റ് പ്രകാരം അടയാളപ്പെടുത്തിയത്">3,536 Locations, Mapped by Coordinate</div>
     <h2 class="font-serif italic text-2xl sm:text-[32px] text-ink dark:text-ivory mb-3" data-en="Locate the Nearest Parish" data-ml="ഏറ്റവും അടുത്തുള്ള ഇടവക കണ്ടെത്തുക">Locate the Nearest Parish</h2>
-    <p class="text-sm sm:text-[15px] text-body/80 dark:text-ivory/65 max-w-md mx-auto mb-8 leading-relaxed" data-en="Upon entering any place in the world, the five nearest churches, chapels, cathedrals, or other Malankara Orthodox locations will be identified." data-ml="ലോകത്തിലെ ഏതെങ്കിലും സ്ഥലം നൽകിയാൽ, ഏറ്റവും അടുത്തുള്ള അഞ്ച് പള്ളികൾ, ചാപ്പലുകൾ, കത്തീഡ്രലുകൾ, അല്ലെങ്കിൽ മറ്റ് മലങ്കര ഓർത്തഡോക്സ് സ്ഥലങ്ങൾ കണ്ടെത്തുന്നതാണ്.">Upon entering any place in the world, the five nearest churches, chapels, cathedrals, or other Malankara Orthodox locations will be identified.</p>
+    <p class="text-sm sm:text-[15px] text-body/80 dark:text-ivory/65 max-w-md mx-auto mb-8 leading-relaxed" data-en="Upon entering any place in the world, the five nearest churches, chapels, cathedrals, or other Malankara Orthodox locations will be identified." data-ml="ലോകത്തിലെ ഏതെങ്കിലും സ്ഥലം നൽകിയാൽ, ഏറ്റവും അടുത്തുള്ള അഞ്ച് പള്ളികൾ, ചാപ്പലുകൾ, ഭദ്രാസനപള്ളികൾ, അല്ലെങ്കിൽ മറ്റ് മലങ്കര ഓർത്തഡോക്സ് സ്ഥലങ്ങൾ കണ്ടെത്തുന്നതാണ്.">Upon entering any place in the world, the five nearest churches, chapels, cathedrals, or other Malankara Orthodox locations will be identified.</p>
 
     <form id="nearestForm" class="flex flex-col sm:flex-row gap-3 max-w-md mx-auto mb-3">
       <input type="text" id="nearestInput" placeholder="e.g. Dallas, Texas" autocomplete="off" data-en-placeholder="e.g. Dallas, Texas" data-ml-placeholder="ഉദാ. ഡാളസ്, ടെക്സാസ്"
@@ -2990,7 +3023,7 @@ L 704.6 52.4 L 705.2 50.6 L 705.8 48.9 L 706.3 47.2 L 706.6 45.5 L 706.9 43.8 L 
 <section class="px-5 sm:px-8 sec-tight max-w-6xl mx-auto" id="legend">
   <div class="reveal max-w-2xl mb-10 sm:mb-11">
     <h2 class="font-serif italic font-normal text-2xl sm:text-[34px] text-ink dark:text-ivory mb-4" data-en="Reading the map" data-ml="ഭൂപടം വായിക്കുന്നത് എങ്ങനെ">Reading the map</h2>
-    <p class="text-[15px] text-body/80 dark:text-ivory/65 leading-[1.8]" data-en="The directory catalogues the Church's full institutional life — episcopal palaces, monasteries and convents, cathedrals, directly-administered churches, thronal churches and mission churches, parishes, congregations and communities, Catholicate centres and retreat centres, chapels, major and minor seminaries, malpanates, mission training centres, Bible schools, campus ministries, and youth and student centres. Each marker carries its own symbol, keyed below." data-ml="സഭയുടെ മുഴുവൻ സ്ഥാപനപരമായ ജീവിതവും ഈ ഡയറക്ടറി പട്ടികപ്പെടുത്തുന്നു — അരമനകൾ, ആശ്രമങ്ങളും കന്യാസ്ത്രീ മഠങ്ങളും, കത്തീഡ്രലുകൾ, നേരിട്ട് ഭരണം നടത്തുന്ന പള്ളികൾ, സിംഹാസന പള്ളികളും മിഷൻ പള്ളികളും, ഇടവകകൾ, സഭാസമൂഹങ്ങളും കമ്യൂണിറ്റികളും, കാതോലിക്കേറ്റ് കേന്ദ്രങ്ങളും ധ്യാന കേന്ദ്രങ്ങളും, ചാപ്പലുകൾ, വലുതും ചെറുതുമായ സെമിനാരികൾ, മല്പാനേറ്റുകൾ, മിഷൻ പരിശീലന കേന്ദ്രങ്ങൾ, ബൈബിൾ സ്കൂളുകൾ, കാമ്പസ് ശുശ്രൂഷകൾ, യുവജന-വിദ്യാർത്ഥി കേന്ദ്രങ്ങൾ എന്നിവ ഉൾപ്പെടെ. ഓരോ അടയാളത്തിനും അതിന്റേതായ ചിഹ്നമുണ്ട്, താഴെ വിശദീകരിച്ചിരിക്കുന്നു.">The directory catalogues the Church's full institutional life &mdash; episcopal palaces, monasteries and convents, cathedrals, directly-administered churches, thronal churches and mission churches, parishes, congregations and communities, Catholicate centres and retreat centres, chapels, major and minor seminaries, malpanates, mission training centres, Bible schools, campus ministries, and youth and student centres. Each marker carries its own <em class="not-italic text-sage-dark dark:text-sage font-medium">symbol</em>, keyed below.</p>
+    <p class="text-[15px] text-body/80 dark:text-ivory/65 leading-[1.8]" data-en="The directory catalogues the Church's full institutional life — episcopal palaces, monasteries and convents, cathedrals, directly-administered churches, thronal churches and mission churches, parishes, congregations and communities, Catholicate centres and retreat centres, chapels, major and minor seminaries, malpanates, mission training centres, Bible schools, campus ministries, and youth and student centres. Each marker carries its own symbol, keyed below." data-ml="സഭയുടെ മുഴുവൻ സ്ഥാപനപരമായ ജീവിതവും ഈ ഡയറക്ടറി പട്ടികപ്പെടുത്തുന്നു — അരമനകൾ, ദയറാകളും കന്യാസ്ത്രീ മഠങ്ങളും, ഭദ്രാസനപള്ളികൾ, നേരിട്ട് ഭരണം നടത്തുന്ന പള്ളികൾ, സിംഹാസന പള്ളികളും മിഷൻ പള്ളികളും, ഇടവകകൾ, കോൺഗ്രിഗേഷനുകളും കമ്മ്യൂണിറ്റികളും, കാതോലിക്കേറ്റ് കേന്ദ്രങ്ങളും ധ്യാന കേന്ദ്രങ്ങളും, ചാപ്പലുകൾ, വലുതും ചെറുതുമായ സെമിനാരികൾ, മല്പാനേറ്റുകൾ, മിഷൻ പരിശീലന കേന്ദ്രങ്ങൾ, ബൈബിൾ സ്കൂളുകൾ, ക്യാമ്പസ് കൂട്ടായ്മകൾ, യുവജന-വിദ്യാർത്ഥി കേന്ദ്രങ്ങൾ എന്നിവ ഉൾപ്പെടെ. ഓരോ അടയാളത്തിനും അതിന്റേതായ ചിഹ്നമുണ്ട്, താഴെ വിശദീകരിച്ചിരിക്കുന്നു.">The directory catalogues the Church's full institutional life &mdash; episcopal palaces, monasteries and convents, cathedrals, directly-administered churches, thronal churches and mission churches, parishes, congregations and communities, Catholicate centres and retreat centres, chapels, major and minor seminaries, malpanates, mission training centres, Bible schools, campus ministries, and youth and student centres. Each marker carries its own <em class="not-italic text-sage-dark dark:text-sage font-medium">symbol</em>, keyed below.</p>
   </div>
 
   <div class="reveal grid grid-cols-1 sm:grid-cols-2 gap-px bg-line dark:bg-white/10 border border-line dark:border-white/10 rounded-xl overflow-hidden shadow-soft">
@@ -3000,15 +3033,15 @@ L 704.6 52.4 L 705.2 50.6 L 705.8 48.9 L 706.3 47.2 L 706.6 45.5 L 706.9 43.8 L 
       </div>
       <div class="bg-ivory dark:bg-midnight p-4 sm:p-5 flex items-baseline gap-4">
         <span class="flex items-center gap-2.5 w-[150px] shrink-0"><svg class="w-4 h-4 text-taupe shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4.5 C12 8 9.8 8.8 9.8 11.8 a2.2 2.2 0 0 0 4.4 0 c0 -3 -2.2 -3.8 -2.2 -7.3Z"/><path d="M7.5 19.5 V15.5 a4.5 4.5 0 0 1 9 0 v4"/></svg><span class="font-serif italic text-taupe text-sm" data-en="Prayer" data-ml="പ്രാർത്ഥന">Prayer</span></span>
-        <span class="text-xs sm:text-sm text-body/70 dark:text-ivory/60 leading-snug" data-en="Monastery or convent" data-ml="ആശ്രമം അല്ലെങ്കിൽ കന്യാസ്ത്രീ മഠം">Monastery or convent</span>
+        <span class="text-xs sm:text-sm text-body/70 dark:text-ivory/60 leading-snug" data-en="Monastery or convent" data-ml="ദയറാ അല്ലെങ്കിൽ കന്യാസ്ത്രീ മഠം">Monastery or convent</span>
       </div>
       <div class="bg-ivory dark:bg-midnight p-4 sm:p-5 flex items-baseline gap-4">
         <span class="flex items-center gap-2.5 w-[150px] shrink-0"><svg class="w-4 h-4 text-taupe shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"><path d="M12 4.5 L19 12 L12 19.5 L5 12 Z"/></svg><span class="font-serif italic text-taupe text-sm" data-en="Diamond" data-ml="വജ്രം">Diamond</span></span>
-        <span class="text-xs sm:text-sm text-body/70 dark:text-ivory/60 leading-snug" data-en="Archcathedral" data-ml="ആർച്ച്കത്തീഡ്രൽ">Archcathedral</span>
+        <span class="text-xs sm:text-sm text-body/70 dark:text-ivory/60 leading-snug" data-en="Archcathedral" data-ml="വലിയ ഭദ്രാസനപള്ളി">Archcathedral</span>
       </div>
       <div class="bg-ivory dark:bg-midnight p-4 sm:p-5 flex items-baseline gap-4">
         <span class="flex items-center gap-2.5 w-[150px] shrink-0"><svg class="w-4 h-4 text-taupe shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"><path d="M12 4.5 L14 9.8 L19.5 10.2 L15.3 13.7 L16.6 19 L12 16 L7.4 19 L8.7 13.7 L4.5 10.2 L10 9.8 Z"/></svg><span class="font-serif italic text-taupe text-sm" data-en="Star" data-ml="നക്ഷത്രം">Star</span></span>
-        <span class="text-xs sm:text-sm text-body/70 dark:text-ivory/60 leading-snug" data-en="Cathedral" data-ml="കത്തീഡ്രൽ">Cathedral</span>
+        <span class="text-xs sm:text-sm text-body/70 dark:text-ivory/60 leading-snug" data-en="Cathedral" data-ml="ഭദ്രാസനപള്ളി">Cathedral</span>
       </div>
       <div class="bg-ivory dark:bg-midnight p-4 sm:p-5 flex items-baseline gap-4">
         <span class="flex items-center gap-2.5 w-[150px] shrink-0"><svg class="w-4 h-4 text-taupe shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"><path d="M12 4 L18 6.3 V10.5 C18 14.8 15.5 17.8 12 19.3 C8.5 17.8 6 14.8 6 10.5 V6.3 Z"/></svg><span class="font-serif italic text-taupe text-sm" data-en="Police station" data-ml="പോലീസ് സ്റ്റേഷൻ">Police station</span></span>
@@ -3016,7 +3049,7 @@ L 704.6 52.4 L 705.2 50.6 L 705.8 48.9 L 706.3 47.2 L 706.6 45.5 L 706.9 43.8 L 
       </div>
       <div class="bg-ivory dark:bg-midnight p-4 sm:p-5 flex items-baseline gap-4">
         <span class="flex items-center gap-2.5 w-[150px] shrink-0"><svg class="w-4 h-4 text-taupe shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"><path d="M12 19.5 C12 19.5 17 13.7 17 9.5 A5 5 0 0 0 7 9.5 C7 13.7 12 19.5 12 19.5 Z"/><circle cx="12" cy="9.5" r="1.8"/></svg><span class="font-serif italic text-taupe text-sm" data-en="Pin" data-ml="പിൻ">Pin</span></span>
-        <span class="text-xs sm:text-sm text-body/70 dark:text-ivory/60 leading-snug" data-en="Church, congregation, community, Catholicate centre, retreat centre, or chapel" data-ml="പള്ളി, സഭാസമൂഹം, കമ്യൂണിറ്റി, കാതോലിക്കേറ്റ് കേന്ദ്രം, ധ്യാന കേന്ദ്രം, അല്ലെങ്കിൽ ചാപ്പൽ">Church, congregation, community, Catholicate centre, retreat centre, or chapel</span>
+        <span class="text-xs sm:text-sm text-body/70 dark:text-ivory/60 leading-snug" data-en="Church, congregation, community, Catholicate centre, retreat centre, or chapel" data-ml="പള്ളി, കോൺഗ്രിഗേഷൻ, കമ്യൂണിറ്റി, കാതോലിക്കേറ്റ് കേന്ദ്രം, ധ്യാന കേന്ദ്രം, അല്ലെങ്കിൽ ചാപ്പൽ">Church, congregation, community, Catholicate centre, retreat centre, or chapel</span>
       </div>
       <div class="bg-ivory dark:bg-midnight p-4 sm:p-5 flex items-baseline gap-4">
         <span class="flex items-center gap-2.5 w-[150px] shrink-0"><svg class="w-4 h-4 text-taupe shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 18.5 L18 6.5 M18 18.5 L6 6.5"/><circle cx="12" cy="11" r="5.2"/><circle cx="10.1" cy="10.7" r="0.7" fill="currentColor" stroke="none"/><circle cx="13.9" cy="10.7" r="0.7" fill="currentColor" stroke="none"/><path d="M10.3 14 Q12 15.3 13.7 14"/></svg><span class="font-serif italic text-taupe text-sm" data-en="Death" data-ml="മരണം">Death</span></span>
@@ -3040,8 +3073,8 @@ L 704.6 52.4 L 705.2 50.6 L 705.8 48.9 L 706.3 47.2 L 706.6 45.5 L 706.9 43.8 L 
     <div class="font-sans text-[10.5px] tracking-[0.14em] uppercase text-taupe font-semibold mb-1" data-en="A Few Clarifications" data-ml="ചില വ്യക്തതകൾ">A Few Clarifications</div>
     <p class="font-serif italic text-[15px] text-body/75 dark:text-ivory/60 leading-[1.6] border-l border-line dark:border-white/10 pl-4" data-en="Churches claimed by more than one diocese carry more than one pin on the edifice." data-ml="ഒന്നിലധികം ഭദ്രാസനങ്ങൾ അവകാശപ്പെടുന്ന പള്ളികൾക്ക് കെട്ടിടത്തിൽ ഒന്നിലധികം പിന്നുകൾ ഉണ്ടായിരിക്കും.">Churches claimed by more than one diocese carry more than one pin on the edifice.</p>
     <p class="font-serif italic text-[15px] text-body/75 dark:text-ivory/60 leading-[1.6] border-l border-line dark:border-white/10 pl-4" data-en="Proprietary churches &mdash; typically owned by a family or clan association &mdash; are consecrated under Malankara Orthodox rites and operate outside diocesan administration." data-ml="സ്വകാര്യ ഇടവകകൾ — സാധാരണയായി ഒരു കുടുംബമോ തറവാട് സംഘടനയോ ഉടമസ്ഥതയിലുള്ളവ — മലങ്കര ഓർത്തഡോക്സ് റീത്ത് പ്രകാരം കൂദാശ ചെയ്യപ്പെട്ടതും ഭദ്രാസന ഭരണത്തിന് പുറത്ത് പ്രവർത്തിക്കുന്നതുമാണ്.">Proprietary churches &mdash; typically owned by a family or clan association &mdash; are consecrated under Malankara Orthodox rites and operate outside diocesan administration.</p>
-    <p class="font-serif italic text-[15px] text-body/75 dark:text-ivory/60 leading-[1.6] border-l border-line dark:border-white/10 pl-4" data-en="Since the 1974 schism, parishes of the Knanaya Diocese fall under the direct jurisdiction of the Catholicos in Devalokam." data-ml="1974-ലെ ഭിന്നിപ്പിന് ശേഷം, കനേനായ ഭദ്രാസനത്തിലെ ഇടവകകൾ ദേവലോകത്തെ കാതോലിക്കായുടെ നേരിട്ടുള്ള അധികാരപരിധിയിലാണ്.">Since the 1974 schism, parishes of the Knanaya Diocese fall under the direct jurisdiction of the Catholicos in Devalokam.</p>
-    <p class="font-serif italic text-[15px] text-body/75 dark:text-ivory/60 leading-[1.6] border-l border-line dark:border-white/10 pl-4" data-en="This map does not count digital congregations, such as the Good Shepherd Orthodox Family Fellowship." data-ml="ഗുഡ് ഷെപ്പേർഡ് ഓർത്തഡോക്സ് ഫാമിലി ഫെലോഷിപ്പ് പോലുള്ള ഡിജിറ്റൽ സഭാസമൂഹങ്ങളെ ഈ ഭൂപടം കണക്കിലെടുക്കുന്നില്ല.">This map does not count digital congregations, such as the Good Shepherd Orthodox Family Fellowship.</p>
+    <p class="font-serif italic text-[15px] text-body/75 dark:text-ivory/60 leading-[1.6] border-l border-line dark:border-white/10 pl-4" data-en="Since the 1974 schism, parishes of the Knanaya Diocese fall under the direct jurisdiction of the Catholicos in Devalokam." data-ml="1974-ലെ ഭിന്നിപ്പിന് ശേഷം, ക്നാനായ ഭദ്രാസനത്തിലെ ഇടവകകൾ ദേവലോകത്തെ കാതോലിക്കായുടെ നേരിട്ടുള്ള അധികാരപരിധിയിലാണ്.">Since the 1974 schism, parishes of the Knanaya Diocese fall under the direct jurisdiction of the Catholicos in Devalokam.</p>
+    <p class="font-serif italic text-[15px] text-body/75 dark:text-ivory/60 leading-[1.6] border-l border-line dark:border-white/10 pl-4" data-en="This map does not count digital congregations, such as the Good Shepherd Orthodox Family Fellowship." data-ml="ഗുഡ് ഷെപ്പേർഡ് ഓർത്തഡോക്സ് ഫാമിലി ഫെലോഷിപ്പ് പോലുള്ള ഡിജിറ്റൽ കോൺഗ്രിഗേഷനുകളെ ഈ ഭൂപടം കണക്കിലെടുക്കുന്നില്ല.">This map does not count digital congregations, such as the Good Shepherd Orthodox Family Fellowship.</p>
   </div>
 </section>
 <!-- ==================== DIOCESAN PALETTE ==================== -->
@@ -3061,280 +3094,280 @@ L 704.6 52.4 L 705.2 50.6 L 705.8 48.9 L 706.3 47.2 L 706.6 45.5 L 706.9 43.8 L 
       <div class="bg-ivory dark:bg-midnight p-3.5 sm:p-4 flex items-center gap-3 diocese-chip">
         <span class="w-4 h-4 rounded-full shrink-0 border border-ink/10 dark:border-ivory/20" style="background:#817713"></span>
         <div class="flex flex-col gap-0.5 min-w-0">
-          <span class="text-xs sm:text-[13px] text-ink dark:text-ivory"><a href="thiruvananthapuram" class="hover:text-sage-dark dark:hover:text-sage border-b border-transparent hover:border-sage-dark dark:hover:border-sage transition">Thiruvananthapuram</a></span>
-          <span class="font-serif italic text-taupe text-[11px]">Antique Bronze</span>
+          <span class="text-xs sm:text-[13px] text-ink dark:text-ivory"><a href="thiruvananthapuram" class="hover:text-sage-dark dark:hover:text-sage border-b border-transparent hover:border-sage-dark dark:hover:border-sage transition"><span data-en="Thiruvananthapuram" data-ml="തിരുവനന്തപുരം">Thiruvananthapuram</span></a></span>
+          <span class="font-serif italic text-taupe text-[11px]" data-en="Antique Bronze" data-ml="ആന്റിക് ബ്രോൺസ്">Antique Bronze</span>
           <span class="text-[10px] text-muted tracking-wide" data-en="Est. 1979" data-ml="സ്ഥാ. 1979">Est. 1979</span>
         </div>
       </div>
       <div class="bg-ivory dark:bg-midnight p-3.5 sm:p-4 flex items-center gap-3 diocese-chip">
         <span class="w-4 h-4 rounded-full shrink-0 border border-ink/10 dark:border-ivory/20" style="background:#757575"></span>
         <div class="flex flex-col gap-0.5 min-w-0">
-          <span class="text-xs sm:text-[13px] text-ink dark:text-ivory"><a href="kollam" class="hover:text-sage-dark dark:hover:text-sage border-b border-transparent hover:border-sage-dark dark:hover:border-sage transition">Kollam</a></span>
-          <span class="font-serif italic text-taupe text-[11px]">Slate Grey</span>
+          <span class="text-xs sm:text-[13px] text-ink dark:text-ivory"><a href="kollam" class="hover:text-sage-dark dark:hover:text-sage border-b border-transparent hover:border-sage-dark dark:hover:border-sage transition"><span data-en="Kollam" data-ml="കൊല്ലം">Kollam</span></a></span>
+          <span class="font-serif italic text-taupe text-[11px]" data-en="Slate Grey" data-ml="സ്ലേറ്റ് ഗ്രേ">Slate Grey</span>
           <span class="text-[10px] text-muted tracking-wide" data-en="Est. 1877" data-ml="സ്ഥാ. 1877">Est. 1877</span>
         </div>
       </div>
       <div class="bg-ivory dark:bg-midnight p-3.5 sm:p-4 flex items-center gap-3 diocese-chip">
         <span class="w-4 h-4 rounded-full shrink-0 border border-ink/10 dark:border-ivory/20" style="background:#FF5252"></span>
         <div class="flex flex-col gap-0.5 min-w-0">
-          <span class="text-xs sm:text-[13px] text-ink dark:text-ivory"><a href="kottarakkara-punalur" class="hover:text-sage-dark dark:hover:text-sage border-b border-transparent hover:border-sage-dark dark:hover:border-sage transition">Kottarakkara&ndash;Punalur</a></span>
-          <span class="font-serif italic text-taupe text-[11px]">Coral Red</span>
+          <span class="text-xs sm:text-[13px] text-ink dark:text-ivory"><a href="kottarakkara-punalur" class="hover:text-sage-dark dark:hover:text-sage border-b border-transparent hover:border-sage-dark dark:hover:border-sage transition"><span data-en="Kottarakkara–Punalur" data-ml="കൊട്ടാരക്കര-പുനലൂർ">Kottarakkara&ndash;Punalur</span></a></span>
+          <span class="font-serif italic text-taupe text-[11px]" data-en="Coral Red" data-ml="കോറൽ റെഡ്">Coral Red</span>
           <span class="text-[10px] text-muted tracking-wide" data-en="Est. 2010" data-ml="സ്ഥാ. 2010">Est. 2010</span>
         </div>
       </div>
       <div class="bg-ivory dark:bg-midnight p-3.5 sm:p-4 flex items-center gap-3 diocese-chip">
         <span class="w-4 h-4 rounded-full shrink-0 border border-ink/10 dark:border-ivory/20" style="background:#1A237E"></span>
         <div class="flex flex-col gap-0.5 min-w-0">
-          <span class="text-xs sm:text-[13px] text-ink dark:text-ivory"><a href="adoor-kadampanad" class="hover:text-sage-dark dark:hover:text-sage border-b border-transparent hover:border-sage-dark dark:hover:border-sage transition">Adoor&ndash;Kadampanad</a></span>
-          <span class="font-serif italic text-taupe text-[11px]">Midnight Indigo</span>
+          <span class="text-xs sm:text-[13px] text-ink dark:text-ivory"><a href="adoor-kadampanad" class="hover:text-sage-dark dark:hover:text-sage border-b border-transparent hover:border-sage-dark dark:hover:border-sage transition"><span data-en="Adoor–Kadampanad" data-ml="അടൂർ-കടമ്പനാട്">Adoor&ndash;Kadampanad</span></a></span>
+          <span class="font-serif italic text-taupe text-[11px]" data-en="Midnight Indigo" data-ml="മിഡ്നൈറ്റ് ഇൻഡിഗോ">Midnight Indigo</span>
           <span class="text-[10px] text-muted tracking-wide" data-en="Est. 2002" data-ml="സ്ഥാ. 2002">Est. 2002</span>
         </div>
       </div>
       <div class="bg-ivory dark:bg-midnight p-3.5 sm:p-4 flex items-center gap-3 diocese-chip">
         <span class="w-4 h-4 rounded-full shrink-0 border border-ink/10 dark:border-ivory/20" style="background:#9C27B0"></span>
         <div class="flex flex-col gap-0.5 min-w-0">
-          <span class="text-xs sm:text-[13px] text-ink dark:text-ivory"><a href="thumpamon" class="hover:text-sage-dark dark:hover:text-sage border-b border-transparent hover:border-sage-dark dark:hover:border-sage transition">Thumpamon</a></span>
-          <span class="font-serif italic text-taupe text-[11px]">Royal Orchid</span>
+          <span class="text-xs sm:text-[13px] text-ink dark:text-ivory"><a href="thumpamon" class="hover:text-sage-dark dark:hover:text-sage border-b border-transparent hover:border-sage-dark dark:hover:border-sage transition"><span data-en="Thumpamon" data-ml="തുമ്പമൺ">Thumpamon</span></a></span>
+          <span class="font-serif italic text-taupe text-[11px]" data-en="Royal Orchid" data-ml="റോയൽ ഓർക്കിഡ്">Royal Orchid</span>
           <span class="text-[10px] text-muted tracking-wide" data-en="Est. 1877" data-ml="സ്ഥാ. 1877">Est. 1877</span>
         </div>
       </div>
       <div class="bg-ivory dark:bg-midnight p-3.5 sm:p-4 flex items-center gap-3 diocese-chip">
         <span class="w-4 h-4 rounded-full shrink-0 border border-ink/10 dark:border-ivory/20" style="background:#E65100"></span>
         <div class="flex flex-col gap-0.5 min-w-0">
-          <span class="text-xs sm:text-[13px] text-ink dark:text-ivory"><a href="mavelikara" class="hover:text-sage-dark dark:hover:text-sage border-b border-transparent hover:border-sage-dark dark:hover:border-sage transition">Mavelikara</a></span>
-          <span class="font-serif italic text-taupe text-[11px]">Burnt Amber</span>
+          <span class="text-xs sm:text-[13px] text-ink dark:text-ivory"><a href="mavelikara" class="hover:text-sage-dark dark:hover:text-sage border-b border-transparent hover:border-sage-dark dark:hover:border-sage transition"><span data-en="Mavelikara" data-ml="മാവേലിക്കര">Mavelikara</span></a></span>
+          <span class="font-serif italic text-taupe text-[11px]" data-en="Burnt Amber" data-ml="ബേൺട് ആംബർ">Burnt Amber</span>
           <span class="text-[10px] text-muted tracking-wide" data-en="Est. 2002" data-ml="സ്ഥാ. 2002">Est. 2002</span>
         </div>
       </div>
       <div class="bg-ivory dark:bg-midnight p-3.5 sm:p-4 flex items-center gap-3 diocese-chip">
         <span class="w-4 h-4 rounded-full shrink-0 border border-ink/10 dark:border-ivory/20" style="background:#AFB42B"></span>
         <div class="flex flex-col gap-0.5 min-w-0">
-          <span class="text-xs sm:text-[13px] text-ink dark:text-ivory"><a href="chengannur" class="hover:text-sage-dark dark:hover:text-sage border-b border-transparent hover:border-sage-dark dark:hover:border-sage transition">Chengannur</a></span>
-          <span class="font-serif italic text-taupe text-[11px]">Olive Citron</span>
+          <span class="text-xs sm:text-[13px] text-ink dark:text-ivory"><a href="chengannur" class="hover:text-sage-dark dark:hover:text-sage border-b border-transparent hover:border-sage-dark dark:hover:border-sage transition"><span data-en="Chengannur" data-ml="ചെങ്ങന്നൂർ">Chengannur</span></a></span>
+          <span class="font-serif italic text-taupe text-[11px]" data-en="Olive Citron" data-ml="സൈത്ത് സിട്രോൺ">Olive Citron</span>
           <span class="text-[10px] text-muted tracking-wide" data-en="Est. 2002" data-ml="സ്ഥാ. 2002">Est. 2002</span>
         </div>
       </div>
       <div class="bg-ivory dark:bg-midnight p-3.5 sm:p-4 flex items-center gap-3 diocese-chip">
         <span class="w-4 h-4 rounded-full shrink-0 border border-ink/10 dark:border-ivory/20" style="background:#000000"></span>
         <div class="flex flex-col gap-0.5 min-w-0">
-          <span class="text-xs sm:text-[13px] text-ink dark:text-ivory"><a href="niranam" class="hover:text-sage-dark dark:hover:text-sage border-b border-transparent hover:border-sage-dark dark:hover:border-sage transition">Niranam</a></span>
-          <span class="font-serif italic text-taupe text-[11px]">Onyx</span>
+          <span class="text-xs sm:text-[13px] text-ink dark:text-ivory"><a href="niranam" class="hover:text-sage-dark dark:hover:text-sage border-b border-transparent hover:border-sage-dark dark:hover:border-sage transition"><span data-en="Niranam" data-ml="നിരണം">Niranam</span></a></span>
+          <span class="font-serif italic text-taupe text-[11px]" data-en="Onyx" data-ml="ഒനിക്സ്">Onyx</span>
           <span class="text-[10px] text-muted tracking-wide" data-en="Est. 1877" data-ml="സ്ഥാ. 1877">Est. 1877</span>
         </div>
       </div>
       <div class="bg-ivory dark:bg-midnight p-3.5 sm:p-4 flex items-center gap-3 diocese-chip">
         <span class="w-4 h-4 rounded-full shrink-0 border border-ink/10 dark:border-ivory/20" style="background:#FBC02D"></span>
         <div class="flex flex-col gap-0.5 min-w-0">
-          <span class="text-xs sm:text-[13px] text-ink dark:text-ivory"><a href="nilackal" class="hover:text-sage-dark dark:hover:text-sage border-b border-transparent hover:border-sage-dark dark:hover:border-sage transition">Nilackal</a></span>
-          <span class="font-serif italic text-taupe text-[11px]">Amber Gold</span>
+          <span class="text-xs sm:text-[13px] text-ink dark:text-ivory"><a href="nilackal" class="hover:text-sage-dark dark:hover:text-sage border-b border-transparent hover:border-sage-dark dark:hover:border-sage transition"><span data-en="Nilackal" data-ml="നിലയ്ക്കൽ">Nilackal</span></a></span>
+          <span class="font-serif italic text-taupe text-[11px]" data-en="Amber Gold" data-ml="ആംബർ ഗോൾഡ്">Amber Gold</span>
           <span class="text-[10px] text-muted tracking-wide" data-en="Est. 2010" data-ml="സ്ഥാ. 2010">Est. 2010</span>
         </div>
       </div>
       <div class="bg-ivory dark:bg-midnight p-3.5 sm:p-4 flex items-center gap-3 diocese-chip">
         <span class="w-4 h-4 rounded-full shrink-0 border border-ink/10 dark:border-ivory/20" style="background:#0288D1"></span>
         <div class="flex flex-col gap-0.5 min-w-0">
-          <span class="text-xs sm:text-[13px] text-ink dark:text-ivory"><a href="kottayam" class="hover:text-sage-dark dark:hover:text-sage border-b border-transparent hover:border-sage-dark dark:hover:border-sage transition">Kottayam</a></span>
-          <span class="font-serif italic text-taupe text-[11px]">Cerulean Blue</span>
+          <span class="text-xs sm:text-[13px] text-ink dark:text-ivory"><a href="kottayam" class="hover:text-sage-dark dark:hover:text-sage border-b border-transparent hover:border-sage-dark dark:hover:border-sage transition"><span data-en="Kottayam" data-ml="കോട്ടയം">Kottayam</span></a></span>
+          <span class="font-serif italic text-taupe text-[11px]" data-en="Cerulean Blue" data-ml="സെറൂലിയൻ ബ്ലൂ">Cerulean Blue</span>
           <span class="text-[10px] text-muted tracking-wide" data-en="Est. 1877" data-ml="സ്ഥാ. 1877">Est. 1877</span>
         </div>
       </div>
       <div class="bg-ivory dark:bg-midnight p-3.5 sm:p-4 flex items-center gap-3 diocese-chip">
         <span class="w-4 h-4 rounded-full shrink-0 border border-ink/10 dark:border-ivory/20" style="background:#880E4F"></span>
         <div class="flex flex-col gap-0.5 min-w-0">
-          <span class="text-xs sm:text-[13px] text-ink dark:text-ivory"><a href="kottayam-central" class="hover:text-sage-dark dark:hover:text-sage border-b border-transparent hover:border-sage-dark dark:hover:border-sage transition">Kottayam Central</a></span>
-          <span class="font-serif italic text-taupe text-[11px]">Wine Magenta</span>
+          <span class="text-xs sm:text-[13px] text-ink dark:text-ivory"><a href="kottayam-central" class="hover:text-sage-dark dark:hover:text-sage border-b border-transparent hover:border-sage-dark dark:hover:border-sage transition"><span data-en="Kottayam Central" data-ml="കോട്ടയം-സെൻട്രൽ">Kottayam Central</span></a></span>
+          <span class="font-serif italic text-taupe text-[11px]" data-en="Wine Magenta" data-ml="വൈൻ മജന്ത">Wine Magenta</span>
           <span class="text-[10px] text-muted tracking-wide" data-en="Est. 1982" data-ml="സ്ഥാ. 1982">Est. 1982</span>
         </div>
       </div>
       <div class="bg-ivory dark:bg-midnight p-3.5 sm:p-4 flex items-center gap-3 diocese-chip">
         <span class="w-4 h-4 rounded-full shrink-0 border border-ink/10 dark:border-ivory/20" style="background:#795548"></span>
         <div class="flex flex-col gap-0.5 min-w-0">
-          <span class="text-xs sm:text-[13px] text-ink dark:text-ivory"><a href="idukki" class="hover:text-sage-dark dark:hover:text-sage border-b border-transparent hover:border-sage-dark dark:hover:border-sage transition">Idukki</a></span>
-          <span class="font-serif italic text-taupe text-[11px]">Umber Brown</span>
+          <span class="text-xs sm:text-[13px] text-ink dark:text-ivory"><a href="idukki" class="hover:text-sage-dark dark:hover:text-sage border-b border-transparent hover:border-sage-dark dark:hover:border-sage transition"><span data-en="Idukki" data-ml="ഇടുക്കി">Idukki</span></a></span>
+          <span class="font-serif italic text-taupe text-[11px]" data-en="Umber Brown" data-ml="അംബർ ബ്രൗൺ">Umber Brown</span>
           <span class="text-[10px] text-muted tracking-wide" data-en="Est. 1982" data-ml="സ്ഥാ. 1982">Est. 1982</span>
         </div>
       </div>
       <div class="bg-ivory dark:bg-midnight p-3.5 sm:p-4 flex items-center gap-3 diocese-chip">
         <span class="w-4 h-4 rounded-full shrink-0 border border-ink/10 dark:border-ivory/20" style="background:#673AB7"></span>
         <div class="flex flex-col gap-0.5 min-w-0">
-          <span class="text-xs sm:text-[13px] text-ink dark:text-ivory"><a href="kandanad-east" class="hover:text-sage-dark dark:hover:text-sage border-b border-transparent hover:border-sage-dark dark:hover:border-sage transition">Kandanad East</a></span>
-          <span class="font-serif italic text-taupe text-[11px]">Deep Violet</span>
+          <span class="text-xs sm:text-[13px] text-ink dark:text-ivory"><a href="kandanad-east" class="hover:text-sage-dark dark:hover:text-sage border-b border-transparent hover:border-sage-dark dark:hover:border-sage transition"><span data-en="Kandanad East" data-ml="കണ്ടനാട്-ഈസ്റ്റ്">Kandanad East</span></a></span>
+          <span class="font-serif italic text-taupe text-[11px]" data-en="Deep Violet" data-ml="ഡീപ് വയലറ്റ്">Deep Violet</span>
           <span class="text-[10px] text-muted tracking-wide" data-en="Est. 2002" data-ml="സ്ഥാ. 2002">Est. 2002</span>
         </div>
       </div>
       <div class="bg-ivory dark:bg-midnight p-3.5 sm:p-4 flex items-center gap-3 diocese-chip">
         <span class="w-4 h-4 rounded-full shrink-0 border border-ink/10 dark:border-ivory/20" style="background:#FFEA00"></span>
         <div class="flex flex-col gap-0.5 min-w-0">
-          <span class="text-xs sm:text-[13px] text-ink dark:text-ivory"><a href="kandanad-west" class="hover:text-sage-dark dark:hover:text-sage border-b border-transparent hover:border-sage-dark dark:hover:border-sage transition">Kandanad West</a></span>
-          <span class="font-serif italic text-taupe text-[11px]">Golden Citrine</span>
+          <span class="text-xs sm:text-[13px] text-ink dark:text-ivory"><a href="kandanad-west" class="hover:text-sage-dark dark:hover:text-sage border-b border-transparent hover:border-sage-dark dark:hover:border-sage transition"><span data-en="Kandanad West" data-ml="കണ്ടനാട്-വെസ്റ്റ്">Kandanad West</span></a></span>
+          <span class="font-serif italic text-taupe text-[11px]" data-en="Golden Citrine" data-ml="ഗോൾഡൻ സിട്രിൻ">Golden Citrine</span>
           <span class="text-[10px] text-muted tracking-wide" data-en="Est. 2002" data-ml="സ്ഥാ. 2002">Est. 2002</span>
         </div>
       </div>
       <div class="bg-ivory dark:bg-midnight p-3.5 sm:p-4 flex items-center gap-3 diocese-chip">
         <span class="w-4 h-4 rounded-full shrink-0 border border-ink/10 dark:border-ivory/20" style="background:#F57C00"></span>
         <div class="flex flex-col gap-0.5 min-w-0">
-          <span class="text-xs sm:text-[13px] text-ink dark:text-ivory"><a href="angamaly" class="hover:text-sage-dark dark:hover:text-sage border-b border-transparent hover:border-sage-dark dark:hover:border-sage transition">Angamaly</a></span>
-          <span class="font-serif italic text-taupe text-[11px]">Tangerine</span>
+          <span class="text-xs sm:text-[13px] text-ink dark:text-ivory"><a href="angamaly" class="hover:text-sage-dark dark:hover:text-sage border-b border-transparent hover:border-sage-dark dark:hover:border-sage transition"><span data-en="Angamaly" data-ml="അങ്കമാലി">Angamaly</span></a></span>
+          <span class="font-serif italic text-taupe text-[11px]" data-en="Tangerine" data-ml="ടാഞ്ചെറിൻ">Tangerine</span>
           <span class="text-[10px] text-muted tracking-wide" data-en="Est. 1877" data-ml="സ്ഥാ. 1877">Est. 1877</span>
         </div>
       </div>
       <div class="bg-ivory dark:bg-midnight p-3.5 sm:p-4 flex items-center gap-3 diocese-chip">
         <span class="w-4 h-4 rounded-full shrink-0 border border-ink/10 dark:border-ivory/20" style="background:#558B2F"></span>
         <div class="flex flex-col gap-0.5 min-w-0">
-          <span class="text-xs sm:text-[13px] text-ink dark:text-ivory"><a href="kochi" class="hover:text-sage-dark dark:hover:text-sage border-b border-transparent hover:border-sage-dark dark:hover:border-sage transition">Kochi</a></span>
-          <span class="font-serif italic text-taupe text-[11px]">Forest Green</span>
+          <span class="text-xs sm:text-[13px] text-ink dark:text-ivory"><a href="kochi" class="hover:text-sage-dark dark:hover:text-sage border-b border-transparent hover:border-sage-dark dark:hover:border-sage transition"><span data-en="Kochi" data-ml="കൊച്ചി">Kochi</span></a></span>
+          <span class="font-serif italic text-taupe text-[11px]" data-en="Forest Green" data-ml="ഫോറസ്റ്റ് ഗ്രീൻ">Forest Green</span>
           <span class="text-[10px] text-muted tracking-wide" data-en="Est. 1877" data-ml="സ്ഥാ. 1877">Est. 1877</span>
         </div>
       </div>
       <div class="bg-ivory dark:bg-midnight p-3.5 sm:p-4 flex items-center gap-3 diocese-chip">
         <span class="w-4 h-4 rounded-full shrink-0 border border-ink/10 dark:border-ivory/20" style="background:#424242"></span>
         <div class="flex flex-col gap-0.5 min-w-0">
-          <span class="text-xs sm:text-[13px] text-ink dark:text-ivory"><a href="thrissur" class="hover:text-sage-dark dark:hover:text-sage border-b border-transparent hover:border-sage-dark dark:hover:border-sage transition">Thrissur</a></span>
-          <span class="font-serif italic text-taupe text-[11px]">Charcoal</span>
+          <span class="text-xs sm:text-[13px] text-ink dark:text-ivory"><a href="thrissur" class="hover:text-sage-dark dark:hover:text-sage border-b border-transparent hover:border-sage-dark dark:hover:border-sage transition"><span data-en="Thrissur" data-ml="തൃശ്ശൂർ">Thrissur</span></a></span>
+          <span class="font-serif italic text-taupe text-[11px]" data-en="Charcoal" data-ml="ചാർകോൾ">Charcoal</span>
           <span class="text-[10px] text-muted tracking-wide" data-en="Est. 1982" data-ml="സ്ഥാ. 1982">Est. 1982</span>
         </div>
       </div>
       <div class="bg-ivory dark:bg-midnight p-3.5 sm:p-4 flex items-center gap-3 diocese-chip">
         <span class="w-4 h-4 rounded-full shrink-0 border border-ink/10 dark:border-ivory/20" style="background:#A52714"></span>
         <div class="flex flex-col gap-0.5 min-w-0">
-          <span class="text-xs sm:text-[13px] text-ink dark:text-ivory"><a href="kunnamkulam" class="hover:text-sage-dark dark:hover:text-sage border-b border-transparent hover:border-sage-dark dark:hover:border-sage transition">Kunnamkulam</a></span>
-          <span class="font-serif italic text-taupe text-[11px]">Brick Red</span>
+          <span class="text-xs sm:text-[13px] text-ink dark:text-ivory"><a href="kunnamkulam" class="hover:text-sage-dark dark:hover:text-sage border-b border-transparent hover:border-sage-dark dark:hover:border-sage transition"><span data-en="Kunnamkulam" data-ml="കുന്നംകുളം">Kunnamkulam</span></a></span>
+          <span class="font-serif italic text-taupe text-[11px]" data-en="Brick Red" data-ml="ബ്രിക്ക് റെഡ്">Brick Red</span>
           <span class="text-[10px] text-muted tracking-wide" data-en="Est. 1985" data-ml="സ്ഥാ. 1985">Est. 1985</span>
         </div>
       </div>
       <div class="bg-ivory dark:bg-midnight p-3.5 sm:p-4 flex items-center gap-3 diocese-chip">
         <span class="w-4 h-4 rounded-full shrink-0 border border-ink/10 dark:border-ivory/20" style="background:#4E342E"></span>
         <div class="flex flex-col gap-0.5 min-w-0">
-          <span class="text-xs sm:text-[13px] text-ink dark:text-ivory"><a href="malabar" class="hover:text-sage-dark dark:hover:text-sage border-b border-transparent hover:border-sage-dark dark:hover:border-sage transition">Malabar</a></span>
-          <span class="font-serif italic text-taupe text-[11px]">Espresso Brown</span>
+          <span class="text-xs sm:text-[13px] text-ink dark:text-ivory"><a href="malabar" class="hover:text-sage-dark dark:hover:text-sage border-b border-transparent hover:border-sage-dark dark:hover:border-sage transition"><span data-en="Malabar" data-ml="മലബാർ">Malabar</span></a></span>
+          <span class="font-serif italic text-taupe text-[11px]" data-en="Espresso Brown" data-ml="എസ്പ്രെസോ ബ്രൗൺ">Espresso Brown</span>
           <span class="text-[10px] text-muted tracking-wide" data-en="Est. 1953" data-ml="സ്ഥാ. 1953">Est. 1953</span>
         </div>
       </div>
       <div class="bg-ivory dark:bg-midnight p-3.5 sm:p-4 flex items-center gap-3 diocese-chip">
         <span class="w-4 h-4 rounded-full shrink-0 border border-ink/10 dark:border-ivory/20" style="background:#006064"></span>
         <div class="flex flex-col gap-0.5 min-w-0">
-          <span class="text-xs sm:text-[13px] text-ink dark:text-ivory"><a href="sulthan-bathery" class="hover:text-sage-dark dark:hover:text-sage border-b border-transparent hover:border-sage-dark dark:hover:border-sage transition">Sulthan Bathery</a></span>
-          <span class="font-serif italic text-taupe text-[11px]">Deep Teal</span>
+          <span class="text-xs sm:text-[13px] text-ink dark:text-ivory"><a href="sulthan-bathery" class="hover:text-sage-dark dark:hover:text-sage border-b border-transparent hover:border-sage-dark dark:hover:border-sage transition"><span data-en="Sulthan Bathery" data-ml="സുൽത്താൻ ബത്തേരി">Sulthan Bathery</span></a></span>
+          <span class="font-serif italic text-taupe text-[11px]" data-en="Deep Teal" data-ml="ഡീപ് ടീൽ">Deep Teal</span>
           <span class="text-[10px] text-muted tracking-wide" data-en="Est. 1986" data-ml="സ്ഥാ. 1986">Est. 1986</span>
         </div>
       </div>
       <div class="bg-ivory dark:bg-midnight p-3.5 sm:p-4 flex items-center gap-3 diocese-chip">
         <span class="w-4 h-4 rounded-full shrink-0 border border-ink/10 dark:border-ivory/20" style="background:#3949AB"></span>
         <div class="flex flex-col gap-0.5 min-w-0">
-          <span class="text-xs sm:text-[13px] text-ink dark:text-ivory"><a href="brahmavar" class="hover:text-sage-dark dark:hover:text-sage border-b border-transparent hover:border-sage-dark dark:hover:border-sage transition">Brahmavar</a></span>
-          <span class="font-serif italic text-taupe text-[11px]">Sapphire Blue</span>
+          <span class="text-xs sm:text-[13px] text-ink dark:text-ivory"><a href="brahmavar" class="hover:text-sage-dark dark:hover:text-sage border-b border-transparent hover:border-sage-dark dark:hover:border-sage transition"><span data-en="Brahmavar" data-ml="ബ്രഹ്മവാർ">Brahmavar</span></a></span>
+          <span class="font-serif italic text-taupe text-[11px]" data-en="Sapphire Blue" data-ml="സഫയർ ബ്ലൂ">Sapphire Blue</span>
           <span class="text-[10px] text-muted tracking-wide" data-en="Est. 2010" data-ml="സ്ഥാ. 2010">Est. 2010</span>
         </div>
       </div>
       <div class="bg-ivory dark:bg-midnight p-3.5 sm:p-4 flex items-center gap-3 diocese-chip">
         <span class="w-4 h-4 rounded-full shrink-0 border border-ink/10 dark:border-ivory/20" style="background:#7CB342"></span>
         <div class="flex flex-col gap-0.5 min-w-0">
-          <span class="text-xs sm:text-[13px] text-ink dark:text-ivory"><a href="madras" class="hover:text-sage-dark dark:hover:text-sage border-b border-transparent hover:border-sage-dark dark:hover:border-sage transition">Madras</a></span>
-          <span class="font-serif italic text-taupe text-[11px]">Moss Green</span>
+          <span class="text-xs sm:text-[13px] text-ink dark:text-ivory"><a href="madras" class="hover:text-sage-dark dark:hover:text-sage border-b border-transparent hover:border-sage-dark dark:hover:border-sage transition"><span data-en="Madras" data-ml="ചെന്നൈ">Madras</span></a></span>
+          <span class="font-serif italic text-taupe text-[11px]" data-en="Moss Green" data-ml="മോസ് ഗ്രീൻ">Moss Green</span>
           <span class="text-[10px] text-muted tracking-wide" data-en="Est. 1976" data-ml="സ്ഥാ. 1976">Est. 1976</span>
         </div>
       </div>
       <div class="bg-ivory dark:bg-midnight p-3.5 sm:p-4 flex items-center gap-3 diocese-chip">
         <span class="w-4 h-4 rounded-full shrink-0 border border-ink/10 dark:border-ivory/20" style="background:#F9A825"></span>
         <div class="flex flex-col gap-0.5 min-w-0">
-          <span class="text-xs sm:text-[13px] text-ink dark:text-ivory"><a href="bangalore" class="hover:text-sage-dark dark:hover:text-sage border-b border-transparent hover:border-sage-dark dark:hover:border-sage transition">Bangalore</a></span>
-          <span class="font-serif italic text-taupe text-[11px]">Marigold</span>
+          <span class="text-xs sm:text-[13px] text-ink dark:text-ivory"><a href="bangalore" class="hover:text-sage-dark dark:hover:text-sage border-b border-transparent hover:border-sage-dark dark:hover:border-sage transition"><span data-en="Bangalore" data-ml="ബാംഗ്ലൂർ">Bangalore</span></a></span>
+          <span class="font-serif italic text-taupe text-[11px]" data-en="Marigold" data-ml="മാരിഗോൾഡ്">Marigold</span>
           <span class="text-[10px] text-muted tracking-wide" data-en="Est. 2009" data-ml="സ്ഥാ. 2009">Est. 2009</span>
         </div>
       </div>
       <div class="bg-ivory dark:bg-midnight p-3.5 sm:p-4 flex items-center gap-3 diocese-chip">
         <span class="w-4 h-4 rounded-full shrink-0 border border-ink/10 dark:border-ivory/20" style="background:#817713"></span>
         <div class="flex flex-col gap-0.5 min-w-0">
-          <span class="text-xs sm:text-[13px] text-ink dark:text-ivory"><a href="bombay" class="hover:text-sage-dark dark:hover:text-sage border-b border-transparent hover:border-sage-dark dark:hover:border-sage transition">Bombay</a></span>
-          <span class="font-serif italic text-taupe text-[11px]">Antique Bronze</span>
+          <span class="text-xs sm:text-[13px] text-ink dark:text-ivory"><a href="bombay" class="hover:text-sage-dark dark:hover:text-sage border-b border-transparent hover:border-sage-dark dark:hover:border-sage transition"><span data-en="Bombay" data-ml="മുംബൈ">Bombay</span></a></span>
+          <span class="font-serif italic text-taupe text-[11px]" data-en="Antique Bronze" data-ml="ആന്റിക് ബ്രോൺസ്">Antique Bronze</span>
           <span class="text-[10px] text-muted tracking-wide" data-en="Est. 1976" data-ml="സ്ഥാ. 1976">Est. 1976</span>
         </div>
       </div>
       <div class="bg-ivory dark:bg-midnight p-3.5 sm:p-4 flex items-center gap-3 diocese-chip">
         <span class="w-4 h-4 rounded-full shrink-0 border border-ink/10 dark:border-ivory/20" style="background:#A52714"></span>
         <div class="flex flex-col gap-0.5 min-w-0">
-          <span class="text-xs sm:text-[13px] text-ink dark:text-ivory"><a href="calcutta" class="hover:text-sage-dark dark:hover:text-sage border-b border-transparent hover:border-sage-dark dark:hover:border-sage transition">Calcutta</a></span>
-          <span class="font-serif italic text-taupe text-[11px]">Brick Red</span>
+          <span class="text-xs sm:text-[13px] text-ink dark:text-ivory"><a href="calcutta" class="hover:text-sage-dark dark:hover:text-sage border-b border-transparent hover:border-sage-dark dark:hover:border-sage transition"><span data-en="Calcutta" data-ml="കൽക്കട്ട">Calcutta</span></a></span>
+          <span class="font-serif italic text-taupe text-[11px]" data-en="Brick Red" data-ml="ബ്രിക്ക് റെഡ്">Brick Red</span>
           <span class="text-[10px] text-muted tracking-wide" data-en="Est. 1979" data-ml="സ്ഥാ. 1979">Est. 1979</span>
         </div>
       </div>
       <div class="bg-ivory dark:bg-midnight p-3.5 sm:p-4 flex items-center gap-3 diocese-chip">
         <span class="w-4 h-4 rounded-full shrink-0 border border-ink/10 dark:border-ivory/20" style="background:#558B2F"></span>
         <div class="flex flex-col gap-0.5 min-w-0">
-          <span class="text-xs sm:text-[13px] text-ink dark:text-ivory"><a href="delhi" class="hover:text-sage-dark dark:hover:text-sage border-b border-transparent hover:border-sage-dark dark:hover:border-sage transition">Delhi</a></span>
-          <span class="font-serif italic text-taupe text-[11px]">Forest Green</span>
+          <span class="text-xs sm:text-[13px] text-ink dark:text-ivory"><a href="delhi" class="hover:text-sage-dark dark:hover:text-sage border-b border-transparent hover:border-sage-dark dark:hover:border-sage transition"><span data-en="Delhi" data-ml="ഡൽഹി">Delhi</span></a></span>
+          <span class="font-serif italic text-taupe text-[11px]" data-en="Forest Green" data-ml="ഫോറസ്റ്റ് ഗ്രീൻ">Forest Green</span>
           <span class="text-[10px] text-muted tracking-wide" data-en="Est. 1976" data-ml="സ്ഥാ. 1976">Est. 1976</span>
         </div>
       </div>
       <div class="bg-ivory dark:bg-midnight p-3.5 sm:p-4 flex items-center gap-3 diocese-chip">
         <span class="w-4 h-4 rounded-full shrink-0 border border-ink/10 dark:border-ivory/20" style="background:#880E4F"></span>
         <div class="flex flex-col gap-0.5 min-w-0">
-          <span class="text-xs sm:text-[13px] text-ink dark:text-ivory"><a href="ahmedabad" class="hover:text-sage-dark dark:hover:text-sage border-b border-transparent hover:border-sage-dark dark:hover:border-sage transition">Ahmedabad</a></span>
-          <span class="font-serif italic text-taupe text-[11px]">Wine Magenta</span>
+          <span class="text-xs sm:text-[13px] text-ink dark:text-ivory"><a href="ahmedabad" class="hover:text-sage-dark dark:hover:text-sage border-b border-transparent hover:border-sage-dark dark:hover:border-sage transition"><span data-en="Ahmedabad" data-ml="അഹമ്മദാബാദ്">Ahmedabad</span></a></span>
+          <span class="font-serif italic text-taupe text-[11px]" data-en="Wine Magenta" data-ml="വൈൻ മജന്ത">Wine Magenta</span>
           <span class="text-[10px] text-muted tracking-wide" data-en="Est. 2009" data-ml="സ്ഥാ. 2009">Est. 2009</span>
         </div>
       </div>
       <div class="bg-ivory dark:bg-midnight p-3.5 sm:p-4 flex items-center gap-3 diocese-chip">
         <span class="w-4 h-4 rounded-full shrink-0 border border-ink/10 dark:border-ivory/20" style="background:#3949AB"></span>
         <div class="flex flex-col gap-0.5 min-w-0">
-          <span class="text-xs sm:text-[13px] text-ink dark:text-ivory"><a href="asia-pacific" class="hover:text-sage-dark dark:hover:text-sage border-b border-transparent hover:border-sage-dark dark:hover:border-sage transition">Asia&ndash;Pacific</a></span>
-          <span class="font-serif italic text-taupe text-[11px]">Sapphire Blue</span>
+          <span class="text-xs sm:text-[13px] text-ink dark:text-ivory"><a href="asia-pacific" class="hover:text-sage-dark dark:hover:text-sage border-b border-transparent hover:border-sage-dark dark:hover:border-sage transition"><span data-en="Asia–Pacific" data-ml="ഏഷ്യ-പസഫിക്">Asia&ndash;Pacific</span></a></span>
+          <span class="font-serif italic text-taupe text-[11px]" data-en="Sapphire Blue" data-ml="സഫയർ ബ്ലൂ">Sapphire Blue</span>
           <span class="text-[10px] text-muted tracking-wide" data-en="Est. 2024" data-ml="സ്ഥാ. 2024">Est. 2024</span>
         </div>
       </div>
       <div class="bg-ivory dark:bg-midnight p-3.5 sm:p-4 flex items-center gap-3 diocese-chip">
         <span class="w-4 h-4 rounded-full shrink-0 border border-ink/10 dark:border-ivory/20" style="background:#9C27B0"></span>
         <div class="flex flex-col gap-0.5 min-w-0">
-          <span class="text-xs sm:text-[13px] text-ink dark:text-ivory"><a href="northeast-america" class="hover:text-sage-dark dark:hover:text-sage border-b border-transparent hover:border-sage-dark dark:hover:border-sage transition">Northeast America</a></span>
-          <span class="font-serif italic text-taupe text-[11px]">Royal Orchid</span>
+          <span class="text-xs sm:text-[13px] text-ink dark:text-ivory"><a href="northeast-america" class="hover:text-sage-dark dark:hover:text-sage border-b border-transparent hover:border-sage-dark dark:hover:border-sage transition"><span data-en="Northeast America" data-ml="നോർത്ത്-ഈസ്റ്റ് അമേരിക്ക">Northeast America</span></a></span>
+          <span class="font-serif italic text-taupe text-[11px]" data-en="Royal Orchid" data-ml="റോയൽ ഓർക്കിഡ്">Royal Orchid</span>
           <span class="text-[10px] text-muted tracking-wide" data-en="Est. 2009" data-ml="സ്ഥാ. 2009">Est. 2009</span>
         </div>
       </div>
       <div class="bg-ivory dark:bg-midnight p-3.5 sm:p-4 flex items-center gap-3 diocese-chip">
         <span class="w-4 h-4 rounded-full shrink-0 border border-ink/10 dark:border-ivory/20" style="background:#F57C00"></span>
         <div class="flex flex-col gap-0.5 min-w-0">
-          <span class="text-xs sm:text-[13px] text-ink dark:text-ivory"><a href="southwest-america" class="hover:text-sage-dark dark:hover:text-sage border-b border-transparent hover:border-sage-dark dark:hover:border-sage transition">Southwest America</a></span>
-          <span class="font-serif italic text-taupe text-[11px]">Tangerine</span>
+          <span class="text-xs sm:text-[13px] text-ink dark:text-ivory"><a href="southwest-america" class="hover:text-sage-dark dark:hover:text-sage border-b border-transparent hover:border-sage-dark dark:hover:border-sage transition"><span data-en="Southwest America" data-ml="സൗത്ത്-വെസ്റ്റ് അമേരിക്ക">Southwest America</span></a></span>
+          <span class="font-serif italic text-taupe text-[11px]" data-en="Tangerine" data-ml="ടാഞ്ചെറിൻ">Tangerine</span>
           <span class="text-[10px] text-muted tracking-wide" data-en="Est. 2009" data-ml="സ്ഥാ. 2009">Est. 2009</span>
         </div>
       </div>
       <div class="bg-ivory dark:bg-midnight p-3.5 sm:p-4 flex items-center gap-3 diocese-chip">
         <span class="w-4 h-4 rounded-full shrink-0 border border-ink/10 dark:border-ivory/20" style="background:#0288D1"></span>
         <div class="flex flex-col gap-0.5 min-w-0">
-          <span class="text-xs sm:text-[13px] text-ink dark:text-ivory"><a href="canada" class="hover:text-sage-dark dark:hover:text-sage border-b border-transparent hover:border-sage-dark dark:hover:border-sage transition">Canada</a></span>
-          <span class="font-serif italic text-taupe text-[11px]">Cerulean Blue</span>
+          <span class="text-xs sm:text-[13px] text-ink dark:text-ivory"><a href="canada" class="hover:text-sage-dark dark:hover:text-sage border-b border-transparent hover:border-sage-dark dark:hover:border-sage transition"><span data-en="Canada" data-ml="കാനഡ">Canada</span></a></span>
+          <span class="font-serif italic text-taupe text-[11px]" data-en="Cerulean Blue" data-ml="സെറൂലിയൻ ബ്ലൂ">Cerulean Blue</span>
           <span class="text-[10px] text-muted tracking-wide" data-en="Est. 2024" data-ml="സ്ഥാ. 2024">Est. 2024</span>
         </div>
       </div>
       <div class="bg-ivory dark:bg-midnight p-3.5 sm:p-4 flex items-center gap-3 diocese-chip">
         <span class="w-4 h-4 rounded-full shrink-0 border border-ink/10 dark:border-ivory/20" style="background:#0F9D58"></span>
         <div class="flex flex-col gap-0.5 min-w-0">
-          <span class="text-xs sm:text-[13px] text-ink dark:text-ivory"><a href="uk-europe-africa" class="hover:text-sage-dark dark:hover:text-sage border-b border-transparent hover:border-sage-dark dark:hover:border-sage transition">UK&ndash;Europe&ndash;Africa</a></span>
-          <span class="font-serif italic text-taupe text-[11px]">Emerald Green</span>
+          <span class="text-xs sm:text-[13px] text-ink dark:text-ivory"><a href="uk-europe-africa" class="hover:text-sage-dark dark:hover:text-sage border-b border-transparent hover:border-sage-dark dark:hover:border-sage transition"><span data-en="UK–Europe–Africa" data-ml="യു.കെ-യൂറോപ്പ്">UK&ndash;Europe&ndash;Africa</span></a></span>
+          <span class="font-serif italic text-taupe text-[11px]" data-en="Emerald Green" data-ml="എമറാൾഡ് ഗ്രീൻ">Emerald Green</span>
           <span class="text-[10px] text-muted tracking-wide" data-en="Est. 2009" data-ml="സ്ഥാ. 2009">Est. 2009</span>
         </div>
       </div>
       <div class="bg-ivory dark:bg-midnight p-3.5 sm:p-4 flex items-center gap-3 diocese-chip">
         <span class="w-4 h-4 rounded-full shrink-0 border border-ink/10 dark:border-ivory/20" style="background:#BDBDBD"></span>
         <div class="flex flex-col gap-0.5 min-w-0">
-          <span class="text-xs sm:text-[13px] text-ink dark:text-ivory"><a href="knanaya" class="hover:text-sage-dark dark:hover:text-sage border-b border-transparent hover:border-sage-dark dark:hover:border-sage transition">Knanaya</a> <em class="text-muted italic font-normal">(titular see)</em></span>
-          <span class="font-serif italic text-taupe text-[11px]">Silver Grey</span>
+          <span class="text-xs sm:text-[13px] text-ink dark:text-ivory"><a href="knanaya" class="hover:text-sage-dark dark:hover:text-sage border-b border-transparent hover:border-sage-dark dark:hover:border-sage transition"><span data-en="Knanaya" data-ml="ക്നാനായ">Knanaya</span></a> <em class="text-muted italic font-normal" data-en="(titular see)" data-ml="(നാമമാത്ര ഭദ്രാസനം)">(titular see)</em></span>
+          <span class="font-serif italic text-taupe text-[11px]" data-en="Silver Grey" data-ml="സിൽവർ ഗ്രേ">Silver Grey</span>
           <span class="text-[10px] text-muted tracking-wide" data-en="Est. 1910" data-ml="സ്ഥാ. 1910">Est. 1910</span>
         </div>
       </div>
       <div class="bg-ivory dark:bg-midnight p-3.5 sm:p-4 flex items-center gap-3 diocese-chip">
         <span class="w-4 h-4 rounded-full shrink-0 border border-ink/10 dark:border-ivory/20" style="background:#C2185B"></span>
         <div class="flex flex-col gap-0.5 min-w-0">
-          <span class="text-xs sm:text-[13px] text-ink dark:text-ivory"><a href="evangelistic-association-of-the-east" class="hover:text-sage-dark dark:hover:text-sage border-b border-transparent hover:border-sage-dark dark:hover:border-sage transition">Evangelistic Assoc. of the East</a> <em class="text-muted italic font-normal">(titular see)</em></span>
-          <span class="font-serif italic text-taupe text-[11px]">Raspberry Rose</span>
+          <span class="text-xs sm:text-[13px] text-ink dark:text-ivory"><a href="evangelistic-association-of-the-east" class="hover:text-sage-dark dark:hover:text-sage border-b border-transparent hover:border-sage-dark dark:hover:border-sage transition"><span data-en="Evangelistic Assoc. of the East" data-ml="പൗരസ്ത്യ സുവിശേഷ സമാജം">Evangelistic Assoc. of the East</span></a> <em class="text-muted italic font-normal" data-en="(titular see)" data-ml="(നാമമാത്ര ഭദ്രാസനം)">(titular see)</em></span>
+          <span class="font-serif italic text-taupe text-[11px]" data-en="Raspberry Rose" data-ml="റാസ്ബെറി റോസ്">Raspberry Rose</span>
           <span class="text-[10px] text-muted tracking-wide" data-en="Est. 1924" data-ml="സ്ഥാ. 1924">Est. 1924</span>
         </div>
       </div>
       <div class="bg-ivory dark:bg-midnight p-3.5 sm:p-4 flex items-center gap-3 diocese-chip">
         <span class="w-4 h-4 rounded-full shrink-0 border border-ink/10 dark:border-ivory/20" style="background:#673AB7"></span>
         <div class="flex flex-col gap-0.5 min-w-0">
-          <span class="text-xs sm:text-[13px] text-ink dark:text-ivory"><a href="proprietary-churches" class="hover:text-sage-dark dark:hover:text-sage border-b border-transparent hover:border-sage-dark dark:hover:border-sage transition">Proprietary Churches</a></span>
-          <span class="font-serif italic text-taupe text-[11px]">Deep Violet</span>
+          <span class="text-xs sm:text-[13px] text-ink dark:text-ivory"><a href="proprietary-churches" class="hover:text-sage-dark dark:hover:text-sage border-b border-transparent hover:border-sage-dark dark:hover:border-sage transition"><span data-en="Proprietary Churches" data-ml="കുടുംബപള്ളികൾ">Proprietary Churches</span></a></span>
+          <span class="font-serif italic text-taupe text-[11px]" data-en="Deep Violet" data-ml="ഡീപ് വയലറ്റ്">Deep Violet</span>
           
         </div>
       </div>
@@ -3456,15 +3489,15 @@ L 704.6 52.4 L 705.2 50.6 L 705.8 48.9 L 706.3 47.2 L 706.6 45.5 L 706.9 43.8 L 
       </a>
       <a href="type-congregations" class="group border-b border-r border-line dark:border-white/10 p-5 sm:p-6 flex flex-col gap-2 hover:bg-featured dark:hover:bg-white/5 transition">
         <span class="count-num font-serif text-3xl sm:text-4xl text-ink dark:text-ivory group-hover:text-sage-dark dark:group-hover:text-sage transition" data-count="155">155</span>
-        <span class="font-sans text-[10px] sm:text-[11px] tracking-wider uppercase text-body/60 dark:text-ivory/50 font-medium" data-en="Congregations" data-ml="സഭാസമൂഹങ്ങൾ">Congregations</span>
+        <span class="font-sans text-[10px] sm:text-[11px] tracking-wider uppercase text-body/60 dark:text-ivory/50 font-medium" data-en="Congregations" data-ml="കോൺഗ്രിഗേഷനുകൾ">Congregations</span>
       </a>
       <a href="type-cathedrals" class="group border-b border-r border-line dark:border-white/10 p-5 sm:p-6 flex flex-col gap-2 hover:bg-featured dark:hover:bg-white/5 transition">
         <span class="count-num font-serif text-3xl sm:text-4xl text-ink dark:text-ivory group-hover:text-sage-dark dark:group-hover:text-sage transition" data-count="60">60</span>
-        <span class="font-sans text-[10px] sm:text-[11px] tracking-wider uppercase text-body/60 dark:text-ivory/50 font-medium" data-en="Cathedrals" data-ml="കത്തീഡ്രലുകൾ">Cathedrals</span>
+        <span class="font-sans text-[10px] sm:text-[11px] tracking-wider uppercase text-body/60 dark:text-ivory/50 font-medium" data-en="Cathedrals" data-ml="ഭദ്രാസനപള്ളികൾ">Cathedrals</span>
       </a>
       <a href="type-monasteries" class="group border-b border-r border-line dark:border-white/10 p-5 sm:p-6 flex flex-col gap-2 hover:bg-featured dark:hover:bg-white/5 transition">
         <span class="count-num font-serif text-3xl sm:text-4xl text-ink dark:text-ivory group-hover:text-sage-dark dark:group-hover:text-sage transition" data-count="55">55</span>
-        <span class="font-sans text-[10px] sm:text-[11px] tracking-wider uppercase text-body/60 dark:text-ivory/50 font-medium" data-en="Monasteries" data-ml="ആശ്രമങ്ങൾ">Monasteries</span>
+        <span class="font-sans text-[10px] sm:text-[11px] tracking-wider uppercase text-body/60 dark:text-ivory/50 font-medium" data-en="Monasteries" data-ml="ദയറാകൾ">Monasteries</span>
       </a>
       <a href="type-qurbana-centres" class="group border-b border-r border-line dark:border-white/10 p-5 sm:p-6 flex flex-col gap-2 hover:bg-featured dark:hover:bg-white/5 transition">
         <span class="count-num font-serif text-3xl sm:text-4xl text-ink dark:text-ivory group-hover:text-sage-dark dark:group-hover:text-sage transition" data-count="38">38</span>
@@ -3484,11 +3517,11 @@ L 704.6 52.4 L 705.2 50.6 L 705.8 48.9 L 706.3 47.2 L 706.6 45.5 L 706.9 43.8 L 
       </a>
       <a href="https://malankaramap.com/type-communities" class="group border-b border-r border-line dark:border-white/10 p-5 sm:p-6 flex flex-col gap-2 hover:bg-featured dark:hover:bg-white/5 transition">
         <span class="count-num font-serif text-3xl sm:text-4xl text-ink dark:text-ivory group-hover:text-sage-dark dark:group-hover:text-sage transition" data-count="21">21</span>
-        <span class="font-sans text-[10px] sm:text-[11px] tracking-wider uppercase text-body/60 dark:text-ivory/50 font-medium" data-en="Communities" data-ml="സമൂഹങ്ങൾ">Communities</span>
+        <span class="font-sans text-[10px] sm:text-[11px] tracking-wider uppercase text-body/60 dark:text-ivory/50 font-medium" data-en="Communities" data-ml="കമ്മ്യൂണിറ്റികൾ">Communities</span>
       </a>
       <a href="type-sunday-schools" class="group border-b border-r border-line dark:border-white/10 p-5 sm:p-6 flex flex-col gap-2 hover:bg-featured dark:hover:bg-white/5 transition">
         <span class="count-num font-serif text-3xl sm:text-4xl text-ink dark:text-ivory group-hover:text-sage-dark dark:group-hover:text-sage transition" data-count="22">22</span>
-        <span class="font-sans text-[10px] sm:text-[11px] tracking-wider uppercase text-body/60 dark:text-ivory/50 font-medium">Independent Sunday Schools</span>
+        <span class="font-sans text-[10px] sm:text-[11px] tracking-wider uppercase text-body/60 dark:text-ivory/50 font-medium" data-en="Independent Sunday Schools" data-ml="സ്വതന്ത്ര ഞായർ പള്ളിക്കൂടങ്ങൾ">Independent Sunday Schools</span>
       </a>
       <a href="type-seminaries" class="group border-b border-r border-line dark:border-white/10 p-5 sm:p-6 flex flex-col gap-2 hover:bg-featured dark:hover:bg-white/5 transition">
         <span class="count-num font-serif text-3xl sm:text-4xl text-ink dark:text-ivory group-hover:text-sage-dark dark:group-hover:text-sage transition" data-count="20">20</span>
@@ -3496,14 +3529,14 @@ L 704.6 52.4 L 705.2 50.6 L 705.8 48.9 L 706.3 47.2 L 706.6 45.5 L 706.9 43.8 L 
       </a>
       <a href="type-prayer-groups" class="group border-b border-r border-line dark:border-white/10 p-5 sm:p-6 flex flex-col gap-2 hover:bg-featured dark:hover:bg-white/5 transition">
         <span class="count-num font-serif text-3xl sm:text-4xl text-ink dark:text-ivory group-hover:text-sage-dark dark:group-hover:text-sage transition" data-count="14">14</span>
-        <span class="font-sans text-[10px] sm:text-[11px] tracking-wider uppercase text-body/60 dark:text-ivory/50 font-medium" data-en="Independent Prayer Groups" data-ml="സ്വതന്ത്ര പ്രാർത്ഥനാ ഗ്രൂപ്പുകൾ">Independent Prayer Groups</span>
+        <span class="font-sans text-[10px] sm:text-[11px] tracking-wider uppercase text-body/60 dark:text-ivory/50 font-medium" data-en="Independent Prayer Groups" data-ml="സ്വതന്ത്ര പ്രാർത്ഥന യോഗങ്ങൾ">Independent Prayer Groups</span>
       </a>
       <a href="type-student-centres" class="group border-b border-r border-line dark:border-white/10 p-5 sm:p-6 flex flex-col gap-2 hover:bg-featured dark:hover:bg-white/5 transition">
         <span class="count-num font-serif text-3xl sm:text-4xl text-ink dark:text-ivory group-hover:text-sage-dark dark:group-hover:text-sage transition" data-count="19">19</span>
         <span class="font-sans text-[10px] sm:text-[11px] tracking-wider uppercase text-body/60 dark:text-ivory/50 font-medium" data-en="Student Centres" data-ml="വിദ്യാർത്ഥി കേന്ദ്രങ്ങൾ">Student Centres</span>
       </a>
   </div>
-  <p class="mt-6 font-sans text-xs sm:text-sm text-body/60 dark:text-ivory/50"><span data-en="Beyond the map: an estimated" data-ml="ഭൂപടത്തിനപ്പുറം: ഏകദേശം">Beyond the map: an estimated</span> <strong class="text-sage-dark dark:text-sage font-semibold">1,706,012</strong> <span data-en="members across" data-ml="അംഗങ്ങൾ, ഇവയിലായി">members across</span> <strong class="text-sage-dark dark:text-sage font-semibold">32</strong> <span data-en="dioceses and" data-ml="ഭദ്രാസനങ്ങളും">dioceses and</span> <strong class="text-sage-dark dark:text-sage font-semibold">2</strong> <span data-en="titular sees worldwide." data-ml="ലോകമെമ്പാടുമുള്ള 2 പദവി സീറ്റുകളും.">titular sees worldwide.</span></p>
+  <p class="mt-6 font-sans text-xs sm:text-sm text-body/60 dark:text-ivory/50"><span data-en="Beyond the map: an estimated" data-ml="ഭൂപടത്തിനപ്പുറം: ഏകദേശം">Beyond the map: an estimated</span> <strong class="text-sage-dark dark:text-sage font-semibold">1,706,012</strong> <span data-en="members across" data-ml="അംഗങ്ങൾ, ഇവയിലായി">members across</span> <strong class="text-sage-dark dark:text-sage font-semibold">32</strong> <span data-en="dioceses and" data-ml="ഭദ്രാസനങ്ങളും">dioceses and</span> <strong class="text-sage-dark dark:text-sage font-semibold">2</strong> <span data-en="titular sees worldwide." data-ml="ലോകമെമ്പാടുമുള്ള 2 നാമമാത്ര ഭദ്രാസനങ്ങളും.">titular sees worldwide.</span></p>
 </section>
 <!-- ==================== CLERGY ==================== -->
 <section class="px-5 sm:px-8 sec-tight max-w-6xl mx-auto" id="clergy">
@@ -3522,12 +3555,12 @@ L 704.6 52.4 L 705.2 50.6 L 705.8 48.9 L 706.3 47.2 L 706.6 45.5 L 706.9 43.8 L 
     </a>
     <a href="monks" class="group bg-ivory dark:bg-midnight p-6 sm:p-8 flex flex-col gap-2 hover:bg-featured dark:hover:bg-white/5 transition-colors">
       <span class="count-num font-serif text-4xl sm:text-5xl text-ink dark:text-ivory group-hover:text-sage-dark dark:group-hover:text-sage transition-colors" data-count="48">48</span>
-      <span class="font-sans text-[11px] tracking-wider uppercase text-body/60 dark:text-ivory/50 font-medium" data-en="Monks" data-ml="സന്യാസിമാർ">Monks</span>
+      <span class="font-sans text-[11px] tracking-wider uppercase text-body/60 dark:text-ivory/50 font-medium" data-en="Monks" data-ml="റമ്പാന്മാർ">Monks</span>
       <span class="font-serif italic text-sage-dark dark:text-sage text-sm mt-1" data-en="By diocese &rarr;" data-ml="ഭദ്രാസനം അനുസരിച്ച് &rarr;">By diocese &rarr;</span>
     </a>
     <a href="cor-episcopa" class="group bg-ivory dark:bg-midnight p-6 sm:p-8 flex flex-col gap-2 hover:bg-featured dark:hover:bg-white/5 transition-colors">
       <span class="count-num font-serif text-4xl sm:text-5xl text-ink dark:text-ivory group-hover:text-sage-dark dark:group-hover:text-sage transition-colors" data-count="101">101</span>
-      <span class="font-sans text-[11px] tracking-wider uppercase text-body/60 dark:text-ivory/50 font-medium" data-en="Cor-Episcopas" data-ml="കോറെപ്പിസ്കോപ്പന്മാർ">Cor-Episcopas</span>
+      <span class="font-sans text-[11px] tracking-wider uppercase text-body/60 dark:text-ivory/50 font-medium" data-en="Cor-Episcopas" data-ml="കോറെപ്പിസ്കോപ്പമാർ">Cor-Episcopas</span>
       <span class="font-serif italic text-sage-dark dark:text-sage text-sm mt-1" data-en="By diocese &rarr;" data-ml="ഭദ്രാസനം അനുസരിച്ച് &rarr;">By diocese &rarr;</span>
     </a>
     <a href="priests" class="group bg-ivory dark:bg-midnight p-6 sm:p-8 flex flex-col gap-2 hover:bg-featured dark:hover:bg-white/5 transition-colors">
@@ -3546,97 +3579,97 @@ L 704.6 52.4 L 705.2 50.6 L 705.8 48.9 L 706.3 47.2 L 706.6 45.5 L 706.9 43.8 L 
 <!-- ==================== CONSECRATIONS OF MYRON ==================== -->
 <section class="px-5 sm:px-8 sec-tight max-w-6xl mx-auto" id="myron">
   <div class="reveal flex flex-col sm:flex-row sm:items-end sm:justify-between gap-3 mb-6">
-    <h2 class="font-serif italic font-normal text-[28px] sm:text-4xl text-ink dark:text-ivory" data-en="Consecrations of Holy Myron" data-ml="വിശുദ്ധ മൈറോൻ കൂദാശകൾ">Consecrations of Holy Myron</h2>
+    <h2 class="font-serif italic font-normal text-[28px] sm:text-4xl text-ink dark:text-ivory" data-en="Consecrations of Holy Myron" data-ml="വിശുദ്ധ മൂറോൻ കൂദാശകൾ">Consecrations of Holy Myron</h2>
     <p class="font-serif italic text-sm text-body/55 dark:text-ivory/45 max-w-md" data-en="The sacred chrism used in every sacrament of initiation, consecrated only by the Patriarch or the Catholicos — a rite held only a handful of times in a generation." data-ml="ഓരോ ദീക്ഷാ കൂദാശയിലും ഉപയോഗിക്കുന്ന വിശുദ്ധ തൈലം, പാത്രിയർക്കീസോ കാതോലിക്കായോ മാത്രം കൂദാശ ചെയ്യുന്നത് — ഒരു തലമുറയിൽ അപൂർവ്വമായി മാത്രം നടക്കുന്ന ചടങ്ങ്.">The sacred chrism used in every sacrament of initiation, consecrated only by the Patriarch or the Catholicos &mdash; a rite held only a handful of times in a generation.</p>
   </div>
-  <p class="reveal font-sans text-[14px] sm:text-[15px] text-body/75 dark:text-ivory/60 leading-[1.8] max-w-3xl mb-8 sm:mb-10" data-en="Preparation begins months beforehand, as olive oil is blended with more than a dozen spices, resins, and perfumes, then slowly rendered over steam before being sealed with balsam on the day itself. The consecration calls for twelve priests, twelve full deacons, and twelve subdeacons, who, together with twelve censers, twelve liturgical fans, and twelve candles, form two solemn processions around the altar — the number recalling the twelve apostles and the ranks of angels gathered around the divine." data-ml="ഒലിവ് എണ്ണ ഒരു ഡസനിലധികം സുഗന്ധവ്യഞ്ജനങ്ങളും കുന്തുരുക്കങ്ങളും സുഗന്ധദ്രവ്യങ്ങളും ചേർത്ത് കൂട്ടിക്കലർത്തി, ആവിയിൽ പതുക്കെ വേവിച്ച്, ചടങ്ങ് ദിവസം തന്നെ ബാൽസം ചേർത്ത് മുദ്രവയ്ക്കുന്നതോടെ മാസങ്ങൾക്ക് മുമ്പേ ഒരുക്കം ആരംഭിക്കുന്നു. കൂദാശയ്ക്ക് പന്ത്രണ്ട് വൈദികരും പന്ത്രണ്ട് പൂർണ്ണ ശെമ്മാശന്മാരും പന്ത്രണ്ട് ഉപശെമ്മാശന്മാരും വേണം; അവർ പന്ത്രണ്ട് ധൂപകുറ്റികളും പന്ത്രണ്ട് ആരാധനാ വീശുകളും പന്ത്രണ്ട് മെഴുകുതിരികളും സഹിതം ബലിപീഠത്തിന് ചുറ്റും രണ്ട് ഗംഭീര ഘോഷയാത്രകൾ നടത്തുന്നു — ഈ സംഖ്യ പന്ത്രണ്ട് അപ്പോസ്തലന്മാരെയും ദൈവസന്നിധിയിൽ കൂടിയ മാലാഖവൃന്ദങ്ങളെയും അനുസ്മരിപ്പിക്കുന്നു.">Preparation begins months beforehand, as olive oil is blended with more than a dozen spices, resins, and perfumes, then slowly rendered over steam before being sealed with balsam on the day itself. The consecration calls for twelve priests, twelve full deacons, and twelve subdeacons, who, together with twelve censers, twelve liturgical fans, and twelve candles, form two solemn processions around the altar &mdash; the number recalling the twelve apostles and the ranks of angels gathered around the divine.</p>
+  <p class="reveal font-sans text-[14px] sm:text-[15px] text-body/75 dark:text-ivory/60 leading-[1.8] max-w-3xl mb-8 sm:mb-10" data-en="Preparation begins months beforehand, as olive oil is blended with more than a dozen spices, resins, and perfumes, then slowly rendered over steam before being sealed with balsam on the day itself. The consecration calls for twelve priests, twelve full deacons, and twelve subdeacons, who, together with twelve censers, twelve liturgical fans, and twelve candles, form two solemn processions around the altar — the number recalling the twelve apostles and the ranks of angels gathered around the divine." data-ml="സൈത്ത് എണ്ണ ഒരു ഡസനിലധികം സുഗന്ധവ്യഞ്ജനങ്ങളും കുന്തുരുക്കങ്ങളും സുഗന്ധദ്രവ്യങ്ങളും ചേർത്ത് കൂട്ടിക്കലർത്തി, ആവിയിൽ പതുക്കെ വേവിച്ച്, ചടങ്ങ് ദിവസം തന്നെ ബാൽസം ചേർത്ത് മുദ്രവയ്ക്കുന്നതോടെ മാസങ്ങൾക്ക് മുമ്പേ ഒരുക്കം ആരംഭിക്കുന്നു. കൂദാശയ്ക്ക് പന്ത്രണ്ട് വൈദികരും പന്ത്രണ്ട് പൂർണ്ണ ശെമ്മാശന്മാരും പന്ത്രണ്ട് അഫ്ദായക്നൊയും വേണം; അവർ പന്ത്രണ്ട് ധൂപകുറ്റികളും പന്ത്രണ്ട് ആരാധനാ വീശുകളും പന്ത്രണ്ട് മെഴുകുതിരികളും സഹിതം ബലിപീഠത്തിന് ചുറ്റും രണ്ട് ഗംഭീര ഘോഷയാത്രകൾ നടത്തുന്നു — ഈ സംഖ്യ പന്ത്രണ്ട് അപ്പോസ്തലന്മാരെയും ദൈവസന്നിധിയിൽ കൂടിയ മാലാഖവൃന്ദങ്ങളെയും അനുസ്മരിപ്പിക്കുന്നു.">Preparation begins months beforehand, as olive oil is blended with more than a dozen spices, resins, and perfumes, then slowly rendered over steam before being sealed with balsam on the day itself. The consecration calls for twelve priests, twelve full deacons, and twelve subdeacons, who, together with twelve censers, twelve liturgical fans, and twelve candles, form two solemn processions around the altar &mdash; the number recalling the twelve apostles and the ranks of angels gathered around the divine.</p>
   <div class="reveal reveal-stagger grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-px bg-line dark:bg-white/10 border border-line dark:border-white/10 rounded-xl overflow-hidden shadow-soft">
       <div class="bg-ivory dark:bg-midnight p-6 sm:p-7">
-        <h3 class="font-serif italic text-lg sm:text-xl text-ink dark:text-ivory mb-3">H. H. Ignatius Peter IV</h3>
+        <h3 class="font-serif italic text-lg sm:text-xl text-ink dark:text-ivory mb-3" data-en-html="H. H. Ignatius Peter IV" data-ml-html="മോറാൻ മോർ ഇഗ്നാത്തിയോസ് പത്രോസ് നാലാമൻ">H. H. Ignatius Peter IV</h3>
         <div class="flex flex-col gap-2">
           <div class="flex items-start gap-2.5">
             <span class="w-1.5 h-1.5 rounded-full bg-gold shrink-0 mt-1.5"></span>
-            <span class="font-sans text-[13px] text-body/75 dark:text-ivory/60 leading-[1.7]"><span class="text-ink dark:text-ivory font-medium">August 27, 1876</span> &mdash; Mulanthuruthy St. Thomas Orthodox Cathedral</span>
+            <span class="font-sans text-[13px] text-body/75 dark:text-ivory/60 leading-[1.7]" data-en-html="<span class=&quot;text-ink dark:text-ivory font-medium&quot;>August 27, 1876</span> &mdash; Mulanthuruthy St. Thomas Orthodox Cathedral" data-ml-html="<span class=&quot;text-ink dark:text-ivory font-medium&quot;>August 27, 1876</span> &mdash; മുളന്തുരുത്തി മാർത്തോമ്മൻ പള്ളി"><span class="text-ink dark:text-ivory font-medium">August 27, 1876</span> &mdash; Mulanthuruthy St. Thomas Orthodox Cathedral</span>
           </div>
         </div>
       </div>
       <div class="bg-ivory dark:bg-midnight p-6 sm:p-7">
-        <h3 class="font-serif italic text-lg sm:text-xl text-ink dark:text-ivory mb-3">H. H. Ignatius Abded Aloho II</h3>
+        <h3 class="font-serif italic text-lg sm:text-xl text-ink dark:text-ivory mb-3" data-en-html="H. H. Ignatius Abded Aloho II" data-ml-html="മോറാൻ മാർ ഇഗ്നാത്തിയോസ് അബ്ദേദ് ആലോഹോ രണ്ടാമൻ">H. H. Ignatius Abded Aloho II</h3>
         <div class="flex flex-col gap-2">
           <div class="flex items-start gap-2.5">
             <span class="w-1.5 h-1.5 rounded-full bg-gold shrink-0 mt-1.5"></span>
-            <span class="font-sans text-[13px] text-body/75 dark:text-ivory/60 leading-[1.7]"><span class="text-ink dark:text-ivory font-medium">August 19, 1911</span> &mdash; Mulanthuruthy St. Thomas Orthodox Cathedral</span>
+            <span class="font-sans text-[13px] text-body/75 dark:text-ivory/60 leading-[1.7]" data-en-html="<span class=&quot;text-ink dark:text-ivory font-medium&quot;>August 19, 1911</span> &mdash; Mulanthuruthy St. Thomas Orthodox Cathedral" data-ml-html="<span class=&quot;text-ink dark:text-ivory font-medium&quot;>August 19, 1911</span> &mdash; മുളന്തുരുത്തി മാർത്തോമ്മൻ പള്ളി"><span class="text-ink dark:text-ivory font-medium">August 19, 1911</span> &mdash; Mulanthuruthy St. Thomas Orthodox Cathedral</span>
           </div>
         </div>
       </div>
       <div class="bg-ivory dark:bg-midnight p-6 sm:p-7">
-        <h3 class="font-serif italic text-lg sm:text-xl text-ink dark:text-ivory mb-3">H. H. Baselios Geevarghese II</h3>
+        <h3 class="font-serif italic text-lg sm:text-xl text-ink dark:text-ivory mb-3" data-en-html="H. H. Baselios Geevarghese II" data-ml-html="മോറാൻ മാർ ബസേലിയോസ് ഗീവർഗീസ് രണ്ടാമൻ">H. H. Baselios Geevarghese II</h3>
         <div class="flex flex-col gap-2">
           <div class="flex items-start gap-2.5">
             <span class="w-1.5 h-1.5 rounded-full bg-gold shrink-0 mt-1.5"></span>
-            <span class="font-sans text-[13px] text-body/75 dark:text-ivory/60 leading-[1.7]"><span class="text-ink dark:text-ivory font-medium">April 22, 1932</span> &mdash; Kottayam St. Thomas Orthodox Chapel (Chungam)</span>
+            <span class="font-sans text-[13px] text-body/75 dark:text-ivory/60 leading-[1.7]" data-en-html="<span class=&quot;text-ink dark:text-ivory font-medium&quot;>April 22, 1932</span> &mdash; Kottayam St. Thomas Orthodox Chapel (Chungam)" data-ml-html="<span class=&quot;text-ink dark:text-ivory font-medium&quot;>April 22, 1932</span> &mdash; കോട്ടയം പഴയ സെമിനാരി ചാപ്പൽ (ചുങ്കം)"><span class="text-ink dark:text-ivory font-medium">April 22, 1932</span> &mdash; Kottayam St. Thomas Orthodox Chapel (Chungam)</span>
           </div>
           <div class="flex items-start gap-2.5">
             <span class="w-1.5 h-1.5 rounded-full bg-gold shrink-0 mt-1.5"></span>
-            <span class="font-sans text-[13px] text-body/75 dark:text-ivory/60 leading-[1.7]"><span class="text-ink dark:text-ivory font-medium">April 20, 1951</span> &mdash; Kottayam St. Thomas Orthodox Chapel (Chungam)</span>
+            <span class="font-sans text-[13px] text-body/75 dark:text-ivory/60 leading-[1.7]" data-en-html="<span class=&quot;text-ink dark:text-ivory font-medium&quot;>April 20, 1951</span> &mdash; Kottayam St. Thomas Orthodox Chapel (Chungam)" data-ml-html="<span class=&quot;text-ink dark:text-ivory font-medium&quot;>April 20, 1951</span> &mdash; കോട്ടയം പഴയ സെമിനാരി ചാപ്പൽ (ചുങ്കം)"><span class="text-ink dark:text-ivory font-medium">April 20, 1951</span> &mdash; Kottayam St. Thomas Orthodox Chapel (Chungam)</span>
           </div>
         </div>
       </div>
       <div class="bg-ivory dark:bg-midnight p-6 sm:p-7">
-        <h3 class="font-serif italic text-lg sm:text-xl text-ink dark:text-ivory mb-3">H. H. Baselios Augen I</h3>
+        <h3 class="font-serif italic text-lg sm:text-xl text-ink dark:text-ivory mb-3" data-en-html="H. H. Baselios Augen I" data-ml-html="മോറാൻ മാർ ബസേലിയോസ് ഔഗേൻ പ്രഥമൻ">H. H. Baselios Augen I</h3>
         <div class="flex flex-col gap-2">
           <div class="flex items-start gap-2.5">
             <span class="w-1.5 h-1.5 rounded-full bg-gold shrink-0 mt-1.5"></span>
-            <span class="font-sans text-[13px] text-body/75 dark:text-ivory/60 leading-[1.7]"><span class="text-ink dark:text-ivory font-medium">December 21, 1967</span> &mdash; Kottayam St. Thomas Orthodox Chapel (Chungam)</span>
+            <span class="font-sans text-[13px] text-body/75 dark:text-ivory/60 leading-[1.7]" data-en-html="<span class=&quot;text-ink dark:text-ivory font-medium&quot;>December 21, 1967</span> &mdash; Kottayam St. Thomas Orthodox Chapel (Chungam)" data-ml-html="<span class=&quot;text-ink dark:text-ivory font-medium&quot;>December 21, 1967</span> &mdash; കോട്ടയം പഴയ സെമിനാരി ചാപ്പൽ (ചുങ്കം)"><span class="text-ink dark:text-ivory font-medium">December 21, 1967</span> &mdash; Kottayam St. Thomas Orthodox Chapel (Chungam)</span>
           </div>
         </div>
       </div>
       <div class="bg-ivory dark:bg-midnight p-6 sm:p-7">
-        <h3 class="font-serif italic text-lg sm:text-xl text-ink dark:text-ivory mb-3">H. H. Baselios Marthoma Mathews I</h3>
+        <h3 class="font-serif italic text-lg sm:text-xl text-ink dark:text-ivory mb-3" data-en-html="H. H. Baselios Marthoma Mathews I" data-ml-html="മോറാൻ മാർ ബസേലിയോസ് മാർത്തോമ്മാ മാത്യൂസ് പ്രഥമൻ">H. H. Baselios Marthoma Mathews I</h3>
         <div class="flex flex-col gap-2">
           <div class="flex items-start gap-2.5">
             <span class="w-1.5 h-1.5 rounded-full bg-gold shrink-0 mt-1.5"></span>
-            <span class="font-sans text-[13px] text-body/75 dark:text-ivory/60 leading-[1.7]"><span class="text-ink dark:text-ivory font-medium">April 1, 1977</span> &mdash; Kottayam St. Thomas Orthodox Chapel (Chungam)</span>
+            <span class="font-sans text-[13px] text-body/75 dark:text-ivory/60 leading-[1.7]" data-en-html="<span class=&quot;text-ink dark:text-ivory font-medium&quot;>April 1, 1977</span> &mdash; Kottayam St. Thomas Orthodox Chapel (Chungam)" data-ml-html="<span class=&quot;text-ink dark:text-ivory font-medium&quot;>April 1, 1977</span> &mdash; കോട്ടയം പഴയ സെമിനാരി ചാപ്പൽ (ചുങ്കം)"><span class="text-ink dark:text-ivory font-medium">April 1, 1977</span> &mdash; Kottayam St. Thomas Orthodox Chapel (Chungam)</span>
           </div>
           <div class="flex items-start gap-2.5">
             <span class="w-1.5 h-1.5 rounded-full bg-gold shrink-0 mt-1.5"></span>
-            <span class="font-sans text-[13px] text-body/75 dark:text-ivory/60 leading-[1.7]"><span class="text-ink dark:text-ivory font-medium">March 25, 1988</span> &mdash; Devalokam Catholicate Chapel</span>
-          </div>
-        </div>
-      </div>
-      <div class="bg-ivory dark:bg-midnight p-6 sm:p-7">
-        <h3 class="font-serif italic text-lg sm:text-xl text-ink dark:text-ivory mb-3">H. H. Baselios Marthoma Mathews II</h3>
-        <div class="flex flex-col gap-2">
-          <div class="flex items-start gap-2.5">
-            <span class="w-1.5 h-1.5 rounded-full bg-gold shrink-0 mt-1.5"></span>
-            <span class="font-sans text-[13px] text-body/75 dark:text-ivory/60 leading-[1.7]"><span class="text-ink dark:text-ivory font-medium">March 26, 1999</span> &mdash; Devalokam Catholicate Chapel</span>
+            <span class="font-sans text-[13px] text-body/75 dark:text-ivory/60 leading-[1.7]" data-en-html="<span class=&quot;text-ink dark:text-ivory font-medium&quot;>March 25, 1988</span> &mdash; Devalokam Catholicate Chapel" data-ml-html="<span class=&quot;text-ink dark:text-ivory font-medium&quot;>March 25, 1988</span> &mdash; ദേവലോകം കാതോലിക്കേറ്റ് ചാപ്പൽ"><span class="text-ink dark:text-ivory font-medium">March 25, 1988</span> &mdash; Devalokam Catholicate Chapel</span>
           </div>
         </div>
       </div>
       <div class="bg-ivory dark:bg-midnight p-6 sm:p-7">
-        <h3 class="font-serif italic text-lg sm:text-xl text-ink dark:text-ivory mb-3">H. H. Baselios Marthoma Didymos I</h3>
+        <h3 class="font-serif italic text-lg sm:text-xl text-ink dark:text-ivory mb-3" data-en-html="H. H. Baselios Marthoma Mathews II" data-ml-html="മോറാൻ മാർ ബസേലിയോസ്‌ മാർത്തോമാ മാത്യൂസ് ദ്വിതീയൻ">H. H. Baselios Marthoma Mathews II</h3>
         <div class="flex flex-col gap-2">
           <div class="flex items-start gap-2.5">
             <span class="w-1.5 h-1.5 rounded-full bg-gold shrink-0 mt-1.5"></span>
-            <span class="font-sans text-[13px] text-body/75 dark:text-ivory/60 leading-[1.7]"><span class="text-ink dark:text-ivory font-medium">April 3, 2009</span> &mdash; Devalokam Catholicate Chapel</span>
+            <span class="font-sans text-[13px] text-body/75 dark:text-ivory/60 leading-[1.7]" data-en-html="<span class=&quot;text-ink dark:text-ivory font-medium&quot;>March 26, 1999</span> &mdash; Devalokam Catholicate Chapel" data-ml-html="<span class=&quot;text-ink dark:text-ivory font-medium&quot;>March 26, 1999</span> &mdash; ദേവലോകം കാതോലിക്കേറ്റ് ചാപ്പൽ"><span class="text-ink dark:text-ivory font-medium">March 26, 1999</span> &mdash; Devalokam Catholicate Chapel</span>
           </div>
         </div>
       </div>
       <div class="bg-ivory dark:bg-midnight p-6 sm:p-7">
-        <h3 class="font-serif italic text-lg sm:text-xl text-ink dark:text-ivory mb-3">H. H. Baselios Marthoma Paulose II</h3>
+        <h3 class="font-serif italic text-lg sm:text-xl text-ink dark:text-ivory mb-3" data-en-html="H. H. Baselios Marthoma Didymos I" data-ml-html="മോറാൻ മാർ ബസേലിയോസ് മാർത്തോമാ ദിദിമോസ് പ്രഥമൻ">H. H. Baselios Marthoma Didymos I</h3>
         <div class="flex flex-col gap-2">
           <div class="flex items-start gap-2.5">
             <span class="w-1.5 h-1.5 rounded-full bg-gold shrink-0 mt-1.5"></span>
-            <span class="font-sans text-[13px] text-body/75 dark:text-ivory/60 leading-[1.7]"><span class="text-ink dark:text-ivory font-medium">March 23, 2018</span> &mdash; Devalokam Catholicate Chapel</span>
+            <span class="font-sans text-[13px] text-body/75 dark:text-ivory/60 leading-[1.7]" data-en-html="<span class=&quot;text-ink dark:text-ivory font-medium&quot;>April 3, 2009</span> &mdash; Devalokam Catholicate Chapel" data-ml-html="<span class=&quot;text-ink dark:text-ivory font-medium&quot;>April 3, 2009</span> &mdash; ദേവലോകം കാതോലിക്കേറ്റ് ചാപ്പൽ"><span class="text-ink dark:text-ivory font-medium">April 3, 2009</span> &mdash; Devalokam Catholicate Chapel</span>
           </div>
         </div>
       </div>
       <div class="bg-ivory dark:bg-midnight p-6 sm:p-7">
-        <h3 class="font-serif italic text-lg sm:text-xl text-ink dark:text-ivory mb-3">H. H. Baselios Marthoma Mathews III</h3>
+        <h3 class="font-serif italic text-lg sm:text-xl text-ink dark:text-ivory mb-3" data-en-html="H. H. Baselios Marthoma Paulose II" data-ml-html="മോറാൻ മാർ ബസേലിയോസ് മാർത്തോമ്മാ പൗലോസ് ദ്വിതീയൻ">H. H. Baselios Marthoma Paulose II</h3>
         <div class="flex flex-col gap-2">
           <div class="flex items-start gap-2.5">
             <span class="w-1.5 h-1.5 rounded-full bg-gold shrink-0 mt-1.5"></span>
-            <span class="font-sans text-[13px] text-body/75 dark:text-ivory/60 leading-[1.7]"><span class="text-ink dark:text-ivory font-medium">March 27, 2026</span> &mdash; Devalokam Catholicate Chapel</span>
+            <span class="font-sans text-[13px] text-body/75 dark:text-ivory/60 leading-[1.7]" data-en-html="<span class=&quot;text-ink dark:text-ivory font-medium&quot;>March 23, 2018</span> &mdash; Devalokam Catholicate Chapel" data-ml-html="<span class=&quot;text-ink dark:text-ivory font-medium&quot;>March 23, 2018</span> &mdash; ദേവലോകം കാതോലിക്കേറ്റ് ചാപ്പൽ"><span class="text-ink dark:text-ivory font-medium">March 23, 2018</span> &mdash; Devalokam Catholicate Chapel</span>
+          </div>
+        </div>
+      </div>
+      <div class="bg-ivory dark:bg-midnight p-6 sm:p-7">
+        <h3 class="font-serif italic text-lg sm:text-xl text-ink dark:text-ivory mb-3" data-en-html="H. H. Baselios Marthoma Mathews III" data-ml-html="മോറാൻ മാർ ബസേലിയോസ് മാർത്തോമ്മാ മാത്യൂസ് തൃതീയൻ">H. H. Baselios Marthoma Mathews III</h3>
+        <div class="flex flex-col gap-2">
+          <div class="flex items-start gap-2.5">
+            <span class="w-1.5 h-1.5 rounded-full bg-gold shrink-0 mt-1.5"></span>
+            <span class="font-sans text-[13px] text-body/75 dark:text-ivory/60 leading-[1.7]" data-en-html="<span class=&quot;text-ink dark:text-ivory font-medium&quot;>March 27, 2026</span> &mdash; Devalokam Catholicate Chapel" data-ml-html="<span class=&quot;text-ink dark:text-ivory font-medium&quot;>March 27, 2026</span> &mdash; ദേവലോകം കാതോലിക്കേറ്റ് ചാപ്പൽ"><span class="text-ink dark:text-ivory font-medium">March 27, 2026</span> &mdash; Devalokam Catholicate Chapel</span>
           </div>
         </div>
       </div>
@@ -3722,7 +3755,7 @@ L 704.6 52.4 L 705.2 50.6 L 705.8 48.9 L 706.3 47.2 L 706.6 45.5 L 706.9 43.8 L 
   <div class="mt-16 sm:mt-20 pt-10 border-t border-line dark:border-white/10">
     <div class="premium-card texture-paper rounded-2xl border border-gold/25 shadow-soft px-6 py-10 sm:px-9 sm:py-10">
       <h3 class="font-serif italic font-normal text-base sm:text-lg text-ink dark:text-ivory mb-2" data-en="Contributors" data-ml="സഹകാരികൾ">Contributors</h3>
-      <p class="font-sans text-xs sm:text-[13px] text-body/70 dark:text-ivory/55 leading-[1.7]" data-en="This project was created and is supervised by Andrew Punnoose, with the generous assistance of David George, Jerin George, Ajoe, Benjamin Gleeson, Daniel D'Souza, Fr. Abraham John, Fr. Jom Thomas, Subash Mathew, Fr. Christopher Mathew, and many others." data-ml="ഈ പദ്ധതി ആൻഡ്രൂ പുന്നൂസ് സൃഷ്ടിച്ചതും മേൽനോട്ടം വഹിക്കുന്നതുമാണ്, ഡേവിഡ് ജോർജ്, ജെറിൻ ജോർജ്, അജോ, ബെഞ്ചമിൻ ഗ്ലീസൺ, ഡാനിയേൽ ഡിസൂസ, ഫാ. അബ്രഹാം ജോൺ, ഫാ. ജോം തോമസ്, സുഭാഷ് മാത്യു, ഫാ. ക്രിസ്റ്റഫർ മാത്യു എന്നിവരുടെയും മറ്റ് പലരുടെയും ഉദാരമായ സഹായത്തോടെ.">This project was created and is supervised by Andrew Punnoose, with the generous assistance of David George, Jerin George, Ajoe, Benjamin Gleeson, Daniel D'Souza, Fr. Abraham John, Fr. Jom Thomas, Subash Mathew, Fr. Christopher Mathew, and many others.</p>
+      <p class="font-sans text-xs sm:text-[13px] text-body/70 dark:text-ivory/55 leading-[1.7]" data-en="This project was created and is supervised by Andrew Punnoose, with the generous assistance of Fr. Abraham John, Fr. Jom Thomas, Fr. Christopher Mathew, David George, Leohn, Jerin George, Benjamin Gleeson, Daniel D'Souza, Subash Mathew, Aaron Joshua John, and many others." data-ml="ഈ പദ്ധതി അന്ത്രയോസ് പുന്നൂസ് സൃഷ്ടിച്ചതും മേൽനോട്ടം വഹിക്കുന്നതുമാണ്, ഫാ. അബ്രഹാം ജോൺ, ഫാ. ജോം തോമസ്, ഫാ. ക്രിസ്റ്റഫർ മാത്യു, ഡേവിഡ് ജോർജ്, ലിയോൺ, ജെറിൻ ജോർജ്, ബെഞ്ചമിൻ ഗ്ലീസൺ, ഡാനിയേൽ ഡിസൂസ, സുഭാഷ് മാത്യു, ആരോൺ ജോഷ്വ ജോൺ എന്നിവരുടെയും മറ്റ് പലരുടെയും ഉദാരമായ സഹായത്തോടെ.">This project was created and is supervised by Andrew Punnoose, with the generous assistance of Fr. Abraham John, Fr. Jom Thomas, Fr. Christopher Mathew, David George, Leohn, Jerin George, Benjamin Gleeson, Daniel D'Souza, Subash Mathew, Aaron Joshua John, and many others.</p>
     </div>
   </div>
 </section>
@@ -3737,7 +3770,7 @@ L 704.6 52.4 L 705.2 50.6 L 705.8 48.9 L 706.3 47.2 L 706.6 45.5 L 706.9 43.8 L 
     <circle cx="29" cy="21" r="1.9" fill="currentColor"/>
     <path d="M13 33 Q16.5 30.5 20 33 Q23.5 30.5 27 33" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/>
   </svg>
-  <div class="font-serif italic text-sm sm:text-[15px] text-ivory/85 mb-2" data-en="Managed by Andrew Punnoose" data-ml="ആൻഡ്രൂ പുന്നൂസ് നിർവ്വഹിക്കുന്നു">Managed by Andrew Punnoose</div>
+  <div class="font-serif italic text-sm sm:text-[15px] text-ivory/85 mb-2" data-en="Managed by Andrew Punnoose" data-ml="അന്ത്രയോസ് പുന്നൂസ് നിർവ്വഹിക്കുന്നു">Managed by Andrew Punnoose</div>
   <div class="font-sans text-[11px] tracking-wide text-ivory/45" data-en="This website is not affiliated with the Malankara Orthodox Syrian Church, or with any other church, institution, or platform." data-ml="ഈ വെബ്സൈറ്റ് മലങ്കര ഓർത്തഡോക്സ് സുറിയാനി സഭയുമായോ, മറ്റേതെങ്കിലും സഭ, സ്ഥാപനം, അല്ലെങ്കിൽ പ്ലാറ്റ്ഫോമുമായോ ബന്ധപ്പെട്ടതല്ല.">This website is not affiliated with the Malankara Orthodox Syrian Church, or with any other church, institution, or platform.</div>
   <div class="font-sans text-[11px] tracking-wide text-ivory/45 mt-1" data-en="For corrections, additions, or inquiries, please write to" data-ml="തിരുത്തലുകൾ, കൂട്ടിച്ചേർക്കലുകൾ, അല്ലെങ്കിൽ അന്വേഷണങ്ങൾക്ക് ദയവായി എഴുതുക">For corrections, additions, or inquiries, please write to</div>
   <div class="font-sans text-[11px] tracking-wide mt-0.5"><a href="mailto:malankaramap@gmail.com" class="text-sage hover:underline">malankaramap@gmail.com</a></div>
@@ -4491,7 +4524,8 @@ window.addEventListener("click", function () {
     content.className = 'tl-content';
     var yearEl = document.createElement('div');
     yearEl.className = 'tl-year';
-    yearEl.textContent = label;
+    yearEl.setAttribute('data-tl-year', year);
+    yearEl.textContent = window.formatEraLabel ? window.formatEraLabel(year, window.currentSiteLang ? window.currentSiteLang() : 'en') : label;
     var textEl = document.createElement('div');
     textEl.className = 'tl-text';
     textEl.innerHTML = text;
