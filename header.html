@@ -38,6 +38,20 @@
 .group\/logo:hover .mark-spin{ transform: scale(1.06); box-shadow: 0 0 0 4px var(--sage-glow, rgba(107,130,89,.28)); }
 .group\/logo:hover .mark-spin::before{ opacity:1; transform:scale(1) rotate(160deg); }
 </style>
+<style>
+/* Fix: some pages that include this header fragment don't also carry
+   the shared .header-glass background/blur rule, which leaves the
+   sticky header transparent and lets page content show through it.
+   Defining it here too makes the header self-contained. */
+.header-glass{
+  background: rgba(247,245,238,.78);
+  -webkit-backdrop-filter: blur(18px) saturate(140%);
+  backdrop-filter: blur(18px) saturate(140%);
+}
+.dark .header-glass{
+  background: rgba(11,16,12,.72);
+}
+</style>
 <!-- ==================== HEADER ==================== -->
 <header class="sticky top-0 z-50 header-glass border-b border-line dark:border-white/10">
   <div class="header-edge"></div>
