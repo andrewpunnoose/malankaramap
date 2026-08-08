@@ -1017,7 +1017,7 @@ body{-webkit-font-smoothing:antialiased;overflow-x:hidden;max-width:100%}
 .dark .hero-photo--night{ opacity:1; }
 .hero-scrim{
   position:absolute; inset:0;
-  background: linear-gradient(180deg, rgba(238,240,230,.34) 0%, rgba(238,240,230,.5) 55%, var(--herobg,#EEF0E6) 94%);
+  background: linear-gradient(180deg, rgba(238,240,230,0) 0%, rgba(238,240,230,0) 68%, var(--herobg,#EEF0E6) 96%);
 }
 .dark .hero-scrim{
   background: linear-gradient(180deg, rgba(16,20,13,.32) 0%, rgba(16,20,13,.5) 55%, #10140D 94%);
@@ -1384,13 +1384,18 @@ button:focus-visible, a:focus-visible{ outline-color: rgb(var(--accent-a)); }
 .glass-hero-panel{
   border-radius:32px;
   padding: 2.5rem 1.75rem 2.75rem;
-  background: var(--glass-fill);
+  background: linear-gradient(155deg, rgba(255,255,255,.7), rgba(255,255,255,.28) 45%, rgba(255,255,255,.14));
   -webkit-backdrop-filter: blur(6px) saturate(130%);
   backdrop-filter: blur(6px) saturate(130%);
   border: 1px solid var(--glass-border);
   box-shadow: 0 30px 60px -30px rgba(16,20,13,.35), 0 1px 1px rgba(255,255,255,.5) inset;
 }
-.dark .glass-hero-panel{ background: linear-gradient(155deg, rgba(255,255,255,.07), rgba(255,255,255,.02) 45%, rgba(255,255,255,.01)); box-shadow: 0 30px 60px -30px rgba(0,0,0,.7), 0 1px 0 rgba(255,255,255,.05) inset; }
+.dark .glass-hero-panel{
+  background: linear-gradient(155deg, rgba(16,20,13,.62), rgba(16,20,13,.5) 45%, rgba(16,20,13,.4));
+  -webkit-backdrop-filter: blur(22px) saturate(150%);
+  backdrop-filter: blur(22px) saturate(150%);
+  box-shadow: 0 30px 60px -30px rgba(0,0,0,.7), 0 1px 0 rgba(255,255,255,.05) inset;
+}
 @media (min-width:640px){ .glass-hero-panel{ padding: 3.25rem 3rem 3.5rem; } }
 
 /* ---- subpage banner (Myron / Report / any future secondary page) ---- */
@@ -3800,7 +3805,7 @@ L 704.6 52.4 L 705.2 50.6 L 705.8 48.9 L 706.3 47.2 L 706.6 45.5 L 706.9 43.8 L 
   <div class="mt-16 sm:mt-20 pt-10 border-t border-line dark:border-white/10">
     <div class="premium-card texture-paper rounded-2xl border border-gold/25 shadow-soft px-6 py-10 sm:px-9 sm:py-10">
       <h3 class="font-serif italic font-normal text-base sm:text-lg text-ink dark:text-ivory mb-2" data-en="Contributors" data-ml="സഹകാരികൾ">Contributors</h3>
-      <p class="font-sans text-xs sm:text-[13px] text-body/70 dark:text-ivory/55 leading-[1.7]" data-en="This project was created and is supervised by Andrew Punnoose, with the generous assistance of Fr. Abraham John, Fr. Jom Thomas, Fr. Christopher Mathew, David George, Leohn Binsu, Jerin George, Benjamin Gleeson, Daniel D'Souza, Subash Mathew, Aaron Joshua John, Jewel Koshy, and many others." data-ml="ഈ പദ്ധതി അന്ത്രയോസ് പുന്നൂസ് സൃഷ്ടിച്ചതും മേൽനോട്ടം വഹിക്കുന്നതുമാണ്, ഫാ. അബ്രഹാം ജോൺ, ഫാ. ജോം തോമസ്, ഫാ. ക്രിസ്റ്റഫർ മാത്യു, ഡേവിഡ് ജോർജ്, ലിയോൺ ബിൻസു, ജെറിൻ ജോർജ്, ബെഞ്ചമിൻ ഗ്ലീസൺ, ഡാനിയേൽ ഡിസൂസ, സുഭാഷ് മാത്യു, ആരോൺ ജോഷ്വ ജോൺ, ജ്വൽ കോശി എന്നിവരുടെയും മറ്റ് പലരുടെയും ഉദാരമായ സഹായത്തോടെ.">This project was created and is supervised by Andrew Punnoose, with the generous assistance of Fr. Abraham John, Fr. Jom Thomas, Fr. Christopher Mathew, David George, Leohn Binsu, Jerin George, Benjamin Gleeson, Daniel D'Souza, Subash Mathew, Aaron Joshua John, Jewel Koshy, and many others.</p>
+      <p class="font-sans text-xs sm:text-[13px] text-body/70 dark:text-ivory/55 leading-[1.7]" data-en="This project was created and is supervised by Andrew Punnoose, with the generous assistance of Fr. Abraham John, Fr. Jom Thomas, Fr. Christopher Mathew, Fr. Rijo Geevarghese, David George, Leohn Binsu, Jerin George, Benjamin Gleeson, Daniel D'Souza, Subash Mathew, Aaron Joshua John, Jewel Koshy, and many others." data-ml="ഈ പദ്ധതി അന്ത്രയോസ് പുന്നൂസ് സൃഷ്ടിച്ചതും മേൽനോട്ടം വഹിക്കുന്നതുമാണ്, ഫാ. അബ്രഹാം ജോൺ, ഫാ. ജോം തോമസ്, ഫാ. ക്രിസ്റ്റഫർ മാത്യു, ഫാ. റിജോ ഗീവർഗീസ്, ഡേവിഡ് ജോർജ്, ലിയോൺ ബിൻസു, ജെറിൻ ജോർജ്, ബെഞ്ചമിൻ ഗ്ലീസൺ, ഡാനിയേൽ ഡിസൂസ, സുഭാഷ് മാത്യു, ആരോൺ ജോഷ്വ ജോൺ, ജ്വൽ കോശി എന്നിവരുടെയും മറ്റ് പലരുടെയും ഉദാരമായ സഹായത്തോടെ.">This project was created and is supervised by Andrew Punnoose, with the generous assistance of Fr. Abraham John, Fr. Jom Thomas, Fr. Christopher Mathew, Fr. Rijo Geevarghese, David George, Leohn Binsu, Jerin George, Benjamin Gleeson, Daniel D'Souza, Subash Mathew, Aaron Joshua John, Jewel Koshy, and many others.</p>
     </div>
   </div>
 </section>
