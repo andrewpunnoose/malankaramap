@@ -1396,14 +1396,14 @@ button:focus-visible, a:focus-visible{ outline-color: rgb(var(--accent-a)); }
 .glass-hero-panel::before{
   content:'';
   position:absolute; inset:0; z-index:-1; border-radius:inherit;
-  background: linear-gradient(155deg, rgba(255,255,255,.97), rgba(255,255,255,.82) 45%, rgba(255,255,255,.68));
+  background: linear-gradient(155deg, rgba(255,255,255,.87), rgba(255,255,255,.64) 45%, rgba(255,255,255,.52));
   -webkit-backdrop-filter: blur(6px) saturate(130%);
   backdrop-filter: blur(6px) saturate(130%);
   -webkit-transform: translateZ(0);
   transform: translateZ(0);
 }
 .dark .glass-hero-panel::before{
-  background: linear-gradient(155deg, rgba(16,20,13,.78), rgba(16,20,13,.7) 45%, rgba(16,20,13,.58));
+  background: linear-gradient(155deg, rgba(16,20,13,.6), rgba(16,20,13,.52) 45%, rgba(16,20,13,.42));
   -webkit-backdrop-filter: blur(22px) saturate(150%);
   backdrop-filter: blur(22px) saturate(150%);
 }
@@ -1412,10 +1412,10 @@ button:focus-visible, a:focus-visible{ outline-color: rgb(var(--accent-a)); }
    back to the lighter, glassier look that already read well there */
 @media (min-width:640px){
   .glass-hero-panel::before{
-    background: linear-gradient(155deg, rgba(255,255,255,.92), rgba(255,255,255,.68) 45%, rgba(255,255,255,.5));
+    background: linear-gradient(155deg, rgba(255,255,255,.82), rgba(255,255,255,.5) 45%, rgba(255,255,255,.34));
   }
   .dark .glass-hero-panel::before{
-    background: linear-gradient(155deg, rgba(16,20,13,.64), rgba(16,20,13,.54) 45%, rgba(16,20,13,.42));
+    background: linear-gradient(155deg, rgba(16,20,13,.46), rgba(16,20,13,.36) 45%, rgba(16,20,13,.26));
   }
 }
 .dark .glass-hero-panel{
