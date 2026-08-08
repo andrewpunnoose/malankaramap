@@ -4613,6 +4613,19 @@ L 704.6 52.4 L 705.2 50.6 L 705.8 48.9 L 706.3 47.2 L 706.6 45.5 L 706.9 43.8 L 
   /* ---- era markers: quick jumps to a handful of points along the
      nineteen centuries, so the timeline can be navigated without
      dragging through every intervening card ---- */
+  function easeOutCubic(t){ return 1 - Math.pow(1 - t, 3); }
+  function animateScrollTo(target, duration, onDone){
+    pauseAutoplay();
+    var startX = track.scrollLeft;
+    var delta = target - startX;
+    var t0 = performance.now();
+    (function step(now){
+      var p = Math.min(1, (now - t0) / duration);
+      track.scrollLeft = startX + delta * easeOutCubic(p);
+      if(p < 1){ requestAnimationFrame(step); }
+      else { resumeAutoplay(); if(onDone) onDone(); }
+    })(t0);
+  }
   var erasEl = document.getElementById('tlEras');
   if(erasEl){
     var eraMarks = [
@@ -4640,7 +4653,7 @@ L 704.6 52.4 L 705.2 50.6 L 705.8 48.9 L 706.3 47.2 L 706.6 45.5 L 706.9 43.8 L 
       btn.addEventListener('click', function(el){
         return function(){
           var left = el.offsetLeft - (track.clientWidth / 2) + (el.offsetWidth / 2);
-          track.scrollTo({ left: Math.max(0, left), behavior: 'smooth' });
+          animateScrollTo(Math.max(0, left), 700);
         };
       }(target));
       erasEl.appendChild(btn);
@@ -4706,8 +4719,8 @@ L 704.6 52.4 L 705.2 50.6 L 705.8 48.9 L 706.3 47.2 L 706.6 45.5 L 706.9 43.8 L 
   var prevBtn = document.getElementById('tlPrev');
   var nextBtn = document.getElementById('tlNext');
   var step = 420;
-  if(prevBtn) prevBtn.addEventListener('click', function(){ track.scrollBy({ left: -step, behavior: 'smooth' }); });
-  if(nextBtn) nextBtn.addEventListener('click', function(){ track.scrollBy({ left: step, behavior: 'smooth' }); });
+  if(prevBtn) prevBtn.addEventListener('click', function(){ animateScrollTo(Math.max(0, track.scrollLeft - step), 500); });
+  if(nextBtn) nextBtn.addEventListener('click', function(){ animateScrollTo(track.scrollLeft + step, 500); });
 
   /* ---- progress bar ---- */
   var bar = document.getElementById('tlProgressBar');
