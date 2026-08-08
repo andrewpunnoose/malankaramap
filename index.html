@@ -2695,7 +2695,11 @@ L 704.6 52.4 L 705.2 50.6 L 705.8 48.9 L 706.3 47.2 L 706.6 45.5 L 706.9 43.8 L 
   // becomes "ക്രി.വ. 52". Shared so both the initial timeline build
   // and every later language switch use the exact same formatting.
   window.formatEraLabel = function(year, lang){
-    return lang === 'ml' ? ('\u0d15\u0d4d\u0d30\u0d3f.\u0d35. ' + year) : (year + ' CE');
+    var y = parseInt(year, 10);
+    if(y < 0){
+      return lang === 'ml' ? ('\u0d15\u0d4d\u0d30\u0d3f.\u0d2e\u0d41. ' + Math.abs(y)) : (Math.abs(y) + ' BCE');
+    }
+    return lang === 'ml' ? ('\u0d15\u0d4d\u0d30\u0d3f.\u0d35. ' + y) : (y + ' CE');
   };
 
   var saved = null;
@@ -2768,12 +2772,26 @@ L 704.6 52.4 L 705.2 50.6 L 705.8 48.9 L 706.3 47.2 L 706.6 45.5 L 706.9 43.8 L 
   music.addEventListener('play', sync);
   music.addEventListener('pause', sync);
   sync();
+  var fadeInterval = null;
+  function fadeIn(){
+    if(fadeInterval) return;
+    var targetVolume = 0.5, fadeDuration = 42000, interval = 100;
+    var volume = music.volume || 0;
+    var step = targetVolume / (fadeDuration / interval);
+    fadeInterval = setInterval(function(){
+      volume += step;
+      if(volume >= targetVolume){ volume = targetVolume; clearInterval(fadeInterval); fadeInterval = null; }
+      music.volume = volume;
+    }, interval);
+  }
   mbtn.addEventListener('click', function(e){
     e.stopPropagation();
     if (music.paused){
+      music.volume = 0;
       music.play();
-      if (music.volume === 0){ music.volume = 0.5; }
+      fadeIn();
     } else {
+      if(fadeInterval){ clearInterval(fadeInterval); fadeInterval = null; }
       music.pause();
     }
   });
@@ -3858,33 +3876,6 @@ L 704.6 52.4 L 705.2 50.6 L 705.8 48.9 L 706.3 47.2 L 706.6 45.5 L 706.9 43.8 L 
   <div class="font-sans text-[11px] tracking-wide text-ivory/45 mt-3" data-en="&copy; Malankara Map, July 2026" data-ml="&copy; മലങ്കര മാപ്പ്, ജൂലൈ 2026">&copy; Malankara Map, July 2026</div>
 </footer>
 <script>
-const music = document.getElementById("bgMusic");
-music.volume = 0;
-
-window.addEventListener("click", function () {
-  music.play();
-
-  const targetVolume = 0.5;     // End at 50%
-  const fadeDuration = 42000;   // 42 seconds
-  const interval = 100;         // Update every 100 ms
-
-  let volume = 0;
-  const step = targetVolume / (fadeDuration / interval);
-
-  const fade = setInterval(() => {
-    volume += step;
-
-    if (volume >= targetVolume) {
-      volume = targetVolume;
-      clearInterval(fade);
-    }
-
-    music.volume = volume;
-  }, interval);
-}, { once: true });
-</script>
-
-<script>
 (function(){
   var form = document.getElementById('nearestForm');
   var input = document.getElementById('nearestInput');
@@ -4141,6 +4132,7 @@ window.addEventListener("click", function () {
   if(!track || !inner) return;
 
   var DATA = [
+[-4,'4 BCE','Tradition holds that Caspar, one of the Three Magi, set out from Piravom between 4 and 1 BCE to adore the newborn Christ.',0],
 [52,'52 CE','St. Thomas lands at Kodungalloor and later builds the present Arthat St. Mary\'s Orthodox Cathedral.',0],
 [54,'54 CE','St. Thomas establishes St. Mary\'s Orthodox Church at Niranam.',0],
 [54,'54 CE','St. Thomas raises the Nilackal Church deep in the Western Ghats.',0],
@@ -4685,42 +4677,6 @@ window.addEventListener("click", function () {
     cardEls.forEach(function(c){ cardObserver.observe(c); });
   }
 
-  /* ---- one-time "peek" glide: the first time the timeline scrolls into
-     view, nudge it sideways on its own so it reads as scrollable, not static ---- */
-  function easeOutCubic(t){ return 1 - Math.pow(1 - t, 3); }
-  function animateScrollTo(target, duration, onDone){
-    var startX = track.scrollLeft;
-    var delta = target - startX;
-    var t0 = performance.now();
-    (function step(now){
-      var p = Math.min(1, (now - t0) / duration);
-      track.scrollLeft = startX + delta * easeOutCubic(p);
-      if(p < 1){ requestAnimationFrame(step); }
-      else if(onDone){ onDone(); }
-    })(t0);
-  }
-  function peekScroll(){
-    var maxScroll = track.scrollWidth - track.clientWidth;
-    var target = Math.min(180, maxScroll);
-    if(target <= 8) return;
-    animateScrollTo(target, 950, function(){
-      setTimeout(function(){ animateScrollTo(40, 750); }, 550);
-    });
-  }
-  if(!reduceMotion && 'IntersectionObserver' in window){
-    var timelineSection = document.getElementById('timeline');
-    if(timelineSection){
-      var peekObserver = new IntersectionObserver(function(entries){
-        entries.forEach(function(entry){
-          if(entry.isIntersecting){
-            peekScroll();
-            peekObserver.disconnect();
-          }
-        });
-      }, { threshold: 0.35 });
-      peekObserver.observe(timelineSection);
-    }
-  }
 
   /* ---- wheel: left to the page. A plain vertical scroll over the
      timeline used to be converted into horizontal movement, which
