@@ -1382,24 +1382,32 @@ button:focus-visible, a:focus-visible{ outline-color: rgb(var(--accent-a)); }
 
 /* ---- hero copy sits on real glass now that the photo shows through ---- */
 .glass-hero-panel{
+  position:relative;
+  isolation:isolate;
   border-radius:32px;
   padding: 2.5rem 1.75rem 2.75rem;
-  background: linear-gradient(155deg, rgba(255,255,255,.7), rgba(255,255,255,.28) 45%, rgba(255,255,255,.14));
-  -webkit-backdrop-filter: blur(6px) saturate(130%);
-  backdrop-filter: blur(6px) saturate(130%);
   border: 1px solid var(--glass-border);
   box-shadow: 0 30px 60px -30px rgba(16,20,13,.35), 0 1px 1px rgba(255,255,255,.5) inset;
-  /* keeps the blur/tint on its own GPU layer so iOS Safari doesn't
-     drop the backdrop-filter (and flash fully see-through) mid-scroll */
-  -webkit-transform: translate3d(0,0,0);
-  transform: translate3d(0,0,0);
-  will-change: transform;
-  isolation: isolate;
 }
-.dark .glass-hero-panel{
+/* the blur/tint lives on its own layer behind the copy — isolating it
+   here (instead of putting backdrop-filter directly on the panel that
+   also holds the animated text) is what stops iOS Safari from losing
+   the filter mid-scroll and flashing the panel fully see-through */
+.glass-hero-panel::before{
+  content:'';
+  position:absolute; inset:0; z-index:-1; border-radius:inherit;
+  background: linear-gradient(155deg, rgba(255,255,255,.82), rgba(255,255,255,.5) 45%, rgba(255,255,255,.34));
+  -webkit-backdrop-filter: blur(6px) saturate(130%);
+  backdrop-filter: blur(6px) saturate(130%);
+  -webkit-transform: translateZ(0);
+  transform: translateZ(0);
+}
+.dark .glass-hero-panel::before{
   background: linear-gradient(155deg, rgba(16,20,13,.46), rgba(16,20,13,.36) 45%, rgba(16,20,13,.26));
   -webkit-backdrop-filter: blur(22px) saturate(150%);
   backdrop-filter: blur(22px) saturate(150%);
+}
+.dark .glass-hero-panel{
   box-shadow: 0 30px 60px -30px rgba(0,0,0,.7), 0 1px 0 rgba(255,255,255,.05) inset;
 }
 @media (min-width:640px){ .glass-hero-panel{ padding: 3.25rem 3rem 3.5rem; } }
