@@ -2909,6 +2909,16 @@ html.dark .pop-hero-canvas-wrap canvas{ opacity:.4; }
 }
 html.dark .pop-headline-num{ color:rgb(247,245,238); text-shadow:0 0 50px rgba(186,148,80,.28); }
 
+.pop-hero-canvas-wrap{ padding-bottom:3.25rem !important; }
+@media (min-width:640px){ .pop-hero-canvas-wrap{ padding-bottom:4.5rem !important; } }
+
+#pop-intro{ padding-bottom:2rem !important; }
+@media (min-width:640px){ #pop-intro{ padding-bottom:2.75rem !important; } }
+#pop-hero{ padding-top:2rem !important; padding-bottom:2.5rem !important; }
+@media (min-width:640px){ #pop-hero{ padding-top:2.75rem !important; padding-bottom:3rem !important; } }
+#pop-kerala{ padding-top:2rem !important; }
+@media (min-width:640px){ #pop-kerala{ padding-top:2.75rem !important; } }
+
 .pop-ring-wrap{ position:relative; width:220px; height:220px; margin:0 auto; }
 .pop-ring-wrap svg{ width:100%; height:100%; transform:rotate(-90deg); }
 .pop-ring-track{ fill:none; stroke:rgb(219 225 210 / 1); stroke-width:14; }
@@ -2933,10 +2943,10 @@ html.dark .pop-tile{ border-color:rgba(255,255,255,.1); }
   opacity:.7;
 }
 
-.pop-bar-row{ padding:1.5rem 0; border-bottom:1px solid rgb(219 225 210 / 1); }
+.pop-bar-row{ padding:1.35rem 0; border-bottom:1px solid rgb(219 225 210 / 1); }
 html.dark .pop-bar-row{ border-color:rgba(255,255,255,.08); }
 .pop-bar-row:last-child{ border-bottom:none; }
-.pop-bar-top{ display:flex; align-items:baseline; justify-content:space-between; gap:1rem; margin-bottom:.65rem; flex-wrap:wrap; }
+.pop-bar-top{ display:flex; align-items:baseline; justify-content:space-between; gap:1rem; margin-bottom:.7rem; flex-wrap:wrap; }
 .pop-bar-name{ font-family:'Marcellus', Georgia, serif; font-style:italic; font-size:16px; color:rgb(16 20 13/1); }
 html.dark .pop-bar-name{ color:rgb(247,245,238); }
 .pop-bar-right{ display:flex; align-items:baseline; gap:.6rem; }
@@ -2944,14 +2954,16 @@ html.dark .pop-bar-name{ color:rgb(247,245,238); }
 html.dark .pop-bar-pct{ color:rgb(106,130,89); }
 .pop-bar-count{ font-family:'Inter',sans-serif; font-size:11.5px; color:rgb(124 106 74/.85); font-variant-numeric:tabular-nums; }
 html.dark .pop-bar-count{ color:rgba(186,148,80,.75); }
-.pop-bar-track{ width:100%; height:11px; border-radius:999px; background:rgb(219 225 210 / .5); overflow:hidden; position:relative; margin-bottom:.75rem; }
-html.dark .pop-bar-track{ background:rgba(255,255,255,.06); }
+.pop-bar-track{ display:block; width:100%; height:16px; border-radius:999px; background:rgb(219 225 210 / .5); box-shadow:inset 0 1px 2px rgba(16,20,13,.08); overflow:hidden; position:relative; margin-bottom:.85rem; }
+html.dark .pop-bar-track{ background:rgba(255,255,255,.06); box-shadow:inset 0 1px 2px rgba(0,0,0,.25); }
 .pop-bar-fill{
-  height:100%; border-radius:999px; width:0%;
-  background:linear-gradient(90deg, rgb(106,130,89), rgb(186,148,80));
+  display:block; height:100%; min-width:3px; border-radius:999px; width:0%;
+  background:linear-gradient(90deg, rgb(74,93,61), rgb(112,140,92));
+  box-shadow:0 0 10px rgba(106,130,89,.5);
   transition:width 1.3s cubic-bezier(.16,.8,.24,1);
   position:relative;
 }
+html.dark .pop-bar-fill{ background:linear-gradient(90deg, rgb(96,124,80), rgb(140,168,120)); box-shadow:0 0 12px rgba(120,148,101,.55); }
 .pop-bar-fill::after{
   content:''; position:absolute; inset:0;
   background:linear-gradient(90deg, transparent, rgba(255,255,255,.35), transparent);
@@ -2959,17 +2971,26 @@ html.dark .pop-bar-track{ background:rgba(255,255,255,.06); }
 }
 @media (prefers-reduced-motion: reduce){ .pop-bar-fill::after{ animation:none; } }
 @keyframes popScan{ 0%{ transform:translateX(-100%); } 60%,100%{ transform:translateX(250%); } }
-.pop-bar-bottom{ display:flex; align-items:center; gap:.6rem; flex-wrap:wrap; }
+.pop-bar-bottom{ display:flex; align-items:flex-start; gap:.6rem; flex-wrap:wrap; }
 .pop-bar-rank{
-  flex-shrink:0; font-family:'Inter',sans-serif; font-size:10px; font-weight:600; letter-spacing:.04em;
-  padding:.2rem .55rem; border-radius:999px; white-space:nowrap;
-  background:rgba(106,130,89,.12); color:rgb(74 93 61/1);
+  flex-shrink:0; font-family:'Inter',sans-serif; font-size:10.5px; font-weight:700; letter-spacing:.02em;
+  padding:.2rem .6rem; border-radius:999px; white-space:nowrap; font-variant-numeric:tabular-nums;
+  background:rgba(106,130,89,.12); color:rgb(74 93 61/1); border:none;
 }
 html.dark .pop-bar-rank{ background:rgba(186,148,80,.14); color:rgb(186,148,80); }
 .pop-bar-rank.is-first{ background:linear-gradient(135deg, rgba(242,203,126,.35), rgba(186,148,80,.35)); color:rgb(122 92 30/1); }
 html.dark .pop-bar-rank.is-first{ color:rgb(242,203,126); }
-.pop-bar-desc{ font-family:'Inter',sans-serif; font-size:12.5px; color:rgb(124 106 74/.9); line-height:1.5; }
+button.pop-bar-rank{ cursor:pointer; -webkit-tap-highlight-color:transparent; transition:background-color .2s ease; }
+button.pop-bar-rank:hover, button.pop-bar-rank[aria-expanded="true"]{ background:rgba(186,148,80,.28); }
+.pop-bar-desc{ font-family:'Inter',sans-serif; font-size:12.5px; color:rgb(124 106 74/.9); line-height:1.55; padding-top:.15rem; }
 html.dark .pop-bar-desc{ color:rgba(186,148,80,.8); }
+.pop-bar-desc em{ font-style:italic; }
+.pop-bar-note-text{
+  display:block; width:100%; flex-basis:100%; order:3;
+  font-family:'Inter',sans-serif; font-size:12px; font-style:italic;
+  color:rgb(124 106 74/.85); line-height:1.5; margin-top:.5rem;
+}
+html.dark .pop-bar-note-text{ color:rgba(186,148,80,.75); }
 
 .pop-note{ border-left:2px solid rgba(186,148,80,.5); padding-left:1rem; }
 .pop-eyebrow-pill{
@@ -2979,6 +3000,8 @@ html.dark .pop-bar-desc{ color:rgba(186,148,80,.8); }
   border-radius:999px; padding:.35rem .85rem;
 }
 html.dark .pop-eyebrow-pill{ color:rgb(186,148,80); background:rgba(186,148,80,.1); border-color:rgba(186,148,80,.3); }
+.pop-divider{ width:64px; height:1px; margin:0 auto; background:linear-gradient(90deg, transparent, rgba(186,148,80,.6), transparent); position:relative; }
+.pop-divider::after{ content:''; position:absolute; top:50%; left:50%; width:5px; height:5px; border-radius:50%; background:rgb(186,148,80); transform:translate(-50%,-50%) rotate(45deg); }
 </style>
 
 <!-- ==================== POPULATION: HERO ==================== -->
@@ -2991,8 +3014,10 @@ html.dark .pop-eyebrow-pill{ color:rgb(186,148,80); background:rgba(186,148,80,.
   </div>
 </section>
 
+<div class="pop-divider" aria-hidden="true"></div>
+
 <!-- ==================== POPULATION: HEADLINE + RING ==================== -->
-<section class="px-5 sm:px-8 pop-section max-w-5xl mx-auto">
+<section class="px-5 sm:px-8 pop-section max-w-5xl mx-auto" id="pop-hero">
   <div class="reveal pop-hero-canvas-wrap bg-ivory dark:bg-midnight border border-line dark:border-white/10 rounded-2xl p-10 pt-14 sm:p-20">
     <canvas id="popCanvas" aria-hidden="true"></canvas>
     <div class="relative grid grid-cols-1 lg:grid-cols-[1fr_auto] gap-14 items-center">
@@ -3025,13 +3050,15 @@ html.dark .pop-eyebrow-pill{ color:rgb(186,148,80); background:rgba(186,148,80,.
   </div>
 </section>
 
+<div class="pop-divider" aria-hidden="true"></div>
+
 <!-- ==================== POPULATION: KERALA BREAKDOWN ==================== -->
-<section class="px-5 sm:px-8 pop-section max-w-5xl mx-auto">
+<section class="px-5 sm:px-8 pop-section max-w-5xl mx-auto" id="pop-kerala">
   <div class="reveal flex flex-col sm:flex-row sm:items-end sm:justify-between gap-3 mb-10 sm:mb-14">
     <h2 class="font-serif italic font-normal text-[28px] sm:text-4xl text-ink dark:text-ivory" data-en="Kerala, in Full" data-ml="കേരളം, പൂർണ്ണമായി">Kerala, in Full</h2>
     <p class="font-serif italic text-sm text-body/55 dark:text-ivory/45" data-en="The heartland of the Church, district by district." data-ml="സഭയുടെ ഹൃദയഭൂമി, ജില്ല തിരിച്ച്.">The heartland of the Church, district by district.</p>
   </div>
-  <div class="reveal reveal-stagger grid grid-cols-1 sm:grid-cols-3 gap-4 mb-12">
+  <div class="reveal reveal-stagger grid grid-cols-1 sm:grid-cols-3 gap-4 mb-8 sm:mb-10">
     <div class="pop-tile">
       <div class="font-serif text-3xl text-ink dark:text-ivory count-num" data-count="782699">0</div>
       <div class="font-sans text-[10.5px] tracking-wider uppercase text-body/60 dark:text-ivory/50 mt-2" data-en="Orthodox" data-ml="ഓർത്തഡോക്സ്">Orthodox</div>
@@ -3045,12 +3072,12 @@ html.dark .pop-eyebrow-pill{ color:rgb(186,148,80); background:rgba(186,148,80,.
       <div class="font-sans text-[10.5px] tracking-wider uppercase text-body/60 dark:text-ivory/50 mt-2" data-en="Of which, Knanaya Schismatics" data-ml="ഇവയിൽ, കാനായ വിഭജിതർ">Of which, Knanaya Schismatics</div>
     </div>
   </div>
-  <p class="pop-note font-sans text-xs sm:text-[13px] text-body/60 dark:text-ivory/50 leading-relaxed mb-14 max-w-2xl" data-en="&ldquo;Schismatics&rdquo; here refers to those tracing lineage to the Malankara Church who currently belong to breakaway factions; Knanaya Schismatics are already counted within that total and are shown separately for reference, not added again." data-ml="&ldquo;വിഭജിതർ&rdquo; എന്നത് മലങ്കര സഭയിൽ നിന്ന് ഉത്ഭവിച്ചതും നിലവിൽ വേർപിരിഞ്ഞ വിഭാഗങ്ങളിൽ ഉൾപ്പെടുന്നതുമായവരെ സൂചിപ്പിക്കുന്നു; കാനായ വിഭജിതർ ആ ആകെത്തുകയിൽ ഇതിനകം ഉൾപ്പെട്ടതിനാൽ റഫറൻസിനായി മാത്രം പ്രത്യേകം കാണിച്ചിരിക്കുന്നു, വീണ്ടും കൂട്ടിച്ചേർത്തിട്ടില്ല.">&ldquo;Schismatics&rdquo; here refers to those tracing lineage to the Malankara Church who currently belong to breakaway factions; Knanaya Schismatics are already counted within that total and are shown separately for reference, not added again.</p>
+  <p class="pop-note font-sans text-xs sm:text-[13px] text-body/60 dark:text-ivory/50 leading-relaxed mb-14 sm:mb-16 max-w-2xl" data-en-html="&ldquo;Schismatics&rdquo; here denotes the neo-Jacobites: those of Malankara lineage who uphold the doctrinal supremacy of the Patriarch of Antioch within Malankara and have broken from the Church&rsquo;s governance on that basis. Known in Malayalam as the <em>vighadithar</em> &mdash; semi-schismatics &mdash; they are reckoned here as remaining within the wider Malankara Church even though schismatic in status." data-ml-html="&ldquo;വിഭജിതർ&rdquo; എന്നത് ഇവിടെ നിയോ-യാക്കോബായക്കാരെ സൂചിപ്പിക്കുന്നു: മലങ്കരയിൽ അന്ത്യോക്യൻ പാത്രിയർക്കീസിന്റെ പരമാധികാരത്തെ ഉയർത്തിപ്പിടിക്കുകയും അതിന്റെ അടിസ്ഥാനത്തിൽ സഭയുടെ ഭരണത്തിൽ നിന്ന് വേർപിരിയുകയും ചെയ്തവരാണ് ഇവർ. മലയാളത്തിൽ <em>വിഘടിതർ</em> എന്നറിയപ്പെടുന്ന ഇവർ അർദ്ധ-വിഭജിതരാണ് &mdash; നിലയിൽ വിഭജിതരാണെങ്കിലും, വിശാലമായ മലങ്കര സഭയുടെ ഭാഗമായി തന്നെ ഇവിടെ പരിഗണിക്കുന്നു.">&ldquo;Schismatics&rdquo; here denotes the neo-Jacobites: those of Malankara lineage who uphold the doctrinal supremacy of the Patriarch of Antioch within Malankara and have broken from the Church&rsquo;s governance on that basis. Known in Malayalam as the <em>vighadithar</em> &mdash; semi-schismatics &mdash; they are reckoned here as remaining within the wider Malankara Church even though schismatic in status.</p>
 
   <div class="reveal">
     <div class="mb-2">
       <h3 class="font-serif italic text-lg sm:text-xl text-ink dark:text-ivory" data-en="Orthodox Population by District" data-ml="ജില്ല അനുസരിച്ച് ഓർത്തഡോക്സ് ജനസംഖ്യ">Orthodox Population by District</h3>
-      <p class="font-sans text-[12.5px] text-body/55 dark:text-ivory/45 mt-2 max-w-xl" data-en="Bars show what share of each district's total population is Orthodox. The rank is the Orthodox community's standing among all Christian denominations present in that district &mdash; 1st means Orthodox is the largest Christian community there." data-ml="ഓരോ ജില്ലയിലെയും മൊത്തം ജനസംഖ്യയിൽ ഓർത്തഡോക്സ് വിഭാഗത്തിന്റെ വിഹിതം ബാറുകൾ കാണിക്കുന്നു. ആ ജില്ലയിലുള്ള എല്ലാ ക്രിസ്തീയ വിഭാഗങ്ങൾക്കിടയിലും ഓർത്തഡോക്സ് സമൂഹത്തിന്റെ സ്ഥാനമാണ് റാങ്ക് &mdash; 1st എന്നാൽ അവിടെ ഏറ്റവും വലിയ ക്രിസ്തീയ സമൂഹം ഓർത്തഡോക്സാണ് എന്നാണ്.">Bars show what share of each district's total population is Orthodox. The rank is the Orthodox community's standing among all Christian denominations present in that district &mdash; 1st means Orthodox is the largest Christian community there.</p>
+      <p class="font-sans text-xs sm:text-[13px] text-body/55 dark:text-ivory/45 mt-2 max-w-xl leading-relaxed" data-en="Each bar shows the Malankara Orthodox share of that district's total population &mdash; that is, the proportion of everyone living there who belongs to the Church. Rank marks the community's standing among all Christian denominations present in the district; 1st means Orthodox is the largest Christian community there." data-ml="ഓരോ ജില്ലയുടെയും മൊത്തം ജനസംഖ്യയിൽ മലങ്കര ഓർത്തഡോക്സ് സഭയ്ക്കുള്ള വിഹിതമാണ് ഓരോ ബാറും കാണിക്കുന്നത് &mdash; അതായത്, അവിടെ താമസിക്കുന്നവരിൽ എത്ര പേർ സഭാംഗങ്ങളാണ് എന്നത്. ആ ജില്ലയിലുള്ള എല്ലാ ക്രിസ്തീയ വിഭാഗങ്ങൾക്കിടയിലും സമൂഹത്തിന്റെ സ്ഥാനമാണ് റാങ്ക് സൂചിപ്പിക്കുന്നത്; 1st എന്നാൽ അവിടെ ഏറ്റവും വലിയ ക്രിസ്തീയ സമൂഹം ഓർത്തഡോക്സ് ആണ് എന്നാണ്.">Each bar shows the Malankara Orthodox share of that district's total population &mdash; that is, the proportion of everyone living there who belongs to the Church. Rank marks the community's standing among all Christian denominations present in the district; 1st means Orthodox is the largest Christian community there.</p>
     </div>
     <div id="popBarList" class="mt-6">
       <!-- rows injected by script below -->
@@ -3080,49 +3107,85 @@ html.dark .pop-eyebrow-pill{ color:rgb(186,148,80); background:rgba(186,148,80,.
 <script>
 (function(){
   var districts = [
-    { name:"Pathanamthitta", orth:146394, pct:12.226, rank:"1st", ahead:[] },
-    { name:"Alappuzha", orth:105468, pct:4.957, rank:"1st", ahead:[] },
-    { name:"Kollam", orth:119772, pct:4.545, rank:"1st", ahead:[] },
-    { name:"Kottayam", orth:78651, pct:3.983, rank:"2nd", ahead:["Syro-Malabar Catholic"] },
-    { name:"Ernakulam", orth:127883, pct:3.896, rank:"4th", ahead:["Syro-Malabar Catholic","Latin Catholic","Schismatics"] },
-    { name:"Idukki", orth:35667, pct:3.216, rank:"2nd", ahead:["Syro-Malabar Catholic"] },
-    { name:"Wayanad", orth:15859, pct:1.940, rank:"3rd", ahead:["Syro-Malabar Catholic","Schismatics"] },
-    { name:"Thiruvananthapuram", orth:49782, pct:1.508, rank:"5th", ahead:["Latin Catholic","Malankara Catholic","CSI","Mar Thoma"] },
-    { name:"Thrissur", orth:39570, pct:1.268, rank:"2nd", ahead:["Syro-Malabar Catholic"] },
-    { name:"Kozhikode", orth:18788, pct:0.609, rank:"2nd", ahead:["Syro-Malabar Catholic"] },
-    { name:"Kasaragod", orth:6727, pct:0.515, rank:"3rd", ahead:["Syro-Malabar Catholic","Knanaya Catholic"] },
-    { name:"Malappuram", orth:20389, pct:0.496, rank:"2nd", ahead:["Syro-Malabar Catholic"] },
-    { name:"Palakkad", orth:12042, pct:0.429, rank:"2nd", ahead:["Syro-Malabar Catholic"] },
-    { name:"Kannur", orth:5707, pct:0.226, rank:"3rd", ahead:["Syro-Malabar Catholic","Latin Catholic"] }
+    { name:"Pathanamthitta", orth:146394, pct:12.226, rank:1, ahead:[],
+      blurb:"Home to the Parumala Seminary and Church, the Malankara Church&rsquo;s foremost pilgrimage centre." },
+    { name:"Alappuzha", orth:105468, pct:4.957, rank:1, ahead:[],
+      blurb:"Home to Puthiyacavu St. Mary&rsquo;s Cathedral, the largest parish in the Malankara Church." },
+    { name:"Kollam", orth:119772, pct:4.545, rank:1, ahead:[],
+      blurb:"A historic refuge for visiting Syrian prelates, among them Mar Andrews at Kallada and Mar Abo at Thevalakkara." },
+    { name:"Kottayam", orth:78651, pct:3.983, rank:2, ahead:["Syro-Malabar Catholic"],
+      blurb:"Ecclesiastical headquarters of the Church and seat of its flagship seminary." },
+    { name:"Ernakulam", orth:127883, pct:3.896, rank:4, ahead:["Syro-Malabar Catholic","Latin Catholic","Schismatics"],
+      blurb:"Site of the Coonan Cross Oath and home to five of the Church&rsquo;s martyrs." },
+    { name:"Idukki", orth:35667, pct:3.216, rank:2, ahead:["Syro-Malabar Catholic"],
+      blurb:"Home to the Malankara Church&rsquo;s only <em>kurisumala</em> pilgrimage, Puttady Carmel St. Gregorios." },
+    { name:"Wayanad", orth:15859, pct:1.940, rank:3, ahead:["Syro-Malabar Catholic","Schismatics"],
+      blurb:"Home to St. Mary&rsquo;s Cathedral and Pilgrim Centre in Sulthan Bathery." },
+    { name:"Thiruvananthapuram", orth:49782, pct:1.508, rank:5, ahead:["Latin Catholic","Malankara Catholic","CSI","Mar Thoma"],
+      blurb:"Home to Palayam St. George Cathedral, the district&rsquo;s oldest Saint Thomas Christian church and mother parish to its Syrian congregations." },
+    { name:"Thrissur", orth:39570, pct:1.268, rank:2, ahead:["Syro-Malabar Catholic"],
+      blurb:"Home to Arthat St. Mary&rsquo;s Cathedral, the oldest church in Malankara, traditionally founded by St. Thomas in 52 CE." },
+    { name:"Kozhikode", orth:18788, pct:0.609, rank:2, ahead:["Syro-Malabar Catholic"],
+      blurb:"Co-headquarters, at Puthuppady St. Paul&rsquo;s Ashram, of the Society of the Missionaries of Christ (SMC), a strongly mission-driven monastic order presently numbering twenty-one monks and brothers." },
+    { name:"Kasaragod", orth:6727, pct:0.515, rank:3, ahead:["Syro-Malabar Catholic","Knanaya Catholic"],
+      blurb:"Home to small, rural, mountainous Orthodox communities." },
+    { name:"Malappuram", orth:20389, pct:0.496, rank:2, ahead:["Syro-Malabar Catholic"],
+      blurb:"Site of the annual Chungathara Orthodox Convention, drawing more than ten thousand attendees." },
+    { name:"Palakkad", orth:12042, pct:0.429, rank:2, ahead:["Syro-Malabar Catholic"],
+      blurb:"Home to the Attappady Mission, the Church&rsquo;s sole outreach to Kerala&rsquo;s Adivasi communities." },
+    { name:"Kannur", orth:5707, pct:0.226, rank:3, ahead:["Syro-Malabar Catholic","Latin Catholic"],
+      blurb:"Home to Salem St. Thomas Orthodox Church, Kelakom, a major pilgrim shrine known as the Parumala of Malabar." }
   ];
-  var maxPct = Math.max.apply(null, districts.map(function(d){ return d.pct; }));
   var list = document.getElementById('popBarList');
+  function pluralizeDenom(name){
+    return /Catholic$/.test(name) ? name + 's' : name;
+  }
   function joinAhead(arr){
-    if(arr.length === 1) return arr[0];
-    if(arr.length === 2) return arr[0] + ' and ' + arr[1];
-    return arr.slice(0, -1).join(', ') + ', and ' + arr[arr.length - 1];
+    var names = arr.map(pluralizeDenom);
+    if(names.length === 1) return names[0];
+    if(names.length === 2) return names[0] + ' and ' + names[1];
+    return names.slice(0, -1).join(', ') + ', and ' + names[names.length - 1];
+  }
+  function ordinal(n){
+    var s = ['th','st','nd','rd'], v = n % 100;
+    return n + (s[(v - 20) % 10] || s[v] || s[0]);
   }
   if(list){
     districts.forEach(function(d){
       var row = document.createElement('div');
       row.className = 'pop-bar-row';
-      var fillPct = Math.round((d.pct / maxPct) * 100);
-      var desc = d.rank === '1st'
-        ? 'Largest Christian denomination in ' + d.name + '.'
-        : d.rank + ' largest Christian denomination in ' + d.name + ' &mdash; behind ' + joinAhead(d.ahead) + '.';
+      var isFirst = d.rank === 1;
+      var rankBadge, rankNote;
+      if(isFirst){
+        rankBadge = '<span class="pop-bar-rank is-first">#1</span>';
+        rankNote = '';
+      } else {
+        rankBadge = '<button type="button" class="pop-bar-rank" aria-expanded="false">#' + d.rank + '</button>';
+        rankNote = '<span class="pop-bar-note-text" hidden>' + ordinal(d.rank) + ' largest Christian denomination in ' + d.name + ' &mdash; behind ' + joinAhead(d.ahead) + '.</span>';
+      }
       row.innerHTML =
         '<div class="pop-bar-top">' +
           '<span class="pop-bar-name">' + d.name + '</span>' +
           '<span class="pop-bar-right"><span class="pop-bar-pct">' + d.pct.toFixed(1) + '%</span><span class="pop-bar-count">(' + d.orth.toLocaleString('en-US') + ' Orthodox)</span></span>' +
         '</div>' +
-        '<span class="pop-bar-track"><span class="pop-bar-fill" data-pct="' + fillPct + '"></span></span>' +
+        '<span class="pop-bar-track"><span class="pop-bar-fill" data-pct="' + d.pct + '"></span></span>' +
         '<div class="pop-bar-bottom">' +
-          '<span class="pop-bar-rank' + (d.rank === '1st' ? ' is-first' : '') + '">' + d.rank + '</span>' +
-          '<span class="pop-bar-desc">' + desc + '</span>' +
+          rankBadge +
+          rankNote +
+          '<span class="pop-bar-desc">' + d.blurb + '</span>' +
         '</div>';
       list.appendChild(row);
     });
   }
+  list && list.addEventListener('click', function(e){
+    var btn = e.target.closest('.pop-bar-rank');
+    if(!btn || btn.tagName !== 'BUTTON') return;
+    var note = btn.nextElementSibling;
+    if(!note || !note.classList.contains('pop-bar-note-text')) return;
+    var expanded = note.hidden === false;
+    note.hidden = expanded;
+    btn.setAttribute('aria-expanded', String(!expanded));
+  });
 
   var reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   if('IntersectionObserver' in window){
