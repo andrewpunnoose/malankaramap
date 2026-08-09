@@ -9,6 +9,20 @@
 #cmdOverlay{ position:fixed; z-index:100; padding-top:6rem; }
 @media (min-width:640px){ #cmdOverlay{ padding-top:8rem; } }
 
+/* Fix: #nearestForm's centering (max-w-md + mx-auto) has proven
+   unreliable in production, leaving the search row stretched full-
+   width and out of alignment with the copy above it. Force it
+   explicitly so it doesn't depend on those utility classes alone.
+   Width is wider than the English 28rem needed, since the
+   Malayalam button label ("അടുത്തുള്ളത് കണ്ടെത്തുക") runs longer
+   than the English one and was overflowing past the card edge at
+   28rem. flex-wrap + justify-content are a safety net so, however
+   long a future translation runs, the row wraps onto two centered
+   lines inside the card instead of overflowing it. */
+#nearestForm{ width:100%; max-width:34rem; margin-left:auto; margin-right:auto; flex-wrap:wrap; justify-content:center; row-gap:.75rem; }
+#nearestForm input{ min-width:0; }
+#nearestLocBtn{ display:inline-flex; margin-left:auto; margin-right:auto; }
+
 /* Fix: sm:hidden / sm:inline are not present in this build's
    compiled Tailwind output (purged), so a hand-rolled pair of
    classes handles the mobile/desktop "Est." swap instead. */
@@ -38,22 +52,9 @@
 .group\/logo:hover .mark-spin{ transform: scale(1.06); box-shadow: 0 0 0 4px var(--sage-glow, rgba(107,130,89,.28)); }
 .group\/logo:hover .mark-spin::before{ opacity:1; transform:scale(1) rotate(160deg); }
 </style>
-<style>
-/* Fix: some pages that include this header fragment don't also carry
-   the shared .header-glass background/blur rule, which leaves the
-   sticky header transparent and lets page content show through it.
-   Defining it here too makes the header self-contained. */
-.header-glass{
-  background: rgba(247,245,238,.78);
-  -webkit-backdrop-filter: blur(18px) saturate(140%);
-  backdrop-filter: blur(18px) saturate(140%);
-}
-.dark .header-glass{
-  background: rgba(11,16,12,.72);
-}
-</style>
 <!-- ==================== HEADER ==================== -->
-<header class="sticky top-0 z-50 header-glass border-b border-line dark:border-white/10">
+<header class="sticky top-0 z-50 border-b border-line dark:border-white/10">
+  <div class="header-glass inset-0" style="position:absolute;z-index:-1;"></div>
   <div class="header-edge"></div>
   <div class="max-w-7xl mx-auto px-5 sm:px-8 h-16 sm:h-20 flex items-center justify-between gap-4">
     <a href="https://malankaramap.com" class="flex items-center gap-3 min-w-0 group/logo">
@@ -884,7 +885,7 @@ L 704.6 52.4 L 705.2 50.6 L 705.8 48.9 L 706.3 47.2 L 706.6 45.5 L 706.9 43.8 L 
       <div class="min-w-0">
         <div class="flex items-center gap-2 mb-0.5">
           <span class="font-sans text-[9.5px] sm:text-[10px] tracking-[0.18em] uppercase text-taupe font-semibold truncate">
-            <span class="est-mobile" data-en="Est. 52 CE" data-ml="സ്ഥാ. ക്രി.വ. 52">Est. 52 CE</span>
+            <span class="est-mobile" data-en="Est. 52 CE" data-ml="സ്ഥാ. 52">Est. 52 CE</span>
             <span class="est-desktop" data-en="Est. 52 CE" data-ml="സ്ഥാ. ക്രി.വ. 52">Est. 52 CE</span>
           </span>
           <span class="hidden sm:inline-flex items-center gap-1.5 pl-2 border-l border-line dark:border-white/15">
@@ -1047,7 +1048,7 @@ L 704.6 52.4 L 705.2 50.6 L 705.8 48.9 L 706.3 47.2 L 706.6 45.5 L 706.9 43.8 L 
           </div>
         </div>
       </div>
-      <a href="#report" class="font-sans not-italic text-[11px] font-semibold tracking-[0.08em] uppercase border border-ink dark:border-ivory/40 text-ink dark:text-ivory px-4 py-2 rounded-full hover:bg-ink hover:text-ivory dark:hover:bg-ivory dark:hover:text-midnight transition-colors"><span data-en="Report" data-ml="റിപ്പോർട്ട്">Report</span></a>
+      <a href="record.html" class="font-sans not-italic text-[11px] font-semibold tracking-[0.08em] uppercase border border-ink dark:border-ivory/40 text-ink dark:text-ivory px-4 py-2 rounded-full hover:bg-ink hover:text-ivory dark:hover:bg-ivory dark:hover:text-midnight transition-colors"><span data-en="Report" data-ml="റിപ്പോർട്ട്">Report</span></a>
     </nav>
 
     <div class="flex items-center gap-2 shrink-0">
@@ -1085,251 +1086,6 @@ L 704.6 52.4 L 705.2 50.6 L 705.8 48.9 L 706.3 47.2 L 706.6 45.5 L 706.9 43.8 L 
     <a href="nations" class="text-body/80 dark:text-ivory/70" data-en="Nations" data-ml="രാഷ്ട്രങ്ങൾ">Nations</a>
     <a href="#numbers" class="text-body/80 dark:text-ivory/70" data-en="Institutions" data-ml="സ്ഥാപനങ്ങൾ">Institutions</a>
     <a href="#clergy" class="text-body/80 dark:text-ivory/70" data-en="Clergy" data-ml="വൈദികർ">Clergy</a>
-    <a href="#report" class="font-sans not-italic text-sm font-semibold tracking-wide uppercase text-sage-dark dark:text-sage" data-en="Report an Issue" data-ml="ഒരു പിശക് അറിയിക്കുക">Report an Issue</a>
+    <a href="record.html" class="font-sans not-italic text-sm font-semibold tracking-wide uppercase text-sage-dark dark:text-sage" data-en="Report an Issue" data-ml="ഒരു പിശക് അറിയിക്കുക">Report an Issue</a>
   </div>
 </header>
-
-<!-- ==================== COMMAND PALETTE ==================== -->
-<div id="cmdOverlay" class="hidden fixed inset-0 z-[100] flex items-start justify-center px-4 pt-24 sm:pt-32">
-  <div id="cmdBackdrop" class="absolute inset-0 cmd-backdrop"></div>
-  <div class="relative w-full max-w-lg cmd-panel bg-ivory dark:bg-midnight border border-line dark:border-white/10 rounded-2xl shadow-large overflow-hidden">
-    <div class="flex items-center gap-3 px-5 py-4 border-b border-line dark:border-white/10">
-      <svg class="w-4 h-4 text-taupe shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg>
-      <input id="cmdInput" type="text" autocomplete="off" placeholder="Jump to a diocese, nation, or institution&hellip;" class="flex-1 bg-transparent font-sans text-sm text-ink dark:text-ivory placeholder:text-muted outline-none">
-      <button id="cmdClose" class="font-sans text-[10px] tracking-wide border border-line dark:border-white/20 rounded px-1.5 py-0.5 text-muted shrink-0">ESC</button>
-    </div>
-    <div id="cmdResults" class="max-h-80 overflow-y-auto py-2 font-sans text-sm"></div>
-    <div id="cmdEmpty" class="hidden px-5 py-8 text-center text-sm text-muted font-sans">No matches. Try a different diocese, nation, or type.</div>
-  </div>
-</div>
-
-<script>
-/* ============================================================
-   LANGUAGE TOGGLE — switches header text (and any element
-   elsewhere on the page carrying data-en/data-ml) between
-   English and Malayalam. Choice persists across every page
-   that includes this header, via localStorage.
-
-   To make more of a page translatable, just add
-   data-en="English text" data-ml="Malayalam text" to any
-   element — this script will pick it up automatically.
-   ============================================================ */
-(function(){
-  var STORAGE_KEY = 'site-lang';
-  var toggle = document.getElementById('langToggle');
-  var label = document.getElementById('langToggleLabel');
-  if(!toggle || !label) return;
-
-  function applyLang(lang){
-    document.documentElement.setAttribute('lang', lang === 'ml' ? 'ml' : 'en');
-    document.querySelectorAll('[data-en][data-ml]').forEach(function(el){
-      el.textContent = lang === 'ml' ? el.getAttribute('data-ml') : el.getAttribute('data-en');
-      el.style.fontFamily = lang === 'ml' ? "'Noto Serif Malayalam', serif" : '';
-    });
-    // Elements that need to keep inline formatting (italics, colored
-    // spans, <br> line breaks) while translating carry data-en-html /
-    // data-ml-html instead of data-en/data-ml, and get their innerHTML
-    // swapped rather than their plain textContent.
-    document.querySelectorAll('[data-en-html][data-ml-html]').forEach(function(el){
-      el.innerHTML = lang === 'ml' ? el.getAttribute('data-ml-html') : el.getAttribute('data-en-html');
-      el.style.fontFamily = lang === 'ml' ? "'Noto Serif Malayalam', serif" : '';
-    });
-    document.querySelectorAll('[data-en-placeholder][data-ml-placeholder]').forEach(function(el){
-      el.setAttribute('placeholder', lang === 'ml' ? el.getAttribute('data-ml-placeholder') : el.getAttribute('data-en-placeholder'));
-    });
-    // Timeline cards are built by a later script from raw year numbers,
-    // not data-en/data-ml, so they can't be picked up by the loops
-    // above. Re-format every date label already on the page (if the
-    // timeline has been built yet) using the shared formatter below.
-    document.querySelectorAll('.tl-year[data-tl-year]').forEach(function(el){
-      el.textContent = window.formatEraLabel(el.getAttribute('data-tl-year'), lang);
-    });
-    if(lang === 'ml'){
-      label.textContent = '\u0d2e';
-      label.style.fontFamily = "'Noto Serif Malayalam', serif";
-      label.className = 'text-[15px]';
-      toggle.setAttribute('aria-label', 'Switch to English');
-      toggle.setAttribute('title', 'Switch to English');
-    } else {
-      label.textContent = 'Aa';
-      label.style.fontFamily = '';
-      label.className = 'font-serif text-[15px] font-normal';
-      toggle.setAttribute('aria-label', 'Switch to Malayalam');
-      toggle.setAttribute('title', 'Switch to Malayalam');
-    }
-  }
-  // Exposed so dynamically-generated content elsewhere on the page
-  // (timeline cards, search results, etc.) can format itself for the
-  // language currently in effect without waiting for a toggle click.
-  window.currentSiteLang = function(){ return document.documentElement.getAttribute('lang') === 'ml' ? 'ml' : 'en'; };
-  // Malayalam renders "CE" as the traditional ക്രി.വ. (Christian era)
-  // marker before the year, rather than "CE" after it — e.g. "52 CE"
-  // becomes "ക്രി.വ. 52". Shared so both the initial timeline build
-  // and every later language switch use the exact same formatting.
-  window.formatEraLabel = function(year, lang){
-    return lang === 'ml' ? ('\u0d15\u0d4d\u0d30\u0d3f.\u0d35. ' + year) : (year + ' CE');
-  };
-
-  var saved = null;
-  try { saved = localStorage.getItem(STORAGE_KEY); } catch(e){}
-  var currentLang = saved === 'ml' ? 'ml' : 'en';
-
-  // The header is fetched and injected very early, often before the rest
-  // of the (long) page has finished parsing. Running applyLang() only once,
-  // right here, means querySelectorAll only finds whatever's in the DOM at
-  // that instant — usually just the header — and everything below it never
-  // gets translated. So: apply now (covers the header immediately), then
-  // re-apply once the full document is parsed, and again once the whole
-  // page (including any late content) has fully loaded.
-  applyLang(currentLang);
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', function(){ applyLang(currentLang); });
-  }
-  window.addEventListener('load', function(){ applyLang(currentLang); });
-
-  toggle.addEventListener('click', function(){
-    currentLang = document.documentElement.getAttribute('lang') === 'ml' ? 'en' : 'ml';
-    try { localStorage.setItem(STORAGE_KEY, currentLang); } catch(e){}
-    applyLang(currentLang);
-  });
-})();
-</script>
-<script>
-/* ============================================================
-   THEME TOGGLE, MOBILE MENU, MUSIC TOGGLE — self-contained so
-   this header works the same on every page that includes it.
-   ============================================================ */
-(function(){
-  var btn = document.getElementById('themeToggle');
-  if(!btn) return;
-  var sun = btn.querySelector('.icon-sun');
-  var moon = btn.querySelector('.icon-moon');
-  function sync(){
-    var isDark = document.documentElement.classList.contains('dark');
-    sun.classList.toggle('hidden', isDark);
-    moon.classList.toggle('hidden', !isDark);
-  }
-  sync();
-  btn.addEventListener('click', function(){
-    var isDark = document.documentElement.classList.toggle('dark');
-    localStorage.setItem('malankara-theme', isDark ? 'dark' : 'light');
-    sync();
-  });
-  var menuBtn = document.getElementById('mobileMenuBtn');
-  var menu = document.getElementById('mobileMenu');
-  if(menuBtn && menu){
-    menuBtn.addEventListener('click', function(){ menu.classList.toggle('hidden'); });
-    menu.querySelectorAll('a').forEach(function(a){
-      a.addEventListener('click', function(){ menu.classList.add('hidden'); });
-    });
-  }
-})();
-(function(){
-  var music = document.getElementById('bgMusic');
-  var mbtn = document.getElementById('musicToggle');
-  if(!music || !mbtn) return;
-  var onIcon = mbtn.querySelector('.icon-sound-on');
-  var offIcon = mbtn.querySelector('.icon-sound-off');
-  function sync(){
-    var playing = !music.paused;
-    onIcon.classList.toggle('hidden', !playing);
-    offIcon.classList.toggle('hidden', playing);
-    mbtn.setAttribute('aria-label', playing ? 'Pause background music' : 'Play background music');
-    mbtn.setAttribute('title', playing ? 'Pause background music' : 'Play background music');
-  }
-  music.addEventListener('play', sync);
-  music.addEventListener('pause', sync);
-  sync();
-  mbtn.addEventListener('click', function(e){
-    e.stopPropagation();
-    if (music.paused){
-      music.play();
-      if (music.volume === 0){ music.volume = 0.5; }
-    } else {
-      music.pause();
-    }
-  });
-})();
-</script>
-<script>
-/* ============================================================
-   COMMAND PALETTE — indexes existing header links, no duplicate data.
-   Self-contained so it works wherever this header is included.
-   ============================================================ */
-(function(){
-  var overlay = document.getElementById('cmdOverlay');
-  var input = document.getElementById('cmdInput');
-  var results = document.getElementById('cmdResults');
-  var empty = document.getElementById('cmdEmpty');
-  var closeBtn = document.getElementById('cmdClose');
-  var backdrop = document.getElementById('cmdBackdrop');
-  var openers = [document.getElementById('searchToggle'), document.getElementById('searchToggleMobile'), document.getElementById('searchToggleMenuItem')];
-  if(!overlay || !input) return;
-
-  var index = [];
-  document.querySelectorAll('header nav > div.relative.group').forEach(function(group){
-    var trigger = group.querySelector(':scope > a');
-    var label = trigger ? trigger.textContent.replace(/\s+/g, ' ').trim() : '';
-    group.querySelectorAll('.megapanel a[href]').forEach(function(a){
-      var nameEl = a.querySelector('.truncate') || a;
-      var name = nameEl.textContent.replace(/\s+/g, ' ').trim();
-      if(!name) return;
-      index.push({ name: name, tag: label, href: a.getAttribute('href') });
-    });
-  });
-
-  var activeIdx = -1;
-  var current = [];
-
-  function render(list){
-    results.innerHTML = '';
-    list.slice(0, 40).forEach(function(item, i){
-      var row = document.createElement('a');
-      row.href = item.href;
-      row.className = 'cmd-row' + (i === activeIdx ? ' is-active' : '');
-      row.innerHTML = '<span class="truncate">' + item.name + '</span><span class="cmd-tag">' + item.tag + '</span>';
-      results.appendChild(row);
-    });
-    empty.classList.toggle('hidden', list.length !== 0);
-  }
-
-  function filter(){
-    var q = input.value.trim().toLowerCase();
-    activeIdx = -1;
-    current = q ? index.filter(function(item){ return item.name.toLowerCase().indexOf(q) !== -1; }) : index;
-    render(current);
-  }
-
-  function open(){
-    overlay.classList.remove('hidden');
-    document.body.style.overflow = 'hidden';
-    input.value = '';
-    filter();
-    setTimeout(function(){ input.focus(); }, 10);
-  }
-  function close(){
-    overlay.classList.add('hidden');
-    document.body.style.overflow = '';
-  }
-
-  openers.forEach(function(btn){
-    if(btn) btn.addEventListener('click', function(e){ e.preventDefault(); open(); });
-  });
-  closeBtn.addEventListener('click', close);
-  backdrop.addEventListener('click', close);
-  input.addEventListener('input', filter);
-
-  document.addEventListener('keydown', function(e){
-    if((e.metaKey || e.ctrlKey) && e.key.toLowerCase() === 'k'){
-      e.preventDefault();
-      overlay.classList.contains('hidden') ? open() : close();
-      return;
-    }
-    if(overlay.classList.contains('hidden')) return;
-    if(e.key === 'Escape'){ close(); }
-    else if(e.key === 'ArrowDown'){ e.preventDefault(); activeIdx = Math.min(activeIdx + 1, current.length - 1); render(current); }
-    else if(e.key === 'ArrowUp'){ e.preventDefault(); activeIdx = Math.max(activeIdx - 1, 0); render(current); }
-    else if(e.key === 'Enter' && activeIdx >= 0 && current[activeIdx]){ window.location.href = current[activeIdx].href; }
-  });
-})();
-</script>
