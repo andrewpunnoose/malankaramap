@@ -2902,7 +2902,8 @@ html.dark .mrt-card:last-of-type{ border-bottom-color:rgba(255,255,255,.1); }
 .mrt-photo-frame{
   position:relative;
   width:100%;
-  aspect-ratio:3/4;
+  height:0;
+  padding-bottom:133.33%;
   border-radius:1rem;
   overflow:hidden;
   border:1px solid rgb(219 225 210 / 1);
@@ -2911,10 +2912,11 @@ html.dark .mrt-card:last-of-type{ border-bottom-color:rgba(255,255,255,.1); }
 }
 html.dark .mrt-photo-frame{ border-color:rgba(255,255,255,.12); background:rgb(26 32 22 / 1); }
 .mrt-photo-frame img{
-  position:absolute; inset:0; width:100%; height:100%; object-fit:cover; display:block;
+  position:absolute; top:0; left:0; right:0; bottom:0; width:100%; height:100%; object-fit:cover; display:block;
   filter:grayscale(0.35) sepia(0.08);
 }
-.mrt-photo-frame.no-photo{ display:flex; align-items:center; justify-content:center; }
+.mrt-photo-frame.no-photo{ height:auto; padding-bottom:133.33%; display:flex; align-items:center; justify-content:center; }
+.mrt-photo-frame.no-photo svg{ position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); }
 .mrt-photo-frame.no-photo svg{ width:2.25rem; height:2.25rem; color:rgb(124 106 74 / .55); }
 .mrt-no-photo-note{
   font-family:'Marcellus', Georgia, serif;
@@ -3002,6 +3004,116 @@ html.dark .mrt-quote p{ color:rgba(247,245,238,.85); }
   background:rgb(219 225 210 / 1);
 }
 html.dark .mrt-intro-divider{ background:rgba(255,255,255,.15); }
+
+/* ---- eternal flame accents ---- */
+.mrt-flame{
+  display:inline-flex; align-items:center; justify-content:center;
+  width:13px; height:13px; margin-right:.4rem; vertical-align:-2px;
+  filter:drop-shadow(0 0 4px rgba(186,148,80,.7)) drop-shadow(0 0 9px rgba(186,148,80,.35));
+  animation:mrtFlicker 2.8s ease-in-out infinite;
+  transform-origin:50% 90%;
+}
+.mrt-flame svg{ width:100%; height:100%; display:block; }
+@keyframes mrtFlicker{
+  0%,100%{ opacity:1; transform:scale(1) translateY(0) rotate(0deg); }
+  22%{ opacity:.82; transform:scale(.92) translateY(-.4px) rotate(-2deg); }
+  48%{ opacity:1; transform:scale(1.08) translateY(-1px) rotate(1.5deg); }
+  70%{ opacity:.88; transform:scale(.96) translateY(.3px) rotate(-1deg); }
+  85%{ opacity:1; transform:scale(1.03) translateY(-.5px) rotate(.5deg); }
+}
+@media (prefers-reduced-motion: reduce){ .mrt-flame{ animation:none; } }
+
+/* ---- vertical memorial thread ---- */
+#martyrs-list{ position:relative; }
+#martyrs-list::before{
+  content:"";
+  position:absolute;
+  top:0; bottom:0; left:0;
+  width:1px;
+  background:linear-gradient(to bottom, transparent, rgba(186,148,80,.55) 5%, rgba(186,148,80,.55) 95%, transparent);
+  pointer-events:none;
+}
+@media (min-width:1024px){ #martyrs-list::before{ left:-2.25rem; } }
+@media (prefers-reduced-motion: no-preference){
+  #martyrs-list::after{
+    content:"";
+    position:absolute;
+    left:-1px; top:0;
+    width:3px; height:3px; border-radius:999px;
+    background:#F2CB7E;
+    box-shadow:0 0 6px 2px rgba(242,203,126,.8);
+    animation:mrtThreadTravel 9s linear infinite;
+    pointer-events:none;
+  }
+  @media (min-width:1024px){ #martyrs-list::after{ left:calc(-2.25rem - 1px); } }
+  @keyframes mrtThreadTravel{
+    0%{ top:2%; opacity:0; }
+    6%{ opacity:1; }
+    94%{ opacity:1; }
+    100%{ top:98%; opacity:0; }
+  }
+}
+
+/* ---- light a candle ---- */
+.mrt-candle-wrap{
+  display:flex; flex-direction:column; align-items:center;
+  margin-top:2.75rem;
+}
+.mrt-candle-btn{
+  display:inline-flex; align-items:center; gap:.55rem;
+  padding:.7rem 1.4rem;
+  border-radius:999px;
+  border:1px solid rgb(219 225 210 / 1);
+  background:rgb(247 245 238 / 1);
+  font-family:inherit;
+  font-size:12.5px;
+  letter-spacing:.04em;
+  color:rgb(51 58 45 / .85);
+  cursor:pointer;
+  transition:border-color .25s ease, background-color .25s ease, box-shadow .25s ease;
+}
+html.dark .mrt-candle-btn{ background:rgba(255,255,255,.03); border-color:rgba(255,255,255,.15); color:rgba(247,245,238,.8); }
+.mrt-candle-btn:hover{ border-color:rgba(186,148,80,.6); }
+.mrt-candle-wrap.is-lit .mrt-candle-btn{
+  border-color:rgba(186,148,80,.7);
+  box-shadow:0 0 0 1px rgba(186,148,80,.15), 0 4px 18px -4px rgba(186,148,80,.45);
+}
+.mrt-candle-icon{ position:relative; width:16px; height:20px; flex-shrink:0; }
+.mrt-candle-icon .mrt-candle-body{
+  position:absolute; left:50%; bottom:0; transform:translateX(-50%);
+  width:7px; height:13px; border-radius:1.5px;
+  background:linear-gradient(to bottom, #EDE7D6, #D8CFB4);
+}
+html.dark .mrt-candle-icon .mrt-candle-body{ background:linear-gradient(to bottom, #B8AF98, #8f886f); }
+.mrt-candle-icon .mrt-candle-flame{
+  position:absolute; left:50%; margin-left:-5px; bottom:12px;
+  width:10px; height:13px;
+  opacity:0;
+  transform:scale(.4);
+  transform-origin:50% 90%;
+  transition:opacity .4s ease, transform .4s ease;
+}
+.mrt-candle-icon .mrt-candle-flame svg{ width:100%; height:100%; display:block; filter:drop-shadow(0 0 5px rgba(242,203,126,.85)); }
+.mrt-candle-wrap.is-lit .mrt-candle-icon .mrt-candle-flame{
+  opacity:1; transform:scale(1);
+  animation:mrtFlicker 2.4s ease-in-out infinite;
+}
+.mrt-candle-label-lit{ display:none; }
+.mrt-candle-wrap.is-lit .mrt-candle-label-unlit{ display:none; }
+.mrt-candle-wrap.is-lit .mrt-candle-label-lit{ display:inline; }
+.mrt-candle-note{
+  margin-top:.85rem;
+  font-family:'Marcellus', Georgia, serif;
+  font-style:italic;
+  font-size:12.5px;
+  color:rgb(124 106 74 / 1);
+  opacity:0;
+  max-height:0;
+  overflow:hidden;
+  transition:opacity .5s ease;
+}
+html.dark .mrt-candle-note{ color:rgb(186,148,80); }
+.mrt-candle-wrap.is-lit .mrt-candle-note{ opacity:1; max-height:2rem; }
 </style>
 
 <!-- ==================== MARTYRS: HERO / INTRO ==================== -->
@@ -3022,9 +3134,41 @@ html.dark .mrt-intro-divider{ background:rgba(255,255,255,.15); }
 
     <p class="mt-8 text-[13px] sm:text-sm text-body/60 dark:text-ivory/50 leading-relaxed max-w-lg mx-auto" data-en="The seven faithful remembered on this page were murdered for their faith by Antiochian (Patriarchal-faction) schismatics, across more than a century of conflict in the northern regions of Malankara." data-ml="ഈ താളിൽ അനുസ്മരിക്കപ്പെടുന്ന ഏഴ് വിശ്വാസികൾ, ഒരു നൂറ്റാണ്ടിലേറെ നീണ്ട സംഘർഷത്തിനിടയിൽ, മലങ്കരയുടെ വടക്കൻ പ്രദേശങ്ങളിൽ അന്ത്യോക്യൻ (പാത്രിയർക്കീസ്‌ വിഭാഗം) വിഘടിതവിഭാഗത്താൽ വിശ്വാസത്തിനുവേണ്ടി കൊല്ലപ്പെട്ടവരാണ്.">The seven faithful remembered on this page were murdered for their faith by Antiochian (Patriarchal-faction) schismatics, across more than a century of conflict in the northern regions of Malankara.</p>
 
-    <p class="mt-5 text-[13px] sm:text-sm text-body/60 dark:text-ivory/50 leading-relaxed max-w-lg mx-auto" data-en="It remains a matter of historical record that, throughout this long conflict, no member of the Malankara Orthodox Syrian Church has been found to have attacked or taken the life of a member of the schismatic faction &mdash; a restraint that stands in solemn contrast to the repeated violence her own faithful have suffered." data-ml="ഈ ദീർഘമായ സംഘർഷത്തിലുടനീളം, മലങ്കര ഓർത്തഡോക്‌സ്‌ സുറിയാനി സഭയിലെ ഒരംഗവും വിഘടിതവിഭാഗത്തിലെ ഒരാളെയും ആക്രമിക്കുകയോ ജീവനെടുക്കുകയോ ചെയ്തതായി ചരിത്രരേഖയില്ല എന്നത് ശ്രദ്ധേയമാണ് &mdash; തന്റെ സ്വന്തം വിശ്വാസികൾ ആവർത്തിച്ച് അനുഭവിച്ച അക്രമത്തിന് കടകവിരുദ്ധമായ ഒരു സംയമനമാണിത്.">It remains a matter of historical record that, throughout this long conflict, no member of the Malankara Orthodox Syrian Church has been found to have attacked or taken the life of a member of the schismatic faction &mdash; a restraint that stands in solemn contrast to the repeated violence her own faithful have suffered.</p>
+    <p class="mt-6 text-[13px] sm:text-sm text-body/60 dark:text-ivory/50 leading-relaxed max-w-lg mx-auto" data-en="It remains a matter of historical record that, throughout this long conflict, no member of the Malankara Orthodox Syrian Church has been found to have attacked or taken the life of a member of the schismatic faction &mdash; a restraint that stands in solemn contrast to the repeated violence her own faithful have suffered." data-ml="ഈ ദീർഘമായ സംഘർഷത്തിലുടനീളം, മലങ്കര ഓർത്തഡോക്‌സ്‌ സുറിയാനി സഭയിലെ ഒരംഗവും വിഘടിതവിഭാഗത്തിലെ ഒരാളെയും ആക്രമിക്കുകയോ ജീവനെടുക്കുകയോ ചെയ്തതായി ചരിത്രരേഖയില്ല എന്നത് ശ്രദ്ധേയമാണ് &mdash; തന്റെ സ്വന്തം വിശ്വാസികൾ ആവർത്തിച്ച് അനുഭവിച്ച അക്രമത്തിന് കടകവിരുദ്ധമായ ഒരു സംയമനമാണിത്.">It remains a matter of historical record that, throughout this long conflict, no member of the Malankara Orthodox Syrian Church has been found to have attacked or taken the life of a member of the schismatic faction &mdash; a restraint that stands in solemn contrast to the repeated violence her own faithful have suffered.</p>
+
+    <div class="mrt-candle-wrap" id="mrtCandleWrap">
+      <button type="button" id="mrtCandleBtn" class="mrt-candle-btn" aria-pressed="false">
+        <span class="mrt-candle-icon" aria-hidden="true">
+          <span class="mrt-candle-flame"><svg viewBox="0 0 24 24" fill="none"><path d="M12 2c1.2 2.6-2.6 4.4-2.6 7.8 0 1.9 1.4 3.2 2.6 3.2s2.6-1.3 2.6-3.2c0-1-.4-1.8-1-2.6.9.4 2.4 1.9 2.4 4.4 0 3-2.2 5.4-4 5.4s-4-2.4-4-5.4C8 7.5 10.6 4.7 12 2z" fill="url(#mrtCandleFlameGrad)"/><defs><linearGradient id="mrtCandleFlameGrad" x1="8" y1="2" x2="16" y2="22" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#F2CB7E"/><stop offset=".55" stop-color="#BA9450"/><stop offset="1" stop-color="#8A6A38"/></linearGradient></defs></svg></span>
+          <span class="mrt-candle-body"></span>
+        </span>
+        <span class="mrt-candle-label-unlit" data-en="Light a Candle" data-ml="ഒരു മെഴുകുതിരി കത്തിക്കുക">Light a Candle</span>
+        <span class="mrt-candle-label-lit" data-en="Candle Lit" data-ml="തിരി കത്തിച്ചു">Candle Lit</span>
+      </button>
+      <p class="mrt-candle-note" data-en="A candle has been lit in memory of the martyrs." data-ml="രക്തസാക്ഷികളുടെ സ്മരണയ്ക്കായി ഒരു മെഴുകുതിരി കത്തിച്ചിരിക്കുന്നു.">A candle has been lit in memory of the martyrs.</p>
+    </div>
   </div>
 </section>
+<script>
+(function(){
+  var wrap = document.getElementById('mrtCandleWrap');
+  var btn = document.getElementById('mrtCandleBtn');
+  if(!wrap || !btn) return;
+  var KEY = 'martyrs-candle-lit';
+  function setLit(lit){
+    wrap.classList.toggle('is-lit', lit);
+    btn.setAttribute('aria-pressed', lit ? 'true' : 'false');
+  }
+  var saved = false;
+  try { saved = localStorage.getItem(KEY) === '1'; } catch(e){}
+  setLit(saved);
+  btn.addEventListener('click', function(){
+    var lit = !wrap.classList.contains('is-lit');
+    try { localStorage.setItem(KEY, lit ? '1' : '0'); } catch(e){}
+    setLit(lit);
+  });
+})();
+</script>
 
 <!-- ==================== MARTYRS: ROLL ==================== -->
 <section class="px-5 sm:px-8 sec-tight max-w-3xl mx-auto" id="martyrs-list">
@@ -3037,7 +3181,7 @@ html.dark .mrt-intro-divider{ background:rgba(255,255,255,.15); }
       </div>
     </div>
     <div class="mrt-body">
-      <div class="mrt-eyebrow" data-en="Martyred 5 December 2002" data-ml="രക്തസാക്ഷിത്വം: 5 ഡിസംബർ 2002">Martyred 5 December 2002</div>
+      <div class="mrt-eyebrow"><span class="mrt-flame" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 2c1.2 2.6-2.6 4.4-2.6 7.8 0 1.9 1.4 3.2 2.6 3.2s2.6-1.3 2.6-3.2c0-1-.4-1.8-1-2.6.9.4 2.4 1.9 2.4 4.4 0 3-2.2 5.4-4 5.4s-4-2.4-4-5.4C8 7.5 10.6 4.7 12 2z" fill="url(#mrtFlameGrad)"/><defs><linearGradient id="mrtFlameGrad" x1="8" y1="2" x2="16" y2="22" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#F2CB7E"/><stop offset=".55" stop-color="#BA9450"/><stop offset="1" stop-color="#8A6A38"/></linearGradient></defs></svg></span><span data-en="Martyred 5 December 2002" data-ml="രക്തസാക്ഷിത്വം: 5 ഡിസംബർ 2002">Martyred 5 December 2002</span></div>
       <h2 class="mrt-name">Malankara Varghese</h2>
       <div class="mrt-name-ml">മലങ്കര വർഗീസ്</div>
       <div class="mrt-tags">
@@ -3046,7 +3190,7 @@ html.dark .mrt-intro-divider{ background:rgba(255,255,255,.15); }
       </div>
       <div class="mrt-bio">
         <p>T. M. Varghese, remembered as Malankara Varghese, was a member of the Managing Committee of the Malankara Orthodox Syrian Church. A timber merchant, lay preacher, and steadfast defender of the Church, he named his business Malankara Timbers as an expression of his devotion to her.</p>
-        <p>On 2 December 2002, the Kerala High Court delivered its judgment concerning the Kochi, Kandanad East, Kandanad West, and Angamaly dioceses, affirming the legal standing of parish administration under the Church&rsquo;s 1934 Constitution. In the days that followed, Varghese travelled throughout the Angamaly Diocese, publicly explaining and defending the judgment and the authority of the Catholicos. On 5 December 2002, only three days later, he was brutally murdered by Antiochian (neo-Jacobite) schismatic assailants near Perumbavoor.</p>
+        <p>On 2 December 2002, the Kerala High Court delivered its judgment concerning the Kochi, Kandanad East, Kandanad West, and Angamaly dioceses, affirming the legal standing of parish administration under the Church&rsquo;s 1934 Constitution. In the days that followed, Varghese travelled throughout the Angamaly Diocese, publicly explaining and defending the judgment and the authority of the Catholicos. On 5 December 2002, only three days later, he was brutally murdered by Antiochian schismatic assailants near Perumbavoor.</p>
         <p>His assassination is understood to have been ordered by Baselios Thomas I, leader of the Patriarchal faction, with his personal secretary, Fr. Varghese Thekkekara, entrusted with planning the killing &mdash; on account of Varghese&rsquo;s prominent role in defending the Orthodox Church and her legal rights.</p>
       </div>
       <div class="mrt-quote">
@@ -3064,14 +3208,14 @@ html.dark .mrt-intro-divider{ background:rgba(255,255,255,.15); }
       </div>
     </div>
     <div class="mrt-body">
-      <div class="mrt-eyebrow" data-en="9 April 1938 &ndash; 31 August 1993" data-ml="9 ഏപ്രിൽ 1938 &ndash; 31 ഓഗസ്റ്റ്‌ 1993">9 April 1938 &ndash; 31 August 1993</div>
+      <div class="mrt-eyebrow"><span class="mrt-flame" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 2c1.2 2.6-2.6 4.4-2.6 7.8 0 1.9 1.4 3.2 2.6 3.2s2.6-1.3 2.6-3.2c0-1-.4-1.8-1-2.6.9.4 2.4 1.9 2.4 4.4 0 3-2.2 5.4-4 5.4s-4-2.4-4-5.4C8 7.5 10.6 4.7 12 2z" fill="url(#mrtFlameGrad)"/><defs><linearGradient id="mrtFlameGrad" x1="8" y1="2" x2="16" y2="22" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#F2CB7E"/><stop offset=".55" stop-color="#BA9450"/><stop offset="1" stop-color="#8A6A38"/></linearGradient></defs></svg></span><span data-en="9 April 1938 &ndash; 31 August 1993" data-ml="9 ഏപ്രിൽ 1938 &ndash; 31 ഓഗസ്റ്റ്‌ 1993">9 April 1938 &ndash; 31 August 1993</span></div>
       <h2 class="mrt-name">Thottappattu Uthup Kuriakose</h2>
       <div class="mrt-name-ml">തോട്ടപ്പാട്ട് കുര്യാക്കോസ്</div>
       <div class="mrt-tags">
         <span class="mrt-tag" data-en="Perumbavoor Bethel Suloko Orthodox Cathedral" data-ml="പെരുമ്പാവൂർ ബഥേൽ സൂലക്കാ ഓർത്തഡോക്‌സ്‌ കത്തീഡ്രൽ">Perumbavoor Bethel Suloko Orthodox Cathedral</span>
       </div>
       <div class="mrt-bio">
-        <p>Born on 9 April 1938, Thottappattu Uthup Kuriakose was a faithful member of Perumbavoor Bethel Suloko Orthodox Cathedral. On 31 August 1993, he was beaten to death at the Cathedral, struck about the head with wooden sticks by Antiochian (neo-Jacobite) schismatic assailants &mdash; a killing that arose from the same factional conflict over the Church&rsquo;s independence that has claimed so many of her faithful.</p>
+        <p>Born on 9 April 1938, Thottappattu Uthup Kuriakose was a faithful member of Perumbavoor Bethel Suloko Orthodox Cathedral. On 31 August 1993, he was beaten to death at the Cathedral, struck about the head with wooden sticks by Antiochian schismatic assailants &mdash; a killing that arose from the same factional conflict over the Church&rsquo;s independence that has claimed so many of her faithful.</p>
       </div>
     </div>
   </article>
@@ -3084,7 +3228,7 @@ html.dark .mrt-intro-divider{ background:rgba(255,255,255,.15); }
       </div>
     </div>
     <div class="mrt-body">
-      <div class="mrt-eyebrow" data-en="11 August 1951 &ndash; 15 February 1976" data-ml="11 ഓഗസ്റ്റ്‌ 1951 &ndash; 15 ഫെബ്രുവരി 1976">11 August 1951 &ndash; 15 February 1976</div>
+      <div class="mrt-eyebrow"><span class="mrt-flame" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 2c1.2 2.6-2.6 4.4-2.6 7.8 0 1.9 1.4 3.2 2.6 3.2s2.6-1.3 2.6-3.2c0-1-.4-1.8-1-2.6.9.4 2.4 1.9 2.4 4.4 0 3-2.2 5.4-4 5.4s-4-2.4-4-5.4C8 7.5 10.6 4.7 12 2z" fill="url(#mrtFlameGrad)"/><defs><linearGradient id="mrtFlameGrad" x1="8" y1="2" x2="16" y2="22" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#F2CB7E"/><stop offset=".55" stop-color="#BA9450"/><stop offset="1" stop-color="#8A6A38"/></linearGradient></defs></svg></span><span data-en="11 August 1951 &ndash; 15 February 1976" data-ml="11 ഓഗസ്റ്റ്‌ 1951 &ndash; 15 ഫെബ്രുവരി 1976">11 August 1951 &ndash; 15 February 1976</span></div>
       <h2 class="mrt-name">Kadamattom Onankunju</h2>
       <div class="mrt-name-ml">കടമറ്റം ഓനൻകുഞ്ഞ്</div>
       <div class="mrt-tags">
@@ -3107,7 +3251,7 @@ html.dark .mrt-intro-divider{ background:rgba(255,255,255,.15); }
       <p class="mrt-no-photo-note" data-en="No photograph is known to survive" data-ml="ഫോട്ടോ ലഭ്യമല്ല">No photograph is known to survive</p>
     </div>
     <div class="mrt-body">
-      <div class="mrt-eyebrow" data-en="Martyrdom date to be recorded" data-ml="രക്തസാക്ഷിത്വ തീയതി രേഖപ്പെടുത്തിയിട്ടില്ല">Martyrdom date to be recorded</div>
+      <div class="mrt-eyebrow"><span class="mrt-flame" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 2c1.2 2.6-2.6 4.4-2.6 7.8 0 1.9 1.4 3.2 2.6 3.2s2.6-1.3 2.6-3.2c0-1-.4-1.8-1-2.6.9.4 2.4 1.9 2.4 4.4 0 3-2.2 5.4-4 5.4s-4-2.4-4-5.4C8 7.5 10.6 4.7 12 2z" fill="url(#mrtFlameGrad)"/><defs><linearGradient id="mrtFlameGrad" x1="8" y1="2" x2="16" y2="22" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#F2CB7E"/><stop offset=".55" stop-color="#BA9450"/><stop offset="1" stop-color="#8A6A38"/></linearGradient></defs></svg></span><span data-en="Martyrdom date to be recorded" data-ml="രക്തസാക്ഷിത്വ തീയതി രേഖപ്പെടുത്തിയിട്ടില്ല">Martyrdom date to be recorded</span></div>
       <h2 class="mrt-name">Chepattu Kochunnunni</h2>
       <div class="mrt-name-ml">ചേപ്പാട്ട് കൊച്ചുണ്ണൂണ്ണി</div>
       <div class="mrt-tags">
@@ -3129,7 +3273,7 @@ html.dark .mrt-intro-divider{ background:rgba(255,255,255,.15); }
       <p class="mrt-no-photo-note" data-en="No photograph is known to survive" data-ml="ഫോട്ടോ ലഭ്യമല്ല">No photograph is known to survive</p>
     </div>
     <div class="mrt-body">
-      <div class="mrt-eyebrow" data-en="Martyred December 1921" data-ml="രക്തസാക്ഷിത്വം: ഡിസംബർ 1921">Martyred December 1921</div>
+      <div class="mrt-eyebrow"><span class="mrt-flame" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 2c1.2 2.6-2.6 4.4-2.6 7.8 0 1.9 1.4 3.2 2.6 3.2s2.6-1.3 2.6-3.2c0-1-.4-1.8-1-2.6.9.4 2.4 1.9 2.4 4.4 0 3-2.2 5.4-4 5.4s-4-2.4-4-5.4C8 7.5 10.6 4.7 12 2z" fill="url(#mrtFlameGrad)"/><defs><linearGradient id="mrtFlameGrad" x1="8" y1="2" x2="16" y2="22" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#F2CB7E"/><stop offset=".55" stop-color="#BA9450"/><stop offset="1" stop-color="#8A6A38"/></linearGradient></defs></svg></span><span data-en="Martyred December 1921" data-ml="രക്തസാക്ഷിത്വം: ഡിസംബർ 1921">Martyred December 1921</span></div>
       <h2 class="mrt-name">Chalil Korah</h2>
       <div class="mrt-name-ml">ചാലിൽ കോര</div>
       <div class="mrt-tags">
@@ -3151,7 +3295,7 @@ html.dark .mrt-intro-divider{ background:rgba(255,255,255,.15); }
       </div>
     </div>
     <div class="mrt-body">
-      <div class="mrt-eyebrow" data-en="Died 23 December 1921" data-ml="നിര്യാണം: 23 ഡിസംബർ 1921">Died 23 December 1921</div>
+      <div class="mrt-eyebrow"><span class="mrt-flame" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 2c1.2 2.6-2.6 4.4-2.6 7.8 0 1.9 1.4 3.2 2.6 3.2s2.6-1.3 2.6-3.2c0-1-.4-1.8-1-2.6.9.4 2.4 1.9 2.4 4.4 0 3-2.2 5.4-4 5.4s-4-2.4-4-5.4C8 7.5 10.6 4.7 12 2z" fill="url(#mrtFlameGrad)"/><defs><linearGradient id="mrtFlameGrad" x1="8" y1="2" x2="16" y2="22" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#F2CB7E"/><stop offset=".55" stop-color="#BA9450"/><stop offset="1" stop-color="#8A6A38"/></linearGradient></defs></svg></span><span data-en="Died 23 December 1921" data-ml="നിര്യാണം: 23 ഡിസംബർ 1921">Died 23 December 1921</span></div>
       <h2 class="mrt-name">Ponodathu Mathai Kathanar</h2>
       <div class="mrt-name-ml">പൊനോടത്ത് മത്തായി കത്തനാർ</div>
       <div class="mrt-tags">
@@ -3173,7 +3317,7 @@ html.dark .mrt-intro-divider{ background:rgba(255,255,255,.15); }
       </div>
     </div>
     <div class="mrt-body">
-      <div class="mrt-eyebrow" data-en="Martyred 31 March 1912" data-ml="രക്തസാക്ഷിത്വം: 31 മാർച്ച്‌ 1912">Martyred 31 March 1912</div>
+      <div class="mrt-eyebrow"><span class="mrt-flame" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 2c1.2 2.6-2.6 4.4-2.6 7.8 0 1.9 1.4 3.2 2.6 3.2s2.6-1.3 2.6-3.2c0-1-.4-1.8-1-2.6.9.4 2.4 1.9 2.4 4.4 0 3-2.2 5.4-4 5.4s-4-2.4-4-5.4C8 7.5 10.6 4.7 12 2z" fill="url(#mrtFlameGrad)"/><defs><linearGradient id="mrtFlameGrad" x1="8" y1="2" x2="16" y2="22" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#F2CB7E"/><stop offset=".55" stop-color="#BA9450"/><stop offset="1" stop-color="#8A6A38"/></linearGradient></defs></svg></span><span data-en="Martyred 31 March 1912" data-ml="രക്തസാക്ഷിത്വം: 31 മാർച്ച്‌ 1912">Martyred 31 March 1912</span></div>
       <h2 class="mrt-name">Varkey Varghese Aashan <span class="font-serif italic text-taupe">(Aanapappy)</span></h2>
       <div class="mrt-name-ml">വർക്കി ആശാൻ (ആനപാപ്പി)</div>
       <div class="mrt-tags">
