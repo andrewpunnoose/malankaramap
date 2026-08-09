@@ -3003,6 +3003,67 @@ html.dark .pop-bar-note-text{ color:rgba(186,148,80,.75); }
 html.dark .pop-eyebrow-pill{ color:rgb(186,148,80); background:rgba(186,148,80,.1); border-color:rgba(186,148,80,.3); }
 .pop-divider{ width:64px; height:1px; margin:0 auto; background:linear-gradient(90deg, transparent, rgba(186,148,80,.6), transparent); position:relative; }
 .pop-divider::after{ content:''; position:absolute; top:50%; left:50%; width:5px; height:5px; border-radius:50%; background:rgb(186,148,80); transform:translate(-50%,-50%) rotate(45deg); }
+
+/* -- mini in-section divider, for breaking up space within a section -- */
+.pop-divider-mini{ width:48px; height:1px; margin:2.75rem auto; background:linear-gradient(90deg, transparent, rgba(186,148,80,.5), transparent); position:relative; }
+.pop-divider-mini::after{ content:''; position:absolute; top:50%; left:50%; width:4px; height:4px; border-radius:50%; background:rgb(186,148,80); transform:translate(-50%,-50%) rotate(45deg); }
+@media (min-width:640px){ .pop-divider-mini{ margin:3.25rem auto; } }
+
+/* -- composition donut -- */
+.pop-donut-card{
+  display:grid; grid-template-columns:1fr; gap:2.5rem; align-items:center;
+  background:rgb(247,245,238); border:1px solid rgb(219 225 210/1); border-radius:1.25rem;
+  padding:2.25rem 1.75rem; margin-bottom:3rem;
+}
+html.dark .pop-donut-card{ background:rgba(255,255,255,.02); border-color:rgba(255,255,255,.1); }
+@media (min-width:640px){ .pop-donut-card{ grid-template-columns:220px 1fr; padding:2.75rem; gap:3rem; } }
+.pop-donut-wrap{ position:relative; width:200px; height:200px; margin:0 auto; filter:drop-shadow(0 6px 24px rgba(74,93,61,.12)); }
+html.dark .pop-donut-wrap{ filter:drop-shadow(0 0 26px rgba(186,148,80,.14)); }
+.pop-donut-wrap svg{ width:100%; height:100%; transform:rotate(-90deg); overflow:visible; }
+.pop-donut-track{ fill:none; stroke:rgb(219 225 210/1); stroke-width:24; }
+html.dark .pop-donut-track{ stroke:rgba(255,255,255,.07); }
+.pop-donut-arc{ fill:none; stroke-width:24; stroke-linecap:butt; transform-origin:110px 110px; }
+.pop-donut-arc-1{ stroke:rgb(74,93,61); }
+html.dark .pop-donut-arc-1{ stroke:rgb(140,168,120); }
+.pop-donut-arc-2{ stroke:rgb(186,148,80); }
+html.dark .pop-donut-arc-2{ stroke:rgb(212,175,110); }
+.pop-donut-arc-3{ stroke:rgb(163,84,61); }
+html.dark .pop-donut-arc-3{ stroke:rgb(201,120,96); }
+.pop-donut-center{ position:absolute; inset:0; display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center; }
+.pop-donut-total{ font-family:'Marcellus', Georgia, serif; font-size:26px; color:rgb(16 20 13/1); font-variant-numeric:tabular-nums; }
+html.dark .pop-donut-total{ color:rgb(247,245,238); }
+.pop-donut-total-label{ font-family:'Inter',sans-serif; font-size:9.5px; letter-spacing:.14em; text-transform:uppercase; color:rgb(124 106 74/.85); margin-top:.3rem; }
+html.dark .pop-donut-total-label{ color:rgba(186,148,80,.75); }
+.pop-legend-title{ font-family:'Inter',sans-serif; font-size:10.5px; font-weight:600; letter-spacing:.12em; text-transform:uppercase; color:rgb(124 106 74/.8); margin-bottom:1rem; }
+html.dark .pop-legend-title{ color:rgba(186,148,80,.7); }
+.pop-legend-row{ display:flex; align-items:baseline; gap:.65rem; padding:.6rem 0; border-bottom:1px solid rgb(219 225 210/.6); }
+.pop-legend-row:last-child{ border-bottom:none; }
+html.dark .pop-legend-row{ border-color:rgba(255,255,255,.07); }
+.pop-legend-dot{ width:9px; height:9px; border-radius:50%; flex-shrink:0; position:relative; top:1px; }
+.pop-legend-label{ font-family:'Marcellus', Georgia, serif; font-style:italic; font-size:14.5px; color:rgb(16 20 13/1); flex:1; }
+html.dark .pop-legend-label{ color:rgb(247,245,238); }
+.pop-legend-pct{ font-family:'Inter',sans-serif; font-size:13px; font-weight:600; color:rgb(74 93 61/1); font-variant-numeric:tabular-nums; }
+html.dark .pop-legend-pct{ color:rgb(186,148,80); }
+
+/* -- marriage / conversion bars -- */
+.pop-marry-row{ padding:1rem 0; border-bottom:1px solid rgb(219 225 210/1); }
+html.dark .pop-marry-row{ border-color:rgba(255,255,255,.08); }
+.pop-marry-top{ display:flex; align-items:baseline; justify-content:space-between; gap:1rem; margin-bottom:.6rem; }
+.pop-marry-name{ font-family:'Marcellus', Georgia, serif; font-style:italic; font-size:15.5px; color:rgb(16 20 13/1); }
+html.dark .pop-marry-name{ color:rgb(247,245,238); }
+.pop-marry-pct{ font-family:'Marcellus', Georgia, serif; font-size:17px; color:rgb(163,84,61); font-variant-numeric:tabular-nums; flex-shrink:0; }
+html.dark .pop-marry-pct{ color:rgb(201,120,96); }
+.pop-marry-track{ display:block; width:100%; height:10px; border-radius:999px; background:rgb(219 225 210/.5); box-shadow:inset 0 1px 2px rgba(16,20,13,.08); overflow:hidden; }
+html.dark .pop-marry-track{ background:rgba(255,255,255,.06); box-shadow:inset 0 1px 2px rgba(0,0,0,.25); }
+.pop-marry-fill{
+  display:block; height:100%; width:0; border-radius:999px;
+  background:linear-gradient(90deg, rgb(186,148,80), rgb(163,84,61));
+  box-shadow:0 0 10px rgba(186,148,80,.4);
+  transition:width 1.1s cubic-bezier(.16,1,.3,1);
+}
+html.dark .pop-marry-fill{ background:linear-gradient(90deg, rgb(212,175,110), rgb(201,120,96)); box-shadow:0 0 12px rgba(212,175,110,.4); }
+.pop-marry-footnote{ font-family:'Inter',sans-serif; font-size:12px; font-style:italic; color:rgb(124 106 74/.85); line-height:1.6; margin-top:1.5rem; border-left:2px solid rgba(186,148,80,.4); padding-left:.9rem; }
+html.dark .pop-marry-footnote{ color:rgba(186,148,80,.75); }
 </style>
 
 <!-- ==================== POPULATION: HERO ==================== -->
@@ -3010,7 +3071,7 @@ html.dark .pop-eyebrow-pill{ color:rgb(186,148,80); background:rgba(186,148,80,.
   <div class="max-w-2xl mx-auto">
     <p class="font-sans text-[11px] sm:text-xs tracking-[0.22em] uppercase text-taupe font-semibold mb-5 sm:mb-6" data-en="Communion in Numbers" data-ml="സംഖ്യകളിൽ കൂട്ടായ്മ">Communion in Numbers</p>
     <h1 class="font-serif font-normal text-[38px] leading-[1.1] sm:text-6xl tracking-tight text-ink dark:text-ivory mb-6 sm:mb-8" data-en="The Church in Numbers" data-ml="സഭ, സംഖ്യകളിൽ">The Church in Numbers</h1>
-    <p class="text-[15px] sm:text-base text-body/85 dark:text-ivory/70 leading-[1.85] max-w-xl mx-auto" data-en="Every parish counted in the map above is a household, and every household a person. Gathered here is the fuller count &mdash; the Church's worldwide population, its distribution across the fourteen districts of Kerala, and the diaspora it has sent out across the globe." data-ml="മുകളിലെ ഭൂപടത്തിൽ കണക്കാക്കിയ ഓരോ ഇടവകയും ഒരു കുടുംബമാണ്, ഓരോ കുടുംബവും ഒരു വ്യക്തിയും. ഇവിടെ സഭയുടെ ലോകമെമ്പാടുമുള്ള ജനസംഖ്യ, കേരളത്തിലെ പതിനാല് ജില്ലകളിലെ വിതരണം, ലോകമെമ്പാടും അയക്കപ്പെട്ട പ്രവാസി സമൂഹം എന്നിവ സമാഹരിച്ചിരിക്കുന്നു.">Every parish counted in the map above is a household, and every household a person. Gathered here is the fuller count &mdash; the Church's worldwide population, its distribution across the fourteen districts of Kerala, and the diaspora it has sent out across the globe.</p>
+    <p class="text-[15px] sm:text-base text-body/85 dark:text-ivory/70 leading-[1.85] max-w-xl mx-auto" data-en="This is not a count of parishes, but of people &mdash; a fuller demographic reckoning of the Church's global communion: its worldwide population, its distribution across the fourteen districts of Kerala, and the diaspora it has sent out across the globe." data-ml="ഇത് ഇടവകകളുടെയല്ല, മറിച്ച് ആളുകളുടെ എണ്ണമാണ് &mdash; സഭയുടെ ആഗോള കൂട്ടായ്മയുടെ സമ്പൂർണ്ണമായ ജനസംഖ്യാ കണക്ക്: ലോകമെമ്പാടുമുള്ള അതിന്റെ ജനസംഖ്യ, കേരളത്തിലെ പതിനാല് ജില്ലകളിലെ വിതരണം, ലോകമെമ്പാടും അയക്കപ്പെട്ട പ്രവാസി സമൂഹം എന്നിവ.">This is not a count of parishes, but of people &mdash; a fuller demographic reckoning of the Church's global communion: its worldwide population, its distribution across the fourteen districts of Kerala, and the diaspora it has sent out across the globe.</p>
     <div class="pop-eyebrow-pill mt-7" data-en="2022 Estimates" data-ml="2022 എസ്റ്റിമേറ്റുകൾ">2022 Estimates</div>
   </div>
 </section>
@@ -3073,7 +3134,40 @@ html.dark .pop-eyebrow-pill{ color:rgb(186,148,80); background:rgba(186,148,80,.
       <div class="font-sans text-[10.5px] tracking-wider uppercase text-body/60 dark:text-ivory/50 mt-2" data-en="Of which, Knanaya Schismatics" data-ml="ഇവയിൽ, കാനായ വിഭജിതർ">Of which, Knanaya Schismatics</div>
     </div>
   </div>
-  <p class="pop-note font-sans text-xs sm:text-[13px] text-body/60 dark:text-ivory/50 leading-relaxed max-w-2xl" data-en-html="&ldquo;Schismatics&rdquo; here denotes the neo-Jacobites: those of Malankara lineage who uphold the doctrinal supremacy of the Patriarch of Antioch within Malankara and have broken from the Church&rsquo;s governance on that basis. Known in Malayalam as the <em>vighadithar</em> &mdash; semi-schismatics &mdash; they are reckoned here as remaining within the wider Malankara Church even though schismatic in status." data-ml-html="&ldquo;വിഭജിതർ&rdquo; എന്നത് ഇവിടെ നിയോ-യാക്കോബായക്കാരെ സൂചിപ്പിക്കുന്നു: മലങ്കരയിൽ അന്ത്യോക്യൻ പാത്രിയർക്കീസിന്റെ പരമാധികാരത്തെ ഉയർത്തിപ്പിടിക്കുകയും അതിന്റെ അടിസ്ഥാനത്തിൽ സഭയുടെ ഭരണത്തിൽ നിന്ന് വേർപിരിയുകയും ചെയ്തവരാണ് ഇവർ. മലയാളത്തിൽ <em>വിഘടിതർ</em> എന്നറിയപ്പെടുന്ന ഇവർ അർദ്ധ-വിഭജിതരാണ് &mdash; നിലയിൽ വിഭജിതരാണെങ്കിലും, വിശാലമായ മലങ്കര സഭയുടെ ഭാഗമായി തന്നെ ഇവിടെ പരിഗണിക്കുന്നു.">&ldquo;Schismatics&rdquo; here denotes the neo-Jacobites: those of Malankara lineage who uphold the doctrinal supremacy of the Patriarch of Antioch within Malankara and have broken from the Church&rsquo;s governance on that basis. Known in Malayalam as the <em>vighadithar</em> &mdash; semi-schismatics &mdash; they are reckoned here as remaining within the wider Malankara Church even though schismatic in status.</p>
+  <p class="pop-note font-sans text-xs sm:text-[13px] text-body/60 dark:text-ivory/50 leading-relaxed max-w-2xl" data-en-html="&ldquo;Schismatic&rdquo; here denotes the neo-Jacobites: those of Malankara lineage who uphold the doctrinal supremacy of the Patriarch of Antioch within Malankara and have broken from the Church&rsquo;s governance on that basis. Known in Malayalam as the <em>vighadithar</em> &mdash; semi-schismatics &mdash; they are reckoned here as remaining within the wider Malankara Church even though schismatic in status." data-ml-html="&ldquo;വിഭജിതർ&rdquo; എന്നത് ഇവിടെ നിയോ-യാക്കോബായക്കാരെ സൂചിപ്പിക്കുന്നു: മലങ്കരയിൽ അന്ത്യോക്യൻ പാത്രിയർക്കീസിന്റെ പരമാധികാരത്തെ ഉയർത്തിപ്പിടിക്കുകയും അതിന്റെ അടിസ്ഥാനത്തിൽ സഭയുടെ ഭരണത്തിൽ നിന്ന് വേർപിരിയുകയും ചെയ്തവരാണ് ഇവർ. മലയാളത്തിൽ <em>വിഘടിതർ</em> എന്നറിയപ്പെടുന്ന ഇവർ അർദ്ധ-വിഭജിതരാണ് &mdash; നിലയിൽ വിഭജിതരാണെങ്കിലും, വിശാലമായ മലങ്കര സഭയുടെ ഭാഗമായി തന്നെ ഇവിടെ പരിഗണിക്കുന്നു.">&ldquo;Schismatic&rdquo; here denotes the neo-Jacobites: those of Malankara lineage who uphold the doctrinal supremacy of the Patriarch of Antioch within Malankara and have broken from the Church&rsquo;s governance on that basis. Known in Malayalam as the <em>vighadithar</em> &mdash; semi-schismatics &mdash; they are reckoned here as remaining within the wider Malankara Church even though schismatic in status.</p>
+
+  <div class="reveal pop-donut-card">
+    <div class="pop-donut-wrap" id="popDonutWrap">
+      <svg viewBox="0 0 220 220" aria-hidden="true">
+        <circle class="pop-donut-track" cx="110" cy="110" r="92"></circle>
+        <circle class="pop-donut-arc pop-donut-arc-1" id="popDonutArc1" cx="110" cy="110" r="92"></circle>
+        <circle class="pop-donut-arc pop-donut-arc-2" id="popDonutArc2" cx="110" cy="110" r="92"></circle>
+        <circle class="pop-donut-arc pop-donut-arc-3" id="popDonutArc3" cx="110" cy="110" r="92"></circle>
+      </svg>
+      <div class="pop-donut-center">
+        <span class="pop-donut-total count-num" data-count="1261279">0</span>
+        <span class="pop-donut-total-label" data-en="within Kerala" data-ml="കേരളത്തിനുള്ളിൽ">within Kerala</span>
+      </div>
+    </div>
+    <div>
+      <div class="pop-legend-title" data-en="Composition of the Community" data-ml="സമൂഹത്തിന്റെ ഘടന">Composition of the Community</div>
+      <div class="pop-legend-row">
+        <span class="pop-legend-dot" style="background:rgb(74,93,61)"></span>
+        <span class="pop-legend-label" data-en="Orthodox" data-ml="ഓർത്തഡോക്സ്">Orthodox</span>
+        <span class="pop-legend-pct" id="popLegendPct1">62.1%</span>
+      </div>
+      <div class="pop-legend-row">
+        <span class="pop-legend-dot" style="background:rgb(186,148,80)"></span>
+        <span class="pop-legend-label" data-en="Schismatic" data-ml="വിഭജിതർ">Schismatic</span>
+        <span class="pop-legend-pct" id="popLegendPct2">31.8%</span>
+      </div>
+      <div class="pop-legend-row">
+        <span class="pop-legend-dot" style="background:rgb(163,84,61)"></span>
+        <span class="pop-legend-label" data-en="Knanaya Schismatic" data-ml="കാനായ വിഭജിതർ">Knanaya Schismatic</span>
+        <span class="pop-legend-pct" id="popLegendPct3">6.2%</span>
+      </div>
+    </div>
+  </div>
 
   <div class="reveal">
     <div class="mb-2">
@@ -3085,7 +3179,9 @@ html.dark .pop-eyebrow-pill{ color:rgb(186,148,80); background:rgba(186,148,80,.
     </div>
   </div>
 
-  <div class="reveal reveal-stagger grid grid-cols-1 sm:grid-cols-2 gap-4 mt-14">
+  <div class="pop-divider-mini" aria-hidden="true"></div>
+
+  <div class="reveal reveal-stagger grid grid-cols-1 sm:grid-cols-2 gap-4">
     <div class="pop-tile">
       <div class="font-sans text-[10.5px] tracking-wider uppercase text-taupe font-semibold mb-2" data-en="Largest Schismatic Population" data-ml="ഏറ്റവും വലിയ വിഭജിത ജനസംഖ്യ">Largest Schismatic Population</div>
       <div class="font-serif italic text-xl text-ink dark:text-ivory" data-en="Ernakulam" data-ml="എറണാകുളം">Ernakulam</div>
@@ -3098,6 +3194,20 @@ html.dark .pop-eyebrow-pill{ color:rgb(186,148,80); background:rgba(186,148,80,.
     </div>
   </div>
 </section>
+
+<div class="pop-divider" aria-hidden="true"></div>
+
+<!-- ==================== POPULATION: MARRIAGE & CONVERSION ==================== -->
+<section class="px-5 sm:px-8 pop-section max-w-3xl mx-auto" id="pop-marriage">
+  <h2 class="font-serif italic font-normal text-[26px] sm:text-3xl text-ink dark:text-ivory mb-2" data-en="Received Through Marriage" data-ml="വിവാഹത്തിലൂടെ സഭയിലേക്ക്">Received Through Marriage</h2>
+  <p class="font-sans text-xs sm:text-[13px] text-body/60 dark:text-ivory/50 mt-2 mb-10 max-w-2xl leading-relaxed" data-en="These figures are overwhelmingly marriages of one kind: an Orthodox man takes a wife from another denomination, and it is she who converts into the Church, rather than the reverse. Marthoma Protestants make up by far the largest share of these converts, not by chance but by geography &mdash; the districts where Orthodox Christians are most concentrated, namely Pathanamthitta, Alappuzha, and Kollam, are the same southern districts where Marthoma Protestants are also predominant, the two communities having lived side by side since their nineteenth-century split. Malankara Orthodox settlement in Kerala has traditionally been described as running from the village of Chathannoor in the south to Chalissery in the north &mdash; that is, from Kollam district up through Palakkad. Shown below is the share of converts by the denomination they came from." data-ml="ഈ കണക്കുകൾ ഏറെക്കുറെ ഒരേ തരം വിവാഹങ്ങളിൽ നിന്നാണ്: ഓർത്തഡോക്സ് പുരുഷൻ മറ്റൊരു സഭയിൽ നിന്നുള്ള സ്ത്രീയെ വിവാഹം കഴിക്കുകയും, തിരിച്ചല്ല, അവർ സഭയിലേക്ക് മതം മാറുകയും ചെയ്യുന്നു. മാർത്തോമ്മാ പ്രൊട്ടസ്റ്റന്റുകൾ ഇവയിൽ ഏറ്റവും വലിയ വിഹിതം വഹിക്കുന്നത് യാദൃച്ഛികമല്ല, മറിച്ച് ഭൂമിശാസ്ത്രപരമായ കാരണത്താലാണ് &mdash; ഓർത്തഡോക്സ് ക്രിസ്ത്യാനികൾ ഏറ്റവും കൂടുതൽ കേന്ദ്രീകരിച്ചിരിക്കുന്ന ജില്ലകൾ, അതായത് പത്തനംതിട്ട, ആലപ്പുഴ, കൊല്ലം എന്നിവ തന്നെയാണ് മാർത്തോമ്മാ പ്രൊട്ടസ്റ്റന്റുകളും പ്രധാനമായി അധിവസിക്കുന്ന തെക്കൻ ജില്ലകൾ, പത്തൊൻപതാം നൂറ്റാണ്ടിലെ പിളർപ്പിനുശേഷം ഈ രണ്ട് സമൂഹങ്ങളും അടുത്തടുത്ത് ജീവിച്ചുവരുന്നു. പരമ്പരാഗതമായി, മലങ്കര ഓർത്തഡോക്സ് അധിവാസം തെക്ക് ചതന്നൂർ മുതൽ വടക്ക് ചാലിശ്ശേരി വരെ &mdash; അതായത് കൊല്ലം ജില്ല മുതൽ പാലക്കാട് വരെ &mdash; വ്യാപിച്ചിരുന്നതായി വിശേഷിപ്പിക്കപ്പെടുന്നു. ഓരോ പരിവർത്തിതരും വന്ന സഭ അനുസരിച്ചുള്ള വിഹിതം താഴെ കാണിച്ചിരിക്കുന്നു.">These figures are overwhelmingly marriages of one kind: an Orthodox man takes a wife from another denomination, and it is she who converts into the Church, rather than the reverse. Marthoma Protestants make up by far the largest share of these converts, not by chance but by geography &mdash; the districts where Orthodox Christians are most concentrated, namely Pathanamthitta, Alappuzha, and Kollam, are the same southern districts where Marthoma Protestants are also predominant, the two communities having lived side by side since their nineteenth-century split. Malankara Orthodox settlement in Kerala has traditionally been described as running from the village of Chathannoor in the south to Chalissery in the north &mdash; that is, from Kollam district up through Palakkad. Shown below is the share of converts by the denomination they came from.</p>
+  <div class="reveal reveal-stagger" id="popMarryList">
+    <!-- rows injected by script below -->
+  </div>
+  <p class="pop-marry-footnote" data-en-html="Conversions arising from marriage to communities outside this list &mdash; such as Pentecostal churches &mdash; are negligible: in nearly every such intermarriage, it is the Orthodox spouse who converts to Pentecostalism, rather than the reverse." data-ml-html="ഈ പട്ടികയ്ക്ക് പുറത്തുള്ള സമൂഹങ്ങളുമായുള്ള വിവാഹങ്ങളിൽ നിന്ന് &mdash; ഉദാഹരണത്തിന് പെന്തക്കോസ്ത് സഭകൾ &mdash; ഉണ്ടാകുന്ന മതപരിവർത്തനങ്ങൾ നിസ്സാരമാണ്: മിക്കവാറും എല്ലാ അത്തരം വിവാഹങ്ങളിലും, ഓർത്തഡോക്സ് പങ്കാളിയാണ് പെന്തക്കോസ്തിലേക്ക് മാറുന്നത്, തിരിച്ചല്ല.">Conversions arising from marriage to communities outside this list &mdash; such as Pentecostal churches &mdash; are negligible: in nearly every such intermarriage, it is the Orthodox spouse who converts to Pentecostalism, rather than the reverse.</p>
+</section>
+
+<div class="pop-divider" aria-hidden="true"></div>
 
 <!-- ==================== POPULATION: SOURCES ==================== -->
 <section class="px-5 sm:px-8 pop-section max-w-3xl mx-auto url-wrap">
@@ -3188,6 +3298,32 @@ html.dark .pop-eyebrow-pill{ color:rgb(186,148,80); background:rgba(186,148,80,.
     btn.setAttribute('aria-expanded', String(!expanded));
   });
 
+  /* -- marriage / conversion bars -- */
+  var marriages = [
+    { en:"Marthoma Protestants", ml:"മാർത്തോമ്മാ പ്രൊട്ടസ്റ്റന്റുകൾ", pct:48.61 },
+    { en:"Neo-Jacobite Schismatics", ml:"നിയോ-യാക്കോബായ വിഭജിതർ", pct:17.36 },
+    { en:"Syro-Malankara Catholics", ml:"സീറോ-മലങ്കര കത്തോലിക്കർ", pct:13.19 },
+    { en:"Syro-Malabar Catholics", ml:"സീറോ-മലബാർ കത്തോലിക്കർ", pct:9.03 },
+    { en:"Church of South India", ml:"ചർച്ച് ഓഫ് സൗത്ത് ഇന്ത്യ", pct:8.33 },
+    { en:"Knanaya Schismatics", ml:"കാനായ വിഭജിതർ", pct:2.78 },
+    { en:"Knanaya Catholics", ml:"കാനായ കത്തോലിക്കർ", pct:0.69 }
+  ];
+  var marryList = document.getElementById('popMarryList');
+  var marryMax = Math.max.apply(null, marriages.map(function(m){ return m.pct; }));
+  if(marryList){
+    marriages.forEach(function(m){
+      var row = document.createElement('div');
+      row.className = 'pop-marry-row';
+      row.innerHTML =
+        '<div class="pop-marry-top">' +
+          '<span class="pop-marry-name" data-en="' + m.en + '" data-ml="' + m.ml + '">' + m.en + '</span>' +
+          '<span class="pop-marry-pct">' + m.pct.toFixed(2) + '%</span>' +
+        '</div>' +
+        '<span class="pop-marry-track"><span class="pop-marry-fill" data-width="' + ((m.pct / marryMax) * 100).toFixed(1) + '"></span></span>';
+      marryList.appendChild(row);
+    });
+  }
+
   var reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   if('IntersectionObserver' in window){
     var barSection = list ? list.closest('section') : null;
@@ -3217,8 +3353,24 @@ html.dark .pop-eyebrow-pill{ color:rgb(186,148,80); background:rgba(186,148,80,.
       }, { threshold: 0.3 });
       ringObs.observe(ringWrap);
     }
+
+    var marrySection = marryList ? marryList.closest('section') : null;
+    if(marrySection){
+      var marryObs = new IntersectionObserver(function(entries){
+        entries.forEach(function(entry){
+          if(entry.isIntersecting){
+            entry.target.querySelectorAll('.pop-marry-fill[data-width]').forEach(function(el, i){
+              setTimeout(function(){ el.style.width = el.getAttribute('data-width') + '%'; }, reduceMotion ? 0 : i * 60);
+            });
+            marryObs.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.1 });
+      marryObs.observe(marrySection);
+    }
   } else {
     document.querySelectorAll('.pop-bar-fill[data-pct]').forEach(function(el){ el.style.width = el.getAttribute('data-pct') + '%'; });
+    document.querySelectorAll('.pop-marry-fill[data-width]').forEach(function(el){ el.style.width = el.getAttribute('data-width') + '%'; });
     var arc = document.getElementById('popRingArc');
     if(arc) arc.classList.add('is-drawn');
   }
@@ -3235,6 +3387,26 @@ html.dark .pop-eyebrow-pill{ color:rgb(186,148,80); background:rgba(186,148,80,.
     }
     var pctEl = document.getElementById('popRingPct');
     if(pctEl) pctEl.textContent = Math.round(share * 100) + '%';
+  })();
+
+  (function(){
+    var orth = 782699, schOther = 400476, knan = 78104;
+    var total = orth + schOther + knan;
+    var r = 92, C = 2 * Math.PI * r;
+    var fracs = [orth / total, schOther / total, knan / total];
+    var arcs = [document.getElementById('popDonutArc1'), document.getElementById('popDonutArc2'), document.getElementById('popDonutArc3')];
+    var pctEls = [document.getElementById('popLegendPct1'), document.getElementById('popLegendPct2'), document.getElementById('popLegendPct3')];
+    var cumDeg = 0;
+    fracs.forEach(function(f, i){
+      var segLen = C * f;
+      var arc = arcs[i];
+      if(arc){
+        arc.setAttribute('stroke-dasharray', segLen.toFixed(2) + ' ' + (C - segLen).toFixed(2));
+        arc.style.transform = 'rotate(' + cumDeg.toFixed(2) + 'deg)';
+      }
+      if(pctEls[i]) pctEls[i].textContent = (f * 100).toFixed(1) + '%';
+      cumDeg += f * 360;
+    });
   })();
 
   var canvas = document.getElementById('popCanvas');
