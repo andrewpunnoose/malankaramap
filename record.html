@@ -1816,7 +1816,7 @@ button:focus-visible, a:focus-visible{ outline-color: rgb(var(--accent-a)); }
     <div class="flex flex-col gap-2">
       <label class="font-sans text-[10.5px] tracking-[0.1em] uppercase text-body/50 dark:text-ivory/40" data-en="Pinpoint on the Map (optional)" data-ml="ഭൂപടത്തിൽ അടയാളപ്പെടുത്തുക (ഐച്ഛികം)">Pinpoint on the Map (optional)</label>
       <div id="reportMap" class="w-full rounded-2xl overflow-hidden border border-line dark:border-white/10" style="height:280px; background:rgba(150,158,140,.12);"></div>
-      <p class="font-sans text-[11.5px] leading-relaxed text-body/50 dark:text-ivory/40" id="reportMapHint" data-en="Zoom in on the satellite view and click the exact spot — we'll attach a Google Maps link to your report." data-ml="സാറ്റലൈറ്റ് കാഴ്ചയിൽ സൂം ചെയ്ത് കൃത്യമായ സ്ഥലത്ത് ക്ലിക്ക് ചെയ്യുക — ഞങ്ങൾ ഒരു Google Maps ലിങ്ക് നിങ്ങളുടെ റിപ്പോർട്ടിനൊപ്പം ചേർക്കും.">Zoom in on the satellite view and click the exact spot — we'll attach a Google Maps link to your report.</p>
+      <p class="font-sans text-[10px] leading-relaxed text-body/50 dark:text-ivory/40" id="reportMapHint" data-en="Zoom in on the satellite view and click the exact spot — we'll attach a Google Maps link to your report." data-ml="സാറ്റലൈറ്റ് കാഴ്ചയിൽ സൂം ചെയ്ത് കൃത്യമായ സ്ഥലത്ത് ക്ലിക്ക് ചെയ്യുക — ഞങ്ങൾ ഒരു Google Maps ലിങ്ക് നിങ്ങളുടെ റിപ്പോർട്ടിനൊപ്പം ചേർക്കും.">Zoom in on the satellite view and click the exact spot — we'll attach a Google Maps link to your report.</p>
       <p class="font-sans text-[12px] font-medium text-sage-dark dark:text-sage hidden" id="rCoordDisplay"></p>
       <input type="hidden" id="rCoordinates" name="map_link" value="">
     </div>
@@ -1832,44 +1832,45 @@ button:focus-visible, a:focus-visible{ outline-color: rgb(var(--accent-a)); }
 </div>
 
 </main>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
 <script>
   // ============================================================
-  // Report-form map picker. Renders a Google Maps satellite view
+  // Report-form map picker. Renders a free satellite-imagery map
+  // (Leaflet + Esri World Imagery — no API key or billing needed)
   // inside #reportMap; clicking (or dragging the resulting pin)
-  // sets a Google Maps coordinate link into the hidden #rCoordinates
-  // input, which rides along with the rest of the form fields when
-  // the report is submitted.
+  // sets a real Google Maps coordinate link into the hidden
+  // #rCoordinates input, which rides along with the rest of the
+  // form fields when the report is submitted. The map itself
+  // doesn't have to be Google's — only the link it produces does.
   //
-  // Requires a Google Maps JavaScript API key with the "Maps
-  // JavaScript API" enabled (console.cloud.google.com -> APIs &
-  // Services -> Credentials). Swap YOUR_GOOGLE_MAPS_API_KEY below
-  // for that key, and restrict it to this site's domain(s) in the
-  // Cloud Console so it can't be reused elsewhere.
+  // Prefer an actual embedded Google map instead? Swap this block
+  // for the Google Maps JavaScript API, which needs an API key
+  // (console.cloud.google.com -> APIs & Services -> Credentials,
+  // enable "Maps JavaScript API") restricted to this domain.
   // ============================================================
   var reportMap = null, reportMarker = null;
   function initReportMap(){
     var mapEl = document.getElementById('reportMap');
-    if(!mapEl || !window.google || !window.google.maps) return;
-    var center = { lat: 10.8505, lng: 76.2711 }; // Kerala, India — adjust as fits
-    reportMap = new google.maps.Map(mapEl, {
-      center: center,
-      zoom: 7,
-      mapTypeId: 'hybrid', // satellite imagery + place labels; use 'satellite' to drop labels
-      streetViewControl: false,
-      fullscreenControl: false,
-      mapTypeControlOptions: { position: google.maps.ControlPosition.TOP_RIGHT }
-    });
-    reportMap.addListener('click', function(e){
-      setReportPin(e.latLng.lat(), e.latLng.lng());
+    if(!mapEl || !window.L) return;
+    reportMap = L.map(mapEl).setView([10.8505, 76.2711], 7); // Kerala, India — adjust as fits
+    L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {
+      maxZoom: 19,
+      attribution: 'Tiles &copy; Esri'
+    }).addTo(reportMap);
+    reportMap.on('click', function(e){
+      setReportPin(e.latlng.lat, e.latlng.lng);
     });
   }
   function setReportPin(lat, lng){
-    var pos = { lat: lat, lng: lng };
     if(reportMarker){
-      reportMarker.setPosition(pos);
+      reportMarker.setLatLng([lat, lng]);
     } else {
-      reportMarker = new google.maps.Marker({ position: pos, map: reportMap, draggable: true });
-      reportMarker.addListener('dragend', function(e){ setReportPin(e.latLng.lat(), e.latLng.lng()); });
+      reportMarker = L.marker([lat, lng], { draggable: true }).addTo(reportMap);
+      reportMarker.on('dragend', function(){
+        var pos = reportMarker.getLatLng();
+        setReportPin(pos.lat, pos.lng);
+      });
     }
     var latStr = lat.toFixed(6), lngStr = lng.toFixed(6);
     var link = 'https://www.google.com/maps?q=' + latStr + ',' + lngStr;
@@ -1881,9 +1882,8 @@ button:focus-visible, a:focus-visible{ outline-color: rgb(var(--accent-a)); }
       display.classList.remove('hidden');
     }
   }
-  window.initReportMap = initReportMap;
+  document.addEventListener('DOMContentLoaded', initReportMap);
 </script>
-<script async defer src="https://maps.googleapis.com/maps/api/js?key=YOUR_GOOGLE_MAPS_API_KEY&callback=initReportMap"></script>
 <script>
 (function(){
   var form = document.getElementById('reportForm');
