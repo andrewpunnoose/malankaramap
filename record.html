@@ -1815,7 +1815,15 @@ button:focus-visible, a:focus-visible{ outline-color: rgb(var(--accent-a)); }
     </div>
     <div class="flex flex-col gap-2">
       <label class="font-sans text-[10.5px] tracking-[0.1em] uppercase text-body/50 dark:text-ivory/40" data-en="Pinpoint on the Map (optional)" data-ml="ഭൂപടത്തിൽ അടയാളപ്പെടുത്തുക (ഐച്ഛികം)">Pinpoint on the Map (optional)</label>
-      <div id="reportMap" class="w-full rounded-2xl overflow-hidden border border-line dark:border-white/10" style="height:280px; background:rgba(150,158,140,.12);"></div>
+      <div class="relative w-full">
+        <div id="reportMap" class="w-full rounded-2xl overflow-hidden border border-line dark:border-white/10" style="height:280px; background:rgba(150,158,140,.12);"></div>
+        <div class="absolute left-2 top-2 z-[500] flex items-center gap-1">
+          <input type="text" id="rMapSearch" placeholder="Search a place…" autocomplete="off" class="font-sans text-[11px] px-2.5 py-1.5 rounded-full border border-line dark:border-white/10 bg-ivory/90 dark:bg-midnight/90 text-ink dark:text-ivory outline-none w-[150px] sm:w-[190px] shadow-sm">
+          <button type="button" id="rMapSearchBtn" aria-label="Search" class="shrink-0 grid place-items-center w-7 h-7 rounded-full border border-line dark:border-white/10 bg-ivory/90 dark:bg-midnight/90 text-body/60 dark:text-ivory/50 shadow-sm">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"></circle><path d="m21 21-4.3-4.3"></path></svg>
+          </button>
+        </div>
+      </div>
       <p class="font-sans text-[10px] leading-relaxed text-body/50 dark:text-ivory/40" id="reportMapHint" data-en="Zoom in on the satellite view and click the exact spot — we'll attach a Google Maps link to your report." data-ml="സാറ്റലൈറ്റ് കാഴ്ചയിൽ സൂം ചെയ്ത് കൃത്യമായ സ്ഥലത്ത് ക്ലിക്ക് ചെയ്യുക — ഞങ്ങൾ ഒരു Google Maps ലിങ്ക് നിങ്ങളുടെ റിപ്പോർട്ടിനൊപ്പം ചേർക്കും.">Zoom in on the satellite view and click the exact spot — we'll attach a Google Maps link to your report.</p>
       <p class="font-sans text-[12px] font-medium text-sage-dark dark:text-sage hidden" id="rCoordDisplay"></p>
       <input type="hidden" id="rCoordinates" name="map_link" value="">
@@ -1858,8 +1866,39 @@ button:focus-visible, a:focus-visible{ outline-color: rgb(var(--accent-a)); }
       maxZoom: 19,
       attribution: 'Tiles &copy; Esri'
     }).addTo(reportMap);
+    // Place-name / city / road labels on a transparent overlay, same as the
+    // "hybrid" look Google Maps gives satellite view — otherwise plain
+    // satellite imagery has nothing on it to orient by.
+    L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/Reference/World_Boundaries_and_Places/MapServer/tile/{z}/{y}/{x}', {
+      maxZoom: 19,
+      pane: 'overlayPane'
+    }).addTo(reportMap);
     reportMap.on('click', function(e){
       setReportPin(e.latlng.lat, e.latlng.lng);
+    });
+    initReportMapSearch();
+  }
+  function initReportMapSearch(){
+    var input = document.getElementById('rMapSearch');
+    var btn = document.getElementById('rMapSearchBtn');
+    if(!input || !btn) return;
+    function runSearch(){
+      var q = input.value.trim();
+      if(!q) return;
+      btn.disabled = true;
+      fetch('https://nominatim.openstreetmap.org/search?format=json&limit=1&q=' + encodeURIComponent(q))
+        .then(function(r){ return r.json(); })
+        .then(function(results){
+          btn.disabled = false;
+          if(results && results[0]){
+            reportMap.setView([parseFloat(results[0].lat), parseFloat(results[0].lon)], 15);
+          }
+        })
+        .catch(function(){ btn.disabled = false; });
+    }
+    btn.addEventListener('click', runSearch);
+    input.addEventListener('keydown', function(e){
+      if(e.key === 'Enter'){ e.preventDefault(); runSearch(); }
     });
   }
   function setReportPin(lat, lng){
