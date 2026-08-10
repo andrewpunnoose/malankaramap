@@ -1384,44 +1384,41 @@ button:focus-visible, a:focus-visible{ outline-color: rgb(var(--accent-a)); }
 /* ---- hero copy sits on real glass now that the photo shows through ---- */
 .glass-hero-panel{
   position:relative;
-  isolation:isolate;
+  overflow:hidden;
   border-radius:32px;
   padding: 2.5rem 1.75rem 2.75rem;
   border: 1px solid var(--glass-border);
   box-shadow: 0 30px 60px -30px rgba(16,20,13,.35), 0 1px 1px rgba(255,255,255,.5) inset;
 }
-/* the blur/tint lives on its own layer behind the copy — isolating it
-   here (instead of putting backdrop-filter directly on the panel that
-   also holds the animated text) is what stops iOS Safari from losing
-   the filter mid-scroll and flashing the panel fully see-through */
-.glass-hero-panel::before{
-  content:'';
-  position:absolute; inset:0; z-index:-1; border-radius:inherit;
-  background: linear-gradient(155deg, rgba(255,255,255,.87), rgba(255,255,255,.64) 45%, rgba(255,255,255,.52));
-  -webkit-backdrop-filter: blur(14px) saturate(130%);
-  backdrop-filter: blur(14px) saturate(130%);
-  -webkit-transform: translateZ(0);
-  transform: translateZ(0);
+/* real blur of an oversized copy of the hero photo (regular CSS
+   filter, not backdrop-filter) — renders identically on every
+   browser including mobile Safari, unlike backdrop-filter which
+   has proven unreliable behind this section's photo/canvas stack.
+   Oversized + scaled so the blur's soft edge falls outside the
+   panel, which overflow:hidden then clips to the rounded corners. */
+.glass-hero-panel__blur{
+  position:absolute; z-index:-2; inset:-30px;
+  background-position:center 38%; background-size:cover;
+  filter: blur(24px); transform: scale(1.15);
+  opacity:0; transition:opacity .6s ease;
 }
-.dark .glass-hero-panel::before{
-  background: linear-gradient(155deg, rgba(16,20,13,.6), rgba(16,20,13,.52) 45%, rgba(16,20,13,.42));
-  -webkit-backdrop-filter: blur(28px) saturate(150%);
-  backdrop-filter: blur(28px) saturate(150%);
+.glass-hero-panel__blur--day{ background-image:url('hero-day.jpg'); opacity:1; }
+.glass-hero-panel__blur--night{ background-image:url('hero-night.jpg'); }
+.dark .glass-hero-panel__blur--day{ opacity:0; }
+.dark .glass-hero-panel__blur--night{ opacity:1; }
+.glass-hero-panel__tint{
+  position:absolute; z-index:-1; inset:0;
+  background: linear-gradient(155deg, rgba(255,255,255,.8), rgba(255,255,255,.58) 45%, rgba(255,255,255,.46));
 }
-/* mobile Safari renders the same values noticeably more see-through
-   than desktop (weaker backdrop-filter support), so desktop dials
-   back to the lighter, glassier look — and a lighter blur — that
-   already read well there */
+.dark .glass-hero-panel__tint{
+  background: linear-gradient(155deg, rgba(16,20,13,.58), rgba(16,20,13,.48) 45%, rgba(16,20,13,.4));
+}
 @media (min-width:640px){
-  .glass-hero-panel::before{
-    background: linear-gradient(155deg, rgba(255,255,255,.82), rgba(255,255,255,.5) 45%, rgba(255,255,255,.34));
-    -webkit-backdrop-filter: blur(6px) saturate(130%);
-    backdrop-filter: blur(6px) saturate(130%);
+  .glass-hero-panel__tint{
+    background: linear-gradient(155deg, rgba(255,255,255,.72), rgba(255,255,255,.46) 45%, rgba(255,255,255,.32));
   }
-  .dark .glass-hero-panel::before{
-    background: linear-gradient(155deg, rgba(16,20,13,.46), rgba(16,20,13,.36) 45%, rgba(16,20,13,.26));
-    -webkit-backdrop-filter: blur(22px) saturate(150%);
-    backdrop-filter: blur(22px) saturate(150%);
+  .dark .glass-hero-panel__tint{
+    background: linear-gradient(155deg, rgba(16,20,13,.5), rgba(16,20,13,.4) 45%, rgba(16,20,13,.3));
   }
 }
 .dark .glass-hero-panel{
@@ -1830,6 +1827,9 @@ button:focus-visible, a:focus-visible{ outline-color: rgb(var(--accent-a)); }
   <div class="hero-scrim" aria-hidden="true"></div>
   <canvas id="heroCanvas" aria-hidden="true"></canvas>
   <div class="relative max-w-2xl mx-auto glass-hero-panel">
+    <div class="glass-hero-panel__blur glass-hero-panel__blur--day" aria-hidden="true"></div>
+    <div class="glass-hero-panel__blur glass-hero-panel__blur--night" aria-hidden="true"></div>
+    <div class="glass-hero-panel__tint" aria-hidden="true"></div>
     <p class="font-sans hero-in d1 text-[11px] sm:text-xs tracking-[0.22em] uppercase text-taupe font-semibold mb-5 sm:mb-6" data-en="A Global Communion · Est. 52 CE" data-ml="ഒരു ആഗോള കൂട്ടായ്മ · സ്ഥാ. ക്രി.വ. 52">A Global Communion &middot; Est. 52 CE</p>
     <h1 class="hero-in d2 font-serif font-normal text-[42px] leading-[1.08] sm:text-6xl md:text-7xl lg:text-[80px] tracking-tight text-ink dark:text-ivory mb-5 sm:mb-7" data-en-html="The Church,<br><em class=&quot;italic text-sage-dark dark:text-sage&quot;>mapped</em>." data-ml-html="പരിശുദ്ധ സഭ,<br><em class=&quot;italic text-sage-dark dark:text-sage&quot;>ഭൂപടത്തിൽ</em>">The Church,<br><em class="italic text-sage-dark dark:text-sage">mapped</em>.</h1>
     <p class="hero-in d3 text-[15px] sm:text-base md:text-[17px] text-body/90 dark:text-ivory/65 max-w-lg mx-auto leading-relaxed" data-en="Under the primacy of His Holiness Baselios Marthoma Mathews III, Catholicos of the East, the institutions of the Church number in excess of 3,500 worldwide, each parish catalogued together with its recorded family count." data-ml="പൗരസ്ത്യ കാതോലിക്കാ പരിശുദ്ധ ബസേലിയോസ് മാർത്തോമ്മാ മാത്യൂസ് തൃതീയൻ ബാവായുടെ അധ്യക്ഷതയിൽ, സഭയുടെ സ്ഥാപനങ്ങൾ ലോകമെമ്പാടും 3,500-ൽ അധികമായി വ്യാപിച്ചിരിക്കുന്നു; ഓരോ ഇടവകയും അതിന്റെ രേഖപ്പെടുത്തിയ കുടുംബ എണ്ണത്തോടൊപ്പം പട്ടികപ്പെടുത്തിയിരിക്കുന്നു.">Under the primacy of His Holiness Baselios Marthoma Mathews III, Catholicos of the East, the institutions of the Church number in excess of 3,500 worldwide, each parish catalogued together with its recorded family count.</p>
