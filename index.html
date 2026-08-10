@@ -1012,8 +1012,38 @@ body{-webkit-font-smoothing:antialiased;overflow-x:hidden;max-width:100%}
   position:absolute; inset:0; background-position:center 38%; background-size:cover;
   opacity:0; transition:opacity .6s ease;
 }
-.hero-photo--day{ background-image:url('hero-day.jpg'); opacity:1; }
-.hero-photo--night{ background-image:url('hero-night.jpg'); }
+/* Day now carries a light, barely-there color grade too — a soft
+   gold glow up top and a whisper of sage in the shadows — so the
+   photo reads as intentionally graded rather than a flat, untouched
+   snapshot. Kept subtle: the point is polish, not a filter. */
+.hero-photo--day{
+  background-image:
+    radial-gradient(120% 85% at 50% -10%, rgba(186,148,80,.10), transparent 62%),
+    linear-gradient(165deg, rgba(255,255,255,.04) 0%, rgba(74,93,61,.06) 100%),
+    url('hero-day.jpg');
+  background-repeat: no-repeat, no-repeat, no-repeat;
+  background-position: center 38%, center 38%, center 38%;
+  background-size: cover, cover, cover;
+  background-blend-mode: soft-light, overlay, normal;
+  opacity:1;
+}
+/* Night no longer loads a separate (visually inconsistent) photo —
+   it's the same day photograph, graded into one uniform dark tone:
+   a noise layer for texture, a sage undertone glow up top, then a
+   charcoal gradient that pools density toward the base, all sitting
+   over a desaturated/darkened copy of the source image. */
+.hero-photo--night{
+  background-image:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.82' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E"),
+    radial-gradient(130% 90% at 50% -10%, rgba(107,130,89,.22), transparent 60%),
+    linear-gradient(165deg, rgba(20,26,21,.35) 0%, rgba(13,17,14,.72) 55%, rgba(10,13,11,.92) 100%),
+    url('hero-day.jpg');
+  background-repeat: repeat, no-repeat, no-repeat, no-repeat;
+  background-position: 0 0, center 38%, center 38%, center 38%;
+  background-size: 140px 140px, cover, cover, cover;
+  background-blend-mode: overlay, soft-light, multiply, normal;
+  filter: brightness(.6) contrast(1.1) saturate(.8);
+}
 .dark .hero-photo--day{ opacity:0; }
 .dark .hero-photo--night{ opacity:1; }
 .hero-scrim{
@@ -1402,8 +1432,26 @@ button:focus-visible, a:focus-visible{ outline-color: rgb(var(--accent-a)); }
   filter: blur(5px); transform: scale(1.1);
   opacity:0; transition:opacity .6s ease;
 }
-.glass-hero-panel__blur--day{ background-image:url('hero-day.jpg'); opacity:1; }
-.glass-hero-panel__blur--night{ background-image:url('hero-night.jpg'); }
+/* Matches .hero-photo--day's grade so the glass panel reads as one
+   continuous surface with the photo behind it, not a re-crop. */
+.glass-hero-panel__blur--day{
+  background-image:
+    radial-gradient(120% 85% at 50% -10%, rgba(186,148,80,.10), transparent 62%),
+    linear-gradient(165deg, rgba(255,255,255,.04) 0%, rgba(74,93,61,.06) 100%),
+    url('hero-day.jpg');
+  background-blend-mode: soft-light, overlay, normal;
+  opacity:1;
+}
+/* Same source photo as day, graded dark to match .hero-photo--night —
+   no separate night image, so panel and backdrop always agree. */
+.glass-hero-panel__blur--night{
+  background-image:
+    radial-gradient(130% 90% at 50% -10%, rgba(107,130,89,.22), transparent 60%),
+    linear-gradient(165deg, rgba(20,26,21,.35) 0%, rgba(13,17,14,.72) 55%, rgba(10,13,11,.92) 100%),
+    url('hero-day.jpg');
+  background-blend-mode: soft-light, multiply, normal;
+  filter: blur(5px) brightness(.6) contrast(1.1) saturate(.8);
+}
 .dark .glass-hero-panel__blur--day{ opacity:0; }
 .dark .glass-hero-panel__blur--night{ opacity:1; }
 .glass-hero-panel__tint{
