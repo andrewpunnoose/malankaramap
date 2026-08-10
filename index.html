@@ -1399,15 +1399,8 @@ button:focus-visible, a:focus-visible{ outline-color: rgb(var(--accent-a)); }
 .glass-hero-panel__blur{
   position:absolute; z-index:-2; inset:-30px;
   background-position:center 38%; background-size:cover;
-  filter: blur(12px); transform: scale(1.1);
+  filter: blur(5px); transform: scale(1.1);
   opacity:0; transition:opacity .6s ease;
-}
-/* On narrow viewports the panel itself is much smaller, so a 12px
-   blur reads visually stronger than the same 12px does on a wide
-   desktop panel. Dial it back further just on small screens so the
-   two look like the same amount of blur. */
-@media (max-width: 640px){
-  .glass-hero-panel__blur{ filter: blur(5px); }
 }
 .glass-hero-panel__blur--day{ background-image:url('hero-day.jpg'); opacity:1; }
 .glass-hero-panel__blur--night{ background-image:url('hero-night.jpg'); }
@@ -1427,10 +1420,10 @@ button:focus-visible, a:focus-visible{ outline-color: rgb(var(--accent-a)); }
    flat tint already covers the top. */
 @media (min-width:640px){
   .glass-hero-panel__tint{
-    background: linear-gradient(to bottom, rgba(255,255,255,.68), rgba(255,255,255,.84));
+    background: linear-gradient(to bottom, rgba(255,255,255,.48), rgba(255,255,255,.66));
   }
   .dark .glass-hero-panel__tint{
-    background: linear-gradient(to bottom, rgba(16,20,13,.6), rgba(16,20,13,.76));
+    background: linear-gradient(to bottom, rgba(16,20,13,.42), rgba(16,20,13,.58));
   }
 }
 .dark .glass-hero-panel{
