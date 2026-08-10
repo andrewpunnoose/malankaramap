@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script>
+  (function(){
+    var saved = localStorage.getItem('malankara-theme');
+    if(saved === 'dark'){ document.documentElement.classList.add('dark'); }
+  })();
+</script>
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<title>404 — Not Found | Malankara Map</title>
+<meta name="description" content="This address does not correspond to any recorded page.">
+<meta name="robots" content="noindex">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Marcellus&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+<style>
+  :root{
+    --ivory:#F7F5EE;
+    --midnight:#10140D;
+    --ink:#10140D;
+    --sage:#6B8259;
+    --sage-dark:#4A5D3D;
+    --taupe:#7C6A4A;
+    --line:#DBE1D2;
+    --thread:#BA9450;
+    --glass-fill: linear-gradient(155deg, rgba(255,255,255,.72), rgba(255,255,255,.42) 45%, rgba(255,255,255,.28));
+    --glass-border: rgba(255,255,255,.55);
+  }
+  html.dark{
+    --glass-fill: linear-gradient(155deg, rgba(255,255,255,.08), rgba(255,255,255,.03) 45%, rgba(255,255,255,.015));
+    --glass-border: rgba(255,255,255,.09);
+  }
+  *{ box-sizing:border-box; margin:0; padding:0; }
+  html,body{ height:100%; }
+  body{
+    background:var(--ivory);
+    color:var(--ink);
+    font-family:"Inter",system-ui,sans-serif;
+    -webkit-font-smoothing:antialiased;
+    min-height:100vh;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    padding:1.75rem;
+    transition:background .3s ease,color .3s ease;
+  }
+  html.dark body{ background:var(--midnight); color:var(--ivory); }
+
+  .card{
+    position:relative;
+    max-width:34rem;
+    width:100%;
+    text-align:center;
+    padding:3.25rem 2rem 3rem;
+    border-radius:28px;
+    border:1px solid var(--glass-border);
+    background:var(--glass-fill);
+    -webkit-backdrop-filter: blur(14px) saturate(130%);
+    backdrop-filter: blur(14px) saturate(130%);
+    box-shadow:0 30px 60px -30px rgba(16,20,13,.25), 0 1px 1px rgba(255,255,255,.4) inset;
+  }
+  html.dark .card{
+    box-shadow:0 30px 60px -30px rgba(0,0,0,.6), 0 1px 0 rgba(255,255,255,.04) inset;
+  }
+
+  .kicker{
+    font-size:11px;
+    letter-spacing:.22em;
+    text-transform:uppercase;
+    font-weight:600;
+    color:var(--taupe);
+    margin-bottom:1.5rem;
+  }
+  html.dark .kicker{ color:rgba(247,245,238,.55); }
+
+  .num{
+    font-family:"Marcellus",Georgia,serif;
+    font-size:clamp(64px,14vw,96px);
+    line-height:1;
+    letter-spacing:-.02em;
+    margin-bottom:.5rem;
+  }
+
+  .thread{
+    width:56px;
+    height:1px;
+    margin:1.5rem auto 1.5rem;
+    background:linear-gradient(90deg, transparent, var(--thread) 50%, transparent);
+    opacity:.6;
+  }
+
+  h1{
+    font-family:"Marcellus",Georgia,serif;
+    font-style:italic;
+    font-weight:400;
+    font-size:clamp(20px,3.6vw,26px);
+    margin-bottom:1rem;
+    color:var(--sage-dark);
+  }
+  html.dark h1{ color:var(--sage); }
+
+  p{
+    font-size:15px;
+    line-height:1.75;
+    color:rgba(16,20,13,.72);
+    max-width:30rem;
+    margin:0 auto 1.75rem;
+  }
+  html.dark p{ color:rgba(247,245,238,.62); }
+
+  .cite{
+    font-size:12px;
+    font-style:italic;
+    color:rgba(16,20,13,.45);
+    margin-bottom:2rem;
+  }
+  html.dark .cite{ color:rgba(247,245,238,.4); }
+
+  a.home{
+    display:inline-flex;
+    align-items:center;
+    gap:.5rem;
+    font-family:"Inter",system-ui,sans-serif;
+    font-size:13px;
+    font-weight:600;
+    letter-spacing:.04em;
+    text-transform:uppercase;
+    color:var(--sage-dark);
+    text-decoration:none;
+    border-bottom:1px solid var(--sage);
+    padding-bottom:3px;
+    transition:opacity .2s ease;
+  }
+  html.dark a.home{ color:var(--sage); }
+  a.home:hover{ opacity:.7; }
+
+  .top-brand{
+    position:fixed;
+    top:0; left:0; right:0;
+    display:flex;
+    justify-content:center;
+    padding:1.5rem 1.5rem 0;
+  }
+  .top-brand a{
+    display:inline-flex;
+    align-items:center;
+    gap:.6rem;
+    color:var(--sage-dark);
+    text-decoration:none;
+  }
+  html.dark .top-brand a{ color:var(--sage); }
+  .top-brand span{
+    font-family:"Marcellus",Georgia,serif;
+    font-size:15px;
+    letter-spacing:.02em;
+    color:var(--ink);
+  }
+  html.dark .top-brand span{ color:var(--ivory); }
+</style>
+</head>
+<body>
+
+  <div class="top-brand">
+    <a href="/" aria-label="Malankara Map — home">
+      <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="9"/><path d="M12 3v18M3 12h18M5.5 6.5a10 10 0 0 0 13 0M5.5 17.5a10 10 0 0 1 13 0"/></svg>
+      <span>Malankara Map</span>
+    </a>
+  </div>
+
+  <div class="card">
+    <div class="kicker">Malankara Map &middot; Est. 52 CE</div>
+    <div class="num">404</div>
+    <div class="thread"></div>
+    <h1>No Entry Found in the Record</h1>
+    <p>
+      The address you have followed does not correspond to any parish,
+      page, or entry catalogued in this directory. It may have been
+      renamed, relocated, or perhaps never recorded at all.
+    </p>
+    <div class="cite">&mdash; Every entry in this archive is verified before it is added.</div>
+    <a class="home" href="/">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11.5 12 4l9 7.5"/><path d="M5 10v10h14V10"/></svg>
+      Return to the Map
+    </a>
+  </div>
+
+
+</body>
+</html>
