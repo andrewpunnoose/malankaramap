@@ -2025,12 +2025,14 @@ button:focus-visible, a:focus-visible{ outline-color: rgb(var(--accent-a)); }
     showStatus._t = setTimeout(function(){ status.classList.add('hidden'); }, 5000);
   }
 
+  function t(en, ml){ return (window.currentSiteLang && window.currentSiteLang() === 'ml') ? ml : en; }
+
   btn.addEventListener('click', function(){
     if(!('geolocation' in navigator)){
-      showStatus('Your browser doesn\u2019t support location access.');
+      showStatus(t('Your browser doesn\u2019t support location access.', 'നിങ്ങളുടെ ബ്രൗസർ ലൊക്കേഷൻ ആക്സസ് പിന്തുണയ്ക്കുന്നില്ല.'));
       return;
     }
-    label.textContent = 'Locating\u2026';
+    label.textContent = t('Locating\u2026', 'കണ്ടെത്തുന്നു\u2026');
     icon.classList.add('animate-pulse');
     btn.disabled = true;
 
@@ -2039,18 +2041,18 @@ button:focus-visible, a:focus-visible{ outline-color: rgb(var(--accent-a)); }
       var lng = pos.coords.longitude;
       showLoader();
       frame.src = baseSrc + '&ll=' + lat + ',' + lng + '&z=12';
-      label.textContent = 'Locate Me';
+      label.textContent = t('Locate Me', 'എന്നെ കണ്ടെത്തുക');
       icon.classList.remove('animate-pulse');
       btn.disabled = false;
-      showStatus('Centered the map on your current location.');
+      showStatus(t('Centered the map on your current location.', 'ഭൂപടം നിങ്ങളുടെ നിലവിലെ സ്ഥലത്തേക്ക് കേന്ദ്രീകരിച്ചു.'));
     }, function(err){
-      label.textContent = 'Locate Me';
+      label.textContent = t('Locate Me', 'എന്നെ കണ്ടെത്തുക');
       icon.classList.remove('animate-pulse');
       btn.disabled = false;
       if(err.code === err.PERMISSION_DENIED){
-        showStatus('Location access was denied \u2014 enable it in your browser settings to use this.');
+        showStatus(t('Location access was denied \u2014 enable it in your browser settings to use this.', 'ലൊക്കേഷൻ ആക്സസ് നിരസിക്കപ്പെട്ടു \u2014 ഇത് ഉപയോഗിക്കാൻ നിങ്ങളുടെ ബ്രൗസർ ക്രമീകരണങ്ങളിൽ അനുവദിക്കുക.'));
       } else {
-        showStatus('Couldn\u2019t get your location. Please try again.');
+        showStatus(t('Couldn\u2019t get your location. Please try again.', 'നിങ്ങളുടെ ലൊക്കേഷൻ ലഭിച്ചില്ല. വീണ്ടും ശ്രമിക്കുക.'));
       }
     }, { enableHighAccuracy: true, timeout: 10000 });
   });
@@ -2178,7 +2180,7 @@ button:focus-visible, a:focus-visible{ outline-color: rgb(var(--accent-a)); }
     } else {
       var el = document.createElement('p');
       el.className = 'text-[14.5px] text-body/50 dark:text-ivory/40 italic leading-[1.8]';
-      el.textContent = 'No written history has yet been recorded for this entry \u2014 yet it retains its own pin upon the map, and its own place within the Church.';
+      el.textContent = (window.currentSiteLang && window.currentSiteLang() === 'ml') ? 'ഈ കുറിപ്പിനായി ഇതുവരെ രേഖാമൂലമുള്ള ചരിത്രം രേഖപ്പെടുത്തിയിട്ടില്ല \u2014 എങ്കിലും ഭൂപടത്തിൽ ഇതിന് സ്വന്തമായ അടയാളവും സഭയ്ക്കുള്ളിൽ അതിന്റെ സ്വന്തം സ്ഥാനവുമുണ്ട്.' : 'No written history has yet been recorded for this entry \u2014 yet it retains its own pin upon the map, and its own place within the Church.';
       wrap.appendChild(el);
     }
     intro.classList.add('hidden');
@@ -2198,7 +2200,8 @@ button:focus-visible, a:focus-visible{ outline-color: rgb(var(--accent-a)); }
     if(loading) return;
     loading = true;
     btn.disabled = true;
-    btn.textContent = 'Finding one\u2026';
+    var tSurprise = function(en, ml){ return (window.currentSiteLang && window.currentSiteLang() === 'ml') ? ml : en; };
+    btn.textContent = tSurprise('Finding one\u2026', 'കണ്ടെത്തുന്നു\u2026');
     // malankara.json is the user-maintained export of the parish KML.
     // Only entries with a real, substantial write-up (10+ words in the
     // description) are eligible for "Surprise Me" — short or blank
@@ -2209,13 +2212,13 @@ button:focus-visible, a:focus-visible{ outline-color: rgb(var(--accent-a)); }
       loading = false;
       if(!churches.length){
         btn.disabled = false;
-        btn.textContent = 'None Available';
+        btn.textContent = tSurprise('None Available', 'ലഭ്യമല്ല');
         return;
       }
       render();
     }).catch(function(){
       btn.disabled = false;
-      btn.textContent = 'Try Again';
+      btn.textContent = tSurprise('Try Again', 'വീണ്ടും ശ്രമിക്കുക');
       loading = false;
     });
   }
@@ -2881,11 +2884,13 @@ button:focus-visible, a:focus-visible{ outline-color: rgb(var(--accent-a)); }
     return R * 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
   }
 
+  function tNear(en, ml){ return (window.currentSiteLang && window.currentSiteLang() === 'ml') ? ml : en; }
+
   function renderResults(list, place){
     results.innerHTML = '';
     var header = document.createElement('p');
     header.className = 'font-serif italic text-sm text-body/60 dark:text-ivory/50 mb-2';
-    header.textContent = 'Closest to ' + place + ':';
+    header.textContent = tNear('Closest to ' + place + ':', place + '-നോട് ഏറ്റവും അടുത്തുള്ളവ:');
     results.appendChild(header);
     list.forEach(function(item, i){
       var row = document.createElement('div');
@@ -2901,7 +2906,7 @@ button:focus-visible, a:focus-visible{ outline-color: rgb(var(--accent-a)); }
   }
 
   function searchFromCoords(lat, lon, label){
-    status.textContent = 'Searching 3,536 locations\u2026';
+    status.textContent = tNear('Searching 3,536 locations\u2026', '3,536 സ്ഥലങ്ങൾ തിരയുന്നു\u2026');
     results.classList.add('hidden');
     return loadData().then(function(data){
       data.forEach(function(d){ d.distKm = haversineKm(lat, lon, d.lat, d.lng); });
@@ -2909,7 +2914,7 @@ button:focus-visible, a:focus-visible{ outline-color: rgb(var(--accent-a)); }
       renderResults(data.slice(0,5), label);
       status.textContent = '\u00a0';
     }).catch(function(){
-      status.textContent = 'Something went wrong \u2014 please try again.';
+      status.textContent = tNear('Something went wrong \u2014 please try again.', 'എന്തോ പിഴവ് സംഭവിച്ചു \u2014 വീണ്ടും ശ്രമിക്കുക.');
     });
   }
 
@@ -2919,14 +2924,14 @@ button:focus-visible, a:focus-visible{ outline-color: rgb(var(--accent-a)); }
     if (!q) return;
     btn.disabled = true;
     locBtn.disabled = true;
-    status.textContent = 'Locating "' + q + '"\u2026';
+    status.textContent = tNear('Locating "' + q + '"\u2026', '"' + q + '" കണ്ടെത്തുന്നു\u2026');
     results.classList.add('hidden');
 
     fetch('https://nominatim.openstreetmap.org/search?format=json&limit=1&q=' + encodeURIComponent(q))
       .then(function(r){ return r.json(); })
       .then(function(geo){
         if (!geo || !geo.length){
-          status.textContent = 'Couldn\u2019t find that place \u2014 try being more specific.';
+          status.textContent = tNear('Couldn\u2019t find that place \u2014 try being more specific.', 'ആ സ്ഥലം കണ്ടെത്താനായില്ല \u2014 കൂടുതൽ വ്യക്തമായി വീണ്ടും ശ്രമിക്കുക.');
           return;
         }
         var lat = parseFloat(geo[0].lat), lon = parseFloat(geo[0].lon);
@@ -2934,7 +2939,7 @@ button:focus-visible, a:focus-visible{ outline-color: rgb(var(--accent-a)); }
         return searchFromCoords(lat, lon, label);
       })
       .catch(function(){
-        status.textContent = 'Something went wrong \u2014 please try again.';
+        status.textContent = tNear('Something went wrong \u2014 please try again.', 'എന്തോ പിഴവ് സംഭവിച്ചു \u2014 വീണ്ടും ശ്രമിക്കുക.');
       })
       .then(function(){
         btn.disabled = false;
@@ -2944,16 +2949,16 @@ button:focus-visible, a:focus-visible{ outline-color: rgb(var(--accent-a)); }
 
   locBtn.addEventListener('click', function(){
     if(!('geolocation' in navigator)){
-      status.textContent = 'Your browser doesn\u2019t support location access.';
+      status.textContent = tNear('Your browser doesn\u2019t support location access.', 'നിങ്ങളുടെ ബ്രൗസർ ലൊക്കേഷൻ ആക്സസ് പിന്തുണയ്ക്കുന്നില്ല.');
       return;
     }
     btn.disabled = true;
     locBtn.disabled = true;
-    status.textContent = 'Getting your location\u2026';
+    status.textContent = tNear('Getting your location\u2026', 'നിങ്ങളുടെ ലൊക്കേഷൻ ലഭ്യമാക്കുന്നു\u2026');
     results.classList.add('hidden');
 
     navigator.geolocation.getCurrentPosition(function(pos){
-      searchFromCoords(pos.coords.latitude, pos.coords.longitude, 'you').then(function(){
+      searchFromCoords(pos.coords.latitude, pos.coords.longitude, tNear('you', 'നിങ്ങൾ')).then(function(){
         btn.disabled = false;
         locBtn.disabled = false;
       });
@@ -2961,9 +2966,9 @@ button:focus-visible, a:focus-visible{ outline-color: rgb(var(--accent-a)); }
       btn.disabled = false;
       locBtn.disabled = false;
       if(err.code === err.PERMISSION_DENIED){
-        status.textContent = 'Location access was denied \u2014 enable it in your browser settings to use this.';
+        status.textContent = tNear('Location access was denied \u2014 enable it in your browser settings to use this.', 'ലൊക്കേഷൻ ആക്സസ് നിരസിക്കപ്പെട്ടു \u2014 ഇത് ഉപയോഗിക്കാൻ നിങ്ങളുടെ ബ്രൗസർ ക്രമീകരണങ്ങളിൽ അനുവദിക്കുക.');
       } else {
-        status.textContent = 'Couldn\u2019t get your location. Please try again.';
+        status.textContent = tNear('Couldn\u2019t get your location. Please try again.', 'നിങ്ങളുടെ ലൊക്കേഷൻ ലഭിച്ചില്ല. വീണ്ടും ശ്രമിക്കുക.');
       }
     }, { enableHighAccuracy: true, timeout: 10000 });
   });
