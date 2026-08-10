@@ -1420,6 +1420,19 @@ button:focus-visible, a:focus-visible{ outline-color: rgb(var(--accent-a)); }
 .dark .glass-hero-panel__tint{
   background: rgba(16,20,13,.5);
 }
+/* The panel gets extra padding (and so extra height) at this
+   breakpoint, which makes background-size:cover reveal more of the
+   photo vertically -- including a darker lower section. Fade the
+   tint whiter toward the bottom here to cover it the same way the
+   flat tint already covers the top. */
+@media (min-width:640px){
+  .glass-hero-panel__tint{
+    background: linear-gradient(to bottom, rgba(255,255,255,.55), rgba(255,255,255,.72));
+  }
+  .dark .glass-hero-panel__tint{
+    background: linear-gradient(to bottom, rgba(16,20,13,.5), rgba(16,20,13,.64));
+  }
+}
 .dark .glass-hero-panel{
   box-shadow: 0 30px 60px -30px rgba(0,0,0,.7), 0 1px 0 rgba(255,255,255,.05) inset;
 }
