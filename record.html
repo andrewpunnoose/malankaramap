@@ -1795,7 +1795,7 @@ button:focus-visible, a:focus-visible{ outline-color: rgb(var(--accent-a)); }
   <div class="reveal text-center mb-8 sm:mb-10">
     <p class="text-[15px] text-body/75 dark:text-ivory/60 leading-[1.75]" data-en="Should a location be absent from the map, or listed in error — or should further parish history be available which is not yet on file — it may be reported below." data-ml="ഭൂപടത്തിൽ ഒരു സ്ഥലം കാണാതിരിക്കുകയോ, തെറ്റായി രേഖപ്പെടുത്തിയിരിക്കുകയോ ചെയ്താൽ — അല്ലെങ്കിൽ ഇതുവരെ രേഖപ്പെടുത്താത്ത കൂടുതൽ ഇടവക ചരിത്രം ലഭ്യമാണെങ്കിൽ — താഴെ അറിയിക്കാവുന്നതാണ്.">Should a location be absent from the map, or listed in error &mdash; or should further parish history be available which is not yet on file &mdash; it may be reported below.</p>
   </div>
-  <form class="reveal glass flex flex-col gap-6 rounded-[28px] px-6 py-10 sm:px-14 sm:py-16" id="reportForm">
+  <form class="reveal glass flex flex-col gap-6 px-6 py-10 sm:px-14 sm:py-16" id="reportForm" style="border-radius:28px;">
     <input type="hidden" name="access_key" value="0620a475-9e9f-4fc7-8624-4d3cdbe4c75d">
     <input type="hidden" name="subject" value="Malankara Map \u2014 Location Report">
     <input type="checkbox" name="botcheck" style="display:none;">
@@ -1815,15 +1815,32 @@ button:focus-visible, a:focus-visible{ outline-color: rgb(var(--accent-a)); }
     </div>
     <div class="flex flex-col gap-2">
       <label class="font-sans text-[10.5px] tracking-[0.1em] uppercase text-body/50 dark:text-ivory/40" data-en="Pinpoint on the Map (optional)" data-ml="ഭൂപടത്തിൽ അടയാളപ്പെടുത്തുക (ഐച്ഛികം)">Pinpoint on the Map (optional)</label>
-      <div class="relative w-full">
+      <style>
+        /* Report-map search pill. Written as plain CSS rather than
+           Tailwind utility classes: this file's stylesheet is a
+           pre-compiled, purged build, so any utility class not
+           already used elsewhere on the site (arbitrary z-index,
+           left/top offsets, arbitrary widths, etc.) silently does
+           nothing — which is why the search bar was mis-positioned
+           and the button icon was off-center before. */
+        .report-map-wrap{ position:relative; width:100%; }
+        .report-map-search{ position:absolute; right:8px; top:8px; z-index:500; display:flex; align-items:center; gap:6px; }
+        .report-map-search input{ font-family:inherit; font-size:11px; line-height:1; padding:7px 10px; border-radius:999px; border:1px solid rgba(150,158,140,.35); background:rgba(238,240,230,.92); color:#1c1c1c; outline:none; width:140px; box-shadow:0 1px 4px rgba(0,0,0,.15); }
+        html.dark .report-map-search input{ background:rgba(17,24,39,.92); color:#F7F5EE; border-color:rgba(255,255,255,.15); }
+        @media (min-width:640px){ .report-map-search input{ width:180px; } }
+        .report-map-search button{ flex-shrink:0; display:flex; align-items:center; justify-content:center; width:28px; height:28px; padding:0; border-radius:999px; border:1px solid rgba(150,158,140,.35); background:rgba(238,240,230,.92); color:rgba(60,60,60,.65); box-shadow:0 1px 4px rgba(0,0,0,.15); cursor:pointer; }
+        html.dark .report-map-search button{ background:rgba(17,24,39,.92); color:rgba(247,245,238,.55); border-color:rgba(255,255,255,.15); }
+      </style>
+      <div class="report-map-wrap">
         <div id="reportMap" class="w-full rounded-2xl overflow-hidden border border-line dark:border-white/10" style="height:280px; background:rgba(150,158,140,.12);"></div>
-        <div class="absolute left-2 top-2 z-[500] flex items-center gap-1">
-          <input type="text" id="rMapSearch" placeholder="Search a place…" autocomplete="off" class="font-sans text-[11px] px-2.5 py-1.5 rounded-full border border-line dark:border-white/10 bg-ivory/90 dark:bg-midnight/90 text-ink dark:text-ivory outline-none w-[150px] sm:w-[190px] shadow-sm">
-          <button type="button" id="rMapSearchBtn" aria-label="Search" class="shrink-0 grid place-items-center w-7 h-7 rounded-full border border-line dark:border-white/10 bg-ivory/90 dark:bg-midnight/90 text-body/60 dark:text-ivory/50 shadow-sm">
+        <div class="report-map-search">
+          <input type="text" id="rMapSearch" placeholder="Search a place…" autocomplete="off">
+          <button type="button" id="rMapSearchBtn" aria-label="Search">
             <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"></circle><path d="m21 21-4.3-4.3"></path></svg>
           </button>
         </div>
       </div>
+
       <p class="font-sans text-[10px] leading-relaxed text-body/50 dark:text-ivory/40" id="reportMapHint" data-en="Zoom in on the satellite view and click the exact spot — we'll attach a Google Maps link to your report." data-ml="സാറ്റലൈറ്റ് കാഴ്ചയിൽ സൂം ചെയ്ത് കൃത്യമായ സ്ഥലത്ത് ക്ലിക്ക് ചെയ്യുക — ഞങ്ങൾ ഒരു Google Maps ലിങ്ക് നിങ്ങളുടെ റിപ്പോർട്ടിനൊപ്പം ചേർക്കും.">Zoom in on the satellite view and click the exact spot — we'll attach a Google Maps link to your report.</p>
       <p class="font-sans text-[12px] font-medium text-sage-dark dark:text-sage hidden" id="rCoordDisplay"></p>
       <input type="hidden" id="rCoordinates" name="map_link" value="">
