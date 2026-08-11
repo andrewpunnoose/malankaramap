@@ -25,6 +25,7 @@
   .record-modal-overlay.is-open .record-modal-backdrop{ opacity:1; }
   .record-modal-panel{
     position:relative;
+    isolation:isolate;
     width:100%;
     max-width:600px;
     max-height:min(88vh, 900px);
@@ -32,15 +33,26 @@
     flex-direction:column;
     border-radius:28px;
     border:1px solid var(--glass-border);
-    background:rgba(255,255,255,.16);
-    -webkit-backdrop-filter:blur(10px) saturate(140%);
-    backdrop-filter:blur(10px) saturate(140%);
     box-shadow:0 30px 80px rgba(17,24,39,.28), inset 0 1px 0 rgba(255,255,255,.45);
     transform:scale(.94) translateY(14px);
     opacity:0;
     transition:transform .45s cubic-bezier(.16,.8,.24,1), opacity .35s ease;
   }
-  html.dark .record-modal-panel{ background:rgba(17,24,39,.22); }
+  /* Blur/tint lives on its own layer behind the content, the same fix used on
+     .glass-hero-panel: isolating the backdrop-filter here (instead of putting
+     it directly on the panel, which also animates transform/opacity) is what
+     stops iOS Safari from dropping the filter mid-scroll and flashing the
+     panel fully opaque. */
+  .record-modal-panel::before{
+    content:'';
+    position:absolute; inset:0; z-index:-1; border-radius:inherit;
+    background:rgba(255,255,255,.16);
+    -webkit-backdrop-filter:blur(10px) saturate(140%);
+    backdrop-filter:blur(10px) saturate(140%);
+    -webkit-transform:translateZ(0);
+    transform:translateZ(0);
+  }
+  html.dark .record-modal-panel::before{ background:rgba(17,24,39,.22); }
   html.dark .record-modal-panel{
     box-shadow:0 30px 80px rgba(0,0,0,.55), inset 0 1px 0 rgba(255,255,255,.06);
   }
