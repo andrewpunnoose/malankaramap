@@ -652,8 +652,13 @@ c-43 0 -81 -2 -84 -5 -3 -3 0 -23 6 -45 l10 -40 73 0 73 0 0 -50 c0 -51 0 -51
   </div>
 </header>
 <div id="cmdOverlay" class="hidden fixed inset-0 z-[100] flex items-start justify-center px-4 pt-24 sm:pt-32"><div id="cmdBackdrop" class="absolute inset-0 cmd-backdrop"></div><div class="relative w-full max-w-lg cmd-panel bg-ivory dark:bg-midnight border border-line dark:border-white/10 rounded-2xl shadow-large overflow-hidden"><div class="flex items-center gap-3 px-5 py-4 border-b border-line dark:border-white/10"><svg class="w-4 h-4 text-taupe shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg> <input id="cmdInput" autocomplete="off" placeholder="Jump to a diocese, nation, or institution&hellip;" class="flex-1 bg-transparent font-sans text-sm text-ink dark:text-ivory placeholder:text-muted outline-none"> <button id="cmdClose" class="font-sans text-[10px] tracking-wide border border-line dark:border-white/20 rounded px-1.5 py-0.5 text-muted shrink-0">ESC</button></div><div id="cmdResults" class="max-h-80 overflow-y-auto py-2 font-sans text-sm"></div><div id="cmdEmpty" class="hidden px-5 py-8 text-center text-sm text-muted font-sans">No matches. Try a different diocese, nation, or type.</div></div></div><script>!function(){var t="site-lang",e=document.getElementById("langToggle"),a=document.getElementById("langToggleLabel");if(e&&a){window.currentSiteLang=function(){return"ml"===document.documentElement.getAttribute("lang")?"ml":"en"},window.formatEraLabel=function(t,e){var a=parseInt(t,10);return a<0?"ml"===e?"ക്രി.മു. "+Math.abs(a):Math.abs(a)+" BCE":"ml"===e?"ക്രി.വ. "+a:a+" CE"};var l=null;try{l=localStorage.getItem(t)}catch(t){}var n="ml"===l?"ml":"en";o(n),"loading"===document.readyState&&document.addEventListener("DOMContentLoaded",function(){o(n)}),window.addEventListener("load",function(){o(n)}),e.addEventListener("click",function(){n="ml"===document.documentElement.getAttribute("lang")?"en":"ml";try{localStorage.setItem(t,n)}catch(t){}o(n)})}function o(t){document.documentElement.setAttribute("lang","ml"===t?"ml":"en"),document.querySelectorAll("[data-en][data-ml]").forEach(function(e){e.textContent="ml"===t?e.getAttribute("data-ml"):e.getAttribute("data-en"),e.style.fontFamily="ml"===t?"'Noto Serif Malayalam', serif":""}),document.querySelectorAll("[data-en-html][data-ml-html]").forEach(function(e){e.innerHTML="ml"===t?e.getAttribute("data-ml-html"):e.getAttribute("data-en-html"),e.style.fontFamily="ml"===t?"'Noto Serif Malayalam', serif":""}),document.querySelectorAll("[data-en-placeholder][data-ml-placeholder]").forEach(function(e){e.setAttribute("placeholder","ml"===t?e.getAttribute("data-ml-placeholder"):e.getAttribute("data-en-placeholder"))}),document.querySelectorAll(".tl-year[data-tl-year]").forEach(function(e){e.textContent=window.formatEraLabel(e.getAttribute("data-tl-year"),t)}),"ml"===t?(a.textContent="മ",a.style.fontFamily="'Noto Serif Malayalam', serif",a.className="text-[15px]",e.setAttribute("aria-label","Switch to English"),e.setAttribute("title","Switch to English")):(a.textContent="Aa",a.style.fontFamily="",a.className="font-serif text-[15px] font-normal",e.setAttribute("aria-label","Switch to Malayalam"),e.setAttribute("title","Switch to Malayalam"))}}()</script><script>!function(){var e=document.getElementById("themeToggle");if(e){var t=e.querySelector(".icon-sun"),n=e.querySelector(".icon-moon");c(),e.addEventListener("click",function(){var e=document.documentElement.classList.toggle("dark");localStorage.setItem("malankara-theme",e?"dark":"light"),c()});var a=document.getElementById("mobileMenuBtn"),l=document.getElementById("mobileMenu");a&&l&&(a.addEventListener("click",function(){l.classList.toggle("hidden")}),l.querySelectorAll("a").forEach(function(e){e.addEventListener("click",function(){l.classList.add("hidden")})}))}function c(){var e=document.documentElement.classList.contains("dark");t.classList.toggle("hidden",e),n.classList.toggle("hidden",!e)}}(),function(){var e=document.getElementById("bgMusic"),t=document.getElementById("musicToggle");if(e&&t){var n=t.querySelector(".icon-sound-on"),a=t.querySelector(".icon-sound-off");e.addEventListener("play",c),e.addEventListener("pause",c),c();var l=null;t.addEventListener("click",function(t){t.stopPropagation(),e.paused?(e.volume=0,e.play(),function(){if(!l){var t=e.volume||0,n=.5/420;l=setInterval(function(){(t+=n)>=.5&&(t=.5,clearInterval(l),l=null),e.volume=t},100)}}()):(l&&(clearInterval(l),l=null),e.pause())})}function c(){var l=!e.paused;n.classList.toggle("hidden",!l),a.classList.toggle("hidden",l),t.setAttribute("aria-label",l?"Pause background music":"Play background music"),t.setAttribute("title",l?"Pause background music":"Play background music")}}()</script><script>!function(){var e=document.getElementById("cmdOverlay"),t=document.getElementById("cmdInput"),n=document.getElementById("cmdResults"),c=document.getElementById("cmdEmpty"),a=document.getElementById("cmdClose"),o=document.getElementById("cmdBackdrop"),r=[document.getElementById("searchToggle"),document.getElementById("searchToggleMobile"),document.getElementById("searchToggleMenuItem")];if(e&&t){var d=[];document.querySelectorAll("header nav > div.relative.group").forEach(function(e){var t=e.querySelector(":scope > a"),n=t?t.textContent.replace(/\s+/g," ").trim():"";e.querySelectorAll(".megapanel a[href]").forEach(function(e){var t=(e.querySelector(".truncate")||e).textContent.replace(/\s+/g," ").trim();t&&d.push({name:t,tag:n,href:e.getAttribute("href")})})});var l=-1,i=[];r.forEach(function(e){e&&e.addEventListener("click",function(e){e.preventDefault(),m()})}),a.addEventListener("click",f),o.addEventListener("click",f),t.addEventListener("input",u),document.addEventListener("keydown",function(t){if((t.metaKey||t.ctrlKey)&&"k"===t.key.toLowerCase())return t.preventDefault(),void(e.classList.contains("hidden")?m():f());e.classList.contains("hidden")||("Escape"===t.key?f():"ArrowDown"===t.key?(t.preventDefault(),l=Math.min(l+1,i.length-1),s(i)):"ArrowUp"===t.key?(t.preventDefault(),l=Math.max(l-1,0),s(i)):"Enter"===t.key&&l>=0&&i[l]&&(window.location.href=i[l].href))})}function s(e){n.innerHTML="",e.slice(0,40).forEach(function(e,t){var c=document.createElement("a");c.href=e.href,c.className="cmd-row"+(t===l?" is-active":""),c.innerHTML='<span class="truncate">'+e.name+'</span><span class="cmd-tag">'+e.tag+"</span>",n.appendChild(c)}),c.classList.toggle("hidden",0!==e.length)}function u(){var e=t.value.trim().toLowerCase();l=-1,s(i=e?d.filter(function(t){return-1!==t.name.toLowerCase().indexOf(e)}):d)}function m(){e.classList.remove("hidden"),document.body.style.overflow="hidden",t.value="",u(),setTimeout(function(){t.focus()},10)}function f(){e.classList.add("hidden"),document.body.style.overflow=""}}()</script><style>
-.director-card{display:flex;flex-direction:column}
+.director-card{display:flex;flex-direction:column;position:relative}
 .director-card__photo{display:block;width:100%;height:220px;object-fit:cover;object-position:center 22%}
+.verified-badge{position:absolute;top:10px;right:10px;z-index:2;display:inline-flex;align-items:center;gap:4px;padding:4px 9px 4px 6px;border-radius:9999px;background:rgba(16,20,13,.72);-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px);border:1px solid rgba(186,148,80,.6);font-family:Inter,system-ui,sans-serif;font-size:9px;font-weight:600;letter-spacing:.05em;text-transform:uppercase;color:#f7f5ee;line-height:1;white-space:nowrap;pointer-events:none}
+.verified-badge svg{width:9px;height:9px;flex-shrink:0;color:#d9bb7c}
+.verified-badge--lg{top:14px;right:14px;padding:5px 11px 5px 8px;font-size:10.5px;gap:5px}
+.verified-badge--lg svg{width:11px;height:11px}
+.exec-grid .premium-card>.flex>div:first-child{position:relative}
 @media (min-width:640px){.director-card__photo{height:250px}}
 .director-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1.1rem}
 @media (min-width:640px){.director-grid{grid-template-columns:repeat(3,minmax(0,1fr));gap:1.35rem}}
@@ -681,7 +686,7 @@ c-43 0 -81 -2 -84 -5 -3 -3 0 -23 6 -45 l10 -40 73 0 73 0 0 -50 c0 -51 0 -51
   <div class="exec-grid">
     <div class="premium-card texture-paper rounded-[28px] border border-gold/25 shadow-medium overflow-hidden reveal">
   <div class="flex h-full flex-col sm:flex-row">
-    <div class="sm:w-[220px] shrink-0">
+    <div class="sm:w-[220px] shrink-0"><span class="verified-badge verified-badge--lg" title="Verified director"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg><span data-en="Verified" data-ml="പരിശോധിച്ചു">Verified</span></span>
       <img src="director-andrew-punnoose.jpg" alt="Andrew Punnoose" loading="lazy" class="w-full h-[240px] sm:h-full object-cover object-[center_20%]">
     </div>
     <div class="p-6 sm:p-8 flex flex-col justify-start">
@@ -697,7 +702,7 @@ c-43 0 -81 -2 -84 -5 -3 -3 0 -23 6 -45 l10 -40 73 0 73 0 0 -50 c0 -51 0 -51
 </div>
 <div class="premium-card texture-paper rounded-[28px] border border-gold/25 shadow-medium overflow-hidden reveal">
   <div class="flex h-full flex-col sm:flex-row">
-    <div class="sm:w-[220px] shrink-0">
+    <div class="sm:w-[220px] shrink-0"><span class="verified-badge verified-badge--lg" title="Verified director"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg><span data-en="Verified" data-ml="പരിശോധിച്ചു">Verified</span></span>
       <img src="director-andrew-varughese.jpg" alt="Andrew Varughese" loading="lazy" class="w-full h-[240px] sm:h-full object-cover object-[center_20%]">
     </div>
     <div class="p-6 sm:p-8 flex flex-col justify-start">
@@ -713,7 +718,7 @@ c-43 0 -81 -2 -84 -5 -3 -3 0 -23 6 -45 l10 -40 73 0 73 0 0 -50 c0 -51 0 -51
 </div>
 <div class="premium-card texture-paper rounded-[28px] border border-gold/25 shadow-medium overflow-hidden reveal">
   <div class="flex h-full flex-col sm:flex-row">
-    <div class="sm:w-[220px] shrink-0">
+    <div class="sm:w-[220px] shrink-0"><span class="verified-badge verified-badge--lg" title="Verified director"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg><span data-en="Verified" data-ml="പരിശോധിച്ചു">Verified</span></span>
       <img src="director-rinzu-rajan-mathews.jpg" alt="Rinzu Rajan Mathews" loading="lazy" class="w-full h-[240px] sm:h-full object-cover object-[center_20%]">
     </div>
     <div class="p-6 sm:p-8 flex flex-col justify-start">
@@ -729,7 +734,7 @@ c-43 0 -81 -2 -84 -5 -3 -3 0 -23 6 -45 l10 -40 73 0 73 0 0 -50 c0 -51 0 -51
 </div>
 <div class="premium-card texture-paper rounded-[28px] border border-gold/25 shadow-medium overflow-hidden reveal">
   <div class="flex h-full flex-col sm:flex-row">
-    <div class="sm:w-[220px] shrink-0">
+    <div class="sm:w-[220px] shrink-0"><span class="verified-badge verified-badge--lg" title="Verified director"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg><span data-en="Verified" data-ml="പരിശോധിച്ചു">Verified</span></span>
       <img src="director-stephan-skariah-sabu.jpg" alt="Rev. Sdn. Stephan Skariah Sabu" loading="lazy" class="w-full h-[240px] sm:h-full object-cover object-[center_20%]">
     </div>
     <div class="p-6 sm:p-8 flex flex-col justify-start">
@@ -756,7 +761,7 @@ c-43 0 -81 -2 -84 -5 -3 -3 0 -23 6 -45 l10 -40 73 0 73 0 0 -50 c0 -51 0 -51
   </div>
   <div class="director-grid">
 <div class="director-card premium-card texture-paper rounded-2xl border border-gold/20 shadow-soft overflow-hidden reveal">
-  <img src="director-anish-chacko.jpg" alt="Anish Chacko" loading="lazy" class="director-card__photo">
+  <img src="director-anish-chacko.jpg" alt="Anish Chacko" loading="lazy" class="director-card__photo"><span class="verified-badge" title="Verified director"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg><span data-en="Verified" data-ml="പരിശോധിച്ചു">Verified</span></span>
   <div class="p-4 sm:p-5">
     <div class="font-sans text-[9.5px] tracking-[0.16em] uppercase text-taupe font-semibold mb-1.5">Ahmedabad Diocesan Director</div>
     <h4 class="font-serif italic font-normal text-[16px] sm:text-[17px] text-ink dark:text-ivory mb-2.5 leading-snug">Anish Chacko</h4>
@@ -764,7 +769,7 @@ c-43 0 -81 -2 -84 -5 -3 -3 0 -23 6 -45 l10 -40 73 0 73 0 0 -50 c0 -51 0 -51
   </div>
 </div>
 <div class="director-card premium-card texture-paper rounded-2xl border border-gold/20 shadow-soft overflow-hidden reveal">
-  <img src="director-johan-josh-joy.jpg" alt="Johan Josh Joy" loading="lazy" class="director-card__photo">
+  <img src="director-johan-josh-joy.jpg" alt="Johan Josh Joy" loading="lazy" class="director-card__photo"><span class="verified-badge" title="Verified director"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg><span data-en="Verified" data-ml="പരിശോധിച്ചു">Verified</span></span>
   <div class="p-4 sm:p-5">
     <div class="font-sans text-[9.5px] tracking-[0.16em] uppercase text-taupe font-semibold mb-1.5">Asia–Pacific Diocesan Director</div>
     <h4 class="font-serif italic font-normal text-[16px] sm:text-[17px] text-ink dark:text-ivory mb-2.5 leading-snug">Johan Josh Joy</h4>
@@ -772,7 +777,7 @@ c-43 0 -81 -2 -84 -5 -3 -3 0 -23 6 -45 l10 -40 73 0 73 0 0 -50 c0 -51 0 -51
   </div>
 </div>
 <div class="director-card premium-card texture-paper rounded-2xl border border-gold/20 shadow-soft overflow-hidden reveal">
-  <img src="director-nayama-smith-joseph.jpg" alt="Nayama Smith Joseph" loading="lazy" class="director-card__photo">
+  <img src="director-nayama-smith-joseph.jpg" alt="Nayama Smith Joseph" loading="lazy" class="director-card__photo"><span class="verified-badge" title="Verified director"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg><span data-en="Verified" data-ml="പരിശോധിച്ചു">Verified</span></span>
   <div class="p-4 sm:p-5">
     <div class="font-sans text-[9.5px] tracking-[0.16em] uppercase text-taupe font-semibold mb-1.5">Bangalore Diocesan Director</div>
     <h4 class="font-serif italic font-normal text-[16px] sm:text-[17px] text-ink dark:text-ivory mb-2.5 leading-snug">Nayama Smith Joseph</h4>
@@ -780,7 +785,7 @@ c-43 0 -81 -2 -84 -5 -3 -3 0 -23 6 -45 l10 -40 73 0 73 0 0 -50 c0 -51 0 -51
   </div>
 </div>
 <div class="director-card premium-card texture-paper rounded-2xl border border-gold/20 shadow-soft overflow-hidden reveal">
-  <img src="director-allan-panicker.jpg" alt="Allan Panicker" loading="lazy" class="director-card__photo">
+  <img src="director-allan-panicker.jpg" alt="Allan Panicker" loading="lazy" class="director-card__photo"><span class="verified-badge" title="Verified director"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg><span data-en="Verified" data-ml="പരിശോധിച്ചു">Verified</span></span>
   <div class="p-4 sm:p-5">
     <div class="font-sans text-[9.5px] tracking-[0.16em] uppercase text-taupe font-semibold mb-1.5">Bombay Diocesan Director</div>
     <h4 class="font-serif italic font-normal text-[16px] sm:text-[17px] text-ink dark:text-ivory mb-2.5 leading-snug">Allan Panicker</h4>
@@ -788,7 +793,7 @@ c-43 0 -81 -2 -84 -5 -3 -3 0 -23 6 -45 l10 -40 73 0 73 0 0 -50 c0 -51 0 -51
   </div>
 </div>
 <div class="director-card premium-card texture-paper rounded-2xl border border-gold/20 shadow-soft overflow-hidden reveal">
-  <img src="director-reuben-mathew.jpg" alt="Reuben Mathew" loading="lazy" class="director-card__photo">
+  <img src="director-reuben-mathew.jpg" alt="Reuben Mathew" loading="lazy" class="director-card__photo"><span class="verified-badge" title="Verified director"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg><span data-en="Verified" data-ml="പരിശോധിച്ചു">Verified</span></span>
   <div class="p-4 sm:p-5">
     <div class="font-sans text-[9.5px] tracking-[0.16em] uppercase text-taupe font-semibold mb-1.5">Canada Diocesan Director</div>
     <h4 class="font-serif italic font-normal text-[16px] sm:text-[17px] text-ink dark:text-ivory mb-2.5 leading-snug">Reuben Mathew</h4>
@@ -796,7 +801,7 @@ c-43 0 -81 -2 -84 -5 -3 -3 0 -23 6 -45 l10 -40 73 0 73 0 0 -50 c0 -51 0 -51
   </div>
 </div>
 <div class="director-card premium-card texture-paper rounded-2xl border border-gold/20 shadow-soft overflow-hidden reveal">
-  <img src="director-rinzu-rajan-mathews.jpg" alt="Rinzu Rajan Mathews" loading="lazy" class="director-card__photo">
+  <img src="director-rinzu-rajan-mathews.jpg" alt="Rinzu Rajan Mathews" loading="lazy" class="director-card__photo"><span class="verified-badge" title="Verified director"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg><span data-en="Verified" data-ml="പരിശോധിച്ചു">Verified</span></span>
   <div class="p-4 sm:p-5">
     <div class="font-sans text-[9.5px] tracking-[0.16em] uppercase text-taupe font-semibold mb-1.5">Delhi Diocesan Director</div>
     <h4 class="font-serif italic font-normal text-[16px] sm:text-[17px] text-ink dark:text-ivory mb-2.5 leading-snug">Rinzu Rajan Mathews</h4>
@@ -804,7 +809,7 @@ c-43 0 -81 -2 -84 -5 -3 -3 0 -23 6 -45 l10 -40 73 0 73 0 0 -50 c0 -51 0 -51
   </div>
 </div>
 <div class="director-card premium-card texture-paper rounded-2xl border border-gold/20 shadow-soft overflow-hidden reveal">
-  <img src="director-mark-abraham.jpg" alt="Mark Abraham" loading="lazy" class="director-card__photo">
+  <img src="director-mark-abraham.jpg" alt="Mark Abraham" loading="lazy" class="director-card__photo"><span class="verified-badge" title="Verified director"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg><span data-en="Verified" data-ml="പരിശോധിച്ചു">Verified</span></span>
   <div class="p-4 sm:p-5">
     <div class="font-sans text-[9.5px] tracking-[0.16em] uppercase text-taupe font-semibold mb-1.5">Kottayam Diocesan Director</div>
     <h4 class="font-serif italic font-normal text-[16px] sm:text-[17px] text-ink dark:text-ivory mb-2.5 leading-snug">Mark Abraham</h4>
@@ -812,7 +817,7 @@ c-43 0 -81 -2 -84 -5 -3 -3 0 -23 6 -45 l10 -40 73 0 73 0 0 -50 c0 -51 0 -51
   </div>
 </div>
 <div class="director-card premium-card texture-paper rounded-2xl border border-gold/20 shadow-soft overflow-hidden reveal">
-  <img src="director-samuel-mathai.jpg" alt="Samuel Mathai" loading="lazy" class="director-card__photo">
+  <img src="director-samuel-mathai.jpg" alt="Samuel Mathai" loading="lazy" class="director-card__photo"><span class="verified-badge" title="Verified director"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg><span data-en="Verified" data-ml="പരിശോധിച്ചു">Verified</span></span>
   <div class="p-4 sm:p-5">
     <div class="font-sans text-[9.5px] tracking-[0.16em] uppercase text-taupe font-semibold mb-1.5">Northeast America Diocesan Director</div>
     <h4 class="font-serif italic font-normal text-[16px] sm:text-[17px] text-ink dark:text-ivory mb-2.5 leading-snug">Samuel Mathai</h4>
@@ -820,7 +825,7 @@ c-43 0 -81 -2 -84 -5 -3 -3 0 -23 6 -45 l10 -40 73 0 73 0 0 -50 c0 -51 0 -51
   </div>
 </div>
 <div class="director-card premium-card texture-paper rounded-2xl border border-gold/20 shadow-soft overflow-hidden reveal">
-  <img src="director-nathan-samuel.jpg" alt="Nathan Samuel" loading="lazy" class="director-card__photo">
+  <img src="director-nathan-samuel.jpg" alt="Nathan Samuel" loading="lazy" class="director-card__photo"><span class="verified-badge" title="Verified director"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg><span data-en="Verified" data-ml="പരിശോധിച്ചു">Verified</span></span>
   <div class="p-4 sm:p-5">
     <div class="font-sans text-[9.5px] tracking-[0.16em] uppercase text-taupe font-semibold mb-1.5">Southwest America Diocesan Director</div>
     <h4 class="font-serif italic font-normal text-[16px] sm:text-[17px] text-ink dark:text-ivory mb-2.5 leading-snug">Nathan Samuel</h4>
@@ -828,15 +833,15 @@ c-43 0 -81 -2 -84 -5 -3 -3 0 -23 6 -45 l10 -40 73 0 73 0 0 -50 c0 -51 0 -51
   </div>
 </div>
 <div class="director-card premium-card texture-paper rounded-2xl border border-gold/20 shadow-soft overflow-hidden reveal">
-  <img src="director-johan-shinu.jpg" alt="Johan Shinu" loading="lazy" class="director-card__photo">
+  <img src="director-johan-shinu.jpg" alt="Johan Shinu" loading="lazy" class="director-card__photo"><span class="verified-badge" title="Verified director"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg><span data-en="Verified" data-ml="പരിശോധിച്ചു">Verified</span></span>
   <div class="p-4 sm:p-5">
-    <div class="font-sans text-[9.5px] tracking-[0.16em] uppercase text-taupe font-semibold mb-1.5">Thiruvananthapuram Diocesan Director</div>
+    <div class="font-sans text-[9.5px] tracking-[0.16em] uppercase text-taupe font-semibold mb-1.5">Trivandrum Diocesan Director</div>
     <h4 class="font-serif italic font-normal text-[16px] sm:text-[17px] text-ink dark:text-ivory mb-2.5 leading-snug">Johan Shinu</h4>
     <div class="flex flex-col gap-0.5 font-sans text-[10.5px] text-body/55 dark:text-ivory/45 leading-[1.5]"><span><span class="text-taupe font-semibold uppercase tracking-wide text-[9.5px]">Home Parish&nbsp;</span>Ambalathinnirappu St. George Orthodox Church</span><span><span class="text-taupe font-semibold uppercase tracking-wide text-[9.5px]">Parish&nbsp;</span>Kazhakuttom St. Mary’s and St. Jude Orthodox Church</span></div>
   </div>
 </div>
 <div class="director-card premium-card texture-paper rounded-2xl border border-gold/20 shadow-soft overflow-hidden reveal">
-  <img src="director-geo-george.jpg" alt="Geo George" loading="lazy" class="director-card__photo">
+  <img src="director-geo-george.jpg" alt="Geo George" loading="lazy" class="director-card__photo"><span class="verified-badge" title="Verified director"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg><span data-en="Verified" data-ml="പരിശോധിച്ചു">Verified</span></span>
   <div class="p-4 sm:p-5">
     <div class="font-sans text-[9.5px] tracking-[0.16em] uppercase text-taupe font-semibold mb-1.5">UK–Europe–Africa Diocesan Director</div>
     <h4 class="font-serif italic font-normal text-[16px] sm:text-[17px] text-ink dark:text-ivory mb-2.5 leading-snug">Geo George</h4>
@@ -856,7 +861,7 @@ c-43 0 -81 -2 -84 -5 -3 -3 0 -23 6 -45 l10 -40 73 0 73 0 0 -50 c0 -51 0 -51
   </div>
   <div class="director-grid">
 <div class="director-card premium-card texture-paper rounded-2xl border border-gold/20 shadow-soft overflow-hidden reveal">
-  <img src="director-abraham-jacob.jpg" alt="Abraham Jacob" loading="lazy" class="director-card__photo">
+  <img src="director-abraham-jacob.jpg" alt="Abraham Jacob" loading="lazy" class="director-card__photo"><span class="verified-badge" title="Verified director"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg><span data-en="Verified" data-ml="പരിശോധിച്ചു">Verified</span></span>
   <div class="p-4 sm:p-5">
     <div class="font-sans text-[9.5px] tracking-[0.16em] uppercase text-taupe font-semibold mb-1.5">Ayoor District Director</div>
     <h4 class="font-serif italic font-normal text-[16px] sm:text-[17px] text-ink dark:text-ivory mb-2.5 leading-snug">Abraham Jacob</h4>
@@ -864,7 +869,7 @@ c-43 0 -81 -2 -84 -5 -3 -3 0 -23 6 -45 l10 -40 73 0 73 0 0 -50 c0 -51 0 -51
   </div>
 </div>
 <div class="director-card premium-card texture-paper rounded-2xl border border-gold/20 shadow-soft overflow-hidden reveal">
-  <img src="director-jerin-cherian.jpg" alt="Jerin Cherian" loading="lazy" class="director-card__photo">
+  <img src="director-jerin-cherian.jpg" alt="Jerin Cherian" loading="lazy" class="director-card__photo"><span class="verified-badge" title="Verified director"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg><span data-en="Verified" data-ml="പരിശോധിച്ചു">Verified</span></span>
   <div class="p-4 sm:p-5">
     <div class="font-sans text-[9.5px] tracking-[0.16em] uppercase text-taupe font-semibold mb-1.5">Bangalore I District Director</div>
     <h4 class="font-serif italic font-normal text-[16px] sm:text-[17px] text-ink dark:text-ivory mb-2.5 leading-snug">Jerin Cherian</h4>
@@ -872,7 +877,7 @@ c-43 0 -81 -2 -84 -5 -3 -3 0 -23 6 -45 l10 -40 73 0 73 0 0 -50 c0 -51 0 -51
   </div>
 </div>
 <div class="director-card premium-card texture-paper rounded-2xl border border-gold/20 shadow-soft overflow-hidden reveal">
-  <img src="director-stefin-satheesh.jpg" alt="Stefin Satheesh" loading="lazy" class="director-card__photo">
+  <img src="director-stefin-satheesh.jpg" alt="Stefin Satheesh" loading="lazy" class="director-card__photo"><span class="verified-badge" title="Verified director"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg><span data-en="Verified" data-ml="പരിശോധിച്ചു">Verified</span></span>
   <div class="p-4 sm:p-5">
     <div class="font-sans text-[9.5px] tracking-[0.16em] uppercase text-taupe font-semibold mb-1.5">Ireland District Director</div>
     <h4 class="font-serif italic font-normal text-[16px] sm:text-[17px] text-ink dark:text-ivory mb-2.5 leading-snug">Stefin Satheesh</h4>
@@ -880,7 +885,7 @@ c-43 0 -81 -2 -84 -5 -3 -3 0 -23 6 -45 l10 -40 73 0 73 0 0 -50 c0 -51 0 -51
   </div>
 </div>
 <div class="director-card premium-card texture-paper rounded-2xl border border-gold/20 shadow-soft overflow-hidden reveal">
-  <img src="director-jayden-gejo.jpg" alt="Jayden Gejo" loading="lazy" class="director-card__photo">
+  <img src="director-jayden-gejo.jpg" alt="Jayden Gejo" loading="lazy" class="director-card__photo"><span class="verified-badge" title="Verified director"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg><span data-en="Verified" data-ml="പരിശോധിച്ചു">Verified</span></span>
   <div class="p-4 sm:p-5">
     <div class="font-sans text-[9.5px] tracking-[0.16em] uppercase text-taupe font-semibold mb-1.5">Melbourne District Director</div>
     <h4 class="font-serif italic font-normal text-[16px] sm:text-[17px] text-ink dark:text-ivory mb-2.5 leading-snug">Jayden Gejo</h4>
@@ -888,7 +893,7 @@ c-43 0 -81 -2 -84 -5 -3 -3 0 -23 6 -45 l10 -40 73 0 73 0 0 -50 c0 -51 0 -51
   </div>
 </div>
 <div class="director-card premium-card texture-paper rounded-2xl border border-gold/20 shadow-soft overflow-hidden reveal">
-  <img src="director-levin-johnson.jpg" alt="Levin Johnson" loading="lazy" class="director-card__photo">
+  <img src="director-levin-johnson.jpg" alt="Levin Johnson" loading="lazy" class="director-card__photo"><span class="verified-badge" title="Verified director"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg><span data-en="Verified" data-ml="പരിശോധിച്ചു">Verified</span></span>
   <div class="p-4 sm:p-5">
     <div class="font-sans text-[9.5px] tracking-[0.16em] uppercase text-taupe font-semibold mb-1.5">Sydney District Director</div>
     <h4 class="font-serif italic font-normal text-[16px] sm:text-[17px] text-ink dark:text-ivory mb-2.5 leading-snug">Levin Johnson</h4>
@@ -908,7 +913,7 @@ c-43 0 -81 -2 -84 -5 -3 -3 0 -23 6 -45 l10 -40 73 0 73 0 0 -50 c0 -51 0 -51
   </div>
   <div class="director-grid">
     <div class="director-card premium-card texture-paper rounded-2xl border border-gold/20 shadow-soft overflow-hidden reveal">
-  <img src="director-rahul-zachariah.jpg" alt="Rahul Zachariah" loading="lazy" class="director-card__photo">
+  <img src="director-rahul-zachariah.jpg" alt="Rahul Zachariah" loading="lazy" class="director-card__photo"><span class="verified-badge" title="Verified director"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg><span data-en="Verified" data-ml="പരിശോധിച്ചു">Verified</span></span>
   <div class="p-4 sm:p-5">
     <div class="font-sans text-[9.5px] tracking-[0.16em] uppercase text-taupe font-semibold mb-1.5">Clergy Liaison</div>
     <h4 class="font-serif italic font-normal text-[16px] sm:text-[17px] text-ink dark:text-ivory mb-2.5 leading-snug">Rahul Zachariah</h4>
@@ -916,7 +921,7 @@ c-43 0 -81 -2 -84 -5 -3 -3 0 -23 6 -45 l10 -40 73 0 73 0 0 -50 c0 -51 0 -51
   </div>
 </div>
 <div class="director-card premium-card texture-paper rounded-2xl border border-gold/20 shadow-soft overflow-hidden reveal">
-  <img src="director-reuben-abraham.jpg" alt="Reuben Abraham" loading="lazy" class="director-card__photo">
+  <img src="director-reuben-abraham.jpg" alt="Reuben Abraham" loading="lazy" class="director-card__photo"><span class="verified-badge" title="Verified director"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg><span data-en="Verified" data-ml="പരിശോധിച്ചു">Verified</span></span>
   <div class="p-4 sm:p-5">
     <div class="font-sans text-[9.5px] tracking-[0.16em] uppercase text-taupe font-semibold mb-1.5">Qurbana Requests Coordinator</div>
     <h4 class="font-serif italic font-normal text-[16px] sm:text-[17px] text-ink dark:text-ivory mb-2.5 leading-snug">Reuben Abraham</h4>
