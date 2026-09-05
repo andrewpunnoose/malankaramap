@@ -2829,6 +2829,20 @@
   border-bottom: 1px solid rgba(17, 24, 39, .1)
   }
 
+  /* Fix: the round globe canvas sat above the glass-pill tags in
+     some browsers regardless of DOM order (a WebGL canvas often
+     gets promoted to its own compositor layer), so the "Locations
+     mapped" pill's corner nearest the globe could render partly
+     hidden behind it. Explicit z-index guarantees the pills always
+     stay on top. */
+  .globe-stage {
+  z-index: 1;
+  }
+
+  .glass-pill {
+  z-index: 5;
+  }
+
   .dark .globe-stat {
   border-bottom: 1px solid rgba(247, 245, 238, .1)
   }
@@ -6098,8 +6112,9 @@
       <span class="section-divider__line"></span><span class="section-divider__mark"><svg width="15" height="15" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
       <path d="M12 3 L21 12 L12 21 L3 12 Z"></path></svg></span><span class="section-divider__line"></span>
     </div>
-    <section id="map">
-      <div id="mapWrap" class="border-y border-line dark:border-white/10 shadow-medium bg-ivory dark:bg-charcoal">
+    <section id="map" class="px-5 sm:px-8">
+      <div class="max-w-6xl mx-auto">
+      <div id="mapWrap" class="rounded-2xl border border-line dark:border-white/10 shadow-medium bg-ivory dark:bg-charcoal">
         <iframe id="mapFrame" src="https://www.google.com/maps/d/u/0/embed?mid=1TRfC9ZEHxXfzwAWy-tv1UNdUEvzL9C0&amp;ehbc=2E312F&amp;noprof=1" width="640" height="480" allowfullscreen loading="lazy" class="absolute inset-0 w-full h-full border-0" style="top:-77px;height:calc(100% + 91px)" name="mapFrame"></iframe>
         <div id="mapLoader" class="absolute inset-0 z-20 flex flex-col items-center justify-center gap-3.5 bg-ivory dark:bg-charcoal transition-opacity duration-700">
           <div class="relative w-11 h-11 flex items-center justify-center">
@@ -6112,6 +6127,7 @@
         <path d="M6 9l6 6 6-6"></path></svg></button>
       </div>
       <p class="text-center mt-3 font-sans text-[11px] tracking-wide text-muted" data-en="Map data via Google My Maps." data-ml="ഭൂപട വിവരം Google My Maps വഴി.">Map data via Google My Maps.</p>
+      </div>
     </section>
     <div class="section-divider is-tight" aria-hidden="true">
       <span class="section-divider__line"></span><span class="section-divider__mark"><svg width="15" height="15" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
@@ -6563,7 +6579,7 @@
                 In the Diaspora
               </div>
             </div>
-          </div><a href="population" class="reveal group mt-8 inline-flex items-center gap-2 font-serif italic text-sage-dark dark:text-sage text-sm sm:text-[15px]"><span data-en="See the district-by-district breakdown" data-ml="ജില്ല തിരിച്ചുള്ള വിവരണം കാണുക">See the district-by-district breakdown</span> <span style="display:inline-block;transition:transform .35s cubic-bezier(.16,.8,.24,1)">→</span></a>
+          </div><a href="population" class="reveal group mt-8 inline-flex items-center gap-2 font-sans text-xs font-semibold tracking-[0.1em] uppercase bg-sage text-white px-9 py-3 rounded-full hover:bg-sage-dark transition-colors"><span data-en="Explore the Full Statistics" data-ml="പൂർണ്ണ സ്ഥിതിവിവരക്കണക്കുകൾ പരിശോധിക്കുക">Explore the Full Statistics</span> <span style="display:inline-block;transition:transform .35s cubic-bezier(.16,.8,.24,1)">→</span></a>
         </div>
       </div>
       <script>
@@ -6633,9 +6649,9 @@
       <div class="reveal reveal-stagger grid grid-cols-2 lg:grid-cols-5 gap-px bg-line dark:bg-white/10 border border-line dark:border-white/10 rounded-xl overflow-hidden shadow-soft">
         <a href="metropolitans" class="group bg-ivory dark:bg-midnight p-6 sm:p-8 flex flex-col gap-2 hover:bg-featured dark:hover:bg-white/5 transition-colors"><span class="count-num font-serif text-4xl sm:text-5xl text-ink dark:text-ivory group-hover:text-sage-dark dark:group-hover:text-sage transition-colors" data-count="30">30</span> <span class="font-sans text-[11px] tracking-wider uppercase text-body/60 dark:text-ivory/50 font-medium" data-en="Metropolitans" data-ml="മെത്രാപ്പോലീത്തന്മാർ">Metropolitans</span> <span class="font-serif italic text-sage-dark dark:text-sage text-sm mt-1" data-en="View all →" data-ml="എല്ലാം കാണുക →">View all →</span></a> <a href="monks" class="group bg-ivory dark:bg-midnight p-6 sm:p-8 flex flex-col gap-2 hover:bg-featured dark:hover:bg-white/5 transition-colors"><span class="count-num font-serif text-4xl sm:text-5xl text-ink dark:text-ivory group-hover:text-sage-dark dark:group-hover:text-sage transition-colors" data-count="48">48</span> <span class="font-sans text-[11px] tracking-wider uppercase text-body/60 dark:text-ivory/50 font-medium" data-en="Monks" data-ml="റമ്പാന്മാർ">Monks</span> <span class="font-serif italic text-sage-dark dark:text-sage text-sm mt-1" data-en="By diocese →" data-ml="ഭദ്രാസനം അനുസരിച്ച് →">By diocese →</span></a> <a href="cor-episcopa" class="group bg-ivory dark:bg-midnight p-6 sm:p-8 flex flex-col gap-2 hover:bg-featured dark:hover:bg-white/5 transition-colors"><span class="count-num font-serif text-4xl sm:text-5xl text-ink dark:text-ivory group-hover:text-sage-dark dark:group-hover:text-sage transition-colors" data-count="101">101</span> <span class="font-sans text-[11px] tracking-wider uppercase text-body/60 dark:text-ivory/50 font-medium" data-en="Cor-Episcopas" data-ml="കോറെപ്പിസ്കോപ്പമാർ">Cor-Episcopas</span> <span class="font-serif italic text-sage-dark dark:text-sage text-sm mt-1" data-en="By diocese →" data-ml="ഭദ്രാസനം അനുസരിച്ച് →">By diocese →</span></a> <a href="priests" class="group bg-ivory dark:bg-midnight p-6 sm:p-8 flex flex-col gap-2 hover:bg-featured dark:hover:bg-white/5 transition-colors"><span class="count-num font-serif text-4xl sm:text-5xl text-ink dark:text-ivory group-hover:text-sage-dark dark:group-hover:text-sage transition-colors" data-count="1710">1,710</span> <span class="font-sans text-[11px] tracking-wider uppercase text-body/60 dark:text-ivory/50 font-medium" data-en="Priests" data-ml="വൈദികർ">Priests</span> <span class="font-serif italic text-sage-dark dark:text-sage text-sm mt-1" data-en="By diocese →" data-ml="ഭദ്രാസനം അനുസരിച്ച് →">By diocese →</span></a> <a href="deacons" class="group bg-ivory dark:bg-midnight p-6 sm:p-8 flex flex-col gap-2 hover:bg-featured dark:hover:bg-white/5 transition-colors"><span class="count-num font-serif text-4xl sm:text-5xl text-ink dark:text-ivory group-hover:text-sage-dark dark:group-hover:text-sage transition-colors" data-count="83">83</span> <span class="font-sans text-[11px] tracking-wider uppercase text-body/60 dark:text-ivory/50 font-medium" data-en="Deacons" data-ml="ശെമ്മാശന്മാർ">Deacons</span> <span class="font-serif italic text-sage-dark dark:text-sage text-sm mt-1" data-en="By diocese →" data-ml="ഭദ്രാസനം അനുസരിച്ച് →">By diocese →</span></a>
       </div>
-      <p class="mt-6 font-sans text-xs sm:text-sm text-body/60 dark:text-ivory/50" data-en-html="Figures are drawn from the Church’s official 2023 clergy directory, and are here organised by diocese, ranked from metropolitans to deacons. &nbsp;&lt;a href=&quot;myron&quot; class=&quot;underline underline-offset-2 hover:text-sage-dark dark:hover:text-sage transition-colors&quot;&gt;Consecrations of Holy Myron →&lt;/a&gt;" data-ml-html="സഭയുടെ ഔദ്യോഗിക 2023-ലെ വൈദിക ഡയറക്ടറിയിൽ നിന്നാണ് ഈ കണക്കുകൾ എടുത്തിരിക്കുന്നത്; ഇവിടെ ഭദ്രാസനം അനുസരിച്ച്, മെത്രാപ്പോലീത്തന്മാർ മുതൽ ശെമ്മാശന്മാർ വരെയുള്ള ക്രമത്തിൽ ക്രമീകരിച്ചിരിക്കുന്നു. &nbsp;&lt;a href=&quot;myron&quot; class=&quot;underline underline-offset-2 hover:text-sage-dark dark:hover:text-sage transition-colors&quot;&gt;വിശുദ്ധ മൂറോൻ കൂദാശകൾ →&lt;/a&gt;">Figures are drawn from the Church’s official 2023 clergy directory, and are here organised by diocese, ranked from metropolitans to deacons. &nbsp;<a href="myron" class="underline underline-offset-2 hover:text-sage-dark dark:hover:text-sage transition-colors">Consecrations of Holy Myron →</a></p>
+      <p class="mt-6 font-sans text-xs sm:text-sm text-body/60 dark:text-ivory/50" data-en="Figures are drawn from the Church’s official 2023 clergy directory, and are here organised by diocese, ranked from metropolitans to deacons." data-ml="സഭയുടെ ഔദ്യോഗിക 2023-ലെ വൈദിക ഡയറക്ടറിയിൽ നിന്നാണ് ഈ കണക്കുകൾ എടുത്തിരിക്കുന്നത്; ഇവിടെ ഭദ്രാസനം അനുസരിച്ച്, മെത്രാപ്പോലീത്തന്മാർ മുതൽ ശെമ്മാശന്മാർ വരെയുള്ള ക്രമത്തിൽ ക്രമീകരിച്ചിരിക്കുന്നു.">Figures are drawn from the Church’s official 2023 clergy directory, and are here organised by diocese, ranked from metropolitans to deacons.</p>
     </section>
-    <section class="px-5 sm:px-8 sec-tight-y max-w-6xl mx-auto url-wrap">
+    <section id="sources" class="px-5 sm:px-8 sec-tight-y max-w-6xl mx-auto url-wrap">
       <h2 class="font-serif italic font-normal text-xl sm:text-2xl text-ink dark:text-ivory mb-2" data-en="Sources" data-ml="അവലംബങ്ങൾ">Sources</h2>
       <p class="font-sans text-xs text-muted mb-5" data-en="The figures and details set out throughout this site are drawn from the following ecclesiastical directories and records." data-ml="ഈ വെബ്സൈറ്റിലുടനീളം നൽകിയിരിക്കുന്ന കണക്കുകളും വിശദാംശങ്ങളും താഴെ പറയുന്ന സഭാ ഡയറക്ടറികളിൽ നിന്നും രേഖകളിൽ നിന്നും എടുത്തതാണ്.">The figures and details set out throughout this site are drawn from the following ecclesiastical directories and records.</p>
       <details class="src-details">
@@ -6653,6 +6669,12 @@
           <p class="font-sans text-xs sm:text-[13px] text-body/70 dark:text-ivory/55 leading-[1.7] pl-6 -indent-6">St. Thomas Orthodox Vaidika Sanghom. <em>Clergy Directory, 2023.</em> Orthodox Theological Seminary, Kottayam. <a href="https://orthodoxvaidikasanghom.org/uploads/downloads/clergy-2023.pdf" target="_blank" rel="noopener" class="text-sage-dark dark:text-sage hover:underline">orthodoxvaidikasanghom.org/uploads/downloads/clergy-2023.pdf</a></p>
           <p class="font-sans text-xs sm:text-[13px] text-body/70 dark:text-ivory/55 leading-[1.7] pl-6 -indent-6">Talmido — Malankara Orthodox Church resource archive. <a href="https://talmido.org/" target="_blank" rel="noopener" class="text-sage-dark dark:text-sage hover:underline">talmido.org</a></p>
           <p class="font-sans text-xs sm:text-[13px] text-body/70 dark:text-ivory/55 leading-[1.7] pl-6 -indent-6">George, David. <em>Malankara History.</em> <a href="https://www.malankarahistory.com" target="_blank" rel="noopener" class="text-sage-dark dark:text-sage hover:underline">malankarahistory.com</a></p>
+          <p class="font-sans text-xs sm:text-[13px] text-body/70 dark:text-ivory/55 leading-[1.7] pl-6 -indent-6">Perumbadavam, Zachariah. &ldquo;Sahada Maranathinte Ampathandu&rdquo; [Fifty Years since the Martyrdom]. <em>Kadamattom Palliyoram</em>.</p>
+          <p class="font-sans text-xs sm:text-[13px] text-body/70 dark:text-ivory/55 leading-[1.7] pl-6 -indent-6"><em>Malankara Sabha Masika</em> [Malankara Church Magazine], February&ndash;March 1976.</p>
+          <p class="font-sans text-xs sm:text-[13px] text-body/70 dark:text-ivory/55 leading-[1.7] pl-6 -indent-6"><em>Orthodox Yuvajanam Trimasika</em> [Orthodox Youth Quarterly], on the martyrdom of Varkey Varghese (Aanapappy).</p>
+          <p class="font-sans text-xs sm:text-[13px] text-body/70 dark:text-ivory/55 leading-[1.7] pl-6 -indent-6">Malayala Manorama, 3 April 1912.</p>
+          <p class="font-sans text-xs sm:text-[13px] text-body/70 dark:text-ivory/55 leading-[1.7] pl-6 -indent-6">Malankara Orthodox Syrian Church &amp; Syriac Orthodox Resources of Brahmavar Diocese. Parish histories of Sts. Alvares Julius &amp; Roque Zephrin Noronha.</p>
+          <p class="font-sans text-xs sm:text-[13px] text-body/70 dark:text-ivory/55 leading-[1.7] pl-6 -indent-6">Parish commemorative accounts of Pampady Kuriakose Mar Gregorios and Very Rev. Mylapra P.I. Mathews Rambachan, published on the occasion of their annual feasts.</p>
         </div>
       </details>
       <div class="sm:mt-12 pt-10 border-t border-line dark:border-white/10" style="margin-top:2.5rem">

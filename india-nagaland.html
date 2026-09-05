@@ -27,6 +27,7 @@
 </head>
 <body class="bg-ivory dark:bg-midnight">
 <div id="site-header-mount"></div>
+<script src="/site-common.js"></script>
 <script>
 (function(){
   fetch('/header.html').then(function(r){ return r.text(); }).then(function(htmlStr){
@@ -72,6 +73,7 @@
         syncMusic();
       });
     }
+    if(window.SiteCommon){ SiteCommon.initLang(); SiteCommon.initSearch(); }
   }
 })();
 </script>
@@ -141,14 +143,14 @@
   </div>
 </section>
 
-<footer class="bg-charcoal text-center px-5 py-12 sm:py-14">
-  <svg class="w-5 h-5 mx-auto mb-4 opacity-60 text-ivory" viewBox="0 0 40 40" fill="none">
-    <path d="M20 3 L20 37 M8 14 L32 14" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
-  </svg>
-  <div class="font-serif italic text-sm sm:text-[15px] text-ivory/85 mb-2">Managed by Andrew Punnoose</div>
-  <div class="font-sans text-[11px] tracking-wide text-ivory/45">Not affiliated with the Malankara Orthodox Syrian Church.</div>
-  <div class="font-sans text-[11px] tracking-wide text-ivory/45 mt-1">&copy; Malankara Map, July 2026</div>
-</footer>
+<div id="site-footer-mount"></div>
+<script>
+(function(){
+  fetch('/footer.html').then(function(r){ return r.text(); }).then(function(htmlStr){
+    document.getElementById('site-footer-mount').outerHTML = htmlStr;
+  });
+})();
+</script>
 
 </body>
 </html>
