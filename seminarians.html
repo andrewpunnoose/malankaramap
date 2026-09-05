@@ -35,77 +35,31 @@
 <body class="bg-ivory dark:bg-midnight text-body dark:text-ivory/85 font-sans transition-colors duration-300">
 
 <!-- ==================== HEADER ==================== -->
-<header class="sticky top-0 z-50 bg-ivory/90 dark:bg-midnight/90 backdrop-blur-md border-b border-line dark:border-white/10">
-  <div class="max-w-7xl mx-auto px-5 sm:px-8 h-16 sm:h-20 flex items-center justify-between gap-4">
-    <a href="index.html" class="flex items-center gap-3 min-w-0">
-      <svg class="w-7 h-7 sm:w-8 sm:h-8 shrink-0 text-ink dark:text-ivory" viewBox="0 0 40 40" fill="none">
-        <path d="M20 3 L20 37 M8 14 L32 14" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
-        <path d="M20 3 C16 8 16 11 20 14 C24 11 24 8 20 3Z" fill="#8B7355"/>
-        <circle cx="20" cy="30" r="7" stroke="#8B7355" stroke-width="1.2" fill="none"/>
-      </svg>
-      <div class="min-w-0">
-        <div class="text-[10px] tracking-[0.16em] uppercase text-taupe font-semibold truncate">Est. Apostolic Era &middot; AD 52</div>
-        <div class="font-serif italic text-[15px] sm:text-[17px] text-ink dark:text-ivory truncate">Malankara Orthodox Syrian Church</div>
-      </div>
-    </a>
-
-    <nav class="hidden md:flex items-center gap-8 font-serif italic text-[15px] shrink-0">
-      <a href="index.html#map" class="text-body/80 dark:text-ivory/70 hover:text-sage-dark dark:hover:text-sage transition-colors">World Map</a>
-      <a href="index.html#discover" class="text-body/80 dark:text-ivory/70 hover:text-sage-dark dark:hover:text-sage transition-colors">Discover</a>
-      <a href="index.html#numbers" class="text-body/80 dark:text-ivory/70 hover:text-sage-dark dark:hover:text-sage transition-colors">Numbers</a>
-      <a href="index.html#clergy" class="text-body/80 dark:text-ivory/70 hover:text-sage-dark dark:hover:text-sage transition-colors">Clergy</a>
-      <a href="index.html#legend" class="text-body/80 dark:text-ivory/70 hover:text-sage-dark dark:hover:text-sage transition-colors">Legend</a>
-      <a href="index.html#heritage" class="text-body/80 dark:text-ivory/70 hover:text-sage-dark dark:hover:text-sage transition-colors">Heritage</a>
-      <a href="index.html#report" class="font-sans not-italic text-[11px] font-semibold tracking-[0.08em] uppercase border border-ink dark:border-ivory/40 text-ink dark:text-ivory px-4 py-2 rounded-full hover:bg-ink hover:text-ivory dark:hover:bg-ivory dark:hover:text-midnight transition-colors">Report</a>
-    </nav>
-
-    <div class="flex items-center gap-2 shrink-0">
-      <button class="w-9 h-9 sm:w-10 sm:h-10 rounded-full border border-line dark:border-white/15 flex items-center justify-center text-body/70 dark:text-ivory/70 hover:border-ink dark:hover:border-ivory hover:text-ink dark:hover:text-ivory transition-colors" id="themeToggle" aria-label="Toggle dark mode" title="Toggle dark mode">
-        <svg class="icon-sun w-4 h-4" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="4.2" stroke="currentColor" stroke-width="1.4"/><path d="M12 2.5v2.2M12 19.3v2.2M4.2 4.2l1.6 1.6M18.2 18.2l1.6 1.6M2.5 12h2.2M19.3 12h2.2M4.2 19.8l1.6-1.6M18.2 5.8l1.6-1.6" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg>
-        <svg class="icon-moon w-4 h-4 hidden" viewBox="0 0 24 24" fill="none"><path d="M20 14.5A8.5 8.5 0 1 1 9.5 4a6.8 6.8 0 0 0 10.5 10.5Z" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"/></svg>
-      </button>
-      <button class="md:hidden w-9 h-9 sm:w-10 sm:h-10 rounded-full border border-line dark:border-white/15 flex items-center justify-center text-body/70 dark:text-ivory/70" id="mobileMenuBtn" aria-label="Open menu">
-        <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
-      </button>
-    </div>
-  </div>
-
-  <div id="mobileMenu" class="hidden md:hidden border-t border-line dark:border-white/10 bg-ivory dark:bg-midnight px-5 py-5 flex flex-col gap-4 font-serif italic text-base">
-    <a href="index.html#map" class="text-body/80 dark:text-ivory/70">World Map</a>
-    <a href="index.html#discover" class="text-body/80 dark:text-ivory/70">Discover</a>
-    <a href="index.html#numbers" class="text-body/80 dark:text-ivory/70">Numbers</a>
-    <a href="index.html#clergy" class="text-body/80 dark:text-ivory/70">Clergy</a>
-    <a href="index.html#legend" class="text-body/80 dark:text-ivory/70">Legend</a>
-    <a href="index.html#colors" class="text-body/80 dark:text-ivory/70">Palette</a>
-    <a href="index.html#heritage" class="text-body/80 dark:text-ivory/70">Heritage</a>
-    <a href="index.html#report" class="font-sans not-italic text-sm font-semibold tracking-wide uppercase text-sage-dark dark:text-sage">Report an Issue</a>
-  </div>
-</header>
-
+<!-- ==================== HEADER ====================
+     Loaded from header.html at runtime so every page on the site
+     shares one copy. -->
 <script>
 (function(){
-  var btn = document.getElementById('themeToggle');
-  var sun = btn.querySelector('.icon-sun');
-  var moon = btn.querySelector('.icon-moon');
-  function sync(){
-    var isDark = document.documentElement.classList.contains('dark');
-    sun.classList.toggle('hidden', isDark);
-    moon.classList.toggle('hidden', !isDark);
+  try {
+    var xhr = new XMLHttpRequest();
+    xhr.open("GET", "header.html", false);
+    xhr.send(null);
+    if (xhr.status === 200 || xhr.status === 0) {
+      document.write(xhr.responseText);
+    } else {
+      console.error("header.html failed to load:", xhr.status);
+    }
+  } catch (e) {
+    console.error("header.html failed to load:", e);
   }
-  sync();
-  btn.addEventListener('click', function(){
-    var isDark = document.documentElement.classList.toggle('dark');
-    localStorage.setItem('malankara-theme', isDark ? 'dark' : 'light');
-    sync();
-  });
-  var menuBtn = document.getElementById('mobileMenuBtn');
-  var menu = document.getElementById('mobileMenu');
-  menuBtn.addEventListener('click', function(){ menu.classList.toggle('hidden'); });
-  menu.querySelectorAll('a').forEach(function(a){
-    a.addEventListener('click', function(){ menu.classList.add('hidden'); });
-  });
 })();
 </script>
+<script src="site-common.js"></script>
+<script>if(window.SiteCommon){ SiteCommon.initAll(); }</script>
+<audio id="bgMusic" loop>
+  <source src="audio.mp3" type="audio/mpeg">
+</audio>
+
 
 <!-- ==================== PAGE HERO ==================== -->
 <section class="bg-herobg dark:bg-midnight px-5 sm:px-8 pt-14 sm:pt-20 pb-10 sm:pb-14 text-center">
@@ -667,14 +621,10 @@
 </section>
 
 <!-- ==================== FOOTER ==================== -->
-<footer class="bg-charcoal text-center px-5 py-12 sm:py-14">
-  <svg class="w-5 h-5 mx-auto mb-4 opacity-60 text-ivory" viewBox="0 0 40 40" fill="none">
-    <path d="M20 3 L20 37 M8 14 L32 14" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
-  </svg>
-  <div class="font-serif italic text-sm sm:text-[15px] text-ivory/85 mb-2">Created by Andrew Punnoose, with assistance from David George and Jerin George</div>
-  <div class="font-sans text-[11px] tracking-wide text-ivory/45">Not affiliated with the Malankara Orthodox Syrian Church.</div>
-  <div class="font-sans text-[11px] tracking-wide text-ivory/45 mt-1">&copy; Malankara Map, July 2026</div>
-</footer>
+<!-- ==================== FOOTER ====================
+     Loaded from footer.html at runtime so every page on the site
+     shares one copy. -->
+<script>!function(){try{var t=new XMLHttpRequest;t.open("GET","footer.html",!1),t.send(null),200===t.status||0===t.status?document.write(t.responseText):console.error("footer.html failed to load:",t.status)}catch(t){console.error("footer.html failed to load:",t)}}()</script>
 
 </body>
 </html>

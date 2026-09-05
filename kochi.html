@@ -249,6 +249,7 @@
 
 <div id="site-footer"></div>
 
+<script src="site-common.js"></script>
 <script>
 (function(){
   function runScripts(container){
@@ -268,6 +269,7 @@
     });
   }
   include('header.html', document.getElementById('site-header'), function(){
+    if(window.SiteCommon){ SiteCommon.initAll(); }
     var music = document.getElementById('bgMusic');
     if (!music) return;
     music.volume = 0;

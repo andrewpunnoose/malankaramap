@@ -802,17 +802,14 @@ html.dark .sai-lamp-note{ color:rgb(186,148,80); }
   </article>
 
 </section>
-<!-- ==================== SAINTS: SOURCES ==================== -->
-<section class="px-5 sm:px-8 sec-tight-y max-w-3xl mx-auto url-wrap">
-  <h2 class="font-serif italic font-normal text-xl sm:text-2xl text-ink dark:text-ivory mb-2" data-en="Sources" data-ml="അവലംബങ്ങൾ">Sources</h2>
-  <p class="font-sans text-xs text-muted mb-7" data-en="The accounts on this page are drawn from parish, diocesan, and family records, and from the following publications." data-ml="ഈ താളിലെ വിവരണങ്ങൾ ഇടവക, ഭദ്രാസന, കുടുംബ രേഖകളിൽ നിന്നും താഴെ പറയുന്ന പ്രസിദ്ധീകരണങ്ങളിൽ നിന്നും സ്വീകരിച്ചവയാണ്.">The accounts on this page are drawn from parish, diocesan, and family records, and from the following publications.</p>
-  <div class="flex flex-col gap-4">
-    <p class="font-sans text-xs sm:text-[13px] text-body/70 dark:text-ivory/55 leading-[1.7] pl-6 -indent-6">Talmido &mdash; Malankara Orthodox Church resource archive. <a href="https://talmido.org/" target="_blank" rel="noopener" class="text-sage-dark dark:text-sage hover:underline">talmido.org</a></p>
-    <p class="font-sans text-xs sm:text-[13px] text-body/70 dark:text-ivory/55 leading-[1.7] pl-6 -indent-6">George, David. <em>Malankara History.</em> <a href="https://www.malankarahistory.com" target="_blank" rel="noopener" class="text-sage-dark dark:text-sage hover:underline">malankarahistory.com</a></p>
-    <p class="font-sans text-xs sm:text-[13px] text-body/70 dark:text-ivory/55 leading-[1.7] pl-6 -indent-6">Malankara Orthodox Syrian Church &amp; Syriac Orthodox Resources of Brahmavar Diocese. Parish histories of Sts. Alvares Julius &amp; Roque Zephrin Noronha.</p>
-    <p class="font-sans text-xs sm:text-[13px] text-body/70 dark:text-ivory/55 leading-[1.7] pl-6 -indent-6">Parish commemorative accounts of Pampady Kuriakose Mar Gregorios and Very Rev. Mylapra P.I. Mathews Rambachan, published on the occasion of their annual feasts.</p>
-  </div>
+<!-- ==================== SAINTS: SOURCES ====================
+     The full source list has been centralized on the homepage to
+     avoid repeating a separate Sources section on every page. -->
+<section class="px-5 sm:px-8 sec-tight-y max-w-3xl mx-auto url-wrap text-center">
+  <p class="font-sans text-xs text-muted" data-en="Sources for the accounts on this page are listed with the rest of the site's sources on the homepage." data-ml="ഈ താളിലെ വിവരണങ്ങളുടെ അവലംബങ്ങൾ വെബ്സൈറ്റിന്റെ മറ്റ് അവലംബങ്ങൾക്കൊപ്പം ഹോംപേജിൽ ലിസ്റ്റുചെയ്തിരിക്കുന്നു.">Sources for the accounts on this page are listed with the rest of the site's sources on the <a href="index.html#sources" class="underline underline-offset-2 hover:text-sage-dark dark:hover:text-sage transition-colors">homepage</a>.</p>
 </section>
+<script src="site-common.js"></script>
+<script>if(window.SiteCommon){ SiteCommon.initLang(); SiteCommon.initSearch(); }</script>
 <script>!function(){try{var t=new XMLHttpRequest;t.open("GET","footer.html",!1),t.send(null),200===t.status||0===t.status?document.write(t.responseText):console.error("footer.html failed to load:",t.status)}catch(t){console.error("footer.html failed to load:",t)}}()</script><script>
 (function(){
   var reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
