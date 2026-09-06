@@ -82,24 +82,8 @@
   }
 })();
 </script>
-<script>
-(function(){
-  var btn = document.getElementById('themeToggle');
-  var sun = btn.querySelector('.icon-sun');
-  var moon = btn.querySelector('.icon-moon');
-  function sync(){
-    var isDark = document.documentElement.classList.contains('dark');
-    sun.classList.toggle('hidden', isDark);
-    moon.classList.toggle('hidden', !isDark);
-  }
-  sync();
-  btn.addEventListener('click', function(){
-    var isDark = document.documentElement.classList.toggle('dark');
-    localStorage.setItem('malankara-theme', isDark ? 'dark' : 'light');
-    sync();
-  });
-})();
-</script>
+<script src="site-common.js"></script>
+<script>if(window.SiteCommon){ SiteCommon.initAll(); }</script>
 
 <section class="px-5 sm:px-8 pt-14 sm:pt-20 pb-10 sm:pb-12 max-w-2xl mx-auto text-center">
   <div class="text-[11px] sm:text-xs tracking-[0.22em] uppercase text-taupe font-semibold mb-5">A Century Before</div>
@@ -212,8 +196,6 @@
   <p class="font-serif italic text-base text-body/75 dark:text-ivory/60 leading-relaxed">By the time of the modern directory, seven dioceses had grown to thirty-two, spanning six continents. This map is where that story begins.</p>
 </section>
 
-<script src="site-common.js"></script>
-<script>if(window.SiteCommon){ SiteCommon.initLang(); SiteCommon.initSearch(); }</script>
 <!-- ==================== FOOTER ====================
      Loaded from footer.html at runtime so every page on the site
      can share one copy — edit footer.html and every page picks up
