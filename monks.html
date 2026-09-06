@@ -66,58 +66,8 @@
 })();
 </script>
 
-<script>
-(function(){
-  var btn = document.getElementById('themeToggle');
-  var sun = btn.querySelector('.icon-sun');
-  var moon = btn.querySelector('.icon-moon');
-  function sync(){
-    var isDark = document.documentElement.classList.contains('dark');
-    sun.classList.toggle('hidden', isDark);
-    moon.classList.toggle('hidden', !isDark);
-  }
-  sync();
-  btn.addEventListener('click', function(){
-    var isDark = document.documentElement.classList.toggle('dark');
-    localStorage.setItem('malankara-theme', isDark ? 'dark' : 'light');
-    sync();
-  });
-  var menuBtn = document.getElementById('mobileMenuBtn');
-  var menu = document.getElementById('mobileMenu');
-  menuBtn.addEventListener('click', function(){ menu.classList.toggle('hidden'); });
-  menu.querySelectorAll('a').forEach(function(a){
-    a.addEventListener('click', function(){ menu.classList.add('hidden'); });
-  });
-})();
-</script>
-
-<script>
-(function(){
-  var music = document.getElementById('bgMusic');
-  var mbtn = document.getElementById('musicToggle');
-  var onIcon = mbtn.querySelector('.icon-sound-on');
-  var offIcon = mbtn.querySelector('.icon-sound-off');
-  function sync(){
-    var playing = !music.paused;
-    onIcon.classList.toggle('hidden', !playing);
-    offIcon.classList.toggle('hidden', playing);
-    mbtn.setAttribute('aria-label', playing ? 'Pause background music' : 'Play background music');
-    mbtn.setAttribute('title', playing ? 'Pause background music' : 'Play background music');
-  }
-  music.addEventListener('play', sync);
-  music.addEventListener('pause', sync);
-  sync();
-  mbtn.addEventListener('click', function(e){
-    e.stopPropagation();
-    if (music.paused){
-      music.play();
-      if (music.volume === 0){ music.volume = 0.5; }
-    } else {
-      music.pause();
-    }
-  });
-})();
-</script>
+<script src="site-common.js"></script>
+<script>if(window.SiteCommon){ SiteCommon.initAll(); }</script>
 <!-- ==================== PAGE HERO ==================== -->
 <section class="bg-herobg dark:bg-midnight px-5 sm:px-8 pt-14 sm:pt-20 pb-10 sm:pb-14 text-center">
   <div class="max-w-2xl mx-auto">
@@ -507,8 +457,6 @@
   </div>
 
 </section>
-<script src="site-common.js"></script>
-<script>if(window.SiteCommon){ SiteCommon.initLang(); SiteCommon.initSearch(); }</script>
 <!-- ==================== FOOTER ====================
      Loaded from footer.html at runtime so every page on the site
      can share one copy — edit footer.html and every page picks up

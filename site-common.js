@@ -41,24 +41,59 @@
         localStorage.setItem("malankara-theme", isDark ? "dark" : "light");
       } catch (e) {}
       sync();
+      syncThemeMenuItem();
     });
+
+    var ti = document.getElementById("themeToggleMenuItem");
+    function syncThemeMenuItem() {
+      if (!ti) return;
+      var isDark = document.documentElement.classList.contains("dark");
+      var su = ti.querySelector(".icon-sun");
+      var mo = ti.querySelector(".icon-moon");
+      if (su) su.classList.toggle("hidden", isDark);
+      if (mo) mo.classList.toggle("hidden", !isDark);
+    }
+    if (ti) {
+      syncThemeMenuItem();
+      ti.addEventListener("click", function () {
+        btn.click();
+        syncThemeMenuItem();
+      });
+    }
   }
 
   function initMobileMenu() {
     var menuBtn = document.getElementById("mobileMenuBtn");
     var menu = document.getElementById("mobileMenu");
+    var backdrop = document.getElementById("mobileMenuBackdrop");
+    var closeBtn = document.getElementById("mobileMenuCloseBtn");
     if (!menuBtn || !menu) return;
+
+    function openMenu() {
+      menu.classList.add("is-open");
+      if (backdrop) backdrop.classList.add("is-open");
+      document.body.classList.add("mobile-menu-locked");
+      menuBtn.setAttribute("aria-expanded", "true");
+    }
+    function closeMenu() {
+      menu.classList.remove("is-open");
+      if (backdrop) backdrop.classList.remove("is-open");
+      document.body.classList.remove("mobile-menu-locked");
+      menuBtn.setAttribute("aria-expanded", "false");
+    }
     menuBtn.addEventListener("click", function () {
-      menu.classList.toggle("hidden");
+      if (menu.classList.contains("is-open")) closeMenu();
+      else openMenu();
+    });
+    if (closeBtn) closeBtn.addEventListener("click", closeMenu);
+    if (backdrop) backdrop.addEventListener("click", closeMenu);
+    document.addEventListener("keydown", function (e) {
+      if (e.key === "Escape" && menu.classList.contains("is-open")) closeMenu();
     });
     menu.querySelectorAll("a").forEach(function (a) {
-      a.addEventListener("click", function () {
-        menu.classList.add("hidden");
-      });
+      a.addEventListener("click", closeMenu);
     });
-    window.__closeMobileMenu = function () {
-      menu.classList.add("hidden");
-    };
+    window.__closeMobileMenu = closeMenu;
   }
 
   function initMusic() {
@@ -67,12 +102,15 @@
     if (!music || !mbtn) return;
     var onIcon = mbtn.querySelector(".icon-sound-on");
     var offIcon = mbtn.querySelector(".icon-sound-off");
+    var fadeTimer = null;
+
     function sync() {
       var playing = !music.paused;
       if (onIcon) onIcon.classList.toggle("hidden", !playing);
       if (offIcon) offIcon.classList.toggle("hidden", playing);
       mbtn.setAttribute("aria-label", playing ? "Pause background music" : "Play background music");
       mbtn.setAttribute("title", playing ? "Pause background music" : "Play background music");
+      syncMusicMenuItem();
     }
     music.addEventListener("play", sync);
     music.addEventListener("pause", sync);
@@ -80,12 +118,46 @@
     mbtn.addEventListener("click", function (e) {
       e.stopPropagation();
       if (music.paused) {
+        music.volume = 0;
         music.play().catch(function () {});
-        if (music.volume === 0) music.volume = 0.5;
+        if (!fadeTimer) {
+          var v = music.volume || 0;
+          var step = 0.5 / 420;
+          fadeTimer = setInterval(function () {
+            v += step;
+            if (v >= 0.5) {
+              v = 0.5;
+              clearInterval(fadeTimer);
+              fadeTimer = null;
+            }
+            music.volume = v;
+          }, 100);
+        }
       } else {
+        if (fadeTimer) {
+          clearInterval(fadeTimer);
+          fadeTimer = null;
+        }
         music.pause();
       }
     });
+
+    var mi = document.getElementById("musicToggleMenuItem");
+    function syncMusicMenuItem() {
+      if (!mi) return;
+      var playing = mbtn.getAttribute("aria-label") === "Pause background music";
+      var on = mi.querySelector(".icon-sound-on");
+      var off = mi.querySelector(".icon-sound-off");
+      if (on) on.classList.toggle("hidden", !playing);
+      if (off) off.classList.toggle("hidden", playing);
+    }
+    if (mi) {
+      syncMusicMenuItem();
+      mi.addEventListener("click", function () {
+        mbtn.click();
+        setTimeout(syncMusicMenuItem, 30);
+      });
+    }
   }
 
   /* ---------------- Language toggle ---------------- */
@@ -243,6 +315,13 @@
       } catch (e) {}
       apply(current);
     });
+
+    var liMenuItem = document.getElementById("langToggleMenuItem");
+    if (liMenuItem) {
+      liMenuItem.addEventListener("click", function () {
+        btn.click();
+      });
+    }
   }
 
   /* ---------------- Sitewide search ---------------- */

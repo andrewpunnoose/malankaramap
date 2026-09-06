@@ -35,45 +35,7 @@
     initHeaderScripts();
   });
   function initHeaderScripts(){
-    var btn = document.getElementById('themeToggle');
-    var sun = btn.querySelector('.icon-sun');
-    var moon = btn.querySelector('.icon-moon');
-    function syncTheme(){
-      var isDark = document.documentElement.classList.contains('dark');
-      sun.classList.toggle('hidden', isDark);
-      moon.classList.toggle('hidden', !isDark);
-    }
-    syncTheme();
-    btn.addEventListener('click', function(){
-      var isDark = document.documentElement.classList.toggle('dark');
-      localStorage.setItem('malankara-theme', isDark ? 'dark' : 'light');
-      syncTheme();
-    });
-    var menuBtn = document.getElementById('mobileMenuBtn');
-    var menu = document.getElementById('mobileMenu');
-    if(menuBtn && menu){
-      menuBtn.addEventListener('click', function(){ menu.classList.toggle('hidden'); });
-      menu.querySelectorAll('a').forEach(function(a){
-        a.addEventListener('click', function(){ menu.classList.add('hidden'); });
-      });
-    }
-    var mbtn = document.getElementById('musicToggle');
-    var music = document.getElementById('bgMusic');
-    if(mbtn && music){
-      var soundIcon = mbtn.querySelector('.icon-sound-on');
-      var mutedIcon = mbtn.querySelector('.icon-sound-off');
-      function syncMusic(){
-        if(soundIcon) soundIcon.classList.toggle('hidden', music.muted);
-        if(mutedIcon) mutedIcon.classList.toggle('hidden', !music.muted);
-      }
-      syncMusic();
-      mbtn.addEventListener('click', function(){
-        music.muted = !music.muted;
-        if(!music.muted){ music.play().catch(function(){}); }
-        syncMusic();
-      });
-    }
-    if(window.SiteCommon){ SiteCommon.initLang(); SiteCommon.initSearch(); }
+    if(window.SiteCommon){ SiteCommon.initAll(); }
   }
 })();
 </script>
