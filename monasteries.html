@@ -57,89 +57,55 @@
 
 <!-- ==================== HEADER ====================
      Loaded from header.html at runtime so every page on the site
-     shares one copy. -->
-<script>
-(function(){
-  try {
-    var xhr = new XMLHttpRequest();
-    xhr.open("GET", "header.html", false);
-    xhr.send(null);
-    if (xhr.status === 200 || xhr.status === 0) {
-      document.write(xhr.responseText);
-    } else {
-      console.error("header.html failed to load:", xhr.status);
-    }
-  } catch (e) {
-    console.error("header.html failed to load:", e);
-  }
-})();
-</script>
-<script src="site-common.js"></script>
-<script>if(window.SiteCommon){ SiteCommon.initAll(); }</script>
+     shares one copy. Uses an async fetch into a placeholder div
+     (instead of a synchronous XHR + document.write), which is the
+     same reliable method the diocese pages use — mobile browsers
+     increasingly throttle/cancel synchronous XHR, which is what was
+     leaving the header (and the logo mark inside it) blank on this
+     page's older loading method. -->
+<div id="site-header"></div>
 
 
 <section class="px-5 sm:px-8 pt-14 sm:pt-20 pb-10 sm:pb-12 max-w-3xl mx-auto text-center">
-  <div class="text-[11px] sm:text-xs tracking-[0.22em] uppercase text-taupe font-semibold mb-4">54 Worldwide · A–Z</div>
+  <div class="text-[11px] sm:text-xs tracking-[0.22em] uppercase text-taupe font-semibold mb-4">32 Worldwide · A–Z</div>
   <h1 class="font-serif italic font-normal text-3xl sm:text-5xl text-ink dark:text-ivory mb-5">Monasteries</h1>
   <p class="text-[15px] text-body/80 dark:text-ivory/65 max-w-lg mx-auto leading-relaxed">Every monastery of the Malankara Orthodox Syrian Church worldwide, listed alphabetically by name, with the diocese each belongs to.</p>
 </section>
 
 <section class="px-5 sm:px-8 pb-16 sm:pb-20 max-w-3xl mx-auto">
   <ol class="list-decimal marker:text-taupe marker:font-serif columns-1 sm:columns-2 gap-x-10 pl-5 space-y-3 text-[13.5px] text-body/75 dark:text-ivory/60 [&_li]:break-inside-avoid">
-    <li class="pb-1.5 border-b border-line-light dark:border-white/5 [&_a]:hover:text-sage-dark [&_a]:dark:hover:text-sage [&_.dtag]:block [&_.dtag]:font-serif [&_.dtag]:italic [&_.dtag]:text-taupe [&_.dtag]:text-[11px] [&_.dtag]:mt-0.5"><a href="ahmedabad">Abu Road Jyothis Monastery</a><span class="dtag">Ahmedabad</span></li>
     <li class="pb-1.5 border-b border-line-light dark:border-white/5 [&_a]:hover:text-sage-dark [&_a]:dark:hover:text-sage [&_.dtag]:block [&_.dtag]:font-serif [&_.dtag]:italic [&_.dtag]:text-taupe [&_.dtag]:text-[11px] [&_.dtag]:mt-0.5"><a href="malabar">Attappadi St. Thomas Monastery (Nellipathy)</a><span class="dtag">Malabar</span></li>
     <li class="pb-1.5 border-b border-line-light dark:border-white/5 [&_a]:hover:text-sage-dark [&_a]:dark:hover:text-sage [&_.dtag]:block [&_.dtag]:font-serif [&_.dtag]:italic [&_.dtag]:text-taupe [&_.dtag]:text-[11px] [&_.dtag]:mt-0.5"><a href="idukki">Azhutha Mount Olive Monastery</a><span class="dtag">Idukki</span></li>
-    <li class="pb-1.5 border-b border-line-light dark:border-white/5 [&_a]:hover:text-sage-dark [&_a]:dark:hover:text-sage [&_.dtag]:block [&_.dtag]:font-serif [&_.dtag]:italic [&_.dtag]:text-taupe [&_.dtag]:text-[11px] [&_.dtag]:mt-0.5"><a href="calcutta">Bhilai St. Thomas Monastery</a><span class="dtag">Calcutta</span></li>
     <li class="pb-1.5 border-b border-line-light dark:border-white/5 [&_a]:hover:text-sage-dark [&_a]:dark:hover:text-sage [&_.dtag]:block [&_.dtag]:font-serif [&_.dtag]:italic [&_.dtag]:text-taupe [&_.dtag]:text-[11px] [&_.dtag]:mt-0.5"><a href="adoor-kadampanad">Chayalode St. George Monastery</a><span class="dtag">Adoor-Kadampanad</span></li>
     <li class="pb-1.5 border-b border-line-light dark:border-white/5 [&_a]:hover:text-sage-dark [&_a]:dark:hover:text-sage [&_.dtag]:block [&_.dtag]:font-serif [&_.dtag]:italic [&_.dtag]:text-taupe [&_.dtag]:text-[11px] [&_.dtag]:mt-0.5"><a href="kottarakkara-punalur">Chengamanad Bethlehem Monastery</a><span class="dtag">Kottarakkara-Punalur</span></li>
-    <li class="pb-1.5 border-b border-line-light dark:border-white/5 [&_a]:hover:text-sage-dark [&_a]:dark:hover:text-sage [&_.dtag]:block [&_.dtag]:font-serif [&_.dtag]:italic [&_.dtag]:text-taupe [&_.dtag]:text-[11px] [&_.dtag]:mt-0.5"><a href="idukki">Elappara Bethany Monastery</a><span class="dtag">Idukki</span></li>
-    <li class="pb-1.5 border-b border-line-light dark:border-white/5 [&_a]:hover:text-sage-dark [&_a]:dark:hover:text-sage [&_.dtag]:block [&_.dtag]:font-serif [&_.dtag]:italic [&_.dtag]:text-taupe [&_.dtag]:text-[11px] [&_.dtag]:mt-0.5"><a href="kollam">Kallada East Mount Carmel Monastery</a><span class="dtag">Kollam</span></li>
-    <li class="pb-1.5 border-b border-line-light dark:border-white/5 [&_a]:hover:text-sage-dark [&_a]:dark:hover:text-sage [&_.dtag]:block [&_.dtag]:font-serif [&_.dtag]:italic [&_.dtag]:text-taupe [&_.dtag]:text-[11px] [&_.dtag]:mt-0.5"><a href="kandanad-west">Kandanad Carmel Monastery</a><span class="dtag">Kandanad West</span></li>
-    <li class="pb-1.5 border-b border-line-light dark:border-white/5 [&_a]:hover:text-sage-dark [&_a]:dark:hover:text-sage [&_.dtag]:block [&_.dtag]:font-serif [&_.dtag]:italic [&_.dtag]:text-taupe [&_.dtag]:text-[11px] [&_.dtag]:mt-0.5"><a href="kandanad-west">Kandanad St. Gregorios Monastery</a><span class="dtag">Kandanad West</span></li>
+    <li class="pb-1.5 border-b border-line-light dark:border-white/5 [&_a]:hover:text-sage-dark [&_a]:dark:hover:text-sage [&_.dtag]:block [&_.dtag]:font-serif [&_.dtag]:italic [&_.dtag]:text-taupe [&_.dtag]:text-[11px] [&_.dtag]:mt-0.5"><a href="kollam">Kallada East Mount Carmel Monastery &amp; Convent (Mathilakom)</a><span class="dtag">Kollam</span></li>
+    <li class="pb-1.5 border-b border-line-light dark:border-white/5 [&_a]:hover:text-sage-dark [&_a]:dark:hover:text-sage [&_.dtag]:block [&_.dtag]:font-serif [&_.dtag]:italic [&_.dtag]:text-taupe [&_.dtag]:text-[11px] [&_.dtag]:mt-0.5"><a href="kandanad-west">Kandanad Carmel Monastery &amp; St. Kuriakose Orthodox Chapel</a><span class="dtag">Kandanad West</span></li>
+    <li class="pb-1.5 border-b border-line-light dark:border-white/5 [&_a]:hover:text-sage-dark [&_a]:dark:hover:text-sage [&_.dtag]:block [&_.dtag]:font-serif [&_.dtag]:italic [&_.dtag]:text-taupe [&_.dtag]:text-[11px] [&_.dtag]:mt-0.5"><a href="kandanad-west">Kandanad St. Gregorios Monastery &amp; Convent</a><span class="dtag">Kandanad West</span></li>
     <li class="pb-1.5 border-b border-line-light dark:border-white/5 [&_a]:hover:text-sage-dark [&_a]:dark:hover:text-sage [&_.dtag]:block [&_.dtag]:font-serif [&_.dtag]:italic [&_.dtag]:text-taupe [&_.dtag]:text-[11px] [&_.dtag]:mt-0.5"><a href="madras">Karassery Bethel Monastery</a><span class="dtag">Madras</span></li>
-    <li class="pb-1.5 border-b border-line-light dark:border-white/5 [&_a]:hover:text-sage-dark [&_a]:dark:hover:text-sage [&_.dtag]:block [&_.dtag]:font-serif [&_.dtag]:italic [&_.dtag]:text-taupe [&_.dtag]:text-[11px] [&_.dtag]:mt-0.5"><a href="angamaly">Kizhakkambalam-Njaralloor Bethlehem Monastery</a><span class="dtag">Angamaly</span></li>
-    <li class="pb-1.5 border-b border-line-light dark:border-white/5 [&_a]:hover:text-sage-dark [&_a]:dark:hover:text-sage [&_.dtag]:block [&_.dtag]:font-serif [&_.dtag]:italic [&_.dtag]:text-taupe [&_.dtag]:text-[11px] [&_.dtag]:mt-0.5"><a href="angamaly">Kodanad Zion Monastery</a><span class="dtag">Angamaly</span></li>
+    <li class="pb-1.5 border-b border-line-light dark:border-white/5 [&_a]:hover:text-sage-dark [&_a]:dark:hover:text-sage [&_.dtag]:block [&_.dtag]:font-serif [&_.dtag]:italic [&_.dtag]:text-taupe [&_.dtag]:text-[11px] [&_.dtag]:mt-0.5"><a href="angamaly">Kizhakkambalam-Njaralloor Bethlehem Monastery &amp; Bethlehem St. Mary&#x27;s Convent</a><span class="dtag">Angamaly</span></li>
     <li class="pb-1.5 border-b border-line-light dark:border-white/5 [&_a]:hover:text-sage-dark [&_a]:dark:hover:text-sage [&_.dtag]:block [&_.dtag]:font-serif [&_.dtag]:italic [&_.dtag]:text-taupe [&_.dtag]:text-[11px] [&_.dtag]:mt-0.5"><a href="kottarakkara-punalur">Kottarakkara St. Gregorios Mount Monastery</a><span class="dtag">Kottarakkara-Punalur</span></li>
-    <li class="pb-1.5 border-b border-line-light dark:border-white/5 [&_a]:hover:text-sage-dark [&_a]:dark:hover:text-sage [&_.dtag]:block [&_.dtag]:font-serif [&_.dtag]:italic [&_.dtag]:text-taupe [&_.dtag]:text-[11px] [&_.dtag]:mt-0.5"><a href="kottarakkara-punalur">Kulamudy St. George Monastery</a><span class="dtag">Kottarakkara-Punalur</span></li>
-    <li class="pb-1.5 border-b border-line-light dark:border-white/5 [&_a]:hover:text-sage-dark [&_a]:dark:hover:text-sage [&_.dtag]:block [&_.dtag]:font-serif [&_.dtag]:italic [&_.dtag]:text-taupe [&_.dtag]:text-[11px] [&_.dtag]:mt-0.5"><a href="kunnamkulam">Kunnamkulam Bethany Monastery</a><span class="dtag">Kunnamkulam</span></li>
     <li class="pb-1.5 border-b border-line-light dark:border-white/5 [&_a]:hover:text-sage-dark [&_a]:dark:hover:text-sage [&_.dtag]:block [&_.dtag]:font-serif [&_.dtag]:italic [&_.dtag]:text-taupe [&_.dtag]:text-[11px] [&_.dtag]:mt-0.5"><a href="kottayam">Kuzhimattom Bethany Monastery</a><span class="dtag">Kottayam</span></li>
     <li class="pb-1.5 border-b border-line-light dark:border-white/5 [&_a]:hover:text-sage-dark [&_a]:dark:hover:text-sage [&_.dtag]:block [&_.dtag]:font-serif [&_.dtag]:italic [&_.dtag]:text-taupe [&_.dtag]:text-[11px] [&_.dtag]:mt-0.5"><a href="niranam">Mallappally Mar Anthonios Monastery (Anicadu)</a><span class="dtag">Niranam</span></li>
-    <li class="pb-1.5 border-b border-line-light dark:border-white/5 [&_a]:hover:text-sage-dark [&_a]:dark:hover:text-sage [&_.dtag]:block [&_.dtag]:font-serif [&_.dtag]:italic [&_.dtag]:text-taupe [&_.dtag]:text-[11px] [&_.dtag]:mt-0.5"><a href="thrissur">Mambra Zion Monastery</a><span class="dtag">Thrissur</span></li>
-    <li class="pb-1.5 border-b border-line-light dark:border-white/5 [&_a]:hover:text-sage-dark [&_a]:dark:hover:text-sage [&_.dtag]:block [&_.dtag]:font-serif [&_.dtag]:italic [&_.dtag]:text-taupe [&_.dtag]:text-[11px] [&_.dtag]:mt-0.5"><a href="kottayam-central">Manganam St. Pachomius Monastery</a><span class="dtag">Kottayam Central</span></li>
+    <li class="pb-1.5 border-b border-line-light dark:border-white/5 [&_a]:hover:text-sage-dark [&_a]:dark:hover:text-sage [&_.dtag]:block [&_.dtag]:font-serif [&_.dtag]:italic [&_.dtag]:text-taupe [&_.dtag]:text-[11px] [&_.dtag]:mt-0.5"><a href="kottayam-central">Manganam Ebenezer Orthodox Church &amp; St. Pachomius Monastery</a><span class="dtag">Kottayam Central</span></li>
     <li class="pb-1.5 border-b border-line-light dark:border-white/5 [&_a]:hover:text-sage-dark [&_a]:dark:hover:text-sage [&_.dtag]:block [&_.dtag]:font-serif [&_.dtag]:italic [&_.dtag]:text-taupe [&_.dtag]:text-[11px] [&_.dtag]:mt-0.5"><a href="madras">Mathur Mount Tabor Monastery</a><span class="dtag">Madras</span></li>
-    <li class="pb-1.5 border-b border-line-light dark:border-white/5 [&_a]:hover:text-sage-dark [&_a]:dark:hover:text-sage [&_.dtag]:block [&_.dtag]:font-serif [&_.dtag]:italic [&_.dtag]:text-taupe [&_.dtag]:text-[11px] [&_.dtag]:mt-0.5"><a href="kandanad-east">Muvattupuzha Philo Logia Monastery</a><span class="dtag">Kandanad East</span></li>
     <li class="pb-1.5 border-b border-line-light dark:border-white/5 [&_a]:hover:text-sage-dark [&_a]:dark:hover:text-sage [&_.dtag]:block [&_.dtag]:font-serif [&_.dtag]:italic [&_.dtag]:text-taupe [&_.dtag]:text-[11px] [&_.dtag]:mt-0.5"><a href="thumpamon">Mylapra Mar Kuriakose Monastery</a><span class="dtag">Thumpamon</span></li>
     <li class="pb-1.5 border-b border-line-light dark:border-white/5 [&_a]:hover:text-sage-dark [&_a]:dark:hover:text-sage [&_.dtag]:block [&_.dtag]:font-serif [&_.dtag]:italic [&_.dtag]:text-taupe [&_.dtag]:text-[11px] [&_.dtag]:mt-0.5"><a href="kottayam">Njaliankuzhy St. Basil Monastery</a><span class="dtag">Kottayam</span></li>
-    <li class="pb-1.5 border-b border-line-light dark:border-white/5 [&_a]:hover:text-sage-dark [&_a]:dark:hover:text-sage [&_.dtag]:block [&_.dtag]:font-serif [&_.dtag]:italic [&_.dtag]:text-taupe [&_.dtag]:text-[11px] [&_.dtag]:mt-0.5"><a href="chengannur">Othera St. George Monastery</a><span class="dtag">Chengannur</span></li>
-    <li class="pb-1.5 border-b border-line-light dark:border-white/5 [&_a]:hover:text-sage-dark [&_a]:dark:hover:text-sage [&_.dtag]:block [&_.dtag]:font-serif [&_.dtag]:italic [&_.dtag]:text-taupe [&_.dtag]:text-[11px] [&_.dtag]:mt-0.5"><a href="kottayam">Pampady St. Kuriakose Monastery</a><span class="dtag">Kottayam</span></li>
-    <li class="pb-1.5 border-b border-line-light dark:border-white/5 [&_a]:hover:text-sage-dark [&_a]:dark:hover:text-sage [&_.dtag]:block [&_.dtag]:font-serif [&_.dtag]:italic [&_.dtag]:text-taupe [&_.dtag]:text-[11px] [&_.dtag]:mt-0.5"><a href="niranam">Panayampala St. Dionysius Monastery</a><span class="dtag">Niranam</span></li>
-    <li class="pb-1.5 border-b border-line-light dark:border-white/5 [&_a]:hover:text-sage-dark [&_a]:dark:hover:text-sage [&_.dtag]:block [&_.dtag]:font-serif [&_.dtag]:italic [&_.dtag]:text-taupe [&_.dtag]:text-[11px] [&_.dtag]:mt-0.5"><a href="thiruvananthapuram">Parottukonam St. Thomas Karunya Monastery</a><span class="dtag">Thiruvananthapuram</span></li>
-    <li class="pb-1.5 border-b border-line-light dark:border-white/5 [&_a]:hover:text-sage-dark [&_a]:dark:hover:text-sage [&_.dtag]:block [&_.dtag]:font-serif [&_.dtag]:italic [&_.dtag]:text-taupe [&_.dtag]:text-[11px] [&_.dtag]:mt-0.5"><a href="thumpamon">Pathanamthitta Mar Kuriakose Monastery</a><span class="dtag">Thumpamon</span></li>
-    <li class="pb-1.5 border-b border-line-light dark:border-white/5 [&_a]:hover:text-sage-dark [&_a]:dark:hover:text-sage [&_.dtag]:block [&_.dtag]:font-serif [&_.dtag]:italic [&_.dtag]:text-taupe [&_.dtag]:text-[11px] [&_.dtag]:mt-0.5"><a href="thumpamon">Pathanamthitta St. Basil Monastery</a><span class="dtag">Thumpamon</span></li>
-    <li class="pb-1.5 border-b border-line-light dark:border-white/5 [&_a]:hover:text-sage-dark [&_a]:dark:hover:text-sage [&_.dtag]:block [&_.dtag]:font-serif [&_.dtag]:italic [&_.dtag]:text-taupe [&_.dtag]:text-[11px] [&_.dtag]:mt-0.5"><a href="adoor-kadampanad">Pathanapuram Mount Tabor Monastery</a><span class="dtag">Adoor-Kadampanad</span></li>
+    <li class="pb-1.5 border-b border-line-light dark:border-white/5 [&_a]:hover:text-sage-dark [&_a]:dark:hover:text-sage [&_.dtag]:block [&_.dtag]:font-serif [&_.dtag]:italic [&_.dtag]:text-taupe [&_.dtag]:text-[11px] [&_.dtag]:mt-0.5"><a href="thiruvananthapuram">Parottukonam St. Thomas Karunya Monastery &amp; Convent</a><span class="dtag">Thiruvananthapuram</span></li>
+    <li class="pb-1.5 border-b border-line-light dark:border-white/5 [&_a]:hover:text-sage-dark [&_a]:dark:hover:text-sage [&_.dtag]:block [&_.dtag]:font-serif [&_.dtag]:italic [&_.dtag]:text-taupe [&_.dtag]:text-[11px] [&_.dtag]:mt-0.5"><a href="thumpamon">Pathanamthitta Basil Palace &amp; St. Basil Monastery</a><span class="dtag">Thumpamon</span></li>
+    <li class="pb-1.5 border-b border-line-light dark:border-white/5 [&_a]:hover:text-sage-dark [&_a]:dark:hover:text-sage [&_.dtag]:block [&_.dtag]:font-serif [&_.dtag]:italic [&_.dtag]:text-taupe [&_.dtag]:text-[11px] [&_.dtag]:mt-0.5"><a href="thumpamon">Pathanamthitta Mar Kuriakose Monastery &amp; Sankethabhavan Retreat Centre</a><span class="dtag">Thumpamon</span></li>
     <li class="pb-1.5 border-b border-line-light dark:border-white/5 [&_a]:hover:text-sage-dark [&_a]:dark:hover:text-sage [&_.dtag]:block [&_.dtag]:font-serif [&_.dtag]:italic [&_.dtag]:text-taupe [&_.dtag]:text-[11px] [&_.dtag]:mt-0.5"><a href="kollam">Pattazhy Mount Calvary Monastery</a><span class="dtag">Kollam</span></li>
     <li class="pb-1.5 border-b border-line-light dark:border-white/5 [&_a]:hover:text-sage-dark [&_a]:dark:hover:text-sage [&_.dtag]:block [&_.dtag]:font-serif [&_.dtag]:italic [&_.dtag]:text-taupe [&_.dtag]:text-[11px] [&_.dtag]:mt-0.5"><a href="kollam">Pattazhy Mount Tabor Monastery (Madhuramala)</a><span class="dtag">Kollam</span></li>
-    <li class="pb-1.5 border-b border-line-light dark:border-white/5 [&_a]:hover:text-sage-dark [&_a]:dark:hover:text-sage [&_.dtag]:block [&_.dtag]:font-serif [&_.dtag]:italic [&_.dtag]:text-taupe [&_.dtag]:text-[11px] [&_.dtag]:mt-0.5"><a href="madras">Port Blair St. Paul's Monastery</a><span class="dtag">Madras</span></li>
+    <li class="pb-1.5 border-b border-line-light dark:border-white/5 [&_a]:hover:text-sage-dark [&_a]:dark:hover:text-sage [&_.dtag]:block [&_.dtag]:font-serif [&_.dtag]:italic [&_.dtag]:text-taupe [&_.dtag]:text-[11px] [&_.dtag]:mt-0.5"><a href="madras">Port Blair St. Paul&#x27;s Monastery</a><span class="dtag">Madras</span></li>
     <li class="pb-1.5 border-b border-line-light dark:border-white/5 [&_a]:hover:text-sage-dark [&_a]:dark:hover:text-sage [&_.dtag]:block [&_.dtag]:font-serif [&_.dtag]:italic [&_.dtag]:text-taupe [&_.dtag]:text-[11px] [&_.dtag]:mt-0.5"><a href="malabar">Pothukallu Mount Tabor Monastery</a><span class="dtag">Malabar</span></li>
     <li class="pb-1.5 border-b border-line-light dark:border-white/5 [&_a]:hover:text-sage-dark [&_a]:dark:hover:text-sage [&_.dtag]:block [&_.dtag]:font-serif [&_.dtag]:italic [&_.dtag]:text-taupe [&_.dtag]:text-[11px] [&_.dtag]:mt-0.5"><a href="thiruvananthapuram">Powdikonam Matha Mariam Monastery</a><span class="dtag">Thiruvananthapuram</span></li>
-    <li class="pb-1.5 border-b border-line-light dark:border-white/5 [&_a]:hover:text-sage-dark [&_a]:dark:hover:text-sage [&_.dtag]:block [&_.dtag]:font-serif [&_.dtag]:italic [&_.dtag]:text-taupe [&_.dtag]:text-[11px] [&_.dtag]:mt-0.5"><a href="thumpamon">Puthencruz Bethel Monastery</a><span class="dtag">Thumpamon</span></li>
-    <li class="pb-1.5 border-b border-line-light dark:border-white/5 [&_a]:hover:text-sage-dark [&_a]:dark:hover:text-sage [&_.dtag]:block [&_.dtag]:font-serif [&_.dtag]:italic [&_.dtag]:text-taupe [&_.dtag]:text-[11px] [&_.dtag]:mt-0.5"><a href="malabar">Puthuppadi St. Paul's Monastery</a><span class="dtag">Malabar</span></li>
+    <li class="pb-1.5 border-b border-line-light dark:border-white/5 [&_a]:hover:text-sage-dark [&_a]:dark:hover:text-sage [&_.dtag]:block [&_.dtag]:font-serif [&_.dtag]:italic [&_.dtag]:text-taupe [&_.dtag]:text-[11px] [&_.dtag]:mt-0.5"><a href="thumpamon">Puthencruz Bethel Monastery</a><span class="dtag">Thumpamon</span></li>
+    <li class="pb-1.5 border-b border-line-light dark:border-white/5 [&_a]:hover:text-sage-dark [&_a]:dark:hover:text-sage [&_.dtag]:block [&_.dtag]:font-serif [&_.dtag]:italic [&_.dtag]:text-taupe [&_.dtag]:text-[11px] [&_.dtag]:mt-0.5"><a href="malabar">Puthuppadi St. Paul&#x27;s Monastery</a><span class="dtag">Malabar</span></li>
     <li class="pb-1.5 border-b border-line-light dark:border-white/5 [&_a]:hover:text-sage-dark [&_a]:dark:hover:text-sage [&_.dtag]:block [&_.dtag]:font-serif [&_.dtag]:italic [&_.dtag]:text-taupe [&_.dtag]:text-[11px] [&_.dtag]:mt-0.5"><a href="nilackal">Ranni Holy Trinity Monastery</a><span class="dtag">Nilackal</span></li>
     <li class="pb-1.5 border-b border-line-light dark:border-white/5 [&_a]:hover:text-sage-dark [&_a]:dark:hover:text-sage [&_.dtag]:block [&_.dtag]:font-serif [&_.dtag]:italic [&_.dtag]:text-taupe [&_.dtag]:text-[11px] [&_.dtag]:mt-0.5"><a href="nilackal">Ranni-Perunad Bethany Monastery</a><span class="dtag">Nilackal</span></li>
-    <li class="pb-1.5 border-b border-line-light dark:border-white/5 [&_a]:hover:text-sage-dark [&_a]:dark:hover:text-sage [&_.dtag]:block [&_.dtag]:font-serif [&_.dtag]:italic [&_.dtag]:text-taupe [&_.dtag]:text-[11px] [&_.dtag]:mt-0.5"><a href="nilackal">Ranni-Perunad St. John's Orthodox Chapel (Bethany Monastery)</a><span class="dtag">Nilackal</span></li>
     <li class="pb-1.5 border-b border-line-light dark:border-white/5 [&_a]:hover:text-sage-dark [&_a]:dark:hover:text-sage [&_.dtag]:block [&_.dtag]:font-serif [&_.dtag]:italic [&_.dtag]:text-taupe [&_.dtag]:text-[11px] [&_.dtag]:mt-0.5"><a href="kollam">Sasthamcotta Mount Horeb Monastery</a><span class="dtag">Kollam</span></li>
-    <li class="pb-1.5 border-b border-line-light dark:border-white/5 [&_a]:hover:text-sage-dark [&_a]:dark:hover:text-sage [&_.dtag]:block [&_.dtag]:font-serif [&_.dtag]:italic [&_.dtag]:text-taupe [&_.dtag]:text-[11px] [&_.dtag]:mt-0.5"><a href="kollam">Sooranad Mount Sinai Monastery</a><span class="dtag">Kollam</span></li>
-    <li class="pb-1.5 border-b border-line-light dark:border-white/5 [&_a]:hover:text-sage-dark [&_a]:dark:hover:text-sage [&_.dtag]:block [&_.dtag]:font-serif [&_.dtag]:italic [&_.dtag]:text-taupe [&_.dtag]:text-[11px] [&_.dtag]:mt-0.5"><a href="kandanad-west">South Piramadom Mar Augen Monastery</a><span class="dtag">Kandanad West</span></li>
-    <li class="pb-1.5 border-b border-line-light dark:border-white/5 [&_a]:hover:text-sage-dark [&_a]:dark:hover:text-sage [&_.dtag]:block [&_.dtag]:font-serif [&_.dtag]:italic [&_.dtag]:text-taupe [&_.dtag]:text-[11px] [&_.dtag]:mt-0.5"><a href="thiruvananthapuram">Sreekariyam St. Thomas Karunya Monastery (Kattela)</a><span class="dtag">Thiruvananthapuram</span></li>
-    <li class="pb-1.5 border-b border-line-light dark:border-white/5 [&_a]:hover:text-sage-dark [&_a]:dark:hover:text-sage [&_.dtag]:block [&_.dtag]:font-serif [&_.dtag]:italic [&_.dtag]:text-taupe [&_.dtag]:text-[11px] [&_.dtag]:mt-0.5"><a href="southwest-america">Tehachapi St. Gregory the Theologian Monastery</a><span class="dtag">Southwest America</span></li>
+    <li class="pb-1.5 border-b border-line-light dark:border-white/5 [&_a]:hover:text-sage-dark [&_a]:dark:hover:text-sage [&_.dtag]:block [&_.dtag]:font-serif [&_.dtag]:italic [&_.dtag]:text-taupe [&_.dtag]:text-[11px] [&_.dtag]:mt-0.5"><a href="kandanad-west">South Piramadom Mar Augen Monastery &amp; St. Basil and St. Gregory Orthodox Catholicate Centre</a><span class="dtag">Kandanad West</span></li>
     <li class="pb-1.5 border-b border-line-light dark:border-white/5 [&_a]:hover:text-sage-dark [&_a]:dark:hover:text-sage [&_.dtag]:block [&_.dtag]:font-serif [&_.dtag]:italic [&_.dtag]:text-taupe [&_.dtag]:text-[11px] [&_.dtag]:mt-0.5"><a href="madras">Thadagam Christa Sishya Monastery</a><span class="dtag">Madras</span></li>
-    <li class="pb-1.5 border-b border-line-light dark:border-white/5 [&_a]:hover:text-sage-dark [&_a]:dark:hover:text-sage [&_.dtag]:block [&_.dtag]:font-serif [&_.dtag]:italic [&_.dtag]:text-taupe [&_.dtag]:text-[11px] [&_.dtag]:mt-0.5"><a href="thumpamon">Thannithode St. Antony's Monastery</a><span class="dtag">Thumpamon</span></li>
-    <li class="pb-1.5 border-b border-line-light dark:border-white/5 [&_a]:hover:text-sage-dark [&_a]:dark:hover:text-sage [&_.dtag]:block [&_.dtag]:font-serif [&_.dtag]:italic [&_.dtag]:text-taupe [&_.dtag]:text-[11px] [&_.dtag]:mt-0.5"><a href="malabar">Thenkara Christa Sishya Monastery (Punchakode)</a><span class="dtag">Malabar</span></li>
-    <li class="pb-1.5 border-b border-line-light dark:border-white/5 [&_a]:hover:text-sage-dark [&_a]:dark:hover:text-sage [&_.dtag]:block [&_.dtag]:font-serif [&_.dtag]:italic [&_.dtag]:text-taupe [&_.dtag]:text-[11px] [&_.dtag]:mt-0.5"><a href="kottayam-central">Thiruvathuckal St. Paul's Monastery</a><span class="dtag">Kottayam Central</span></li>
-    <li class="pb-1.5 border-b border-line-light dark:border-white/5 [&_a]:hover:text-sage-dark [&_a]:dark:hover:text-sage [&_.dtag]:block [&_.dtag]:font-serif [&_.dtag]:italic [&_.dtag]:text-taupe [&_.dtag]:text-[11px] [&_.dtag]:mt-0.5"><a href="sulthan-bathery">Thondernad Mount Tabor Monastery</a><span class="dtag">Sulthan Bathery</span></li>
-    <li class="pb-1.5 border-b border-line-light dark:border-white/5 [&_a]:hover:text-sage-dark [&_a]:dark:hover:text-sage [&_.dtag]:block [&_.dtag]:font-serif [&_.dtag]:italic [&_.dtag]:text-taupe [&_.dtag]:text-[11px] [&_.dtag]:mt-0.5"><a href="madras">Trichy Mount Tabor Monastery</a><span class="dtag">Madras</span></li>
-    <li class="pb-1.5 border-b border-line-light dark:border-white/5 [&_a]:hover:text-sage-dark [&_a]:dark:hover:text-sage [&_.dtag]:block [&_.dtag]:font-serif [&_.dtag]:italic [&_.dtag]:text-taupe [&_.dtag]:text-[11px] [&_.dtag]:mt-0.5"><a href="kottayam-central">Vakathanam Vallikkattu St. Mary's Monastery</a><span class="dtag">Kottayam Central</span></li>
-    <li class="pb-1.5 border-b border-line-light dark:border-white/5 [&_a]:hover:text-sage-dark [&_a]:dark:hover:text-sage [&_.dtag]:block [&_.dtag]:font-serif [&_.dtag]:italic [&_.dtag]:text-taupe [&_.dtag]:text-[11px] [&_.dtag]:mt-0.5"><a href="kandanad-west">Vettickal St. Thomas Monastery</a><span class="dtag">Kandanad West</span></li>
+    <li class="pb-1.5 border-b border-line-light dark:border-white/5 [&_a]:hover:text-sage-dark [&_a]:dark:hover:text-sage [&_.dtag]:block [&_.dtag]:font-serif [&_.dtag]:italic [&_.dtag]:text-taupe [&_.dtag]:text-[11px] [&_.dtag]:mt-0.5"><a href="kottayam-central">Thiruvathuckal St. Paul&#x27;s Monastery</a><span class="dtag">Kottayam Central</span></li>
   </ol>
 </section>
 
@@ -150,7 +116,46 @@
 <!-- ==================== FOOTER ====================
      Loaded from footer.html at runtime so every page on the site
      shares one copy. -->
-<script>!function(){try{var t=new XMLHttpRequest;t.open("GET","footer.html",!1),t.send(null),200===t.status||0===t.status?document.write(t.responseText):console.error("footer.html failed to load:",t.status)}catch(t){console.error("footer.html failed to load:",t)}}()</script>
+<div id="site-footer"></div>
+
+<script src="site-common.js"></script>
+<script>
+(function(){
+  function runScripts(container){
+    var scripts = container.querySelectorAll('script');
+    scripts.forEach(function(old){
+      var s = document.createElement('script');
+      if (old.src) { s.src = old.src; }
+      else { s.textContent = old.textContent; }
+      old.parentNode.replaceChild(s, old);
+    });
+  }
+  function include(url, target, cb){
+    fetch(url).then(function(r){ return r.text(); }).then(function(html){
+      target.innerHTML = html;
+      runScripts(target);
+      if (cb) cb();
+    });
+  }
+  include('header.html', document.getElementById('site-header'), function(){
+    if(window.SiteCommon){ SiteCommon.initAll(); }
+    var music = document.getElementById('bgMusic');
+    if (!music) return;
+    music.volume = 0;
+    window.addEventListener('click', function(){
+      music.play();
+      var targetVolume = 0.5, fadeDuration = 42000, interval = 100;
+      var volume = 0, step = targetVolume / (fadeDuration / interval);
+      var fade = setInterval(function(){
+        volume += step;
+        if (volume >= targetVolume) { volume = targetVolume; clearInterval(fade); }
+        music.volume = volume;
+      }, interval);
+    }, { once: true });
+  });
+  include('footer.html', document.getElementById('site-footer'));
+})();
+</script>
 
 </body>
 </html>

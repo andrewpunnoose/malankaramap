@@ -57,29 +57,17 @@
 
 <!-- ==================== HEADER ====================
      Loaded from header.html at runtime so every page on the site
-     shares one copy. -->
-<script>
-(function(){
-  try {
-    var xhr = new XMLHttpRequest();
-    xhr.open("GET", "header.html", false);
-    xhr.send(null);
-    if (xhr.status === 200 || xhr.status === 0) {
-      document.write(xhr.responseText);
-    } else {
-      console.error("header.html failed to load:", xhr.status);
-    }
-  } catch (e) {
-    console.error("header.html failed to load:", e);
-  }
-})();
-</script>
-<script src="site-common.js"></script>
-<script>if(window.SiteCommon){ SiteCommon.initAll(); }</script>
+     shares one copy. Uses an async fetch into a placeholder div
+     (instead of a synchronous XHR + document.write), which is the
+     same reliable method the diocese pages use — mobile browsers
+     increasingly throttle/cancel synchronous XHR, which is what was
+     leaving the header (and the logo mark inside it) blank on this
+     page's older loading method. -->
+<div id="site-header"></div>
 
 
 <section class="px-5 sm:px-8 pt-14 sm:pt-20 pb-10 sm:pb-12 max-w-3xl mx-auto text-center">
-  <div class="text-[11px] sm:text-xs tracking-[0.22em] uppercase text-taupe font-semibold mb-4">61 Worldwide · A–Z</div>
+  <div class="text-[11px] sm:text-xs tracking-[0.22em] uppercase text-taupe font-semibold mb-4">29 Worldwide · A–Z</div>
   <h1 class="font-serif italic font-normal text-3xl sm:text-5xl text-ink dark:text-ivory mb-5">Cathedrals</h1>
   <p class="text-[15px] text-body/80 dark:text-ivory/65 max-w-lg mx-auto leading-relaxed">Every cathedral and archcathedral of the Malankara Orthodox Syrian Church worldwide, listed alphabetically by name, with the diocese each belongs to.</p>
 </section>
@@ -88,65 +76,38 @@
   <ol class="list-decimal marker:text-taupe marker:font-serif columns-1 sm:columns-2 gap-x-10 pl-5 space-y-3 text-[13.5px] text-body/75 dark:text-ivory/60 [&_li]:break-inside-avoid">
     <li class="pb-1.5 border-b border-line-light dark:border-white/5 [&_a]:hover:text-sage-dark [&_a]:dark:hover:text-sage [&_.dtag]:block [&_.dtag]:font-serif [&_.dtag]:italic [&_.dtag]:text-taupe [&_.dtag]:text-[11px] [&_.dtag]:mt-0.5"><a href="brahmavar">Abu Dhabi St. George Indian Orthodox Cathedral</a><span class="dtag">Brahmavar</span></li>
     <li class="pb-1.5 border-b border-line-light dark:border-white/5 [&_a]:hover:text-sage-dark [&_a]:dark:hover:text-sage [&_.dtag]:block [&_.dtag]:font-serif [&_.dtag]:italic [&_.dtag]:text-taupe [&_.dtag]:text-[11px] [&_.dtag]:mt-0.5"><a href="adoor-kadampanad">Adoor-Kannamkode St. Thomas Orthodox Cathedral</a><span class="dtag">Adoor-Kadampanad</span></li>
-    <li class="pb-1.5 border-b border-line-light dark:border-white/5 [&_a]:hover:text-sage-dark [&_a]:dark:hover:text-sage [&_.dtag]:block [&_.dtag]:font-serif [&_.dtag]:italic [&_.dtag]:text-taupe [&_.dtag]:text-[11px] [&_.dtag]:mt-0.5"><a href="ahmedabad">Ahmedabad St. Mary's Malankara Orthodox Cathedral (Behrampura)</a><span class="dtag">Ahmedabad</span></li>
-    <li class="pb-1.5 border-b border-line-light dark:border-white/5 [&_a]:hover:text-sage-dark [&_a]:dark:hover:text-sage [&_.dtag]:block [&_.dtag]:font-serif [&_.dtag]:italic [&_.dtag]:text-taupe [&_.dtag]:text-[11px] [&_.dtag]:mt-0.5"><a href="kunnamkulam">Arthat St. Mary's Orthodox Cathedral</a><span class="dtag">Kunnamkulam</span></li>
-    <li class="pb-1.5 border-b border-line-light dark:border-white/5 [&_a]:hover:text-sage-dark [&_a]:dark:hover:text-sage [&_.dtag]:block [&_.dtag]:font-serif [&_.dtag]:italic [&_.dtag]:text-taupe [&_.dtag]:text-[11px] [&_.dtag]:mt-0.5"><a href="bombay">Bahrain-Manama St. Mary's Indian Orthodox Cathedral</a><span class="dtag">Bombay</span></li>
+    <li class="pb-1.5 border-b border-line-light dark:border-white/5 [&_a]:hover:text-sage-dark [&_a]:dark:hover:text-sage [&_.dtag]:block [&_.dtag]:font-serif [&_.dtag]:italic [&_.dtag]:text-taupe [&_.dtag]:text-[11px] [&_.dtag]:mt-0.5"><a href="kunnamkulam">Arthat St. Mary&#x27;s Orthodox Cathedral</a><span class="dtag">Kunnamkulam</span></li>
+    <li class="pb-1.5 border-b border-line-light dark:border-white/5 [&_a]:hover:text-sage-dark [&_a]:dark:hover:text-sage [&_.dtag]:block [&_.dtag]:font-serif [&_.dtag]:italic [&_.dtag]:text-taupe [&_.dtag]:text-[11px] [&_.dtag]:mt-0.5"><a href="bombay">Bahrain-Manama St. Mary&#x27;s Indian Orthodox Cathedral</a><span class="dtag">Bombay</span></li>
     <li class="pb-1.5 border-b border-line-light dark:border-white/5 [&_a]:hover:text-sage-dark [&_a]:dark:hover:text-sage [&_.dtag]:block [&_.dtag]:font-serif [&_.dtag]:italic [&_.dtag]:text-taupe [&_.dtag]:text-[11px] [&_.dtag]:mt-0.5"><a href="bangalore">Bangalore St. Gregorios Malankara Orthodox Cathedral</a><span class="dtag">Bangalore</span></li>
     <li class="pb-1.5 border-b border-line-light dark:border-white/5 [&_a]:hover:text-sage-dark [&_a]:dark:hover:text-sage [&_.dtag]:block [&_.dtag]:font-serif [&_.dtag]:italic [&_.dtag]:text-taupe [&_.dtag]:text-[11px] [&_.dtag]:mt-0.5"><a href="southwest-america">Bellwood St. Gregorios Indian Orthodox Cathedral</a><span class="dtag">Southwest America</span></li>
     <li class="pb-1.5 border-b border-line-light dark:border-white/5 [&_a]:hover:text-sage-dark [&_a]:dark:hover:text-sage [&_.dtag]:block [&_.dtag]:font-serif [&_.dtag]:italic [&_.dtag]:text-taupe [&_.dtag]:text-[11px] [&_.dtag]:mt-0.5"><a href="calcutta">Bhilai St. Gregorios Malankara Orthodox Cathedral</a><span class="dtag">Calcutta</span></li>
     <li class="pb-1.5 border-b border-line-light dark:border-white/5 [&_a]:hover:text-sage-dark [&_a]:dark:hover:text-sage [&_.dtag]:block [&_.dtag]:font-serif [&_.dtag]:italic [&_.dtag]:text-taupe [&_.dtag]:text-[11px] [&_.dtag]:mt-0.5"><a href="calcutta">Bhopal St. Thomas Malankara Orthodox Cathedral</a><span class="dtag">Calcutta</span></li>
-    <li class="pb-1.5 border-b border-line-light dark:border-white/5 [&_a]:hover:text-sage-dark [&_a]:dark:hover:text-sage [&_.dtag]:block [&_.dtag]:font-serif [&_.dtag]:italic [&_.dtag]:text-taupe [&_.dtag]:text-[11px] [&_.dtag]:mt-0.5"><a href="brahmavar">Brahmavar St. Mary's Konkani Orthodox Cathedral</a><span class="dtag">Brahmavar</span></li>
     <li class="pb-1.5 border-b border-line-light dark:border-white/5 [&_a]:hover:text-sage-dark [&_a]:dark:hover:text-sage [&_.dtag]:block [&_.dtag]:font-serif [&_.dtag]:italic [&_.dtag]:text-taupe [&_.dtag]:text-[11px] [&_.dtag]:mt-0.5"><a href="chengannur">Chengannur St. Ignatius Orthodox Cathedral</a><span class="dtag">Chengannur</span></li>
     <li class="pb-1.5 border-b border-line-light dark:border-white/5 [&_a]:hover:text-sage-dark [&_a]:dark:hover:text-sage [&_.dtag]:block [&_.dtag]:font-serif [&_.dtag]:italic [&_.dtag]:text-taupe [&_.dtag]:text-[11px] [&_.dtag]:mt-0.5"><a href="madras">Chennai-Broadway St. Thomas Malankara Orthodox Cathedral</a><span class="dtag">Madras</span></li>
-    <li class="pb-1.5 border-b border-line-light dark:border-white/5 [&_a]:hover:text-sage-dark [&_a]:dark:hover:text-sage [&_.dtag]:block [&_.dtag]:font-serif [&_.dtag]:italic [&_.dtag]:text-taupe [&_.dtag]:text-[11px] [&_.dtag]:mt-0.5"><a href="madras">Coimbatore St. Mary's Malankara Orthodox Cathedral</a><span class="dtag">Madras</span></li>
+    <li class="pb-1.5 border-b border-line-light dark:border-white/5 [&_a]:hover:text-sage-dark [&_a]:dark:hover:text-sage [&_.dtag]:block [&_.dtag]:font-serif [&_.dtag]:italic [&_.dtag]:text-taupe [&_.dtag]:text-[11px] [&_.dtag]:mt-0.5"><a href="madras">Coimbatore St. Mary&#x27;s Malankara Orthodox Cathedral</a><span class="dtag">Madras</span></li>
     <li class="pb-1.5 border-b border-line-light dark:border-white/5 [&_a]:hover:text-sage-dark [&_a]:dark:hover:text-sage [&_.dtag]:block [&_.dtag]:font-serif [&_.dtag]:italic [&_.dtag]:text-taupe [&_.dtag]:text-[11px] [&_.dtag]:mt-0.5"><a href="delhi">Dubai St. Thomas Malankara Orthodox Cathedral (Oud Metha)</a><span class="dtag">Delhi</span></li>
-    <li class="pb-1.5 border-b border-line-light dark:border-white/5 [&_a]:hover:text-sage-dark [&_a]:dark:hover:text-sage [&_.dtag]:block [&_.dtag]:font-serif [&_.dtag]:italic [&_.dtag]:text-taupe [&_.dtag]:text-[11px] [&_.dtag]:mt-0.5"><a href="kochi">Ernakulam St. Mary's Orthodox Cathedral (Marine Drive)</a><span class="dtag">Kochi</span></li>
-    <li class="pb-1.5 border-b border-line-light dark:border-white/5 [&_a]:hover:text-sage-dark [&_a]:dark:hover:text-sage [&_.dtag]:block [&_.dtag]:font-serif [&_.dtag]:italic [&_.dtag]:text-taupe [&_.dtag]:text-[11px] [&_.dtag]:mt-0.5"><a href="southwest-america">Houston-Stafford St. Thomas Indian Orthodox Cathedral</a><span class="dtag">Southwest America</span></li>
-    <li class="pb-1.5 border-b border-line-light dark:border-white/5 [&_a]:hover:text-sage-dark [&_a]:dark:hover:text-sage [&_.dtag]:block [&_.dtag]:font-serif [&_.dtag]:italic [&_.dtag]:text-taupe [&_.dtag]:text-[11px] [&_.dtag]:mt-0.5"><a href="northeast-america">Huntingdon Valley St. Mary's Indian Orthodox Cathedral</a><span class="dtag">Northeast America</span></li>
-    <li class="pb-1.5 border-b border-line-light dark:border-white/5 [&_a]:hover:text-sage-dark [&_a]:dark:hover:text-sage [&_.dtag]:block [&_.dtag]:font-serif [&_.dtag]:italic [&_.dtag]:text-taupe [&_.dtag]:text-[11px] [&_.dtag]:mt-0.5"><a href="bangalore">Hyderabad St. Gregorios Malankara Orthodox Cathedral</a><span class="dtag">Bangalore</span></li>
-    <li class="pb-1.5 border-b border-line-light dark:border-white/5 [&_a]:hover:text-sage-dark [&_a]:dark:hover:text-sage [&_.dtag]:block [&_.dtag]:font-serif [&_.dtag]:italic [&_.dtag]:text-taupe [&_.dtag]:text-[11px] [&_.dtag]:mt-0.5"><a href="adoor-kadampanad">Kadampanad St. Thomas Orthodox Cathedral</a><span class="dtag">Adoor-Kadampanad</span></li>
-    <li class="pb-1.5 border-b border-line-light dark:border-white/5 [&_a]:hover:text-sage-dark [&_a]:dark:hover:text-sage [&_.dtag]:block [&_.dtag]:font-serif [&_.dtag]:italic [&_.dtag]:text-taupe [&_.dtag]:text-[11px] [&_.dtag]:mt-0.5"><a href="kandanad-west">Kandanad St. Mary's Orthodox Cathedral</a><span class="dtag">Kandanad West</span></li>
+    <li class="pb-1.5 border-b border-line-light dark:border-white/5 [&_a]:hover:text-sage-dark [&_a]:dark:hover:text-sage [&_.dtag]:block [&_.dtag]:font-serif [&_.dtag]:italic [&_.dtag]:text-taupe [&_.dtag]:text-[11px] [&_.dtag]:mt-0.5"><a href="kochi">Ernakulam St. Mary&#x27;s Orthodox Cathedral (Marine Drive)</a><span class="dtag">Kochi</span></li>
+    <li class="pb-1.5 border-b border-line-light dark:border-white/5 [&_a]:hover:text-sage-dark [&_a]:dark:hover:text-sage [&_.dtag]:block [&_.dtag]:font-serif [&_.dtag]:italic [&_.dtag]:text-taupe [&_.dtag]:text-[11px] [&_.dtag]:mt-0.5"><a href="kandanad-west">Kandanad St. Mary&#x27;s Orthodox Cathedral</a><span class="dtag">Kandanad West</span></li>
     <li class="pb-1.5 border-b border-line-light dark:border-white/5 [&_a]:hover:text-sage-dark [&_a]:dark:hover:text-sage [&_.dtag]:block [&_.dtag]:font-serif [&_.dtag]:italic [&_.dtag]:text-taupe [&_.dtag]:text-[11px] [&_.dtag]:mt-0.5"><a href="mavelikara">Karthikapally St. Thomas Orthodox Cathedral</a><span class="dtag">Mavelikara</span></li>
     <li class="pb-1.5 border-b border-line-light dark:border-white/5 [&_a]:hover:text-sage-dark [&_a]:dark:hover:text-sage [&_.dtag]:block [&_.dtag]:font-serif [&_.dtag]:italic [&_.dtag]:text-taupe [&_.dtag]:text-[11px] [&_.dtag]:mt-0.5"><a href="mavelikara">Kayamkulam All Saints Orthodox Cathedral</a><span class="dtag">Mavelikara</span></li>
     <li class="pb-1.5 border-b border-line-light dark:border-white/5 [&_a]:hover:text-sage-dark [&_a]:dark:hover:text-sage [&_.dtag]:block [&_.dtag]:font-serif [&_.dtag]:italic [&_.dtag]:text-taupe [&_.dtag]:text-[11px] [&_.dtag]:mt-0.5"><a href="calcutta">Kolkata St. Thomas Malankara Orthodox Cathedral</a><span class="dtag">Calcutta</span></li>
-    <li class="pb-1.5 border-b border-line-light dark:border-white/5 [&_a]:hover:text-sage-dark [&_a]:dark:hover:text-sage [&_.dtag]:block [&_.dtag]:font-serif [&_.dtag]:italic [&_.dtag]:text-taupe [&_.dtag]:text-[11px] [&_.dtag]:mt-0.5"><a href="kollam">Kollam St. Thomas Orthodox Cathedral (Kadapakkada)</a><span class="dtag">Kollam</span></li>
-    <li class="pb-1.5 border-b border-line-light dark:border-white/5 [&_a]:hover:text-sage-dark [&_a]:dark:hover:text-sage [&_.dtag]:block [&_.dtag]:font-serif [&_.dtag]:italic [&_.dtag]:text-taupe [&_.dtag]:text-[11px] [&_.dtag]:mt-0.5"><a href="angamaly">Kothamangalam St. Mary's Orthodox Cathedral</a><span class="dtag">Angamaly</span></li>
-    <li class="pb-1.5 border-b border-line-light dark:border-white/5 [&_a]:hover:text-sage-dark [&_a]:dark:hover:text-sage [&_.dtag]:block [&_.dtag]:font-serif [&_.dtag]:italic [&_.dtag]:text-taupe [&_.dtag]:text-[11px] [&_.dtag]:mt-0.5"><a href="kottayam-central">Kottayam St. Elias Orthodox Cathedral</a><span class="dtag">Kottayam Central</span></li>
-    <li class="pb-1.5 border-b border-line-light dark:border-white/5 [&_a]:hover:text-sage-dark [&_a]:dark:hover:text-sage [&_.dtag]:block [&_.dtag]:font-serif [&_.dtag]:italic [&_.dtag]:text-taupe [&_.dtag]:text-[11px] [&_.dtag]:mt-0.5"><a href="kottayam">Kottayam St. Joseph Orthodox Cathedral</a><span class="dtag">Kottayam</span></li>
-    <li class="pb-1.5 border-b border-line-light dark:border-white/5 [&_a]:hover:text-sage-dark [&_a]:dark:hover:text-sage [&_.dtag]:block [&_.dtag]:font-serif [&_.dtag]:italic [&_.dtag]:text-taupe [&_.dtag]:text-[11px] [&_.dtag]:mt-0.5"><a href="knanaya">Kottayam St. Mary's Knanaya Syrian Pro-Cathedral</a><span class="dtag">Knanaya</span></li>
-    <li class="pb-1.5 border-b border-line-light dark:border-white/5 [&_a]:hover:text-sage-dark [&_a]:dark:hover:text-sage [&_.dtag]:block [&_.dtag]:font-serif [&_.dtag]:italic [&_.dtag]:text-taupe [&_.dtag]:text-[11px] [&_.dtag]:mt-0.5"><a href="malabar">Kozhikode St. George Orthodox Cathedral (Bilathikulam)</a><span class="dtag">Malabar</span></li>
-    <li class="pb-1.5 border-b border-line-light dark:border-white/5 [&_a]:hover:text-sage-dark [&_a]:dark:hover:text-sage [&_.dtag]:block [&_.dtag]:font-serif [&_.dtag]:italic [&_.dtag]:text-taupe [&_.dtag]:text-[11px] [&_.dtag]:mt-0.5"><a href="asia-pacific">Kuala Lumpur St. Mary's Indian Orthodox Cathedral (Brickfields)</a><span class="dtag">Asia-Pacific</span></li>
-    <li class="pb-1.5 border-b border-line-light dark:border-white/5 [&_a]:hover:text-sage-dark [&_a]:dark:hover:text-sage [&_.dtag]:block [&_.dtag]:font-serif [&_.dtag]:italic [&_.dtag]:text-taupe [&_.dtag]:text-[11px] [&_.dtag]:mt-0.5"><a href="chengannur">Kudassanad St. Stephen's Orthodox Cathedral</a><span class="dtag">Chengannur</span></li>
-    <li class="pb-1.5 border-b border-line-light dark:border-white/5 [&_a]:hover:text-sage-dark [&_a]:dark:hover:text-sage [&_.dtag]:block [&_.dtag]:font-serif [&_.dtag]:italic [&_.dtag]:text-taupe [&_.dtag]:text-[11px] [&_.dtag]:mt-0.5"><a href="thumpamon">Kumbazha St. Mary's Orthodox Archcathedral</a><span class="dtag">Thumpamon</span></li>
-    <li class="pb-1.5 border-b border-line-light dark:border-white/5 [&_a]:hover:text-sage-dark [&_a]:dark:hover:text-sage [&_.dtag]:block [&_.dtag]:font-serif [&_.dtag]:italic [&_.dtag]:text-taupe [&_.dtag]:text-[11px] [&_.dtag]:mt-0.5"><a href="thumpamon">Kumbazha St. Simeon the Stylite's Orthodox Cathedral</a><span class="dtag">Thumpamon</span></li>
-    <li class="pb-1.5 border-b border-line-light dark:border-white/5 [&_a]:hover:text-sage-dark [&_a]:dark:hover:text-sage [&_.dtag]:block [&_.dtag]:font-serif [&_.dtag]:italic [&_.dtag]:text-taupe [&_.dtag]:text-[11px] [&_.dtag]:mt-0.5"><a href="idukki">Kungiripetty St. Thomas Orthodox Cathedral</a><span class="dtag">Idukki</span></li>
+    <li class="pb-1.5 border-b border-line-light dark:border-white/5 [&_a]:hover:text-sage-dark [&_a]:dark:hover:text-sage [&_.dtag]:block [&_.dtag]:font-serif [&_.dtag]:italic [&_.dtag]:text-taupe [&_.dtag]:text-[11px] [&_.dtag]:mt-0.5"><a href="asia-pacific">Kuala Lumpur St. Mary&#x27;s Indian Orthodox Cathedral (Brickfields)</a><span class="dtag">Asia-Pacific</span></li>
+    <li class="pb-1.5 border-b border-line-light dark:border-white/5 [&_a]:hover:text-sage-dark [&_a]:dark:hover:text-sage [&_.dtag]:block [&_.dtag]:font-serif [&_.dtag]:italic [&_.dtag]:text-taupe [&_.dtag]:text-[11px] [&_.dtag]:mt-0.5"><a href="chengannur">Kudassanad St. Stephen&#x27;s Orthodox Cathedral</a><span class="dtag">Chengannur</span></li>
+    <li class="pb-1.5 border-b border-line-light dark:border-white/5 [&_a]:hover:text-sage-dark [&_a]:dark:hover:text-sage [&_.dtag]:block [&_.dtag]:font-serif [&_.dtag]:italic [&_.dtag]:text-taupe [&_.dtag]:text-[11px] [&_.dtag]:mt-0.5"><a href="thumpamon">Kumbazha St. Mary&#x27;s Orthodox Archcathedral</a><span class="dtag">Thumpamon</span></li>
+    <li class="pb-1.5 border-b border-line-light dark:border-white/5 [&_a]:hover:text-sage-dark [&_a]:dark:hover:text-sage [&_.dtag]:block [&_.dtag]:font-serif [&_.dtag]:italic [&_.dtag]:text-taupe [&_.dtag]:text-[11px] [&_.dtag]:mt-0.5"><a href="thumpamon">Kumbazha St. Simeon the Stylite&#x27;s Orthodox Cathedral</a><span class="dtag">Thumpamon</span></li>
     <li class="pb-1.5 border-b border-line-light dark:border-white/5 [&_a]:hover:text-sage-dark [&_a]:dark:hover:text-sage [&_.dtag]:block [&_.dtag]:font-serif [&_.dtag]:italic [&_.dtag]:text-taupe [&_.dtag]:text-[11px] [&_.dtag]:mt-0.5"><a href="angamaly">Kunnakkurudy St. George Orthodox Cathedral</a><span class="dtag">Angamaly</span></li>
-    <li class="pb-1.5 border-b border-line-light dark:border-white/5 [&_a]:hover:text-sage-dark [&_a]:dark:hover:text-sage [&_.dtag]:block [&_.dtag]:font-serif [&_.dtag]:italic [&_.dtag]:text-taupe [&_.dtag]:text-[11px] [&_.dtag]:mt-0.5"><a href="angamaly">Kuruppampady St. Mary's Orthodox Cathedral</a><span class="dtag">Angamaly</span></li>
-    <li class="pb-1.5 border-b border-line-light dark:border-white/5 [&_a]:hover:text-sage-dark [&_a]:dark:hover:text-sage [&_.dtag]:block [&_.dtag]:font-serif [&_.dtag]:italic [&_.dtag]:text-taupe [&_.dtag]:text-[11px] [&_.dtag]:mt-0.5"><a href="uk-europe-africa">London-Brockley St. Gregorios Indian Orthodox Cathedral</a><span class="dtag">UK-Europe-Africa</span></li>
-    <li class="pb-1.5 border-b border-line-light dark:border-white/5 [&_a]:hover:text-sage-dark [&_a]:dark:hover:text-sage [&_.dtag]:block [&_.dtag]:font-serif [&_.dtag]:italic [&_.dtag]:text-taupe [&_.dtag]:text-[11px] [&_.dtag]:mt-0.5"><a href="thumpamon">Makkamkunnu St. Stephen's Orthodox Cathedral (Pathanamthitta)</a><span class="dtag">Thumpamon</span></li>
-    <li class="pb-1.5 border-b border-line-light dark:border-white/5 [&_a]:hover:text-sage-dark [&_a]:dark:hover:text-sage [&_.dtag]:block [&_.dtag]:font-serif [&_.dtag]:italic [&_.dtag]:text-taupe [&_.dtag]:text-[11px] [&_.dtag]:mt-0.5"><a href="kottayam">Manarcad St. Mary's Orthodox Cathedral</a><span class="dtag">Kottayam</span></li>
-    <li class="pb-1.5 border-b border-line-light dark:border-white/5 [&_a]:hover:text-sage-dark [&_a]:dark:hover:text-sage [&_.dtag]:block [&_.dtag]:font-serif [&_.dtag]:italic [&_.dtag]:text-taupe [&_.dtag]:text-[11px] [&_.dtag]:mt-0.5"><a href="mavelikara">Mavelikara-Puthiyakavu St. Mary's Kadeestha Orthodox Cathedral</a><span class="dtag">Mavelikara</span></li>
-    <li class="pb-1.5 border-b border-line-light dark:border-white/5 [&_a]:hover:text-sage-dark [&_a]:dark:hover:text-sage [&_.dtag]:block [&_.dtag]:font-serif [&_.dtag]:italic [&_.dtag]:text-taupe [&_.dtag]:text-[11px] [&_.dtag]:mt-0.5"><a href="asia-pacific">Melbourne St. Mary's Indian Orthodox Cathedral</a><span class="dtag">Asia-Pacific</span></li>
-    <li class="pb-1.5 border-b border-line-light dark:border-white/5 [&_a]:hover:text-sage-dark [&_a]:dark:hover:text-sage [&_.dtag]:block [&_.dtag]:font-serif [&_.dtag]:italic [&_.dtag]:text-taupe [&_.dtag]:text-[11px] [&_.dtag]:mt-0.5"><a href="kandanad-west">Mulakulam-Mannookkunnu St. Mary's Orthodox Cathedral</a><span class="dtag">Kandanad West</span></li>
+    <li class="pb-1.5 border-b border-line-light dark:border-white/5 [&_a]:hover:text-sage-dark [&_a]:dark:hover:text-sage [&_.dtag]:block [&_.dtag]:font-serif [&_.dtag]:italic [&_.dtag]:text-taupe [&_.dtag]:text-[11px] [&_.dtag]:mt-0.5"><a href="thumpamon">Makkamkunnu St. Stephen&#x27;s Orthodox Cathedral (Pathanamthitta)</a><span class="dtag">Thumpamon</span></li>
+    <li class="pb-1.5 border-b border-line-light dark:border-white/5 [&_a]:hover:text-sage-dark [&_a]:dark:hover:text-sage [&_.dtag]:block [&_.dtag]:font-serif [&_.dtag]:italic [&_.dtag]:text-taupe [&_.dtag]:text-[11px] [&_.dtag]:mt-0.5"><a href="asia-pacific">Melbourne St. Mary&#x27;s Indian Orthodox Cathedral</a><span class="dtag">Asia-Pacific</span></li>
     <li class="pb-1.5 border-b border-line-light dark:border-white/5 [&_a]:hover:text-sage-dark [&_a]:dark:hover:text-sage [&_.dtag]:block [&_.dtag]:font-serif [&_.dtag]:italic [&_.dtag]:text-taupe [&_.dtag]:text-[11px] [&_.dtag]:mt-0.5"><a href="kochi">Mulanthuruthy St. Thomas Orthodox Cathedral</a><span class="dtag">Kochi</span></li>
-    <li class="pb-1.5 border-b border-line-light dark:border-white/5 [&_a]:hover:text-sage-dark [&_a]:dark:hover:text-sage [&_.dtag]:block [&_.dtag]:font-serif [&_.dtag]:italic [&_.dtag]:text-taupe [&_.dtag]:text-[11px] [&_.dtag]:mt-0.5"><a href="bombay">Mumbai-Dadar St. Mary's Malankara Orthodox Cathedral</a><span class="dtag">Bombay</span></li>
     <li class="pb-1.5 border-b border-line-light dark:border-white/5 [&_a]:hover:text-sage-dark [&_a]:dark:hover:text-sage [&_.dtag]:block [&_.dtag]:font-serif [&_.dtag]:italic [&_.dtag]:text-taupe [&_.dtag]:text-[11px] [&_.dtag]:mt-0.5"><a href="kandanad-east">Muvattupuzha St. Thomas Palatial Cathedral</a><span class="dtag">Kandanad East</span></li>
-    <li class="pb-1.5 border-b border-line-light dark:border-white/5 [&_a]:hover:text-sage-dark [&_a]:dark:hover:text-sage [&_.dtag]:block [&_.dtag]:font-serif [&_.dtag]:italic [&_.dtag]:text-taupe [&_.dtag]:text-[11px] [&_.dtag]:mt-0.5"><a href="calcutta">Nagpur St. George Malankara Orthodox Cathedral</a><span class="dtag">Calcutta</span></li>
-    <li class="pb-1.5 border-b border-line-light dark:border-white/5 [&_a]:hover:text-sage-dark [&_a]:dark:hover:text-sage [&_.dtag]:block [&_.dtag]:font-serif [&_.dtag]:italic [&_.dtag]:text-taupe [&_.dtag]:text-[11px] [&_.dtag]:mt-0.5"><a href="delhi">New Delhi-Hauz Khas St. Mary's Malankara Orthodox Cathedral</a><span class="dtag">Delhi</span></li>
-    <li class="pb-1.5 border-b border-line-light dark:border-white/5 [&_a]:hover:text-sage-dark [&_a]:dark:hover:text-sage [&_.dtag]:block [&_.dtag]:font-serif [&_.dtag]:italic [&_.dtag]:text-taupe [&_.dtag]:text-[11px] [&_.dtag]:mt-0.5"><a href="thiruvananthapuram">Palayam St. George Orthodox Cathedral</a><span class="dtag">Thiruvananthapuram</span></li>
-    <li class="pb-1.5 border-b border-line-light dark:border-white/5 [&_a]:hover:text-sage-dark [&_a]:dark:hover:text-sage [&_.dtag]:block [&_.dtag]:font-serif [&_.dtag]:italic [&_.dtag]:text-taupe [&_.dtag]:text-[11px] [&_.dtag]:mt-0.5"><a href="kottayam">Pampady St. John's Orthodox Cathedral</a><span class="dtag">Kottayam</span></li>
-    <li class="pb-1.5 border-b border-line-light dark:border-white/5 [&_a]:hover:text-sage-dark [&_a]:dark:hover:text-sage [&_.dtag]:block [&_.dtag]:font-serif [&_.dtag]:italic [&_.dtag]:text-taupe [&_.dtag]:text-[11px] [&_.dtag]:mt-0.5"><a href="kunnamkulam">Pazhanji St. Mary's Orthodox Cathedral</a><span class="dtag">Kunnamkulam</span></li>
-    <li class="pb-1.5 border-b border-line-light dark:border-white/5 [&_a]:hover:text-sage-dark [&_a]:dark:hover:text-sage [&_.dtag]:block [&_.dtag]:font-serif [&_.dtag]:italic [&_.dtag]:text-taupe [&_.dtag]:text-[11px] [&_.dtag]:mt-0.5"><a href="kunnamkulam">Pazhanji St. Mary's Orthodox Old Cathedral</a><span class="dtag">Kunnamkulam</span></li>
-    <li class="pb-1.5 border-b border-line-light dark:border-white/5 [&_a]:hover:text-sage-dark [&_a]:dark:hover:text-sage [&_.dtag]:block [&_.dtag]:font-serif [&_.dtag]:italic [&_.dtag]:text-taupe [&_.dtag]:text-[11px] [&_.dtag]:mt-0.5"><a href="angamaly">Perumbavoor Bethel Suloqo St. Thomas Orthodox Cathedral</a><span class="dtag">Angamaly</span></li>
-    <li class="pb-1.5 border-b border-line-light dark:border-white/5 [&_a]:hover:text-sage-dark [&_a]:dark:hover:text-sage [&_.dtag]:block [&_.dtag]:font-serif [&_.dtag]:italic [&_.dtag]:text-taupe [&_.dtag]:text-[11px] [&_.dtag]:mt-0.5"><a href="kandanad-east">Piravom St. Mary's Orthodox Cathedral</a><span class="dtag">Kandanad East</span></li>
-    <li class="pb-1.5 border-b border-line-light dark:border-white/5 [&_a]:hover:text-sage-dark [&_a]:dark:hover:text-sage [&_.dtag]:block [&_.dtag]:font-serif [&_.dtag]:italic [&_.dtag]:text-taupe [&_.dtag]:text-[11px] [&_.dtag]:mt-0.5"><a href="madras">Port Blair St. Mary's Malankara Orthodox Cathedral</a><span class="dtag">Madras</span></li>
-    <li class="pb-1.5 border-b border-line-light dark:border-white/5 [&_a]:hover:text-sage-dark [&_a]:dark:hover:text-sage [&_.dtag]:block [&_.dtag]:font-serif [&_.dtag]:italic [&_.dtag]:text-taupe [&_.dtag]:text-[11px] [&_.dtag]:mt-0.5"><a href="chengannur">Puthencavu St. Mary's Orthodox Cathedral</a><span class="dtag">Chengannur</span></li>
+    <li class="pb-1.5 border-b border-line-light dark:border-white/5 [&_a]:hover:text-sage-dark [&_a]:dark:hover:text-sage [&_.dtag]:block [&_.dtag]:font-serif [&_.dtag]:italic [&_.dtag]:text-taupe [&_.dtag]:text-[11px] [&_.dtag]:mt-0.5"><a href="kunnamkulam">Pazhanji St. Mary&#x27;s Orthodox Cathedral</a><span class="dtag">Kunnamkulam</span></li>
     <li class="pb-1.5 border-b border-line-light dark:border-white/5 [&_a]:hover:text-sage-dark [&_a]:dark:hover:text-sage [&_.dtag]:block [&_.dtag]:font-serif [&_.dtag]:italic [&_.dtag]:text-taupe [&_.dtag]:text-[11px] [&_.dtag]:mt-0.5"><a href="asia-pacific">Singapore St. Thomas Indian Orthodox Cathedral</a><span class="dtag">Asia-Pacific</span></li>
-    <li class="pb-1.5 border-b border-line-light dark:border-white/5 [&_a]:hover:text-sage-dark [&_a]:dark:hover:text-sage [&_.dtag]:block [&_.dtag]:font-serif [&_.dtag]:italic [&_.dtag]:text-taupe [&_.dtag]:text-[11px] [&_.dtag]:mt-0.5"><a href="sulthan-bathery">Sultan Bathery St. Mary's Orthodox Cathedral</a><span class="dtag">Sulthan Bathery</span></li>
-    <li class="pb-1.5 border-b border-line-light dark:border-white/5 [&_a]:hover:text-sage-dark [&_a]:dark:hover:text-sage [&_.dtag]:block [&_.dtag]:font-serif [&_.dtag]:italic [&_.dtag]:text-taupe [&_.dtag]:text-[11px] [&_.dtag]:mt-0.5"><a href="asia-pacific">Sydney St. Thomas Indian Orthodox Cathedral</a><span class="dtag">Asia-Pacific</span></li>
-    <li class="pb-1.5 border-b border-line-light dark:border-white/5 [&_a]:hover:text-sage-dark [&_a]:dark:hover:text-sage [&_.dtag]:block [&_.dtag]:font-serif [&_.dtag]:italic [&_.dtag]:text-taupe [&_.dtag]:text-[11px] [&_.dtag]:mt-0.5"><a href="nilackal">Thottamon St. Thomas Orthodox Cathedral</a><span class="dtag">Nilackal</span></li>
-    <li class="pb-1.5 border-b border-line-light dark:border-white/5 [&_a]:hover:text-sage-dark [&_a]:dark:hover:text-sage [&_.dtag]:block [&_.dtag]:font-serif [&_.dtag]:italic [&_.dtag]:text-taupe [&_.dtag]:text-[11px] [&_.dtag]:mt-0.5"><a href="kochi">Thrissur St. Ignatius Orthodox Cathedral</a><span class="dtag">Kochi</span></li>
-    <li class="pb-1.5 border-b border-line-light dark:border-white/5 [&_a]:hover:text-sage-dark [&_a]:dark:hover:text-sage [&_.dtag]:block [&_.dtag]:font-serif [&_.dtag]:italic [&_.dtag]:text-taupe [&_.dtag]:text-[11px] [&_.dtag]:mt-0.5"><a href="thumpamon">Thumpamon St. Mary's Orthodox Cathedral</a><span class="dtag">Thumpamon</span></li>
+  </ol>
+</section>
+<section class="px-5 sm:px-8 pb-16 sm:pb-20 max-w-3xl mx-auto">
+  <h2 class="font-serif italic font-normal text-2xl sm:text-3xl text-ink dark:text-ivory mb-6">Cathedrals — Schismatic-Occupied</h2>
+  <ol class="list-decimal marker:text-taupe marker:font-serif columns-1 sm:columns-2 gap-x-10 pl-5 space-y-3 text-[13.5px] text-body/75 dark:text-ivory/60 [&_li]:break-inside-avoid">
+    <li class="pb-1.5 border-b border-line-light dark:border-white/5 [&_a]:hover:text-sage-dark [&_a]:dark:hover:text-sage [&_.dtag]:block [&_.dtag]:font-serif [&_.dtag]:italic [&_.dtag]:text-taupe [&_.dtag]:text-[11px] [&_.dtag]:mt-0.5"><a href="kottayam">Kottayam St. Joseph Orthodox Cathedral</a><span class="dtag">Kottayam</span></li>
   </ol>
 </section>
 
@@ -157,7 +118,46 @@
 <!-- ==================== FOOTER ====================
      Loaded from footer.html at runtime so every page on the site
      shares one copy. -->
-<script>!function(){try{var t=new XMLHttpRequest;t.open("GET","footer.html",!1),t.send(null),200===t.status||0===t.status?document.write(t.responseText):console.error("footer.html failed to load:",t.status)}catch(t){console.error("footer.html failed to load:",t)}}()</script>
+<div id="site-footer"></div>
+
+<script src="site-common.js"></script>
+<script>
+(function(){
+  function runScripts(container){
+    var scripts = container.querySelectorAll('script');
+    scripts.forEach(function(old){
+      var s = document.createElement('script');
+      if (old.src) { s.src = old.src; }
+      else { s.textContent = old.textContent; }
+      old.parentNode.replaceChild(s, old);
+    });
+  }
+  function include(url, target, cb){
+    fetch(url).then(function(r){ return r.text(); }).then(function(html){
+      target.innerHTML = html;
+      runScripts(target);
+      if (cb) cb();
+    });
+  }
+  include('header.html', document.getElementById('site-header'), function(){
+    if(window.SiteCommon){ SiteCommon.initAll(); }
+    var music = document.getElementById('bgMusic');
+    if (!music) return;
+    music.volume = 0;
+    window.addEventListener('click', function(){
+      music.play();
+      var targetVolume = 0.5, fadeDuration = 42000, interval = 100;
+      var volume = 0, step = targetVolume / (fadeDuration / interval);
+      var fade = setInterval(function(){
+        volume += step;
+        if (volume >= targetVolume) { volume = targetVolume; clearInterval(fade); }
+        music.volume = volume;
+      }, interval);
+    }, { once: true });
+  });
+  include('footer.html', document.getElementById('site-footer'));
+})();
+</script>
 
 </body>
 </html>
