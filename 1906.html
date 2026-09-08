@@ -56,34 +56,12 @@
 </audio>
 
 <!-- ==================== HEADER ====================
-     Loaded from header.html at runtime so every page on the site
-     can share one copy — edit header.html and every page picks up
-     the change. Uses a synchronous XHR + document.write (not
-     fetch) so the header lands in the DOM immediately, before any
-     script further down that expects the header's elements
-     (theme toggle, mobile menu, etc.) to already exist.
-     Note: this requires the page to be served over http/https (a
-     real dev server, GitHub Pages, Netlify, etc.) — it will not
-     work opened directly as a file:// URL, since browsers block
-     XHR to local files for security. -->
-<script>
-(function(){
-  try {
-    var xhr = new XMLHttpRequest();
-    xhr.open("GET", "header.html", false);
-    xhr.send(null);
-    if (xhr.status === 200 || xhr.status === 0) {
-      document.write(xhr.responseText);
-    } else {
-      console.error("header.html failed to load:", xhr.status);
-    }
-  } catch (e) {
-    console.error("header.html failed to load:", e);
-  }
-})();
-</script>
-<script src="site-common.js"></script>
-<script>if(window.SiteCommon){ SiteCommon.initAll(); }</script>
+     Loaded from header.html at runtime via an async fetch into a
+     placeholder div (not a synchronous XHR + document.write) — the
+     synchronous approach is throttled/blocked on many mobile
+     browsers, which is what was leaving the header (and the logo
+     mark inside it) blank on this page. -->
+<div id="site-header"></div>
 
 <section class="px-5 sm:px-8 pt-14 sm:pt-20 pb-10 sm:pb-12 max-w-2xl mx-auto text-center">
   <div class="text-[11px] sm:text-xs tracking-[0.22em] uppercase text-taupe font-semibold mb-5">A Century Before</div>
@@ -198,22 +176,32 @@
 
 <!-- ==================== FOOTER ====================
      Loaded from footer.html at runtime so every page on the site
-     can share one copy — edit footer.html and every page picks up
-     the change. -->
+     shares one copy. -->
+<div id="site-footer"></div>
+<script src="site-common.js"></script>
 <script>
 (function(){
-  try {
-    var xhr = new XMLHttpRequest();
-    xhr.open("GET", "footer.html", false);
-    xhr.send(null);
-    if (xhr.status === 200 || xhr.status === 0) {
-      document.write(xhr.responseText);
-    } else {
-      console.error("footer.html failed to load:", xhr.status);
-    }
-  } catch (e) {
-    console.error("footer.html failed to load:", e);
+  function runScripts(container){
+    var scripts = container.querySelectorAll('script');
+    scripts.forEach(function(old){
+      var s = document.createElement('script');
+      if (old.src) { s.src = old.src; }
+      else { s.textContent = old.textContent; }
+      old.parentNode.replaceChild(s, old);
+    });
   }
+  function include(url, target, cb){
+    fetch(url).then(function(r){ return r.text(); }).then(function(html){
+      target.innerHTML = html;
+      runScripts(target);
+      if (cb) cb();
+    });
+  }
+  include('header.html', document.getElementById('site-header'), function(){
+    if(window.SiteCommon){ SiteCommon.initAll(); }
+    document.dispatchEvent(new Event('header:loaded'));
+  });
+  include('footer.html', document.getElementById('site-footer'));
 })();
 </script>
 

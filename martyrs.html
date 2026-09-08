@@ -497,7 +497,33 @@ html.dark .mrt-candle-note{ color:rgb(186,148,80); }
     <p class="font-sans text-xs sm:text-[13px] text-body/70 dark:text-ivory/55 leading-[1.7] pl-6 -indent-6">Malayala Manorama, 3 April 1912.</p>
   </div>
 </section>
-<script>!function(){try{var t=new XMLHttpRequest;t.open("GET","footer.html",!1),t.send(null),200===t.status||0===t.status?document.write(t.responseText):console.error("footer.html failed to load:",t.status)}catch(t){console.error("footer.html failed to load:",t)}}()</script><script>
+<script src="site-common.js"></script>
+<div id="site-footer"></div>
+<script>
+(function(){
+  function runScripts(container){
+    var scripts = container.querySelectorAll('script');
+    scripts.forEach(function(old){
+      var s = document.createElement('script');
+      if (old.src) { s.src = old.src; }
+      else { s.textContent = old.textContent; }
+      old.parentNode.replaceChild(s, old);
+    });
+  }
+  function include(url, target, cb){
+    fetch(url).then(function(r){ return r.text(); }).then(function(html){
+      target.innerHTML = html;
+      runScripts(target);
+      if (cb) cb();
+    });
+  }
+  include('header.html', document.getElementById('site-header'), function(){
+    if(window.SiteCommon){ SiteCommon.initAll(); }
+    document.dispatchEvent(new Event('header:loaded'));
+  });
+  include('footer.html', document.getElementById('site-footer'));
+})();
+</script><script>
 (function(){
   var reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 

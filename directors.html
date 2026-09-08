@@ -333,27 +333,10 @@ header{margin-top:0!important;top:0!important}
 </style>
 <!-- ==================== HEADER ==================== -->
 <!-- ==================== HEADER ====================
-     Loaded from header.html at runtime so every page on the site
-     shares one copy. -->
-<script>
-(function(){
-  try {
-    var xhr = new XMLHttpRequest();
-    xhr.open("GET", "header.html", false);
-    xhr.send(null);
-    if (xhr.status === 200 || xhr.status === 0) {
-      document.write(xhr.responseText);
-    } else {
-      console.error("header.html failed to load:", xhr.status);
-    }
-  } catch (e) {
-    console.error("header.html failed to load:", e);
-  }
-})();
-</script>
-<script src="site-common.js"></script>
-<script>if(window.SiteCommon){ SiteCommon.initAll(); }</script>
-<style>
+     Loaded from header.html at runtime so every page shares one
+     copy, instead of this page carrying its own separate copy. -->
+<div id="site-header"></div>
+<div id="cmdOverlay" class="hidden fixed inset-0 z-[100] flex items-start justify-center px-4 pt-24 sm:pt-32"><div id="cmdBackdrop" class="absolute inset-0 cmd-backdrop"></div><div class="relative w-full max-w-lg cmd-panel bg-ivory dark:bg-midnight border border-line dark:border-white/10 rounded-2xl shadow-large overflow-hidden"><div class="flex items-center gap-3 px-5 py-4 border-b border-line dark:border-white/10"><svg class="w-4 h-4 text-taupe shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg> <input id="cmdInput" autocomplete="off" placeholder="Jump to a diocese, nation, or institution&hellip;" class="flex-1 bg-transparent font-sans text-sm text-ink dark:text-ivory placeholder:text-muted outline-none"> <button id="cmdClose" class="font-sans text-[10px] tracking-wide border border-line dark:border-white/20 rounded px-1.5 py-0.5 text-muted shrink-0">ESC</button></div><div id="cmdResults" class="max-h-80 overflow-y-auto py-2 font-sans text-sm"></div><div id="cmdEmpty" class="hidden px-5 py-8 text-center text-sm text-muted font-sans">No matches. Try a different diocese, nation, or type.</div></div></div><script>!function(){var t="site-lang",e=document.getElementById("langToggle"),a=document.getElementById("langToggleLabel");if(e&&a){window.currentSiteLang=function(){return"ml"===document.documentElement.getAttribute("lang")?"ml":"en"},window.formatEraLabel=function(t,e){var a=parseInt(t,10);return a<0?"ml"===e?"ക്രി.മു. "+Math.abs(a):Math.abs(a)+" BCE":"ml"===e?"ക്രി.വ. "+a:a+" CE"};var l=null;try{l=localStorage.getItem(t)}catch(t){}var n="ml"===l?"ml":"en";o(n),"loading"===document.readyState&&document.addEventListener("DOMContentLoaded",function(){o(n)}),window.addEventListener("load",function(){o(n)}),e.addEventListener("click",function(){n="ml"===document.documentElement.getAttribute("lang")?"en":"ml";try{localStorage.setItem(t,n)}catch(t){}o(n)})}function o(t){document.documentElement.setAttribute("lang","ml"===t?"ml":"en"),document.querySelectorAll("[data-en][data-ml]").forEach(function(e){e.textContent="ml"===t?e.getAttribute("data-ml"):e.getAttribute("data-en"),e.style.fontFamily="ml"===t?"'Noto Serif Malayalam', serif":""}),document.querySelectorAll("[data-en-html][data-ml-html]").forEach(function(e){e.innerHTML="ml"===t?e.getAttribute("data-ml-html"):e.getAttribute("data-en-html"),e.style.fontFamily="ml"===t?"'Noto Serif Malayalam', serif":""}),document.querySelectorAll("[data-en-placeholder][data-ml-placeholder]").forEach(function(e){e.setAttribute("placeholder","ml"===t?e.getAttribute("data-ml-placeholder"):e.getAttribute("data-en-placeholder"))}),document.querySelectorAll(".tl-year[data-tl-year]").forEach(function(e){e.textContent=window.formatEraLabel(e.getAttribute("data-tl-year"),t)}),"ml"===t?(a.textContent="മ",a.style.fontFamily="'Noto Serif Malayalam', serif",a.className="text-[15px]",e.setAttribute("aria-label","Switch to English"),e.setAttribute("title","Switch to English")):(a.textContent="Aa",a.style.fontFamily="",a.className="font-serif text-[15px] font-normal",e.setAttribute("aria-label","Switch to Malayalam"),e.setAttribute("title","Switch to Malayalam"))}}()</script><script>!function(){var e=document.getElementById("themeToggle");if(e){var t=e.querySelector(".icon-sun"),n=e.querySelector(".icon-moon");c(),e.addEventListener("click",function(){var e=document.documentElement.classList.toggle("dark");localStorage.setItem("malankara-theme",e?"dark":"light"),c()});var a=document.getElementById("mobileMenuBtn"),l=document.getElementById("mobileMenu");a&&l&&(a.addEventListener("click",function(){l.classList.toggle("hidden")}),l.querySelectorAll("a").forEach(function(e){e.addEventListener("click",function(){l.classList.add("hidden")})}))}function c(){var e=document.documentElement.classList.contains("dark");t.classList.toggle("hidden",e),n.classList.toggle("hidden",!e)}}(),function(){var e=document.getElementById("bgMusic"),t=document.getElementById("musicToggle");if(e&&t){var n=t.querySelector(".icon-sound-on"),a=t.querySelector(".icon-sound-off");e.addEventListener("play",c),e.addEventListener("pause",c),c();var l=null;t.addEventListener("click",function(t){t.stopPropagation(),e.paused?(e.volume=0,e.play(),function(){if(!l){var t=e.volume||0,n=.5/420;l=setInterval(function(){(t+=n)>=.5&&(t=.5,clearInterval(l),l=null),e.volume=t},100)}}()):(l&&(clearInterval(l),l=null),e.pause())})}function c(){var l=!e.paused;n.classList.toggle("hidden",!l),a.classList.toggle("hidden",l),t.setAttribute("aria-label",l?"Pause background music":"Play background music"),t.setAttribute("title",l?"Pause background music":"Play background music")}}()</script><script>!function(){var e=document.getElementById("cmdOverlay"),t=document.getElementById("cmdInput"),n=document.getElementById("cmdResults"),c=document.getElementById("cmdEmpty"),a=document.getElementById("cmdClose"),o=document.getElementById("cmdBackdrop"),r=[document.getElementById("searchToggle"),document.getElementById("searchToggleMobile"),document.getElementById("searchToggleMenuItem")];if(e&&t){var d=[];document.querySelectorAll("header nav > div.relative.group").forEach(function(e){var t=e.querySelector(":scope > a"),n=t?t.textContent.replace(/\s+/g," ").trim():"";e.querySelectorAll(".megapanel a[href]").forEach(function(e){var t=(e.querySelector(".truncate")||e).textContent.replace(/\s+/g," ").trim();t&&d.push({name:t,tag:n,href:e.getAttribute("href")})})});var l=-1,i=[];r.forEach(function(e){e&&e.addEventListener("click",function(e){e.preventDefault(),m()})}),a.addEventListener("click",f),o.addEventListener("click",f),t.addEventListener("input",u),document.addEventListener("keydown",function(t){if((t.metaKey||t.ctrlKey)&&"k"===t.key.toLowerCase())return t.preventDefault(),void(e.classList.contains("hidden")?m():f());e.classList.contains("hidden")||("Escape"===t.key?f():"ArrowDown"===t.key?(t.preventDefault(),l=Math.min(l+1,i.length-1),s(i)):"ArrowUp"===t.key?(t.preventDefault(),l=Math.max(l-1,0),s(i)):"Enter"===t.key&&l>=0&&i[l]&&(window.location.href=i[l].href))})}function s(e){n.innerHTML="",e.slice(0,40).forEach(function(e,t){var c=document.createElement("a");c.href=e.href,c.className="cmd-row"+(t===l?" is-active":""),c.innerHTML='<span class="truncate">'+e.name+'</span><span class="cmd-tag">'+e.tag+"</span>",n.appendChild(c)}),c.classList.toggle("hidden",0!==e.length)}function u(){var e=t.value.trim().toLowerCase();l=-1,s(i=e?d.filter(function(t){return-1!==t.name.toLowerCase().indexOf(e)}):d)}function m(){e.classList.remove("hidden"),document.body.style.overflow="hidden",t.value="",u(),setTimeout(function(){t.focus()},10)}function f(){e.classList.add("hidden"),document.body.style.overflow=""}}()</script><style>
 .director-card{display:flex;flex-direction:column;position:relative}
 .director-card__photo{display:block;width:100%;height:220px;object-fit:cover;object-position:center 22%}
 .verified-badge{position:absolute;top:10px;right:10px;z-index:2;display:inline-flex;align-items:center;gap:4px;padding:4px 9px 4px 6px;border-radius:9999px;background:rgba(16,20,13,.72);-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px);border:1px solid rgba(186,148,80,.6);font-family:Inter,system-ui,sans-serif;font-size:9px;font-weight:600;letter-spacing:.05em;text-transform:uppercase;color:#f7f5ee;line-height:1;white-space:nowrap;pointer-events:none}
@@ -667,6 +650,14 @@ header{margin-top:0!important;top:0!important}
   </div>
 </div>
 <div class="director-card premium-card texture-paper rounded-2xl border border-gold/20 shadow-soft overflow-hidden reveal">
+  <img src="director-noel-george.jpg" alt="Noel George" loading="lazy" class="director-card__photo"><span class="verified-badge" title="Verified director"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg><span data-en="Verified" data-ml="പരിശോധിച്ചു">Verified</span></span>
+  <div class="p-4 sm:p-5">
+    <div class="font-sans text-[9.5px] tracking-[0.16em] uppercase text-taupe font-semibold mb-1.5">Pampady Zonal Coordinator</div>
+    <h4 class="font-serif italic font-normal text-[16px] sm:text-[17px] text-ink dark:text-ivory mb-2.5 leading-snug">Noel George</h4>
+    <div class="flex flex-col gap-0.5 font-sans text-[10.5px] text-body/55 dark:text-ivory/45 leading-[1.5]"><span><span class="text-taupe font-semibold uppercase tracking-wide text-[9.5px]">Parish&nbsp;</span>Meenadom St. Thomas Orthodox Church</span></div>
+  </div>
+</div>
+<div class="director-card premium-card texture-paper rounded-2xl border border-gold/20 shadow-soft overflow-hidden reveal">
   <img src="director-john-abraham-james.jpg" alt="John Abraham James" loading="lazy" class="director-card__photo"><span class="verified-badge" title="Verified director"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg><span data-en="Verified" data-ml="പരിശോധിച്ചു">Verified</span></span>
   <div class="p-4 sm:p-5">
     <div class="font-sans text-[9.5px] tracking-[0.16em] uppercase text-taupe font-semibold mb-1.5">South Canara Zonal Coordinator</div>
@@ -722,7 +713,33 @@ header{margin-top:0!important;top:0!important}
 </section>
 
 <!-- ==================== FOOTER ====================
-     Loaded from footer.html at runtime so every page on the site
-     shares one copy. -->
-<script>!function(){try{var t=new XMLHttpRequest;t.open("GET","footer.html",!1),t.send(null),200===t.status||0===t.status?document.write(t.responseText):console.error("footer.html failed to load:",t.status)}catch(t){console.error("footer.html failed to load:",t)}}()</script>
+     Loaded from footer.html at runtime so every page shares one
+     copy, instead of this page carrying its own separate copy. -->
+<div id="site-footer"></div>
+<script src="site-common.js"></script>
+<script>
+(function(){
+  function runScripts(container){
+    var scripts = container.querySelectorAll('script');
+    scripts.forEach(function(old){
+      var s = document.createElement('script');
+      if (old.src) { s.src = old.src; }
+      else { s.textContent = old.textContent; }
+      old.parentNode.replaceChild(s, old);
+    });
+  }
+  function include(url, target, cb){
+    fetch(url).then(function(r){ return r.text(); }).then(function(html){
+      target.innerHTML = html;
+      runScripts(target);
+      if (cb) cb();
+    });
+  }
+  include('header.html', document.getElementById('site-header'), function(){
+    if(window.SiteCommon){ SiteCommon.initAll(); }
+    document.dispatchEvent(new Event('header:loaded'));
+  });
+  include('footer.html', document.getElementById('site-footer'));
+})();
+</script>
 </body></html>
