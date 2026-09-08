@@ -47,34 +47,13 @@
 
 <!-- ==================== HEADER ====================
      Loaded from header.html at runtime so every page on the site
-     can share one copy — edit header.html and every page picks up
-     the change. Uses a synchronous XHR + document.write (not
-     fetch) so the header lands in the DOM immediately, before any
-     script further down that expects the header's elements
-     (theme toggle, mobile menu, etc.) to already exist.
-     Note: this requires the page to be served over http/https (a
-     real dev server, GitHub Pages, Netlify, etc.) — it will not
-     work opened directly as a file:// URL, since browsers block
-     XHR to local files for security. -->
-<script>
-(function(){
-  try {
-    var xhr = new XMLHttpRequest();
-    xhr.open("GET", "header.html", false);
-    xhr.send(null);
-    if (xhr.status === 200 || xhr.status === 0) {
-      document.write(xhr.responseText);
-    } else {
-      console.error("header.html failed to load:", xhr.status);
-    }
-  } catch (e) {
-    console.error("header.html failed to load:", e);
-  }
-})();
-</script>
-
-<script src="site-common.js"></script>
-<script>if(window.SiteCommon){ SiteCommon.initAll(); }</script>
+     shares one copy. Uses an async fetch into a placeholder div
+     (instead of a synchronous XHR + document.write), which is the
+     same reliable method the diocese pages use — mobile browsers
+     increasingly throttle/cancel synchronous XHR, which is what was
+     leaving the header (and the logo mark inside it) blank on this
+     page's older loading method. -->
+<div id="site-header"></div>
 <!-- ==================== PAGE HERO ==================== -->
 <section class="bg-herobg dark:bg-midnight px-5 sm:px-8 pt-14 sm:pt-20 pb-10 sm:pb-14 text-center">
   <div class="max-w-2xl mx-auto">
@@ -471,50 +450,46 @@
 </section>
 <!-- ==================== FOOTER ====================
      Loaded from footer.html at runtime so every page on the site
-     can share one copy — edit footer.html and every page picks up
-     the change. -->
+     shares one copy. -->
+<div id="site-footer"></div>
+
+<script src="site-common.js"></script>
 <script>
 (function(){
-  try {
-    var xhr = new XMLHttpRequest();
-    xhr.open("GET", "footer.html", false);
-    xhr.send(null);
-    if (xhr.status === 200 || xhr.status === 0) {
-      document.write(xhr.responseText);
-    } else {
-      console.error("footer.html failed to load:", xhr.status);
-    }
-  } catch (e) {
-    console.error("footer.html failed to load:", e);
+  function runScripts(container){
+    var scripts = container.querySelectorAll('script');
+    scripts.forEach(function(old){
+      var s = document.createElement('script');
+      if (old.src) { s.src = old.src; }
+      else { s.textContent = old.textContent; }
+      old.parentNode.replaceChild(s, old);
+    });
   }
+  function include(url, target, cb){
+    fetch(url).then(function(r){ return r.text(); }).then(function(html){
+      target.innerHTML = html;
+      runScripts(target);
+      if (cb) cb();
+    });
+  }
+  include('header.html', document.getElementById('site-header'), function(){
+    if(window.SiteCommon){ SiteCommon.initAll(); }
+    var music = document.getElementById('bgMusic');
+    if (!music) return;
+    music.volume = 0;
+    window.addEventListener('click', function(){
+      music.play();
+      var targetVolume = 0.5, fadeDuration = 42000, interval = 100;
+      var volume = 0, step = targetVolume / (fadeDuration / interval);
+      var fade = setInterval(function(){
+        volume += step;
+        if (volume >= targetVolume) { volume = targetVolume; clearInterval(fade); }
+        music.volume = volume;
+      }, interval);
+    }, { once: true });
+  });
+  include('footer.html', document.getElementById('site-footer'));
 })();
-</script>
-
-<script>
-const music = document.getElementById("bgMusic");
-music.volume = 0;
-
-window.addEventListener("click", function () {
-  music.play();
-
-  const targetVolume = 0.5;     // End at 50%
-  const fadeDuration = 42000;   // 42 seconds
-  const interval = 100;         // Update every 100 ms
-
-  let volume = 0;
-  const step = targetVolume / (fadeDuration / interval);
-
-  const fade = setInterval(() => {
-    volume += step;
-
-    if (volume >= targetVolume) {
-      volume = targetVolume;
-      clearInterval(fade);
-    }
-
-    music.volume = volume;
-  }, interval);
-}, { once: true });
 </script>
 </body>
 </html>
