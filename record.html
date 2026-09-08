@@ -28,49 +28,13 @@
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Marcellus&family=Inter:wght@400;500;600;700&family=Poppins:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Noto+Serif+Malayalam:wght@400;500;600&family=Manjari:wght@400;700&display=swap" rel="stylesheet">
-
-<!-- ============================================================
-     EPICA PRO SANS REGULAR — this is a paid, licensed font from
-     Sudtipos (sudtipos.com / myfonts.com), not on Google Fonts,
-     so it can't be pulled from a CDN like the fonts above. To
-     actually use it here:
-       1. Buy/download the webfont kit (woff2) from Sudtipos or
-          MyFonts — you'll get files like EpicaProSans-Regular.woff2
-       2. Upload those files next to this HTML (e.g. in a /fonts/
-          folder on the same server as index.html and header.html)
-       3. Point the src below at wherever you put them
-     Until real files are added, the src line below will silently
-     fail to load and every element using "Epica Pro Sans Regular"
-     will just fall back to Inter, so nothing breaks in the
-     meantime — it just won't look like true Epica Sans yet. -->
-<style>
-@font-face{
-  font-family:"Epica Pro Sans Regular";
-  src: url("fonts/EpicaProSans-Regular.woff2") format("woff2"),
-       url("fonts/EpicaProSans-Regular.woff") format("woff");
-  font-weight:400;
-  font-style:normal;
-  font-display:swap;
-}
-/* Applies Epica Pro Sans (with Inter as the fallback, so the
-   page still reads fine before the real font file is added) to
-   all regular / non-heading text — this overrides font-sans,
-   which the compiled Tailwind above sets to Inter. Headings
-   (font-serif / Marcellus) are untouched on purpose. */
-.font-sans{ font-family:"Epica Pro Sans Regular", Inter, system-ui, sans-serif; }
-/* Malayalam pairing for that same "normal text" role — Manjari
-   is a clean, humanist Malayalam sans that sits well next to
-   Epica Sans; Noto Serif Malayalam (already loaded) still
-   covers the italic/serif headings. */
-[lang="ml"] .font-sans, html.dark [lang="ml"] .font-sans{ font-family:"Manjari","Epica Pro Sans Regular",sans-serif; }
-</style>
+<link href="https://fonts.googleapis.com/css2?family=Marcellus&family=Inter:wght@400;500;600;700&family=Noto+Serif+Malayalam:wght@400;500;600&family=Manjari:wght@400;700&display=swap" rel="stylesheet">
 
 <style>*,:after,:before{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-gradient-from-position: ;--tw-gradient-via-position: ;--tw-gradient-to-position: ;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgba(59,130,246,.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: ;--tw-contain-size: ;--tw-contain-layout: ;--tw-contain-paint: ;--tw-contain-style: }
 ::backdrop{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-gradient-from-position: ;--tw-gradient-via-position: ;--tw-gradient-to-position: ;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgba(59,130,246,.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: ;--tw-contain-size: ;--tw-contain-layout: ;--tw-contain-paint: ;--tw-contain-style: }
 /*! tailwindcss v3.4.19 | MIT License | https://tailwindcss.com*/*,:after,:before{box-sizing:border-box;border:0 solid #e5e7eb}
 :after,:before{--tw-content:""}
-:host,html{line-height:1.5;-webkit-text-size-adjust:100%;-moz-tab-size:4;-o-tab-size:4;tab-size:4;font-family:Poppins,system-ui,sans-serif;font-feature-settings:normal;font-variation-settings:normal;-webkit-tap-highlight-color:transparent}
+:host,html{line-height:1.5;-webkit-text-size-adjust:100%;-moz-tab-size:4;-o-tab-size:4;tab-size:4;font-family:Inter,system-ui,sans-serif;font-feature-settings:normal;font-variation-settings:normal;-webkit-tap-highlight-color:transparent}
 body{margin:0;line-height:inherit}
 hr{height:0;color:inherit;border-top-width:1px}
 abbr:where([title]){-webkit-text-decoration:underline dotted;text-decoration:underline dotted}
@@ -1321,7 +1285,7 @@ body{ position:relative; }
 .glass-link-card:hover .glc-arrow{ transform: translateX(5px); }
 .glc-eyebrow{
   display:inline-flex; align-items:center; gap:.7em;
-  font-family:"Epica Pro Sans Regular", Inter, system-ui, sans-serif;
+  font-family:Inter, system-ui, sans-serif;
   font-size:10.5px; letter-spacing:.16em; text-transform:uppercase; font-weight:600;
   color: rgb(var(--accent-b)); margin-bottom:.6rem;
 }
@@ -1417,6 +1381,10 @@ button:focus-visible, a:focus-visible{ outline-color: rgb(var(--accent-a)); }
 </head>
 
 <body class="bg-ivory dark:bg-midnight text-body dark:text-ivory/85 font-sans transition-colors duration-300">
+<!-- ==================== HEADER ====================
+     Loaded from header.html at runtime so this page shares the
+     same header as every other page on the site. -->
+<div id="site-header"></div>
 <div class="ambient-glow" aria-hidden="true"><span></span><span></span><span></span></div>
 <a href="#main" class="skip-link">Skip to content</a>
 <div id="loadVeil" class="load-veil" aria-hidden="true"><span class="load-mark"></span></div>
@@ -1485,6 +1453,119 @@ button:focus-visible, a:focus-visible{ outline-color: rgb(var(--accent-a)); }
 })();
 </script>
 
+<style>
+/* ---- soft white report card: rounded, softly-shadowed, no hard edges ---- */
+.report-card{
+  background: rgba(255,255,255,.92);
+  border-radius: 28px;
+  border: 1px solid rgba(17,24,39,.05);
+  padding: 2.5rem 1.75rem;
+  box-shadow: 0 30px 60px -34px rgba(17,24,39,.25), 0 2px 12px rgba(17,24,39,.06);
+}
+.dark .report-card{
+  background: rgba(255,255,255,.045);
+  border-color: rgba(255,255,255,.08);
+  box-shadow: 0 30px 60px -34px rgba(0,0,0,.6), 0 2px 12px rgba(0,0,0,.25);
+}
+@media (min-width:640px){ .report-card{ padding: 3.5rem 3.25rem; } }
+.report-card label{ font-family:Inter, system-ui, sans-serif; }
+#reportStatus.is-error{ color:#b1544a; }
+#reportStatus.is-success{ color: rgb(var(--accent-a)); }
+</style>
+
+<main id="main">
+<section class="mx-auto max-w-3xl px-5 sm:px-8 pt-28 pb-6 sm:pt-36">
+  <div class="page-hero text-center reveal">
+    <span class="glc-eyebrow inline-flex mx-auto">Help Us Improve</span>
+    <h1 class="font-serif text-3xl sm:text-5xl text-ink dark:text-ivory">Help Us Keep This Record Accurate</h1>
+    <p class="mt-4 max-w-xl mx-auto text-body/75 dark:text-ivory/70 text-sm sm:text-base">
+      Spot a missing parish, a wrong pin, or church history that isn't on file yet? Let us know below — every note helps make this map more accurate.
+    </p>
+  </div>
+</section>
+
+<section class="mx-auto max-w-xl px-5 sm:px-8 pb-24 pt-2 sm:pt-4">
+  <div class="report-card reveal">
+    <form id="reportForm" class="grid gap-6" novalidate>
+      <input type="checkbox" name="botcheck" class="hidden" style="display:none">
+      <input type="hidden" name="access_key" value="0620a475-9e9f-4fc7-8624-4d3cdbe4c75d">
+      <input type="hidden" name="subject" value="New Record Report — Malankara Map">
+      <input type="hidden" name="from_name" value="Malankara Map — Record Form">
+
+      <div>
+        <label for="reportName" class="block text-xs uppercase tracking-wide text-muted mb-1.5">Name</label>
+        <input id="reportName" name="Name" type="text" required class="neo-input w-full text-sm text-ink dark:text-ivory placeholder:text-muted" placeholder="Your full name">
+      </div>
+
+      <div>
+        <label for="reportEmail" class="block text-xs uppercase tracking-wide text-muted mb-1.5">Email</label>
+        <input id="reportEmail" name="Email" type="email" required class="neo-input w-full text-sm text-ink dark:text-ivory placeholder:text-muted" placeholder="you@example.com">
+      </div>
+
+      <div>
+        <label for="reportPhone" class="block text-xs uppercase tracking-wide text-muted mb-1.5">Phone Number</label>
+        <input id="reportPhone" name="Phone Number" type="tel" class="neo-input w-full text-sm text-ink dark:text-ivory placeholder:text-muted" placeholder="Optional">
+      </div>
+
+      <div>
+        <label for="reportDiocese" class="block text-xs uppercase tracking-wide text-muted mb-1.5">Diocese</label>
+        <input id="reportDiocese" name="Diocese" type="text" class="neo-input w-full text-sm text-ink dark:text-ivory placeholder:text-muted" placeholder="e.g. Diocese of ...">
+      </div>
+
+      <div>
+        <label for="reportMessage" class="block text-xs uppercase tracking-wide text-muted mb-1.5">Church Details</label>
+        <textarea id="reportMessage" name="Church Details" rows="5" required class="neo-input w-full text-sm text-ink dark:text-ivory placeholder:text-muted resize-none" placeholder="Parish name, location, what's missing or incorrect, or any history you'd like to share..."></textarea>
+      </div>
+
+      <button type="submit" id="reportSubmit" class="neo-btn w-full rounded-full px-6 py-3.5 mt-1 font-sans text-xs font-semibold tracking-[0.1em] uppercase bg-sage text-white hover:bg-sage-dark transition-colors" style="border:none;">
+        Submit
+      </button>
+
+      <p id="reportStatus" class="text-center text-sm" style="display:none;"></p>
+    </form>
+  </div>
+</section>
+</main>
+
+<script>
+(function(){
+  var form = document.getElementById('reportForm');
+  if(!form) return;
+  var statusEl = document.getElementById('reportStatus');
+  var btn = document.getElementById('reportSubmit');
+  form.addEventListener('submit', function(e){
+    e.preventDefault();
+    var data = new FormData(form);
+    btn.disabled = true;
+    var originalText = btn.textContent;
+    btn.textContent = 'Sending...';
+    statusEl.style.display = 'none';
+    statusEl.classList.remove('is-error', 'is-success');
+    fetch('https://api.web3forms.com/submit', {
+      method: 'POST',
+      headers: { 'Accept': 'application/json' },
+      body: data
+    }).then(function(res){ return res.json(); }).then(function(json){
+      if(json.success){
+        statusEl.textContent = "Thank you \u2014 we've received your report and will look into it.";
+        statusEl.classList.add('is-success');
+        form.reset();
+      } else {
+        statusEl.textContent = 'Something went wrong. Please try again in a moment.';
+        statusEl.classList.add('is-error');
+      }
+      statusEl.style.display = 'block';
+    }).catch(function(){
+      statusEl.textContent = 'Something went wrong. Please check your connection and try again.';
+      statusEl.classList.add('is-error');
+      statusEl.style.display = 'block';
+    }).finally(function(){
+      btn.disabled = false;
+      btn.textContent = originalText;
+    });
+  });
+})();
+</script>
 
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
 <audio id="bgMusic" loop>
@@ -1540,8 +1621,28 @@ button:focus-visible, a:focus-visible{ outline-color: rgb(var(--accent-a)); }
 .group\/logo:hover .mark-spin{ transform: scale(1.06); box-shadow: 0 0 0 4px var(--sage-glow, rgba(107,130,89,.28)); }
 .group\/logo:hover .mark-spin::before{ opacity:1; transform:scale(1) rotate(160deg); }
 </style>
-<div id="site-header"></div>
+
+<script>
+(function(){
+  var reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if(reduceMotion || !('IntersectionObserver' in window)){
+    document.querySelectorAll('.reveal').forEach(function(el){ el.classList.add('is-in'); });
+    return;
+  }
+  var revealObserver = new IntersectionObserver(function(entries){
+    entries.forEach(function(entry){
+      if(entry.isIntersecting){ entry.target.classList.add('is-in'); revealObserver.unobserve(entry.target); }
+    });
+  }, { threshold: 0.12, rootMargin: '0px 0px -6% 0px' });
+  document.querySelectorAll('.reveal').forEach(function(el){ revealObserver.observe(el); });
+})();
+</script>
+
+<!-- ==================== FOOTER ====================
+     Loaded from footer.html at runtime so this page shares the
+     same footer as every other page on the site. -->
 <div id="site-footer"></div>
+
 <script src="site-common.js"></script>
 <script>
 (function(){
@@ -1563,24 +1664,21 @@ button:focus-visible, a:focus-visible{ outline-color: rgb(var(--accent-a)); }
   }
   include('header.html', document.getElementById('site-header'), function(){
     if(window.SiteCommon){ SiteCommon.initAll(); }
-    document.dispatchEvent(new Event('header:loaded'));
+    var music = document.getElementById('bgMusic');
+    if (!music) return;
+    music.volume = 0;
+    window.addEventListener('click', function(){
+      music.play();
+      var targetVolume = 0.5, fadeDuration = 42000, interval = 100;
+      var volume = 0, step = targetVolume / (fadeDuration / interval);
+      var fade = setInterval(function(){
+        volume += step;
+        if (volume >= targetVolume) { volume = targetVolume; clearInterval(fade); }
+        music.volume = volume;
+      }, interval);
+    }, { once: true });
   });
   include('footer.html', document.getElementById('site-footer'));
-})();
-</script>
-<script>
-(function(){
-  var reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  if(reduceMotion || !('IntersectionObserver' in window)){
-    document.querySelectorAll('.reveal').forEach(function(el){ el.classList.add('is-in'); });
-    return;
-  }
-  var revealObserver = new IntersectionObserver(function(entries){
-    entries.forEach(function(entry){
-      if(entry.isIntersecting){ entry.target.classList.add('is-in'); revealObserver.unobserve(entry.target); }
-    });
-  }, { threshold: 0.12, rootMargin: '0px 0px -6% 0px' });
-  document.querySelectorAll('.reveal').forEach(function(el){ revealObserver.observe(el); });
 })();
 </script>
 </body>
