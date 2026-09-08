@@ -31,6 +31,13 @@
 <link href="https://fonts.googleapis.com/css2?family=Marcellus&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 
 <link rel="stylesheet" href="styles.css">
+<style>
+  .devart-wrap{display:flex;flex-direction:column;align-items:center;padding:.25rem 1.25rem 2.5rem}
+  .devart-plain{max-width:250px;width:100%;margin:0 auto}
+  .devart-plain img{display:block;width:100%;height:auto;filter:drop-shadow(0 12px 24px rgba(20,20,15,.35))}
+  .devart-cap{text-align:center;font-family:"Marcellus",Georgia,serif;font-style:italic;font-size:13.5px;line-height:1.65;max-width:24rem;margin:1rem auto 0;color:#57534e}
+  html.dark .devart-cap{color:rgba(248,247,244,.6)}
+</style>
 </head>
 <body class="bg-ivory dark:bg-midnight text-body dark:text-ivory/85 font-sans transition-colors duration-300">
 <audio id="bgMusic" loop>
@@ -79,6 +86,11 @@
     <div class="w-px h-8 sm:h-10 bg-gold/70 mx-auto mt-7 sm:mt-9"></div>
   </div>
 </section>
+
+<div class="devart-wrap">
+  <div class="devart-plain"><img src="monk-flame.png" alt="" aria-hidden="true" loading="lazy"></div>
+  <p class="devart-cap">Hidden in prayer, the monastic life burns quietly for the whole Church.</p>
+</div>
 
 <section class="px-5 sm:px-8 pb-16 sm:pb-24 max-w-3xl mx-auto">
 
