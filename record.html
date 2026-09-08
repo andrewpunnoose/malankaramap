@@ -1471,10 +1471,15 @@ button:focus-visible, a:focus-visible{ outline-color: rgb(var(--accent-a)); }
 .report-card label{ font-family:Inter, system-ui, sans-serif; }
 #reportStatus.is-error{ color:#b1544a; }
 #reportStatus.is-success{ color: rgb(var(--accent-a)); }
+/* Fix: pt-28/pb-24/sm:pt-36 are not present in this build's
+   compiled Tailwind output (purged), so the form section had no
+   top/bottom padding at all and touched the edges of the page. */
+.report-section{ padding-top:7rem; padding-bottom:4rem; }
+@media (min-width:640px){ .report-section{ padding-top:9rem; padding-bottom:6rem; } }
 </style>
 
 <main id="main">
-<section class="mx-auto max-w-xl px-5 sm:px-8 pb-24 pt-28 sm:pt-36">
+<section class="mx-auto max-w-xl px-5 sm:px-8 report-section">
   <div class="report-card reveal">
     <form id="reportForm" class="grid gap-6" novalidate>
       <input type="checkbox" name="botcheck" class="hidden" style="display:none">
@@ -1494,7 +1499,12 @@ button:focus-visible, a:focus-visible{ outline-color: rgb(var(--accent-a)); }
 
       <div>
         <label for="reportPhone" class="block text-xs uppercase tracking-wide text-muted mb-1.5">Phone Number</label>
-        <input id="reportPhone" name="Phone Number" type="tel" class="neo-input w-full text-sm text-ink dark:text-ivory placeholder:text-muted" placeholder="Optional">
+        <input id="reportPhone" name="Phone Number" type="tel" class="neo-input w-full text-sm text-ink dark:text-ivory placeholder:text-muted">
+      </div>
+
+      <div>
+        <label for="reportChurch" class="block text-xs uppercase tracking-wide text-muted mb-1.5">Church Name</label>
+        <input id="reportChurch" name="Church Name" type="text" class="neo-input w-full text-sm text-ink dark:text-ivory placeholder:text-muted" placeholder="e.g. St. Mary's Orthodox Church">
       </div>
 
       <div>
