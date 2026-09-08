@@ -1,0 +1,58 @@
+name: Delete Country Files
+
+on:
+  workflow_dispatch:
+
+jobs:
+  delete:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Delete country files
+        run: |
+          files=(
+            "australia.html"
+            "germany.html"
+            "indonesia.html"
+            "ireland.html"
+            "israel.html"
+            "italy.html"
+            "kuwait.html"
+            "latvia.html"
+            "lesotho.html"
+            "lithuania.html"
+            "luxembourg.html"
+            "malaysia.html"
+            "malta.html"
+            "netherlands.html"
+            "new-zealand.html"
+            "nigeria.html"
+            "oman.html"
+            "poland.html"
+            "portugal.html"
+          )
+
+          for file in "${files[@]}"; do
+            if [ -f "$file" ]; then
+              git rm -- "$file"
+            fi
+          done
+
+      - name: Commit deletions
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+          if ! git diff --cached --quiet; then
+            git commit -m "Delete country files"
+            git push
+          else
+            echo "No country files found."
+          fi
