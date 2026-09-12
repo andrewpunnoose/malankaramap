@@ -2543,6 +2543,15 @@
   background: var(--thread)
   }
 
+  /* Fix: the "Live · N" indicator next to "Est. 52 CE" in the header
+     never appeared on this page (or on any static page sharing this
+     compiled stylesheet) because gap-1.5, pl-2, and the sm:inline-flex
+     responsive utility were absent from the build, leaving the
+     indicator permanently hidden regardless of screen width. */
+  .gap-1\.5 { gap: .375rem }
+  .pl-2 { padding-left: .5rem }
+  @media (min-width:640px) { .sm\:inline-flex { display: inline-flex } }
+
   @media (prefers-reduced-motion:no-preference) {
   .live-dot::after {
     content: '';
@@ -5663,7 +5672,7 @@
       </g></svg></span>
       <div class="min-w-0">
         <div class="flex items-center gap-2 mb-0.5">
-          <span class="font-sans text-[9.5px] sm:text-[10px] tracking-[0.18em] uppercase text-taupe font-semibold truncate"><span class="est-mobile" data-en="Est. 52 CE" data-ml="സ്ഥാ. 52">Est. 52 CE</span> <span class="est-desktop" data-en="Est. 52 CE" data-ml="സ്ഥാ. ക്രി.വ. 52">Est. 52 CE</span></span> <span class="hidden sm:inline-flex items-center gap-1.5 pl-2 border-l border-line dark:border-white/15"><span class="live-dot"></span> <span class="font-sans text-[9.5px] tracking-[0.14em] uppercase text-sage-dark dark:text-sage font-semibold" data-en="Live · 3,536" data-ml="തത്സമയം · 3,536">Live · 3,536</span></span>
+          <span class="font-sans text-[9.5px] sm:text-[10px] tracking-[0.18em] uppercase text-taupe font-semibold truncate"><span class="est-mobile" data-en="Est. 52 CE" data-ml="സ്ഥാ. 52">Est. 52 CE</span> <span class="est-desktop" data-en="Est. 52 CE" data-ml="സ്ഥാ. ക്രി.വ. 52">Est. 52 CE</span></span>
         </div>
         <div class="font-serif text-[15px] sm:text-[17px] text-ink dark:text-ivory truncate" data-en="Malankara Church" data-ml="മലങ്കര സഭ">
           Malankara Church
@@ -5999,6 +6008,24 @@
     r = [document.getElementById("searchToggle"), document.getElementById("searchToggleMobile"), document.getElementById("searchToggleMenuItem")];
   if (e && t) {
     var d = [];
+    var places = null, placesLoading = false;
+
+    function slugifyDiocese(s) {
+      return String(s || "").toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-+|-+$/g, "");
+    }
+
+    function ensurePlaces(cb) {
+      if (places) { cb(); return; }
+      if (placesLoading) { setTimeout(function(){ ensurePlaces(cb); }, 60); return; }
+      placesLoading = true;
+      fetch("malankara.json").then(function(r){ return r.ok ? r.json() : []; }).then(function(list){
+        places = (list || []).map(function(p){
+          return { name: p.n, tag: (p.d || "") + " Diocese", href: slugifyDiocese(p.d) };
+        });
+        placesLoading = false;
+        cb();
+      }).catch(function(){ places = []; placesLoading = false; cb(); });
+    }
 
     function buildIndex() {
       var seen = {},
@@ -6042,13 +6069,13 @@
 
   function u() {
     var e = t.value.trim().toLowerCase();
-    l = -1, e ? (i = d.filter(function(t) {
+    l = -1, e ? (i = d.concat(places || []).filter(function(t) {
       return -1 !== t.name.toLowerCase().indexOf(e)
     }), s(i)) : (i = [], n.innerHTML = "", c.classList.add("hidden"))
   }
 
   function m() {
-    buildIndex(), e.classList.remove("hidden"), document.body.style.overflow = "hidden", t.value = "", u(), setTimeout(function() {
+    buildIndex(), e.classList.remove("hidden"), document.body.style.overflow = "hidden", t.value = "", u(), ensurePlaces(function(){ u(); }), setTimeout(function() {
       t.focus()
     }, 10)
   }
