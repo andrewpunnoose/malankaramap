@@ -5799,7 +5799,7 @@
     function buildFullIndex() {
       var seen = {},
         list = [];
-      return document.querySelectorAll("header nav > div.relative.group").forEach(function(g) {
+      document.querySelectorAll("header nav > div.relative.group").forEach(function(g) {
         var top = g.querySelector(":scope > a"),
           tag = top ? top.textContent.replace(/\s+/g, " ").trim() : "";
         g.querySelectorAll(".megapanel a[href]").forEach(function(a) {
@@ -5814,7 +5814,12 @@
             }))
           }
         })
-      }), list
+      });
+      (window.__mmPlaces || []).forEach(function(p) {
+        var key = p.href + "|" + p.name;
+        seen[key] || (seen[key] = 1, list.push(p));
+      });
+      return list
     }
 
     function escapeHtml(s) {
@@ -5843,6 +5848,7 @@
 
     function openSearchPage(query, pushState) {
       renderResults(query);
+      if (window.__mmEnsurePlaces) { window.__mmEnsurePlaces(function(){ renderResults(query); }); }
       var mc = document.getElementById("mainContent");
       mc && mc.classList.add("hidden"), searchPage.classList.remove("hidden"), cmdOverlay2 && cmdOverlay2.classList.add("hidden"), window.scrollTo(0, 0);
       if (!1 !== pushState) {
@@ -6023,9 +6029,15 @@
           return { name: p.n, tag: (p.d || "") + " Diocese", href: slugifyDiocese(p.d) };
         });
         placesLoading = false;
+        window.__mmPlaces = places;
         cb();
-      }).catch(function(){ places = []; placesLoading = false; cb(); });
+      }).catch(function(){ places = []; placesLoading = false; window.__mmPlaces = places; cb(); });
     }
+    // Exposed so the separate full-page search view (further down this
+    // file, triggered by pressing Enter in this overlay) can share the
+    // same parish/institution data instead of rebuilding its own
+    // nav-menu-only index.
+    window.__mmEnsurePlaces = ensurePlaces;
 
     function buildIndex() {
       var seen = {},
