@@ -1,0 +1,40 @@
+{
+  "angamaly": {
+    "color": "#F57C00",
+    "title": "Angamaly",
+    "entries": [
+      [
+        "Kothamangalam St. Mary&#x27;s Orthodox Cathedral",
+        "India"
+      ],
+      [
+        "Kuruppampady St. Mary&#x27;s Orthodox Cathedral",
+        "India"
+      ]
+    ]
+  },
+  "knanaya": {
+    "color": "#BDBDBD",
+    "title": "Knanaya",
+    "entries": [
+      [
+        "Kottayam St. Mary&#x27;s Knanaya Syrian Pro-Cathedral",
+        "India"
+      ]
+    ]
+  },
+  "kottayam": {
+    "color": "#0288D1",
+    "title": "Kottayam",
+    "entries": [
+      [
+        "Kottayam St. Joseph Orthodox Cathedral",
+        "India"
+      ],
+      [
+        "Manarcad St. Mary&#x27;s Orthodox Cathedral",
+        "India"
+      ]
+    ]
+  }
+}
