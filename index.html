@@ -5173,6 +5173,19 @@
     flex-basis: 360px
   }
   }
+
+  @media (min-width:1180px) {
+  .tool-row-track {
+    overflow: visible;
+    cursor: default
+  }
+
+  .tool-row-inner {
+    width: 100%;
+    justify-content: center;
+    padding: 0 1.25rem
+  }
+  }
   </style>
   <style>
   .pop-clock-num {
@@ -6217,7 +6230,7 @@
         <div class="reveal mt-6 sm:mt-7 border-t border-line dark:border-white/10" aria-hidden="true"></div>
       </div>
       <div class="reveal">
-        <div id="tlTrack" class="tl-track" tabindex="0" aria-label="Scrollable historical timeline, 52 CE to 2024 CE">
+        <div id="tlTrack" class="tl-track" tabindex="0" aria-label="Scrollable historical timeline, 52 CE to 2026 CE">
           <div id="tlInner" class="tl-inner"></div>
         </div>
         <div class="max-w-6xl mx-auto px-5 sm:px-8 mt-5 flex items-center gap-4">
@@ -6289,7 +6302,7 @@
     }()
     </script>
     <section class="relative sec-tight-y" id="tools">
-      <div class="tool-row-track" tabindex="0" aria-label="Scrollable tools: locate nearest parish, request Qurbana, discover a parish at random, join our team">
+      <div class="tool-row-track" tabindex="0" aria-label="Scrollable tools: locate nearest parish, request Qurbana, discover a parish at random">
         <div class="tool-row-inner">
           <div id="nearest" class="tool-card reveal premium-card texture-paper rounded-2xl border border-gold/25 shadow-medium px-6 py-10 sm:px-8 text-center">
             <div class="font-sans text-[10.5px] tracking-[0.2em] uppercase text-taupe font-semibold mb-4" data-en="3,591 Locations, Mapped by Coordinate" data-ml="3,591 സ്ഥലങ്ങൾ, കോർഡിനേറ്റ് പ്രകാരം അടയാളപ്പെടുത്തിയത്">
@@ -6325,13 +6338,6 @@
               <h3 class="font-serif italic font-normal text-lg sm:text-xl text-ink dark:text-ivory mb-5 leading-[1.25]" id="drName"></h3>
               <div id="drDescWrap" class="space-y-4"></div><button class="font-serif italic text-[15px] text-sage-dark dark:text-sage hover:text-sage transition-colors underline underline-offset-4 decoration-sage/40 mt-2" id="drAgain" data-en="Consult another →" data-ml="മറ്റൊന്ന് കാണുക →">Consult another →</button>
             </div>
-          </div>
-          <div id="join-team" class="tool-card reveal premium-card texture-paper rounded-2xl border border-gold/25 shadow-medium px-6 py-10 sm:px-8 text-center">
-            <div class="font-sans text-[10.5px] tracking-[0.2em] uppercase text-taupe font-semibold mb-4" data-en="Run Entirely by Volunteers" data-ml="പൂർണ്ണമായും സന്നദ്ധപ്രവർത്തകർ നടത്തുന്നത്">
-              Run Entirely by Volunteers
-            </div>
-            <h3 class="font-serif italic text-xl sm:text-2xl text-ink dark:text-ivory mb-3" data-en="Join Our Team" data-ml="ഞങ്ങളുടെ ടീമിൽ ചേരുക">Join Our Team</h3>
-            <p class="text-[13.5px] text-body/80 dark:text-ivory/65 mb-8 leading-relaxed" data-en="We're now accepting applications. If you'd like to help maintain and grow this volunteer directory, we'd love to hear from you personally." data-ml="ഞങ്ങൾ ഇപ്പോൾ അപേക്ഷകൾ സ്വീകരിക്കുന്നു. ഈ സന്നദ്ധ ഡയറക്ടറി പരിപാലിക്കാനും വളർത്താനും നിങ്ങൾ സഹായിക്കാൻ ആഗ്രഹിക്കുന്നുവെങ്കിൽ, ഞങ്ങൾ നിങ്ങളിൽ നിന്ന് നേരിട്ട് കേൾക്കാൻ ആഗ്രഹിക്കുന്നു.">We're now accepting applications. If you'd like to help maintain and grow this volunteer directory, we'd love to hear from you personally.</p><a href="https://forms.gle/8oFsV2M1kL12XkMU8" target="_blank" rel="noopener" class="inline-flex items-center gap-2 font-sans text-xs font-semibold tracking-[0.1em] uppercase bg-sage text-white px-9 py-3 rounded-full hover:bg-sage-dark transition-colors" data-en="Apply Now" data-ml="ഇപ്പോൾ അപേക്ഷിക്കുക">Apply Now</a>
           </div>
         </div>
       </div>
@@ -7400,6 +7406,7 @@
       [1911, "1911 CE", "Two hundred and fourteen parishes back Mar Dionysius VI at the Synod Yogam.", 0],
       [1911, "1911 CE", "Patriarch Ignatius Abded Aloho II consecrates Holy Myron at Mulanthuruthy St. Thomas Orthodox Cathedral.", 0],
       [1912, "1912 CE", "Mar Dionysius VI's guard is martyred by the pro-Patriarch faction.", 0],
+      [1912, "1912 CE", "Aanapappy is martyred at Kottayam.", 0],
       [1912, "1912 CE", "Patriarch Abded Mshiho II tours Malankara amid litigation to restrict his visits.", 0],
       [1912, "1912 CE", "The Church requests, and the Patriarch agrees, to consecrate a Catholicos.", 0],
       [1912, "1912 CE", "Kallasseril Punnoose Ramban is ordained Geevarghese Mar Gregorios.", 0],
@@ -7420,6 +7427,7 @@
       [1919, "1919 CE", "The District Court rules for Mar Dionysius VI; the ruling is appealed.", 0],
       [1920, "1920 CE", "Arthat St. Mary's Orthodox Church has its foundation stone laid.", 1],
       [1921, "1921 CE", "Kanakappalam St. George Orthodox Catholicate Centre is built.", 1],
+      [1921, "1921 CE", "Chalil Korah and Ponodathu Mathai Kathanar are martyred at Mulanthuruthy.", 0],
       [1923, "1923 CE", "The High Court, then its Full Bench, reverses the ruling in favour of Mar Dionysius VI.", 0],
       [1923, "1923 CE", "Mar Dionysius VI travels to Mardin, where Patriarch Elias III annuls his deposition.", 0],
       [1923, "1923 CE", "Mar Alvares of Goa passes away.", 0],
@@ -7430,6 +7438,7 @@
       [1926, "1926 CE", "Mar Ivanios of Bethany writes to Rome without the Synod's consent, exploring union with the Papacy.", 0],
       [1926, "1926 CE", "Chingavanam Salem St. Mary's Knanaya Syrian Church is erected.", 1],
       [1927, "1927 CE", "Peace talks under Mar Dionysius VI advance a five-point settlement, though Mar Athanasius resists.", 0],
+      [1927, "1927 CE", "Cheppattu Kochunnunni is martyred at Cheppad.", 0],
       [1928, "1928 CE", "The High Court's Full Bench rules for Mar Dionysius VI on Church assets.", 0],
       [1928, "1928 CE", "Cath. Geevarghese I passes away; Mar Gregorios of Niranam succeeds him.", 0],
       [1928, "1928 CE", "Thiruvanvandoor St. Mary's Knanaya Syrian Church is raised.", 1],
@@ -7487,6 +7496,7 @@
       [1970, "1970 CE", 'Patriarch Ignatius Yakub III issues Kalpana No. 203/70, arguing that St. Thomas the Apostle was never a priest or high priest and therefore could not have founded a "Throne of St. Thomas the Apostle."', 0],
       [1974, "1974 CE", "Two priests are secretly consecrated bishops abroad, opening the Church's Second Schism.", 0],
       [1976, "1976 CE", "The Diocese of Bahya Kerala is trifurcated into the Dioceses of Madras, Bombay, and Delhi.", 0],
+      [1976, "1976 CE", "Kadamattom Onankunju is martyred at Mattakuzhy in Puthencruz.", 0],
       [1977, "1977 CE", "Catholicos Baselios Marthoma Mathews I consecrates Holy Myron at Kottayam St. Thomas Orthodox Chapel, Chungam.", 0],
       [1979, "1979 CE", "The Diocese of Thiruvananthapuram is established.", 0],
       [1979, "1979 CE", "The Diocese of Calcutta is established.", 0],
@@ -7495,11 +7505,13 @@
       [1985, "1985 CE", "The Diocese of Kunnamkulam is established.", 0],
       [1986, "1986 CE", "The Diocese of Sulthan Bathery is established.", 0],
       [1988, "1988 CE", "Catholicos Baselios Marthoma Mathews I consecrates Holy Myron a second time, at Devalokam Catholicate Chapel.", 0],
+      [1993, "1993 CE", "Thottappattu Kuriakose is martyred at Perumbavoor.", 0],
       [1995, "1995 CE", "The Supreme Court of India reaffirms the legal supremacy and validity of the 1934 Malankara Church Constitution.", 0],
       [1999, "1999 CE", "Catholicos Baselios Marthoma Mathews II consecrates Holy Myron at Devalokam Catholicate Chapel.", 0],
       [2002, "2002 CE", "The Dioceses of Adoor–Kadampanad, Mavelikara, and Chengannur are established.", 0],
       [2002, "2002 CE", "The Kandanad Diocese is bifurcated into Kandanad West, for its Malankara Orthodox-majority parishes, and Kandanad East, for its schismatic-held parishes.", 0],
       [2002, "2002 CE", "The Angamaly Diocese is likewise bifurcated into Angamaly West and Angamaly East, a priest-led diocese for schismatic-held parishes; East later fades and West reverts to plain Angamaly Diocese.", 0],
+      [2002, "2002 CE", "Malankara Varghese is martyred at Perumbavoor.", 0],
       [2009, "2009 CE", "The Diocese of America is bifurcated into the Dioceses of Northeast America and Southwest America.", 0],
       [2009, "2009 CE", "The Diocese of Bangalore is established.", 0],
       [2009, "2009 CE", "The Diocese of Ahmedabad is established.", 0],
@@ -7508,7 +7520,8 @@
       [2010, "2010 CE", "The Dioceses of Kottarakkara–Punalur, Nilackal, and Brahmavar are established.", 0],
       [2017, "2017 CE", "In <em>K.S. Varghese v. St. Peter's and St. Paul's Syrian Orthodox Church</em>, the Supreme Court rules the 1934 Constitution exclusively binding and enforceable across all Malankara parish churches, including its Knanaya and Evangelistic Association of the East parishes.", 0],
       [2018, "2018 CE", "Catholicos Baselios Marthoma Paulose II consecrates Holy Myron at Devalokam Catholicate Chapel.", 0],
-      [2024, "2024 CE", "The Dioceses of Asia–Pacific and Canada are established.", 0]
+      [2024, "2024 CE", "The Dioceses of Asia–Pacific and Canada are established.", 0],
+      [2026, "2026 CE", "Catholicos Baselios Marthoma Mathews III consecrates Holy Myron at Devalokam Catholicate Chapel.", 0]
     ].forEach(function(a, e) {
       var o = a[0],
         s = a[1],
