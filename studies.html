@@ -100,21 +100,25 @@
 .studies-grid{display:grid;grid-template-columns:1fr;gap:16px;width:100%;box-sizing:border-box}
 @media (min-width:700px){.studies-grid{grid-template-columns:1fr 1fr}}
 .study-card{
-  display:block; position:relative; padding:24px 26px; border-radius:18px;
+  display:flex; flex-direction:column; position:relative; overflow:hidden; padding:24px 26px; border-radius:18px;
   background:#f7f3e9; border:1px solid rgba(17,24,39,.08);
   transition:transform .25s ease,box-shadow .25s ease;
   box-sizing:border-box; text-decoration:none;
 }
 .dark .study-card{background:#1f2937;border-color:rgba(247,245,238,.1)}
 .study-card:hover{transform:translateY(-2px);box-shadow:0 16px 34px -18px rgba(17,24,39,.32)}
-.study-card__tag{display:inline-block;font-family:Inter,sans-serif;font-size:9.5px;letter-spacing:.1em;text-transform:uppercase;color:#ba9450;background:rgba(186,148,80,.12);padding:3px 10px;border-radius:999px;margin-bottom:12px;font-weight:700}
+.study-card__img{display:block;flex:none;margin:-24px -26px 20px;aspect-ratio:4/3;overflow:hidden;background:#e7e2d3}
+.dark .study-card__img{background:#111827}
+.study-card__img img{display:block;width:100%;height:100%;object-fit:cover;transition:transform .6s cubic-bezier(.16,.8,.24,1)}
+.study-card:hover .study-card__img img{transform:scale(1.035)}
+.study-card__tag{align-self:flex-start;display:inline-block;font-family:Inter,sans-serif;font-size:9.5px;letter-spacing:.1em;text-transform:uppercase;color:#ba9450;background:rgba(186,148,80,.12);padding:3px 10px;border-radius:999px;margin-bottom:12px;font-weight:700}
 .study-card__kicker{font-family:Marcellus,Georgia,serif;font-style:italic;font-weight:400;font-size:13px;line-height:1.4;color:rgba(46,42,36,.5);margin:0 0 4px}
 .dark .study-card__kicker{color:rgba(247,245,238,.4)}
 .study-card__title{font-family:Marcellus,Georgia,serif;font-style:normal;font-weight:400;font-size:19px;line-height:1.35;color:#10140d;margin:0 0 12px}
 .dark .study-card__title{color:#f7f5ee}
 .study-card__teaser{font-family:Inter,sans-serif;font-size:13px;line-height:1.65;color:rgba(46,42,36,.68);margin:0 0 16px}
 .dark .study-card__teaser{color:rgba(247,245,238,.58)}
-.study-card__cta{font-family:Inter,sans-serif;font-size:12.5px;font-weight:600;color:#6b8259}
+.study-card__cta{margin-top:auto;font-family:Inter,sans-serif;font-size:12.5px;font-weight:600;color:#6b8259}
 .dark .study-card__cta{color:#9db98a}
 </style>
 <div class="studies-container">
@@ -126,6 +130,7 @@
 
   <div class="studies-grid">
     <a href="study-a-press-in-the-bishops-house" class="study-card">
+      <span class="study-card__img"><img src="studies-literature.jpg" alt="" width="900" height="675" loading="lazy" decoding="async"></span>
       <span class="study-card__tag" data-en="Literature &amp; Press" data-ml="Literature &amp; Press">Literature &amp; Press</span>
       <p class="study-card__kicker" data-en="A Press in the Bishop's House" data-ml="A Press in the Bishop's House">A Press in the Bishop's House</p>
       <h2 class="study-card__title" data-en="The Malankara Orthodox Community and the Making of Modern Malayalam" data-ml="The Malankara Orthodox Community and the Making of Modern Malayalam">The Malankara Orthodox Community and the Making of Modern Malayalam</h2>
@@ -133,6 +138,7 @@
       <span class="study-card__cta">Read the article &rarr;</span>
     </a>
     <a href="study-memorials-abstention-and-the-state-congress" class="study-card">
+      <span class="study-card__img"><img src="studies-politics.jpg" alt="" width="900" height="675" loading="lazy" decoding="async"></span>
       <span class="study-card__tag" data-en="History &amp; Politics" data-ml="History &amp; Politics">History &amp; Politics</span>
       <p class="study-card__kicker" data-en="Memorials, Abstention and the State Congress" data-ml="Memorials, Abstention and the State Congress">Memorials, Abstention and the State Congress</p>
       <h2 class="study-card__title" data-en="The Malankara Orthodox Community in the Politics of Travancore" data-ml="The Malankara Orthodox Community in the Politics of Travancore">The Malankara Orthodox Community in the Politics of Travancore</h2>
@@ -140,6 +146,7 @@
       <span class="study-card__cta">Read the article &rarr;</span>
     </a>
     <a href="study-rubber-chitty-and-joint-stock" class="study-card">
+      <span class="study-card__img"><img src="studies-economics.jpg" alt="" width="900" height="675" loading="lazy" decoding="async"></span>
       <span class="study-card__tag" data-en="Economic History" data-ml="Economic History">Economic History</span>
       <p class="study-card__kicker" data-en="Rubber, Chitty and Joint Stock" data-ml="Rubber, Chitty and Joint Stock">Rubber, Chitty and Joint Stock</p>
       <h2 class="study-card__title" data-en="The Economic Rise of the Malankara Orthodox Community" data-ml="The Economic Rise of the Malankara Orthodox Community">The Economic Rise of the Malankara Orthodox Community</h2>
@@ -147,6 +154,7 @@
       <span class="study-card__cta">Read the article &rarr;</span>
     </a>
     <a href="study-training-a-clergy" class="study-card">
+      <span class="study-card__img"><img src="studies-seminary.jpg" alt="" width="900" height="675" loading="lazy" decoding="async"></span>
       <span class="study-card__tag" data-en="Institutions" data-ml="Institutions">Institutions</span>
       <p class="study-card__kicker" data-en="Training the Clergy" data-ml="Training the Clergy">Training the Clergy</p>
       <h2 class="study-card__title" data-en="The Seminaries of the Malankara Orthodox Church" data-ml="The Seminaries of the Malankara Orthodox Church">The Seminaries of the Malankara Orthodox Church</h2>

@@ -5,9 +5,9 @@
 "description": "The Malankara Orthodox Syrian Church as it stood in 1906, before its worldwide expansion — the original seven dioceses, mapped."
 },
 {
-"title": "Diocese of Adoor-Kadampanad",
+"title": "Diocese of Adoor–Kadampanad",
 "url": "adoor-kadampanad",
-"description": "Diocese of Adoor-Kadampanad of the Malankara Orthodox Syrian Church — every parish, chapel, and institution, listed."
+"description": "Diocese of Adoor–Kadampanad of the Malankara Orthodox Syrian Church — every parish, chapel, and institution, listed."
 },
 {
 "title": "Diocese of Ahmedabad",
@@ -20,19 +20,14 @@
 "description": "Diocese of Angamaly of the Malankara Orthodox Syrian Church — every parish, chapel, and institution, listed."
 },
 {
-"title": "Diocese of Asia-Pacific",
+"title": "Diocese of Asia–Pacific",
 "url": "asia-pacific",
-"description": "Diocese of Asia-Pacific of the Malankara Orthodox Syrian Church — every parish, chapel, and institution, listed."
+"description": "Diocese of Asia–Pacific of the Malankara Orthodox Syrian Church — every parish, chapel, and institution, listed."
 },
 {
 "title": "Diocese of Bangalore",
 "url": "bangalore",
 "description": "Diocese of Bangalore of the Malankara Orthodox Syrian Church — every parish, chapel, and institution, listed."
-},
-{
-"title": "Bishops",
-"url": "bishops",
-"description": "The Holy Episcopal Synod of the Malankara Orthodox Syrian Church — every Metropolitan and Assistant Bishop, from the 2023 clergy directory."
 },
 {
 "title": "Diocese of Bombay",
@@ -55,39 +50,14 @@
 "description": "Diocese of Canada of the Malankara Orthodox Syrian Church — every parish, chapel, and institution, listed."
 },
 {
-"title": "Cathedrals",
-"url": "cathedrals",
-"description": "Every cathedral and archcathedral of the Malankara Orthodox Syrian Church worldwide, listed alphabetically by name, with the diocese each belongs to."
-},
-{
-"title": "Catholicate Centres",
-"url": "catholicate-centres",
-"description": "Every Catholicate Centre of the Malankara Orthodox Syrian Church worldwide, listed alphabetically by name, with the diocese each belongs to."
-},
-{
-"title": "Chapels",
-"url": "chapels",
-"description": "Every chapel of the Malankara Orthodox Syrian Church worldwide, listed alphabetically by name, with the diocese each belongs to."
-},
-{
 "title": "Diocese of Chengannur",
 "url": "chengannur",
 "description": "Diocese of Chengannur of the Malankara Orthodox Syrian Church — every parish, chapel, and institution, listed."
 },
 {
-"title": "Communities",
-"url": "communities",
-"description": "Every community of the Malankara Orthodox Syrian Church worldwide, listed alphabetically by name, with the diocese each belongs to."
-},
-{
-"title": "Congregations",
-"url": "congregations",
-"description": "Every congregation of the Malankara Orthodox Syrian Church worldwide, listed alphabetically by name, with the diocese each belongs to."
-},
-{
-"title": "Convents",
-"url": "convents",
-"description": "Every convent of the Malankara Orthodox Syrian Church worldwide, listed alphabetically by name, with the diocese each belongs to."
+"title": "1934 Constitution",
+"url": "constitution",
+"description": "The Constitution of the Malankara Orthodox Syrian Church, first brought into force in 1934 and amended in 1951, 1967, 1997, 2006 and 2011 — in English and Malay"
 },
 {
 "title": "Cor-Episcopas",
@@ -97,7 +67,7 @@
 {
 "title": "Deacons",
 "url": "deacons",
-"description": "Every full deacon of the Malankara Orthodox Syrian Church, organized by diocese, from the Church's 2023 clergy directory."
+"description": "Every full deacon of the Malankara Orthodox Syrian Church, organised by diocese, from the Church's 2023 clergy directory."
 },
 {
 "title": "Diocese of Delhi",
@@ -122,102 +92,7 @@
 {
 "title": "Malankara Map — Home",
 "url": "",
-"description": "Every parish, chapel, cathedral, and shrine of the Malankara Orthodox Syrian Church, mapped — 3,500+ locations across 32 dioceses worldwide."
-},
-{
-"title": "Andaman and Nicobar Islands, India",
-"url": "india-andaman-and-nicobar-islands",
-"description": "Every parish and institution of the Malankara Orthodox Syrian Church in Andaman and Nicobar Islands, India — 10 locations across 1 diocese, mapped."
-},
-{
-"title": "Andhra Pradesh, India",
-"url": "india-andhra-pradesh",
-"description": "Every parish and institution of the Malankara Orthodox Syrian Church in Andhra Pradesh, India — 3 locations across 1 diocese, mapped."
-},
-{
-"title": "Arunachal Pradesh, India",
-"url": "india-arunachal-pradesh",
-"description": "Every parish and institution of the Malankara Orthodox Syrian Church in Arunachal Pradesh, India — 1 locations across 1 diocese, mapped."
-},
-{
-"title": "Assam, India",
-"url": "india-assam",
-"description": "Every parish and institution of the Malankara Orthodox Syrian Church in Assam, India — 1 locations across 1 diocese, mapped."
-},
-{
-"title": "Bihar, India",
-"url": "india-bihar",
-"description": "Every parish and institution of the Malankara Orthodox Syrian Church in Bihar, India — 1 locations across 1 diocese, mapped."
-},
-{
-"title": "Chandigarh, India",
-"url": "india-chandigarh",
-"description": "Every parish and institution of the Malankara Orthodox Syrian Church in Chandigarh, India — 1 locations across 1 diocese, mapped."
-},
-{
-"title": "Chhattisgarh, India",
-"url": "india-chhattisgarh",
-"description": "Every parish and institution of the Malankara Orthodox Syrian Church in Chhattisgarh, India — 19 locations across 1 diocese, mapped."
-},
-{
-"title": "Dadra and Nagar Haveli and Daman and Diu, India",
-"url": "india-dadra-and-nagar-haveli-and-daman-and-diu",
-"description": "Every parish and institution of the Malankara Orthodox Syrian Church in Dadra and Nagar Haveli and Daman and Diu, India — 1 locations across 1 diocese, mapped."
-},
-{
-"title": "Haryana, India",
-"url": "india-haryana",
-"description": "Every parish and institution of the Malankara Orthodox Syrian Church in Haryana, India — 6 locations across 1 diocese, mapped."
-},
-{
-"title": "Jharkhand, India",
-"url": "india-jharkhand",
-"description": "Every parish and institution of the Malankara Orthodox Syrian Church in Jharkhand, India — 5 locations across 1 diocese, mapped."
-},
-{
-"title": "Meghalaya, India",
-"url": "india-meghalaya",
-"description": "Every parish and institution of the Malankara Orthodox Syrian Church in Meghalaya, India — 1 locations across 1 diocese, mapped."
-},
-{
-"title": "Nagaland, India",
-"url": "india-nagaland",
-"description": "Every parish and institution of the Malankara Orthodox Syrian Church in Nagaland, India — 2 locations across 1 diocese, mapped."
-},
-{
-"title": "Odisha, India",
-"url": "india-odisha",
-"description": "Every parish and institution of the Malankara Orthodox Syrian Church in Odisha, India — 6 locations across 1 diocese, mapped."
-},
-{
-"title": "Puducherry, India",
-"url": "india-puducherry",
-"description": "Every parish and institution of the Malankara Orthodox Syrian Church in Puducherry, India — 2 locations across 1 diocese, mapped."
-},
-{
-"title": "Punjab, India",
-"url": "india-punjab",
-"description": "Every parish and institution of the Malankara Orthodox Syrian Church in Punjab, India — 3 locations across 1 diocese, mapped."
-},
-{
-"title": "Uttar Pradesh, India",
-"url": "india-uttar-pradesh",
-"description": "Every parish and institution of the Malankara Orthodox Syrian Church in Uttar Pradesh, India — 16 locations across 1 diocese, mapped."
-},
-{
-"title": "Uttarakhand, India",
-"url": "india-uttarakhand",
-"description": "Every parish and institution of the Malankara Orthodox Syrian Church in Uttarakhand, India — 2 locations across 1 diocese, mapped."
-},
-{
-"title": "West Bengal, India",
-"url": "india-west-bengal",
-"description": "Every parish and institution of the Malankara Orthodox Syrian Church in West Bengal, India — 3 locations across 1 diocese, mapped."
-},
-{
-"title": "Institutions, By Type",
-"url": "institutions",
-"description": "Every parish, chapel, cathedral, monastery, and institution of the Malankara Orthodox Syrian Church, browsable by type."
+"description": "Every parish, chapel, cathedral, and shrine of the Malankara Orthodox Syrian Church, mapped — 3,500+ locations across 35 dioceses worldwide."
 },
 {
 "title": "Diocese of Kandanad East",
@@ -245,9 +120,9 @@
 "description": "Diocese of Kollam of the Malankara Orthodox Syrian Church — every parish, chapel, and institution, listed."
 },
 {
-"title": "Diocese of Kottarakkara-Punalur",
+"title": "Diocese of Kottarakkara–Punalur",
 "url": "kottarakkara-punalur",
-"description": "Diocese of Kottarakkara-Punalur of the Malankara Orthodox Syrian Church — every parish, chapel, and institution, listed."
+"description": "Diocese of Kottarakkara–Punalur of the Malankara Orthodox Syrian Church — every parish, chapel, and institution, listed."
 },
 {
 "title": "Diocese of Kottayam Central",
@@ -290,11 +165,6 @@
 "description": "The Holy Episcopal Synod of the Malankara Orthodox Syrian Church — every Metropolitan and Auxiliary Metropolitan, from the 2023 clergy directory. *Only the Cath"
 },
 {
-"title": "Monasteries",
-"url": "monasteries",
-"description": "Every monastery of the Malankara Orthodox Syrian Church worldwide, listed alphabetically by name, with the diocese each belongs to."
-},
-{
 "title": "Monks",
 "url": "monks",
 "description": "The Rambans (monastics) of the Malankara Orthodox Syrian Church, organized by diocese, from the Church's 2023 clergy directory."
@@ -315,29 +185,9 @@
 "description": "Diocese of Northeast America of the Malankara Orthodox Syrian Church — every parish, chapel, and institution, listed."
 },
 {
-"title": "Other Institutions",
-"url": "other-institutions",
-"description": "Every institution of the Malankara Orthodox Syrian Church worldwide, listed alphabetically by name, with the diocese each belongs to."
-},
-{
-"title": "Palaces",
-"url": "palaces",
-"description": "Every episcopal palace of the Malankara Orthodox Syrian Church worldwide, listed alphabetically by name, with the diocese each belongs to."
-},
-{
-"title": "Parish Churches",
-"url": "parish-churches",
-"description": "Every parish church of the Malankara Orthodox Syrian Church worldwide, listed alphabetically by name, with the diocese each belongs to."
-},
-{
 "title": "The Church in Numbers",
 "url": "population",
 "description": "The Malankara Orthodox Syrian Church in numbers — worldwide population, Kerala district data, and the diaspora, mapped and counted."
-},
-{
-"title": "Independent Prayer Groups",
-"url": "prayer-groups",
-"description": "Every independent prayer group of the Malankara Orthodox Syrian Church worldwide, listed alphabetically by name, with the diocese each belongs to."
 },
 {
 "title": "Priests",
@@ -355,11 +205,6 @@
 "description": "Proprietary Churches of the Malankara Orthodox Syrian Church — every parish, chapel, and institution, listed."
 },
 {
-"title": "Qurbana Centres",
-"url": "qurbana-centres",
-"description": "Every Qurbana Centre of the Malankara Orthodox Syrian Church worldwide, listed alphabetically by name, with the diocese each belongs to."
-},
-{
 "title": "Help Us Keep This Record Accurate",
 "url": "record",
 "description": "Report a missing or incorrect location, or share parish history not yet on file with Malankara Map."
@@ -370,39 +215,39 @@
 "description": "The canonised, venerable, and beatified saints of the Malankara Orthodox Syrian Church — their lives, their labours, and the light they left behind."
 },
 {
-"title": "Seminarians",
-"url": "seminarians",
-"description": "Ordained deacons and seminarians of the Malankara Orthodox Syrian Church, organized by diocese, from the Church's 2023 clergy directory."
-},
-{
-"title": "Seminaries",
-"url": "seminaries",
-"description": "Every seminary of the Malankara Orthodox Syrian Church worldwide, listed alphabetically by name, with the diocese each belongs to."
-},
-{
-"title": "Pilgrim Shrines",
-"url": "shrines",
-"description": "Every pilgrim shrine of the Malankara Orthodox Syrian Church worldwide, listed alphabetically by name, with the diocese each belongs to."
-},
-{
 "title": "Diocese of Southwest America",
 "url": "southwest-america",
 "description": "Diocese of Southwest America of the Malankara Orthodox Syrian Church — every parish, chapel, and institution, listed."
 },
 {
-"title": "Student Centres",
-"url": "student-centres",
-"description": "Every student centre of the Malankara Orthodox Syrian Church worldwide, listed alphabetically by name, with the diocese each belongs to."
+"title": "Studies",
+"url": "studies",
+"description": "Articles on the history, institutions, and material culture of the Malankara Orthodox Syrian Church."
+},
+{
+"title": "A Press in the Bishop's House — Studies",
+"url": "study-a-press-in-the-bishops-house",
+"description": "How a Church-founded newspaper, Malayala Manorama, helped build modern Malayalam prose, journalism and the novel."
+},
+{
+"title": "Memorials, Abstention and the State Congress — Studies",
+"url": "study-memorials-abstention-and-the-state-congress",
+"description": "From the Malayalee Memorial to the Abstention Movement — the community's long entry into Travancore politics."
+},
+{
+"title": "Rubber, Chitty and Joint Stock — Studies",
+"url": "study-rubber-chitty-and-joint-stock",
+"description": "Plantations, chitty funds and joint-stock companies: how the community built its economic footing under British rule."
+},
+{
+"title": "Training the Clergy — Studies",
+"url": "study-training-a-clergy",
+"description": "A century and a half of false starts, revival, and reform behind the seminaries that train the Church's priests today."
 },
 {
 "title": "Diocese of Sulthan Bathery",
 "url": "sulthan-bathery",
 "description": "Diocese of Sulthan Bathery of the Malankara Orthodox Syrian Church — every parish, chapel, and institution, listed."
-},
-{
-"title": "Independent Sunday Schools",
-"url": "sunday-schools",
-"description": "Every independent Sunday School of the Malankara Orthodox Syrian Church worldwide, listed alphabetically by name, with the diocese each belongs to."
 },
 {
 "title": "Terms of Service",
@@ -425,13 +270,88 @@
 "description": "Diocese of Thumpamon of the Malankara Orthodox Syrian Church — every parish, chapel, and institution, listed."
 },
 {
-"title": "Diocese of UK-Europe-Africa",
-"url": "uk-europe-africa",
-"description": "Diocese of UK-Europe-Africa of the Malankara Orthodox Syrian Church — every parish, chapel, and institution, listed."
+"title": "Cathedrals",
+"url": "type-cathedrals",
+"description": "Every cathedral of the Malankara Orthodox Syrian Church, mapped — 55 locations across 8 nations."
 },
 {
-"title": "Yemen",
-"url": "yemen",
-"description": "Every parish and institution of the Malankara Orthodox Syrian Church in Yemen — 1 locations across 1 diocese, mapped."
+"title": "Catholicate Centres",
+"url": "type-catholicate-centres",
+"description": "Every catholicate centre of the Malankara Orthodox Syrian Church, mapped — 28 locations across 1 nation."
+},
+{
+"title": "Chapels",
+"url": "type-chapels",
+"description": "Every chapel of the Malankara Orthodox Syrian Church, mapped — 439 locations across 7 nations."
+},
+{
+"title": "Communities",
+"url": "type-communities",
+"description": "Every community of the Malankara Orthodox Syrian Church, mapped — 17 locations across 10 nations."
+},
+{
+"title": "Congregations",
+"url": "type-congregations",
+"description": "Every congregation of the Malankara Orthodox Syrian Church, mapped — 154 locations across 25 nations."
+},
+{
+"title": "Convents",
+"url": "type-convents",
+"description": "Every convent of the Malankara Orthodox Syrian Church, mapped — 28 locations across 3 nations."
+},
+{
+"title": "Monasteries",
+"url": "type-monasteries",
+"description": "Every monastery of the Malankara Orthodox Syrian Church, mapped — 53 locations across 2 nations."
+},
+{
+"title": "Other Institutions",
+"url": "type-other-institutions",
+"description": "Every other institution of the Malankara Orthodox Syrian Church, mapped — 27 locations across 2 nations."
+},
+{
+"title": "Palaces",
+"url": "type-palaces",
+"description": "Every palace of the Malankara Orthodox Syrian Church, mapped — 35 locations across 5 nations."
+},
+{
+"title": "Churches",
+"url": "type-parish-churches",
+"description": "Every church of the Malankara Orthodox Syrian Church, mapped — 1,362 locations across 17 nations."
+},
+{
+"title": "Independent Prayer Groups",
+"url": "type-prayer-groups",
+"description": "Every independent prayer group of the Malankara Orthodox Syrian Church, mapped — 21 locations across 16 nations."
+},
+{
+"title": "Qurbana Centres",
+"url": "type-qurbana-centres",
+"description": "Every qurbana centre of the Malankara Orthodox Syrian Church, mapped — 52 locations across 10 nations."
+},
+{
+"title": "Seminaries",
+"url": "type-seminaries",
+"description": "Every seminary of the Malankara Orthodox Syrian Church, mapped — 19 locations across 1 nation."
+},
+{
+"title": "Pilgrim Shrines",
+"url": "type-shrines",
+"description": "Every pilgrim shrine of the Malankara Orthodox Syrian Church, mapped — 523 locations across 1 nation."
+},
+{
+"title": "Student Centres",
+"url": "type-student-centres",
+"description": "Every student centre of the Malankara Orthodox Syrian Church, mapped — 19 locations across 2 nations."
+},
+{
+"title": "Independent Sunday Schools",
+"url": "type-sunday-schools",
+"description": "Every independent sunday school of the Malankara Orthodox Syrian Church, mapped — 19 locations across 1 nation."
+},
+{
+"title": "Diocese of UK–Europe–Africa",
+"url": "uk-europe-africa",
+"description": "Diocese of UK–Europe–Africa of the Malankara Orthodox Syrian Church — every parish, chapel, and institution, listed."
 }
 ]

@@ -453,20 +453,26 @@
         '<div class="ssrch-empty">Start typing to search nations, dioceses, institutions, clergy, directors, statistics, saints, martyrs, and every other page on the site.</div>';
     }
 
+    // Lower-cases and treats en/em dashes as plain hyphens, so typing
+    // "kottarakkara-punalur" still finds a page titled "Kottarakkara–Punalur".
+    function norm(x) {
+      return String(x || "").toLowerCase().replace(/[\u2013\u2014]/g, "-");
+    }
+
     function runSearch(q) {
-      q = (q || "").trim().toLowerCase();
+      q = norm((q || "").trim());
       if (!q) {
         emptyState();
         return;
       }
       var pageMatches = (pagesIndex || [])
         .filter(function (p) {
-          return (p.title && p.title.toLowerCase().indexOf(q) !== -1) || (p.description && p.description.toLowerCase().indexOf(q) !== -1);
+          return (p.title && norm(p.title).indexOf(q) !== -1) || (p.description && norm(p.description).indexOf(q) !== -1);
         })
         .slice(0, 8);
       var placeMatches = (placesIndex || [])
         .filter(function (p) {
-          return (p.n && p.n.toLowerCase().indexOf(q) !== -1) || (p.d && p.d.toLowerCase().indexOf(q) !== -1);
+          return (p.n && norm(p.n).indexOf(q) !== -1) || (p.d && norm(p.d).indexOf(q) !== -1);
         })
         .slice(0, 8);
 
