@@ -1,46 +1,625 @@
 <!-- ==================== HEADER ====================
-     This is the exact header currently used on index.html (static,
-     not sticky), plus small CSS compatibility patches for pages
-     whose own compiled Tailwind CSS has some utility classes purged.
-     Loaded at runtime by every other page via a short include
-     snippet, so the whole site shares one copy of this file — edit
-     it here and every page picks up the change automatically. -->
-<style>
-/* Fix: --thread / --thread-dim are custom properties defined in
-   index.html's own stylesheet, used to color the logo mark's SVG
-   path (fill="var(--thread)"). Pages that load this header via
-   fetch never had these variables defined, so the mark rendered
-   with an invalid/fallback fill (effectively invisible). Defining
-   them at :root here makes the mark visible on every page. */
-:root{
-  --thread: #BA9450;
-  --thread-dim: rgba(186,148,80,.35);
+     Shared site header. Every page loads this file at runtime, so edit it here and
+     every page picks it up.
+
+     index.html is the reference design. The <style> below is index.html's own header
+     CSS, copied out and scoped to <header>, so the header renders the same on every page
+     regardless of which stylesheet (Tailwind CDN, styles.css, or a page's inline build)
+     that page happens to use. It replaces the older per-page "compat patch" blocks.
+     If you change the header on index.html, regenerate this block from it. -->
+<style id="site-header-css">
+/* Colours the header needs no matter what the page defines (values are index.html's). */
+:root{ --thread:#BA9450; --thread-dim:rgba(186,148,80,.35); --sage-glow:rgba(107,130,89,.28); }
+header{ --thread:#BA9450; --thread-dim:rgba(186,148,80,.35); --sage-glow:rgba(107,130,89,.28); --glass-fill:#faf8f2; --glass-border:rgba(17,24,39,.10); }
+.dark header{ --glass-fill:#1c2531; --glass-border:rgba(247,245,238,.10); }
+/* text colour the header inherits (index.html body colours) */
+header{ color:rgb(51,58,45); }
+.dark header{ color:rgba(247,245,238,.85); }
+@font-face {
+  font-family: "Epica Pro Sans Regular";
+  src: url("fonts/EpicaProSans-Regular.woff2") format("woff2"), url("fonts/EpicaProSans-Regular.woff") format("woff");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap
+  }
+header .font-sans, header.font-sans {
+  font-family: "Epica Pro Sans Regular", Inter, system-ui, sans-serif
 }
-</style>
-<style>
-/* Fix: the mobile slide-in menu's positioning, slide transform,
-   and backdrop blur are hand-written CSS in index.html's own
-   stylesheet (not part of the compiled/purged Tailwind output),
-   so pages loading this header via fetch never received them —
-   the panel rendered inline/static instead of sliding in from the
-   side with a blurred backdrop. Copied verbatim from index.html so
-   every page gets the identical slide-in mechanism. */
-#mobileMenuBackdrop{
+[lang=ml] header .font-sans, [lang=ml] header.font-sans, html.dark header [lang=ml] .font-sans {
+  font-family: Manjari, "Epica Pro Sans Regular", sans-serif
+}
+header .absolute, header.absolute {
+  position: absolute
+}
+header .relative, header.relative {
+  position: relative
+}
+header .inset-0, header.inset-0 {
+  inset: 0
+}
+header .left-1\/2, header.left-1\/2 {
+  left: 50%
+}
+header .top-full, header.top-full {
+  top: 100%
+}
+header .z-50, header.z-50 {
+  z-index: 50
+}
+header .mx-auto, header.mx-auto {
+  margin-left: auto;
+  margin-right: auto
+}
+header .mb-1, header.mb-1 {
+  margin-bottom: .25rem
+}
+header .mb-3, header.mb-3 {
+  margin-bottom: .75rem
+}
+header .mt-0\.5, header.mt-0\.5 {
+  margin-top: .125rem
+}
+header .mt-1, header.mt-1 {
+  margin-top: .25rem
+}
+header .block, header.block {
+  display: block
+}
+header .flex, header.flex {
+  display: flex
+}
+header .grid, header.grid {
+  display: grid
+}
+header .hidden, header.hidden {
+  display: none
+}
+header .h-16, header.h-16 {
+  height: 4rem
+}
+header .h-3, header.h-3 {
+  height: .75rem
+}
+header .h-4, header.h-4 {
+  height: 1rem
+}
+header .h-9, header.h-9 {
+  height: 2.25rem
+}
+header .max-h-64, header.max-h-64 {
+  max-height: 16rem
+}
+header .w-3, header.w-3 {
+  width: .75rem
+}
+header .w-4, header.w-4 {
+  width: 1rem
+}
+header .w-56, header.w-56 {
+  width: 14rem
+}
+header .w-9, header.w-9 {
+  width: 2.25rem
+}
+header .min-w-0, header.min-w-0 {
+  min-width: 0
+}
+header .max-w-7xl, header.max-w-7xl {
+  max-width: 80rem
+}
+header .shrink-0, header.shrink-0 {
+  flex-shrink: 0
+}
+header .-translate-x-1\/2, header.-translate-x-1\/2 {
+  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))
+}
+header .-translate-x-1\/2, header.-translate-x-1\/2 {
+  --tw-translate-x: -50%
+}
+header .flex-col, header.flex-col {
+  flex-direction: column
+}
+header .items-center, header.items-center {
+  align-items: center
+}
+header .justify-center, header.justify-center {
+  justify-content: center
+}
+header .justify-between, header.justify-between {
+  justify-content: space-between
+}
+header .gap-0\.5, header.gap-0\.5 {
+  gap: .125rem
+}
+header .gap-1, header.gap-1 {
+  gap: .25rem
+}
+header .gap-2, header.gap-2 {
+  gap: .5rem
+}
+header .gap-2\.5, header.gap-2\.5 {
+  gap: .625rem
+}
+header .gap-3, header.gap-3 {
+  gap: .75rem
+}
+header .gap-4, header.gap-4 {
+  gap: 1rem
+}
+header .gap-8, header.gap-8 {
+  gap: 2rem
+}
+header .overflow-y-auto, header.overflow-y-auto {
+  overflow-y: auto
+}
+header .truncate, header.truncate {
+  overflow: hidden;
+  text-overflow: ellipsis
+}
+header .truncate, header.truncate {
+  white-space: nowrap
+}
+header .rounded, header.rounded {
+  border-radius: .25rem
+}
+header .rounded-2xl, header.rounded-2xl {
+  border-radius: 1rem
+}
+header .rounded-full, header.rounded-full {
+  border-radius: 9999px
+}
+header .rounded-lg, header.rounded-lg {
+  border-radius: .5rem
+}
+header .border, header.border {
+  border-width: 1px
+}
+header .border-b, header.border-b {
+  border-bottom-width: 1px
+}
+header .border-l, header.border-l {
+  border-left-width: 1px
+}
+header .border-line, header.border-line {
+  --tw-border-opacity: 1;
+  border-color: rgb(219 225 210/var(--tw-border-opacity, 1))
+}
+header .bg-ivory, header.bg-ivory {
+  --tw-bg-opacity: 1;
+  background-color: rgb(247 245 238/var(--tw-bg-opacity, 1))
+}
+header .px-2, header.px-2 {
+  padding-left: .5rem;
+  padding-right: .5rem
+}
+header .px-3, header.px-3 {
+  padding-left: .75rem;
+  padding-right: .75rem
+}
+header .px-5, header.px-5 {
+  padding-left: 1.25rem;
+  padding-right: 1.25rem
+}
+header .px-6, header.px-6 {
+  padding-left: 1.5rem;
+  padding-right: 1.5rem
+}
+header .py-1, header.py-1 {
+  padding-top: .25rem;
+  padding-bottom: .25rem
+}
+header .py-1\.5, header.py-1\.5 {
+  padding-top: .375rem;
+  padding-bottom: .375rem
+}
+header .py-2, header.py-2 {
+  padding-top: .5rem;
+  padding-bottom: .5rem
+}
+header .py-3, header.py-3 {
+  padding-top: .75rem;
+  padding-bottom: .75rem
+}
+header .pt-12, header.pt-12 {
+  padding-top: 3rem
+}
+header .pt-3, header.pt-3 {
+  padding-top: .75rem
+}
+header .font-sans, header.font-sans {
+  font-family: Inter, system-ui, sans-serif
+}
+header .font-serif, header.font-serif {
+  font-family: Marcellus, Georgia, serif
+}
+header .text-\[11px\], header.text-\[11px\] {
+  font-size: 11px
+}
+header .text-\[13px\], header.text-\[13px\] {
+  font-size: 13px
+}
+header .text-\[15px\], header.text-\[15px\] {
+  font-size: 15px
+}
+header .text-base, header.text-base {
+  font-size: 1rem;
+  line-height: 1.5rem
+}
+header .text-sm, header.text-sm {
+  font-size: .875rem;
+  line-height: 1.25rem
+}
+header .font-normal, header.font-normal {
+  font-weight: 400
+}
+header .font-semibold, header.font-semibold {
+  font-weight: 600
+}
+header .uppercase, header.uppercase {
+  text-transform: uppercase
+}
+header .not-italic, header.not-italic {
+  font-style: normal
+}
+header .text-body\/70, header.text-body\/70 {
+  color: rgba(51, 58, 45, .7)
+}
+header .text-body\/75, header.text-body\/75 {
+  color: rgba(51, 58, 45, .75)
+}
+header .text-body\/80, header.text-body\/80 {
+  color: rgba(51, 58, 45, .8)
+}
+header .text-ink, header.text-ink {
+  --tw-text-opacity: 1;
+  color: rgb(16 20 13/var(--tw-text-opacity, 1))
+}
+header .text-muted, header.text-muted {
+  --tw-text-opacity: 1;
+  color: rgb(150 158 140/var(--tw-text-opacity, 1))
+}
+header .text-taupe, header.text-taupe {
+  --tw-text-opacity: 1;
+  color: rgb(124 106 74/var(--tw-text-opacity, 1))
+}
+header .opacity-60, header.opacity-60 {
+  opacity: .6
+}
+header .shadow-large, header.shadow-large {
+  --tw-shadow: 0 20px 60px rgba(17, 24, 39, .16);
+  --tw-shadow-colored: 0 20px 60px var(--tw-shadow-color)
+}
+header .shadow-large, header.shadow-large {
+  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)
+}
+header .transition-colors, header.transition-colors {
+  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke;
+  transition-timing-function: cubic-bezier(.4, 0, .2, 1);
+  transition-duration: .15s
+}
+header .hover\:border-ink:hover, header.hover\:border-ink:hover {
+  --tw-border-opacity: 1;
+  border-color: rgb(16 20 13/var(--tw-border-opacity, 1))
+}
+header .hover\:border-sage-dark:hover, header.hover\:border-sage-dark:hover {
+  --tw-border-opacity: 1;
+  border-color: rgb(74 93 61/var(--tw-border-opacity, 1))
+}
+header .hover\:bg-featured:hover, header.hover\:bg-featured:hover {
+  --tw-bg-opacity: 1;
+  background-color: rgb(240 237 229/var(--tw-bg-opacity, 1))
+}
+header .hover\:text-ink:hover, header.hover\:text-ink:hover {
+  --tw-text-opacity: 1;
+  color: rgb(16 20 13/var(--tw-text-opacity, 1))
+}
+header .hover\:text-sage-dark:hover, header.hover\:text-sage-dark:hover {
+  --tw-text-opacity: 1;
+  color: rgb(74 93 61/var(--tw-text-opacity, 1))
+}
+header .group:hover .group-hover\:block {
+  display: block
+}
+header .dark\:border-white\/10:is(.dark *), header.dark\:border-white\/10:is(.dark *) {
+  border-color: hsla(0, 0%, 100%, .1)
+}
+header .dark\:border-white\/15:is(.dark *), header.dark\:border-white\/15:is(.dark *) {
+  border-color: hsla(0, 0%, 100%, .15)
+}
+header .dark\:bg-midnight:is(.dark *), header.dark\:bg-midnight:is(.dark *) {
+  --tw-bg-opacity: 1;
+  background-color: rgb(17 24 39/var(--tw-bg-opacity, 1))
+}
+header .dark\:text-ivory:is(.dark *), header.dark\:text-ivory:is(.dark *) {
+  --tw-text-opacity: 1;
+  color: rgb(247 245 238/var(--tw-text-opacity, 1))
+}
+header .dark\:text-ivory\/60:is(.dark *), header.dark\:text-ivory\/60:is(.dark *) {
+  color: rgba(247, 245, 238, .6)
+}
+header .dark\:text-ivory\/65:is(.dark *), header.dark\:text-ivory\/65:is(.dark *) {
+  color: rgba(247, 245, 238, .65)
+}
+header .dark\:text-ivory\/70:is(.dark *), header.dark\:text-ivory\/70:is(.dark *) {
+  color: rgba(247, 245, 238, .7)
+}
+header .dark\:hover\:border-ivory:hover:is(.dark *), header.dark\:hover\:border-ivory:hover:is(.dark *) {
+  --tw-border-opacity: 1;
+  border-color: rgb(247 245 238/var(--tw-border-opacity, 1))
+}
+header .dark\:hover\:border-sage:hover:is(.dark *), header.dark\:hover\:border-sage:hover:is(.dark *) {
+  --tw-border-opacity: 1;
+  border-color: rgb(107 130 89/var(--tw-border-opacity, 1))
+}
+header .dark\:hover\:bg-white\/10:hover:is(.dark *), header.dark\:hover\:bg-white\/10:hover:is(.dark *) {
+  background-color: hsla(0, 0%, 100%, .1)
+}
+header .dark\:hover\:text-ivory:hover:is(.dark *), header.dark\:hover\:text-ivory:hover:is(.dark *) {
+  --tw-text-opacity: 1;
+  color: rgb(247 245 238/var(--tw-text-opacity, 1))
+}
+header .dark\:hover\:text-sage:hover:is(.dark *), header.dark\:hover\:text-sage:hover:is(.dark *) {
+  --tw-text-opacity: 1;
+  color: rgb(107 130 89/var(--tw-text-opacity, 1))
+}
+@media (min-width:640px) {
+  header .sm\:h-10, header.sm\:h-10 {
+    height: 2.5rem
+  }
+  header .sm\:h-20, header.sm\:h-20 {
+    height: 5rem
+  }
+  header .sm\:w-10, header.sm\:w-10 {
+    width: 2.5rem
+  }
+  header .sm\:px-8, header.sm\:px-8 {
+    padding-left: 2rem;
+    padding-right: 2rem
+  }
+  header .sm\:text-\[17px\], header.sm\:text-\[17px\] {
+    font-size: 17px
+  }
+}
+@media (min-width:768px) {
+  header .md\:flex, header.md\:flex {
+    display: flex
+  }
+  header .md\:hidden, header.md\:hidden {
+    display: none
+  }
+}
+@media (prefers-reduced-motion:no-preference) {
+  header {
+    transition: box-shadow .4s ease, background-color .4s ease
+  }
+  header nav>a, header nav>div>a:first-child {
+    position: relative
+  }
+  header nav>a::after, header nav>div>a:first-child::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 100%;
+    bottom: -3px;
+    height: 1px;
+    background: currentColor;
+    opacity: .6;
+    transition: right .35s cubic-bezier(.16, .8, .24, 1)
+  }
+  header nav>a:hover::after, header nav>div>a:first-child:hover::after {
+    right: 0
+  }
+}
+header .header-glass, header.header-glass {
+  background: rgb(247, 245, 238);
+  -webkit-backdrop-filter: none;
+  backdrop-filter: none
+}
+.dark header .header-glass, .dark header.header-glass {
+  background: rgb(17, 24, 39)
+}
+header .header-edge, header.header-edge {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -1px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--thread) 50%, transparent);
+  opacity: .55;
+  pointer-events: none
+}
+header .mark-spin, header.mark-spin {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform .4s cubic-bezier(.16, .8, .24, 1), box-shadow .5s ease
+}
+header .mark-spin svg.mark-icon {
+  width: 24px;
+  height: 24px
+}
+@media (min-width:640px) {
+  header .mark-spin svg.mark-icon {
+    width: 29px;
+    height: 29px
+  }
+}
+header .mark-spin::before, header.mark-spin::before {
+  content: '';
+  position: absolute;
+  inset: -4px;
+  border-radius: 50%;
+  border: 1px dashed rgba(107, 130, 89, .4);
+  opacity: 0;
+  transform: scale(.82) rotate(0);
+  transition: opacity .4s ease, transform .6s cubic-bezier(.16, .8, .24, 1);
+  pointer-events: none
+}
+header .group\/logo:hover .mark-spin {
+  transform: scale(1.06);
+  box-shadow: 0 0 0 4px var(--sage-glow)
+}
+header .group\/logo:hover .mark-spin::before {
+  opacity: 1;
+  transform: scale(1) rotate(160deg)
+}
+header .megapanel, header.megapanel {
+  position: relative
+}
+header .megapanel::before, header.megapanel::before {
+  content: '';
+  position: absolute;
+  left: 14px;
+  right: 14px;
+  top: 0;
+  height: 1px;
+  background: linear-gradient(90deg, var(--thread), transparent 70%);
+  opacity: .5
+}
+header .header-glass, header.header-glass {
+  position: relative;
+  background: var(--glass-fill);
+  -webkit-backdrop-filter: blur(var(--glass-blur)) saturate(165%);
+  backdrop-filter: blur(var(--glass-blur)) saturate(165%);
+  border: 1px solid var(--glass-border);
+  box-shadow: 0 1px 1px rgba(255, 255, 255, .5) inset, 0 -18px 30px -24px rgba(17, 24, 39, .18) inset, 0 24px 48px -26px rgba(17, 24, 39, .32), 0 2px 10px rgba(17, 24, 39, .07);
+  transition: box-shadow .4s cubic-bezier(.16, .8, .24, 1), transform .4s cubic-bezier(.16, .8, .24, 1), border-color .4s ease
+}
+.dark header .header-glass, .dark header.header-glass {
+  box-shadow: 0 1px 0 rgba(255, 255, 255, .05) inset, 0 -18px 30px -24px rgba(0, 0, 0, .5) inset, 0 28px 54px -26px rgba(0, 0, 0, .65), 0 2px 12px rgba(0, 0, 0, .35)
+}
+header .header-glass, header.header-glass {
+  background: rgb(247, 245, 238);
+  border-radius: 0;
+  border-left: 0;
+  border-right: 0;
+  border-top: 0
+}
+html[lang=ml] header [class*=tracking-], html[lang=ml] header[class*=tracking-] {
+  letter-spacing: normal !important
+}
+header .megapanel, header.megapanel {
+  --mx: 50%;
+  --my: 40%;
+  position: relative;
+  isolation: isolate
+}
+header .megapanel::before, header.megapanel::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity .5s ease;
+  background: radial-gradient(240px circle at var(--mx) var(--my), rgba(var(--lg-spot), .22), transparent 60%);
+  mix-blend-mode: overlay
+}
+header .megapanel:hover::before, header.megapanel:hover::before {
+  opacity: 1
+}
+header #themeToggle, header#themeToggle, header #musicToggle, header#musicToggle, header #searchToggle, header#searchToggle, header #searchToggleMobile, header#searchToggleMobile {
+  position: relative;
+  overflow: hidden;
+  -webkit-backdrop-filter: blur(12px) saturate(160%);
+  backdrop-filter: blur(12px) saturate(160%);
+  background: var(--glass-fill) !important;
+  transition: transform .3s cubic-bezier(.16, .8, .24, 1), box-shadow .3s ease, background .3s ease, border-color .3s ease
+}
+header #themeToggle:hover, header#themeToggle:hover, header #musicToggle:hover, header#musicToggle:hover, header #searchToggle:hover, header#searchToggle:hover, header #searchToggleMobile:hover, header#searchToggleMobile:hover {
+  box-shadow: 0 10px 24px -10px rgba(17, 24, 39, .35)
+}
+.dark header #themeToggle:hover, .dark header#themeToggle:hover, .dark header #musicToggle:hover, .dark header#musicToggle:hover, .dark header #searchToggle:hover, .dark header#searchToggle:hover, .dark header #searchToggleMobile:hover, .dark header#searchToggleMobile:hover {
+  box-shadow: 0 10px 26px -10px rgba(0, 0, 0, .6)
+}
+header .header-glass, header.header-glass, header .megapanel, header.megapanel, header #themeToggle, header#themeToggle, header #musicToggle, header#musicToggle, header #searchToggle, header#searchToggle, header #searchToggleMobile, header#searchToggleMobile {
+  background: var(--glass-fill) !important;
+  border-color: var(--glass-border) !important;
+  box-shadow: none !important;
+  -webkit-backdrop-filter: none !important;
+  backdrop-filter: none !important
+}
+header #themeToggle:hover, header#themeToggle:hover, header #musicToggle:hover, header#musicToggle:hover, header #searchToggle:hover, header#searchToggle:hover, header #searchToggleMobile:hover, header#searchToggleMobile:hover {
+  box-shadow: none !important;
+  transform: none !important
+}
+header .megapanel::before, header.megapanel::before {
+  display: none !important
+}
+header .shadow-large, header.shadow-large {
+  box-shadow: none !important
+}
+header {
+  margin-top: 0 !important;
+  top: 0 !important
+}
+header .est-mobile, header.est-mobile {
+  display: inline
+}
+header .est-desktop, header.est-desktop {
+  display: none
+}
+@media (min-width:640px) {
+  header .est-mobile, header.est-mobile {
+    display: none
+  }
+  header .est-desktop, header.est-desktop {
+    display: inline
+  }
+}
+header .mark-spin, header.mark-spin {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform .4s cubic-bezier(.16, .8, .24, 1), box-shadow .5s ease
+}
+header .mark-spin svg.mark-icon {
+  width: 24px;
+  height: 24px
+}
+@media (min-width:640px) {
+  header .mark-spin svg.mark-icon {
+    width: 29px;
+    height: 29px
+  }
+}
+header .mark-spin::before, header.mark-spin::before {
+  content: '';
+  position: absolute;
+  inset: -4px;
+  border-radius: 50%;
+  border: 1px dashed rgba(107, 130, 89, .4);
+  opacity: 0;
+  transform: scale(.82) rotate(0deg);
+  transition: opacity .4s ease, transform .6s cubic-bezier(.16, .8, .24, 1);
+  pointer-events: none
+}
+header .group\/logo:hover .mark-spin {
+  transform: scale(1.06);
+  box-shadow: 0 0 0 4px var(--sage-glow, rgba(107, 130, 89, .28))
+}
+header .group\/logo:hover .mark-spin::before {
+  opacity: 1;
+  transform: scale(1) rotate(160deg)
+}
+header #mobileMenuBackdrop, header#mobileMenuBackdrop {
   position: fixed;
   inset: 0;
   z-index: 65;
-  background: rgba(3,7,18,.55);
+  background: rgba(3, 7, 18, .55);
   opacity: 0;
   pointer-events: none;
   transition: opacity .35s ease;
   -webkit-backdrop-filter: blur(2px);
   backdrop-filter: blur(2px)
 }
-#mobileMenuBackdrop.is-open{
+header #mobileMenuBackdrop.is-open, header#mobileMenuBackdrop.is-open {
   opacity: 1;
   pointer-events: auto
 }
-#mobileMenu.mobile-menu-panel{
+header #mobileMenu.mobile-menu-panel, header#mobileMenu.mobile-menu-panel {
   position: fixed;
   top: 0;
   right: 0;
@@ -54,204 +633,71 @@
   height: 100dvh;
   margin: 0;
   border-top: 0;
-  border-left: 1px solid rgba(17,24,39,.08);
-  box-shadow: -16px 0 46px rgba(17,24,39,.28);
+  border-left: 1px solid rgba(17, 24, 39, .08);
+  box-shadow: -16px 0 46px rgba(17, 24, 39, .28);
   transform: translateX(100%);
-  transition: transform .4s cubic-bezier(.16,.8,.24,1);
+  transition: transform .4s cubic-bezier(.16, .8, .24, 1);
   overflow-y: auto;
   -webkit-overflow-scrolling: touch
 }
-.dark #mobileMenu.mobile-menu-panel{
-  border-left-color: rgba(247,245,238,.12);
-  box-shadow: -16px 0 46px rgba(0,0,0,.5)
+.dark header #mobileMenu.mobile-menu-panel, .dark header#mobileMenu.mobile-menu-panel {
+  border-left-color: rgba(247, 245, 238, .12);
+  box-shadow: -16px 0 46px rgba(0, 0, 0, .5)
 }
-#mobileMenu.mobile-menu-panel.is-open{
+header #mobileMenu.mobile-menu-panel.is-open, header#mobileMenu.mobile-menu-panel.is-open {
   transform: translateX(0)
 }
-body.mobile-menu-locked{
-  overflow: hidden
-}
-#mobileMenuCloseBtn{
+header #mobileMenuCloseBtn, header#mobileMenuCloseBtn {
   align-self: auto
 }
-@media (prefers-reduced-motion:reduce){
-  #mobileMenu.mobile-menu-panel,
-  #mobileMenuBackdrop{
+@media (prefers-reduced-motion:reduce) {
+  header #mobileMenu.mobile-menu-panel, header#mobileMenu.mobile-menu-panel, header #mobileMenuBackdrop, header#mobileMenuBackdrop {
     transition: none
   }
 }
-</style>
-<style>
-/* Fix: sm:hidden / sm:inline are not present in this build's
-   compiled Tailwind output (purged on some pages), so a hand-rolled
-   pair of classes handles the mobile/desktop "Est." swap instead. */
-.est-mobile{ display:inline; }
-.est-desktop{ display:none; }
-@media (min-width:640px){
-  .est-mobile{ display:none; }
-  .est-desktop{ display:inline; }
+header #mobileMenu .mobile-nav-accordion {
+    border-top: 1px solid rgba(17,24,39,.08);
+    padding-top: .55rem;
+    margin-top: .15rem
 }
-</style>
-<style>
-/* Fix: the logo mark and "Est. 52 CE / Malankara Church" title were
-   rendering at inconsistent sizes across pages — some pages' own
-   compiled/frozen stylesheets predate the current header markup and
-   don't carry the exact classes it now uses (w-9/h-9, sm:w-10/h-10,
-   text-[9.5px]/[10px], text-[15px]/[17px], tracking-[0.18em], etc.),
-   so the logo and wordmark fell back to unstyled, smaller defaults
-   on those pages. Declaring the sizes explicitly here — in the one
-   file every page loads fresh at runtime — makes the header render
-   identically everywhere regardless of what a given page's own
-   stylesheet happens to contain. */
-header a.group\/logo{ display:flex; align-items:center; gap:.75rem; min-width:0; }
-header .mark-spin{ width:2.25rem; height:2.25rem; }
-@media (min-width:640px){ header .mark-spin{ width:2.5rem; height:2.5rem; } }
-header .mark-spin svg.mark-icon{ width:24px; height:24px; }
-@media (min-width:640px){ header .mark-spin svg.mark-icon{ width:29px; height:29px; } }
-header a.group\/logo .min-w-0{ min-width:0; }
-header a.group\/logo .font-sans.uppercase{
-  font-size:9.5px;
-  letter-spacing:.18em;
-  text-transform:uppercase;
-  font-weight:600;
-  line-height:1.3;
+.dark header #mobileMenu .mobile-nav-accordion {
+    border-top-color: rgba(247,245,238,.1)
 }
-@media (min-width:640px){
-  header a.group\/logo .font-sans.uppercase{ font-size:10px; }
+header #mobileMenu .mobile-nav-accordion summary {
+    list-style: none;
+    font-family: Marcellus, Georgia, serif
 }
-header a.group\/logo .font-serif{
-  font-size:15px;
-  line-height:1.3;
+header #mobileMenu .mobile-nav-accordion summary::-webkit-details-marker {
+    display: none
 }
-@media (min-width:640px){
-  header a.group\/logo .font-serif{ font-size:17px; }
+header #mobileMenu .mobile-nav-chevron {
+    transition: transform .3s cubic-bezier(.16,.8,.24,1);
+    opacity: .6
 }
-</style>
-<style>
-/* Fix: the logo mark was rotating 180deg on hover, and since the
-   cross+circle artwork isn't symmetric, that flip made it look
-   like it was swinging off-center. Now the icon stays put and
-   only a plain (symmetric) ring around it animates. This overrides
-   the same rule name in the shared stylesheet if present. */
-.mark-spin{ position:relative; display:flex; align-items:center; justify-content:center; transition: transform .4s cubic-bezier(.16,.8,.24,1), box-shadow .5s ease; }
-.mark-spin svg.mark-icon{ width:24px; height:24px; }
-@media (min-width:640px){ .mark-spin svg.mark-icon{ width:29px; height:29px; } }
-.mark-spin::before{
-  content:''; position:absolute; inset:-4px; border-radius:50%;
-  border:1px dashed rgba(107,130,89,.4);
-  opacity:0; transform:scale(.82) rotate(0deg);
-  transition: opacity .4s ease, transform .6s cubic-bezier(.16,.8,.24,1);
-  pointer-events:none;
+header #mobileMenu .mobile-nav-accordion[open] > summary .mobile-nav-chevron {
+    transform: rotate(180deg)
 }
-.group\/logo:hover .mark-spin{ transform: scale(1.06); box-shadow: 0 0 0 4px var(--sage-glow, rgba(107,130,89,.28)); }
-.group\/logo:hover .mark-spin::before{ opacity:1; transform:scale(1) rotate(160deg); }
-</style>
-<style>
-/* Fix: the desktop "Dioceses / Institutions / Clergy / More" dropdown
-   megapanels never appeared on pages that link the site's static,
-   purged styles.css (deacons.html, cor-episcopa.html, monks.html,
-   priests.html) — that stylesheet is compiled by scanning only
-   index.html, so utility classes this header's dropdowns rely on
-   (starting with the hover-to-show mechanism itself) were purged
-   out and never generated. Declaring the exact same rules here
-   guarantees they exist wherever this header is loaded, regardless
-   of what a given page's own stylesheet happens to include. */
-.relative{ position:relative; }
-.absolute{ position:absolute; }
-.top-full{ top:100%; }
-.left-1\/2{ left:50%; }
-.-translate-x-1\/2{
-  --tw-translate-x:-50%;
-  transform: translate(var(--tw-translate-x),var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+header #mobileMenu .mobile-nav-panel {
+    font-family: "Epica Pro Sans Regular", Inter, system-ui, sans-serif;
+    border-left: 1px solid rgba(17,24,39,.08);
+    margin-left: .2rem;
+    padding-left: .6rem
 }
-.w-56{ width:14rem; }
-.w-3{ width:.75rem; }
-.h-3{ height:.75rem; }
-.max-h-64{ max-height:16rem; }
-.overflow-y-auto{ overflow-y:auto; }
-.rounded{ border-radius:.25rem; }
-.shadow-large{
-  --tw-shadow:0 20px 60px rgba(17,24,39,.16);
-  --tw-shadow-colored:0 20px 60px var(--tw-shadow-color);
-  box-shadow: var(--tw-ring-offset-shadow,0 0 #0000), var(--tw-ring-shadow,0 0 #0000), var(--tw-shadow);
-}
-.gap-1{ gap:.25rem; }
-.gap-1\.5{ gap:.375rem; }
-.pl-2{ padding-left:.5rem; }
-@media (min-width:640px){ .sm\:inline-flex{ display:inline-flex; } }
-.px-2{ padding-left:.5rem; padding-right:.5rem; }
-.px-3{ padding-left:.75rem; padding-right:.75rem; }
-.py-1\.5{ padding-top:.375rem; padding-bottom:.375rem; }
-.pt-3{ padding-top:.75rem; }
-.mt-0\.5{ margin-top:.125rem; }
-.normal-case{ text-transform:none; }
-.tracking-normal{ letter-spacing:0em; }
-.text-\[11px\]{ font-size:11px; }
-.text-\[13px\]{ font-size:13px; }
-.text-\[15px\]{ font-size:15px; }
-@media (min-width:768px){ .md\:flex{ display:flex; } }
-.group:hover .group-hover\:block{ display:block; }
-.hover\:bg-featured:hover{ background-color:#EEF3EE; }
-.hover\:text-sage-dark:hover{ color:#5E8062; }
-.text-body\/80{ color:rgba(55,65,81,.8); }
-.dark .dark\:bg-midnight{ background-color:#111827; }
-.dark .dark\:border-white\/10{ border-color:hsla(0,0%,100%,.1); }
-.dark .dark\:hover\:bg-white\/10:hover{ background-color:hsla(0,0%,100%,.1); }
-.dark .dark\:hover\:text-sage:hover{ color:#7A9E7E; }
-.dark .dark\:text-ivory\/70{ color:rgba(248,247,244,.7); }
-.megapanel{ position:relative; }
-.megapanel::before{
-  content:''; position:absolute; left:14px; right:14px; top:0; height:1px;
-  background:linear-gradient(90deg,var(--thread),transparent 70%); opacity:.5;
-}
-</style>
-<style>
-/* Mobile menu accordion sections (Dioceses / Institutions / Clergy /
-   More) — built on native <details>/<summary> so each expands in
-   place, matching the same items shown in the desktop dropdowns. */
-#mobileMenu .mobile-nav-accordion{
-  border-top: 1px solid rgba(17,24,39,.08);
-  padding-top: .55rem;
-  margin-top: .15rem;
-}
-.dark #mobileMenu .mobile-nav-accordion{
-  border-top-color: rgba(247,245,238,.1);
-}
-#mobileMenu .mobile-nav-accordion summary{
-  list-style: none;
-  font-family: Marcellus, Georgia, serif;
-}
-#mobileMenu .mobile-nav-accordion summary::-webkit-details-marker{
-  display: none;
-}
-#mobileMenu .mobile-nav-chevron{
-  transition: transform .3s cubic-bezier(.16,.8,.24,1);
-  opacity: .6;
-}
-#mobileMenu .mobile-nav-accordion[open] > summary .mobile-nav-chevron{
-  transform: rotate(180deg);
-}
-#mobileMenu .mobile-nav-panel{
-  font-family: "Epica Pro Sans Regular", Inter, system-ui, sans-serif;
-  border-left: 1px solid rgba(17,24,39,.08);
-  margin-left: .2rem;
-  padding-left: .6rem;
-}
-.dark #mobileMenu .mobile-nav-panel{
-  border-left-color: rgba(247,245,238,.12);
+.dark header #mobileMenu .mobile-nav-panel {
+    border-left-color: rgba(247,245,238,.12)
 }
 </style>
 <header class="relative z-50 border-b border-line dark:border-white/10">
     <div class="header-glass inset-0" style="position:absolute;z-index:-1;"></div>
     <div class="header-edge"></div>
     <div class="max-w-7xl mx-auto px-5 sm:px-8 h-16 sm:h-20 flex items-center justify-between gap-4">
-      <a href="https://malankaramap.com" class="flex items-center gap-3 min-w-0 group/logo"><span class="relative shrink-0 grid place-items-center w-9 h-9 sm:w-10 sm:h-10 rounded-full border border-sage/40 dark:border-sage/50 mark-spin"><svg class="mark-icon text-ink dark:text-ivory" viewbox="0 0 688 688" fill="none">
+      <a href="https://malankaramap.com" class="flex items-center gap-3 min-w-0 group/logo"><span class="relative shrink-0 grid w-9 h-9 sm:w-10 sm:h-10 rounded-full border mark-spin"><svg class="mark-icon text-ink dark:text-ivory" viewbox="0 0 688 688" fill="none">
       <g transform="translate(0,688) scale(0.1,-0.1)">
         <path d="M3361 6585 c-79 -18 -147 -43 -162 -62 -9 -11 -8 -18 8 -36 65 -71 123 -242 123 -362 0 -80 -4 -85 -63 -85 -60 0 -112 22 -207 85 -52 35 -106 73 -120 85 -57 46 -103 80 -110 80 -4 0 -13 -6 -19 -14 -10 -11 -8 -29 8 -83 44 -148 81 -317 114 -511 20 -111 41 -209 47 -217 19 -23 40 -18 122 30 118 69 199 79 227 26 18 -32 13 -61 -21 -120 -26 -45 -32 -67 -32 -111 0 -72 22 -111 84 -151 45 -29 52 -39 69 -93 l19 -61 -31 -13 c-50 -20 -59 -26 -90 -65 -40 -48 -46 -109 -19 -171 17 -38 18 -46 6 -46 -26 0 -113 -49 -156 -88 -116 -104 -164 -267 -124 -420 12 -48 12 -53 -3 -46 -82 33 -210 31 -284 -5 -76 -37 -140 -108 -172 -190 -24 -59 -27 -80 -23 -138 6 -87 44 -167 104 -223 65 -59 115 -80 199 -80 59 0 77 4 111 26 62 40 87 86 82 151 -5 61 -31 96 -85 114 -46 15 -91 5 -126 -29 -23 -22 -29 -24 -37 -12 -15 23 -12 88 5 120 17 34 67 65 115 74 40 7 140 -18 140 -35 0 -6 4 -8 8 -5 14 8 78 -65 108 -124 l29 -55 3 -378 3 -378 -454 3 -454 3 -52 35 c-30 20 -61 51 -72 72 -34 66 -18 162 31 188 19 10 20 8 20 -33 0 -34 6 -49 28 -70 83 -80 201 -42 232 74 23 83 -28 185 -118 240 -50 30 -66 34 -139 38 -75 3 -89 0 -145 -26 -101 -48 -156 -115 -184 -223 -18 -70 -14 -147 11 -206 16 -38 12 -40 -40 -19 -21 9 -66 16 -105 16 -124 1 -234 -70 -295 -190 -14 -28 -25 -57 -25 -66 0 -14 -3 -14 -30 0 -68 35 -157 5 -192 -65 -64 -126 69 -269 191 -205 28 14 28 14 47 -28 11 -23 32 -56 47 -74 16 -19 25 -37 21 -44 -4 -8 -3 -9 4 -5 6 4 34 -9 62 -28 69 -48 144 -63 230 -46 36 7 73 17 83 22 21 11 21 10 2 -35 -19 -46 -19 -149 0 -213 19 -63 87 -141 156 -178 61 -34 167 -46 236 -27 57 16 132 68 165 116 64 91 49 212 -32 268 -30 21 -101 22 -139 2 -36 -18 -64 -77 -59 -121 2 -19 3 -34 1 -34 -19 0 -54 29 -67 56 -46 97 7 210 124 267 44 22 53 22 475 22 l430 0 0 -645 0 -645 -27 -51 c-52 -98 -141 -148 -221 -124 -71 21 -120 91 -57 82 63 -9 118 38 134 113 10 45 -29 114 -79 142 -77 43 -170 26 -239 -44 -50 -51 -66 -84 -77 -158 -15 -111 37 -238 127 -309 99 -78 252 -106 374 -67 35 11 66 19 67 17 2 -2 -9 -25 -24 -52 -25 -44 -28 -59 -28 -144 0 -108 14 -146 81 -214 115 -118 323 -118 438 0 66 68 81 106 81 214 0 85 -3 102 -27 149 -16 29 -28 55 -28 57 0 2 21 -6 48 -18 135 -59 322 -21 427 89 121 126 133 316 27 426 -73 76 -155 96 -239 58 -50 -23 -74 -57 -80 -114 -9 -78 50 -147 125 -147 39 0 40 -11 7 -44 -65 -65 -160 -55 -237 24 -80 83 -78 63 -78 782 l0 629 433 -3 c390 -3 436 -5 472 -21 86 -39 145 -122 145 -206 0 -43 -5 -55 -34 -85 -43 -46 -59 -47 -51 -3 8 41 -6 78 -42 111 -22 21 -38 26 -78 26 -58 -1 -84 -13 -117 -55 -19 -25 -23 -41 -23 -105 0 -68 3 -80 32 -125 37 -57 76 -87 148 -111 65 -22 172 -15 240 15 66 29 138 107 165 177 23 64 26 169 6 227 -12 33 -6 52 8 28 3 -5 35 -14 70 -21 68 -13 153 -2 206 25 49 25 119 97 151 153 18 31 33 58 34 60 1 1 16 -5 34 -14 38 -19 99 -14 137 11 30 20 63 88 64 130 0 17 -12 49 -26 72 -44 67 -121 91 -184 58 -27 -14 -30 -14 -30 0 0 9 -11 37 -24 63 -59 114 -184 195 -300 193 -34 0 -82 -8 -106 -16 -23 -8 -44 -15 -46 -15 -2 0 4 17 13 38 11 23 17 66 17 117 1 71 -3 88 -32 147 -39 80 -78 119 -156 158 -50 25 -71 30 -135 30 -147 0 -257 -85 -278 -216 -12 -72 47 -161 118 -177 71 -17 149 43 149 116 l0 40 25 -23 c52 -49 57 -149 9 -197 -13 -13 -24 -27 -24 -31 0 -4 -25 -20 -55 -35 l-55 -27 -441 0 -440 0 3 373 c3 360 4 374 26 428 70 173 296 234 375 101 18 -32 23 -98 8 -121 -8 -12 -16 -9 -46 17 -117 103 -268 -56 -180 -189 38 -58 98 -83 185 -77 116 9 200 67 257 178 24 47 28 67 28 140 0 73 -4 93 -27 140 -69 141 -217 224 -358 201 -32 -5 -69 -15 -81 -21 -21 -12 -21 -11 -13 26 5 22 9 84 9 139 0 95 -2 105 -35 168 -30 60 -149 194 -169 191 -3 0 -22 7 -43 16 -31 14 -35 19 -26 35 21 37 29 96 18 136 -14 50 -62 106 -100 114 -17 4 -33 11 -36 17 -3 5 4 36 17 69 19 47 32 65 67 86 30 19 50 43 69 80 30 63 28 90 -16 191 -36 82 -37 92 -13 122 32 40 101 28 213 -36 44 -25 86 -44 94 -41 29 12 45 56 65 182 23 146 56 296 101 461 59 218 53 228 -70 132 -186 -145 -252 -181 -336 -182 l-60 -1 1 95 c2 115 34 223 95 314 47 70 44 76 -44 105 -129 42 -210 48 -316 26z M2593 6095 c-218 -67 -456 -175 -647 -293 -478 -295 -880 -737 -1115 -1227 -132 -275 -228 -585 -266 -858 -92 -660 34 -1333 355 -1894 178 -310 443 -629 676 -813 370 -293 713 -471 1121 -581 118 -31 373 -79 385 -72 6 3 -7 34 -36 90 -1 1 -44 11 -96 22 -317 69 -593 296 -833 686 -116 188 -291 584 -272 616 3 3 34 15 70 24 36 10 65 22 65 26 0 5 -13 15 -30 24 -16 8 -33 22 -38 31 -7 13 -15 14 -56 3 -26 -6 -48 -10 -50 -8 -5 8 -65 234 -73 278 -8 44 -9 45 -62 58 -29 8 -56 12 -58 9 -6 -5 39 -201 68 -295 22 -73 24 -91 8 -91 -30 0 -225 -83 -393 -166 -59 -30 -112 -51 -117 -48 -32 19 -282 443 -293 497 -2 6 -15 39 -31 72 -116 255 -201 617 -221 943 l-7 112 441 0 442 0 0 -75 c0 -69 9 -91 25 -65 4 6 22 17 41 25 32 13 34 16 34 64 l0 51 79 0 c44 0 82 3 84 8 2 4 7 24 11 45 l7 37 -92 0 -92 0 7 153 c15 330 74 733 148 1010 l11 44 56 -14 c139 -35 456 -94 618 -117 195 -27 441 -51 448 -44 3 3 11 25 19 50 l13 46 -76 7 c-313 27 -654 79 -923 141 -91 21 -118 31 -118 44 0 27 75 239 129 365 98 226 233 460 351 606 85 105 251 260 341 318 51 34 97 62 102 64 16 5 -16 121 -33 124 -8 1 -65 -13 -127 -32z m-242 -272 c-239 -243 -433 -580 -583 -1014 l-50 -146 -97 27 c-188 53 -472 158 -478 177 -2 5 26 49 61 97 229 307 520 567 850 761 85 50 360 185 377 185 3 0 -33 -39 -80 -87z m-1105 -1113 c139 -53 360 -127 408 -135 27 -6 35 -11 32 -24 -23 -86 -70 -305 -91 -426 -43 -245 -54 -359 -61 -582 l-7 -213 -440 0 -440 0 7 108 c9 142 41 362 72 492 63 269 190 581 325 799 30 50 31 51 58 36 15 -7 77 -33 137 -55z m524 -3012 c52 -162 168 -416 258 -565 28 -46 48 -83 46 -83 -2 0 3 -8 12 -17 20 -24 114 -153 114 -158 0 -5 85 -99 146 -162 23 -24 40 -43 38 -43 -10 0 -139 66 -142 73 -2 4 -8 5 -13 1 -5 -3 -9 0 -9 5 0 6 -3 10 -7 9 -27 -9 -319 174 -478 298 -182 142 -434 399 -436 443 0 14 -3 20 -6 13 -5 -12 -23 -7 -23 7 0 15 440 217 481 220 3 1 12 -18 19 -41z M4186 6063 c-10 -32 -21 -63 -23 -70 -3 -6 10 -19 29 -29 50 -26 167 -116 229 -176 104 -103 199 -216 199 -237 0 -6 4 -11 9 -11 31 0 270 -438 336 -615 43 -116 95 -269 95 -282 0 -18 -326 -89 -568 -123 -68 -9 -508 -60 -525 -60 -4 0 -3 -9 3 -19 5 -11 10 -28 10 -38 1 -42 10 -44 131 -33 277 26 636 82 872 137 60 14 110 23 111 22 8 -9 48 -178 75 -314 48 -240 91 -614 91 -797 l0 -88 -78 0 c-43 0 -81 -2 -84 -5 -3 -3 0 -23 6 -45 l10 -40 73 0 73 0 0 -50 c0 -51 0 -51 45 -70 66 -28 61 -35 64 78 l1 42 445 0 445 0 0 -27 c0 -69 -22 -279 -41 -388 -34 -206 -93 -412 -185 -645 -65 -164 -303 -570 -335 -570 -4 0 -45 20 -92 46 -47 25 -114 57 -149 71 -77 31 -247 97 -270 106 -16 6 -16 9 -2 49 19 55 86 329 81 334 -2 2 -27 -2 -56 -9 -49 -11 -52 -14 -61 -52 -26 -106 -73 -271 -79 -277 -4 -4 -23 -2 -43 4 -34 10 -39 9 -77 -23 -22 -19 -41 -37 -41 -40 0 -3 29 -14 65 -24 77 -20 77 -6 3 -200 -57 -150 -131 -306 -201 -420 -47 -77 -154 -235 -166 -245 -3 -3 -22 -25 -42 -50 -20 -25 -67 -75 -105 -112 -159 -155 -318 -247 -507 -295 -107 -27 -108 -27 -131 -70 -14 -23 -21 -44 -18 -47 14 -8 292 46 407 79 272 78 574 211 788 347 323 206 656 535 871 858 159 240 294 522 371 779 28 95 80 326 94 421 35 231 37 573 6 836 -41 350 -178 752 -366 1080 -361 628 -936 1097 -1630 1329 -59 19 -115 35 -126 35 -15 0 -24 -13 -37 -57z m417 -209 c423 -189 795 -488 1081 -864 43 -56 80 -108 82 -115 8 -19 -298 -136 -486 -186 -41 -11 -82 -22 -91 -25 -13 -3 -24 18 -54 103 -171 484 -369 827 -628 1084 -83 82 -80 83 96 3z m1259 -1131 c20 -32 58 -103 86 -158 186 -373 275 -707 307 -1147 l7 -88 -445 0 -445 0 -6 83 c-3 45 -8 138 -11 207 -8 177 -56 519 -95 687 -45 188 -50 209 -56 230 -6 20 2 24 97 53 162 49 401 134 479 169 25 11 45 21 46 21 1 0 17 -26 36 -57z m-594 -3029 c103 -41 358 -157 370 -168 15 -15 -262 -308 -398 -422 -87 -72 -233 -177 -339 -241 -89 -55 -360 -193 -378 -193 -3 0 22 29 54 64 226 241 413 566 549 954 10 28 19 52 21 52 2 0 56 -21 121 -46z" fill="var(--thread)"></path>
       </g></svg></span>
       <div class="min-w-0">
-        <div class="flex items-center gap-2 mb-0.5">
-          <span class="font-sans text-[9.5px] sm:text-[10px] tracking-[0.18em] uppercase text-taupe font-semibold truncate"><span class="est-mobile" data-en="Est. 52 CE" data-ml="സ്ഥാ. 52">Est. 52 CE</span> <span class="est-desktop" data-en="Est. 52 CE" data-ml="സ്ഥാ. ക്രി.വ. 52">Est. 52 CE</span></span>
+        <div class="flex items-center gap-2">
+          <span class="font-sans uppercase text-taupe font-semibold truncate"><span class="est-mobile" data-en="Est. 52 CE" data-ml="സ്ഥാ. 52">Est. 52 CE</span> <span class="est-desktop" data-en="Est. 52 CE" data-ml="സ്ഥാ. ക്രി.വ. 52">Est. 52 CE</span></span>
         </div>
         <div class="font-serif text-[15px] sm:text-[17px] text-ink dark:text-ivory truncate" data-en="Malankara Church" data-ml="മലങ്കര സഭ">
           Malankara Church
@@ -263,7 +709,7 @@ header a.group\/logo .font-serif{
           <a href="index.html#colors" class="flex items-center gap-1 text-body/80 dark:text-ivory/70 hover:text-sage-dark dark:hover:text-sage transition-colors"><span data-en="Dioceses" data-ml="ഭദ്രാസനങ്ങൾ">Dioceses</span> <svg class="w-3 h-3 mt-0.5 opacity-60" viewbox="0 0 24 24" fill="none">
           <path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg></a>
           <div class="hidden group-hover:block absolute left-1/2 -translate-x-1/2 top-full pt-3 z-50">
-            <div class="megapanel bg-ivory dark:bg-midnight border border-line dark:border-white/10 rounded-2xl shadow-large px-3 py-3 font-sans not-italic text-[13px] font-normal normal-case tracking-normal w-56 max-h-64 overflow-y-auto">
+            <div class="megapanel bg-ivory dark:bg-midnight border border-line dark:border-white/10 rounded-2xl shadow-large px-3 py-3 font-sans not-italic text-[13px] font-normal w-56 max-h-64 overflow-y-auto">
               <div class="flex flex-col">
                 <a href="adoor-kadampanad" class="block px-2 py-1.5 rounded hover:bg-featured dark:hover:bg-white/10 text-body/80 dark:text-ivory/70 hover:text-sage-dark dark:hover:text-sage transition-colors truncate"><span data-en="Adoor–Kadampanad" data-ml="അടൂർ-കടമ്പനാട്">Adoor–Kadampanad</span></a> <a href="ahmedabad" class="block px-2 py-1.5 rounded hover:bg-featured dark:hover:bg-white/10 text-body/80 dark:text-ivory/70 hover:text-sage-dark dark:hover:text-sage transition-colors truncate"><span data-en="Ahmedabad" data-ml="അഹമ്മദാബാദ്">Ahmedabad</span></a> <a href="angamaly" class="block px-2 py-1.5 rounded hover:bg-featured dark:hover:bg-white/10 text-body/80 dark:text-ivory/70 hover:text-sage-dark dark:hover:text-sage transition-colors truncate"><span data-en="Angamaly" data-ml="അങ്കമാലി">Angamaly</span></a> <a href="asia-pacific" class="block px-2 py-1.5 rounded hover:bg-featured dark:hover:bg-white/10 text-body/80 dark:text-ivory/70 hover:text-sage-dark dark:hover:text-sage transition-colors truncate"><span data-en="Asia–Pacific" data-ml="ഏഷ്യ-പസഫിക്">Asia–Pacific</span></a> <a href="bangalore" class="block px-2 py-1.5 rounded hover:bg-featured dark:hover:bg-white/10 text-body/80 dark:text-ivory/70 hover:text-sage-dark dark:hover:text-sage transition-colors truncate"><span data-en="Bangalore" data-ml="ബാംഗ്ലൂർ">Bangalore</span></a> <a href="bombay" class="block px-2 py-1.5 rounded hover:bg-featured dark:hover:bg-white/10 text-body/80 dark:text-ivory/70 hover:text-sage-dark dark:hover:text-sage transition-colors truncate"><span data-en="Bombay" data-ml="മുംബൈ">Bombay</span></a> <a href="brahmavar" class="block px-2 py-1.5 rounded hover:bg-featured dark:hover:bg-white/10 text-body/80 dark:text-ivory/70 hover:text-sage-dark dark:hover:text-sage transition-colors truncate"><span data-en="Brahmavar" data-ml="ബ്രഹ്മവാർ">Brahmavar</span></a> <a href="calcutta" class="block px-2 py-1.5 rounded hover:bg-featured dark:hover:bg-white/10 text-body/80 dark:text-ivory/70 hover:text-sage-dark dark:hover:text-sage transition-colors truncate"><span data-en="Calcutta" data-ml="കൽക്കട്ട">Calcutta</span></a> <a href="canada" class="block px-2 py-1.5 rounded hover:bg-featured dark:hover:bg-white/10 text-body/80 dark:text-ivory/70 hover:text-sage-dark dark:hover:text-sage transition-colors truncate"><span data-en="Canada" data-ml="കാനഡ">Canada</span></a> <a href="chengannur" class="block px-2 py-1.5 rounded hover:bg-featured dark:hover:bg-white/10 text-body/80 dark:text-ivory/70 hover:text-sage-dark dark:hover:text-sage transition-colors truncate"><span data-en="Chengannur" data-ml="ചെങ്ങന്നൂർ">Chengannur</span></a> <a href="delhi" class="block px-2 py-1.5 rounded hover:bg-featured dark:hover:bg-white/10 text-body/80 dark:text-ivory/70 hover:text-sage-dark dark:hover:text-sage transition-colors truncate"><span data-en="Delhi" data-ml="ഡൽഹി">Delhi</span></a> <a href="evangelistic-association-of-the-east" class="block px-2 py-1.5 rounded hover:bg-featured dark:hover:bg-white/10 text-body/80 dark:text-ivory/70 hover:text-sage-dark dark:hover:text-sage transition-colors truncate"><span data-en="Evangelistic Assoc. of the East" data-ml="പൗരസ്ത്യ സുവിശേഷ സമാജം">Evangelistic Assoc. of the East</span></a> <a href="idukki" class="block px-2 py-1.5 rounded hover:bg-featured dark:hover:bg-white/10 text-body/80 dark:text-ivory/70 hover:text-sage-dark dark:hover:text-sage transition-colors truncate"><span data-en="Idukki" data-ml="ഇടുക്കി">Idukki</span></a> <a href="kandanad-east" class="block px-2 py-1.5 rounded hover:bg-featured dark:hover:bg-white/10 text-body/80 dark:text-ivory/70 hover:text-sage-dark dark:hover:text-sage transition-colors truncate"><span data-en="Kandanad East" data-ml="കണ്ടനാട്-ഈസ്റ്റ്">Kandanad East</span></a> <a href="kandanad-west" class="block px-2 py-1.5 rounded hover:bg-featured dark:hover:bg-white/10 text-body/80 dark:text-ivory/70 hover:text-sage-dark dark:hover:text-sage transition-colors truncate"><span data-en="Kandanad West" data-ml="കണ്ടനാട്-വെസ്റ്റ്">Kandanad West</span></a> <a href="knanaya" class="block px-2 py-1.5 rounded hover:bg-featured dark:hover:bg-white/10 text-body/80 dark:text-ivory/70 hover:text-sage-dark dark:hover:text-sage transition-colors truncate"><span data-en="Knanaya" data-ml="ക്നാനായ">Knanaya</span></a> <a href="kochi" class="block px-2 py-1.5 rounded hover:bg-featured dark:hover:bg-white/10 text-body/80 dark:text-ivory/70 hover:text-sage-dark dark:hover:text-sage transition-colors truncate"><span data-en="Kochi" data-ml="കൊച്ചി">Kochi</span></a> <a href="kollam" class="block px-2 py-1.5 rounded hover:bg-featured dark:hover:bg-white/10 text-body/80 dark:text-ivory/70 hover:text-sage-dark dark:hover:text-sage transition-colors truncate"><span data-en="Kollam" data-ml="കൊല്ലം">Kollam</span></a> <a href="kottarakkara-punalur" class="block px-2 py-1.5 rounded hover:bg-featured dark:hover:bg-white/10 text-body/80 dark:text-ivory/70 hover:text-sage-dark dark:hover:text-sage transition-colors truncate"><span data-en="Kottarakkara–Punalur" data-ml="കൊട്ടാരക്കര-പുനലൂർ">Kottarakkara–Punalur</span></a> <a href="kottayam" class="block px-2 py-1.5 rounded hover:bg-featured dark:hover:bg-white/10 text-body/80 dark:text-ivory/70 hover:text-sage-dark dark:hover:text-sage transition-colors truncate"><span data-en="Kottayam" data-ml="കോട്ടയം">Kottayam</span></a> <a href="kottayam-central" class="block px-2 py-1.5 rounded hover:bg-featured dark:hover:bg-white/10 text-body/80 dark:text-ivory/70 hover:text-sage-dark dark:hover:text-sage transition-colors truncate"><span data-en="Kottayam Central" data-ml="കോട്ടയം-സെൻട്രൽ">Kottayam Central</span></a> <a href="kunnamkulam" class="block px-2 py-1.5 rounded hover:bg-featured dark:hover:bg-white/10 text-body/80 dark:text-ivory/70 hover:text-sage-dark dark:hover:text-sage transition-colors truncate"><span data-en="Kunnamkulam" data-ml="കുന്നംകുളം">Kunnamkulam</span></a> <a href="madras" class="block px-2 py-1.5 rounded hover:bg-featured dark:hover:bg-white/10 text-body/80 dark:text-ivory/70 hover:text-sage-dark dark:hover:text-sage transition-colors truncate"><span data-en="Madras" data-ml="ചെന്നൈ">Madras</span></a> <a href="malabar" class="block px-2 py-1.5 rounded hover:bg-featured dark:hover:bg-white/10 text-body/80 dark:text-ivory/70 hover:text-sage-dark dark:hover:text-sage transition-colors truncate"><span data-en="Malabar" data-ml="മലബാർ">Malabar</span></a> <a href="mavelikara" class="block px-2 py-1.5 rounded hover:bg-featured dark:hover:bg-white/10 text-body/80 dark:text-ivory/70 hover:text-sage-dark dark:hover:text-sage transition-colors truncate"><span data-en="Mavelikara" data-ml="മാവേലിക്കര">Mavelikara</span></a> <a href="nilackal" class="block px-2 py-1.5 rounded hover:bg-featured dark:hover:bg-white/10 text-body/80 dark:text-ivory/70 hover:text-sage-dark dark:hover:text-sage transition-colors truncate"><span data-en="Nilackal" data-ml="നിലയ്ക്കൽ">Nilackal</span></a> <a href="niranam" class="block px-2 py-1.5 rounded hover:bg-featured dark:hover:bg-white/10 text-body/80 dark:text-ivory/70 hover:text-sage-dark dark:hover:text-sage transition-colors truncate"><span data-en="Niranam" data-ml="നിരണം">Niranam</span></a> <a href="northeast-america" class="block px-2 py-1.5 rounded hover:bg-featured dark:hover:bg-white/10 text-body/80 dark:text-ivory/70 hover:text-sage-dark dark:hover:text-sage transition-colors truncate"><span data-en="Northeast America" data-ml="നോർത്ത്-ഈസ്റ്റ് അമേരിക്ക">Northeast America</span></a> <a href="proprietary-churches" class="block px-2 py-1.5 rounded hover:bg-featured dark:hover:bg-white/10 text-body/80 dark:text-ivory/70 hover:text-sage-dark dark:hover:text-sage transition-colors truncate"><span data-en="Proprietary Churches" data-ml="കുടുംബപള്ളികൾ">Proprietary Churches</span></a> <a href="southwest-america" class="block px-2 py-1.5 rounded hover:bg-featured dark:hover:bg-white/10 text-body/80 dark:text-ivory/70 hover:text-sage-dark dark:hover:text-sage transition-colors truncate"><span data-en="Southwest America" data-ml="സൗത്ത്-വെസ്റ്റ് അമേരിക്ക">Southwest America</span></a> <a href="sulthan-bathery" class="block px-2 py-1.5 rounded hover:bg-featured dark:hover:bg-white/10 text-body/80 dark:text-ivory/70 hover:text-sage-dark dark:hover:text-sage transition-colors truncate"><span data-en="Sulthan Bathery" data-ml="സുൽത്താൻ ബത്തേരി">Sulthan Bathery</span></a> <a href="thiruvananthapuram" class="block px-2 py-1.5 rounded hover:bg-featured dark:hover:bg-white/10 text-body/80 dark:text-ivory/70 hover:text-sage-dark dark:hover:text-sage transition-colors truncate"><span data-en="Thiruvananthapuram" data-ml="തിരുവനന്തപുരം">Thiruvananthapuram</span></a> <a href="thrissur" class="block px-2 py-1.5 rounded hover:bg-featured dark:hover:bg-white/10 text-body/80 dark:text-ivory/70 hover:text-sage-dark dark:hover:text-sage transition-colors truncate"><span data-en="Thrissur" data-ml="തൃശ്ശൂർ">Thrissur</span></a> <a href="thumpamon" class="block px-2 py-1.5 rounded hover:bg-featured dark:hover:bg-white/10 text-body/80 dark:text-ivory/70 hover:text-sage-dark dark:hover:text-sage transition-colors truncate"><span data-en="Thumpamon" data-ml="തുമ്പമൺ">Thumpamon</span></a> <a href="uk-europe-africa" class="block px-2 py-1.5 rounded hover:bg-featured dark:hover:bg-white/10 text-body/80 dark:text-ivory/70 hover:text-sage-dark dark:hover:text-sage transition-colors truncate"><span data-en="UK–Europe–Africa" data-ml="യു.കെ-യൂറോപ്പ്">UK–Europe–Africa</span></a>
               </div>
@@ -274,9 +720,9 @@ header a.group\/logo .font-serif{
           <a href="index.html#numbers" class="flex items-center gap-1 text-body/80 dark:text-ivory/70 hover:text-sage-dark dark:hover:text-sage transition-colors"><span data-en="Institutions" data-ml="സ്ഥാപനങ്ങൾ">Institutions</span> <svg class="w-3 h-3 mt-0.5 opacity-60" viewbox="0 0 24 24" fill="none">
           <path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg></a>
           <div class="hidden group-hover:block absolute left-1/2 -translate-x-1/2 top-full pt-3 z-50">
-            <div class="megapanel bg-ivory dark:bg-midnight border border-line dark:border-white/10 rounded-2xl shadow-large px-3 py-3 font-sans not-italic text-[13px] font-normal normal-case tracking-normal w-56 max-h-64 overflow-y-auto">
+            <div class="megapanel bg-ivory dark:bg-midnight border border-line dark:border-white/10 rounded-2xl shadow-large px-3 py-3 font-sans not-italic text-[13px] font-normal w-56 max-h-64 overflow-y-auto">
               <div class="flex flex-col">
-                <a href="type-parish-churches" class="flex items-center justify-between gap-2 px-2 py-1.5 rounded hover:bg-featured dark:hover:bg-white/10 text-body/80 dark:text-ivory/70 hover:text-sage-dark dark:hover:text-sage transition-colors truncate"><span class="truncate"><span data-en="Churches" data-ml="ഇടവക പള്ളികൾ">Churches</span></span><span class="font-sans text-[11px] text-muted shrink-0">1362</span></a> <a href="type-chapels" class="flex items-center justify-between gap-2 px-2 py-1.5 rounded hover:bg-featured dark:hover:bg-white/10 text-body/80 dark:text-ivory/70 hover:text-sage-dark dark:hover:text-sage transition-colors truncate"><span class="truncate"><span data-en="Chapels" data-ml="ചാപ്പലുകൾ">Chapels</span></span><span class="font-sans text-[11px] text-muted shrink-0">439</span></a> <a href="type-cathedrals" class="flex items-center justify-between gap-2 px-2 py-1.5 rounded hover:bg-featured dark:hover:bg-white/10 text-body/80 dark:text-ivory/70 hover:text-sage-dark dark:hover:text-sage transition-colors truncate"><span class="truncate"><span data-en="Cathedrals" data-ml="ഭദ്രാസനപള്ളികൾ">Cathedrals</span></span><span class="font-sans text-[11px] text-muted shrink-0">55</span></a> <a href="type-congregations" class="flex items-center justify-between gap-2 px-2 py-1.5 rounded hover:bg-featured dark:hover:bg-white/10 text-body/80 dark:text-ivory/70 hover:text-sage-dark dark:hover:text-sage transition-colors truncate"><span class="truncate"><span data-en="Congregations" data-ml="കോൺഗ്രിഗേഷനുകൾ">Congregations</span></span><span class="font-sans text-[11px] text-muted shrink-0">154</span></a> <a href="type-monasteries" class="flex items-center justify-between gap-2 px-2 py-1.5 rounded hover:bg-featured dark:hover:bg-white/10 text-body/80 dark:text-ivory/70 hover:text-sage-dark dark:hover:text-sage transition-colors truncate"><span class="truncate"><span data-en="Monasteries" data-ml="ദയറാകൾ">Monasteries</span></span><span class="font-sans text-[11px] text-muted shrink-0">53</span></a> <a href="type-convents" class="flex items-center justify-between gap-2 px-2 py-1.5 rounded hover:bg-featured dark:hover:bg-white/10 text-body/80 dark:text-ivory/70 hover:text-sage-dark dark:hover:text-sage transition-colors truncate"><span class="truncate"><span data-en="Convents" data-ml="കന്യാസ്ത്രീ മഠങ്ങൾ">Convents</span></span><span class="font-sans text-[11px] text-muted shrink-0">28</span></a> <a href="type-palaces" class="flex items-center justify-between gap-2 px-2 py-1.5 rounded hover:bg-featured dark:hover:bg-white/10 text-body/80 dark:text-ivory/70 hover:text-sage-dark dark:hover:text-sage transition-colors truncate"><span class="truncate"><span data-en="Palaces" data-ml="അരമനകൾ">Palaces</span></span><span class="font-sans text-[11px] text-muted shrink-0">35</span></a> <a href="type-qurbana-centres" class="flex items-center justify-between gap-2 px-2 py-1.5 rounded hover:bg-featured dark:hover:bg-white/10 text-body/80 dark:text-ivory/70 hover:text-sage-dark dark:hover:text-sage transition-colors truncate"><span class="truncate"><span data-en="Qurbana Centres" data-ml="കുർബാന കേന്ദ്രങ്ങൾ">Qurbana Centres</span></span><span class="font-sans text-[11px] text-muted shrink-0">52</span></a> <a href="type-catholicate-centres" class="flex items-center justify-between gap-2 px-2 py-1.5 rounded hover:bg-featured dark:hover:bg-white/10 text-body/80 dark:text-ivory/70 hover:text-sage-dark dark:hover:text-sage transition-colors truncate"><span class="truncate"><span data-en="Catholicate Centres" data-ml="കാതോലിക്കേറ്റ് കേന്ദ്രങ്ങൾ">Catholicate Centres</span></span><span class="font-sans text-[11px] text-muted shrink-0">32</span></a> <a href="type-sunday-schools" class="flex items-center justify-between gap-2 px-2 py-1.5 rounded hover:bg-featured dark:hover:bg-white/10 text-body/80 dark:text-ivory/70 hover:text-sage-dark dark:hover:text-sage transition-colors truncate"><span class="truncate"><span data-en="Independent Sunday Schools" data-ml="സ്വതന്ത്ര ഞായർ പള്ളിക്കൂടങ്ങൾ">Independent Sunday Schools</span></span><span class="font-sans text-[11px] text-muted shrink-0">19</span></a> <a href="type-communities" class="flex items-center justify-between gap-2 px-2 py-1.5 rounded hover:bg-featured dark:hover:bg-white/10 text-body/80 dark:text-ivory/70 hover:text-sage-dark dark:hover:text-sage transition-colors truncate"><span class="truncate"><span data-en="Communities" data-ml="കമ്മ്യൂണിറ്റികൾ">Communities</span></span><span class="font-sans text-[11px] text-muted shrink-0">17</span></a> <a href="type-seminaries" class="flex items-center justify-between gap-2 px-2 py-1.5 rounded hover:bg-featured dark:hover:bg-white/10 text-body/80 dark:text-ivory/70 hover:text-sage-dark dark:hover:text-sage transition-colors truncate"><span class="truncate"><span data-en="Seminaries" data-ml="സെമിനാരികൾ">Seminaries</span></span><span class="font-sans text-[11px] text-muted shrink-0">19</span></a> <a href="type-student-centres" class="flex items-center justify-between gap-2 px-2 py-1.5 rounded hover:bg-featured dark:hover:bg-white/10 text-body/80 dark:text-ivory/70 hover:text-sage-dark dark:hover:text-sage transition-colors truncate"><span class="truncate"><span data-en="Student Centres" data-ml="വിദ്യാർത്ഥി കേന്ദ്രങ്ങൾ">Student Centres</span></span><span class="font-sans text-[11px] text-muted shrink-0">19</span></a> <a href="type-prayer-groups" class="flex items-center justify-between gap-2 px-2 py-1.5 rounded hover:bg-featured dark:hover:bg-white/10 text-body/80 dark:text-ivory/70 hover:text-sage-dark dark:hover:text-sage transition-colors truncate"><span class="truncate"><span data-en="Independent Prayer Groups" data-ml="സ്വതന്ത്ര പ്രാർത്ഥന യോഗങ്ങൾ">Independent Prayer Groups</span></span><span class="font-sans text-[11px] text-muted shrink-0">22</span></a> <a href="type-shrines" class="flex items-center justify-between gap-2 px-2 py-1.5 rounded hover:bg-featured dark:hover:bg-white/10 text-body/80 dark:text-ivory/70 hover:text-sage-dark dark:hover:text-sage transition-colors truncate"><span class="truncate"><span data-en="Pilgrim Shrines" data-ml="കുരിശടികൾ">Pilgrim Shrines</span></span><span class="font-sans text-[11px] text-muted shrink-0">522</span></a> <a href="type-other-institutions" class="flex items-center justify-between gap-2 px-2 py-1.5 rounded hover:bg-featured dark:hover:bg-white/10 text-body/80 dark:text-ivory/70 hover:text-sage-dark dark:hover:text-sage transition-colors truncate"><span class="truncate"><span data-en="Other Institutions" data-ml="മറ്റ് സ്ഥാപനങ്ങൾ">Other Institutions</span></span><span class="font-sans text-[11px] text-muted shrink-0">27</span></a>
+                <a href="type-parish-churches" class="flex items-center justify-between gap-2 px-2 py-1.5 rounded hover:bg-featured dark:hover:bg-white/10 text-body/80 dark:text-ivory/70 hover:text-sage-dark dark:hover:text-sage transition-colors truncate"><span class="truncate"><span data-en="Churches" data-ml="ഇടവക പള്ളികൾ">Churches</span></span><span class="font-sans text-[11px] text-muted shrink-0">1362</span></a> <a href="type-chapels" class="flex items-center justify-between gap-2 px-2 py-1.5 rounded hover:bg-featured dark:hover:bg-white/10 text-body/80 dark:text-ivory/70 hover:text-sage-dark dark:hover:text-sage transition-colors truncate"><span class="truncate"><span data-en="Chapels" data-ml="ചാപ്പലുകൾ">Chapels</span></span><span class="font-sans text-[11px] text-muted shrink-0">439</span></a> <a href="type-cathedrals" class="flex items-center justify-between gap-2 px-2 py-1.5 rounded hover:bg-featured dark:hover:bg-white/10 text-body/80 dark:text-ivory/70 hover:text-sage-dark dark:hover:text-sage transition-colors truncate"><span class="truncate"><span data-en="Cathedrals" data-ml="ഭദ്രാസനപള്ളികൾ">Cathedrals</span></span><span class="font-sans text-[11px] text-muted shrink-0">55</span></a> <a href="type-congregations" class="flex items-center justify-between gap-2 px-2 py-1.5 rounded hover:bg-featured dark:hover:bg-white/10 text-body/80 dark:text-ivory/70 hover:text-sage-dark dark:hover:text-sage transition-colors truncate"><span class="truncate"><span data-en="Congregations" data-ml="കോൺഗ്രിഗേഷനുകൾ">Congregations</span></span><span class="font-sans text-[11px] text-muted shrink-0">154</span></a> <a href="type-monasteries" class="flex items-center justify-between gap-2 px-2 py-1.5 rounded hover:bg-featured dark:hover:bg-white/10 text-body/80 dark:text-ivory/70 hover:text-sage-dark dark:hover:text-sage transition-colors truncate"><span class="truncate"><span data-en="Monasteries" data-ml="ദയറാകൾ">Monasteries</span></span><span class="font-sans text-[11px] text-muted shrink-0">53</span></a> <a href="type-convents" class="flex items-center justify-between gap-2 px-2 py-1.5 rounded hover:bg-featured dark:hover:bg-white/10 text-body/80 dark:text-ivory/70 hover:text-sage-dark dark:hover:text-sage transition-colors truncate"><span class="truncate"><span data-en="Convents" data-ml="കന്യാസ്ത്രീ മഠങ്ങൾ">Convents</span></span><span class="font-sans text-[11px] text-muted shrink-0">28</span></a> <a href="type-palaces" class="flex items-center justify-between gap-2 px-2 py-1.5 rounded hover:bg-featured dark:hover:bg-white/10 text-body/80 dark:text-ivory/70 hover:text-sage-dark dark:hover:text-sage transition-colors truncate"><span class="truncate"><span data-en="Palaces" data-ml="അരമനകൾ">Palaces</span></span><span class="font-sans text-[11px] text-muted shrink-0">35</span></a> <a href="type-qurbana-centres" class="flex items-center justify-between gap-2 px-2 py-1.5 rounded hover:bg-featured dark:hover:bg-white/10 text-body/80 dark:text-ivory/70 hover:text-sage-dark dark:hover:text-sage transition-colors truncate"><span class="truncate"><span data-en="Qurbana Centres" data-ml="കുർബാന കേന്ദ്രങ്ങൾ">Qurbana Centres</span></span><span class="font-sans text-[11px] text-muted shrink-0">52</span></a> <a href="type-catholicate-centres" class="flex items-center justify-between gap-2 px-2 py-1.5 rounded hover:bg-featured dark:hover:bg-white/10 text-body/80 dark:text-ivory/70 hover:text-sage-dark dark:hover:text-sage transition-colors truncate"><span class="truncate"><span data-en="Catholicate Centres" data-ml="കാതോലിക്കേറ്റ് കേന്ദ്രങ്ങൾ">Catholicate Centres</span></span><span class="font-sans text-[11px] text-muted shrink-0">28</span></a> <a href="type-sunday-schools" class="flex items-center justify-between gap-2 px-2 py-1.5 rounded hover:bg-featured dark:hover:bg-white/10 text-body/80 dark:text-ivory/70 hover:text-sage-dark dark:hover:text-sage transition-colors truncate"><span class="truncate"><span data-en="Independent Sunday Schools" data-ml="സ്വതന്ത്ര ഞായർ പള്ളിക്കൂടങ്ങൾ">Independent Sunday Schools</span></span><span class="font-sans text-[11px] text-muted shrink-0">19</span></a> <a href="type-communities" class="flex items-center justify-between gap-2 px-2 py-1.5 rounded hover:bg-featured dark:hover:bg-white/10 text-body/80 dark:text-ivory/70 hover:text-sage-dark dark:hover:text-sage transition-colors truncate"><span class="truncate"><span data-en="Communities" data-ml="കമ്മ്യൂണിറ്റികൾ">Communities</span></span><span class="font-sans text-[11px] text-muted shrink-0">17</span></a> <a href="type-seminaries" class="flex items-center justify-between gap-2 px-2 py-1.5 rounded hover:bg-featured dark:hover:bg-white/10 text-body/80 dark:text-ivory/70 hover:text-sage-dark dark:hover:text-sage transition-colors truncate"><span class="truncate"><span data-en="Seminaries" data-ml="സെമിനാരികൾ">Seminaries</span></span><span class="font-sans text-[11px] text-muted shrink-0">19</span></a> <a href="type-student-centres" class="flex items-center justify-between gap-2 px-2 py-1.5 rounded hover:bg-featured dark:hover:bg-white/10 text-body/80 dark:text-ivory/70 hover:text-sage-dark dark:hover:text-sage transition-colors truncate"><span class="truncate"><span data-en="Student Centres" data-ml="വിദ്യാർത്ഥി കേന്ദ്രങ്ങൾ">Student Centres</span></span><span class="font-sans text-[11px] text-muted shrink-0">19</span></a> <a href="type-prayer-groups" class="flex items-center justify-between gap-2 px-2 py-1.5 rounded hover:bg-featured dark:hover:bg-white/10 text-body/80 dark:text-ivory/70 hover:text-sage-dark dark:hover:text-sage transition-colors truncate"><span class="truncate"><span data-en="Independent Prayer Groups" data-ml="സ്വതന്ത്ര പ്രാർത്ഥന യോഗങ്ങൾ">Independent Prayer Groups</span></span><span class="font-sans text-[11px] text-muted shrink-0">22</span></a> <a href="type-shrines" class="flex items-center justify-between gap-2 px-2 py-1.5 rounded hover:bg-featured dark:hover:bg-white/10 text-body/80 dark:text-ivory/70 hover:text-sage-dark dark:hover:text-sage transition-colors truncate"><span class="truncate"><span data-en="Pilgrim Shrines" data-ml="കുരിശടികൾ">Pilgrim Shrines</span></span><span class="font-sans text-[11px] text-muted shrink-0">522</span></a> <a href="type-other-institutions" class="flex items-center justify-between gap-2 px-2 py-1.5 rounded hover:bg-featured dark:hover:bg-white/10 text-body/80 dark:text-ivory/70 hover:text-sage-dark dark:hover:text-sage transition-colors truncate"><span class="truncate"><span data-en="Other Institutions" data-ml="മറ്റ് സ്ഥാപനങ്ങൾ">Other Institutions</span></span><span class="font-sans text-[11px] text-muted shrink-0">27</span></a>
               </div>
             </div>
           </div>
@@ -285,7 +731,7 @@ header a.group\/logo .font-serif{
           <a href="index.html#clergy" class="flex items-center gap-1 text-body/80 dark:text-ivory/70 hover:text-sage-dark dark:hover:text-sage transition-colors"><span data-en="Clergy" data-ml="വൈദികർ">Clergy</span> <svg class="w-3 h-3 mt-0.5 opacity-60" viewbox="0 0 24 24" fill="none">
           <path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg></a>
           <div class="hidden group-hover:block absolute left-1/2 -translate-x-1/2 top-full pt-3 z-50">
-            <div class="megapanel bg-ivory dark:bg-midnight border border-line dark:border-white/10 rounded-2xl shadow-large px-3 py-3 font-sans not-italic text-[13px] font-normal normal-case tracking-normal w-56 max-h-64 overflow-y-auto">
+            <div class="megapanel bg-ivory dark:bg-midnight border border-line dark:border-white/10 rounded-2xl shadow-large px-3 py-3 font-sans not-italic text-[13px] font-normal w-56 max-h-64 overflow-y-auto">
               <div class="flex flex-col">
                 <a href="metropolitans" class="block px-2 py-1.5 rounded hover:bg-featured dark:hover:bg-white/10 text-body/80 dark:text-ivory/70 hover:text-sage-dark dark:hover:text-sage transition-colors truncate"><span data-en="Metropolitans" data-ml="മെത്രാപ്പോലീത്തന്മാർ">Metropolitans</span></a> <a href="monks" class="block px-2 py-1.5 rounded hover:bg-featured dark:hover:bg-white/10 text-body/80 dark:text-ivory/70 hover:text-sage-dark dark:hover:text-sage transition-colors truncate"><span data-en="Monks" data-ml="റമ്പാന്മാർ">Monks</span></a> <a href="cor-episcopa" class="block px-2 py-1.5 rounded hover:bg-featured dark:hover:bg-white/10 text-body/80 dark:text-ivory/70 hover:text-sage-dark dark:hover:text-sage transition-colors truncate"><span data-en="Cor-Episcopas" data-ml="കോറെപ്പിസ്കോപ്പമാർ">Cor-Episcopas</span></a> <a href="priests" class="block px-2 py-1.5 rounded hover:bg-featured dark:hover:bg-white/10 text-body/80 dark:text-ivory/70 hover:text-sage-dark dark:hover:text-sage transition-colors truncate"><span data-en="Priests" data-ml="വൈദികർ">Priests</span></a> <a href="deacons" class="block px-2 py-1.5 rounded hover:bg-featured dark:hover:bg-white/10 text-body/80 dark:text-ivory/70 hover:text-sage-dark dark:hover:text-sage transition-colors truncate"><span data-en="Deacons" data-ml="ശെമ്മാശന്മാർ">Deacons</span></a>
               </div>
@@ -296,7 +742,7 @@ header a.group\/logo .font-serif{
           <a href="#more" class="flex items-center gap-1 text-body/80 dark:text-ivory/70 hover:text-sage-dark dark:hover:text-sage transition-colors"><span data-en="More" data-ml="കൂടുതൽ">More</span> <svg class="w-3 h-3 mt-0.5 opacity-60" viewbox="0 0 24 24" fill="none">
           <path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg></a>
           <div class="hidden group-hover:block absolute left-1/2 -translate-x-1/2 top-full pt-3 z-50">
-            <div class="megapanel bg-ivory dark:bg-midnight border border-line dark:border-white/10 rounded-2xl shadow-large px-3 py-3 font-sans not-italic text-[13px] font-normal normal-case tracking-normal w-56 max-h-64 overflow-y-auto">
+            <div class="megapanel bg-ivory dark:bg-midnight border border-line dark:border-white/10 rounded-2xl shadow-large px-3 py-3 font-sans not-italic text-[13px] font-normal w-56 max-h-64 overflow-y-auto">
               <div class="flex flex-col">
                 <a href="directors" class="block px-2 py-1.5 rounded hover:bg-featured dark:hover:bg-white/10 text-body/80 dark:text-ivory/70 hover:text-sage-dark dark:hover:text-sage transition-colors truncate"><span data-en="Directors" data-ml="ഡയറക്ടർമാർ">Directors</span></a> <a href="1906" class="block px-2 py-1.5 rounded hover:bg-featured dark:hover:bg-white/10 text-body/80 dark:text-ivory/70 hover:text-sage-dark dark:hover:text-sage transition-colors truncate"><span data-en="The Seven Dioceses, 1906" data-ml="ഏഴ് ഭദ്രാസനങ്ങൾ, 1906">The Seven Dioceses, 1906</span></a> <a href="saints" class="block px-2 py-1.5 rounded hover:bg-featured dark:hover:bg-white/10 text-body/80 dark:text-ivory/70 hover:text-sage-dark dark:hover:text-sage transition-colors truncate"><span data-en="Saints of Malankara" data-ml="വിശുദ്ധർ">Saints of Malankara</span></a> <a href="martyrs" class="block px-2 py-1.5 rounded hover:bg-featured dark:hover:bg-white/10 text-body/80 dark:text-ivory/70 hover:text-sage-dark dark:hover:text-sage transition-colors truncate"><span data-en="Martyrs of Malankara" data-ml="രക്തസാക്ഷികൾ">Martyrs of Malankara</span></a> <a href="population" class="block px-2 py-1.5 rounded hover:bg-featured dark:hover:bg-white/10 text-body/80 dark:text-ivory/70 hover:text-sage-dark dark:hover:text-sage transition-colors truncate"><span data-en="Ecclesial Statistics" data-ml="ജനസംഖ്യ">Ecclesial Statistics</span></a> <a href="record" class="block px-2 py-1.5 rounded hover:bg-featured dark:hover:bg-white/10 text-body/80 dark:text-ivory/70 hover:text-sage-dark dark:hover:text-sage transition-colors truncate"><span data-en="Report an Issue" data-ml="ഒരു പിശക് അറിയിക്കുക">Report an Issue</span></a> <a href="privacy" class="block px-2 py-1.5 rounded hover:bg-featured dark:hover:bg-white/10 text-body/80 dark:text-ivory/70 hover:text-sage-dark dark:hover:text-sage transition-colors truncate"><span data-en="Privacy Policy" data-ml="സ്വകാര്യതാ നയം">Privacy Policy</span></a> <a href="terms" class="block px-2 py-1.5 rounded hover:bg-featured dark:hover:bg-white/10 text-body/80 dark:text-ivory/70 hover:text-sage-dark dark:hover:text-sage transition-colors truncate"><span data-en="Terms of Service" data-ml="സേവന നിബന്ധനകൾ">Terms of Service</span></a>
               </div>
@@ -321,7 +767,7 @@ header a.group\/logo .font-serif{
       </div>
     </div>
     <div id="mobileMenuBackdrop" aria-hidden="true"></div>
-    <div id="mobileMenu" class="mobile-menu-panel md:hidden border-l border-line dark:border-white/10 bg-ivory dark:bg-midnight px-6 pt-12 pb-6 flex flex-col gap-4 font-serif text-base" role="dialog" aria-modal="true" aria-label="Menu">
+    <div id="mobileMenu" class="mobile-menu-panel md:hidden border-l border-line dark:border-white/10 bg-ivory dark:bg-midnight px-6 pt-12 flex flex-col gap-4 font-serif text-base" role="dialog" aria-modal="true" aria-label="Menu">
       <div class="flex items-center justify-between mb-3">
         <div class="flex items-center gap-2">
           <button class="w-9 h-9 rounded-full border border-line dark:border-white/15 flex items-center justify-center text-body/70 dark:text-ivory/70 hover:border-ink dark:hover:border-ivory hover:text-ink dark:hover:text-ivory transition-colors" id="musicToggleMenuItem" aria-label="Pause background music" title="Pause background music"><svg class="icon-sound-on w-4 h-4" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
@@ -338,43 +784,43 @@ header a.group\/logo .font-serif{
       <circle cx="11" cy="11" r="7"></circle>
       <path d="m21 21-4.3-4.3"></path></svg> <span data-en="Search the directory" data-ml="ഡയറക്ടറി തിരയുക">Search the directory</span></button> <a href="studies" class="text-body/80 dark:text-ivory/70" data-en="Studies" data-ml="പഠനങ്ങൾ">Studies</a>
       <details class="mobile-nav-accordion">
-        <summary class="flex items-center justify-between gap-2 py-1 cursor-pointer select-none text-body/80 dark:text-ivory/70">
+        <summary class="flex items-center justify-between gap-2 py-1 text-body/80 dark:text-ivory/70">
           <span data-en="Dioceses" data-ml="ഭദ്രാസനങ്ങൾ">Dioceses</span>
           <svg class="w-3 h-3 shrink-0 mobile-nav-chevron" viewbox="0 0 24 24" fill="none">
           <path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg>
         </summary>
-        <div class="mobile-nav-panel flex flex-col gap-0.5 mt-1 mb-1 pl-1">
-          <a href="adoor-kadampanad" class="block px-3 py-2 rounded-lg text-[14px] text-body/75 dark:text-ivory/65 hover:bg-featured dark:hover:bg-white/10 hover:text-sage-dark dark:hover:text-sage transition-colors truncate"><span data-en="Adoor–Kadampanad" data-ml="അടൂർ-കടമ്പനാട്">Adoor–Kadampanad</span></a> <a href="ahmedabad" class="block px-3 py-2 rounded-lg text-[14px] text-body/75 dark:text-ivory/65 hover:bg-featured dark:hover:bg-white/10 hover:text-sage-dark dark:hover:text-sage transition-colors truncate"><span data-en="Ahmedabad" data-ml="അഹമ്മദാബാദ്">Ahmedabad</span></a> <a href="angamaly" class="block px-3 py-2 rounded-lg text-[14px] text-body/75 dark:text-ivory/65 hover:bg-featured dark:hover:bg-white/10 hover:text-sage-dark dark:hover:text-sage transition-colors truncate"><span data-en="Angamaly" data-ml="അങ്കമാലി">Angamaly</span></a> <a href="asia-pacific" class="block px-3 py-2 rounded-lg text-[14px] text-body/75 dark:text-ivory/65 hover:bg-featured dark:hover:bg-white/10 hover:text-sage-dark dark:hover:text-sage transition-colors truncate"><span data-en="Asia–Pacific" data-ml="ഏഷ്യ-പസഫിക്">Asia–Pacific</span></a> <a href="bangalore" class="block px-3 py-2 rounded-lg text-[14px] text-body/75 dark:text-ivory/65 hover:bg-featured dark:hover:bg-white/10 hover:text-sage-dark dark:hover:text-sage transition-colors truncate"><span data-en="Bangalore" data-ml="ബാംഗ്ലൂർ">Bangalore</span></a> <a href="bombay" class="block px-3 py-2 rounded-lg text-[14px] text-body/75 dark:text-ivory/65 hover:bg-featured dark:hover:bg-white/10 hover:text-sage-dark dark:hover:text-sage transition-colors truncate"><span data-en="Bombay" data-ml="മുംബൈ">Bombay</span></a> <a href="brahmavar" class="block px-3 py-2 rounded-lg text-[14px] text-body/75 dark:text-ivory/65 hover:bg-featured dark:hover:bg-white/10 hover:text-sage-dark dark:hover:text-sage transition-colors truncate"><span data-en="Brahmavar" data-ml="ബ്രഹ്മവാർ">Brahmavar</span></a> <a href="calcutta" class="block px-3 py-2 rounded-lg text-[14px] text-body/75 dark:text-ivory/65 hover:bg-featured dark:hover:bg-white/10 hover:text-sage-dark dark:hover:text-sage transition-colors truncate"><span data-en="Calcutta" data-ml="കൽക്കട്ട">Calcutta</span></a> <a href="canada" class="block px-3 py-2 rounded-lg text-[14px] text-body/75 dark:text-ivory/65 hover:bg-featured dark:hover:bg-white/10 hover:text-sage-dark dark:hover:text-sage transition-colors truncate"><span data-en="Canada" data-ml="കാനഡ">Canada</span></a> <a href="chengannur" class="block px-3 py-2 rounded-lg text-[14px] text-body/75 dark:text-ivory/65 hover:bg-featured dark:hover:bg-white/10 hover:text-sage-dark dark:hover:text-sage transition-colors truncate"><span data-en="Chengannur" data-ml="ചെങ്ങന്നൂർ">Chengannur</span></a> <a href="delhi" class="block px-3 py-2 rounded-lg text-[14px] text-body/75 dark:text-ivory/65 hover:bg-featured dark:hover:bg-white/10 hover:text-sage-dark dark:hover:text-sage transition-colors truncate"><span data-en="Delhi" data-ml="ഡൽഹി">Delhi</span></a> <a href="evangelistic-association-of-the-east" class="block px-3 py-2 rounded-lg text-[14px] text-body/75 dark:text-ivory/65 hover:bg-featured dark:hover:bg-white/10 hover:text-sage-dark dark:hover:text-sage transition-colors truncate"><span data-en="Evangelistic Assoc. of the East" data-ml="പൗരസ്ത്യ സുവിശേഷ സമാജം">Evangelistic Assoc. of the East</span></a> <a href="idukki" class="block px-3 py-2 rounded-lg text-[14px] text-body/75 dark:text-ivory/65 hover:bg-featured dark:hover:bg-white/10 hover:text-sage-dark dark:hover:text-sage transition-colors truncate"><span data-en="Idukki" data-ml="ഇടുക്കി">Idukki</span></a> <a href="kandanad-east" class="block px-3 py-2 rounded-lg text-[14px] text-body/75 dark:text-ivory/65 hover:bg-featured dark:hover:bg-white/10 hover:text-sage-dark dark:hover:text-sage transition-colors truncate"><span data-en="Kandanad East" data-ml="കണ്ടനാട്-ഈസ്റ്റ്">Kandanad East</span></a> <a href="kandanad-west" class="block px-3 py-2 rounded-lg text-[14px] text-body/75 dark:text-ivory/65 hover:bg-featured dark:hover:bg-white/10 hover:text-sage-dark dark:hover:text-sage transition-colors truncate"><span data-en="Kandanad West" data-ml="കണ്ടനാട്-വെസ്റ്റ്">Kandanad West</span></a> <a href="knanaya" class="block px-3 py-2 rounded-lg text-[14px] text-body/75 dark:text-ivory/65 hover:bg-featured dark:hover:bg-white/10 hover:text-sage-dark dark:hover:text-sage transition-colors truncate"><span data-en="Knanaya" data-ml="ക്നാനായ">Knanaya</span></a> <a href="kochi" class="block px-3 py-2 rounded-lg text-[14px] text-body/75 dark:text-ivory/65 hover:bg-featured dark:hover:bg-white/10 hover:text-sage-dark dark:hover:text-sage transition-colors truncate"><span data-en="Kochi" data-ml="കൊച്ചി">Kochi</span></a> <a href="kollam" class="block px-3 py-2 rounded-lg text-[14px] text-body/75 dark:text-ivory/65 hover:bg-featured dark:hover:bg-white/10 hover:text-sage-dark dark:hover:text-sage transition-colors truncate"><span data-en="Kollam" data-ml="കൊല്ലം">Kollam</span></a> <a href="kottarakkara-punalur" class="block px-3 py-2 rounded-lg text-[14px] text-body/75 dark:text-ivory/65 hover:bg-featured dark:hover:bg-white/10 hover:text-sage-dark dark:hover:text-sage transition-colors truncate"><span data-en="Kottarakkara–Punalur" data-ml="കൊട്ടാരക്കര-പുനലൂർ">Kottarakkara–Punalur</span></a> <a href="kottayam" class="block px-3 py-2 rounded-lg text-[14px] text-body/75 dark:text-ivory/65 hover:bg-featured dark:hover:bg-white/10 hover:text-sage-dark dark:hover:text-sage transition-colors truncate"><span data-en="Kottayam" data-ml="കോട്ടയം">Kottayam</span></a> <a href="kottayam-central" class="block px-3 py-2 rounded-lg text-[14px] text-body/75 dark:text-ivory/65 hover:bg-featured dark:hover:bg-white/10 hover:text-sage-dark dark:hover:text-sage transition-colors truncate"><span data-en="Kottayam Central" data-ml="കോട്ടയം-സെൻട്രൽ">Kottayam Central</span></a> <a href="kunnamkulam" class="block px-3 py-2 rounded-lg text-[14px] text-body/75 dark:text-ivory/65 hover:bg-featured dark:hover:bg-white/10 hover:text-sage-dark dark:hover:text-sage transition-colors truncate"><span data-en="Kunnamkulam" data-ml="കുന്നംകുളം">Kunnamkulam</span></a> <a href="madras" class="block px-3 py-2 rounded-lg text-[14px] text-body/75 dark:text-ivory/65 hover:bg-featured dark:hover:bg-white/10 hover:text-sage-dark dark:hover:text-sage transition-colors truncate"><span data-en="Madras" data-ml="ചെന്നൈ">Madras</span></a> <a href="malabar" class="block px-3 py-2 rounded-lg text-[14px] text-body/75 dark:text-ivory/65 hover:bg-featured dark:hover:bg-white/10 hover:text-sage-dark dark:hover:text-sage transition-colors truncate"><span data-en="Malabar" data-ml="മലബാർ">Malabar</span></a> <a href="mavelikara" class="block px-3 py-2 rounded-lg text-[14px] text-body/75 dark:text-ivory/65 hover:bg-featured dark:hover:bg-white/10 hover:text-sage-dark dark:hover:text-sage transition-colors truncate"><span data-en="Mavelikara" data-ml="മാവേലിക്കര">Mavelikara</span></a> <a href="nilackal" class="block px-3 py-2 rounded-lg text-[14px] text-body/75 dark:text-ivory/65 hover:bg-featured dark:hover:bg-white/10 hover:text-sage-dark dark:hover:text-sage transition-colors truncate"><span data-en="Nilackal" data-ml="നിലയ്ക്കൽ">Nilackal</span></a> <a href="niranam" class="block px-3 py-2 rounded-lg text-[14px] text-body/75 dark:text-ivory/65 hover:bg-featured dark:hover:bg-white/10 hover:text-sage-dark dark:hover:text-sage transition-colors truncate"><span data-en="Niranam" data-ml="നിരണം">Niranam</span></a> <a href="northeast-america" class="block px-3 py-2 rounded-lg text-[14px] text-body/75 dark:text-ivory/65 hover:bg-featured dark:hover:bg-white/10 hover:text-sage-dark dark:hover:text-sage transition-colors truncate"><span data-en="Northeast America" data-ml="നോർത്ത്-ഈസ്റ്റ് അമേരിക്ക">Northeast America</span></a> <a href="proprietary-churches" class="block px-3 py-2 rounded-lg text-[14px] text-body/75 dark:text-ivory/65 hover:bg-featured dark:hover:bg-white/10 hover:text-sage-dark dark:hover:text-sage transition-colors truncate"><span data-en="Proprietary Churches" data-ml="കുടുംബപള്ളികൾ">Proprietary Churches</span></a> <a href="southwest-america" class="block px-3 py-2 rounded-lg text-[14px] text-body/75 dark:text-ivory/65 hover:bg-featured dark:hover:bg-white/10 hover:text-sage-dark dark:hover:text-sage transition-colors truncate"><span data-en="Southwest America" data-ml="സൗത്ത്-വെസ്റ്റ് അമേരിക്ക">Southwest America</span></a> <a href="sulthan-bathery" class="block px-3 py-2 rounded-lg text-[14px] text-body/75 dark:text-ivory/65 hover:bg-featured dark:hover:bg-white/10 hover:text-sage-dark dark:hover:text-sage transition-colors truncate"><span data-en="Sulthan Bathery" data-ml="സുൽത്താൻ ബത്തേരി">Sulthan Bathery</span></a> <a href="thiruvananthapuram" class="block px-3 py-2 rounded-lg text-[14px] text-body/75 dark:text-ivory/65 hover:bg-featured dark:hover:bg-white/10 hover:text-sage-dark dark:hover:text-sage transition-colors truncate"><span data-en="Thiruvananthapuram" data-ml="തിരുവനന്തപുരം">Thiruvananthapuram</span></a> <a href="thrissur" class="block px-3 py-2 rounded-lg text-[14px] text-body/75 dark:text-ivory/65 hover:bg-featured dark:hover:bg-white/10 hover:text-sage-dark dark:hover:text-sage transition-colors truncate"><span data-en="Thrissur" data-ml="തൃശ്ശൂർ">Thrissur</span></a> <a href="thumpamon" class="block px-3 py-2 rounded-lg text-[14px] text-body/75 dark:text-ivory/65 hover:bg-featured dark:hover:bg-white/10 hover:text-sage-dark dark:hover:text-sage transition-colors truncate"><span data-en="Thumpamon" data-ml="തുമ്പമൺ">Thumpamon</span></a> <a href="uk-europe-africa" class="block px-3 py-2 rounded-lg text-[14px] text-body/75 dark:text-ivory/65 hover:bg-featured dark:hover:bg-white/10 hover:text-sage-dark dark:hover:text-sage transition-colors truncate"><span data-en="UK–Europe–Africa" data-ml="യു.കെ-യൂറോപ്പ്">UK–Europe–Africa</span></a>
+        <div class="mobile-nav-panel flex flex-col gap-0.5 mt-1 mb-1">
+          <a href="adoor-kadampanad" class="block px-3 py-2 rounded-lg text-body/75 dark:text-ivory/65 hover:bg-featured dark:hover:bg-white/10 hover:text-sage-dark dark:hover:text-sage transition-colors truncate"><span data-en="Adoor–Kadampanad" data-ml="അടൂർ-കടമ്പനാട്">Adoor–Kadampanad</span></a> <a href="ahmedabad" class="block px-3 py-2 rounded-lg text-body/75 dark:text-ivory/65 hover:bg-featured dark:hover:bg-white/10 hover:text-sage-dark dark:hover:text-sage transition-colors truncate"><span data-en="Ahmedabad" data-ml="അഹമ്മദാബാദ്">Ahmedabad</span></a> <a href="angamaly" class="block px-3 py-2 rounded-lg text-body/75 dark:text-ivory/65 hover:bg-featured dark:hover:bg-white/10 hover:text-sage-dark dark:hover:text-sage transition-colors truncate"><span data-en="Angamaly" data-ml="അങ്കമാലി">Angamaly</span></a> <a href="asia-pacific" class="block px-3 py-2 rounded-lg text-body/75 dark:text-ivory/65 hover:bg-featured dark:hover:bg-white/10 hover:text-sage-dark dark:hover:text-sage transition-colors truncate"><span data-en="Asia–Pacific" data-ml="ഏഷ്യ-പസഫിക്">Asia–Pacific</span></a> <a href="bangalore" class="block px-3 py-2 rounded-lg text-body/75 dark:text-ivory/65 hover:bg-featured dark:hover:bg-white/10 hover:text-sage-dark dark:hover:text-sage transition-colors truncate"><span data-en="Bangalore" data-ml="ബാംഗ്ലൂർ">Bangalore</span></a> <a href="bombay" class="block px-3 py-2 rounded-lg text-body/75 dark:text-ivory/65 hover:bg-featured dark:hover:bg-white/10 hover:text-sage-dark dark:hover:text-sage transition-colors truncate"><span data-en="Bombay" data-ml="മുംബൈ">Bombay</span></a> <a href="brahmavar" class="block px-3 py-2 rounded-lg text-body/75 dark:text-ivory/65 hover:bg-featured dark:hover:bg-white/10 hover:text-sage-dark dark:hover:text-sage transition-colors truncate"><span data-en="Brahmavar" data-ml="ബ്രഹ്മവാർ">Brahmavar</span></a> <a href="calcutta" class="block px-3 py-2 rounded-lg text-body/75 dark:text-ivory/65 hover:bg-featured dark:hover:bg-white/10 hover:text-sage-dark dark:hover:text-sage transition-colors truncate"><span data-en="Calcutta" data-ml="കൽക്കട്ട">Calcutta</span></a> <a href="canada" class="block px-3 py-2 rounded-lg text-body/75 dark:text-ivory/65 hover:bg-featured dark:hover:bg-white/10 hover:text-sage-dark dark:hover:text-sage transition-colors truncate"><span data-en="Canada" data-ml="കാനഡ">Canada</span></a> <a href="chengannur" class="block px-3 py-2 rounded-lg text-body/75 dark:text-ivory/65 hover:bg-featured dark:hover:bg-white/10 hover:text-sage-dark dark:hover:text-sage transition-colors truncate"><span data-en="Chengannur" data-ml="ചെങ്ങന്നൂർ">Chengannur</span></a> <a href="delhi" class="block px-3 py-2 rounded-lg text-body/75 dark:text-ivory/65 hover:bg-featured dark:hover:bg-white/10 hover:text-sage-dark dark:hover:text-sage transition-colors truncate"><span data-en="Delhi" data-ml="ഡൽഹി">Delhi</span></a> <a href="evangelistic-association-of-the-east" class="block px-3 py-2 rounded-lg text-body/75 dark:text-ivory/65 hover:bg-featured dark:hover:bg-white/10 hover:text-sage-dark dark:hover:text-sage transition-colors truncate"><span data-en="Evangelistic Assoc. of the East" data-ml="പൗരസ്ത്യ സുവിശേഷ സമാജം">Evangelistic Assoc. of the East</span></a> <a href="idukki" class="block px-3 py-2 rounded-lg text-body/75 dark:text-ivory/65 hover:bg-featured dark:hover:bg-white/10 hover:text-sage-dark dark:hover:text-sage transition-colors truncate"><span data-en="Idukki" data-ml="ഇടുക്കി">Idukki</span></a> <a href="kandanad-east" class="block px-3 py-2 rounded-lg text-body/75 dark:text-ivory/65 hover:bg-featured dark:hover:bg-white/10 hover:text-sage-dark dark:hover:text-sage transition-colors truncate"><span data-en="Kandanad East" data-ml="കണ്ടനാട്-ഈസ്റ്റ്">Kandanad East</span></a> <a href="kandanad-west" class="block px-3 py-2 rounded-lg text-body/75 dark:text-ivory/65 hover:bg-featured dark:hover:bg-white/10 hover:text-sage-dark dark:hover:text-sage transition-colors truncate"><span data-en="Kandanad West" data-ml="കണ്ടനാട്-വെസ്റ്റ്">Kandanad West</span></a> <a href="knanaya" class="block px-3 py-2 rounded-lg text-body/75 dark:text-ivory/65 hover:bg-featured dark:hover:bg-white/10 hover:text-sage-dark dark:hover:text-sage transition-colors truncate"><span data-en="Knanaya" data-ml="ക്നാനായ">Knanaya</span></a> <a href="kochi" class="block px-3 py-2 rounded-lg text-body/75 dark:text-ivory/65 hover:bg-featured dark:hover:bg-white/10 hover:text-sage-dark dark:hover:text-sage transition-colors truncate"><span data-en="Kochi" data-ml="കൊച്ചി">Kochi</span></a> <a href="kollam" class="block px-3 py-2 rounded-lg text-body/75 dark:text-ivory/65 hover:bg-featured dark:hover:bg-white/10 hover:text-sage-dark dark:hover:text-sage transition-colors truncate"><span data-en="Kollam" data-ml="കൊല്ലം">Kollam</span></a> <a href="kottarakkara-punalur" class="block px-3 py-2 rounded-lg text-body/75 dark:text-ivory/65 hover:bg-featured dark:hover:bg-white/10 hover:text-sage-dark dark:hover:text-sage transition-colors truncate"><span data-en="Kottarakkara–Punalur" data-ml="കൊട്ടാരക്കര-പുനലൂർ">Kottarakkara–Punalur</span></a> <a href="kottayam" class="block px-3 py-2 rounded-lg text-body/75 dark:text-ivory/65 hover:bg-featured dark:hover:bg-white/10 hover:text-sage-dark dark:hover:text-sage transition-colors truncate"><span data-en="Kottayam" data-ml="കോട്ടയം">Kottayam</span></a> <a href="kottayam-central" class="block px-3 py-2 rounded-lg text-body/75 dark:text-ivory/65 hover:bg-featured dark:hover:bg-white/10 hover:text-sage-dark dark:hover:text-sage transition-colors truncate"><span data-en="Kottayam Central" data-ml="കോട്ടയം-സെൻട്രൽ">Kottayam Central</span></a> <a href="kunnamkulam" class="block px-3 py-2 rounded-lg text-body/75 dark:text-ivory/65 hover:bg-featured dark:hover:bg-white/10 hover:text-sage-dark dark:hover:text-sage transition-colors truncate"><span data-en="Kunnamkulam" data-ml="കുന്നംകുളം">Kunnamkulam</span></a> <a href="madras" class="block px-3 py-2 rounded-lg text-body/75 dark:text-ivory/65 hover:bg-featured dark:hover:bg-white/10 hover:text-sage-dark dark:hover:text-sage transition-colors truncate"><span data-en="Madras" data-ml="ചെന്നൈ">Madras</span></a> <a href="malabar" class="block px-3 py-2 rounded-lg text-body/75 dark:text-ivory/65 hover:bg-featured dark:hover:bg-white/10 hover:text-sage-dark dark:hover:text-sage transition-colors truncate"><span data-en="Malabar" data-ml="മലബാർ">Malabar</span></a> <a href="mavelikara" class="block px-3 py-2 rounded-lg text-body/75 dark:text-ivory/65 hover:bg-featured dark:hover:bg-white/10 hover:text-sage-dark dark:hover:text-sage transition-colors truncate"><span data-en="Mavelikara" data-ml="മാവേലിക്കര">Mavelikara</span></a> <a href="nilackal" class="block px-3 py-2 rounded-lg text-body/75 dark:text-ivory/65 hover:bg-featured dark:hover:bg-white/10 hover:text-sage-dark dark:hover:text-sage transition-colors truncate"><span data-en="Nilackal" data-ml="നിലയ്ക്കൽ">Nilackal</span></a> <a href="niranam" class="block px-3 py-2 rounded-lg text-body/75 dark:text-ivory/65 hover:bg-featured dark:hover:bg-white/10 hover:text-sage-dark dark:hover:text-sage transition-colors truncate"><span data-en="Niranam" data-ml="നിരണം">Niranam</span></a> <a href="northeast-america" class="block px-3 py-2 rounded-lg text-body/75 dark:text-ivory/65 hover:bg-featured dark:hover:bg-white/10 hover:text-sage-dark dark:hover:text-sage transition-colors truncate"><span data-en="Northeast America" data-ml="നോർത്ത്-ഈസ്റ്റ് അമേരിക്ക">Northeast America</span></a> <a href="proprietary-churches" class="block px-3 py-2 rounded-lg text-body/75 dark:text-ivory/65 hover:bg-featured dark:hover:bg-white/10 hover:text-sage-dark dark:hover:text-sage transition-colors truncate"><span data-en="Proprietary Churches" data-ml="കുടുംബപള്ളികൾ">Proprietary Churches</span></a> <a href="southwest-america" class="block px-3 py-2 rounded-lg text-body/75 dark:text-ivory/65 hover:bg-featured dark:hover:bg-white/10 hover:text-sage-dark dark:hover:text-sage transition-colors truncate"><span data-en="Southwest America" data-ml="സൗത്ത്-വെസ്റ്റ് അമേരിക്ക">Southwest America</span></a> <a href="sulthan-bathery" class="block px-3 py-2 rounded-lg text-body/75 dark:text-ivory/65 hover:bg-featured dark:hover:bg-white/10 hover:text-sage-dark dark:hover:text-sage transition-colors truncate"><span data-en="Sulthan Bathery" data-ml="സുൽത്താൻ ബത്തേരി">Sulthan Bathery</span></a> <a href="thiruvananthapuram" class="block px-3 py-2 rounded-lg text-body/75 dark:text-ivory/65 hover:bg-featured dark:hover:bg-white/10 hover:text-sage-dark dark:hover:text-sage transition-colors truncate"><span data-en="Thiruvananthapuram" data-ml="തിരുവനന്തപുരം">Thiruvananthapuram</span></a> <a href="thrissur" class="block px-3 py-2 rounded-lg text-body/75 dark:text-ivory/65 hover:bg-featured dark:hover:bg-white/10 hover:text-sage-dark dark:hover:text-sage transition-colors truncate"><span data-en="Thrissur" data-ml="തൃശ്ശൂർ">Thrissur</span></a> <a href="thumpamon" class="block px-3 py-2 rounded-lg text-body/75 dark:text-ivory/65 hover:bg-featured dark:hover:bg-white/10 hover:text-sage-dark dark:hover:text-sage transition-colors truncate"><span data-en="Thumpamon" data-ml="തുമ്പമൺ">Thumpamon</span></a> <a href="uk-europe-africa" class="block px-3 py-2 rounded-lg text-body/75 dark:text-ivory/65 hover:bg-featured dark:hover:bg-white/10 hover:text-sage-dark dark:hover:text-sage transition-colors truncate"><span data-en="UK–Europe–Africa" data-ml="യു.കെ-യൂറോപ്പ്">UK–Europe–Africa</span></a>
         </div>
       </details>
       <details class="mobile-nav-accordion">
-        <summary class="flex items-center justify-between gap-2 py-1 cursor-pointer select-none text-body/80 dark:text-ivory/70">
+        <summary class="flex items-center justify-between gap-2 py-1 text-body/80 dark:text-ivory/70">
           <span data-en="Institutions" data-ml="സ്ഥാപനങ്ങൾ">Institutions</span>
           <svg class="w-3 h-3 shrink-0 mobile-nav-chevron" viewbox="0 0 24 24" fill="none">
           <path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg>
         </summary>
-        <div class="mobile-nav-panel flex flex-col gap-0.5 mt-1 mb-1 pl-1">
-          <a href="type-parish-churches" class="block px-3 py-2 rounded-lg text-[14px] text-body/75 dark:text-ivory/65 hover:bg-featured dark:hover:bg-white/10 hover:text-sage-dark dark:hover:text-sage transition-colors truncate"><span data-en="Churches" data-ml="ഇടവക പള്ളികൾ">Churches</span></a> <a href="type-chapels" class="block px-3 py-2 rounded-lg text-[14px] text-body/75 dark:text-ivory/65 hover:bg-featured dark:hover:bg-white/10 hover:text-sage-dark dark:hover:text-sage transition-colors truncate"><span data-en="Chapels" data-ml="ചാപ്പലുകൾ">Chapels</span></a> <a href="type-cathedrals" class="block px-3 py-2 rounded-lg text-[14px] text-body/75 dark:text-ivory/65 hover:bg-featured dark:hover:bg-white/10 hover:text-sage-dark dark:hover:text-sage transition-colors truncate"><span data-en="Cathedrals" data-ml="ഭദ്രാസനപള്ളികൾ">Cathedrals</span></a> <a href="type-congregations" class="block px-3 py-2 rounded-lg text-[14px] text-body/75 dark:text-ivory/65 hover:bg-featured dark:hover:bg-white/10 hover:text-sage-dark dark:hover:text-sage transition-colors truncate"><span data-en="Congregations" data-ml="കോൺഗ്രിഗേഷനുകൾ">Congregations</span></a> <a href="type-monasteries" class="block px-3 py-2 rounded-lg text-[14px] text-body/75 dark:text-ivory/65 hover:bg-featured dark:hover:bg-white/10 hover:text-sage-dark dark:hover:text-sage transition-colors truncate"><span data-en="Monasteries" data-ml="ദയറാകൾ">Monasteries</span></a> <a href="type-convents" class="block px-3 py-2 rounded-lg text-[14px] text-body/75 dark:text-ivory/65 hover:bg-featured dark:hover:bg-white/10 hover:text-sage-dark dark:hover:text-sage transition-colors truncate"><span data-en="Convents" data-ml="കന്യാസ്ത്രീ മഠങ്ങൾ">Convents</span></a> <a href="type-palaces" class="block px-3 py-2 rounded-lg text-[14px] text-body/75 dark:text-ivory/65 hover:bg-featured dark:hover:bg-white/10 hover:text-sage-dark dark:hover:text-sage transition-colors truncate"><span data-en="Palaces" data-ml="അരമനകൾ">Palaces</span></a> <a href="type-qurbana-centres" class="block px-3 py-2 rounded-lg text-[14px] text-body/75 dark:text-ivory/65 hover:bg-featured dark:hover:bg-white/10 hover:text-sage-dark dark:hover:text-sage transition-colors truncate"><span data-en="Qurbana Centres" data-ml="കുർബാന കേന്ദ്രങ്ങൾ">Qurbana Centres</span></a> <a href="type-catholicate-centres" class="block px-3 py-2 rounded-lg text-[14px] text-body/75 dark:text-ivory/65 hover:bg-featured dark:hover:bg-white/10 hover:text-sage-dark dark:hover:text-sage transition-colors truncate"><span data-en="Catholicate Centres" data-ml="കാതോലിക്കേറ്റ് കേന്ദ്രങ്ങൾ">Catholicate Centres</span></a> <a href="type-sunday-schools" class="block px-3 py-2 rounded-lg text-[14px] text-body/75 dark:text-ivory/65 hover:bg-featured dark:hover:bg-white/10 hover:text-sage-dark dark:hover:text-sage transition-colors truncate"><span data-en="Independent Sunday Schools" data-ml="സ്വതന്ത്ര ഞായർ പള്ളിക്കൂടങ്ങൾ">Independent Sunday Schools</span></a> <a href="type-communities" class="block px-3 py-2 rounded-lg text-[14px] text-body/75 dark:text-ivory/65 hover:bg-featured dark:hover:bg-white/10 hover:text-sage-dark dark:hover:text-sage transition-colors truncate"><span data-en="Communities" data-ml="കമ്മ്യൂണിറ്റികൾ">Communities</span></a> <a href="type-seminaries" class="block px-3 py-2 rounded-lg text-[14px] text-body/75 dark:text-ivory/65 hover:bg-featured dark:hover:bg-white/10 hover:text-sage-dark dark:hover:text-sage transition-colors truncate"><span data-en="Seminaries" data-ml="സെമിനാരികൾ">Seminaries</span></a> <a href="type-student-centres" class="block px-3 py-2 rounded-lg text-[14px] text-body/75 dark:text-ivory/65 hover:bg-featured dark:hover:bg-white/10 hover:text-sage-dark dark:hover:text-sage transition-colors truncate"><span data-en="Student Centres" data-ml="വിദ്യാർത്ഥി കേന്ദ്രങ്ങൾ">Student Centres</span></a> <a href="type-prayer-groups" class="block px-3 py-2 rounded-lg text-[14px] text-body/75 dark:text-ivory/65 hover:bg-featured dark:hover:bg-white/10 hover:text-sage-dark dark:hover:text-sage transition-colors truncate"><span data-en="Independent Prayer Groups" data-ml="സ്വതന്ത്ര പ്രാർത്ഥന യോഗങ്ങൾ">Independent Prayer Groups</span></a> <a href="type-shrines" class="block px-3 py-2 rounded-lg text-[14px] text-body/75 dark:text-ivory/65 hover:bg-featured dark:hover:bg-white/10 hover:text-sage-dark dark:hover:text-sage transition-colors truncate"><span data-en="Pilgrim Shrines" data-ml="കുരിശടികൾ">Pilgrim Shrines</span></a> <a href="type-other-institutions" class="block px-3 py-2 rounded-lg text-[14px] text-body/75 dark:text-ivory/65 hover:bg-featured dark:hover:bg-white/10 hover:text-sage-dark dark:hover:text-sage transition-colors truncate"><span data-en="Other Institutions" data-ml="മറ്റ് സ്ഥാപനങ്ങൾ">Other Institutions</span></a>
+        <div class="mobile-nav-panel flex flex-col gap-0.5 mt-1 mb-1">
+          <a href="type-parish-churches" class="block px-3 py-2 rounded-lg text-body/75 dark:text-ivory/65 hover:bg-featured dark:hover:bg-white/10 hover:text-sage-dark dark:hover:text-sage transition-colors truncate"><span data-en="Churches" data-ml="ഇടവക പള്ളികൾ">Churches</span></a> <a href="type-chapels" class="block px-3 py-2 rounded-lg text-body/75 dark:text-ivory/65 hover:bg-featured dark:hover:bg-white/10 hover:text-sage-dark dark:hover:text-sage transition-colors truncate"><span data-en="Chapels" data-ml="ചാപ്പലുകൾ">Chapels</span></a> <a href="type-cathedrals" class="block px-3 py-2 rounded-lg text-body/75 dark:text-ivory/65 hover:bg-featured dark:hover:bg-white/10 hover:text-sage-dark dark:hover:text-sage transition-colors truncate"><span data-en="Cathedrals" data-ml="ഭദ്രാസനപള്ളികൾ">Cathedrals</span></a> <a href="type-congregations" class="block px-3 py-2 rounded-lg text-body/75 dark:text-ivory/65 hover:bg-featured dark:hover:bg-white/10 hover:text-sage-dark dark:hover:text-sage transition-colors truncate"><span data-en="Congregations" data-ml="കോൺഗ്രിഗേഷനുകൾ">Congregations</span></a> <a href="type-monasteries" class="block px-3 py-2 rounded-lg text-body/75 dark:text-ivory/65 hover:bg-featured dark:hover:bg-white/10 hover:text-sage-dark dark:hover:text-sage transition-colors truncate"><span data-en="Monasteries" data-ml="ദയറാകൾ">Monasteries</span></a> <a href="type-convents" class="block px-3 py-2 rounded-lg text-body/75 dark:text-ivory/65 hover:bg-featured dark:hover:bg-white/10 hover:text-sage-dark dark:hover:text-sage transition-colors truncate"><span data-en="Convents" data-ml="കന്യാസ്ത്രീ മഠങ്ങൾ">Convents</span></a> <a href="type-palaces" class="block px-3 py-2 rounded-lg text-body/75 dark:text-ivory/65 hover:bg-featured dark:hover:bg-white/10 hover:text-sage-dark dark:hover:text-sage transition-colors truncate"><span data-en="Palaces" data-ml="അരമനകൾ">Palaces</span></a> <a href="type-qurbana-centres" class="block px-3 py-2 rounded-lg text-body/75 dark:text-ivory/65 hover:bg-featured dark:hover:bg-white/10 hover:text-sage-dark dark:hover:text-sage transition-colors truncate"><span data-en="Qurbana Centres" data-ml="കുർബാന കേന്ദ്രങ്ങൾ">Qurbana Centres</span></a> <a href="type-catholicate-centres" class="block px-3 py-2 rounded-lg text-body/75 dark:text-ivory/65 hover:bg-featured dark:hover:bg-white/10 hover:text-sage-dark dark:hover:text-sage transition-colors truncate"><span data-en="Catholicate Centres" data-ml="കാതോലിക്കേറ്റ് കേന്ദ്രങ്ങൾ">Catholicate Centres</span></a> <a href="type-sunday-schools" class="block px-3 py-2 rounded-lg text-body/75 dark:text-ivory/65 hover:bg-featured dark:hover:bg-white/10 hover:text-sage-dark dark:hover:text-sage transition-colors truncate"><span data-en="Independent Sunday Schools" data-ml="സ്വതന്ത്ര ഞായർ പള്ളിക്കൂടങ്ങൾ">Independent Sunday Schools</span></a> <a href="type-communities" class="block px-3 py-2 rounded-lg text-body/75 dark:text-ivory/65 hover:bg-featured dark:hover:bg-white/10 hover:text-sage-dark dark:hover:text-sage transition-colors truncate"><span data-en="Communities" data-ml="കമ്മ്യൂണിറ്റികൾ">Communities</span></a> <a href="type-seminaries" class="block px-3 py-2 rounded-lg text-body/75 dark:text-ivory/65 hover:bg-featured dark:hover:bg-white/10 hover:text-sage-dark dark:hover:text-sage transition-colors truncate"><span data-en="Seminaries" data-ml="സെമിനാരികൾ">Seminaries</span></a> <a href="type-student-centres" class="block px-3 py-2 rounded-lg text-body/75 dark:text-ivory/65 hover:bg-featured dark:hover:bg-white/10 hover:text-sage-dark dark:hover:text-sage transition-colors truncate"><span data-en="Student Centres" data-ml="വിദ്യാർത്ഥി കേന്ദ്രങ്ങൾ">Student Centres</span></a> <a href="type-prayer-groups" class="block px-3 py-2 rounded-lg text-body/75 dark:text-ivory/65 hover:bg-featured dark:hover:bg-white/10 hover:text-sage-dark dark:hover:text-sage transition-colors truncate"><span data-en="Independent Prayer Groups" data-ml="സ്വതന്ത്ര പ്രാർത്ഥന യോഗങ്ങൾ">Independent Prayer Groups</span></a> <a href="type-shrines" class="block px-3 py-2 rounded-lg text-body/75 dark:text-ivory/65 hover:bg-featured dark:hover:bg-white/10 hover:text-sage-dark dark:hover:text-sage transition-colors truncate"><span data-en="Pilgrim Shrines" data-ml="കുരിശടികൾ">Pilgrim Shrines</span></a> <a href="type-other-institutions" class="block px-3 py-2 rounded-lg text-body/75 dark:text-ivory/65 hover:bg-featured dark:hover:bg-white/10 hover:text-sage-dark dark:hover:text-sage transition-colors truncate"><span data-en="Other Institutions" data-ml="മറ്റ് സ്ഥാപനങ്ങൾ">Other Institutions</span></a>
         </div>
       </details>
       <details class="mobile-nav-accordion">
-        <summary class="flex items-center justify-between gap-2 py-1 cursor-pointer select-none text-body/80 dark:text-ivory/70">
+        <summary class="flex items-center justify-between gap-2 py-1 text-body/80 dark:text-ivory/70">
           <span data-en="Clergy" data-ml="വൈദികർ">Clergy</span>
           <svg class="w-3 h-3 shrink-0 mobile-nav-chevron" viewbox="0 0 24 24" fill="none">
           <path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg>
         </summary>
-        <div class="mobile-nav-panel flex flex-col gap-0.5 mt-1 mb-1 pl-1">
-          <a href="metropolitans" class="block px-3 py-2 rounded-lg text-[14px] text-body/75 dark:text-ivory/65 hover:bg-featured dark:hover:bg-white/10 hover:text-sage-dark dark:hover:text-sage transition-colors truncate"><span data-en="Metropolitans" data-ml="മെത്രാപ്പോലീത്തന്മാർ">Metropolitans</span></a> <a href="monks" class="block px-3 py-2 rounded-lg text-[14px] text-body/75 dark:text-ivory/65 hover:bg-featured dark:hover:bg-white/10 hover:text-sage-dark dark:hover:text-sage transition-colors truncate"><span data-en="Monks" data-ml="റമ്പാന്മാർ">Monks</span></a> <a href="cor-episcopa" class="block px-3 py-2 rounded-lg text-[14px] text-body/75 dark:text-ivory/65 hover:bg-featured dark:hover:bg-white/10 hover:text-sage-dark dark:hover:text-sage transition-colors truncate"><span data-en="Cor-Episcopas" data-ml="കോറെപ്പിസ്കോപ്പമാർ">Cor-Episcopas</span></a> <a href="priests" class="block px-3 py-2 rounded-lg text-[14px] text-body/75 dark:text-ivory/65 hover:bg-featured dark:hover:bg-white/10 hover:text-sage-dark dark:hover:text-sage transition-colors truncate"><span data-en="Priests" data-ml="വൈദികർ">Priests</span></a> <a href="deacons" class="block px-3 py-2 rounded-lg text-[14px] text-body/75 dark:text-ivory/65 hover:bg-featured dark:hover:bg-white/10 hover:text-sage-dark dark:hover:text-sage transition-colors truncate"><span data-en="Deacons" data-ml="ശെമ്മാശന്മാർ">Deacons</span></a>
+        <div class="mobile-nav-panel flex flex-col gap-0.5 mt-1 mb-1">
+          <a href="metropolitans" class="block px-3 py-2 rounded-lg text-body/75 dark:text-ivory/65 hover:bg-featured dark:hover:bg-white/10 hover:text-sage-dark dark:hover:text-sage transition-colors truncate"><span data-en="Metropolitans" data-ml="മെത്രാപ്പോലീത്തന്മാർ">Metropolitans</span></a> <a href="monks" class="block px-3 py-2 rounded-lg text-body/75 dark:text-ivory/65 hover:bg-featured dark:hover:bg-white/10 hover:text-sage-dark dark:hover:text-sage transition-colors truncate"><span data-en="Monks" data-ml="റമ്പാന്മാർ">Monks</span></a> <a href="cor-episcopa" class="block px-3 py-2 rounded-lg text-body/75 dark:text-ivory/65 hover:bg-featured dark:hover:bg-white/10 hover:text-sage-dark dark:hover:text-sage transition-colors truncate"><span data-en="Cor-Episcopas" data-ml="കോറെപ്പിസ്കോപ്പമാർ">Cor-Episcopas</span></a> <a href="priests" class="block px-3 py-2 rounded-lg text-body/75 dark:text-ivory/65 hover:bg-featured dark:hover:bg-white/10 hover:text-sage-dark dark:hover:text-sage transition-colors truncate"><span data-en="Priests" data-ml="വൈദികർ">Priests</span></a> <a href="deacons" class="block px-3 py-2 rounded-lg text-body/75 dark:text-ivory/65 hover:bg-featured dark:hover:bg-white/10 hover:text-sage-dark dark:hover:text-sage transition-colors truncate"><span data-en="Deacons" data-ml="ശെമ്മാശന്മാർ">Deacons</span></a>
         </div>
       </details>
       <details class="mobile-nav-accordion">
-        <summary class="flex items-center justify-between gap-2 py-1 cursor-pointer select-none text-body/80 dark:text-ivory/70">
+        <summary class="flex items-center justify-between gap-2 py-1 text-body/80 dark:text-ivory/70">
           <span data-en="More" data-ml="കൂടുതൽ">More</span>
           <svg class="w-3 h-3 shrink-0 mobile-nav-chevron" viewbox="0 0 24 24" fill="none">
           <path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg>
         </summary>
-        <div class="mobile-nav-panel flex flex-col gap-0.5 mt-1 mb-1 pl-1">
-          <a href="directors" class="block px-3 py-2 rounded-lg text-[14px] text-body/75 dark:text-ivory/65 hover:bg-featured dark:hover:bg-white/10 hover:text-sage-dark dark:hover:text-sage transition-colors truncate"><span data-en="Directors" data-ml="ഡയറക്ടർമാർ">Directors</span></a> <a href="1906" class="block px-3 py-2 rounded-lg text-[14px] text-body/75 dark:text-ivory/65 hover:bg-featured dark:hover:bg-white/10 hover:text-sage-dark dark:hover:text-sage transition-colors truncate"><span data-en="The Seven Dioceses, 1906" data-ml="ഏഴ് ഭദ്രാസനങ്ങൾ, 1906">The Seven Dioceses, 1906</span></a> <a href="saints" class="block px-3 py-2 rounded-lg text-[14px] text-body/75 dark:text-ivory/65 hover:bg-featured dark:hover:bg-white/10 hover:text-sage-dark dark:hover:text-sage transition-colors truncate"><span data-en="Saints of Malankara" data-ml="വിശുദ്ധർ">Saints of Malankara</span></a> <a href="martyrs" class="block px-3 py-2 rounded-lg text-[14px] text-body/75 dark:text-ivory/65 hover:bg-featured dark:hover:bg-white/10 hover:text-sage-dark dark:hover:text-sage transition-colors truncate"><span data-en="Martyrs of Malankara" data-ml="രക്തസാക്ഷികൾ">Martyrs of Malankara</span></a> <a href="population" class="block px-3 py-2 rounded-lg text-[14px] text-body/75 dark:text-ivory/65 hover:bg-featured dark:hover:bg-white/10 hover:text-sage-dark dark:hover:text-sage transition-colors truncate"><span data-en="Ecclesial Statistics" data-ml="ജനസംഖ്യ">Ecclesial Statistics</span></a> <a href="record" class="block px-3 py-2 rounded-lg text-[14px] text-body/75 dark:text-ivory/65 hover:bg-featured dark:hover:bg-white/10 hover:text-sage-dark dark:hover:text-sage transition-colors truncate"><span data-en="Report an Issue" data-ml="ഒരു പിശക് അറിയിക്കുക">Report an Issue</span></a> <a href="privacy" class="block px-3 py-2 rounded-lg text-[14px] text-body/75 dark:text-ivory/65 hover:bg-featured dark:hover:bg-white/10 hover:text-sage-dark dark:hover:text-sage transition-colors truncate"><span data-en="Privacy Policy" data-ml="സ്വകാര്യതാ നയം">Privacy Policy</span></a> <a href="terms" class="block px-3 py-2 rounded-lg text-[14px] text-body/75 dark:text-ivory/65 hover:bg-featured dark:hover:bg-white/10 hover:text-sage-dark dark:hover:text-sage transition-colors truncate"><span data-en="Terms of Service" data-ml="സേവന നിബന്ധനകൾ">Terms of Service</span></a>
+        <div class="mobile-nav-panel flex flex-col gap-0.5 mt-1 mb-1">
+          <a href="directors" class="block px-3 py-2 rounded-lg text-body/75 dark:text-ivory/65 hover:bg-featured dark:hover:bg-white/10 hover:text-sage-dark dark:hover:text-sage transition-colors truncate"><span data-en="Directors" data-ml="ഡയറക്ടർമാർ">Directors</span></a> <a href="1906" class="block px-3 py-2 rounded-lg text-body/75 dark:text-ivory/65 hover:bg-featured dark:hover:bg-white/10 hover:text-sage-dark dark:hover:text-sage transition-colors truncate"><span data-en="The Seven Dioceses, 1906" data-ml="ഏഴ് ഭദ്രാസനങ്ങൾ, 1906">The Seven Dioceses, 1906</span></a> <a href="saints" class="block px-3 py-2 rounded-lg text-body/75 dark:text-ivory/65 hover:bg-featured dark:hover:bg-white/10 hover:text-sage-dark dark:hover:text-sage transition-colors truncate"><span data-en="Saints of Malankara" data-ml="വിശുദ്ധർ">Saints of Malankara</span></a> <a href="martyrs" class="block px-3 py-2 rounded-lg text-body/75 dark:text-ivory/65 hover:bg-featured dark:hover:bg-white/10 hover:text-sage-dark dark:hover:text-sage transition-colors truncate"><span data-en="Martyrs of Malankara" data-ml="രക്തസാക്ഷികൾ">Martyrs of Malankara</span></a> <a href="population" class="block px-3 py-2 rounded-lg text-body/75 dark:text-ivory/65 hover:bg-featured dark:hover:bg-white/10 hover:text-sage-dark dark:hover:text-sage transition-colors truncate"><span data-en="Ecclesial Statistics" data-ml="ജനസംഖ്യ">Ecclesial Statistics</span></a> <a href="record" class="block px-3 py-2 rounded-lg text-body/75 dark:text-ivory/65 hover:bg-featured dark:hover:bg-white/10 hover:text-sage-dark dark:hover:text-sage transition-colors truncate"><span data-en="Report an Issue" data-ml="ഒരു പിശക് അറിയിക്കുക">Report an Issue</span></a> <a href="privacy" class="block px-3 py-2 rounded-lg text-body/75 dark:text-ivory/65 hover:bg-featured dark:hover:bg-white/10 hover:text-sage-dark dark:hover:text-sage transition-colors truncate"><span data-en="Privacy Policy" data-ml="സ്വകാര്യതാ നയം">Privacy Policy</span></a> <a href="terms" class="block px-3 py-2 rounded-lg text-body/75 dark:text-ivory/65 hover:bg-featured dark:hover:bg-white/10 hover:text-sage-dark dark:hover:text-sage transition-colors truncate"><span data-en="Terms of Service" data-ml="സേവന നിബന്ധനകൾ">Terms of Service</span></a>
         </div>
       </details>
     </div>

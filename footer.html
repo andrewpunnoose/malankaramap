@@ -1,11 +1,161 @@
 <!-- ==================== FOOTER ====================
-     This is the exact footer markup currently used on index.html.
-     Loaded at runtime by every other page via a small include
-     snippet so the whole site shares one copy — edit this file and
-     every page picks up the change automatically. -->
+     Shared site footer, loaded at runtime by every page. The <style> below is index.html's own
+     footer CSS, scoped to <footer>, so it looks the same on every page whichever stylesheet
+     the page uses. Edit this file and every page picks it up. -->
+<style id="site-footer-css">
+:root{ --thread:#BA9450; }
+footer{ --thread:#BA9450; color:rgb(51,58,45); }
+.dark footer{ color:rgba(247,245,238,.85); }
+@font-face {
+  font-family: "Epica Pro Sans Regular";
+  src: url("fonts/EpicaProSans-Regular.woff2") format("woff2"), url("fonts/EpicaProSans-Regular.woff") format("woff");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap
+  }
+footer .font-sans, footer.font-sans {
+  font-family: "Epica Pro Sans Regular", Inter, system-ui, sans-serif
+}
+[lang=ml] footer .font-sans, [lang=ml] footer.font-sans, html.dark footer [lang=ml] .font-sans {
+  font-family: Manjari, "Epica Pro Sans Regular", sans-serif
+}
+footer .absolute, footer.absolute {
+  position: absolute
+}
+footer .relative, footer.relative {
+  position: relative
+}
+footer .mx-auto, footer.mx-auto {
+  margin-left: auto;
+  margin-right: auto
+}
+footer .mb-3, footer.mb-3 {
+  margin-bottom: .75rem
+}
+footer .mb-7, footer.mb-7 {
+  margin-bottom: 1.75rem
+}
+footer .mt-3, footer.mt-3 {
+  margin-top: .75rem
+}
+footer .flex, footer.flex {
+  display: flex
+}
+footer .hidden, footer.hidden {
+  display: none
+}
+footer .flex-col, footer.flex-col {
+  flex-direction: column
+}
+footer .items-center, footer.items-center {
+  align-items: center
+}
+footer .justify-center, footer.justify-center {
+  justify-content: center
+}
+footer .gap-2, footer.gap-2 {
+  gap: .5rem
+}
+footer .bg-charcoal, footer.bg-charcoal {
+  --tw-bg-opacity: 1;
+  background-color: rgb(31 41 55/var(--tw-bg-opacity, 1))
+}
+footer .px-4, footer.px-4 {
+  padding-left: 1rem;
+  padding-right: 1rem
+}
+footer .px-5, footer.px-5 {
+  padding-left: 1.25rem;
+  padding-right: 1.25rem
+}
+footer .px-6, footer.px-6 {
+  padding-left: 1.5rem;
+  padding-right: 1.5rem
+}
+footer .py-14, footer.py-14 {
+  padding-top: 3.5rem;
+  padding-bottom: 3.5rem
+}
+footer .text-center, footer.text-center {
+  text-align: center
+}
+footer .font-sans, footer.font-sans {
+  font-family: Inter, system-ui, sans-serif
+}
+footer .font-serif, footer.font-serif {
+  font-family: Marcellus, Georgia, serif
+}
+footer .text-\[10px\], footer.text-\[10px\] {
+  font-size: 10px
+}
+footer .text-\[11px\], footer.text-\[11px\] {
+  font-size: 11px
+}
+footer .text-\[13px\], footer.text-\[13px\] {
+  font-size: 13px
+}
+footer .text-sm, footer.text-sm {
+  font-size: .875rem;
+  line-height: 1.25rem
+}
+footer .italic, footer.italic {
+  font-style: italic
+}
+footer .leading-relaxed, footer.leading-relaxed {
+  line-height: 1.625
+}
+footer .tracking-wide, footer.tracking-wide {
+  letter-spacing: .025em
+}
+footer .text-ivory, footer.text-ivory {
+  --tw-text-opacity: 1;
+  color: rgb(247 245 238/var(--tw-text-opacity, 1))
+}
+footer .text-ivory\/45, footer.text-ivory\/45 {
+  color: rgba(247, 245, 238, .45)
+}
+footer .text-sage, footer.text-sage {
+  --tw-text-opacity: 1;
+  color: rgb(107 130 89/var(--tw-text-opacity, 1))
+}
+footer .underline, footer.underline {
+  text-decoration-line: underline
+}
+footer .underline-offset-2, footer.underline-offset-2 {
+  text-underline-offset: 2px
+}
+footer .transition-colors, footer.transition-colors {
+  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke;
+  transition-timing-function: cubic-bezier(.4, 0, .2, 1);
+  transition-duration: .15s
+}
+footer .hover\:text-ivory:hover, footer.hover\:text-ivory:hover {
+  --tw-text-opacity: 1;
+  color: rgb(247 245 238/var(--tw-text-opacity, 1))
+}
+@media (min-width:640px) {
+  footer .sm\:flex-row, footer.sm\:flex-row {
+    flex-direction: row
+  }
+  footer .sm\:py-16, footer.sm\:py-16 {
+    padding-top: 4rem;
+    padding-bottom: 4rem
+  }
+  footer .sm\:text-\[15px\], footer.sm\:text-\[15px\] {
+    font-size: 15px
+  }
+  footer .sm\:text-base, footer.sm\:text-base {
+    font-size: 1rem;
+    line-height: 1.5rem
+  }
+}
+html[lang=ml] footer [class*=tracking-], html[lang=ml] footer[class*=tracking-] {
+  letter-spacing: normal !important
+}
+</style>
 <footer class="bg-charcoal relative text-center px-5 py-14 sm:py-16">
     <div class="absolute" style="left:0; right:0; top:0; height:1px; background:linear-gradient(90deg, transparent, var(--thread) 50%, transparent); opacity:.6;"></div>
-    <div class="font-serif italic text-sm sm:text-base text-ivory mb-3 pt-2" data-en="Managed by Andrew Punnoose" data-ml="അന്ത്രയോസ് പുന്നൂസ് നിർവ്വഹിക്കുന്നു">
+    <div class="font-serif italic text-sm sm:text-base text-ivory mb-3" data-en="Managed by Andrew Punnoose" data-ml="അന്ത്രയോസ് പുന്നൂസ് നിർവ്വഹിക്കുന്നു">
       Managed by Andrew Punnoose
     </div>
     <p class="font-serif italic text-[13px] leading-relaxed mx-auto" style="max-width:21rem; color:rgba(247,245,238,.55);" data-en="This website is not affiliated with the Malankara Orthodox Syrian Church, or with any other church, institution, or platform." data-ml="ഈ വെബ്സൈറ്റ് മലങ്കര ഓർത്തഡോക്സ് സുറിയാനി സഭയുമായോ, മറ്റേതെങ്കിലും സഭ, സ്ഥാപനം, അല്ലെങ്കിൽ പ്ലാറ്റ്ഫോമുമായോ ബന്ധപ്പെട്ടതല്ല.">This website is not affiliated with the Malankara Orthodox Syrian Church, or with any other church, institution, or platform.</p>
@@ -14,8 +164,8 @@
     <div class="font-sans text-[10px] tracking-wide text-ivory/45 mb-3 px-4" data-en="For corrections, additions, or inquiries, please write to" data-ml="തിരുത്തലുകൾ, കൂട്ടിച്ചേർക്കലുകൾ, അല്ലെങ്കിൽ അന്വേഷണങ്ങൾക്ക് ദയവായി എഴുതുക">
       For corrections, additions, or inquiries, please write to
     </div>
-    <div class="flex flex-col sm:flex-row items-center justify-center gap-2 sm:gap-3 px-6 mb-7">
-      <a href="mailto:malankaramap@gmail.com" class="font-serif italic text-[14px] sm:text-[15px] text-sage hover:text-ivory transition-colors">malankaramap@gmail.com</a> <span class="hidden sm:inline" style="color:rgba(247,245,238,.25);">·</span> <a href="https://instagram.com/malankaramap" target="_blank" rel="noopener" class="font-serif italic text-[14px] sm:text-[15px] text-sage hover:text-ivory transition-colors">@malankaramap</a>
+    <div class="flex flex-col sm:flex-row items-center justify-center gap-2 px-6 mb-7">
+      <a href="mailto:malankaramap@gmail.com" class="font-serif italic sm:text-[15px] text-sage hover:text-ivory transition-colors">malankaramap@gmail.com</a> <span class="hidden" style="color:rgba(247,245,238,.25);">·</span> <a href="https://instagram.com/malankaramap" target="_blank" rel="noopener" class="font-serif italic sm:text-[15px] text-sage hover:text-ivory transition-colors">@malankaramap</a>
     </div>
     <div class="font-sans text-[10px] tracking-wide mb-3" style="color:rgba(247,245,238,.35);" data-en-html="‎&lt;a href=&quot;record&quot; class=&quot;underline underline-offset-2 hover:text-ivory transition-colors&quot;&gt;Report an Issue&lt;/a&gt; &nbsp;·&nbsp; &lt;a href=&quot;privacy&quot; class=&quot;underline underline-offset-2 hover:text-ivory transition-colors&quot;&gt;Privacy Policy&lt;/a&gt; &nbsp;·&nbsp; &lt;a href=&quot;terms&quot; class=&quot;underline underline-offset-2 hover:text-ivory transition-colors&quot;&gt;Terms of Service&lt;/a&gt;" data-ml-html="‎&lt;a href=&quot;record&quot; class=&quot;underline underline-offset-2 hover:text-ivory transition-colors&quot;&gt;ഒരു പിശക് അറിയിക്കുക&lt;/a&gt; &nbsp;·&nbsp; &lt;a href=&quot;privacy&quot; class=&quot;underline underline-offset-2 hover:text-ivory transition-colors&quot;&gt;സ്വകാര്യതാ നയം&lt;/a&gt; &nbsp;·&nbsp; &lt;a href=&quot;terms&quot; class=&quot;underline underline-offset-2 hover:text-ivory transition-colors&quot;&gt;സേവന നിബന്ധനകൾ&lt;/a&gt;">
       <a href="record" class="underline underline-offset-2 hover:text-ivory transition-colors">Report an Issue</a> &nbsp;·&nbsp; <a href="privacy" class="underline underline-offset-2 hover:text-ivory transition-colors">Privacy Policy</a> &nbsp;·&nbsp; <a href="terms" class="underline underline-offset-2 hover:text-ivory transition-colors">Terms of Service</a>
