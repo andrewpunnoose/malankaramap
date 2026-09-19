@@ -453,7 +453,7 @@
 
     function emptyState() {
       resultsEl.innerHTML =
-        '<div class="ssrch-empty">Start typing to search nations, dioceses, institutions, clergy, directors, statistics, saints, martyrs, and every other page on the site.</div>';
+        '<div class="ssrch-empty">Start typing to search dioceses, parishes, institutions, clergy, directors, studies, statistics, saints, martyrs, and every other page on the site.</div>';
     }
 
     // Lower-cases and treats en/em dashes as plain hyphens, so typing
