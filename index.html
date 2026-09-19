@@ -2635,6 +2635,27 @@
   background: rgba(107, 130, 89, .1)
   }
 
+  .cmd-row.has-thumb {
+  padding-top: 7px;
+  padding-bottom: 7px
+  }
+
+  .cmd-row .cmd-main {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-width: 0
+  }
+
+  .cmd-row .cmd-thumb {
+  flex: none;
+  width: 44px;
+  height: 33px;
+  border-radius: 6px;
+  object-fit: cover;
+  background: rgba(107, 130, 89, .15)
+  }
+
   .cmd-row .cmd-tag {
   font-size: 10px;
   letter-spacing: .06em;
@@ -5952,7 +5973,7 @@
         }) : all;
       queryText.textContent = query, countText.textContent = matches.length + (1 === matches.length ? " match" : " matches"), listEl.innerHTML = "", matches.forEach(function(item) {
         var a = document.createElement("a");
-        a.href = item.href, a.className = "block px-4 -mx-4 py-4 border-b border-line dark:border-white/10 last:border-b-0 hover:bg-featured dark:hover:bg-white/5 transition-colors rounded-lg", a.innerHTML = '<div class="font-sans text-[10px] tracking-[0.14em] uppercase text-taupe font-semibold mb-1.5">' + escapeHtml(item.tag || "Directory") + '</div><div class="font-serif italic text-lg text-ink dark:text-ivory">' + escapeHtml(item.name) + '</div><p class="font-sans text-[13px] text-body/50 dark:text-ivory/40 mt-1">' + (item.page && item.desc ? escapeHtml(item.desc) : "Listed under " + escapeHtml(item.tag || "the directory") + ".") + "</p>", listEl.appendChild(a)
+        a.href = item.href, a.className = "block px-4 -mx-4 py-4 border-b border-line dark:border-white/10 last:border-b-0 hover:bg-featured dark:hover:bg-white/5 transition-colors rounded-lg", a.innerHTML = (item.image ? '<div style="display:flex;align-items:center;gap:16px"><img src="' + escapeHtml(item.image) + '" alt="" loading="lazy" decoding="async" style="flex:none;width:96px;aspect-ratio:4/3;height:auto;object-fit:cover;border-radius:10px;background:rgba(107,130,89,.15)"><div style="min-width:0;flex:1">' : "") + '<div class="font-sans text-[10px] tracking-[0.14em] uppercase text-taupe font-semibold mb-1.5">' + escapeHtml(item.tag || "Directory") + '</div><div class="font-serif italic text-lg text-ink dark:text-ivory">' + escapeHtml(item.name) + '</div><p class="font-sans text-[13px] text-body/50 dark:text-ivory/40 mt-1">' + (item.page && item.desc ? escapeHtml(item.desc) : "Listed under " + escapeHtml(item.tag || "the directory") + ".") + "</p>" + (item.image ? "</div></div>" : ""), listEl.appendChild(a)
       }), emptyMsg.classList.toggle("hidden", 0 !== matches.length)
     }
 
@@ -6145,7 +6166,7 @@
             var isStudy = /^stud(ies|y-)/.test(p.url),
               nm = p.title.replace(/\s+\u2014\s+Studies$/, "");
             return {
-              name: nm, desc: p.description || "", tag: isStudy ? "Studies" : "Page", href: p.url, page: true,
+              name: nm, desc: p.description || "", tag: isStudy ? "Studies" : "Page", href: p.url, page: true, image: p.image || "",
               // what a search is matched against: full title, description, and "studies" for the study articles
               hay: (p.title + " " + (p.description || "") + (isStudy ? " studies" : "")).toLowerCase().replace(/[\u2013\u2014]/g, "-")
             };
@@ -6201,7 +6222,7 @@
   function s(e) {
     n.innerHTML = "", e.slice(0, 40).forEach(function(e, t) {
       var c = document.createElement("a");
-      c.href = e.href, c.className = "cmd-row" + (t === l ? " is-active" : ""), c.innerHTML = '<span class="truncate">' + e.name + '</span><span class="cmd-tag">' + e.tag + "</span>", n.appendChild(c)
+      c.href = e.href, c.className = "cmd-row" + (e.image ? " has-thumb" : "") + (t === l ? " is-active" : ""), c.innerHTML = (e.image ? '<span class="cmd-main"><img class="cmd-thumb" src="' + e.image + '" alt="" loading="lazy" decoding="async"><span class="truncate">' + e.name + "</span></span>" : '<span class="truncate">' + e.name + "</span>") + '<span class="cmd-tag">' + e.tag + "</span>", n.appendChild(c)
     }), c.classList.toggle("hidden", 0 !== e.length)
   }
 

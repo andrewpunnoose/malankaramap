@@ -12,6 +12,9 @@ The sitewide search (wired up in site-common.js, used by every page
 via the shared header) reads this file, so a page becomes searchable
 as soon as it's listed here.
 
+A page's own og:image (anything other than the shared og-image.png) is
+stored as "image" so the search can show it as a thumbnail.
+
 Pages excluded on purpose:
   - header.html / footer.html (not real pages, just includes)
   - 404.html (not a real content page)
@@ -50,7 +53,16 @@ def main():
         desc = md.group(1).strip() if md else ""
         url = "" if slug == "index" else slug
         display_title = "Malankara Map — Home" if slug == "index" else title
-        pages.append({"title": display_title, "url": url, "description": desc[:160]})
+        entry = {"title": display_title, "url": url, "description": desc[:160]}
+        # A page that sets its own og:image (the Studies articles do) gets that
+        # picture shown as a thumbnail next to its search result. Pages that
+        # just use the shared site image (og-image.png) get no thumbnail.
+        mi = re.search(r'<meta property="og:image" content="(.*?)">', content, re.S)
+        if mi:
+            img = re.sub(r"^https?://[^/]+/", "", mi.group(1).strip()).split("?")[0]
+            if img and img != "og-image.png":
+                entry["image"] = img
+        pages.append(entry)
 
     with open("site-search-index.json", "w", encoding="utf-8") as fh:
         json.dump(pages, fh, ensure_ascii=False, indent=0)

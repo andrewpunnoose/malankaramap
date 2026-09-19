@@ -357,6 +357,9 @@
         ".ssrch-row-title{font-size:14px;}" +
         ".ssrch-row-sub{font-size:11.5px;color:rgba(0,0,0,.5);margin-top:1px;}" +
         "html.dark .ssrch-row-sub{color:rgba(255,255,255,.45);}" +
+        ".ssrch-row.has-thumb{display:flex;align-items:center;gap:.75rem;}" +
+        ".ssrch-thumb{flex:none;width:64px;aspect-ratio:4/3;height:auto;object-fit:cover;border-radius:8px;background:rgba(107,130,89,.15);}" +
+        ".ssrch-row-text{min-width:0;flex:1;}" +
         ".ssrch-empty{padding:1.5rem .75rem;text-align:center;font-size:13px;color:rgba(0,0,0,.45);}" +
         "html.dark .ssrch-empty{color:rgba(255,255,255,.4);}";
       var style = document.createElement("style");
@@ -485,14 +488,20 @@
       if (pageMatches.length) {
         html += '<div class="ssrch-group-label">Pages</div>';
         pageMatches.forEach(function (p) {
-          html +=
-            '<a class="ssrch-row" href="' +
-            escapeHtml(p.url) +
-            '"><div class="ssrch-row-title">' +
+          var text =
+            '<div class="ssrch-row-title">' +
             escapeHtml(p.title) +
             "</div>" +
-            (p.description ? '<div class="ssrch-row-sub">' + escapeHtml(p.description) + "</div>" : "") +
-            "</a>";
+            (p.description ? '<div class="ssrch-row-sub">' + escapeHtml(p.description) + "</div>" : "");
+          html += p.image
+            ? '<a class="ssrch-row has-thumb" href="' +
+              escapeHtml(p.url) +
+              '"><img class="ssrch-thumb" src="' +
+              escapeHtml(p.image) +
+              '" alt="" loading="lazy" decoding="async"><div class="ssrch-row-text">' +
+              text +
+              "</div></a>"
+            : '<a class="ssrch-row" href="' + escapeHtml(p.url) + '">' + text + "</a>";
         });
       }
       if (placeMatches.length) {
