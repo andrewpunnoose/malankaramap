@@ -5688,7 +5688,28 @@
   #clergy a:hover .tile-art img{transform:scale(1.05)}
   .pop-faithful{width:100%;max-width:230px;margin:0 auto .75rem}
   .pop-faithful img{display:block;width:100%;height:auto;border-radius:18px}
+  @media(min-width:1024px){#clergy .grid.gap-px>a.tile-mobile-only{display:none}}
   html.dark .pop-faithful img,.dark .pop-faithful img{box-shadow:0 0 0 1px rgba(255,255,255,.1)}
+</style>
+<style id="globe-tighten">
+  #globe .globe-split-gap>div:first-child{max-width:340px}
+  #globe .globe-split-gap{gap:2.5rem}
+  @media(min-width:640px){
+    #globe .globe-split-gap>div:first-child{max-width:380px}
+    #globe > div.relative{padding-top:3rem}
+    #globe .reveal.max-w-xl{margin-bottom:2rem}
+    .globe-pad-b{padding-bottom:2.5rem}
+    .timeline-pad-t{padding-top:3rem}
+  }
+  @media(min-width:1024px){#globe .globe-split-gap>div:first-child{max-width:400px}}
+  @media(max-width:639px){#globe .reveal.max-w-xl{margin-bottom:1.5rem}}
+  @media(max-width:767px){.art-side--rev .art-side__frame{max-width:240px;margin:0 auto}}
+</style>
+<style id="kmap-spacing">
+  /* equal breathing room above and below the rule that separates "The Dioceses" from "The Dioceses, on the Map" */
+  .kmap-sec{padding-top:0}
+  .kmap-sec .kmap-wrap{margin-top:0;padding-top:44px}
+  @media(min-width:640px){.kmap-sec .kmap-wrap{padding-top:52px}}
 </style>
 </head>
 <body class="bg-ivory dark:bg-midnight text-body dark:text-ivory/85 font-sans transition-colors duration-300">
@@ -6374,41 +6395,6 @@
         </div>
       </div>
     </section>
-    <section class="relative overflow-hidden sec-tight timeline-pad-t" id="timeline">
-      <div class="max-w-6xl mx-auto px-5 sm:px-8 mb-8 sm:mb-10">
-        <div class="reveal flex flex-col sm:flex-row sm:items-end sm:justify-between gap-3">
-          <h2 class="font-serif italic font-normal text-[28px] sm:text-4xl text-ink dark:text-ivory" data-en="Nineteen Centuries, Traced" data-ml="പത്തൊമ്പത് നൂറ്റാണ്ടുകൾ, അടയാളപ്പെടുത്തിയത്">Nineteen Centuries, Traced</h2>
-          <p class="font-serif italic text-sm text-body/55 dark:text-ivory/45 max-w-md" data-en="From the Apostle's landfall to the present communion — traversed by dragging, by the arrows below, or directly via the era markers." data-ml="അപ്പോസ്തലന്റെ വരവു മുതൽ ഇന്നത്തെ സഭാ കൂട്ടായ്മ വരെ — വലിച്ചോ, താഴെയുള്ള അമ്പടയാളങ്ങൾ ഉപയോഗിച്ചോ, അല്ലെങ്കിൽ കാലഘട്ട അടയാളങ്ങൾ വഴിയോ സഞ്ചരിക്കാം.">From the Apostle's landfall to the present communion — traversed by dragging, by the arrows below, or directly via the era markers.</p>
-        </div>
-        <p class="reveal mt-2 text-[11px] tracking-wide text-muted" data-en="Timeline data as of 2 August, 2026." data-ml="കാലരേഖാ വിവരം 2026 ഓഗസ്റ്റ് 2 വരെയുള്ളത്.">Timeline data as of 2 August, 2026.</p>
-        <div class="reveal mt-6 sm:mt-7 border-t border-line dark:border-white/10" aria-hidden="true"></div>
-      </div>
-      <div class="reveal">
-        <div id="tlTrack" class="tl-track" tabindex="0" aria-label="Scrollable historical timeline, 52 CE to 2026 CE">
-          <div id="tlInner" class="tl-inner"></div>
-        </div>
-        <div class="max-w-6xl mx-auto px-5 sm:px-8 mt-5 flex items-center gap-4">
-          <button id="tlPrev" type="button" class="tl-arrow" aria-label="Scroll to earlier events">←</button>
-          <div class="tl-progress-track">
-            <div id="tlProgressBar" class="tl-progress-bar"></div>
-          </div><button id="tlNext" type="button" class="tl-arrow" aria-label="Scroll to later events">→</button>
-        </div>
-        <div id="tlEras" class="tl-eras max-w-6xl mx-auto px-5 sm:px-8 mt-3" aria-label="Jump to an era"></div>
-      </div>
-    </section>
-    <div class="section-divider is-tight" aria-hidden="true">
-      <span class="section-divider__line"></span><span class="section-divider__mark"><svg width="15" height="15" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-      <path d="M12 3 L21 12 L12 21 L3 12 Z"></path></svg></span><span class="section-divider__line"></span>
-    </div>
-    <section class="px-5 sm:px-8 sec-tight-y" aria-label="Devotional artwork">
-      <div class="reveal max-w-6xl mx-auto">
-        <div class="art-banner"><img class="art-banner__img" src="liturgy-banner.jpg" alt="" aria-hidden="true" loading="lazy"></div>
-        <div class="art-banner__caption">
-          <span class="art-banner__kicker text-body/55 dark:text-ivory/45" data-en="The Church, Seen and Unseen" data-ml="ദൃശ്യവും അദൃശ്യവുമായ സഭ">The Church, Seen and Unseen</span>
-          <p class="art-banner__quote text-ink dark:text-ivory" data-en="At every altar, the Church on earth stands within sight of the Church triumphant — one offering, joined across time." data-ml="ഓരോ അൾത്താരയിലും, ഭൂമിയിലെ സഭ ജയാളിയായ സഭയുടെ ദൃഷ്ടിയിൽ നിൽക്കുന്നു — കാലത്തെ മറികടന്ന് ഒരൊറ്റ സമർപ്പണം.">At every altar, the Church on earth stands within sight of the Church triumphant — one offering, joined across time.</p>
-        </div>
-      </div>
-    </section>
     <div class="section-divider is-tight" aria-hidden="true">
       <span class="section-divider__line"></span><span class="section-divider__mark"><svg width="15" height="15" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
       <path d="M12 3 L21 12 L12 21 L3 12 Z"></path></svg></span><span class="section-divider__line"></span>
@@ -6717,15 +6703,6 @@
         <p class="font-serif italic text-[15px] text-body/75 dark:text-ivory/60 leading-[1.6] border-l border-line dark:border-white/10 pl-4" data-en="This map does not count digital congregations, such as the Good Shepherd Orthodox Family Fellowship." data-ml="ഗുഡ് ഷെപ്പേർഡ് ഓർത്തഡോക്സ് ഫാമിലി ഫെലോഷിപ്പ് പോലുള്ള ഡിജിറ്റൽ കോൺഗ്രിഗേഷനുകളെ ഈ ഭൂപടം കണക്കിലെടുക്കുന്നില്ല.">This map does not count digital congregations, such as the Good Shepherd Orthodox Family Fellowship.</p>
       </div>
     </section>
-    <section class="px-5 sm:px-8 sec-tight-y max-w-6xl mx-auto" aria-label="Devotional artwork">
-      <div class="reveal art-side">
-        <div class="art-side__frame"><img src="sage-banner.jpg" alt="" aria-hidden="true" loading="lazy"></div>
-        <div>
-          <p class="font-serif italic font-normal text-xl sm:text-2xl text-ink dark:text-ivory mb-3 leading-snug" data-en="Every marker on this map traces back to a shepherd." data-ml="ഈ ഭൂപടത്തിലെ ഓരോ അടയാളവും ഒരു ഇടയനിലേക്ക് തിരികെ പോകുന്നു.">Every marker on this map traces back to a shepherd.</p>
-          <p class="text-[15px] text-body/75 dark:text-ivory/60 leading-[1.8]" data-en="Behind every parish counted here stands a lineage of ordained service — stretching back through the centuries to the Apostolic hand." data-ml="ഇവിടെ എണ്ണിയ ഓരോ ഇടവകയ്ക്ക് പിന്നിലും നൂറ്റാണ്ടുകൾ പിന്നിലേക്ക് നീളുന്ന, അപ്പോസ്തലിക കരങ്ങളിലേക്ക് എത്തുന്ന നിയോഗിതസേവനത്തിന്റെ ഒരു പരമ്പര നിലകൊള്ളുന്നു.">Behind every parish counted here stands a lineage of ordained service — stretching back through the centuries to the Apostolic hand.</p>
-        </div>
-      </div>
-    </section>
     <section class="px-5 sm:px-8 sec-tight max-w-6xl mx-auto" id="colors">
       <div class="reveal flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4 mb-6 sm:mb-8">
         <div class="max-w-xl">
@@ -6860,7 +6837,7 @@
         .kmap-figure{margin:0 auto}
       }
     </style>
-    <section class="px-5 sm:px-8 sec-tight-y max-w-6xl mx-auto">
+    <section class="kmap-sec px-5 sm:px-8 sec-tight-y max-w-6xl mx-auto">
       <div class="kmap-wrap">
       <h2 class="font-serif italic font-normal text-xl sm:text-2xl text-ink dark:text-ivory mb-2" data-en="The Dioceses, on the Map" data-ml="ഭൂപടത്തിൽ ഭദ്രാസനങ്ങൾ">The Dioceses, on the Map</h2>
       <p class="font-sans text-xs sm:text-[13px] text-body/60 dark:text-ivory/50 mb-5" data-en="Kerala's fourteen districts, coloured by the diocese that covers each." data-ml="കേരളത്തിലെ പതിനാല് ജില്ലകൾ, അവയെ ഉൾക്കൊള്ളുന്ന ഭദ്രാസനം അനുസരിച്ച് നിറം നൽകിയത്.">Kerala's fourteen districts, coloured by the diocese that covers each.</p>
@@ -6999,15 +6976,55 @@
       }();
       </script>
     </section>
+    <div class="section-divider is-tight" aria-hidden="true">
+      <span class="section-divider__line"></span><span class="section-divider__mark"><svg width="15" height="15" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+      <path d="M12 3 L21 12 L12 21 L3 12 Z"></path></svg></span><span class="section-divider__line"></span>
+    </div>
+    <section class="relative overflow-hidden sec-tight timeline-pad-t" id="timeline">
+      <div class="max-w-6xl mx-auto px-5 sm:px-8 mb-8 sm:mb-10">
+        <div class="reveal flex flex-col sm:flex-row sm:items-end sm:justify-between gap-3">
+          <h2 class="font-serif italic font-normal text-[28px] sm:text-4xl text-ink dark:text-ivory" data-en="Nineteen Centuries, Traced" data-ml="പത്തൊമ്പത് നൂറ്റാണ്ടുകൾ, അടയാളപ്പെടുത്തിയത്">Nineteen Centuries, Traced</h2>
+          <p class="font-serif italic text-sm text-body/55 dark:text-ivory/45 max-w-md" data-en="From the Apostle's landfall to the present communion — traversed by dragging, by the arrows below, or directly via the era markers." data-ml="അപ്പോസ്തലന്റെ വരവു മുതൽ ഇന്നത്തെ സഭാ കൂട്ടായ്മ വരെ — വലിച്ചോ, താഴെയുള്ള അമ്പടയാളങ്ങൾ ഉപയോഗിച്ചോ, അല്ലെങ്കിൽ കാലഘട്ട അടയാളങ്ങൾ വഴിയോ സഞ്ചരിക്കാം.">From the Apostle's landfall to the present communion — traversed by dragging, by the arrows below, or directly via the era markers.</p>
+        </div>
+        <p class="reveal mt-2 text-[11px] tracking-wide text-muted" data-en="Timeline data as of 2 August, 2026." data-ml="കാലരേഖാ വിവരം 2026 ഓഗസ്റ്റ് 2 വരെയുള്ളത്.">Timeline data as of 2 August, 2026.</p>
+        <div class="reveal mt-6 sm:mt-7 border-t border-line dark:border-white/10" aria-hidden="true"></div>
+      </div>
+      <div class="reveal">
+        <div id="tlTrack" class="tl-track" tabindex="0" aria-label="Scrollable historical timeline, 52 CE to 2026 CE">
+          <div id="tlInner" class="tl-inner"></div>
+        </div>
+        <div class="max-w-6xl mx-auto px-5 sm:px-8 mt-5 flex items-center gap-4">
+          <button id="tlPrev" type="button" class="tl-arrow" aria-label="Scroll to earlier events">←</button>
+          <div class="tl-progress-track">
+            <div id="tlProgressBar" class="tl-progress-bar"></div>
+          </div><button id="tlNext" type="button" class="tl-arrow" aria-label="Scroll to later events">→</button>
+        </div>
+        <div id="tlEras" class="tl-eras max-w-6xl mx-auto px-5 sm:px-8 mt-3" aria-label="Jump to an era"></div>
+      </div>
+    </section>
+    <div class="section-divider is-tight" aria-hidden="true">
+      <span class="section-divider__line"></span><span class="section-divider__mark"><svg width="15" height="15" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+      <path d="M12 3 L21 12 L12 21 L3 12 Z"></path></svg></span><span class="section-divider__line"></span>
+    </div>
     <section class="px-5 sm:px-8 sec-tight max-w-6xl mx-auto" id="clergy">
       <div class="reveal flex flex-col sm:flex-row sm:items-end sm:justify-between gap-3 mb-8 sm:mb-10">
         <h2 class="font-serif italic font-normal text-[28px] sm:text-4xl text-ink dark:text-ivory" data-en="Those Who Serve the Church" data-ml="സഭയെ ശുശ്രൂഷിക്കുന്നവർ">Those Who Serve the Church</h2>
         <p class="font-serif italic text-sm text-body/55 dark:text-ivory/45" data-en="Drawn from the Church’s 2023 clergy directory." data-ml="സഭയുടെ 2023-ലെ വൈദിക ഡയറക്ടറിയിൽ നിന്ന് എടുത്തത്.">Drawn from the Church’s 2023 clergy directory.</p>
       </div>
       <div class="reveal reveal-stagger grid grid-cols-2 lg:grid-cols-5 gap-px bg-line dark:bg-white/10 border border-line dark:border-white/10 rounded-xl overflow-hidden shadow-soft">
-        <a href="metropolitans" class="group bg-ivory dark:bg-midnight p-6 sm:p-8 flex flex-col gap-2 hover:bg-featured dark:hover:bg-white/5 transition-colors"><span class="tile-art"><img src="metropolitan.jpg" alt="A metropolitan in black cope with pastoral staff" width="800" height="1000" loading="lazy"></span> <span class="count-num font-serif text-4xl sm:text-5xl text-ink dark:text-ivory group-hover:text-sage-dark dark:group-hover:text-sage transition-colors" data-count="30">30</span> <span class="font-sans text-[11px] tracking-wider uppercase text-body/60 dark:text-ivory/50 font-medium" data-en="Metropolitans" data-ml="മെത്രാപ്പോലീത്തന്മാർ">Metropolitans</span> <span class="font-serif italic text-sage-dark dark:text-sage text-sm mt-1" data-en="View all →" data-ml="എല്ലാം കാണുക →">View all →</span></a> <a href="monks" class="group bg-ivory dark:bg-midnight p-6 sm:p-8 flex flex-col gap-2 hover:bg-featured dark:hover:bg-white/5 transition-colors"><span class="tile-art"><img src="monk.jpg" alt="A monk in the black monastic habit" width="800" height="1000" loading="lazy"></span> <span class="count-num font-serif text-4xl sm:text-5xl text-ink dark:text-ivory group-hover:text-sage-dark dark:group-hover:text-sage transition-colors" data-count="48">48</span> <span class="font-sans text-[11px] tracking-wider uppercase text-body/60 dark:text-ivory/50 font-medium" data-en="Monks" data-ml="റമ്പാന്മാർ">Monks</span> <span class="font-serif italic text-sage-dark dark:text-sage text-sm mt-1" data-en="By diocese →" data-ml="ഭദ്രാസനം അനുസരിച്ച് →">By diocese →</span></a> <a href="cor-episcopa" class="group bg-ivory dark:bg-midnight p-6 sm:p-8 flex flex-col gap-2 hover:bg-featured dark:hover:bg-white/5 transition-colors"><span class="tile-art"><img src="cor-episcopa.jpg" alt="A cor-episcopa in crimson cape and vestments" width="800" height="1000" loading="lazy"></span> <span class="count-num font-serif text-4xl sm:text-5xl text-ink dark:text-ivory group-hover:text-sage-dark dark:group-hover:text-sage transition-colors" data-count="101">101</span> <span class="font-sans text-[11px] tracking-wider uppercase text-body/60 dark:text-ivory/50 font-medium" data-en="Cor-Episcopas" data-ml="കോറെപ്പിസ്കോപ്പമാർ">Cor-Episcopas</span> <span class="font-serif italic text-sage-dark dark:text-sage text-sm mt-1" data-en="By diocese →" data-ml="ഭദ്രാസനം അനുസരിച്ച് →">By diocese →</span></a> <a href="priests" class="group bg-ivory dark:bg-midnight p-6 sm:p-8 flex flex-col gap-2 hover:bg-featured dark:hover:bg-white/5 transition-colors"><span class="tile-art"><img src="priest.jpg" alt="A priest in white and crimson vestments" width="800" height="1000" loading="lazy"></span> <span class="count-num font-serif text-4xl sm:text-5xl text-ink dark:text-ivory group-hover:text-sage-dark dark:group-hover:text-sage transition-colors" data-count="1710">1,710</span> <span class="font-sans text-[11px] tracking-wider uppercase text-body/60 dark:text-ivory/50 font-medium" data-en="Priests" data-ml="വൈദികർ">Priests</span> <span class="font-serif italic text-sage-dark dark:text-sage text-sm mt-1" data-en="By diocese →" data-ml="ഭദ്രാസനം അനുസരിച്ച് →">By diocese →</span></a> <a href="deacons" class="group bg-ivory dark:bg-midnight p-6 sm:p-8 flex flex-col gap-2 hover:bg-featured dark:hover:bg-white/5 transition-colors"><span class="tile-art"><img src="deacon.jpg" alt="A deacon in white tunic and embroidered stole" width="800" height="1000" loading="lazy"></span> <span class="count-num font-serif text-4xl sm:text-5xl text-ink dark:text-ivory group-hover:text-sage-dark dark:group-hover:text-sage transition-colors" data-count="83">83</span> <span class="font-sans text-[11px] tracking-wider uppercase text-body/60 dark:text-ivory/50 font-medium" data-en="Deacons" data-ml="ശെമ്മാശന്മാർ">Deacons</span> <span class="font-serif italic text-sage-dark dark:text-sage text-sm mt-1" data-en="By diocese →" data-ml="ഭദ്രാസനം അനുസരിച്ച് →">By diocese →</span></a>
+        <a href="metropolitans" class="tile-mobile-only group bg-ivory dark:bg-midnight p-6 sm:p-8 flex flex-col gap-2 hover:bg-featured dark:hover:bg-white/5 transition-colors"><span class="tile-art"><img src="malankara-metropolitan.jpg" alt="The Malankara Metropolitan in mitre and vestments, holding a cross and pastoral staff" width="800" height="1000" loading="lazy"></span> <span class="count-num font-serif text-4xl sm:text-5xl text-ink dark:text-ivory group-hover:text-sage-dark dark:group-hover:text-sage transition-colors" data-count="1">1</span> <span class="font-sans text-[11px] tracking-wider uppercase text-body/60 dark:text-ivory/50 font-medium" data-en="Malankara Metropolitan" data-ml="മലങ്കര മെത്രാപ്പോലീത്ത">Malankara Metropolitan</span> <span class="font-serif italic text-sage-dark dark:text-sage text-sm mt-1" data-en="View →" data-ml="കാണുക →">View →</span></a> 
+<a href="metropolitans" class="group bg-ivory dark:bg-midnight p-6 sm:p-8 flex flex-col gap-2 hover:bg-featured dark:hover:bg-white/5 transition-colors"><span class="tile-art"><img src="metropolitan.jpg" alt="A metropolitan in black cope with pastoral staff" width="800" height="1000" loading="lazy"></span> <span class="count-num font-serif text-4xl sm:text-5xl text-ink dark:text-ivory group-hover:text-sage-dark dark:group-hover:text-sage transition-colors" data-count="30">30</span> <span class="font-sans text-[11px] tracking-wider uppercase text-body/60 dark:text-ivory/50 font-medium" data-en="Metropolitans" data-ml="മെത്രാപ്പോലീത്തന്മാർ">Metropolitans</span> <span class="font-serif italic text-sage-dark dark:text-sage text-sm mt-1" data-en="View all →" data-ml="എല്ലാം കാണുക →">View all →</span></a> <a href="monks" class="group bg-ivory dark:bg-midnight p-6 sm:p-8 flex flex-col gap-2 hover:bg-featured dark:hover:bg-white/5 transition-colors"><span class="tile-art"><img src="monk.jpg" alt="A monk in the black monastic habit" width="800" height="1000" loading="lazy"></span> <span class="count-num font-serif text-4xl sm:text-5xl text-ink dark:text-ivory group-hover:text-sage-dark dark:group-hover:text-sage transition-colors" data-count="48">48</span> <span class="font-sans text-[11px] tracking-wider uppercase text-body/60 dark:text-ivory/50 font-medium" data-en="Monks" data-ml="റമ്പാന്മാർ">Monks</span> <span class="font-serif italic text-sage-dark dark:text-sage text-sm mt-1" data-en="By diocese →" data-ml="ഭദ്രാസനം അനുസരിച്ച് →">By diocese →</span></a> <a href="cor-episcopa" class="group bg-ivory dark:bg-midnight p-6 sm:p-8 flex flex-col gap-2 hover:bg-featured dark:hover:bg-white/5 transition-colors"><span class="tile-art"><img src="cor-episcopa.jpg" alt="A cor-episcopa in crimson cape and vestments" width="800" height="1000" loading="lazy"></span> <span class="count-num font-serif text-4xl sm:text-5xl text-ink dark:text-ivory group-hover:text-sage-dark dark:group-hover:text-sage transition-colors" data-count="101">101</span> <span class="font-sans text-[11px] tracking-wider uppercase text-body/60 dark:text-ivory/50 font-medium" data-en="Cor-Episcopas" data-ml="കോറെപ്പിസ്കോപ്പമാർ">Cor-Episcopas</span> <span class="font-serif italic text-sage-dark dark:text-sage text-sm mt-1" data-en="By diocese →" data-ml="ഭദ്രാസനം അനുസരിച്ച് →">By diocese →</span></a> <a href="priests" class="group bg-ivory dark:bg-midnight p-6 sm:p-8 flex flex-col gap-2 hover:bg-featured dark:hover:bg-white/5 transition-colors"><span class="tile-art"><img src="priest.jpg" alt="A priest in white and crimson vestments" width="800" height="1000" loading="lazy"></span> <span class="count-num font-serif text-4xl sm:text-5xl text-ink dark:text-ivory group-hover:text-sage-dark dark:group-hover:text-sage transition-colors" data-count="1710">1,710</span> <span class="font-sans text-[11px] tracking-wider uppercase text-body/60 dark:text-ivory/50 font-medium" data-en="Priests" data-ml="വൈദികർ">Priests</span> <span class="font-serif italic text-sage-dark dark:text-sage text-sm mt-1" data-en="By diocese →" data-ml="ഭദ്രാസനം അനുസരിച്ച് →">By diocese →</span></a> <a href="deacons" class="group bg-ivory dark:bg-midnight p-6 sm:p-8 flex flex-col gap-2 hover:bg-featured dark:hover:bg-white/5 transition-colors"><span class="tile-art"><img src="deacon.jpg" alt="A deacon in white tunic and embroidered stole" width="800" height="1000" loading="lazy"></span> <span class="count-num font-serif text-4xl sm:text-5xl text-ink dark:text-ivory group-hover:text-sage-dark dark:group-hover:text-sage transition-colors" data-count="83">83</span> <span class="font-sans text-[11px] tracking-wider uppercase text-body/60 dark:text-ivory/50 font-medium" data-en="Deacons" data-ml="ശെമ്മാശന്മാർ">Deacons</span> <span class="font-serif italic text-sage-dark dark:text-sage text-sm mt-1" data-en="By diocese →" data-ml="ഭദ്രാസനം അനുസരിച്ച് →">By diocese →</span></a>
       </div>
       <p class="mt-6 font-sans text-xs sm:text-sm text-body/60 dark:text-ivory/50" data-en="Figures are drawn from the Church’s official 2023 clergy directory, and are here organised by diocese, ranked from metropolitans to deacons." data-ml="സഭയുടെ ഔദ്യോഗിക 2023-ലെ വൈദിക ഡയറക്ടറിയിൽ നിന്നാണ് ഈ കണക്കുകൾ എടുത്തിരിക്കുന്നത്; ഇവിടെ ഭദ്രാസനം അനുസരിച്ച്, മെത്രാപ്പോലീത്തന്മാർ മുതൽ ശെമ്മാശന്മാർ വരെയുള്ള ക്രമത്തിൽ ക്രമീകരിച്ചിരിക്കുന്നു.">Figures are drawn from the Church’s official 2023 clergy directory, and are here organised by diocese, ranked from metropolitans to deacons.</p>
+    </section>
+    <section class="px-5 sm:px-8 sec-tight-y max-w-6xl mx-auto" aria-label="Devotional artwork">
+      <div class="reveal art-side art-side--rev">
+        <div class="art-side__frame"><img src="liturgy-banner.jpg" alt="" aria-hidden="true" loading="lazy"></div>
+        <div>
+          <span class="art-banner__kicker text-body/55 dark:text-ivory/45" data-en="The Church, Seen and Unseen" data-ml="ദൃശ്യവും അദൃശ്യവുമായ സഭ">The Church, Seen and Unseen</span>
+          <p class="art-banner__quote text-ink dark:text-ivory" data-en="At every altar, the Church on earth stands within sight of the Church triumphant — one offering, joined across time." data-ml="ഓരോ അൾത്താരയിലും, ഭൂമിയിലെ സഭ ജയാളിയായ സഭയുടെ ദൃഷ്ടിയിൽ നിൽക്കുന്നു — കാലത്തെ മറികടന്ന് ഒരൊറ്റ സമർപ്പണം.">At every altar, the Church on earth stands within sight of the Church triumphant — one offering, joined across time.</p>
+        </div>
+      </div>
     </section>
     <section class="px-5 sm:px-8 sec-tight-y max-w-6xl mx-auto url-wrap">
       <h2 class="font-serif italic font-normal text-xl sm:text-2xl text-ink dark:text-ivory mb-2" data-en="Sources" data-ml="അവലംബങ്ങൾ">Sources</h2>
