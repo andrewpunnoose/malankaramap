@@ -34,6 +34,18 @@
 <style id="site-palette">/* index.html palette, applied after styles.css so these pages always match the rest of the site */.border-line{--tw-border-opacity:1;border-color:rgb(219 225 210/var(--tw-border-opacity,1))}.bg-charcoal{--tw-bg-opacity:1;background-color:rgb(31 41 55/var(--tw-bg-opacity,1))}.bg-gold\/70{background-color:rgba(186,148,80,.7)}.bg-herobg{background-color:rgb(238 240 230/var(--tw-bg-opacity,1))}.bg-herobg,.bg-ivory{--tw-bg-opacity:1}.bg-ivory{background-color:rgb(247 245 238/var(--tw-bg-opacity,1))}.text-body{--tw-text-opacity:1;color:rgb(51 58 45/var(--tw-text-opacity,1))}.text-body\/60{color:rgba(51,58,45,.6)}.text-body\/80{color:rgba(51,58,45,.8)}.text-body\/85{color:rgba(51,58,45,.85)}.text-ink{color:rgb(16 20 13/var(--tw-text-opacity,1))}.text-ink,.text-ivory{--tw-text-opacity:1}.text-ivory{color:rgb(247 245 238/var(--tw-text-opacity,1))}.text-ivory\/45{color:hsla(47,36%,95%,.45)}.text-muted{color:rgb(150 158 140/var(--tw-text-opacity,1))}.text-muted,.text-sage{--tw-text-opacity:1}.text-sage{color:rgb(107 130 89/var(--tw-text-opacity,1))}.text-sage-dark{--tw-text-opacity:1;color:rgb(74 93 61/var(--tw-text-opacity,1))}.text-taupe{--tw-text-opacity:1;color:rgb(124 106 74/var(--tw-text-opacity,1))}.hover\:text-ivory:hover{--tw-text-opacity:1;color:rgb(247 245 238/var(--tw-text-opacity,1))}.hover\:text-sage-dark:hover{--tw-text-opacity:1;color:rgb(74 93 61/var(--tw-text-opacity,1))}.dark\:bg-midnight:is(.dark *){--tw-bg-opacity:1;background-color:rgb(17 24 39/var(--tw-bg-opacity,1))}.dark\:text-ivory:is(.dark *){--tw-text-opacity:1;color:rgb(247 245 238/var(--tw-text-opacity,1))}.dark\:text-ivory\/50:is(.dark *){color:hsla(47,36%,95%,.5)}.dark\:text-ivory\/65:is(.dark *){color:hsla(47,36%,95%,.65)}.dark\:text-ivory\/70:is(.dark *){color:hsla(47,36%,95%,.7)}.dark\:text-ivory\/85:is(.dark *){color:hsla(47,36%,95%,.85)}.dark\:text-sage:is(.dark *){--tw-text-opacity:1;color:rgb(107 130 89/var(--tw-text-opacity,1))}.dark\:hover\:text-sage:hover:is(.dark *){--tw-text-opacity:1;color:rgb(107 130 89/var(--tw-text-opacity,1))}::selection{background:#6B8259;color:#fff}</style>
 <style id="hero-follow">/* breathing room between the green page hero and the content that follows it */.hero-follow{padding-top:2.5rem}@media(min-width:640px){.hero-follow{padding-top:3.5rem}}</style>
 <style id="clergy-nav">/* clergy sub-nav (Metropolitans · Monks · Cor-Episcopas · Priests · Deacons): defined here so it looks the same on every clergy page regardless of styles.css */.clergy-nav{display:flex;flex-wrap:wrap;align-items:center;justify-content:center;column-gap:.25rem;row-gap:.375rem;margin-top:0}</style>
+<style id="clergy-art">
+  .clergy-art{display:flex;flex-direction:column;align-items:center;padding:2.5rem 1.25rem 2.5rem}@media(min-width:640px){.clergy-art{padding-top:3.5rem}}
+  .clergy-art + .hero-follow{padding-top:0}
+  .clergy-art-frame{width:100%;max-width:280px;aspect-ratio:4/5;border-radius:14px;overflow:hidden;background:#f7f5ee;box-shadow:0 14px 34px -16px rgba(20,20,15,.35);border:1px solid rgba(150,140,100,.18)}
+  .clergy-art-frame img{display:block;width:100%;height:100%;object-fit:cover}
+  .clergy-art-cap{text-align:center;font-family:"Marcellus",Georgia,serif;font-style:italic;font-size:13.5px;line-height:1.65;max-width:24rem;margin:1rem auto 0;color:#57534e}
+  html.dark .clergy-art-cap{color:rgba(248,247,244,.6)}
+  .clergy-art-pair{display:flex;justify-content:center;gap:1rem;width:100%;max-width:580px}
+  .clergy-art-pair figure{margin:0;flex:1 1 0;min-width:0;max-width:280px}
+  .clergy-art-pair .clergy-art-frame{max-width:none}
+  .clergy-art-pair .clergy-art-cap{font-size:12.5px;margin-top:.75rem}
+</style>
 </head>
 <body class="bg-ivory dark:bg-midnight text-body dark:text-ivory/85 font-sans transition-colors duration-300">
 <audio id="bgMusic" loop>
@@ -82,6 +94,11 @@
     <div class="w-px h-8 sm:h-10 bg-gold/70 mx-auto mt-7 sm:mt-9"></div>
   </div>
 </section>
+
+<div class="clergy-art">
+  <div class="clergy-art-frame"><img src="cor-episcopa.jpg" alt="" aria-hidden="true" width="800" height="1000" loading="lazy"></div>
+  <p class="clergy-art-cap">A cor-episcopa in the crimson cape and embroidered vestments of his rank.</p>
+</div>
 
 <section class="hero-follow px-5 sm:px-8 pb-16 sm:pb-24 max-w-3xl mx-auto">
 
