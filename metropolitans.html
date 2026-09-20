@@ -40,8 +40,9 @@
   .clergy-art-frame img{display:block;width:100%;height:100%;object-fit:cover}
   .clergy-art-cap{text-align:center;font-family:"Marcellus",Georgia,serif;font-style:italic;font-size:13.5px;line-height:1.65;max-width:24rem;margin:1rem auto 0;color:#57534e}
   html.dark .clergy-art-cap{color:rgba(248,247,244,.6)}
-  .clergy-art-pair{display:flex;justify-content:center;gap:1rem;width:100%;max-width:580px}
-  .clergy-art-pair figure{margin:0;flex:1 1 0;min-width:0;max-width:280px}
+  .clergy-art-pair{display:flex;flex-wrap:wrap;justify-content:center;gap:1.5rem 1rem;width:100%;max-width:800px}
+  .clergy-art-pair figure{margin:0;flex:0 0 calc(50% - .5rem);min-width:0;max-width:260px}
+  @media(min-width:640px){.clergy-art-pair figure{flex:0 0 calc(33.333% - .7rem)}}
   .clergy-art-pair .clergy-art-frame{max-width:none}
   .clergy-art-pair .clergy-art-cap{font-size:12.5px;margin-top:.75rem}
 </style>
@@ -97,12 +98,16 @@
 <div class="clergy-art">
   <div class="clergy-art-pair">
     <figure>
+      <div class="clergy-art-frame"><img src="catholicos.jpg" alt="" aria-hidden="true" width="800" height="1000" loading="lazy"></div>
+      <figcaption class="clergy-art-cap">The Catholicos of the East</figcaption>
+    </figure>
+    <figure>
       <div class="clergy-art-frame"><img src="malankara-metropolitan.jpg" alt="" aria-hidden="true" width="800" height="1000" loading="lazy"></div>
-      <figcaption class="clergy-art-cap">The Malankara Metropolitan, the Catholicos of the East</figcaption>
+      <figcaption class="clergy-art-cap">The Malankara Metropolitan</figcaption>
     </figure>
     <figure>
       <div class="clergy-art-frame"><img src="metropolitan.jpg" alt="" aria-hidden="true" width="800" height="1000" loading="lazy"></div>
-      <figcaption class="clergy-art-cap">A diocesan metropolitan, staff in hand</figcaption>
+      <figcaption class="clergy-art-cap">A diocesan metropolitan</figcaption>
     </figure>
   </div>
 </div>
