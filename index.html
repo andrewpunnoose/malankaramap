@@ -5097,10 +5097,31 @@
     transform: rotate(180deg);
   }
   #mobileMenu .mobile-nav-panel{
-    font-family: "Epica Pro Sans Regular", Inter, system-ui, sans-serif;
+    font-family: Marcellus, Georgia, serif;
     border-left: 1px solid rgba(17,24,39,.08);
     margin-left: .2rem;
     padding-left: .6rem;
+  }
+  /* pull the slide-out menu up: less empty space above the toggle buttons */
+  #mobileMenu.mobile-menu-panel{
+    padding-top: calc(1.25rem + env(safe-area-inset-top, 0px));
+  }
+  /* sub-items use the same font and size as the top-level items (Studies / Dioceses / Institutions / Clergy / More) */
+  #mobileMenu .mobile-nav-panel a,
+  #mobileMenu .mobile-nav-panel a span{
+    font-family: Marcellus, Georgia, serif;
+  }
+  #mobileMenu .mobile-nav-panel{
+    gap: 0;
+  }
+  #mobileMenu .mobile-nav-panel a{
+    font-size: .9rem;
+    line-height: 1.35;
+    padding-top: .3rem;
+    padding-bottom: .3rem;
+    white-space: normal;
+    overflow: visible;
+    text-overflow: clip;
   }
   .dark #mobileMenu .mobile-nav-panel{
     border-left-color: rgba(247,245,238,.12);
