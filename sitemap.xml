@@ -351,6 +351,11 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://malankaramap.com/study-converts-to-the-malankara-church</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://malankaramap.com/terms</loc>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
