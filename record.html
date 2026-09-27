@@ -1474,18 +1474,17 @@ button:focus-visible, a:focus-visible{ outline-color: rgb(var(--accent-a)); }
 /* Fix: pt-28/pb-24/sm:pt-36 are not present in this build's
    compiled Tailwind output (purged), so the form section had no
    top/bottom padding at all and touched the edges of the page. */
-.report-section{ padding-top:2rem; padding-bottom:4rem; }
-@media (min-width:640px){ .report-section{ padding-top:2.5rem; padding-bottom:6rem; } }
-.report-hero{ padding-top:5.5rem; }
-@media (min-width:640px){ .report-hero{ padding-top:7rem; } }
+.record-wrap{ max-width:820px; margin:0 auto; padding:40px 20px 130px; }
+@media (min-width:640px){ .record-wrap{ padding-top:64px; } }
 </style>
 
 <main id="main">
-<section class="mx-auto max-w-xl px-5 sm:px-8 report-hero text-center">
+<div class="record-wrap">
+<section class="max-w-xl mx-auto text-center">
   <h1 class="font-serif font-normal text-[32px] leading-[1.15] sm:text-5xl tracking-tight text-ink dark:text-ivory mb-3 sm:mb-4" data-en="Help Us Keep This Record Accurate" data-ml="ഈ രേഖ കൃത്യമായി സൂക്ഷിക്കാൻ ഞങ്ങളെ സഹായിക്കുക">Help Us Keep This Record Accurate</h1>
   <p class="text-[14.5px] sm:text-[15px] text-body/75 dark:text-ivory/60 leading-[1.7] max-w-md mx-auto" data-en="Report a missing or incorrect location, or share parish history not yet on file." data-ml="കാണാതായതോ തെറ്റായതോ ആയ ഒരു സ്ഥലം അറിയിക്കുക, അല്ലെങ്കിൽ ഇതുവരെ രേഖപ്പെടുത്തിയിട്ടില്ലാത്ത ഇടവക ചരിത്രം പങ്കുവയ്ക്കുക.">Report a missing or incorrect location, or share parish history not yet on file.</p>
 </section>
-<section class="mx-auto max-w-xl px-5 sm:px-8 report-section">
+<section class="max-w-xl mx-auto pt-8 sm:pt-10">
   <div class="report-card reveal">
     <form id="reportForm" class="grid gap-6" novalidate>
       <input type="checkbox" name="botcheck" class="hidden" style="display:none">
@@ -1531,6 +1530,7 @@ button:focus-visible, a:focus-visible{ outline-color: rgb(var(--accent-a)); }
     </form>
   </div>
 </section>
+</div>
 </main>
 
 <script>
