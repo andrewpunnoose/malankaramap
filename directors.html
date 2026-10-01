@@ -344,7 +344,7 @@ header{margin-top:0!important;top:0!important}
 .verified-badge--lg{top:14px;right:14px;padding:5px 11px 5px 8px;font-size:10.5px;gap:5px}
 .verified-badge--lg svg{width:11px;height:11px}
 .exec-grid .premium-card>.flex>div:first-child{position:relative}
-@media (min-width:640px){.director-card__photo{height:250px}}
+@media (min-width:640px){.director-card__photo{height:250px}}.director-card__photo--empty{background:linear-gradient(135deg,rgba(186,148,80,.16),rgba(124,106,74,.10))}html.dark .director-card__photo--empty{background:linear-gradient(135deg,rgba(186,148,80,.10),rgba(255,255,255,.04))}
 .director-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1.1rem}
 @media (min-width:640px){.director-grid{grid-template-columns:repeat(3,minmax(0,1fr));gap:1.35rem}}
 @media (min-width:1024px){.director-grid{grid-template-columns:repeat(4,minmax(0,1fr))}}
@@ -534,6 +534,14 @@ header{margin-top:0!important;top:0!important}
   </div>
 </div>
 <div class="director-card premium-card texture-paper rounded-2xl border border-gold/20 shadow-soft overflow-hidden reveal">
+  <div class="director-card__photo director-card__photo--empty" aria-hidden="true"></div><span class="verified-badge" title="Verified director"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg><span data-en="Verified" data-ml="പരിശോധിച്ചു">Verified</span></span>
+  <div class="p-4 sm:p-5">
+    <div class="font-sans text-[9.5px] tracking-[0.16em] uppercase text-taupe font-semibold mb-1.5">Idukki Diocesan Coordinator</div>
+    <h4 class="font-serif font-normal text-[16px] sm:text-[17px] text-ink dark:text-ivory mb-2.5 leading-snug">Jerin Raphael</h4>
+    <div class="flex flex-col gap-0.5 font-sans text-[10.5px] text-body/55 dark:text-ivory/45 leading-[1.5]"><span><span class="text-taupe font-semibold uppercase tracking-wide text-[9.5px]">Parish&nbsp;</span>Santhigram St. Mary’s Orthodox Church</span></div>
+  </div>
+</div>
+<div class="director-card premium-card texture-paper rounded-2xl border border-gold/20 shadow-soft overflow-hidden reveal">
   <img src="director-dino-varghese.jpg" alt="Dino Varghese" loading="lazy" class="director-card__photo"><span class="verified-badge" title="Verified director"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg><span data-en="Verified" data-ml="പരിശോധിച്ചു">Verified</span></span>
   <div class="p-4 sm:p-5">
     <div class="font-sans text-[9.5px] tracking-[0.16em] uppercase text-taupe font-semibold mb-1.5">Kandanad East Diocesan Coordinator</div>
@@ -547,6 +555,14 @@ header{margin-top:0!important;top:0!important}
     <div class="font-sans text-[9.5px] tracking-[0.16em] uppercase text-taupe font-semibold mb-1.5">Kandanad West Diocesan Coordinator</div>
     <h4 class="font-serif font-normal text-[16px] sm:text-[17px] text-ink dark:text-ivory mb-2.5 leading-snug">Sneha Joshy</h4>
     <div class="flex flex-col gap-0.5 font-sans text-[10.5px] text-body/55 dark:text-ivory/45 leading-[1.5]"><span><span class="text-taupe font-semibold uppercase tracking-wide text-[9.5px]">Parish&nbsp;</span>Valamboor St. Mary’s Orthodox Church</span></div>
+  </div>
+</div>
+<div class="director-card premium-card texture-paper rounded-2xl border border-gold/20 shadow-soft overflow-hidden reveal">
+  <div class="director-card__photo director-card__photo--empty" aria-hidden="true"></div><span class="verified-badge" title="Verified director"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg><span data-en="Verified" data-ml="പരിശോധിച്ചു">Verified</span></span>
+  <div class="p-4 sm:p-5">
+    <div class="font-sans text-[9.5px] tracking-[0.16em] uppercase text-taupe font-semibold mb-1.5">Kochi Diocesan Coordinator</div>
+    <h4 class="font-serif font-normal text-[16px] sm:text-[17px] text-ink dark:text-ivory mb-2.5 leading-snug">Abith Biju</h4>
+    <div class="flex flex-col gap-0.5 font-sans text-[10.5px] text-body/55 dark:text-ivory/45 leading-[1.5]"><span><span class="text-taupe font-semibold uppercase tracking-wide text-[9.5px]">Parish&nbsp;</span>Pengamuck St. Peter’s and St. Paul’s Orthodox Church</span></div>
   </div>
 </div>
 <div class="director-card premium-card texture-paper rounded-2xl border border-gold/20 shadow-soft overflow-hidden reveal">
@@ -590,11 +606,11 @@ header{margin-top:0!important;top:0!important}
   </div>
 </div>
 <div class="director-card premium-card texture-paper rounded-2xl border border-gold/20 shadow-soft overflow-hidden reveal">
-  <img src="director-joshua-jose.jpg" alt="Joshua Jose" loading="lazy" class="director-card__photo"><span class="verified-badge" title="Verified director"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg><span data-en="Verified" data-ml="പരിശോധിച്ചു">Verified</span></span>
+  <div class="director-card__photo director-card__photo--empty" aria-hidden="true"></div><span class="verified-badge" title="Verified director"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg><span data-en="Verified" data-ml="പരിശോധിച്ചു">Verified</span></span>
   <div class="p-4 sm:p-5">
     <div class="font-sans text-[9.5px] tracking-[0.16em] uppercase text-taupe font-semibold mb-1.5">Niranam Diocesan Coordinator</div>
-    <h4 class="font-serif font-normal text-[16px] sm:text-[17px] text-ink dark:text-ivory mb-2.5 leading-snug">Joshua Jose</h4>
-    <div class="flex flex-col gap-0.5 font-sans text-[10.5px] text-body/55 dark:text-ivory/45 leading-[1.5]"><span><span class="text-taupe font-semibold uppercase tracking-wide text-[9.5px]">Parish&nbsp;</span>Melpadom St. Kuriakose Orthodox Church</span></div>
+    <h4 class="font-serif font-normal text-[16px] sm:text-[17px] text-ink dark:text-ivory mb-2.5 leading-snug">Aswathy Thomas</h4>
+    <div class="flex flex-col gap-0.5 font-sans text-[10.5px] text-body/55 dark:text-ivory/45 leading-[1.5]"><span><span class="text-taupe font-semibold uppercase tracking-wide text-[9.5px]">Parish&nbsp;</span>Vengal Bethany St. George Orthodox Church</span></div>
   </div>
 </div>
 <div class="director-card premium-card texture-paper rounded-2xl border border-gold/20 shadow-soft overflow-hidden reveal">
@@ -638,11 +654,11 @@ header{margin-top:0!important;top:0!important}
   </div>
 </div>
 <div class="director-card premium-card texture-paper rounded-2xl border border-gold/20 shadow-soft overflow-hidden reveal">
-  <img src="director-geo-george.jpg" alt="Geo George" loading="lazy" class="director-card__photo"><span class="verified-badge" title="Verified director"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg><span data-en="Verified" data-ml="പരിശോധിച്ചു">Verified</span></span>
+  <div class="director-card__photo director-card__photo--empty" aria-hidden="true"></div><span class="verified-badge" title="Verified director"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg><span data-en="Verified" data-ml="പരിശോധിച്ചു">Verified</span></span>
   <div class="p-4 sm:p-5">
     <div class="font-sans text-[9.5px] tracking-[0.16em] uppercase text-taupe font-semibold mb-1.5">UK–Europe–Africa Diocesan Coordinator</div>
-    <h4 class="font-serif font-normal text-[16px] sm:text-[17px] text-ink dark:text-ivory mb-2.5 leading-snug">Geo George</h4>
-    <div class="flex flex-col gap-0.5 font-sans text-[10.5px] text-body/55 dark:text-ivory/45 leading-[1.5]"><span><span class="text-taupe font-semibold uppercase tracking-wide text-[9.5px]">Home Parish&nbsp;</span>Kulakkada St. George Orthodox Church</span><span><span class="text-taupe font-semibold uppercase tracking-wide text-[9.5px]">Parish&nbsp;</span>Manchester St. George Orthodox Church</span></div>
+    <h4 class="font-serif font-normal text-[16px] sm:text-[17px] text-ink dark:text-ivory mb-2.5 leading-snug">Manu John</h4>
+    <div class="flex flex-col gap-0.5 font-sans text-[10.5px] text-body/55 dark:text-ivory/45 leading-[1.5]"><span><span class="text-taupe font-semibold uppercase tracking-wide text-[9.5px]">Home Parish&nbsp;</span>Chennai-Broadway St. Thomas Orthodox Cathedral</span><span><span class="text-taupe font-semibold uppercase tracking-wide text-[9.5px]">Parish&nbsp;</span>Leuven St. James the Apostle Orthodox Congregation</span></div>
   </div>
 </div>
   </div>
@@ -710,7 +726,7 @@ header{margin-top:0!important;top:0!important}
   <div class="p-4 sm:p-5">
     <div class="font-sans text-[9.5px] tracking-[0.16em] uppercase text-taupe font-semibold mb-1.5">Central Canada Zonal Coordinator</div>
     <h4 class="font-serif font-normal text-[16px] sm:text-[17px] text-ink dark:text-ivory mb-2.5 leading-snug">Feby Sam Baby</h4>
-    <div class="flex flex-col gap-0.5 font-sans text-[10.5px] text-body/55 dark:text-ivory/45 leading-[1.5]"><span><span class="text-taupe font-semibold uppercase tracking-wide text-[9.5px]">Diocese&nbsp;</span>Canada</span><span><span class="text-taupe font-semibold uppercase tracking-wide text-[9.5px]">Home Parish&nbsp;</span>Mundanpara St. George Orthodox Church</span><span><span class="text-taupe font-semibold uppercase tracking-wide text-[9.5px]">Parish&nbsp;</span>Kingston St. George Indian Orthodox Congregation</span></div>
+    <div class="flex flex-col gap-0.5 font-sans text-[10.5px] text-body/55 dark:text-ivory/45 leading-[1.5]"><span><span class="text-taupe font-semibold uppercase tracking-wide text-[9.5px]">Diocese&nbsp;</span>Canada</span><span><span class="text-taupe font-semibold uppercase tracking-wide text-[9.5px]">Home Parish&nbsp;</span>Mundanpara St. George Orthodox Church</span><span><span class="text-taupe font-semibold uppercase tracking-wide text-[9.5px]">Parish&nbsp;</span>Kingston St. George Orthodox Congregation</span></div>
   </div>
 </div>
 <div class="director-card premium-card texture-paper rounded-2xl border border-gold/20 shadow-soft overflow-hidden reveal">
@@ -719,6 +735,22 @@ header{margin-top:0!important;top:0!important}
     <div class="font-sans text-[9.5px] tracking-[0.16em] uppercase text-taupe font-semibold mb-1.5">Central Mavelikara Zonal Coordinator</div>
     <h4 class="font-serif font-normal text-[16px] sm:text-[17px] text-ink dark:text-ivory mb-2.5 leading-snug">Tinu Thomas</h4>
     <div class="flex flex-col gap-0.5 font-sans text-[10.5px] text-body/55 dark:text-ivory/45 leading-[1.5]"><span><span class="text-taupe font-semibold uppercase tracking-wide text-[9.5px]">Diocese&nbsp;</span>Mavelikara</span><span><span class="text-taupe font-semibold uppercase tracking-wide text-[9.5px]">Home Parish&nbsp;</span>Mavelikara-Puthiyacavu St. Mary’s Orthodox Cathedral</span><span><span class="text-taupe font-semibold uppercase tracking-wide text-[9.5px]">Parish&nbsp;</span>Thazhakara M.S. Seminary Orthodox Church</span></div>
+  </div>
+</div>
+<div class="director-card premium-card texture-paper rounded-2xl border border-gold/20 shadow-soft overflow-hidden reveal">
+  <div class="director-card__photo director-card__photo--empty" aria-hidden="true"></div><span class="verified-badge" title="Verified director"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg><span data-en="Verified" data-ml="പരിശോധിച്ചു">Verified</span></span>
+  <div class="p-4 sm:p-5">
+    <div class="font-sans text-[9.5px] tracking-[0.16em] uppercase text-taupe font-semibold mb-1.5">Central UK Zonal Coordinator</div>
+    <h4 class="font-serif font-normal text-[16px] sm:text-[17px] text-ink dark:text-ivory mb-2.5 leading-snug">Jewal Hanan Jissan</h4>
+    <div class="flex flex-col gap-0.5 font-sans text-[10.5px] text-body/55 dark:text-ivory/45 leading-[1.5]"><span><span class="text-taupe font-semibold uppercase tracking-wide text-[9.5px]">Diocese&nbsp;</span>UK–Europe–Africa</span><span><span class="text-taupe font-semibold uppercase tracking-wide text-[9.5px]">Home Parish&nbsp;</span>Muthupilakkad St. Mary’s Orthodox Church</span><span><span class="text-taupe font-semibold uppercase tracking-wide text-[9.5px]">Parish&nbsp;</span>Cambridge St. Thomas Orthodox Church</span></div>
+  </div>
+</div>
+<div class="director-card premium-card texture-paper rounded-2xl border border-gold/20 shadow-soft overflow-hidden reveal">
+  <img src="director-joshua-jose.jpg" alt="Joshua Jose" loading="lazy" class="director-card__photo"><span class="verified-badge" title="Verified director"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg><span data-en="Verified" data-ml="പരിശോധിച്ചു">Verified</span></span>
+  <div class="p-4 sm:p-5">
+    <div class="font-sans text-[9.5px] tracking-[0.16em] uppercase text-taupe font-semibold mb-1.5">Chennithala Zonal Coordinator</div>
+    <h4 class="font-serif font-normal text-[16px] sm:text-[17px] text-ink dark:text-ivory mb-2.5 leading-snug">Joshua Jose</h4>
+    <div class="flex flex-col gap-0.5 font-sans text-[10.5px] text-body/55 dark:text-ivory/45 leading-[1.5]"><span><span class="text-taupe font-semibold uppercase tracking-wide text-[9.5px]">Diocese&nbsp;</span>Niranam</span><span><span class="text-taupe font-semibold uppercase tracking-wide text-[9.5px]">Parish&nbsp;</span>Melpadom St. Kuriakose Orthodox Church</span></div>
   </div>
 </div>
 <div class="director-card premium-card texture-paper rounded-2xl border border-gold/20 shadow-soft overflow-hidden reveal">
@@ -746,6 +778,14 @@ header{margin-top:0!important;top:0!important}
   </div>
 </div>
 <div class="director-card premium-card texture-paper rounded-2xl border border-gold/20 shadow-soft overflow-hidden reveal">
+  <div class="director-card__photo director-card__photo--empty" aria-hidden="true"></div><span class="verified-badge" title="Verified director"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg><span data-en="Verified" data-ml="പരിശോധിച്ചു">Verified</span></span>
+  <div class="p-4 sm:p-5">
+    <div class="font-sans text-[9.5px] tracking-[0.16em] uppercase text-taupe font-semibold mb-1.5">Europe Zonal Coordinator</div>
+    <h4 class="font-serif font-normal text-[16px] sm:text-[17px] text-ink dark:text-ivory mb-2.5 leading-snug">Sherry Mathew Elias</h4>
+    <div class="flex flex-col gap-0.5 font-sans text-[10.5px] text-body/55 dark:text-ivory/45 leading-[1.5]"><span><span class="text-taupe font-semibold uppercase tracking-wide text-[9.5px]">Diocese&nbsp;</span>UK–Europe–Africa</span><span><span class="text-taupe font-semibold uppercase tracking-wide text-[9.5px]">Home Parish&nbsp;</span>Kumarapuram St. Thomas Orthodox Church</span><span><span class="text-taupe font-semibold uppercase tracking-wide text-[9.5px]">Parish&nbsp;</span>Cologne-Bonn St. Gregorios Orthodox Church</span></div>
+  </div>
+</div>
+<div class="director-card premium-card texture-paper rounded-2xl border border-gold/20 shadow-soft overflow-hidden reveal">
   <img src="director-kevin-mathew.jpg" alt="Kevin Mathew" loading="lazy" class="director-card__photo"><span class="verified-badge" title="Verified director"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg><span data-en="Verified" data-ml="പരിശോധിച്ചു">Verified</span></span>
   <div class="p-4 sm:p-5">
     <div class="font-sans text-[9.5px] tracking-[0.16em] uppercase text-taupe font-semibold mb-1.5">Goa Zonal Coordinator</div>
@@ -758,7 +798,7 @@ header{margin-top:0!important;top:0!important}
   <div class="p-4 sm:p-5">
     <div class="font-sans text-[9.5px] tracking-[0.16em] uppercase text-taupe font-semibold mb-1.5">Gujarat Zonal Coordinator</div>
     <h4 class="font-serif font-normal text-[16px] sm:text-[17px] text-ink dark:text-ivory mb-2.5 leading-snug">Tijin Titus</h4>
-    <div class="flex flex-col gap-0.5 font-sans text-[10.5px] text-body/55 dark:text-ivory/45 leading-[1.5]"><span><span class="text-taupe font-semibold uppercase tracking-wide text-[9.5px]">Diocese&nbsp;</span>Ahmedabad</span><span><span class="text-taupe font-semibold uppercase tracking-wide text-[9.5px]">Home Parish&nbsp;</span>Chennamkary St. Thomas Orthodox Church</span><span><span class="text-taupe font-semibold uppercase tracking-wide text-[9.5px]">Parish&nbsp;</span>Gandhidham St. Stephen’s Malankara Orthodox Church</span></div>
+    <div class="flex flex-col gap-0.5 font-sans text-[10.5px] text-body/55 dark:text-ivory/45 leading-[1.5]"><span><span class="text-taupe font-semibold uppercase tracking-wide text-[9.5px]">Diocese&nbsp;</span>Ahmedabad</span><span><span class="text-taupe font-semibold uppercase tracking-wide text-[9.5px]">Home Parish&nbsp;</span>Chennamkary St. Thomas Orthodox Church</span><span><span class="text-taupe font-semibold uppercase tracking-wide text-[9.5px]">Parish&nbsp;</span>Gandhidham St. Stephen’s Orthodox Church</span></div>
   </div>
 </div>
 <div class="director-card premium-card texture-paper rounded-2xl border border-gold/20 shadow-soft overflow-hidden reveal">
@@ -766,7 +806,7 @@ header{margin-top:0!important;top:0!important}
   <div class="p-4 sm:p-5">
     <div class="font-sans text-[9.5px] tracking-[0.16em] uppercase text-taupe font-semibold mb-1.5">Haryana Zonal Coordinator</div>
     <h4 class="font-serif font-normal text-[16px] sm:text-[17px] text-ink dark:text-ivory mb-2.5 leading-snug">Meewa Sony</h4>
-    <div class="flex flex-col gap-0.5 font-sans text-[10.5px] text-body/55 dark:text-ivory/45 leading-[1.5]"><span><span class="text-taupe font-semibold uppercase tracking-wide text-[9.5px]">Diocese&nbsp;</span>Delhi</span><span><span class="text-taupe font-semibold uppercase tracking-wide text-[9.5px]">Parish&nbsp;</span>Gurgaon St. Gregorios Malankara Orthodox Church</span></div>
+    <div class="flex flex-col gap-0.5 font-sans text-[10.5px] text-body/55 dark:text-ivory/45 leading-[1.5]"><span><span class="text-taupe font-semibold uppercase tracking-wide text-[9.5px]">Diocese&nbsp;</span>Delhi</span><span><span class="text-taupe font-semibold uppercase tracking-wide text-[9.5px]">Parish&nbsp;</span>Gurgaon St. Gregorios Orthodox Church</span></div>
   </div>
 </div>
 <div class="director-card premium-card texture-paper rounded-2xl border border-gold/20 shadow-soft overflow-hidden reveal">
@@ -794,6 +834,14 @@ header{margin-top:0!important;top:0!important}
   </div>
 </div>
 <div class="director-card premium-card texture-paper rounded-2xl border border-gold/20 shadow-soft overflow-hidden reveal">
+  <div class="director-card__photo director-card__photo--empty" aria-hidden="true"></div><span class="verified-badge" title="Verified director"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg><span data-en="Verified" data-ml="പരിശോധിച്ചു">Verified</span></span>
+  <div class="p-4 sm:p-5">
+    <div class="font-sans text-[9.5px] tracking-[0.16em] uppercase text-taupe font-semibold mb-1.5">Long Island Zonal Coordinator</div>
+    <h4 class="font-serif font-normal text-[16px] sm:text-[17px] text-ink dark:text-ivory mb-2.5 leading-snug">Ethan Koottumatha</h4>
+    <div class="flex flex-col gap-0.5 font-sans text-[10.5px] text-body/55 dark:text-ivory/45 leading-[1.5]"><span><span class="text-taupe font-semibold uppercase tracking-wide text-[9.5px]">Diocese&nbsp;</span>Northeast America</span><span><span class="text-taupe font-semibold uppercase tracking-wide text-[9.5px]">Parish&nbsp;</span>Franklin Square St. Basil Orthodox Church</span></div>
+  </div>
+</div>
+<div class="director-card premium-card texture-paper rounded-2xl border border-gold/20 shadow-soft overflow-hidden reveal">
   <img src="director-angel-binoy.jpg" alt="Angel Binoy" loading="lazy" class="director-card__photo"><span class="verified-badge" title="Verified director"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg><span data-en="Verified" data-ml="പരിശോധിച്ചു">Verified</span></span>
   <div class="p-4 sm:p-5">
     <div class="font-sans text-[9.5px] tracking-[0.16em] uppercase text-taupe font-semibold mb-1.5">Madhya Pradesh Zonal Coordinator</div>
@@ -810,6 +858,14 @@ header{margin-top:0!important;top:0!important}
   </div>
 </div>
 <div class="director-card premium-card texture-paper rounded-2xl border border-gold/20 shadow-soft overflow-hidden reveal">
+  <div class="director-card__photo director-card__photo--empty" aria-hidden="true"></div><span class="verified-badge" title="Verified director"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg><span data-en="Verified" data-ml="പരിശോധിച്ചു">Verified</span></span>
+  <div class="p-4 sm:p-5">
+    <div class="font-sans text-[9.5px] tracking-[0.16em] uppercase text-taupe font-semibold mb-1.5">Mamalassery Zonal Coordinator</div>
+    <h4 class="font-serif font-normal text-[16px] sm:text-[17px] text-ink dark:text-ivory mb-2.5 leading-snug">Abshaalom Thomas Vadakkanedath</h4>
+    <div class="flex flex-col gap-0.5 font-sans text-[10.5px] text-body/55 dark:text-ivory/45 leading-[1.5]"><span><span class="text-taupe font-semibold uppercase tracking-wide text-[9.5px]">Diocese&nbsp;</span>Kandanad East</span><span><span class="text-taupe font-semibold uppercase tracking-wide text-[9.5px]">Parish&nbsp;</span>Vettithara St. Michael Orthodox Church</span></div>
+  </div>
+</div>
+<div class="director-card premium-card texture-paper rounded-2xl border border-gold/20 shadow-soft overflow-hidden reveal">
   <img src="director-jayden-gejo.jpg" alt="Jayden Gejo" loading="lazy" class="director-card__photo"><span class="verified-badge" title="Verified director"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg><span data-en="Verified" data-ml="പരിശോധിച്ചു">Verified</span></span>
   <div class="p-4 sm:p-5">
     <div class="font-sans text-[9.5px] tracking-[0.16em] uppercase text-taupe font-semibold mb-1.5">Melbourne Zonal Coordinator</div>
@@ -823,6 +879,14 @@ header{margin-top:0!important;top:0!important}
     <div class="font-sans text-[9.5px] tracking-[0.16em] uppercase text-taupe font-semibold mb-1.5">Midwest America Zonal Coordinator</div>
     <h4 class="font-serif font-normal text-[16px] sm:text-[17px] text-ink dark:text-ivory mb-2.5 leading-snug">Ashita Mary Abraham</h4>
     <div class="flex flex-col gap-0.5 font-sans text-[10.5px] text-body/55 dark:text-ivory/45 leading-[1.5]"><span><span class="text-taupe font-semibold uppercase tracking-wide text-[9.5px]">Home Parish&nbsp;</span>Mavelikara-Puthiyacavu St. Mary’s Orthodox Cathedral</span><span><span class="text-taupe font-semibold uppercase tracking-wide text-[9.5px]">Parish&nbsp;</span>Omaha, Nebraska</span></div>
+  </div>
+</div>
+<div class="director-card premium-card texture-paper rounded-2xl border border-gold/20 shadow-soft overflow-hidden reveal">
+  <div class="director-card__photo director-card__photo--empty" aria-hidden="true"></div><span class="verified-badge" title="Verified director"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg><span data-en="Verified" data-ml="പരിശോധിച്ചു">Verified</span></span>
+  <div class="p-4 sm:p-5">
+    <div class="font-sans text-[9.5px] tracking-[0.16em] uppercase text-taupe font-semibold mb-1.5">Nettithozhu Zonal Coordinator</div>
+    <h4 class="font-serif font-normal text-[16px] sm:text-[17px] text-ink dark:text-ivory mb-2.5 leading-snug">Josan Joseph</h4>
+    <div class="flex flex-col gap-0.5 font-sans text-[10.5px] text-body/55 dark:text-ivory/45 leading-[1.5]"><span><span class="text-taupe font-semibold uppercase tracking-wide text-[9.5px]">Diocese&nbsp;</span>Idukki</span><span><span class="text-taupe font-semibold uppercase tracking-wide text-[9.5px]">Parish&nbsp;</span>Mundiyeruma St. Mary’s Orthodox Church</span></div>
   </div>
 </div>
 <div class="director-card premium-card texture-paper rounded-2xl border border-gold/20 shadow-soft overflow-hidden reveal">
@@ -858,6 +922,14 @@ header{margin-top:0!important;top:0!important}
   </div>
 </div>
 <div class="director-card premium-card texture-paper rounded-2xl border border-gold/20 shadow-soft overflow-hidden reveal">
+  <div class="director-card__photo director-card__photo--empty" aria-hidden="true"></div><span class="verified-badge" title="Verified director"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg><span data-en="Verified" data-ml="പരിശോധിച്ചു">Verified</span></span>
+  <div class="p-4 sm:p-5">
+    <div class="font-sans text-[9.5px] tracking-[0.16em] uppercase text-taupe font-semibold mb-1.5">Riyadh (Saudi) Zonal Coordinator</div>
+    <h4 class="font-serif font-normal text-[16px] sm:text-[17px] text-ink dark:text-ivory mb-2.5 leading-snug">Mathew Rekhesh</h4>
+    <div class="flex flex-col gap-0.5 font-sans text-[10.5px] text-body/55 dark:text-ivory/45 leading-[1.5]"><span><span class="text-taupe font-semibold uppercase tracking-wide text-[9.5px]">Diocese&nbsp;</span>Thrissur</span><span><span class="text-taupe font-semibold uppercase tracking-wide text-[9.5px]">Parish&nbsp;</span>Riyadh St. Mary’s Orthodox Prayer Group</span></div>
+  </div>
+</div>
+<div class="director-card premium-card texture-paper rounded-2xl border border-gold/20 shadow-soft overflow-hidden reveal">
   <img src="director-nithin-saiman.jpg" alt="Nithin Saiman" loading="lazy" class="director-card__photo"><span class="verified-badge" title="Verified director"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg><span data-en="Verified" data-ml="പരിശോധിച്ചു">Verified</span></span>
   <div class="p-4 sm:p-5">
     <div class="font-sans text-[9.5px] tracking-[0.16em] uppercase text-taupe font-semibold mb-1.5">South Canara Zonal Coordinator</div>
@@ -866,11 +938,19 @@ header{margin-top:0!important;top:0!important}
   </div>
 </div>
 <div class="director-card premium-card texture-paper rounded-2xl border border-gold/20 shadow-soft overflow-hidden reveal">
+  <div class="director-card__photo director-card__photo--empty" aria-hidden="true"></div><span class="verified-badge" title="Verified director"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg><span data-en="Verified" data-ml="പരിശോധിച്ചു">Verified</span></span>
+  <div class="p-4 sm:p-5">
+    <div class="font-sans text-[9.5px] tracking-[0.16em] uppercase text-taupe font-semibold mb-1.5">South UK Zonal Coordinator</div>
+    <h4 class="font-serif font-normal text-[16px] sm:text-[17px] text-ink dark:text-ivory mb-2.5 leading-snug">Manoj Manapurathu Varkey</h4>
+    <div class="flex flex-col gap-0.5 font-sans text-[10.5px] text-body/55 dark:text-ivory/45 leading-[1.5]"><span><span class="text-taupe font-semibold uppercase tracking-wide text-[9.5px]">Diocese&nbsp;</span>UK–Europe–Africa</span><span><span class="text-taupe font-semibold uppercase tracking-wide text-[9.5px]">Home Parish&nbsp;</span>Pulikeezhu St. Mary’s Orthodox Church</span><span><span class="text-taupe font-semibold uppercase tracking-wide text-[9.5px]">Parish&nbsp;</span>Plymouth St. Elias Orthodox Congregation</span></div>
+  </div>
+</div>
+<div class="director-card premium-card texture-paper rounded-2xl border border-gold/20 shadow-soft overflow-hidden reveal">
   <img src="director-ethan-abraham.jpg" alt="Ethan Abraham" loading="lazy" class="director-card__photo"><span class="verified-badge" title="Verified director"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg><span data-en="Verified" data-ml="പരിശോധിച്ചു">Verified</span></span>
   <div class="p-4 sm:p-5">
     <div class="font-sans text-[9.5px] tracking-[0.16em] uppercase text-taupe font-semibold mb-1.5">Southeast America Zonal Coordinator</div>
     <h4 class="font-serif font-normal text-[16px] sm:text-[17px] text-ink dark:text-ivory mb-2.5 leading-snug">Ethan Abraham</h4>
-    <div class="flex flex-col gap-0.5 font-sans text-[10.5px] text-body/55 dark:text-ivory/45 leading-[1.5]"><span><span class="text-taupe font-semibold uppercase tracking-wide text-[9.5px]">Diocese&nbsp;</span>Southwest America</span><span><span class="text-taupe font-semibold uppercase tracking-wide text-[9.5px]">Home Parish&nbsp;</span>Makkamkunnu St. Stephen’s Orthodox Cathedral</span><span><span class="text-taupe font-semibold uppercase tracking-wide text-[9.5px]">Parish&nbsp;</span>St. Gregorios Orthodox Church</span></div>
+    <div class="flex flex-col gap-0.5 font-sans text-[10.5px] text-body/55 dark:text-ivory/45 leading-[1.5]"><span><span class="text-taupe font-semibold uppercase tracking-wide text-[9.5px]">Diocese&nbsp;</span>Southwest America</span><span><span class="text-taupe font-semibold uppercase tracking-wide text-[9.5px]">Home Parish&nbsp;</span>Makkamkunnu St. Stephen’s Orthodox Cathedral</span><span><span class="text-taupe font-semibold uppercase tracking-wide text-[9.5px]">Parish&nbsp;</span>South Florida St. Gregorios Orthodox Church</span></div>
   </div>
 </div>
 <div class="director-card premium-card texture-paper rounded-2xl border border-gold/20 shadow-soft overflow-hidden reveal">
@@ -911,55 +991,11 @@ header{margin-top:0!important;top:0!important}
   </div>
   <div class="director-grid">
     <div class="director-card premium-card texture-paper rounded-2xl border border-gold/20 shadow-soft overflow-hidden reveal">
-  <img src="director-timothy-varughese.jpg" alt="Timothy Varughese" loading="lazy" class="director-card__photo"><span class="verified-badge" title="Verified director"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg><span data-en="Verified" data-ml="പരിശോധിച്ചു">Verified</span></span>
-  <div class="p-4 sm:p-5">
-    <div class="font-sans text-[9.5px] tracking-[0.16em] uppercase text-taupe font-semibold mb-1.5">Creative Director</div>
-    <h4 class="font-serif font-normal text-[16px] sm:text-[17px] text-ink dark:text-ivory mb-2.5 leading-snug">Timothy Varughese</h4>
-    <div class="flex flex-col gap-0.5 font-sans text-[10.5px] text-body/55 dark:text-ivory/45 leading-[1.5]"><span><span class="text-taupe font-semibold uppercase tracking-wide text-[9.5px]">Home Parish&nbsp;</span>Mavelikara-Puthiyacavu St. Mary’s Orthodox Cathedral</span><span><span class="text-taupe font-semibold uppercase tracking-wide text-[9.5px]">Parish&nbsp;</span>Bensalem St. Gregorios Orthodox Church</span></div>
-  </div>
-</div>
-<div class="director-card premium-card texture-paper rounded-2xl border border-gold/20 shadow-soft overflow-hidden reveal">
   <img src="director-john-abraham-james.jpg" alt="John Abraham James" loading="lazy" class="director-card__photo"><span class="verified-badge" title="Verified director"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg><span data-en="Verified" data-ml="പരിശോധിച്ചു">Verified</span></span>
   <div class="p-4 sm:p-5">
     <div class="font-sans text-[9.5px] tracking-[0.16em] uppercase text-taupe font-semibold mb-1.5">Social Media Team</div>
     <h4 class="font-serif font-normal text-[16px] sm:text-[17px] text-ink dark:text-ivory mb-2.5 leading-snug">John Abraham James</h4>
     <div class="flex flex-col gap-0.5 font-sans text-[10.5px] text-body/55 dark:text-ivory/45 leading-[1.5]"><span><span class="text-taupe font-semibold uppercase tracking-wide text-[9.5px]">Home Parish&nbsp;</span>Thottapuzha St. Gregorios Orthodox Church</span><span><span class="text-taupe font-semibold uppercase tracking-wide text-[9.5px]">Parish&nbsp;</span>Mangalore Mount Horeb Aramana Chapel</span></div>
-  </div>
-</div>
-  </div>
-</section>
-
-<div class="section-divider is-tight" aria-hidden="true"><span class="section-divider__line"></span><span class="section-divider__mark"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 3 L21 12 L12 21 L3 12 Z"/></svg></span><span class="section-divider__line"></span></div>
-
-<section class="px-5 sm:px-8 sec-tight-y max-w-6xl mx-auto" id="defence-team">
-  <div class="reveal max-w-2xl mb-8 sm:mb-10">
-    <div class="font-sans text-[10.5px] tracking-[0.2em] uppercase text-sage font-semibold mb-3">Protection</div>
-    <h2 class="font-serif font-normal text-[26px] sm:text-4xl text-ink dark:text-ivory mb-3 leading-tight">Defence Team</h2>
-    <p class="text-[15px] text-body/75 dark:text-ivory/60 leading-[1.8]">Coordinators whose diocese and parish are withheld here for their own security.</p>
-  </div>
-  <div class="director-grid">
-    <div class="director-card premium-card texture-paper rounded-2xl border border-gold/20 shadow-soft overflow-hidden reveal">
-  <img src="director-edwin-saji.jpg" alt="Edwin Saji" loading="lazy" class="director-card__photo"><span class="verified-badge" title="Verified director"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg><span data-en="Verified" data-ml="പരിശോധിച്ചു">Verified</span></span>
-  <div class="p-4 sm:p-5">
-    <div class="font-sans text-[9.5px] tracking-[0.16em] uppercase text-taupe font-semibold mb-1.5">Head of Defence</div>
-    <h4 class="font-serif font-normal text-[16px] sm:text-[17px] text-ink dark:text-ivory mb-2.5 leading-snug">Edwin Saji</h4>
-    <div class="flex flex-col gap-0.5 font-sans text-[10.5px] text-body/55 dark:text-ivory/45 leading-[1.5]"><span>Anonymous &mdash; diocese and parish withheld for security reasons</span></div>
-  </div>
-</div>
-<div class="director-card premium-card texture-paper rounded-2xl border border-gold/20 shadow-soft overflow-hidden reveal">
-  <img src="director-josh-job.jpg" alt="Josh Job" loading="lazy" class="director-card__photo"><span class="verified-badge" title="Verified director"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg><span data-en="Verified" data-ml="പരിശോധിച്ചു">Verified</span></span>
-  <div class="p-4 sm:p-5">
-    <div class="font-sans text-[9.5px] tracking-[0.16em] uppercase text-taupe font-semibold mb-1.5">Brand Protection Specialist</div>
-    <h4 class="font-serif font-normal text-[16px] sm:text-[17px] text-ink dark:text-ivory mb-2.5 leading-snug">Josh Job</h4>
-    <div class="flex flex-col gap-0.5 font-sans text-[10.5px] text-body/55 dark:text-ivory/45 leading-[1.5]"><span>Anonymous &mdash; diocese and parish withheld for security reasons</span></div>
-  </div>
-</div>
-<div class="director-card premium-card texture-paper rounded-2xl border border-gold/20 shadow-soft overflow-hidden reveal">
-  <img src="director-matthew-koshy.jpg" alt="Matthew Koshy" loading="lazy" class="director-card__photo"><span class="verified-badge" title="Verified director"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg><span data-en="Verified" data-ml="പരിശോധിച്ചു">Verified</span></span>
-  <div class="p-4 sm:p-5">
-    <div class="font-sans text-[9.5px] tracking-[0.16em] uppercase text-taupe font-semibold mb-1.5">Online Reputation Manager</div>
-    <h4 class="font-serif font-normal text-[16px] sm:text-[17px] text-ink dark:text-ivory mb-2.5 leading-snug">Matthew Koshy</h4>
-    <div class="flex flex-col gap-0.5 font-sans text-[10.5px] text-body/55 dark:text-ivory/45 leading-[1.5]"><span>Anonymous &mdash; diocese and parish withheld for security reasons</span></div>
   </div>
 </div>
   </div>
