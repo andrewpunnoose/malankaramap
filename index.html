@@ -5992,8 +5992,12 @@
       return list
     }
 
+    // Folds case, accents, dashes, curly apostrophes and non-breaking spaces so
+    // "Durban Indian" finds "Durban\u00a0Indian" and "Mary's" finds "Mary\u2019s".
     function norm(x) {
-      return String(x || "").toLowerCase().replace(/[\u2013\u2014]/g, "-")
+      return String(x || "").normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase()
+        .replace(/[\u2013\u2014]/g, "-").replace(/[\u2018\u2019\u02bc]/g, "'")
+        .replace(/\u00a0/g, " ").replace(/\s+/g, " ")
     }
 
     function escapeHtml(s) {
@@ -6012,7 +6016,7 @@
       var all = buildFullIndex(),
         q = norm(query.trim()),
         matches = q ? all.filter(function(item) {
-          return item.page ? -1 !== item.hay.indexOf(q) : -1 !== norm(item.name).indexOf(q)
+          return item.page ? -1 !== norm(item.hay).indexOf(q) : -1 !== norm(item.name).indexOf(q)
         }) : all;
       queryText.textContent = query, countText.textContent = matches.length + (1 === matches.length ? " match" : " matches"), listEl.innerHTML = "", matches.forEach(function(item) {
         var a = document.createElement("a");
@@ -6203,8 +6207,12 @@
       // same file the search on all the other pages reads, so the homepage
       // search finds them too.
       var pagesReq = fetch("site-search-index.json").then(function(r){ return r.ok ? r.json() : []; }).catch(function(){ return []; });
+      // Places that have no pin of their own (or whose pin is merged with neighbours);
+      // they link to their diocese page. Kept out of malankara.json on purpose.
+      var extrasReq = fetch("search-extras.json").then(function(r){ return r.ok ? r.json() : []; }).catch(function(){ return []; });
       fetch("malankara.json").then(function(r){ return r.ok ? r.json() : []; }).then(function(list){
-        return pagesReq.then(function(pages){
+        return Promise.all([pagesReq, extrasReq]).then(function(res){
+          var pages = res[0], extras = res[1];
           window.__mmPages = (pages || []).filter(function(p){ return p && p.url && p.title; }).map(function(p){
             var isStudy = /^stud(ies|y-)/.test(p.url),
               nm = p.title.replace(/\s+\u2014\s+Studies$/, "");
@@ -6214,9 +6222,13 @@
               hay: (p.title + " " + (p.description || "") + (isStudy ? " studies" : "")).toLowerCase().replace(/[\u2013\u2014]/g, "-")
             };
           });
+          // Wayside shrines are not listed on the diocese pages, so they link to the shrines page.
           places = (list || []).map(function(p){
-            return { name: p.n, tag: (p.d || "") + " Diocese", href: slugifyDiocese(p.d) };
-          });
+            var shrine = /shrine/i.test(p.n || "");
+            return { name: p.n, tag: shrine ? "Wayside Shrine \u00b7 " + (p.d || "") + " Diocese" : (p.d || "") + " Diocese", href: shrine ? "type-shrines" : slugifyDiocese(p.d) };
+          }).concat((extras || []).map(function(e){
+            return { name: e.n, tag: e.t || "", href: e.u };
+          }));
           placesLoading = false;
           window.__mmPlaces = places;
           cb();
@@ -6281,11 +6293,10 @@
     return (window.__mmPages || []).filter(function(p) { return !have[p.href] })
   }
 
+  // Results are no longer listed while typing: pressing Enter (or the arrow)
+  // opens the full results page instead.
   function u() {
-    var e = norm(t.value.trim());
-    l = -1, e ? (i = d.concat(extraPages(), places || []).filter(function(t) {
-      return t.page ? -1 !== t.hay.indexOf(e) : -1 !== norm(t.name).indexOf(e)
-    }), s(i)) : (i = [], n.innerHTML = "", c.classList.add("hidden"))
+    l = -1, i = [], n.innerHTML = "", n.classList.add("hidden"), c.classList.add("hidden")
   }
 
   function m() {

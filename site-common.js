@@ -16,10 +16,12 @@
        translates everything else via Google Translate, so the
        Malayalam button works even on pages with no manual
        translation yet.
-     - sitewide search: reads site-search-index.json (every page on
-       the site — regenerate it with generate-search-index.py after
-       adding a new page) plus malankara.json (every parish/
-       institution) and shows matching results in a simple overlay.
+     - sitewide search: a search box that, on Enter, opens the full
+       results page on the homepage (index.html?q=...). The results
+       themselves are built there from site-search-index.json (every
+       page — regenerate with generate-search-index.py), malankara.json
+       (every parish/institution pin) and search-extras.json (places
+       that have no pin of their own; they link to their diocese page).
    ==================================================================== */
 (function () {
   "use strict";
@@ -333,7 +335,7 @@
     ].filter(Boolean);
     if (!toggles.length) return;
 
-    var overlay, input, resultsEl, pagesIndex, placesIndex;
+    var overlay, input;
 
     function injectStyles() {
       if (document.getElementById("site-search-styles")) return;
@@ -361,7 +363,12 @@
         ".ssrch-thumb{flex:none;width:64px;aspect-ratio:4/3;height:auto;object-fit:cover;border-radius:8px;background:rgba(107,130,89,.15);}" +
         ".ssrch-row-text{min-width:0;flex:1;}" +
         ".ssrch-empty{padding:1.5rem .75rem;text-align:center;font-size:13px;color:rgba(0,0,0,.45);}" +
-        "html.dark .ssrch-empty{color:rgba(255,255,255,.4);}";
+        "html.dark .ssrch-empty{color:rgba(255,255,255,.4);}" +
+        ".ssrch-go{border:none;background:none;cursor:pointer;color:rgba(0,0,0,.45);padding:.25rem;display:flex;align-items:center;}" +
+        ".ssrch-go:hover{color:#6B8259;}" +
+        "html.dark .ssrch-go{color:rgba(255,255,255,.5);}" +
+        ".ssrch-hint{padding:1rem 1.1rem 1.1rem;font-size:12.5px;color:rgba(0,0,0,.45);}" +
+        "html.dark .ssrch-hint{color:rgba(255,255,255,.4);}";
       var style = document.createElement("style");
       style.id = "site-search-styles";
       style.textContent = css;
@@ -384,13 +391,13 @@
         '<div class="ssrch-input-row">' +
         '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="opacity:.45;flex-shrink:0;"><circle cx="11" cy="11" r="7"></circle><path d="M21 21l-4.3-4.3"></path></svg>' +
         '<input class="ssrch-input" type="text" placeholder="Search the whole site\u2026" autocomplete="off">' +
+        '<button type="button" class="ssrch-go" aria-label="View all results" title="View all results (Enter)"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></button>' +
         '<button type="button" class="ssrch-close">Esc</button>' +
         "</div>" +
-        '<div class="ssrch-results"></div>' +
+        '<div class="ssrch-hint">Type what you are looking for and press Enter to see all results.</div>' +
         "</div>";
       document.body.appendChild(overlay);
       input = overlay.querySelector(".ssrch-input");
-      resultsEl = overlay.querySelector(".ssrch-results");
 
       overlay.addEventListener("click", function (e) {
         if (e.target === overlay) close();
@@ -399,125 +406,21 @@
       document.addEventListener("keydown", function (e) {
         if (e.key === "Escape" && overlay && !overlay.classList.contains("hidden")) close();
       });
-      var debounce;
-      input.addEventListener("input", function () {
-        clearTimeout(debounce);
-        debounce = setTimeout(function () {
-          runSearch(input.value);
-        }, 120);
+      // No results appear while typing: pressing Enter (or the arrow)
+      // opens the full results page, the same one the homepage search uses.
+      input.addEventListener("keydown", function (e) {
+        if (e.key === "Enter") {
+          e.preventDefault();
+          goSearch();
+        }
       });
+      overlay.querySelector(".ssrch-go").addEventListener("click", goSearch);
     }
 
-    function loadData(cb) {
-      if (pagesIndex && placesIndex) {
-        cb();
-        return;
-      }
-      var remaining = 2;
-      function done() {
-        remaining--;
-        if (remaining === 0) cb();
-      }
-      fetch("site-search-index.json")
-        .then(function (r) {
-          return r.ok ? r.json() : [];
-        })
-        .then(function (d) {
-          pagesIndex = d || [];
-          done();
-        })
-        .catch(function () {
-          pagesIndex = [];
-          done();
-        });
-      fetch("malankara.json")
-        .then(function (r) {
-          return r.ok ? r.json() : [];
-        })
-        .then(function (d) {
-          placesIndex = d || [];
-          done();
-        })
-        .catch(function () {
-          placesIndex = [];
-          done();
-        });
-    }
-
-    function slugifyDiocese(d) {
-      return String(d || "")
-        .toLowerCase()
-        .replace(/[^a-z0-9]+/g, "-")
-        .replace(/^-+|-+$/g, "");
-    }
-
-    function emptyState() {
-      resultsEl.innerHTML =
-        '<div class="ssrch-empty">Start typing to search dioceses, parishes, institutions, clergy, directors, studies, statistics, saints, martyrs, and every other page on the site.</div>';
-    }
-
-    // Lower-cases and treats en/em dashes as plain hyphens, so typing
-    // "kottarakkara-punalur" still finds a page titled "Kottarakkara–Punalur".
-    function norm(x) {
-      return String(x || "").toLowerCase().replace(/[\u2013\u2014]/g, "-");
-    }
-
-    function runSearch(q) {
-      q = norm((q || "").trim());
-      if (!q) {
-        emptyState();
-        return;
-      }
-      var pageMatches = (pagesIndex || [])
-        .filter(function (p) {
-          return (p.title && norm(p.title).indexOf(q) !== -1) || (p.description && norm(p.description).indexOf(q) !== -1);
-        })
-        .slice(0, 8);
-      var placeMatches = (placesIndex || [])
-        .filter(function (p) {
-          return (p.n && norm(p.n).indexOf(q) !== -1) || (p.d && norm(p.d).indexOf(q) !== -1);
-        })
-        .slice(0, 8);
-
-      if (!pageMatches.length && !placeMatches.length) {
-        resultsEl.innerHTML = '<div class="ssrch-empty">No matches for \u201c' + escapeHtml(q) + '.\u201d</div>';
-        return;
-      }
-
-      var html = "";
-      if (pageMatches.length) {
-        html += '<div class="ssrch-group-label">Pages</div>';
-        pageMatches.forEach(function (p) {
-          var text =
-            '<div class="ssrch-row-title">' +
-            escapeHtml(p.title) +
-            "</div>" +
-            (p.description ? '<div class="ssrch-row-sub">' + escapeHtml(p.description) + "</div>" : "");
-          html += p.image
-            ? '<a class="ssrch-row has-thumb" href="' +
-              escapeHtml(p.url) +
-              '"><img class="ssrch-thumb" src="' +
-              escapeHtml(p.image) +
-              '" alt="" loading="lazy" decoding="async"><div class="ssrch-row-text">' +
-              text +
-              "</div></a>"
-            : '<a class="ssrch-row" href="' + escapeHtml(p.url) + '">' + text + "</a>";
-        });
-      }
-      if (placeMatches.length) {
-        html += '<div class="ssrch-group-label">Parishes &amp; Institutions</div>';
-        placeMatches.forEach(function (p) {
-          html +=
-            '<a class="ssrch-row" href="' +
-            escapeHtml(slugifyDiocese(p.d)) +
-            '"><div class="ssrch-row-title">' +
-            escapeHtml(p.n) +
-            '</div><div class="ssrch-row-sub">' +
-            escapeHtml(p.d || "") +
-            " Diocese</div></a>";
-        });
-      }
-      resultsEl.innerHTML = html;
+    function goSearch() {
+      var q = (input.value || "").trim();
+      if (!q) return;
+      window.location.href = "index.html?q=" + encodeURIComponent(q);
     }
 
     function open() {
@@ -525,8 +428,6 @@
       buildOverlay();
       overlay.classList.remove("hidden");
       input.value = "";
-      emptyState();
-      loadData(function () {});
       setTimeout(function () {
         input.focus();
       }, 30);
