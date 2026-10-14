@@ -5731,19 +5731,14 @@
 
 /* 1. One spacing rhythm (one gap between sections, set by the section below); drop the repeated diamond dividers */
 .section-divider{display:none!important}
-#globe,#tools,#numbers,#timeline,#clergy,#legend,.url-wrap{padding-top:var(--r-sec)!important;padding-bottom:0!important}
+#tools,#numbers,#clergy,#legend,.url-wrap{padding-top:var(--r-sec)!important;padding-bottom:0!important}
 #colors{padding-top:24px!important;padding-bottom:0!important}
 .kmap-sec{padding-top:24px!important;padding-bottom:0!important}
 .url-wrap{padding-bottom:var(--r-sec)!important}
-#globe{padding-bottom:var(--r-sec)!important}
 @media(min-width:1024px){
-  #globe,#tools,#numbers,#timeline,#clergy,#legend,.url-wrap{padding-top:var(--r-sec-lg)!important}
+  #tools,#numbers,#clergy,#legend,.url-wrap{padding-top:var(--r-sec-lg)!important}
   .url-wrap{padding-bottom:var(--r-sec-lg)!important}
-  #globe{padding-bottom:var(--r-sec-lg)!important}
 }
-#timeline.timeline-pad-t{padding-top:var(--r-sec)!important}
-#globe>div.relative{padding-top:0!important;padding-bottom:0!important}
-.globe-pad-b{padding-bottom:0!important}
 /* section headers: title on top, one-line description under it */
 #mainContent section .reveal.flex.sm\:items-end.sm\:justify-between{flex-direction:column!important;align-items:flex-start!important;justify-content:flex-start!important;gap:8px!important;margin-bottom:28px!important}
 
@@ -5764,9 +5759,9 @@
 #map>p{margin:12px auto 0!important;max-width:none!important;font-size:12.5px!important}
 
 /* 4. Type scale: headings, body, and small labels */
-#globe h2,#numbers h2,#timeline h2,#clergy h2,#legend h2,#colors h2,.kmap-sec h2,.url-wrap h2,
-#globe h3,#tools h3,#legend h3,#colors h3,.kmap-sec h3{font-style:normal!important;font-weight:400!important;letter-spacing:-.01em}
-#globe h2,#numbers h2,#timeline h2,#clergy h2,#legend h2,#colors h2,.kmap-sec h2,.url-wrap h2{font-size:clamp(28px,3.4vw,40px)!important;line-height:1.12!important;margin-bottom:12px!important}
+#numbers h2,#clergy h2,#legend h2,#colors h2,.kmap-sec h2,.url-wrap h2,
+#tools h3,#legend h3,#colors h3,.kmap-sec h3{font-style:normal!important;font-weight:400!important;letter-spacing:-.01em}
+#numbers h2,#clergy h2,#legend h2,#colors h2,.kmap-sec h2,.url-wrap h2,.tls-head h2{font-size:clamp(28px,3.4vw,40px)!important;line-height:1.12!important;margin-bottom:12px!important}
 #tools h3{font-size:24px!important;line-height:1.2!important;margin-bottom:12px!important}
 .globe-teaser h3{font-size:19px!important}
 
@@ -5788,11 +5783,6 @@
 #tools .tool-card>div:first-child{margin-bottom:10px!important}
 #tools button,#tools a.btn,#tools [type=submit]{text-transform:none!important;letter-spacing:0!important;font-size:15px!important}
 
-/* 6. Globe: smaller, sits as a quiet band after the numbers */
-#globe .reveal.max-w-xl{margin-bottom:28px!important;max-width:40rem!important}
-#globe .globe-split-gap{gap:32px!important}
-#globe .relative.mx-auto.w-full{max-width:380px!important}
-
 /* 7. Numbers */
 #numbers .reveal.flex{margin-bottom:24px!important}
 #numbers .count-num{font-size:34px!important;line-height:1.1}
@@ -5808,6 +5798,77 @@
 /* 9. Accordion toggles: calmer */
 .acc-toggle{padding:10px 16px!important}
 .acc-body.is-open{margin-top:20px}
+</style>
+<style id="tl-scroll">
+/* ===== Hero search ===== */
+.hero-search{margin:30px auto 0;max-width:34rem;text-align:left}
+.hero-search form{display:flex;flex-direction:column;gap:10px}
+@media(min-width:560px){.hero-search form{flex-direction:row;align-items:center}}
+.hero-search input{flex:1;min-width:0;font-size:16px;line-height:1.2;padding:14px 20px;border-radius:999px;border:1px solid rgb(219,225,210);background:rgb(247,245,238);color:rgb(16,20,13);outline:none;transition:border-color .2s,box-shadow .2s}
+.hero-search input::placeholder{color:rgb(150,158,140)}
+.hero-search input:focus{border-color:rgb(107,130,89);box-shadow:0 0 0 3px rgba(107,130,89,.18)}
+.hero-search button[type=submit]{font-size:15px;font-weight:600;padding:14px 26px;border-radius:999px;background:rgb(107,130,89);color:#fff;border:0;cursor:pointer;white-space:nowrap;transition:background .2s}
+.hero-search button[type=submit]:hover{background:rgb(74,93,61)}
+.hero-search .hero-locate{display:block;margin:12px auto 0;background:none;border:0;cursor:pointer;font-size:14px;color:rgb(74,93,61);text-decoration:underline;text-underline-offset:4px;text-decoration-color:rgba(107,130,89,.45)}
+.hero-search .hero-locate:hover{color:rgb(16,20,13)}
+.hero-results{margin-top:18px;text-align:left;border-top:1px solid rgb(219,225,210);padding-top:14px}
+.hero-results[hidden]{display:none}
+.hero-results .hero-status{font-size:14px;color:rgb(51,58,45);opacity:.75;min-height:1.2em}
+.hero-results .hero-clear{float:right;background:none;border:0;cursor:pointer;font-size:13px;color:rgb(124,106,74);text-decoration:underline;text-underline-offset:3px}
+html.dark .hero-search input{background:rgb(17,24,39);color:rgb(247,245,238);border-color:rgba(255,255,255,.15)}
+html.dark .hero-search .hero-locate{color:rgb(107,130,89)}
+html.dark .hero-results{border-color:rgba(255,255,255,.12)}
+html.dark .hero-results .hero-status{color:rgb(247,245,238)}
+
+/* ===== Scroll-linked timeline with globe ===== */
+.tls{position:relative;padding-top:var(--r-sec)!important;padding-bottom:0!important}
+.tls-head{max-width:72rem;margin:0 auto;padding:0 20px 28px;position:relative}
+@media(min-width:640px){.tls-head{padding-left:32px;padding-right:32px}}
+.tls-head h2{margin-bottom:10px!important}
+.tls-head p.tls-sub{max-width:40rem}
+.tls-skip{position:absolute;right:20px;top:6px;font-size:14px;color:rgb(74,93,61);text-decoration:underline;text-underline-offset:4px;text-decoration-color:rgba(107,130,89,.45)}
+@media(min-width:640px){.tls-skip{right:32px}}
+html.dark .tls-skip{color:rgb(107,130,89)}
+.tls-runway{position:relative}
+.tls--on .tls-stage{position:sticky;top:0;height:100vh;height:100svh;display:flex;flex-direction:column;justify-content:center;overflow:hidden}
+.tls-inner{width:100%;max-width:72rem;margin:0 auto;padding:0 20px;display:grid;grid-template-columns:minmax(0,1fr);gap:18px}
+@media(min-width:640px){.tls-inner{padding:0 32px}}
+.tls-globe{order:-1;display:flex;justify-content:center}
+.tls-globe>.relative{width:100%;max-width:min(100%,38svh,360px)!important;margin:0 auto}
+@media(min-width:1024px){
+  .tls-inner{grid-template-columns:minmax(0,1.02fr) minmax(0,1fr);align-items:center;gap:56px}
+  .tls-globe{order:0}
+  .tls-globe>.relative{max-width:min(100%,64svh,540px)!important}
+}
+.tls-year{font-family:Marcellus,Georgia,serif;font-size:clamp(52px,8.5vw,104px);line-height:1;letter-spacing:-.03em;color:rgb(16,20,13);margin:0 0 10px}
+.tls-place{display:inline-flex;align-items:center;gap:7px;font-size:14px;color:rgb(124,106,74);margin-bottom:14px;min-height:20px;visibility:hidden}
+.tls-place.is-on{visibility:visible}
+.tls-place svg{width:14px;height:14px;flex:none}
+.tls-ledger-vp{position:relative;height:clamp(190px,30svh,260px);overflow:hidden;-webkit-mask-image:linear-gradient(to bottom,transparent 0,#000 42%);mask-image:linear-gradient(to bottom,transparent 0,#000 42%)}
+@media(min-width:1024px){.tls-ledger-vp{height:clamp(240px,40svh,380px)}}
+.tls-ledger{list-style:none;margin:0;padding:0;will-change:transform;transition:transform .5s cubic-bezier(.2,.7,.2,1)}
+.tls-item{display:grid;grid-template-columns:5rem minmax(0,1fr);gap:14px;padding:8px 0;opacity:0;transition:opacity .35s}
+.tls-item .yr{font-size:13px;line-height:1.7;color:rgb(124,106,74);font-variant-numeric:tabular-nums}
+.tls-item .tx{font-size:15px;line-height:1.55;color:rgb(51,58,45)}
+.tls-item.is-now .tx{font-size:clamp(17px,1.5vw,20px);line-height:1.5;color:rgb(16,20,13)}
+.tls-item.is-church .yr::after{content:"";display:inline-block;width:6px;height:6px;margin-left:7px;border-radius:50%;background:rgb(107,130,89);vertical-align:middle}
+html.dark .tls-year,html.dark .tls-item.is-now .tx{color:rgb(247,245,238)}
+html.dark .tls-item .tx{color:rgba(247,245,238,.7)}
+.tls-rail{width:100%;max-width:72rem;margin:0 auto;padding:18px 20px 0}
+@media(min-width:640px){.tls-rail{padding:22px 32px 0}}
+.tls-bar{height:2px;background:rgb(219,225,210);border-radius:2px;overflow:hidden}
+.tls-bar i{display:block;height:100%;width:100%;background:rgb(107,130,89);transform-origin:left;transform:scaleX(0)}
+html.dark .tls-bar{background:rgba(255,255,255,.14)}
+.tls-eras{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
+.tls-eras .tl-era-btn{font-size:13px}
+.tls-sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+@media(prefers-reduced-motion:reduce){.tls-ledger,.tls-item{transition:none}}
+/* explore band */
+.explore-band{padding-top:var(--r-sec)!important;padding-bottom:0!important}
+.explore-grid{display:grid;gap:14px;grid-template-columns:minmax(0,1fr)}
+@media(min-width:768px){.explore-grid{grid-template-columns:repeat(3,minmax(0,1fr))}}
+.explore-grid .globe-teaser h3{font-style:normal!important;font-size:19px!important;white-space:normal!important}
+@media(min-width:1024px){.explore-band{padding-top:var(--r-sec-lg)!important}}
 </style>
 </head>
 <body class="bg-ivory dark:bg-midnight text-body dark:text-ivory/85 font-sans transition-colors duration-300">
@@ -6449,11 +6510,21 @@
         <div class="glass-hero-panel__blur glass-hero-panel__blur--night" aria-hidden="true"></div>
         <div class="glass-hero-panel__tint" aria-hidden="true"></div>
         <div class="glass-hero-panel__caustic" aria-hidden="true"></div>
-        <p class="font-sans hero-in d1 text-[11px] sm:text-xs tracking-[0.22em] uppercase text-taupe font-semibold mb-5 sm:mb-6" data-en="A Global Communion · Est. 52 CE" data-ml="ഒരു ആഗോള കൂട്ടായ്മ · സ്ഥാ. ക്രി.വ. 52">A Global Communion · Est. 52 CE</p>
         <h1 class="hero-in d2 font-serif font-normal text-[36px] leading-[1.08] sm:text-5xl md:text-6xl lg:text-[64px] tracking-tight text-ink dark:text-ivory mb-5 sm:mb-7" data-en-html="The Church,&lt;br&gt;&lt;em class=&quot;italic text-sage-dark dark:text-sage&quot;&gt;mapped&lt;/em&gt;." data-ml-html="സഭ,&lt;br&gt;&lt;em class=&quot;italic text-sage-dark dark:text-sage&quot;&gt;ഭൂപടത്തിൽ&lt;/em&gt;">The Church,<br>
         <em class="italic text-sage-dark dark:text-sage">mapped</em>.</h1>
         <p class="hero-in d3 text-[15px] sm:text-base md:text-[17px] text-body/90 dark:text-ivory/65 max-w-lg mx-auto leading-relaxed" data-en="Under the primacy of His Holiness Baselios Marthoma Mathews III, Catholicos of the East, the institutions of the Church number in excess of 3,500 worldwide, each parish catalogued together with its recorded family count." data-ml="പൗരസ്ത്യ കാതോലിക്കാ പരിശുദ്ധ ബസേലിയോസ് മാർത്തോമ്മാ മാത്യൂസ് തൃതീയൻ ബാവായുടെ അധ്യക്ഷതയിൽ, സഭയുടെ സ്ഥാപനങ്ങൾ ലോകമെമ്പാടും 3,500-ൽ അധികമായി വ്യാപിച്ചിരിക്കുന്നു; ഓരോ ഇടവകയും അതിന്റെ രേഖപ്പെടുത്തിയ കുടുംബ എണ്ണത്തോടൊപ്പം പട്ടികപ്പെടുത്തിയിരിക്കുന്നു.">Under the primacy of His Holiness Baselios Marthoma Mathews III, Catholicos of the East, the institutions of the Church number in excess of 3,500 worldwide, each parish catalogued together with its recorded family count.</p>
-        <div class="hero-in d4 hero-thread"></div>
+        <div class="hero-in d4 hero-search">
+          <form id="heroSearch" role="search" autocomplete="off" aria-label="Find a parish near you">
+            <input id="heroSearchInput" type="text" inputmode="search" enterkeyhint="search" aria-label="Find a parish near you" placeholder="Locate the nearest parish, e.g. Dallas, Texas" data-en-placeholder="Locate the nearest parish, e.g. Dallas, Texas" data-ml-placeholder="ഏറ്റവും അടുത്തുള്ള ഇടവക കണ്ടെത്തുക, ഉദാ. ഡാളസ്, ടെക്സാസ്">
+            <button type="submit" data-en="Find nearest" data-ml="അടുത്തുള്ളത് കണ്ടെത്തുക">Find nearest</button>
+          </form>
+          <button type="button" id="heroLocate" class="hero-locate"><span data-en="or use my current location" data-ml="അല്ലെങ്കിൽ എന്റെ നിലവിലെ സ്ഥാനം ഉപയോഗിക്കുക">or use my current location</span></button>
+          <div id="heroResults" class="hero-results" hidden>
+            <button type="button" id="heroClear" class="hero-clear" data-en="Clear" data-ml="മായ്ക്കുക">Clear</button>
+            <div id="heroStatus" class="hero-status" role="status" aria-live="polite"></div>
+            <div id="heroResultsList"></div>
+          </div>
+        </div>
       </div>
     </section>
     <section id="map" class="px-5 sm:px-8">
@@ -6784,19 +6855,24 @@
       <span class="section-divider__line"></span><span class="section-divider__mark"><svg width="15" height="15" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
       <path d="M12 3 L21 12 L12 21 L3 12 Z"></path></svg></span><span class="section-divider__line"></span>
     </div>
-    <section class="globe-section relative overflow-hidden" id="globe">
-      <div class="globe-grid" aria-hidden="true"></div>
-      <div class="relative max-w-6xl mx-auto px-5 sm:px-8 pt-10 sm:pt-16 globe-pad-b">
-        <div class="reveal max-w-xl mb-10 sm:mb-14">
-          <div class="font-sans text-[10.5px] tracking-[0.2em] uppercase text-sage font-semibold mb-3 flex items-center gap-2">
-            <span class="live-dot"></span><span data-en="Real-time coverage" data-ml="തത്സമയ വ്യാപ്തി">Real-time coverage</span>
-          </div>
-          <h2 class="font-serif italic font-normal text-[28px] sm:text-4xl text-ink dark:text-ivory mb-4 leading-tight" data-en="A Single Communion, Traced Across the Earth" data-ml="ഒരൊറ്റ സഭാ കൂട്ടായ്മ, ഭൂമിയിലുടനീളം അടയാളപ്പെടുത്തിയത്">A Single Communion,<br>
-          Traced Across the Earth</h2>
-          <p class="text-[15px] text-body/70 dark:text-ivory/55 leading-[1.75]" data-en="The globe may be turned by dragging, and enlarged using the controls in its corner (or by pinching, on a trackpad). Each point denotes an actual parish, chapel, or cathedral — some 3,576 in total — plotted outward from the coast of Kerala across six continents." data-ml="ഗ്ലോബ് വലിച്ചു തിരിക്കാവുന്നതും, മൂലയിലെ നിയന്ത്രണങ്ങൾ ഉപയോഗിച്ചോ (ട്രാക്ക്പാഡിൽ പിഞ്ച് ചെയ്തോ) വലുതാക്കാവുന്നതുമാണ്. ഓരോ ബിന്ദുവും ഒരു യഥാർത്ഥ ഇടവക, ചാപ്പൽ, അല്ലെങ്കിൽ കത്തീഡ്രൽ സൂചിപ്പിക്കുന്നു — ആകെ ഏകദേശം 3,576 എണ്ണം — കേരള തീരത്തുനിന്ന് ആറ് ഭൂഖണ്ഡങ്ങളിലേക്കും വ്യാപിച്ചത്.">The globe may be turned by dragging, and enlarged using the controls in its corner (or by pinching, on a trackpad). Each point denotes an actual parish, chapel, or cathedral — some 3,576 in total — plotted outward from the coast of Kerala across six continents.</p>
-        </div>
-        <div class="grid grid-cols-1 lg:grid-cols-2 globe-split-gap items-center">
-          <div class="relative mx-auto w-full max-w-[420px] sm:max-w-[480px] lg:max-w-[520px]">
+    <section id="globe" class="tls" aria-labelledby="tlsTitle">
+      <span id="timeline" aria-hidden="true"></span>
+      <div class="tls-head">
+        <h2 id="tlsTitle" class="font-serif font-normal text-ink dark:text-ivory" data-en="Nineteen Centuries, Traced" data-ml="പത്തൊമ്പത് നൂറ്റാണ്ടുകൾ, അടയാളപ്പെടുത്തിയത്">Nineteen Centuries, Traced</h2>
+        <p class="tls-sub text-body/70 dark:text-ivory/60" data-en="Scroll to travel through time. The globe turns to each event as it happens, and every parish lights up in the year it was founded. You can also drag the globe to look around." data-ml="കാലത്തിലൂടെ സഞ്ചരിക്കാൻ താഴേക്ക് സ്ക്രോൾ ചെയ്യുക; ഓരോ സംഭവത്തിനും ഗോളം ആ സ്ഥലത്തേക്ക് തിരിഞ്ഞുചെല്ലും. ഗോളത്തെ വലിച്ച് സ്വയം തിരിക്കുകയും ചെയ്യാം.">Scroll to travel through time. The globe turns to each event as it happens, and every parish lights up in the year it was founded. You can also drag the globe to look around.</p>
+        <a class="tls-skip" href="#explore" data-en="Skip the timeline" data-ml="ടൈംലൈൻ ഒഴിവാക്കുക">Skip the timeline</a>
+      </div>
+      <div class="tls-runway">
+        <div class="tls-stage">
+          <div class="tls-inner">
+            <div class="tls-copy">
+              <div class="tls-year tl-year" data-tl-year="-4">4 BCE</div>
+              <div class="tls-place"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s6-5.6 6-11a6 6 0 0 0-12 0c0 5.4 6 11 6 11z"/><circle cx="12" cy="10" r="2.2"/></svg><span></span></div>
+              <div class="tls-ledger-vp" aria-hidden="true"><ul class="tls-ledger"></ul></div>
+              <div class="tls-sr" role="status" aria-live="polite"></div>
+            </div>
+            <div class="tls-globe">
+              <div class="relative mx-auto w-full max-w-[420px] sm:max-w-[480px] lg:max-w-[520px]">
             <div id="globeStage" class="globe-stage" role="img" aria-label="Rotating 3D globe marking the countries the Church has reached">
               <canvas id="globeCanvas"></canvas>
               <div id="globeFallback" class="globe-fallback hidden"></div>
@@ -6806,60 +6882,47 @@
               <span class="count-num" data-count="3576">0</span> <span data-en="Locations mapped" data-ml="രേഖപ്പെടുത്തിയ സ്ഥലങ്ങൾ">Locations mapped</span>
             </div>
           </div>
-          <div class="reveal flex flex-col justify-center gap-4 sm:gap-5 h-full" style="--reveal-delay:180ms">
-            <p class="text-[13px] text-body/55 dark:text-ivory/40 leading-relaxed"><span data-en="In search of a particular parish?" data-ml="ഒരു പ്രത്യേക ഇടവക തിരയുകയാണോ?">In search of a particular parish?</span> <a href="#nearest" class="text-sage underline underline-offset-4 decoration-sage/40 hover:text-ink dark:hover:text-ivory transition-colors" data-en="Find your nearest" data-ml="നിങ്ങളുടെ അടുത്തുള്ളത് കണ്ടെത്തുക">Find your nearest</a><span data-en=", or browse the record below." data-ml=", അല്ലെങ്കിൽ താഴെയുള്ള രേഖ ബ്രൗസ് ചെയ്യുക.">, or browse the record below.</span></p><a href="saints" class="globe-teaser group flex items-center justify-between gap-4 rounded-2xl border border-line dark:border-white/10 shadow-soft bg-ivory dark:bg-midnight px-5 py-4 sm:px-6 sm:py-5">
+            </div>
+          </div>
+          <div class="tls-rail">
+            <div class="tls-bar" aria-hidden="true"><i></i></div>
+            <div class="tls-eras" role="group" aria-label="Jump to an era"></div>
+          </div>
+        </div>
+      </div>
+      <div hidden aria-hidden="true">
+        <div id="tlTrack" class="tl-track" tabindex="-1"><div id="tlInner" class="tl-inner"></div></div>
+        <button id="tlPrev" type="button" class="tl-arrow" tabindex="-1">&larr;</button>
+        <div class="tl-progress-track"><div id="tlProgressBar" class="tl-progress-bar"></div></div>
+        <button id="tlNext" type="button" class="tl-arrow" tabindex="-1">&rarr;</button>
+        <div id="tlEras" class="tl-eras"></div>
+      </div>
+    </section>
+    <section id="explore" class="explore-band px-5 sm:px-8 max-w-6xl mx-auto">
+      <div class="explore-grid">
+        <a href="saints" class="globe-teaser group flex items-center justify-between gap-4 rounded-2xl border border-line dark:border-white/10 shadow-soft bg-ivory dark:bg-midnight px-5 py-4 sm:px-6 sm:py-5">
             <div class="min-w-0">
               <div class="font-sans text-[10px] tracking-[0.14em] uppercase text-taupe font-semibold mb-1.5" data-en="In Communion" data-ml="വിശുദ്ധ കൂട്ടായ്മയിൽ">
                 In Communion
               </div>
               <h3 class="font-serif italic font-normal text-lg sm:text-xl text-ink dark:text-ivory truncate" data-en="Saints of Malankara" data-ml="മലങ്കരയുടെ വിശുദ്ധർ">Saints of Malankara</h3>
-            </div><span class="font-serif italic text-sage-dark dark:text-sage shrink-0 text-lg">→</span></a><a href="martyrs" class="globe-teaser group flex items-center justify-between gap-4 rounded-2xl border border-line dark:border-white/10 shadow-soft bg-ivory dark:bg-midnight px-5 py-4 sm:px-6 sm:py-5">
+            </div><span class="font-serif italic text-sage-dark dark:text-sage shrink-0 text-lg">→</span></a>
+        <a href="martyrs" class="globe-teaser group flex items-center justify-between gap-4 rounded-2xl border border-line dark:border-white/10 shadow-soft bg-ivory dark:bg-midnight px-5 py-4 sm:px-6 sm:py-5">
             <div class="min-w-0">
               <div class="font-sans text-[10px] tracking-[0.14em] uppercase text-taupe font-semibold mb-1.5" data-en="In Remembrance" data-ml="അനുസ്മരണം">
                 In Remembrance
               </div>
               <h3 class="font-serif italic font-normal text-lg sm:text-xl text-ink dark:text-ivory truncate" data-en="Martyrs of Malankara" data-ml="മലങ്കരയുടെ രക്തസാക്ഷികൾ">Martyrs of Malankara</h3>
-            </div><span class="font-serif italic text-sage-dark dark:text-sage shrink-0 text-lg">→</span></a><a href="1906" class="globe-teaser group flex items-center justify-between gap-4 rounded-2xl border border-line dark:border-white/10 shadow-soft bg-ivory dark:bg-midnight px-5 py-4 sm:px-6 sm:py-5">
+            </div><span class="font-serif italic text-sage-dark dark:text-sage shrink-0 text-lg">→</span></a>
+        <a href="1906" class="globe-teaser group flex items-center justify-between gap-4 rounded-2xl border border-line dark:border-white/10 shadow-soft bg-ivory dark:bg-midnight px-5 py-4 sm:px-6 sm:py-5">
             <div class="min-w-0">
               <div class="font-sans text-[10px] tracking-[0.14em] uppercase text-taupe font-semibold mb-1.5" data-en="1906 Edition" data-ml="1906 പതിപ്പ്">
                 1906 Edition
               </div>
               <h3 class="font-serif italic font-normal text-lg sm:text-xl text-ink dark:text-ivory truncate" data-en="The Malankara Church, a Century Before" data-ml="ഒരു നൂറ്റാണ്ട് മുമ്പ്, മലങ്കര സഭ">The Malankara Church, a Century Before</h3>
             </div><span class="font-serif italic text-sage-dark dark:text-sage shrink-0 text-lg">→</span></a>
-          </div>
-        </div>
       </div>
     </section>
-    <div class="section-divider is-tight" aria-hidden="true">
-      <span class="section-divider__line"></span><span class="section-divider__mark"><svg width="15" height="15" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-      <path d="M12 3 L21 12 L12 21 L3 12 Z"></path></svg></span><span class="section-divider__line"></span>
-    </div>
-    <section class="relative overflow-hidden sec-tight timeline-pad-t" id="timeline">
-      <div class="max-w-6xl mx-auto px-5 sm:px-8 mb-8 sm:mb-10">
-        <div class="reveal flex flex-col sm:flex-row sm:items-end sm:justify-between gap-3">
-          <h2 class="font-serif italic font-normal text-[28px] sm:text-4xl text-ink dark:text-ivory" data-en="Nineteen Centuries, Traced" data-ml="പത്തൊമ്പത് നൂറ്റാണ്ടുകൾ, അടയാളപ്പെടുത്തിയത്">Nineteen Centuries, Traced</h2>
-          <p class="font-serif italic text-sm text-body/55 dark:text-ivory/45 max-w-md" data-en="From the Apostle's landfall to the present communion — traversed by dragging, by the arrows below, or directly via the era markers." data-ml="അപ്പോസ്തലന്റെ വരവു മുതൽ ഇന്നത്തെ സഭാ കൂട്ടായ്മ വരെ — വലിച്ചോ, താഴെയുള്ള അമ്പടയാളങ്ങൾ ഉപയോഗിച്ചോ, അല്ലെങ്കിൽ കാലഘട്ട അടയാളങ്ങൾ വഴിയോ സഞ്ചരിക്കാം.">From the Apostle's landfall to the present communion — traversed by dragging, by the arrows below, or directly via the era markers.</p>
-        </div>
-        <p class="reveal mt-2 text-[11px] tracking-wide text-muted" data-en="Timeline data as of 2 August, 2026." data-ml="കാലരേഖാ വിവരം 2026 ഓഗസ്റ്റ് 2 വരെയുള്ളത്.">Timeline data as of 2 August, 2026.</p>
-        <div class="reveal mt-6 sm:mt-7 border-t border-line dark:border-white/10" aria-hidden="true"></div>
-      </div>
-      <div class="reveal">
-        <div id="tlTrack" class="tl-track" tabindex="0" aria-label="Scrollable historical timeline, 52 CE to 2026 CE">
-          <div id="tlInner" class="tl-inner"></div>
-        </div>
-        <div class="max-w-6xl mx-auto px-5 sm:px-8 mt-5 flex items-center gap-4">
-          <button id="tlPrev" type="button" class="tl-arrow" aria-label="Scroll to earlier events">←</button>
-          <div class="tl-progress-track">
-            <div id="tlProgressBar" class="tl-progress-bar"></div>
-          </div><button id="tlNext" type="button" class="tl-arrow" aria-label="Scroll to later events">→</button>
-        </div>
-        <div id="tlEras" class="tl-eras max-w-6xl mx-auto px-5 sm:px-8 mt-3" aria-label="Jump to an era"></div>
-      </div>
-    </section>
-    <div class="section-divider is-tight" aria-hidden="true">
-      <span class="section-divider__line"></span><span class="section-divider__mark"><svg width="15" height="15" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-      <path d="M12 3 L21 12 L12 21 L3 12 Z"></path></svg></span><span class="section-divider__line"></span>
-    </div>
     <section class="px-5 sm:px-8 sec-tight max-w-6xl mx-auto" id="clergy">
       <div class="reveal flex flex-col sm:flex-row sm:items-end sm:justify-between gap-3 mb-8 sm:mb-10">
         <h2 class="font-serif italic font-normal text-[28px] sm:text-4xl text-ink dark:text-ivory" data-en="Those Who Serve the Church" data-ml="സഭയെ ശുശ്രൂഷിക്കുന്നവർ">Those Who Serve the Church</h2>
@@ -7790,7 +7853,7 @@
       [2018, "2018 CE", "Catholicos Baselios Marthoma Paulose II consecrates Holy Myron at Devalokam Catholicate Chapel.", 0],
       [2024, "2024 CE", "The Dioceses of Asia–Pacific and Canada are established.", 0],
       [2026, "2026 CE", "Catholicos Baselios Marthoma Mathews III consecrates Holy Myron at Devalokam Catholicate Chapel.", 0]
-    ].forEach(function(a, e) {
+    ].forEach(function(a, e) {(window.__tlData = window.__tlData || []).push(a);
       var o = a[0],
         s = a[1],
         h = a[2],
@@ -8129,8 +8192,8 @@
       passive: !1
     }), t.addEventListener("touchend", function(e) {
       e.touches.length < 2 && (z = null)
-    }), requestAnimationFrame(function e() {
-      k() !== g && Y(), B ? d.rotation.y += .0014 : !x && Math.abs(P) > 5e-5 && (d.rotation.y += P, P *= .94), i.render(r, s), requestAnimationFrame(e)
+    }), window.malGlobe = {group: d, camera: s, scene: r, THREE: THREE, ll: G, setAuto: function(v) { B = v ? !a : !1 }, isDragging: function() { return x }, killInertia: function() { P = 0 }}, requestAnimationFrame(function e() {
+      k() !== g && Y(), B ? d.rotation.y += .0014 : !x && Math.abs(P) > 5e-5 && (d.rotation.y += P, P *= .94), window.malGlobe.tick && window.malGlobe.tick(), i.render(r, s), requestAnimationFrame(e)
     })
   }
 
@@ -8732,5 +8795,216 @@
   });
   }();
   </script>
+<script id="tl-scroll-js">
+/* ===== Hero search: drives the existing "nearest parish" tool and mirrors its results ===== */
+(function () {
+  var form = document.getElementById('heroSearch'); if (!form) return;
+  var inp = document.getElementById('heroSearchInput'), loc = document.getElementById('heroLocate'),
+    nForm = document.getElementById('nearestForm'), nInp = document.getElementById('nearestInput'),
+    nLoc = document.getElementById('nearestLocBtn'), nStat = document.getElementById('nearestStatus'),
+    nRes = document.getElementById('nearestResults'),
+    out = document.getElementById('heroResults'), stat = document.getElementById('heroStatus'),
+    list = document.getElementById('heroResultsList'), clear = document.getElementById('heroClear');
+  if (!nForm || !nInp) return;
+  function sync() {
+    var t = (nStat && nStat.textContent || '').replace(/\u00a0/g, ' ').trim();
+    stat.textContent = t;
+    var has = nRes && !nRes.classList.contains('hidden') && nRes.children.length;
+    list.innerHTML = has ? nRes.innerHTML : '';
+    out.hidden = !(t || has);
+  }
+  if (window.MutationObserver) {
+    if (nRes) new MutationObserver(sync).observe(nRes, { childList: true, subtree: true, attributes: true, attributeFilter: ['class'] });
+    if (nStat) new MutationObserver(sync).observe(nStat, { childList: true, characterData: true, subtree: true });
+  }
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    var v = inp.value.trim(); if (!v) { inp.focus(); return; }
+    nInp.value = v;
+    if (nForm.requestSubmit) nForm.requestSubmit();
+    else nForm.dispatchEvent(new Event('submit', { cancelable: true, bubbles: true }));
+  });
+  if (loc && nLoc) loc.addEventListener('click', function () { nLoc.click(); });
+  if (clear) clear.addEventListener('click', function () { out.hidden = true; list.innerHTML = ''; stat.textContent = ''; inp.value = ''; inp.focus(); });
+})();
+
+/* ===== Scroll-linked timeline: the globe flies to each event as you scroll ===== */
+(function () {
+  var sec = document.getElementById('globe'); if (!sec) return;
+  var data = window.__tlData; if (!data || !data.length) return;
+  var runway = sec.querySelector('.tls-runway'), ledger = sec.querySelector('.tls-ledger'),
+    vp = sec.querySelector('.tls-ledger-vp'), yearEl = sec.querySelector('.tls-year'),
+    placeEl = sec.querySelector('.tls-place'), placeTx = placeEl.querySelector('span'),
+    bar = sec.querySelector('.tls-bar i'), erasEl = sec.querySelector('.tls-eras'),
+    sr = sec.querySelector('.tls-sr');
+  var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var N = data.length;
+
+  /* Place names -> [lat, lng]. Events whose place isn't listed simply show the Kerala overview. */
+  var GZ = {
+    'Kodungalloor': [10.2272, 76.198], 'Niranam': [9.368, 76.533], 'Nilackal': [9.35, 77.06], 'Thiruvithamcode': [8.23, 77.33],
+    'Mylapore': [13.0339, 80.2697], 'Kadampanad': [9.17, 76.73], 'Thevalakkara': [9.08, 76.56], 'Pazhanji': [10.67, 76.08],
+    'Chengannur': [9.316, 76.614], 'Angamaly': [10.196, 76.386], 'Piravom': [9.87, 76.498], 'Kolenchery': [9.992, 76.4],
+    'Thumpamon': [9.2, 76.68], 'Karingachira': [9.939, 76.357], 'Kandanad': [9.94, 76.36], 'South Paravoor': [8.81, 76.66],
+    'Kayamkulam': [9.175, 76.501], 'Akaparambu': [10.165, 76.365], 'Karthikapally': [9.298, 76.435], 'Kundara': [8.995, 76.668],
+    'Kadamattom': [9.97, 76.48], 'Manarcad': [9.615, 76.562], 'Mavelikara': [9.259, 76.556], 'Venmony': [9.285, 76.603],
+    'Mulanthuruthy': [9.896, 76.383], 'Vettickal': [9.889, 76.402], 'Cheppad': [9.255, 76.45], 'Kothamangalam': [10.061, 76.629],
+    'Kallooppara': [9.4, 76.65], 'Kuruppampady': [10.1, 76.51], 'Maramon': [9.333, 76.68], 'Kollam': [8.8932, 76.6141],
+    'Kottayam': [9.5916, 76.5222], 'Puthuppally': [9.565, 76.564], 'North Paravur': [10.137, 76.22], 'Omalloor': [9.27, 76.78],
+    'Kozhencherry': [9.329, 76.71], 'Kottarakkara': [8.999, 76.771], 'Ranni': [9.383, 76.784], 'Mattancherry': [9.958, 76.259],
+    'Chathannoor': [8.853, 76.727], 'Kunnamkulam': [10.65, 76.068], 'Arthat': [10.65, 76.06], 'Puthencavu': [9.28, 76.55],
+    'Chelakkara': [10.693, 76.35], 'Vengola': [10.08, 76.48], 'Puthencruz': [9.953, 76.421], 'Pampady': [9.53, 76.64],
+    'Kurichy': [9.49, 76.55], 'Mallappally': [9.43, 76.65], 'Vennikulam': [9.42, 76.62], 'Vakathanam': [9.52, 76.57],
+    'Edathua': [9.348, 76.465], 'Kumarakom': [9.617, 76.43], 'Fort Kochi': [9.965, 76.242], 'Karuvatta': [9.29, 76.42],
+    'Thiruvankulam': [9.94, 76.35], 'Kaviyoor': [9.39, 76.61], 'Nedumpuram': [9.38, 76.54], 'Vaikom': [9.75, 76.396],
+    'Manjapra': [10.19, 76.42], 'Neelamperoor': [9.45, 76.43], 'Thalavady': [9.36, 76.49], 'Aluva': [10.1004, 76.357],
+    'Anchal': [8.914, 76.87], 'Perumbavoor': [10.113, 76.476], 'Parumala': [9.337, 76.542], 'Peringanad': [9.15, 76.73],
+    'Thiruvalla': [9.384, 76.574], 'Thiruvananthapuram': [8.5241, 76.9366], 'Pattazhy': [9.08, 76.8], 'Mannar': [9.35, 76.55],
+    'Chingavanam': [9.542, 76.533], 'Udayamperoor': [9.887, 76.348], 'Diamper': [9.887, 76.348], 'Edapally': [10.016, 76.308],
+    'Alangad': [10.18, 76.33], 'Alleppey': [9.4981, 76.3388], 'Cochin': [9.9312, 76.2673], 'Devalokam': [9.6, 76.54],
+    'Mardin': [37.31, 40.74], 'Rome': [41.9028, 12.4964], 'Jerusalem': [31.7683, 35.2137], 'Portugal': [38.7223, -9.1393]
+  };
+  var FAR = { Mylapore: 1, Mardin: 1, Rome: 1, Jerusalem: 1, Portugal: 1 };
+  var KEYS = Object.keys(GZ).sort(function (a, b) { return b.length - a.length; });
+  var PRI = ['(?:at|in)', '(?:to|from)', 'of'];
+
+  function locate(ev) {
+    var t = String(ev[2]).replace(/<[^>]+>/g, ''), i, k;
+    if (ev[3]) { /* parish founded: the place leads the sentence */
+      for (i = 0; i < KEYS.length; i++) { k = KEYS[i]; if (t.indexOf(k) === 0 && /^[\s-]/.test(t.charAt(k.length))) return k; }
+      return null;
+    }
+    for (var p = 0; p < PRI.length; p++) {
+      var best = null, bi = 1e9;
+      for (i = 0; i < KEYS.length; i++) {
+        k = KEYS[i];
+        var m = new RegExp('\\b' + PRI[p] + '\\s+(?:the\\s+)?' + k + '\\b').exec(t);
+        if (m && m.index < bi) { bi = m.index; best = k; }
+      }
+      if (best) return best;
+    }
+    return null;
+  }
+
+  var ev = data.map(function (d, i) {
+    var k = locate(d); return { y: d[0], t: d[2], church: !!d[3], place: k, ll: k ? GZ[k] : null, i: i };
+  });
+  var litUpTo = [], c = 0;
+  ev.forEach(function (e, i) { if (e.ll) c++; litUpTo[i] = c; });
+
+  /* ledger */
+  var frag = document.createDocumentFragment(), items = [];
+  ev.forEach(function (e, i) {
+    var li = document.createElement('li'); li.className = 'tls-item' + (e.church ? ' is-church' : '');
+    var yr = document.createElement('span'); yr.className = 'yr tl-year'; yr.setAttribute('data-tl-year', e.y);
+    yr.textContent = window.formatEraLabel ? window.formatEraLabel(e.y, window.currentSiteLang ? window.currentSiteLang() : 'en') : (e.y < 0 ? Math.abs(e.y) + ' BCE' : e.y + ' CE');
+    var tx = document.createElement('span'); tx.className = 'tx'; tx.innerHTML = e.t;
+    li.appendChild(yr); li.appendChild(tx); frag.appendChild(li); items.push(li);
+  });
+  ledger.appendChild(frag);
+
+  var tops = [], hs = [];
+  function measure() {
+    for (var i = 0; i < N; i++) { tops[i] = items[i].offsetTop; hs[i] = items[i].offsetHeight; }
+    var step = parseFloat(getComputedStyle(runway).getPropertyValue('--tls-step')) || 14;
+    runway.style.height = (window.innerHeight + N * step) + 'px';
+    cur = -1; update(true);
+  }
+
+  /* globe control */
+  var G = null, marker = null, lit = null, litGeo = null, tgt = { ry: 0, rx: 0.15, z: 4.4 }, active = false, lastDrag = 0, last = 0;
+  function initGlobe() {
+    G = window.malGlobe; if (!G || !G.THREE) return false;
+    var T = G.THREE;
+    function tex(col) {
+      var cv = document.createElement('canvas'); cv.width = cv.height = 64; var x = cv.getContext('2d');
+      var g = x.createRadialGradient(32, 32, 0, 32, 32, 32);
+      g.addColorStop(0, '#FFFFFF'); g.addColorStop(.25, col + 'FF'); g.addColorStop(.6, col + '88'); g.addColorStop(1, col + '00');
+      x.fillStyle = g; x.fillRect(0, 0, 64, 64); return new T.CanvasTexture(cv);
+    }
+    var pts = []; ev.forEach(function (e) { if (e.ll) { var v = G.ll(e.ll[0], e.ll[1], 1.5735); pts.push(v.x, v.y, v.z); } });
+    litGeo = new T.BufferGeometry(); litGeo.setAttribute('position', new T.BufferAttribute(new Float32Array(pts), 3)); litGeo.setDrawRange(0, 0);
+    lit = new T.Points(litGeo, new T.PointsMaterial({ map: tex('#FFD98F'), color: 0xFFE6B0, size: .07, transparent: true, depthWrite: false, sizeAttenuation: true, blending: T.AdditiveBlending }));
+    G.group.add(lit);
+    marker = new T.Sprite(new T.SpriteMaterial({ map: tex('#FFB347'), transparent: true, depthWrite: false, blending: T.AdditiveBlending }));
+    marker.scale.set(.2, .2, 1); marker.visible = false; G.group.add(marker);
+    G.tick = tick; return true;
+  }
+  function wrap(a) { return a - 2 * Math.PI * Math.round(a / (2 * Math.PI)); }
+  function tick() {
+    var now = performance.now(), dt = Math.min(.05, (now - (last || now)) / 1000); last = now;
+    if (!active) return;
+    G.setAuto(false);
+    if (G.isDragging()) { lastDrag = now; G.killInertia(); return; }
+    if (now - lastDrag < 2200) return;
+    var g = G.group, k = reduce ? 1 : 1 - Math.exp(-dt * 4.5);
+    g.rotation.y += wrap(tgt.ry - g.rotation.y) * k;
+    g.rotation.x += (tgt.rx - g.rotation.x) * k;
+    G.camera.position.z += (tgt.z - G.camera.position.z) * k;
+    if (marker && marker.visible) { var s = .17 + .05 * Math.sin(now / 260); marker.scale.set(s, s, 1); }
+  }
+  function aim(e) {
+    if (!G) return;
+    if (e.ll) {
+      var v = G.ll(e.ll[0], e.ll[1], 1);
+      tgt.ry = Math.atan2(-v.x, v.z); tgt.rx = Math.atan2(v.y, Math.sqrt(v.x * v.x + v.z * v.z)); tgt.z = FAR[e.place] ? 3.9 : 3.0;
+      var m = G.ll(e.ll[0], e.ll[1], 1.5735); marker.position.set(m.x, m.y, m.z); marker.visible = true;
+    } else {
+      var o = G.ll(10.2, 76.4, 1);
+      tgt.ry = Math.atan2(-o.x, o.z); tgt.rx = Math.atan2(o.y, Math.sqrt(o.x * o.x + o.z * o.z)); tgt.z = 3.7; marker.visible = false;
+    }
+  }
+
+  var cur = -1, lastRange = [0, 0], srTimer = null;
+  function update(force) {
+    var vh = window.innerHeight, rect = runway.getBoundingClientRect();
+    var span = Math.max(1, rect.height - vh), p = Math.min(1, Math.max(0, -rect.top / span));
+    var i = Math.min(N - 1, Math.floor(p * N));
+    var vis = rect.top < vh && rect.bottom > 0;
+    if (vis !== active) { active = vis; if (G) { if (!vis) G.setAuto(true); if (vis) { lastDrag = 0; aim(ev[Math.max(0, i)]); } } }
+    bar.style.transform = 'scaleX(' + p.toFixed(4) + ')';
+    if (i === cur && !force) return;
+    cur = i; var e = ev[i];
+    yearEl.setAttribute('data-tl-year', e.y);
+    yearEl.textContent = window.formatEraLabel ? window.formatEraLabel(e.y, window.currentSiteLang ? window.currentSiteLang() : 'en') : (e.y < 0 ? Math.abs(e.y) + ' BCE' : e.y + ' CE');
+    if (e.place) { placeTx.textContent = e.place; placeEl.classList.add('is-on'); } else placeEl.classList.remove('is-on');
+    var lo = Math.max(0, i - 7), hi = i, a = Math.min(lo, lastRange[0]), b = Math.max(hi, lastRange[1]);
+    for (var j = a; j <= b; j++) {
+      var it = items[j]; if (j < lo || j > hi) { it.style.opacity = ''; it.classList.remove('is-now'); continue; }
+      var d = i - j; it.style.opacity = d === 0 ? 1 : Math.max(.18, 1 - d * .16); it.classList.toggle('is-now', d === 0);
+    }
+    lastRange = [lo, hi];
+    var H = vp.clientHeight; ledger.style.transform = 'translate3d(0,' + Math.round(H - (tops[i] + hs[i])) + 'px,0)';
+    if (G && lit) { litGeo.setDrawRange(0, litUpTo[i]); if (active) aim(e); if (reduce && active) { var g = G.group; g.rotation.y = tgt.ry; g.rotation.x = tgt.rx; G.camera.position.z = tgt.z; } }
+    clearTimeout(srTimer); srTimer = setTimeout(function () { sr.textContent = yearEl.textContent + '. ' + e.t.replace(/<[^>]+>/g, ''); }, 800);
+    eras.forEach(function (x) { x.btn.classList.toggle('is-active', x === activeEra(i)); });
+  }
+
+  /* era jumps */
+  var eras = [];
+  function activeEra(i) { var r = eras[0]; eras.forEach(function (x) { if (x.idx <= i) r = x; }); return r; }
+  [[52, '1st c.'], [400, '400s'], [800, '800s'], [1200, '1200s'], [1550, '1550s'], [1850, '1850s'], [1950, '1950s'], [2024, 'Present']].forEach(function (E) {
+    var idx = ev.findIndex(function (x) { return x.y >= E[0]; }); if (idx < 0) idx = N - 1;
+    var b = document.createElement('button'); b.type = 'button'; b.className = 'tl-era-btn'; b.textContent = E[1]; b.setAttribute('aria-label', 'Jump to ' + E[1]);
+    b.addEventListener('click', function () {
+      var rect = runway.getBoundingClientRect(), span = rect.height - window.innerHeight;
+      window.scrollTo({ top: window.pageYOffset + rect.top + (idx + .5) / N * span, behavior: reduce ? 'auto' : 'smooth' });
+    });
+    erasEl.appendChild(b); eras.push({ btn: b, idx: idx });
+  });
+
+  var ticking = false;
+  function onScroll() { if (!ticking) { ticking = true; requestAnimationFrame(function () { ticking = false; update(false); }); } }
+  window.addEventListener('scroll', onScroll, { passive: true });
+  window.addEventListener('resize', function () { measure(); }, { passive: true });
+  window.addEventListener('load', function () { if (!G) initGlobe(); measure(); });
+  if (document.fonts && document.fonts.ready) document.fonts.ready.then(measure);
+  if (window.MutationObserver) new MutationObserver(function () { measure(); }).observe(document.documentElement, { attributes: true, attributeFilter: ['lang'] });
+
+  sec.classList.add('tls--on');
+  initGlobe();
+  measure();
+})();
+</script>
 </body>
 </html>
