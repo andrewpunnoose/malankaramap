@@ -5800,27 +5800,9 @@
 .acc-body.is-open{margin-top:20px}
 </style>
 <style id="tl-scroll">
-/* ===== Hero search ===== */
-.hero-search{margin:30px auto 0;max-width:34rem;text-align:left}
-.hero-search form{display:flex;flex-direction:column;gap:10px}
-@media(min-width:560px){.hero-search form{flex-direction:row;align-items:center}}
-.hero-search input{flex:1;min-width:0;font-size:16px;line-height:1.2;padding:14px 20px;border-radius:999px;border:1px solid rgb(219,225,210);background:rgb(247,245,238);color:rgb(16,20,13);outline:none;transition:border-color .2s,box-shadow .2s}
-.hero-search input::placeholder{color:rgb(150,158,140)}
-.hero-search input:focus{border-color:rgb(107,130,89);box-shadow:0 0 0 3px rgba(107,130,89,.18)}
-.hero-search button[type=submit]{font-size:15px;font-weight:600;padding:14px 26px;border-radius:999px;background:rgb(107,130,89);color:#fff;border:0;cursor:pointer;white-space:nowrap;transition:background .2s}
-.hero-search button[type=submit]:hover{background:rgb(74,93,61)}
-.hero-search .hero-locate{display:block;margin:12px auto 0;background:none;border:0;cursor:pointer;font-size:14px;color:rgb(74,93,61);text-decoration:underline;text-underline-offset:4px;text-decoration-color:rgba(107,130,89,.45)}
-.hero-search .hero-locate:hover{color:rgb(16,20,13)}
-.hero-results{margin-top:18px;text-align:left;border-top:1px solid rgb(219,225,210);padding-top:14px}
-.hero-results[hidden]{display:none}
-.hero-results .hero-status{font-size:14px;color:rgb(51,58,45);opacity:.75;min-height:1.2em}
-.hero-results .hero-clear{float:right;background:none;border:0;cursor:pointer;font-size:13px;color:rgb(124,106,74);text-decoration:underline;text-underline-offset:3px}
-html.dark .hero-search input{background:rgb(17,24,39);color:rgb(247,245,238);border-color:rgba(255,255,255,.15)}
-html.dark .hero-search .hero-locate{color:rgb(107,130,89)}
-html.dark .hero-results{border-color:rgba(255,255,255,.12)}
-html.dark .hero-results .hero-status{color:rgb(247,245,238)}
-
 /* ===== Scroll-linked timeline with globe ===== */
+/* body must not be its own scroll box, or position:sticky stops working (html already clips sideways overflow) */
+body:not(.mobile-menu-locked):not(.record-modal-open){overflow:visible!important}
 .tls{position:relative;padding-top:var(--r-sec)!important;padding-bottom:0!important}
 .tls-head{max-width:72rem;margin:0 auto;padding:0 20px 28px;position:relative}
 @media(min-width:640px){.tls-head{padding-left:32px;padding-right:32px}}
@@ -6513,18 +6495,7 @@ html.dark .tls-bar{background:rgba(255,255,255,.14)}
         <h1 class="hero-in d2 font-serif font-normal text-[36px] leading-[1.08] sm:text-5xl md:text-6xl lg:text-[64px] tracking-tight text-ink dark:text-ivory mb-5 sm:mb-7" data-en-html="The Church,&lt;br&gt;&lt;em class=&quot;italic text-sage-dark dark:text-sage&quot;&gt;mapped&lt;/em&gt;." data-ml-html="സഭ,&lt;br&gt;&lt;em class=&quot;italic text-sage-dark dark:text-sage&quot;&gt;ഭൂപടത്തിൽ&lt;/em&gt;">The Church,<br>
         <em class="italic text-sage-dark dark:text-sage">mapped</em>.</h1>
         <p class="hero-in d3 text-[15px] sm:text-base md:text-[17px] text-body/90 dark:text-ivory/65 max-w-lg mx-auto leading-relaxed" data-en="Under the primacy of His Holiness Baselios Marthoma Mathews III, Catholicos of the East, the institutions of the Church number in excess of 3,500 worldwide, each parish catalogued together with its recorded family count." data-ml="പൗരസ്ത്യ കാതോലിക്കാ പരിശുദ്ധ ബസേലിയോസ് മാർത്തോമ്മാ മാത്യൂസ് തൃതീയൻ ബാവായുടെ അധ്യക്ഷതയിൽ, സഭയുടെ സ്ഥാപനങ്ങൾ ലോകമെമ്പാടും 3,500-ൽ അധികമായി വ്യാപിച്ചിരിക്കുന്നു; ഓരോ ഇടവകയും അതിന്റെ രേഖപ്പെടുത്തിയ കുടുംബ എണ്ണത്തോടൊപ്പം പട്ടികപ്പെടുത്തിയിരിക്കുന്നു.">Under the primacy of His Holiness Baselios Marthoma Mathews III, Catholicos of the East, the institutions of the Church number in excess of 3,500 worldwide, each parish catalogued together with its recorded family count.</p>
-        <div class="hero-in d4 hero-search">
-          <form id="heroSearch" role="search" autocomplete="off" aria-label="Find a parish near you">
-            <input id="heroSearchInput" type="text" inputmode="search" enterkeyhint="search" aria-label="Find a parish near you" placeholder="Locate the nearest parish, e.g. Dallas, Texas" data-en-placeholder="Locate the nearest parish, e.g. Dallas, Texas" data-ml-placeholder="ഏറ്റവും അടുത്തുള്ള ഇടവക കണ്ടെത്തുക, ഉദാ. ഡാളസ്, ടെക്സാസ്">
-            <button type="submit" data-en="Find nearest" data-ml="അടുത്തുള്ളത് കണ്ടെത്തുക">Find nearest</button>
-          </form>
-          <button type="button" id="heroLocate" class="hero-locate"><span data-en="or use my current location" data-ml="അല്ലെങ്കിൽ എന്റെ നിലവിലെ സ്ഥാനം ഉപയോഗിക്കുക">or use my current location</span></button>
-          <div id="heroResults" class="hero-results" hidden>
-            <button type="button" id="heroClear" class="hero-clear" data-en="Clear" data-ml="മായ്ക്കുക">Clear</button>
-            <div id="heroStatus" class="hero-status" role="status" aria-live="polite"></div>
-            <div id="heroResultsList"></div>
-          </div>
-        </div>
+        <div class="hero-in d4 hero-thread"></div>
       </div>
     </section>
     <section id="map" class="px-5 sm:px-8">
@@ -7189,7 +7160,7 @@ html.dark .tls-bar{background:rgba(255,255,255,.14)}
     <!-- NOTE: Keep these institution-type boxes sorted by count, highest first. Whenever institution counts are updated on the site, re-sort this list to match. -->
     <section class="px-5 sm:px-8 sec-tight-y max-w-6xl mx-auto url-wrap">
       <h2 class="font-serif italic font-normal text-xl sm:text-2xl text-ink dark:text-ivory mb-2" data-en="Sources" data-ml="അവലംബങ്ങൾ">Sources</h2>
-      <p class="font-sans text-xs text-muted mb-5" data-en="The figures and details set out throughout this site are drawn from the following ecclesiastical directories and records." data-ml="ഈ വെബ്സൈറ്റിലുടനീളം നൽകിയിരിക്കുന്ന കണക്കുകളും വിശദാംശങ്ങളും താഴെ പറയുന്ന സഭാ ഡയറക്ടറികളിൽ നിന്നും രേഖകളിൽ നിന്നും എടുത്തതാണ്.">The figures and details set out throughout this site are drawn from the following ecclesiastical directories and records.</p>
+      <p class="font-sans text-[15px] text-body/60 dark:text-ivory/50 leading-[1.7] mb-6" data-en="The principal directories and records behind the figures on this page are listed below. Hundreds of further sources are cited, each where it is used, on the individual pages devoted to specific topics." data-ml="ഈ പേജിലെ കണക്കുകൾക്ക് ആധാരമായ പ്രധാന ഡയറക്ടറികളും രേഖകളും താഴെ നൽകിയിരിക്കുന്നു. നിർദ്ദിഷ്ട വിഷയങ്ങൾക്കായുള്ള ഓരോ പേജിലും, അതത് ഇടത്ത്, നൂറുകണക്കിന് മറ്റു സ്രോതസ്സുകൾ കൂടി ഉദ്ധരിച്ചിട്ടുണ്ട്.">The principal directories and records behind the figures on this page are listed below. Hundreds of further sources are cited, each where it is used, on the individual pages devoted to specific topics.</p>
       <details class="src-details">
         <summary class="acc-toggle">
           <span class="acc-label-show" data-en="View the full list of sources" data-ml="എല്ലാ അവലംബങ്ങളും കാണുക">View the full list of sources</span><span class="acc-label-hide" data-en="Hide the full list of sources" data-ml="അവലംബങ്ങളുടെ പട്ടിക മറയ്ക്കുക">Hide the full list of sources</span><svg class="acc-chevron" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -8796,38 +8767,6 @@ html.dark .tls-bar{background:rgba(255,255,255,.14)}
   }();
   </script>
 <script id="tl-scroll-js">
-/* ===== Hero search: drives the existing "nearest parish" tool and mirrors its results ===== */
-(function () {
-  var form = document.getElementById('heroSearch'); if (!form) return;
-  var inp = document.getElementById('heroSearchInput'), loc = document.getElementById('heroLocate'),
-    nForm = document.getElementById('nearestForm'), nInp = document.getElementById('nearestInput'),
-    nLoc = document.getElementById('nearestLocBtn'), nStat = document.getElementById('nearestStatus'),
-    nRes = document.getElementById('nearestResults'),
-    out = document.getElementById('heroResults'), stat = document.getElementById('heroStatus'),
-    list = document.getElementById('heroResultsList'), clear = document.getElementById('heroClear');
-  if (!nForm || !nInp) return;
-  function sync() {
-    var t = (nStat && nStat.textContent || '').replace(/\u00a0/g, ' ').trim();
-    stat.textContent = t;
-    var has = nRes && !nRes.classList.contains('hidden') && nRes.children.length;
-    list.innerHTML = has ? nRes.innerHTML : '';
-    out.hidden = !(t || has);
-  }
-  if (window.MutationObserver) {
-    if (nRes) new MutationObserver(sync).observe(nRes, { childList: true, subtree: true, attributes: true, attributeFilter: ['class'] });
-    if (nStat) new MutationObserver(sync).observe(nStat, { childList: true, characterData: true, subtree: true });
-  }
-  form.addEventListener('submit', function (e) {
-    e.preventDefault();
-    var v = inp.value.trim(); if (!v) { inp.focus(); return; }
-    nInp.value = v;
-    if (nForm.requestSubmit) nForm.requestSubmit();
-    else nForm.dispatchEvent(new Event('submit', { cancelable: true, bubbles: true }));
-  });
-  if (loc && nLoc) loc.addEventListener('click', function () { nLoc.click(); });
-  if (clear) clear.addEventListener('click', function () { out.hidden = true; list.innerHTML = ''; stat.textContent = ''; inp.value = ''; inp.focus(); });
-})();
-
 /* ===== Scroll-linked timeline: the globe flies to each event as you scroll ===== */
 (function () {
   var sec = document.getElementById('globe'); if (!sec) return;
@@ -8905,7 +8844,10 @@ html.dark .tls-bar{background:rgba(255,255,255,.14)}
 
   var tops = [], hs = [];
   function measure() {
-    for (var i = 0; i < N; i++) { tops[i] = items[i].offsetTop; hs[i] = items[i].offsetHeight; }
+    for (var i = 0; i < N; i++) tops[i] = items[i].offsetTop;
+    items.forEach(function (it) { it.classList.add('is-now'); });
+    for (i = 0; i < N; i++) hs[i] = items[i].offsetHeight;
+    items.forEach(function (it) { it.classList.remove('is-now'); });
     var step = parseFloat(getComputedStyle(runway).getPropertyValue('--tls-step')) || 14;
     runway.style.height = (window.innerHeight + N * step) + 'px';
     cur = -1; update(true);
@@ -8974,7 +8916,7 @@ html.dark .tls-bar{background:rgba(255,255,255,.14)}
       var d = i - j; it.style.opacity = d === 0 ? 1 : Math.max(.18, 1 - d * .16); it.classList.toggle('is-now', d === 0);
     }
     lastRange = [lo, hi];
-    var H = vp.clientHeight; ledger.style.transform = 'translate3d(0,' + Math.round(H - (tops[i] + hs[i])) + 'px,0)';
+    var H = vp.clientHeight; ledger.style.transform = 'translate3d(0,' + Math.round(H - 6 - (tops[i] + hs[i])) + 'px,0)';
     if (G && lit) { litGeo.setDrawRange(0, litUpTo[i]); if (active) aim(e); if (reduce && active) { var g = G.group; g.rotation.y = tgt.ry; g.rotation.x = tgt.rx; G.camera.position.z = tgt.z; } }
     clearTimeout(srTimer); srTimer = setTimeout(function () { sr.textContent = yearEl.textContent + '. ' + e.t.replace(/<[^>]+>/g, ''); }, 800);
     eras.forEach(function (x) { x.btn.classList.toggle('is-active', x === activeEra(i)); });
