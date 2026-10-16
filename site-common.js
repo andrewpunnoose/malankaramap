@@ -11,11 +11,8 @@
      - theme toggle (dark/light)
      - mobile menu open/close
      - background music toggle
-     - language toggle: swaps any manually-translated [data-en]/
-       [data-ml] text on the page, and automatically machine-
-       translates everything else via Google Translate, so the
-       Malayalam button works even on pages with no manual
-       translation yet.
+     - language toggle: swaps the manually-translated [data-en]/
+       [data-ml] text on the page (no machine translation).
      - sitewide search: a search box that, on Enter, opens the full
        results page on the homepage (index.html?q=...). The results
        themselves are built there from site-search-index.json (every
@@ -220,79 +217,8 @@
       }
     }
 
-    /* Manually-translated nodes are marked notranslate so the
-       Google Translate fallback below leaves them alone and only
-       machine-translates whatever the page hasn't hand-translated. */
-    function markNoTranslate() {
-      document.querySelectorAll("[data-en][data-ml], [data-en-html][data-ml-html]").forEach(function (el) {
-        el.classList.add("notranslate");
-      });
-    }
-
-    var gtLoaded = false,
-      gtReady = false,
-      gtPending = null;
-    function ensureGoogleTranslate(cb) {
-      if (gtReady) {
-        cb();
-        return;
-      }
-      gtPending = cb;
-      if (gtLoaded) return;
-      gtLoaded = true;
-      var host = document.createElement("div");
-      host.id = "google_translate_element";
-      host.style.cssText = "position:absolute;left:-9999px;top:-9999px;height:0;width:0;overflow:hidden;";
-      document.body.appendChild(host);
-      window.googleTranslateElementInit = function () {
-        try {
-          /* global google */
-          new google.translate.TranslateElement({ pageLanguage: "en", includedLanguages: "ml", autoDisplay: false }, "google_translate_element");
-        } catch (e) {}
-        var tries = 0;
-        (function waitForCombo() {
-          var combo = document.querySelector("select.goog-te-combo");
-          tries++;
-          if (combo) {
-            gtReady = true;
-            if (gtPending) {
-              var f = gtPending;
-              gtPending = null;
-              f();
-            }
-          } else if (tries < 60) {
-            setTimeout(waitForCombo, 250);
-          }
-        })();
-      };
-      var s = document.createElement("script");
-      s.src = "https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit";
-      document.body.appendChild(s);
-    }
-    function setGoogleTranslate(lang) {
-      ensureGoogleTranslate(function () {
-        var combo = document.querySelector("select.goog-te-combo");
-        if (!combo) return;
-        if (combo.value !== lang) {
-          combo.value = lang;
-          combo.dispatchEvent(new Event("change"));
-        }
-      });
-    }
-    function resetGoogleTranslate() {
-      if (!gtReady) return;
-      var combo = document.querySelector("select.goog-te-combo");
-      if (combo && combo.value !== "en") {
-        combo.value = "en";
-        combo.dispatchEvent(new Event("change"));
-      }
-    }
-
     function apply(lang) {
-      markNoTranslate();
       applyManual(lang);
-      if (lang === "ml") setGoogleTranslate("ml");
-      else resetGoogleTranslate();
     }
 
     var saved = null;
