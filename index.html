@@ -8697,6 +8697,24 @@ html.dark .tls-bar{background:rgba(255,255,255,.14)}
       });
     } catch (err) { return nomap(); }
     map.addControl(new ml.AttributionControl({ compact: true }), 'bottom-right');
+    /* credits stay collapsed to the small (i) button and only open when the visitor clicks it */
+    (function () {
+      var at = host.querySelector('.maplibregl-ctrl-attrib'); if (!at) return;
+      var userOpen = false, clicking = false;
+      function collapse() { at.removeAttribute('open'); at.classList.remove('maplibregl-compact-show'); }
+      at.addEventListener('click', function () {
+        clicking = true;
+        setTimeout(function () { clicking = false; userOpen = at.classList.contains('maplibregl-compact-show') || at.hasAttribute('open'); }, 0);
+      }, true);
+      new MutationObserver(function () {
+        if (clicking) return;
+        var isOpen = at.hasAttribute('open') || at.classList.contains('maplibregl-compact-show');
+        if (!isOpen) { userOpen = false; return; }
+        if (userOpen) return;
+        if (at.hasAttribute('open') || at.classList.contains('maplibregl-compact-show')) collapse();
+      }).observe(at, { attributes: true, attributeFilter: ['open', 'class'] });
+      collapse();
+    })();
     map.addControl(new ml.NavigationControl({ showCompass: false }), 'top-right');
     map.on('load', function () {
       try { map.setSky({ 'atmosphere-blend': ['interpolate', ['linear'], ['zoom'], 0, 1, 5, 1, 7, 0] }); } catch (e) {}
