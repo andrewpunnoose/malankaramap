@@ -46,6 +46,14 @@
   .clergy-art-pair .clergy-art-frame{max-width:none}
   .clergy-art-pair .clergy-art-cap{font-size:12.5px;margin-top:.75rem}
 </style>
+<style id="clergy-photos">
+.cl-li{align-items:center}
+.cl-ph{flex:none;display:block;width:44px;height:52px;border-radius:8px;background-color:#e4e8dc;background-repeat:no-repeat;background-size:440px auto;background-position:calc(var(--x,0)*-44px) calc(var(--y,0)*-52px)}
+.dark .cl-ph{background-color:#2c3328}
+.cl-ph.cl-none{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 44 52'%3E%3Ccircle cx='22' cy='20' r='8' fill='%23b9c1ad'/%3E%3Cpath d='M6 52c0-12 7-18 16-18s16 6 16 18z' fill='%23b9c1ad'/%3E%3C/svg%3E");background-size:100% 100%;background-position:0 0}
+.cl-ph.cl-lg{float:right;width:72px;height:90px;margin:2px 0 8px 14px;border-radius:10px;background-size:432px auto;background-position:calc(var(--x,0)*-72px) calc(var(--y,0)*-90px)}
+.cl-ph.cl-lg.cl-none{background-size:100% 100%;background-position:0 0}
+</style>
 </head>
 <body class="bg-ivory dark:bg-midnight text-body dark:text-ivory/85 font-sans transition-colors duration-300">
 <audio id="bgMusic" loop>
@@ -115,20 +123,24 @@
       <span class="font-sans text-[11px] tracking-wide text-muted">4</span>
     </div>
     <ol class="flex flex-col">
-      <li class="flex gap-3 py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
+      <li class="flex gap-3 cl-li py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
         <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">1.</span>
+        <span class="cl-ph" data-s="clergy-cor.webp" style="--x:0;--y:0" aria-hidden="true"></span>
         <span class="text-[14.5px] text-body/85 dark:text-ivory/70">Very Rev. Dr. Joseph Samuel Karukayil Cor-Episcopa</span>
       </li>
-      <li class="flex gap-3 py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
+      <li class="flex gap-3 cl-li py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
         <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">2.</span>
+        <span class="cl-ph" data-s="clergy-cor.webp" style="--x:1;--y:0" aria-hidden="true"></span>
         <span class="text-[14.5px] text-body/85 dark:text-ivory/70">Very Rev. M. Alexander Vaidhyan Vazhayil Cor-Episcopa</span>
       </li>
-      <li class="flex gap-3 py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
+      <li class="flex gap-3 cl-li py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
         <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">3.</span>
+        <span class="cl-ph cl-none" aria-hidden="true"></span>
         <span class="text-[14.5px] text-body/85 dark:text-ivory/70">Very Rev. Rajan George Thunduvila Cor-Episcopa</span>
       </li>
-      <li class="flex gap-3 py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
+      <li class="flex gap-3 cl-li py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
         <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">4.</span>
+        <span class="cl-ph" data-s="clergy-cor.webp" style="--x:2;--y:0" aria-hidden="true"></span>
         <span class="text-[14.5px] text-body/85 dark:text-ivory/70">Very Rev. Thomas T. Varghese Canavil Cor-Episcopa</span>
       </li>
     </ol>
@@ -140,16 +152,19 @@
       <span class="font-sans text-[11px] tracking-wide text-muted">3</span>
     </div>
     <ol class="flex flex-col">
-      <li class="flex gap-3 py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
+      <li class="flex gap-3 cl-li py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
         <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">1.</span>
+        <span class="cl-ph" data-s="clergy-cor.webp" style="--x:3;--y:0" aria-hidden="true"></span>
         <span class="text-[14.5px] text-body/85 dark:text-ivory/70">Very Rev. C. John Panicker Thenguvila Cor-Episcopa</span>
       </li>
-      <li class="flex gap-3 py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
+      <li class="flex gap-3 cl-li py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
         <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">2.</span>
+        <span class="cl-ph" data-s="clergy-cor.webp" style="--x:4;--y:0" aria-hidden="true"></span>
         <span class="text-[14.5px] text-body/85 dark:text-ivory/70">Very Rev. E. G. Thomas Elavila Cor-Episcopa</span>
       </li>
-      <li class="flex gap-3 py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
+      <li class="flex gap-3 cl-li py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
         <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">3.</span>
+        <span class="cl-ph" data-s="clergy-cor.webp" style="--x:5;--y:0" aria-hidden="true"></span>
         <span class="text-[14.5px] text-body/85 dark:text-ivory/70">Very Rev. M. Y. Thomaskutty Melevila Cor-Episcopa</span>
       </li>
     </ol>
@@ -161,8 +176,9 @@
       <span class="font-sans text-[11px] tracking-wide text-muted">1</span>
     </div>
     <ol class="flex flex-col">
-      <li class="flex gap-3 py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
+      <li class="flex gap-3 cl-li py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
         <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">1.</span>
+        <span class="cl-ph" data-s="clergy-cor.webp" style="--x:6;--y:0" aria-hidden="true"></span>
         <span class="text-[14.5px] text-body/85 dark:text-ivory/70">Very Rev. P. M. John Plavilayil Cor-Episcopa</span>
       </li>
     </ol>
@@ -174,32 +190,39 @@
       <span class="font-sans text-[11px] tracking-wide text-muted">7</span>
     </div>
     <ol class="flex flex-col">
-      <li class="flex gap-3 py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
+      <li class="flex gap-3 cl-li py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
         <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">1.</span>
+        <span class="cl-ph" data-s="clergy-cor.webp" style="--x:7;--y:0" aria-hidden="true"></span>
         <span class="text-[14.5px] text-body/85 dark:text-ivory/70">Very Rev. C. Thomas Arappurayil Cor-Episcopa</span>
       </li>
-      <li class="flex gap-3 py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
+      <li class="flex gap-3 cl-li py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
         <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">2.</span>
+        <span class="cl-ph" data-s="clergy-cor.webp" style="--x:8;--y:0" aria-hidden="true"></span>
         <span class="text-[14.5px] text-body/85 dark:text-ivory/70">Very Rev. Dr. John C. Varghese Ezhakathu Cor-Episcopa</span>
       </li>
-      <li class="flex gap-3 py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
+      <li class="flex gap-3 cl-li py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
         <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">3.</span>
+        <span class="cl-ph" data-s="clergy-cor.webp" style="--x:9;--y:0" aria-hidden="true"></span>
         <span class="text-[14.5px] text-body/85 dark:text-ivory/70">Very Rev. P. Alexander Poikamelethil Cor-Episcopa</span>
       </li>
-      <li class="flex gap-3 py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
+      <li class="flex gap-3 cl-li py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
         <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">4.</span>
+        <span class="cl-ph" data-s="clergy-cor.webp" style="--x:0;--y:1" aria-hidden="true"></span>
         <span class="text-[14.5px] text-body/85 dark:text-ivory/70">Very Rev. P. G. Kurian Plamkalayil Cor-Episcopa</span>
       </li>
-      <li class="flex gap-3 py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
+      <li class="flex gap-3 cl-li py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
         <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">5.</span>
+        <span class="cl-ph" data-s="clergy-cor.webp" style="--x:1;--y:1" aria-hidden="true"></span>
         <span class="text-[14.5px] text-body/85 dark:text-ivory/70">Very Rev. T. M. Abraham Thundiyil Cor-Episcopa</span>
       </li>
-      <li class="flex gap-3 py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
+      <li class="flex gap-3 cl-li py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
         <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">6.</span>
+        <span class="cl-ph" data-s="clergy-cor.webp" style="--x:2;--y:1" aria-hidden="true"></span>
         <span class="text-[14.5px] text-body/85 dark:text-ivory/70">Very Rev. V. T. Thomas Vayalirakkath Cor-Episcopa</span>
       </li>
-      <li class="flex gap-3 py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
+      <li class="flex gap-3 cl-li py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
         <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">7.</span>
+        <span class="cl-ph" data-s="clergy-cor.webp" style="--x:3;--y:1" aria-hidden="true"></span>
         <span class="text-[14.5px] text-body/85 dark:text-ivory/70">Very Rev. Y. Thomas Muttuvelil Cor-Episcopa</span>
       </li>
     </ol>
@@ -211,12 +234,14 @@
       <span class="font-sans text-[11px] tracking-wide text-muted">2</span>
     </div>
     <ol class="flex flex-col">
-      <li class="flex gap-3 py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
+      <li class="flex gap-3 cl-li py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
         <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">1.</span>
+        <span class="cl-ph" data-s="clergy-cor.webp" style="--x:4;--y:1" aria-hidden="true"></span>
         <span class="text-[14.5px] text-body/85 dark:text-ivory/70">Very Rev. Jacob Johns Vadakkettathu Cor-Episcopa</span>
       </li>
-      <li class="flex gap-3 py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
+      <li class="flex gap-3 cl-li py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
         <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">2.</span>
+        <span class="cl-ph" data-s="clergy-cor.webp" style="--x:5;--y:1" aria-hidden="true"></span>
         <span class="text-[14.5px] text-body/85 dark:text-ivory/70">Very Rev. Philipose Tharakan Thengumthottathil Cor-Episcopa</span>
       </li>
     </ol>
@@ -228,56 +253,69 @@
       <span class="font-sans text-[11px] tracking-wide text-muted">13</span>
     </div>
     <ol class="flex flex-col">
-      <li class="flex gap-3 py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
+      <li class="flex gap-3 cl-li py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
         <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">1.</span>
+        <span class="cl-ph" data-s="clergy-cor.webp" style="--x:6;--y:1" aria-hidden="true"></span>
         <span class="text-[14.5px] text-body/85 dark:text-ivory/70">Very Rev. Dr. Samuel John Cor-Episcopa</span>
       </li>
-      <li class="flex gap-3 py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
+      <li class="flex gap-3 cl-li py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
         <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">2.</span>
+        <span class="cl-ph" data-s="clergy-cor.webp" style="--x:7;--y:1" aria-hidden="true"></span>
         <span class="text-[14.5px] text-body/85 dark:text-ivory/70">Very Rev. George Varghese Vattaparampil Cor-Episcopa</span>
       </li>
-      <li class="flex gap-3 py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
+      <li class="flex gap-3 cl-li py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
         <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">3.</span>
+        <span class="cl-ph" data-s="clergy-cor.webp" style="--x:8;--y:1" aria-hidden="true"></span>
         <span class="text-[14.5px] text-body/85 dark:text-ivory/70">Very Rev. Jacob P. Philip Thevarkattil Cor-Episcopa</span>
       </li>
-      <li class="flex gap-3 py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
+      <li class="flex gap-3 cl-li py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
         <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">4.</span>
+        <span class="cl-ph" data-s="clergy-cor.webp" style="--x:9;--y:1" aria-hidden="true"></span>
         <span class="text-[14.5px] text-body/85 dark:text-ivory/70">Very Rev. James E. Mathew Elavunilkunnannil Cor-Episcopa</span>
       </li>
-      <li class="flex gap-3 py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
+      <li class="flex gap-3 cl-li py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
         <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">5.</span>
+        <span class="cl-ph" data-s="clergy-cor.webp" style="--x:0;--y:2" aria-hidden="true"></span>
         <span class="text-[14.5px] text-body/85 dark:text-ivory/70">Very Rev. K. E. Mathai Kulathoor Cor-Episcopa</span>
       </li>
-      <li class="flex gap-3 py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
+      <li class="flex gap-3 cl-li py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
         <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">6.</span>
+        <span class="cl-ph" data-s="clergy-cor.webp" style="--x:1;--y:2" aria-hidden="true"></span>
         <span class="text-[14.5px] text-body/85 dark:text-ivory/70">Very Rev. K. G. Johnson Kallittathil Cor-Episcopa</span>
       </li>
-      <li class="flex gap-3 py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
+      <li class="flex gap-3 cl-li py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
         <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">7.</span>
+        <span class="cl-ph" data-s="clergy-cor.webp" style="--x:2;--y:2" aria-hidden="true"></span>
         <span class="text-[14.5px] text-body/85 dark:text-ivory/70">Very Rev. K. T. Mathai Kochumuriyil Cor-Episcopa</span>
       </li>
-      <li class="flex gap-3 py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
+      <li class="flex gap-3 cl-li py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
         <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">8.</span>
+        <span class="cl-ph" data-s="clergy-cor.webp" style="--x:3;--y:2" aria-hidden="true"></span>
         <span class="text-[14.5px] text-body/85 dark:text-ivory/70">Very Rev. Kurien Varghese Thayil Cor-Episcopa</span>
       </li>
-      <li class="flex gap-3 py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
+      <li class="flex gap-3 cl-li py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
         <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">9.</span>
+        <span class="cl-ph" data-s="clergy-cor.webp" style="--x:4;--y:2" aria-hidden="true"></span>
         <span class="text-[14.5px] text-body/85 dark:text-ivory/70">Very Rev. P. T. Mathews Puthuparampil Cor-Episcopa</span>
       </li>
-      <li class="flex gap-3 py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
+      <li class="flex gap-3 cl-li py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
         <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">10.</span>
+        <span class="cl-ph" data-s="clergy-cor.webp" style="--x:5;--y:2" aria-hidden="true"></span>
         <span class="text-[14.5px] text-body/85 dark:text-ivory/70">Very Rev. Prof. George Kuttikandathil Cor-Episcopa</span>
       </li>
-      <li class="flex gap-3 py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
+      <li class="flex gap-3 cl-li py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
         <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">11.</span>
+        <span class="cl-ph" data-s="clergy-cor.webp" style="--x:6;--y:2" aria-hidden="true"></span>
         <span class="text-[14.5px] text-body/85 dark:text-ivory/70">Very Rev. Prof. John Panarayil Cor-Episcopa</span>
       </li>
-      <li class="flex gap-3 py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
+      <li class="flex gap-3 cl-li py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
         <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">12.</span>
+        <span class="cl-ph" data-s="clergy-cor.webp" style="--x:7;--y:2" aria-hidden="true"></span>
         <span class="text-[14.5px] text-body/85 dark:text-ivory/70">Very Rev. Thomas Johnson Kaippallil Cor-Episcopa</span>
       </li>
-      <li class="flex gap-3 py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
+      <li class="flex gap-3 cl-li py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
         <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">13.</span>
+        <span class="cl-ph" data-s="clergy-cor.webp" style="--x:8;--y:2" aria-hidden="true"></span>
         <span class="text-[14.5px] text-body/85 dark:text-ivory/70">Very Rev. V. E. Mathews Cor-Episcopa of Ayroor</span>
       </li>
     </ol>
@@ -289,36 +327,44 @@
       <span class="font-sans text-[11px] tracking-wide text-muted">8</span>
     </div>
     <ol class="flex flex-col">
-      <li class="flex gap-3 py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
+      <li class="flex gap-3 cl-li py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
         <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">1.</span>
+        <span class="cl-ph" data-s="clergy-cor.webp" style="--x:9;--y:2" aria-hidden="true"></span>
         <span class="text-[14.5px] text-body/85 dark:text-ivory/70">Very Rev. John Daniel Planthoppil Cor-Episcopa</span>
       </li>
-      <li class="flex gap-3 py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
+      <li class="flex gap-3 cl-li py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
         <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">2.</span>
+        <span class="cl-ph" data-s="clergy-cor.webp" style="--x:0;--y:3" aria-hidden="true"></span>
         <span class="text-[14.5px] text-body/85 dark:text-ivory/70">Very Rev. K. O. Philip Kollasseril Cor-Episcopa</span>
       </li>
-      <li class="flex gap-3 py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
+      <li class="flex gap-3 cl-li py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
         <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">3.</span>
+        <span class="cl-ph" data-s="clergy-cor.webp" style="--x:1;--y:3" aria-hidden="true"></span>
         <span class="text-[14.5px] text-body/85 dark:text-ivory/70">Very Rev. K. S. Samuel Kuttikattu Cor-Episcopa</span>
       </li>
-      <li class="flex gap-3 py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
+      <li class="flex gap-3 cl-li py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
         <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">4.</span>
+        <span class="cl-ph" data-s="clergy-cor.webp" style="--x:2;--y:3" aria-hidden="true"></span>
         <span class="text-[14.5px] text-body/85 dark:text-ivory/70">Very Rev. Mathew Thomas Puthenpurackal Cor-Episcopa</span>
       </li>
-      <li class="flex gap-3 py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
+      <li class="flex gap-3 cl-li py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
         <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">5.</span>
+        <span class="cl-ph" data-s="clergy-cor.webp" style="--x:3;--y:3" aria-hidden="true"></span>
         <span class="text-[14.5px] text-body/85 dark:text-ivory/70">Very Rev. T. A. Philipose Thengumthottathil Cor-Episcopa</span>
       </li>
-      <li class="flex gap-3 py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
+      <li class="flex gap-3 cl-li py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
         <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">6.</span>
+        <span class="cl-ph" data-s="clergy-cor.webp" style="--x:4;--y:3" aria-hidden="true"></span>
         <span class="text-[14.5px] text-body/85 dark:text-ivory/70">Very Rev. T. G. John Thengumtharayil Cor-Episcopa</span>
       </li>
-      <li class="flex gap-3 py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
+      <li class="flex gap-3 cl-li py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
         <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">7.</span>
+        <span class="cl-ph" data-s="clergy-cor.webp" style="--x:5;--y:3" aria-hidden="true"></span>
         <span class="text-[14.5px] text-body/85 dark:text-ivory/70">Very Rev. Thomas Thekkil Cor-Episcopa</span>
       </li>
-      <li class="flex gap-3 py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
+      <li class="flex gap-3 cl-li py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
         <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">8.</span>
+        <span class="cl-ph" data-s="clergy-cor.webp" style="--x:6;--y:3" aria-hidden="true"></span>
         <span class="text-[14.5px] text-body/85 dark:text-ivory/70">Very Rev. Zachariah Panackamattom Cor-Episcopa</span>
       </li>
     </ol>
@@ -330,20 +376,24 @@
       <span class="font-sans text-[11px] tracking-wide text-muted">4</span>
     </div>
     <ol class="flex flex-col">
-      <li class="flex gap-3 py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
+      <li class="flex gap-3 cl-li py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
         <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">1.</span>
+        <span class="cl-ph" data-s="clergy-cor.webp" style="--x:7;--y:3" aria-hidden="true"></span>
         <span class="text-[14.5px] text-body/85 dark:text-ivory/70">Very Rev. Dr. K. L. Mathew Vaidyan Karippottu Cor-Episcopa</span>
       </li>
-      <li class="flex gap-3 py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
+      <li class="flex gap-3 cl-li py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
         <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">2.</span>
+        <span class="cl-ph" data-s="clergy-cor.webp" style="--x:8;--y:3" aria-hidden="true"></span>
         <span class="text-[14.5px] text-body/85 dark:text-ivory/70">Very Rev. M. K. Varghese Muthalavanaparampil Cor-Episcopa</span>
       </li>
-      <li class="flex gap-3 py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
+      <li class="flex gap-3 cl-li py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
         <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">3.</span>
+        <span class="cl-ph" data-s="clergy-cor.webp" style="--x:9;--y:3" aria-hidden="true"></span>
         <span class="text-[14.5px] text-body/85 dark:text-ivory/70">Very Rev. P. J. Mathew Cor-Episcopa</span>
       </li>
-      <li class="flex gap-3 py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
+      <li class="flex gap-3 cl-li py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
         <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">4.</span>
+        <span class="cl-ph" data-s="clergy-cor.webp" style="--x:0;--y:4" aria-hidden="true"></span>
         <span class="text-[14.5px] text-body/85 dark:text-ivory/70">Very Rev. P. T. Daniel Muttatheril Cor-Episcopa</span>
       </li>
     </ol>
@@ -355,32 +405,39 @@
       <span class="font-sans text-[11px] tracking-wide text-muted">7</span>
     </div>
     <ol class="flex flex-col">
-      <li class="flex gap-3 py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
+      <li class="flex gap-3 cl-li py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
         <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">1.</span>
+        <span class="cl-ph" data-s="clergy-cor.webp" style="--x:1;--y:4" aria-hidden="true"></span>
         <span class="text-[14.5px] text-body/85 dark:text-ivory/70">Very Rev. C. C. Jacob Chalasseril Cor-Episcopa</span>
       </li>
-      <li class="flex gap-3 py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
+      <li class="flex gap-3 cl-li py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
         <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">2.</span>
+        <span class="cl-ph" data-s="clergy-cor.webp" style="--x:2;--y:4" aria-hidden="true"></span>
         <span class="text-[14.5px] text-body/85 dark:text-ivory/70">Very Rev. C. John Chirathalathu Cor-Episcopa</span>
       </li>
-      <li class="flex gap-3 py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
+      <li class="flex gap-3 cl-li py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
         <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">3.</span>
+        <span class="cl-ph" data-s="clergy-cor.webp" style="--x:3;--y:4" aria-hidden="true"></span>
         <span class="text-[14.5px] text-body/85 dark:text-ivory/70">Very Rev. George Thomas Pothanickal Cor-Episcopa</span>
       </li>
-      <li class="flex gap-3 py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
+      <li class="flex gap-3 cl-li py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
         <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">4.</span>
+        <span class="cl-ph" data-s="clergy-cor.webp" style="--x:4;--y:4" aria-hidden="true"></span>
         <span class="text-[14.5px] text-body/85 dark:text-ivory/70">Very Rev. K. M. Mathew Kulakkattusseril Cor-Episcopa</span>
       </li>
-      <li class="flex gap-3 py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
+      <li class="flex gap-3 cl-li py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
         <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">5.</span>
+        <span class="cl-ph" data-s="clergy-cor.webp" style="--x:5;--y:4" aria-hidden="true"></span>
         <span class="text-[14.5px] text-body/85 dark:text-ivory/70">Very Rev. P. U. Kuruvilla Pathil Cor-Episcopa</span>
       </li>
-      <li class="flex gap-3 py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
+      <li class="flex gap-3 cl-li py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
         <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">6.</span>
+        <span class="cl-ph" data-s="clergy-cor.webp" style="--x:6;--y:4" aria-hidden="true"></span>
         <span class="text-[14.5px] text-body/85 dark:text-ivory/70">Very Rev. T. K. George Thypparampil Cor-Episcopa</span>
       </li>
-      <li class="flex gap-3 py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
+      <li class="flex gap-3 cl-li py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
         <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">7.</span>
+        <span class="cl-ph" data-s="clergy-cor.webp" style="--x:7;--y:4" aria-hidden="true"></span>
         <span class="text-[14.5px] text-body/85 dark:text-ivory/70">Very Rev. Thomas Abraham Cor-Episcopa of Kuriannoor</span>
       </li>
     </ol>
@@ -392,8 +449,9 @@
       <span class="font-sans text-[11px] tracking-wide text-muted">1</span>
     </div>
     <ol class="flex flex-col">
-      <li class="flex gap-3 py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
+      <li class="flex gap-3 cl-li py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
         <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">1.</span>
+        <span class="cl-ph" data-s="clergy-cor.webp" style="--x:8;--y:4" aria-hidden="true"></span>
         <span class="text-[14.5px] text-body/85 dark:text-ivory/70">Very Rev. V. V. Behanan Narakathu Cor-Episcopa</span>
       </li>
     </ol>
@@ -405,12 +463,14 @@
       <span class="font-sans text-[11px] tracking-wide text-muted">2</span>
     </div>
     <ol class="flex flex-col">
-      <li class="flex gap-3 py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
+      <li class="flex gap-3 cl-li py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
         <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">1.</span>
+        <span class="cl-ph" data-s="clergy-cor.webp" style="--x:9;--y:4" aria-hidden="true"></span>
         <span class="text-[14.5px] text-body/85 dark:text-ivory/70">Very Rev. Fr. A. V. Kurian Alackapparampil Cor-Episcopa</span>
       </li>
-      <li class="flex gap-3 py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
+      <li class="flex gap-3 cl-li py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
         <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">2.</span>
+        <span class="cl-ph" data-s="clergy-cor.webp" style="--x:0;--y:5" aria-hidden="true"></span>
         <span class="text-[14.5px] text-body/85 dark:text-ivory/70">Very Rev. K. T. Jacob Kadhalikkattu Cor-Episcopa</span>
       </li>
     </ol>
@@ -422,12 +482,14 @@
       <span class="font-sans text-[11px] tracking-wide text-muted">2</span>
     </div>
     <ol class="flex flex-col">
-      <li class="flex gap-3 py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
+      <li class="flex gap-3 cl-li py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
         <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">1.</span>
+        <span class="cl-ph" data-s="clergy-cor.webp" style="--x:1;--y:5" aria-hidden="true"></span>
         <span class="text-[14.5px] text-body/85 dark:text-ivory/70">Very Rev. C. K. John Chirakkadakunnel Cor-Episcopa</span>
       </li>
-      <li class="flex gap-3 py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
+      <li class="flex gap-3 cl-li py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
         <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">2.</span>
+        <span class="cl-ph" data-s="clergy-cor.webp" style="--x:2;--y:5" aria-hidden="true"></span>
         <span class="text-[14.5px] text-body/85 dark:text-ivory/70">Very Rev. Paulose Thaliyachira Cor-Episcopa</span>
       </li>
     </ol>
@@ -439,24 +501,29 @@
       <span class="font-sans text-[11px] tracking-wide text-muted">5</span>
     </div>
     <ol class="flex flex-col">
-      <li class="flex gap-3 py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
+      <li class="flex gap-3 cl-li py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
         <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">1.</span>
+        <span class="cl-ph" data-s="clergy-cor.webp" style="--x:3;--y:5" aria-hidden="true"></span>
         <span class="text-[14.5px] text-body/85 dark:text-ivory/70">Very Rev. A. M. Mathai Ailapurath Cor-Episcopa</span>
       </li>
-      <li class="flex gap-3 py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
+      <li class="flex gap-3 cl-li py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
         <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">2.</span>
+        <span class="cl-ph" data-s="clergy-cor.webp" style="--x:4;--y:5" aria-hidden="true"></span>
         <span class="text-[14.5px] text-body/85 dark:text-ivory/70">Very Rev. Issac Mattummel Cor-Episcopa</span>
       </li>
-      <li class="flex gap-3 py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
+      <li class="flex gap-3 cl-li py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
         <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">3.</span>
+        <span class="cl-ph" data-s="clergy-cor.webp" style="--x:5;--y:5" aria-hidden="true"></span>
         <span class="text-[14.5px] text-body/85 dark:text-ivory/70">Very Rev. John Thaliyachira Cor-Episcopa</span>
       </li>
-      <li class="flex gap-3 py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
+      <li class="flex gap-3 cl-li py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
         <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">4.</span>
+        <span class="cl-ph" data-s="clergy-cor.webp" style="--x:6;--y:5" aria-hidden="true"></span>
         <span class="text-[14.5px] text-body/85 dark:text-ivory/70">Very Rev. P. U. Kuriakose Potharayil Cor-Episcopa</span>
       </li>
-      <li class="flex gap-3 py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
+      <li class="flex gap-3 cl-li py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
         <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">5.</span>
+        <span class="cl-ph" data-s="clergy-cor.webp" style="--x:7;--y:5" aria-hidden="true"></span>
         <span class="text-[14.5px] text-body/85 dark:text-ivory/70">Very Rev. Skariah P. Chacko Pulickasseril Cor-Episcopa</span>
       </li>
     </ol>
@@ -468,24 +535,29 @@
       <span class="font-sans text-[11px] tracking-wide text-muted">5</span>
     </div>
     <ol class="flex flex-col">
-      <li class="flex gap-3 py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
+      <li class="flex gap-3 cl-li py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
         <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">1.</span>
+        <span class="cl-ph" data-s="clergy-cor.webp" style="--x:8;--y:5" aria-hidden="true"></span>
         <span class="text-[14.5px] text-body/85 dark:text-ivory/70">Very Rev. A. V. Mathews Areekkal Cor-Episcopa</span>
       </li>
-      <li class="flex gap-3 py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
+      <li class="flex gap-3 cl-li py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
         <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">2.</span>
+        <span class="cl-ph" data-s="clergy-cor.webp" style="--x:9;--y:5" aria-hidden="true"></span>
         <span class="text-[14.5px] text-body/85 dark:text-ivory/70">Very Rev. C. K. Issac Chenayappillil Cor-Episcopa</span>
       </li>
-      <li class="flex gap-3 py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
+      <li class="flex gap-3 cl-li py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
         <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">3.</span>
+        <span class="cl-ph" data-s="clergy-cor.webp" style="--x:0;--y:6" aria-hidden="true"></span>
         <span class="text-[14.5px] text-body/85 dark:text-ivory/70">Very Rev. Johny George Thengumpillil Cor-Episcopa</span>
       </li>
-      <li class="flex gap-3 py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
+      <li class="flex gap-3 cl-li py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
         <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">4.</span>
+        <span class="cl-ph" data-s="clergy-cor.webp" style="--x:1;--y:6" aria-hidden="true"></span>
         <span class="text-[14.5px] text-body/85 dark:text-ivory/70">Very Rev. Mathai Edayanal Cor-Episcopa</span>
       </li>
-      <li class="flex gap-3 py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
+      <li class="flex gap-3 cl-li py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
         <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">5.</span>
+        <span class="cl-ph" data-s="clergy-cor.webp" style="--x:2;--y:6" aria-hidden="true"></span>
         <span class="text-[14.5px] text-body/85 dark:text-ivory/70">Very Rev. V. V. Behanan Narakathu Cor-Episcopa</span>
       </li>
     </ol>
@@ -497,8 +569,9 @@
       <span class="font-sans text-[11px] tracking-wide text-muted">1</span>
     </div>
     <ol class="flex flex-col">
-      <li class="flex gap-3 py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
+      <li class="flex gap-3 cl-li py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
         <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">1.</span>
+        <span class="cl-ph cl-none" aria-hidden="true"></span>
         <span class="text-[14.5px] text-body/85 dark:text-ivory/70">Very Rev. Mathew Cor-Episcopa of Kanjiramattom</span>
       </li>
     </ol>
@@ -510,8 +583,9 @@
       <span class="font-sans text-[11px] tracking-wide text-muted">1</span>
     </div>
     <ol class="flex flex-col">
-      <li class="flex gap-3 py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
+      <li class="flex gap-3 cl-li py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
         <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">1.</span>
+        <span class="cl-ph" data-s="clergy-cor.webp" style="--x:3;--y:6" aria-hidden="true"></span>
         <span class="text-[14.5px] text-body/85 dark:text-ivory/70">Very Rev. Paulose Vakkanampadathil Cor-Episcopa</span>
       </li>
     </ol>
@@ -523,8 +597,9 @@
       <span class="font-sans text-[11px] tracking-wide text-muted">1</span>
     </div>
     <ol class="flex flex-col">
-      <li class="flex gap-3 py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
+      <li class="flex gap-3 cl-li py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
         <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">1.</span>
+        <span class="cl-ph" data-s="clergy-cor.webp" style="--x:4;--y:6" aria-hidden="true"></span>
         <span class="text-[14.5px] text-body/85 dark:text-ivory/70">Very Rev. K. P. Issac Kandathil Cor-Episcopa</span>
       </li>
     </ol>
@@ -536,8 +611,9 @@
       <span class="font-sans text-[11px] tracking-wide text-muted">1</span>
     </div>
     <ol class="flex flex-col">
-      <li class="flex gap-3 py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
+      <li class="flex gap-3 cl-li py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
         <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">1.</span>
+        <span class="cl-ph" data-s="clergy-cor.webp" style="--x:5;--y:6" aria-hidden="true"></span>
         <span class="text-[14.5px] text-body/85 dark:text-ivory/70">Very Rev. Abraham Mathew Adayakattu Cor-Episcopa</span>
       </li>
     </ol>
@@ -549,16 +625,19 @@
       <span class="font-sans text-[11px] tracking-wide text-muted">3</span>
     </div>
     <ol class="flex flex-col">
-      <li class="flex gap-3 py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
+      <li class="flex gap-3 cl-li py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
         <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">1.</span>
+        <span class="cl-ph" data-s="clergy-cor.webp" style="--x:6;--y:6" aria-hidden="true"></span>
         <span class="text-[14.5px] text-body/85 dark:text-ivory/70">Very Rev. Cheriyan Chakkalackal Cor-Episcopa</span>
       </li>
-      <li class="flex gap-3 py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
+      <li class="flex gap-3 cl-li py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
         <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">2.</span>
+        <span class="cl-ph" data-s="clergy-cor.webp" style="--x:7;--y:6" aria-hidden="true"></span>
         <span class="text-[14.5px] text-body/85 dark:text-ivory/70">Very Rev. M. L. Abraham Madathil Cor-Episcopa</span>
       </li>
-      <li class="flex gap-3 py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
+      <li class="flex gap-3 cl-li py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
         <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">3.</span>
+        <span class="cl-ph" data-s="clergy-cor.webp" style="--x:8;--y:6" aria-hidden="true"></span>
         <span class="text-[14.5px] text-body/85 dark:text-ivory/70">Very Rev. Thomas K. G. Ayirikuzhiyil Cor-Episcopa</span>
       </li>
     </ol>
@@ -570,24 +649,29 @@
       <span class="font-sans text-[11px] tracking-wide text-muted">5</span>
     </div>
     <ol class="flex flex-col">
-      <li class="flex gap-3 py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
+      <li class="flex gap-3 cl-li py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
         <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">1.</span>
+        <span class="cl-ph" data-s="clergy-cor.webp" style="--x:9;--y:6" aria-hidden="true"></span>
         <span class="text-[14.5px] text-body/85 dark:text-ivory/70">Very Rev. Fr. Philip Thomas Cor-Episcopa</span>
       </li>
-      <li class="flex gap-3 py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
+      <li class="flex gap-3 cl-li py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
         <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">2.</span>
+        <span class="cl-ph" data-s="clergy-cor.webp" style="--x:0;--y:7" aria-hidden="true"></span>
         <span class="text-[14.5px] text-body/85 dark:text-ivory/70">Very Rev. Fr. Thomas Varghese Cor-Episcopa</span>
       </li>
-      <li class="flex gap-3 py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
+      <li class="flex gap-3 cl-li py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
         <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">3.</span>
+        <span class="cl-ph" data-s="clergy-cor.webp" style="--x:1;--y:7" aria-hidden="true"></span>
         <span class="text-[14.5px] text-body/85 dark:text-ivory/70">Very Rev. George Varghese Thundiyil Cor-Episcopa</span>
       </li>
-      <li class="flex gap-3 py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
+      <li class="flex gap-3 cl-li py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
         <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">4.</span>
+        <span class="cl-ph" data-s="clergy-cor.webp" style="--x:2;--y:7" aria-hidden="true"></span>
         <span class="text-[14.5px] text-body/85 dark:text-ivory/70">Very Rev. Joseph J. Cor-Episcopa</span>
       </li>
-      <li class="flex gap-3 py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
+      <li class="flex gap-3 cl-li py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
         <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">5.</span>
+        <span class="cl-ph" data-s="clergy-cor.webp" style="--x:3;--y:7" aria-hidden="true"></span>
         <span class="text-[14.5px] text-body/85 dark:text-ivory/70">Very Rev. Koshy Philip Cor-Episcopa</span>
       </li>
     </ol>
@@ -599,24 +683,29 @@
       <span class="font-sans text-[11px] tracking-wide text-muted">5</span>
     </div>
     <ol class="flex flex-col">
-      <li class="flex gap-3 py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
+      <li class="flex gap-3 cl-li py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
         <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">1.</span>
+        <span class="cl-ph" data-s="clergy-cor.webp" style="--x:4;--y:7" aria-hidden="true"></span>
         <span class="text-[14.5px] text-body/85 dark:text-ivory/70">Very Rev. Abraham Marett Cor-Episcopa</span>
       </li>
-      <li class="flex gap-3 py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
+      <li class="flex gap-3 cl-li py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
         <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">2.</span>
+        <span class="cl-ph" data-s="clergy-cor.webp" style="--x:5;--y:7" aria-hidden="true"></span>
         <span class="text-[14.5px] text-body/85 dark:text-ivory/70">Very Rev. John Thachamperil Cor-Episcopa</span>
       </li>
-      <li class="flex gap-3 py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
+      <li class="flex gap-3 cl-li py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
         <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">3.</span>
+        <span class="cl-ph" data-s="clergy-cor.webp" style="--x:6;--y:7" aria-hidden="true"></span>
         <span class="text-[14.5px] text-body/85 dark:text-ivory/70">Very Rev. Joseph Thekkekara Cor-Episcopa</span>
       </li>
-      <li class="flex gap-3 py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
+      <li class="flex gap-3 cl-li py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
         <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">4.</span>
+        <span class="cl-ph" data-s="clergy-cor.webp" style="--x:7;--y:7" aria-hidden="true"></span>
         <span class="text-[14.5px] text-body/85 dark:text-ivory/70">Very Rev. P. C. Philip Cor-Episcopa</span>
       </li>
-      <li class="flex gap-3 py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
+      <li class="flex gap-3 cl-li py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
         <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">5.</span>
+        <span class="cl-ph" data-s="clergy-cor.webp" style="--x:8;--y:7" aria-hidden="true"></span>
         <span class="text-[14.5px] text-body/85 dark:text-ivory/70">Very Rev. T. K. Thomas Cor-Episcopa</span>
       </li>
     </ol>
@@ -628,8 +717,9 @@
       <span class="font-sans text-[11px] tracking-wide text-muted">1</span>
     </div>
     <ol class="flex flex-col">
-      <li class="flex gap-3 py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
+      <li class="flex gap-3 cl-li py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
         <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">1.</span>
+        <span class="cl-ph" data-s="clergy-cor.webp" style="--x:9;--y:7" aria-hidden="true"></span>
         <span class="text-[14.5px] text-body/85 dark:text-ivory/70">Very Rev. V. C. Mani Thiruthaduppu Cor-Episcopa</span>
       </li>
     </ol>
@@ -641,32 +731,39 @@
       <span class="font-sans text-[11px] tracking-wide text-muted">7</span>
     </div>
     <ol class="flex flex-col">
-      <li class="flex gap-3 py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
+      <li class="flex gap-3 cl-li py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
         <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">1.</span>
+        <span class="cl-ph" data-s="clergy-cor.webp" style="--x:0;--y:8" aria-hidden="true"></span>
         <span class="text-[14.5px] text-body/85 dark:text-ivory/70">Very Rev. Fr. C. V. Kuriakose Cor-Episcopa</span>
       </li>
-      <li class="flex gap-3 py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
+      <li class="flex gap-3 cl-li py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
         <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">2.</span>
+        <span class="cl-ph cl-none" aria-hidden="true"></span>
         <span class="text-[14.5px] text-body/85 dark:text-ivory/70">Very Rev. Fr. P. M. Mathew Cor-Episcopa</span>
       </li>
-      <li class="flex gap-3 py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
+      <li class="flex gap-3 cl-li py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
         <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">3.</span>
+        <span class="cl-ph" data-s="clergy-cor.webp" style="--x:1;--y:8" aria-hidden="true"></span>
         <span class="text-[14.5px] text-body/85 dark:text-ivory/70">Very Rev. Koshy Plammoottil Cor-Episcopa</span>
       </li>
-      <li class="flex gap-3 py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
+      <li class="flex gap-3 cl-li py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
         <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">4.</span>
+        <span class="cl-ph" data-s="clergy-cor.webp" style="--x:2;--y:8" aria-hidden="true"></span>
         <span class="text-[14.5px] text-body/85 dark:text-ivory/70">Very Rev. N. S. Varghese Cor-Episcopa</span>
       </li>
-      <li class="flex gap-3 py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
+      <li class="flex gap-3 cl-li py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
         <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">5.</span>
+        <span class="cl-ph" data-s="clergy-cor.webp" style="--x:3;--y:8" aria-hidden="true"></span>
         <span class="text-[14.5px] text-body/85 dark:text-ivory/70">Very Rev. Thomas Kurian Cor-Episcopa</span>
       </li>
-      <li class="flex gap-3 py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
+      <li class="flex gap-3 cl-li py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
         <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">6.</span>
+        <span class="cl-ph" data-s="clergy-cor.webp" style="--x:4;--y:8" aria-hidden="true"></span>
         <span class="text-[14.5px] text-body/85 dark:text-ivory/70">Very Rev. Yaunan Mulammoottil Cor-Episcopa</span>
       </li>
-      <li class="flex gap-3 py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
+      <li class="flex gap-3 cl-li py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
         <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">7.</span>
+        <span class="cl-ph" data-s="clergy-cor.webp" style="--x:5;--y:8" aria-hidden="true"></span>
         <span class="text-[14.5px] text-body/85 dark:text-ivory/70">Very Rev. Zachariah Cor-Episcopa</span>
       </li>
     </ol>
@@ -678,8 +775,9 @@
       <span class="font-sans text-[11px] tracking-wide text-muted">1</span>
     </div>
     <ol class="flex flex-col">
-      <li class="flex gap-3 py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
+      <li class="flex gap-3 cl-li py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
         <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">1.</span>
+        <span class="cl-ph" data-s="clergy-cor.webp" style="--x:6;--y:8" aria-hidden="true"></span>
         <span class="text-[14.5px] text-body/85 dark:text-ivory/70">Very Rev. Fr. Babu George Pulimoottil Cor-Episcopa</span>
       </li>
     </ol>
@@ -691,12 +789,14 @@
       <span class="font-sans text-[11px] tracking-wide text-muted">2</span>
     </div>
     <ol class="flex flex-col">
-      <li class="flex gap-3 py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
+      <li class="flex gap-3 cl-li py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
         <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">1.</span>
+        <span class="cl-ph" data-s="clergy-cor.webp" style="--x:7;--y:8" aria-hidden="true"></span>
         <span class="text-[14.5px] text-body/85 dark:text-ivory/70">Very Rev. Philip M. Samuel Cor-Episcopa</span>
       </li>
-      <li class="flex gap-3 py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
+      <li class="flex gap-3 cl-li py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
         <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">2.</span>
+        <span class="cl-ph" data-s="clergy-cor.webp" style="--x:8;--y:8" aria-hidden="true"></span>
         <span class="text-[14.5px] text-body/85 dark:text-ivory/70">Very Rev. Sam V. Gabriel Vadasseriathu Cor-Episcopa</span>
       </li>
     </ol>
@@ -708,20 +808,24 @@
       <span class="font-sans text-[11px] tracking-wide text-muted">4</span>
     </div>
     <ol class="flex flex-col">
-      <li class="flex gap-3 py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
+      <li class="flex gap-3 cl-li py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
         <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">1.</span>
+        <span class="cl-ph" data-s="clergy-cor.webp" style="--x:9;--y:8" aria-hidden="true"></span>
         <span class="text-[14.5px] text-body/85 dark:text-ivory/70">Very Rev. Gheevarghis Aroopala Cor-Episcopa</span>
       </li>
-      <li class="flex gap-3 py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
+      <li class="flex gap-3 cl-li py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
         <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">2.</span>
+        <span class="cl-ph" data-s="clergy-cor.webp" style="--x:0;--y:9" aria-hidden="true"></span>
         <span class="text-[14.5px] text-body/85 dark:text-ivory/70">Very Rev. Kuriakose Cor-Episcopa</span>
       </li>
-      <li class="flex gap-3 py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
+      <li class="flex gap-3 cl-li py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
         <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">3.</span>
+        <span class="cl-ph" data-s="clergy-cor.webp" style="--x:1;--y:9" aria-hidden="true"></span>
         <span class="text-[14.5px] text-body/85 dark:text-ivory/70">Very Rev. Michael Hatcher Cor-Episcopa</span>
       </li>
-      <li class="flex gap-3 py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
+      <li class="flex gap-3 cl-li py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
         <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">4.</span>
+        <span class="cl-ph" data-s="clergy-cor.webp" style="--x:2;--y:9" aria-hidden="true"></span>
         <span class="text-[14.5px] text-body/85 dark:text-ivory/70">Very Rev. Raju M. Daniel Cor-Episcopa</span>
       </li>
     </ol>
@@ -733,8 +837,9 @@
       <span class="font-sans text-[11px] tracking-wide text-muted">1</span>
     </div>
     <ol class="flex flex-col">
-      <li class="flex gap-3 py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
+      <li class="flex gap-3 cl-li py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
         <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">1.</span>
+        <span class="cl-ph" data-s="clergy-cor.webp" style="--x:3;--y:9" aria-hidden="true"></span>
         <span class="text-[14.5px] text-body/85 dark:text-ivory/70">Very Rev. Abraham George Cor-Episcopa</span>
       </li>
     </ol>
@@ -746,20 +851,24 @@
       <span class="font-sans text-[11px] tracking-wide text-muted">4</span>
     </div>
     <ol class="flex flex-col">
-      <li class="flex gap-3 py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
+      <li class="flex gap-3 cl-li py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
         <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">1.</span>
+        <span class="cl-ph cl-none" aria-hidden="true"></span>
         <span class="text-[14.5px] text-body/85 dark:text-ivory/70">Very Rev. Dr. Geevarghese Iype V. Cor-Episcopa</span>
       </li>
-        <li class="flex gap-3 py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
+        <li class="flex gap-3 cl-li py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
         <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">2.</span>
+        <span class="cl-ph cl-none" aria-hidden="true"></span>
         <span class="text-[14.5px] text-body/85 dark:text-ivory/70">Very Rev. Fr. Abraham Inchackalodil Cor-Episcopa</span>
       </li>
-      <li class="flex gap-3 py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
+      <li class="flex gap-3 cl-li py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
         <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">3.</span>
+        <span class="cl-ph" data-s="clergy-cor.webp" style="--x:4;--y:9" aria-hidden="true"></span>
         <span class="text-[14.5px] text-body/85 dark:text-ivory/70">Very Rev. Rajan George Cor-Episcopa</span>
       </li>
-      <li class="flex gap-3 py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
+      <li class="flex gap-3 cl-li py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
         <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">4.</span>
+        <span class="cl-ph cl-none" aria-hidden="true"></span>
         <span class="text-[14.5px] text-body/85 dark:text-ivory/70">Very Rev. Fr. C. M. Philipose Tunduvila Cor-Episcopa</span>
       </li>
     </ol>
@@ -812,6 +921,13 @@ window.addEventListener("click", function () {
     music.volume = volume;
   }, interval);
 }, { once: true });
+</script>
+<script>
+(function(){var els=[].slice.call(document.querySelectorAll('.cl-ph[data-s]'));
+function load(e){e.style.backgroundImage='url('+e.getAttribute('data-s')+')';e.removeAttribute('data-s');}
+if(!('IntersectionObserver' in window)){els.forEach(load);return;}
+var io=new IntersectionObserver(function(en){en.forEach(function(x){if(x.isIntersecting){load(x.target);io.unobserve(x.target);}});},{rootMargin:'600px 0px'});
+els.forEach(function(e){io.observe(e);});})();
 </script>
 </body>
 </html>
