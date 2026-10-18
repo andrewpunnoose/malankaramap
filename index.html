@@ -5914,6 +5914,34 @@ html[lang="ml"] .tracking-wider.uppercase{text-transform:none;overflow-wrap:anyw
   <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
   <link rel="apple-touch-icon" href="apple-touch-icon.png">
   <link rel="manifest" href="site.webmanifest"><audio id="bgMusic" loop="" style="display:none"><source src="audio.mp3" type="audio/mpeg"></audio><!-- ==================== HEADER ==================== -->
+  <style id="header-ml-fix">
+/* ===== Malayalam header fixes (same block lives in header.html and index.html) ===== */
+/* 1. Always have a Malayalam face for the header, so phones never fall back to a system font */
+html[lang=ml] header, html[lang=ml] header .font-serif, html[lang=ml] header nav a, html[lang=ml] header #mobileMenu,
+html[lang=ml] header #mobileMenu .mobile-nav-accordion summary, html[lang=ml] header #mobileMenu .mobile-nav-panel,
+html[lang=ml] header #mobileMenu .mobile-nav-panel a, html[lang=ml] header #mobileMenu .mobile-nav-panel a span {
+  font-family: "Noto Serif Malayalam", Manjari, serif
+}
+html[lang=ml] header .font-sans, html[lang=ml] header .megapanel, html[lang=ml] header .megapanel a, html[lang=ml] header .megapanel span {
+  font-family: Manjari, "Noto Serif Malayalam", sans-serif
+}
+/* 2. Malayalam glyphs are taller: give the logo lines room so nothing is clipped by .truncate */
+html[lang=ml] header .truncate { line-height: 1.6; padding-bottom: .08em }
+/* 3. Nav: never wrap, spacing shrinks smoothly with the screen, logo can never be pushed under it */
+html[lang=ml] header nav { gap: clamp(.9rem, 1.9vw, 2rem); font-size: 14px }
+html[lang=ml] header nav a, html[lang=ml] header nav a span { white-space: nowrap }
+html[lang=ml] header .max-w-7xl > a { flex: 1 1 auto; min-width: 3.25rem }
+/* 4. Dropdown items: wrap long Malayalam names instead of cutting them off */
+html[lang=ml] header .megapanel .truncate, html[lang=ml] header .megapanel a.truncate { white-space: normal; overflow: visible; line-height: 1.5 }
+/* 5. Malayalam words are wider, so tablets and small laptops use the slide-out menu (same as phones) */
+@media (min-width:768px) and (max-width:1023.98px) {
+  html[lang=ml] header nav,
+  html[lang=ml] header #searchToggle, html[lang=ml] header #musicToggle,
+  html[lang=ml] header #langToggle, html[lang=ml] header #themeToggle { display: none }
+  html[lang=ml] header #mobileMenuBtn { display: flex }
+  html[lang=ml] header #mobileMenu { display: flex }
+}
+</style>
   <header class="relative z-50 border-b border-line dark:border-white/10">
     <div class="header-glass inset-0" style="position:absolute;z-index:-1;"></div>
     <div class="header-edge"></div>
@@ -7205,7 +7233,7 @@ html[lang="ml"] .tracking-wider.uppercase{text-transform:none;overflow-wrap:anyw
       For corrections, additions, or inquiries, please write to
     </div>
     <div class="flex flex-col sm:flex-row items-center justify-center gap-2 sm:gap-3 px-6 mb-7">
-      <a href="mailto:malankaramap@gmail.com" class="font-serif italic text-[14px] sm:text-[15px] text-sage hover:text-ivory transition-colors">malankaramap@gmail.com</a> <span class="hidden sm:inline" style="color:rgba(247,245,238,.25);">·</span> <a href="https://instagram.com/malankaramap" target="_blank" rel="noopener" class="font-serif italic text-[14px] sm:text-[15px] text-sage hover:text-ivory transition-colors inline-flex items-center gap-1.5" aria-label="Instagram: @malankaramap"><svg class="shrink-0" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.4" cy="6.6" r="1" fill="currentColor" stroke="none"/></svg><span>@malankaramap</span></a>
+      <a href="mailto:malankaramap@gmail.com" class="font-serif italic text-[14px] sm:text-[15px] text-sage hover:text-ivory transition-colors">malankaramap@gmail.com</a> <span class="hidden sm:inline" style="color:rgba(247,245,238,.25);">·</span> <a href="https://instagram.com/malankaramap" target="_blank" rel="noopener" class="font-serif italic text-[14px] sm:text-[15px] text-sage hover:text-ivory transition-colors inline-flex items-center gap-1.5" aria-label="Instagram: @malankaramap"><span>@malankaramap</span></a>
     </div>
     <div class="font-sans text-[10px] tracking-wide mb-3" style="color:rgba(247,245,238,.35);" data-en-html="‎&lt;a href=&quot;record&quot; class=&quot;underline underline-offset-2 hover:text-ivory transition-colors&quot;&gt;Report an Issue&lt;/a&gt; &nbsp;·&nbsp; &lt;a href=&quot;privacy&quot; class=&quot;underline underline-offset-2 hover:text-ivory transition-colors&quot;&gt;Privacy Policy&lt;/a&gt; &nbsp;·&nbsp; &lt;a href=&quot;terms&quot; class=&quot;underline underline-offset-2 hover:text-ivory transition-colors&quot;&gt;Terms of Service&lt;/a&gt;" data-ml-html="‎&lt;a href=&quot;record&quot; class=&quot;underline underline-offset-2 hover:text-ivory transition-colors&quot;&gt;ഒരു പിശക് അറിയിക്കുക&lt;/a&gt; &nbsp;·&nbsp; &lt;a href=&quot;privacy&quot; class=&quot;underline underline-offset-2 hover:text-ivory transition-colors&quot;&gt;സ്വകാര്യതാ നയം&lt;/a&gt; &nbsp;·&nbsp; &lt;a href=&quot;terms&quot; class=&quot;underline underline-offset-2 hover:text-ivory transition-colors&quot;&gt;സേവന നിബന്ധനകൾ&lt;/a&gt;">
       <a href="record" class="underline underline-offset-2 hover:text-ivory transition-colors">Report an Issue</a> &nbsp;·&nbsp; <a href="privacy" class="underline underline-offset-2 hover:text-ivory transition-colors">Privacy Policy</a> &nbsp;·&nbsp; <a href="terms" class="underline underline-offset-2 hover:text-ivory transition-colors">Terms of Service</a>
