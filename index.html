@@ -5925,12 +5925,13 @@ html[lang=ml] header #mobileMenu .mobile-nav-panel a, html[lang=ml] header #mobi
 html[lang=ml] header .font-sans, html[lang=ml] header .megapanel, html[lang=ml] header .megapanel a, html[lang=ml] header .megapanel span {
   font-family: Manjari, "Noto Serif Malayalam", sans-serif
 }
-/* 2. Malayalam glyphs are taller: give the logo lines room so nothing is clipped by .truncate */
-html[lang=ml] header .truncate { line-height: 1.6; padding-bottom: .08em }
-/* 3. Nav: never wrap, spacing shrinks smoothly with the screen, logo can never be pushed under it */
+/* 2. Malayalam glyphs are taller: give the logo lines equal room above and below so nothing is clipped and the text stays centred like the English */
+html[lang=ml] header .truncate { line-height: 1.5; padding-top: .1em; padding-bottom: .1em }
+html[lang=ml] header .est-mobile, html[lang=ml] header .est-desktop { font-size: 14px }
+/* 3. Nav: never wrap, spacing shrinks smoothly with the screen; logo keeps its natural width (no flex-grow) so the nav stays centred, and it can only shrink, never overlap */
 html[lang=ml] header nav { gap: clamp(.9rem, 1.9vw, 2rem); font-size: 14px }
 html[lang=ml] header nav a, html[lang=ml] header nav a span { white-space: nowrap }
-html[lang=ml] header .max-w-7xl > a { flex: 1 1 auto; min-width: 3.25rem }
+html[lang=ml] header .max-w-7xl > a { flex: 0 1 auto; min-width: 3.25rem }
 /* 4. Dropdown items: wrap long Malayalam names instead of cutting them off */
 html[lang=ml] header .megapanel .truncate, html[lang=ml] header .megapanel a.truncate { white-space: normal; overflow: visible; line-height: 1.5 }
 /* 5. Malayalam words are wider, so tablets and small laptops use the slide-out menu (same as phones) */
