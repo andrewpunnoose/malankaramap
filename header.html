@@ -724,6 +724,8 @@ html[lang=ml] header .font-sans, html[lang=ml] header .megapanel, html[lang=ml] 
 /* 2. Malayalam glyphs are taller: give the logo lines equal room above and below so nothing is clipped and the text stays centred like the English */
 html[lang=ml] header .truncate { line-height: 1.5; padding-top: .1em; padding-bottom: .1em }
 html[lang=ml] header .est-mobile, html[lang=ml] header .est-desktop { font-size: 14px }
+html[lang=ml] header span.truncate:has(> .est-mobile) { line-height: 1.4 }
+html[lang=ml] header .min-w-0 > div.font-serif { margin-top: -.35em }
 /* 3. Nav: never wrap, spacing shrinks smoothly with the screen; logo keeps its natural width (no flex-grow) so the nav stays centred, and it can only shrink, never overlap */
 html[lang=ml] header nav { gap: clamp(.9rem, 1.9vw, 2rem); font-size: 14px }
 html[lang=ml] header nav a, html[lang=ml] header nav a span { white-space: nowrap }
