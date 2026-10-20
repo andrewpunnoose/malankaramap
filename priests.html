@@ -32,7 +32,7 @@
 
 <link rel="stylesheet" href="styles.css">
 <style id="site-palette">/* index.html palette, applied after styles.css so these pages always match the rest of the site */.border-line{--tw-border-opacity:1;border-color:rgb(219 225 210/var(--tw-border-opacity,1))}.bg-charcoal{--tw-bg-opacity:1;background-color:rgb(31 41 55/var(--tw-bg-opacity,1))}.bg-gold\/70{background-color:rgba(186,148,80,.7)}.bg-herobg{background-color:rgb(238 240 230/var(--tw-bg-opacity,1))}.bg-herobg,.bg-ivory{--tw-bg-opacity:1}.bg-ivory{background-color:rgb(247 245 238/var(--tw-bg-opacity,1))}.text-body{--tw-text-opacity:1;color:rgb(51 58 45/var(--tw-text-opacity,1))}.text-body\/60{color:rgba(51,58,45,.6)}.text-body\/80{color:rgba(51,58,45,.8)}.text-body\/85{color:rgba(51,58,45,.85)}.text-ink{color:rgb(16 20 13/var(--tw-text-opacity,1))}.text-ink,.text-ivory{--tw-text-opacity:1}.text-ivory{color:rgb(247 245 238/var(--tw-text-opacity,1))}.text-ivory\/45{color:hsla(47,36%,95%,.45)}.text-muted{color:rgb(150 158 140/var(--tw-text-opacity,1))}.text-muted,.text-sage{--tw-text-opacity:1}.text-sage{color:rgb(107 130 89/var(--tw-text-opacity,1))}.text-sage-dark{--tw-text-opacity:1;color:rgb(74 93 61/var(--tw-text-opacity,1))}.text-taupe{--tw-text-opacity:1;color:rgb(124 106 74/var(--tw-text-opacity,1))}.hover\:text-ivory:hover{--tw-text-opacity:1;color:rgb(247 245 238/var(--tw-text-opacity,1))}.hover\:text-sage-dark:hover{--tw-text-opacity:1;color:rgb(74 93 61/var(--tw-text-opacity,1))}.dark\:bg-midnight:is(.dark *){--tw-bg-opacity:1;background-color:rgb(17 24 39/var(--tw-bg-opacity,1))}.dark\:text-ivory:is(.dark *){--tw-text-opacity:1;color:rgb(247 245 238/var(--tw-text-opacity,1))}.dark\:text-ivory\/50:is(.dark *){color:hsla(47,36%,95%,.5)}.dark\:text-ivory\/65:is(.dark *){color:hsla(47,36%,95%,.65)}.dark\:text-ivory\/70:is(.dark *){color:hsla(47,36%,95%,.7)}.dark\:text-ivory\/85:is(.dark *){color:hsla(47,36%,95%,.85)}.dark\:text-sage:is(.dark *){--tw-text-opacity:1;color:rgb(107 130 89/var(--tw-text-opacity,1))}.dark\:hover\:text-sage:hover:is(.dark *){--tw-text-opacity:1;color:rgb(107 130 89/var(--tw-text-opacity,1))}::selection{background:#6B8259;color:#fff}</style>
-<style id="clergy-nav">/* clergy sub-nav (Metropolitans · Monks · Cor-Episcopas · Priests · Deacons): defined here so it looks the same on every clergy page regardless of styles.css */.clergy-nav{display:flex;flex-wrap:wrap;align-items:center;justify-content:center;column-gap:.25rem;row-gap:.375rem;margin-top:0}</style>
+<style id="clergy-nav">/* clergy sub-nav (Metropolitans · Monks · Cor-Episcopi · Priests · Deacons): defined here so it looks the same on every clergy page regardless of styles.css */.clergy-nav{display:flex;flex-wrap:wrap;align-items:center;justify-content:center;column-gap:.25rem;row-gap:.375rem;margin-top:0}</style>
 <style id="clergy-art">
   .clergy-art{display:flex;flex-direction:column;align-items:center;padding:2.5rem 1.25rem 2.5rem}@media(min-width:640px){.clergy-art{padding-top:3.5rem}}
   .clergy-art + .hero-follow{padding-top:0}
@@ -73,9 +73,9 @@
 <section class="bg-herobg dark:bg-midnight px-5 sm:px-8 pt-14 sm:pt-20 pb-10 sm:pb-14 text-center">
   <div class="max-w-2xl mx-auto">
     <a href="/#clergy" class="font-sans text-[11px] tracking-[0.14em] uppercase text-taupe hover:text-sage-dark dark:hover:text-sage transition-colors">&larr; Back to Malankara Map</a>
-    <nav class="clergy-nav font-sans text-[11px] tracking-[0.06em] uppercase text-body/60 dark:text-ivory/50"><a href="metropolitans" class="hover:text-sage-dark dark:hover:text-sage transition-colors">Metropolitans</a> <span class="text-muted">&middot;</span> <a href="monks" class="hover:text-sage-dark dark:hover:text-sage transition-colors">Monks</a> <span class="text-muted">&middot;</span> <a href="cor-episcopa" class="hover:text-sage-dark dark:hover:text-sage transition-colors">Cor-Episcopas</a> <span class="text-muted">&middot;</span> <span class="text-ink dark:text-ivory font-semibold">Priests</span> <span class="text-muted">&middot;</span> <a href="deacons" class="hover:text-sage-dark dark:hover:text-sage transition-colors">Deacons</a></nav>
+    <nav class="clergy-nav font-sans text-[11px] tracking-[0.06em] uppercase text-body/60 dark:text-ivory/50"><a href="metropolitans" class="hover:text-sage-dark dark:hover:text-sage transition-colors">Metropolitans</a> <span class="text-muted">&middot;</span> <a href="monks" class="hover:text-sage-dark dark:hover:text-sage transition-colors">Monks</a> <span class="text-muted">&middot;</span> <a href="cor-episcopa" class="hover:text-sage-dark dark:hover:text-sage transition-colors">Cor-Episcopi</a> <span class="text-muted">&middot;</span> <span class="text-ink dark:text-ivory font-semibold">Priests</span> <span class="text-muted">&middot;</span> <a href="deacons" class="hover:text-sage-dark dark:hover:text-sage transition-colors">Deacons</a></nav>
     <p class="text-[11px] sm:text-xs tracking-[0.22em] uppercase text-taupe font-semibold mt-6 mb-4 sm:mb-5">Rev. Fr. — Parish Clergy</p>
-    <h1 class="font-serif font-normal text-[36px] leading-[1.1] sm:text-5xl md:text-6xl tracking-tight text-ink dark:text-ivory mb-4 sm:mb-5"><em class="italic text-sage-dark dark:text-sage">1,710</em> Priests</h1>
+    <h1 class="font-serif font-normal text-[36px] leading-[1.1] sm:text-5xl md:text-6xl tracking-tight text-ink dark:text-ivory mb-4 sm:mb-5"><em class="italic text-sage-dark dark:text-sage">1,733</em> Priests</h1>
     <p class="text-[15px] sm:text-base text-body/80 dark:text-ivory/65 max-w-lg mx-auto leading-relaxed">Ordained priests serving parishes, congregations, and institutions across every diocese of the Church, organized here by diocese.</p>
     <div class="w-px h-8 sm:h-10 bg-gold/70 mx-auto mt-7 sm:mt-9"></div>
   </div>
@@ -6112,7 +6112,7 @@
   <div class="mb-10 sm:mb-12" id="priests-madras">
     <div class="flex items-baseline gap-3 mb-3 sm:mb-4">
       <h2 class="font-serif font-normal text-xl sm:text-2xl text-ink dark:text-ivory">Madras</h2>
-      <span class="font-sans text-[11px] tracking-wide text-muted">68</span>
+      <span class="font-sans text-[11px] tracking-wide text-muted">49</span>
     </div>
     <ol class="flex flex-col">
       <li class="flex gap-3 cl-li py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
@@ -6122,338 +6122,402 @@
       </li>
       <li class="flex gap-3 cl-li py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
         <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">2.</span>
-        <span class="cl-ph" data-s="clergy-priests-5.webp" style="--x:3;--y:16" aria-hidden="true"></span>
-        <span class="text-[14.5px] text-body/85 dark:text-ivory/70">Rev. Fr. Abey M. Tharakan (Alexander), Mulamoottil</span>
-      </li>
-      <li class="flex gap-3 cl-li py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
-        <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">3.</span>
         <span class="cl-ph" data-s="clergy-priests-5.webp" style="--x:4;--y:16" aria-hidden="true"></span>
         <span class="text-[14.5px] text-body/85 dark:text-ivory/70">Rev. Fr. Abraham Jacob</span>
       </li>
       <li class="flex gap-3 cl-li py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
-        <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">4.</span>
+        <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">3.</span>
         <span class="cl-ph" data-s="clergy-priests-5.webp" style="--x:5;--y:16" aria-hidden="true"></span>
         <span class="text-[14.5px] text-body/85 dark:text-ivory/70">Rev. Fr. Aji K. Varughese, Kottappurathu</span>
       </li>
       <li class="flex gap-3 cl-li py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
-        <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">5.</span>
+        <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">4.</span>
         <span class="cl-ph" data-s="clergy-priests-5.webp" style="--x:6;--y:16" aria-hidden="true"></span>
         <span class="text-[14.5px] text-body/85 dark:text-ivory/70">Rev. Fr. Aji Mathew, Grace</span>
       </li>
       <li class="flex gap-3 cl-li py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
-        <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">6.</span>
-        <span class="cl-ph" data-s="clergy-priests-5.webp" style="--x:7;--y:16" aria-hidden="true"></span>
-        <span class="text-[14.5px] text-body/85 dark:text-ivory/70">Rev. Fr. Ajin Koshy John, Poovakkattil</span>
-      </li>
-      <li class="flex gap-3 cl-li py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
-        <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">7.</span>
+        <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">5.</span>
         <span class="cl-ph" data-s="clergy-priests-5.webp" style="--x:8;--y:16" aria-hidden="true"></span>
         <span class="text-[14.5px] text-body/85 dark:text-ivory/70">Rev. Fr. Ajish V. Alex, Vazhavila</span>
       </li>
       <li class="flex gap-3 cl-li py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
-        <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">8.</span>
-        <span class="cl-ph" data-s="clergy-priests-5.webp" style="--x:9;--y:16" aria-hidden="true"></span>
-        <span class="text-[14.5px] text-body/85 dark:text-ivory/70">Rev. Fr. Aneesh Kunjappan (Thomas), Naduvilazhikathu</span>
-      </li>
-      <li class="flex gap-3 cl-li py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
-        <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">9.</span>
+        <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">6.</span>
         <span class="cl-ph" data-s="clergy-priests-5.webp" style="--x:0;--y:17" aria-hidden="true"></span>
         <span class="text-[14.5px] text-body/85 dark:text-ivory/70">Rev. Fr. Anish K. Sam, Koickalethu</span>
       </li>
       <li class="flex gap-3 cl-li py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
-        <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">10.</span>
-        <span class="cl-ph" data-s="clergy-priests-5.webp" style="--x:1;--y:17" aria-hidden="true"></span>
-        <span class="text-[14.5px] text-body/85 dark:text-ivory/70">Rev. Fr. Anish Mathew, Keepanattu</span>
-      </li>
-      <li class="flex gap-3 cl-li py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
-        <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">11.</span>
-        <span class="cl-ph" data-s="clergy-priests-5.webp" style="--x:2;--y:17" aria-hidden="true"></span>
-        <span class="text-[14.5px] text-body/85 dark:text-ivory/70">Rev. Fr. Anu Mathew, Kottoor</span>
-      </li>
-      <li class="flex gap-3 cl-li py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
-        <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">12.</span>
+        <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">7.</span>
         <span class="cl-ph" data-s="clergy-priests-5.webp" style="--x:3;--y:17" aria-hidden="true"></span>
         <span class="text-[14.5px] text-body/85 dark:text-ivory/70">Rev. Fr. Anup Joseph Eapen, Maleparambil</span>
       </li>
       <li class="flex gap-3 cl-li py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
-        <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">13.</span>
-        <span class="cl-ph" data-s="clergy-priests-5.webp" style="--x:4;--y:17" aria-hidden="true"></span>
-        <span class="text-[14.5px] text-body/85 dark:text-ivory/70">Rev. Fr. Babu Kurian</span>
-      </li>
-      <li class="flex gap-3 cl-li py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
-        <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">14.</span>
+        <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">8.</span>
         <span class="cl-ph" data-s="clergy-priests-5.webp" style="--x:5;--y:17" aria-hidden="true"></span>
         <span class="text-[14.5px] text-body/85 dark:text-ivory/70">Rev. Fr. Bibin Daniel, Kanangiriyil</span>
       </li>
       <li class="flex gap-3 cl-li py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
-        <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">15.</span>
+        <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">9.</span>
         <span class="cl-ph" data-s="clergy-priests-5.webp" style="--x:6;--y:17" aria-hidden="true"></span>
         <span class="text-[14.5px] text-body/85 dark:text-ivory/70">Rev. Fr. Biju Mathai, Pulickal</span>
       </li>
       <li class="flex gap-3 cl-li py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
-        <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">16.</span>
-        <span class="cl-ph" data-s="clergy-priests-5.webp" style="--x:7;--y:17" aria-hidden="true"></span>
-        <span class="text-[14.5px] text-body/85 dark:text-ivory/70">Rev. Fr. Boby Daniel</span>
-      </li>
-      <li class="flex gap-3 cl-li py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
-        <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">17.</span>
+        <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">10.</span>
         <span class="cl-ph" data-s="clergy-priests-5.webp" style="--x:8;--y:17" aria-hidden="true"></span>
         <span class="text-[14.5px] text-body/85 dark:text-ivory/70">Rev. Fr. Cheriyan Ayrookuzhi, Ayrookuzhiyil</span>
       </li>
       <li class="flex gap-3 cl-li py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
-        <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">18.</span>
+        <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">11.</span>
         <span class="cl-ph" data-s="clergy-priests-5.webp" style="--x:9;--y:17" aria-hidden="true"></span>
         <span class="text-[14.5px] text-body/85 dark:text-ivory/70">Rev. Fr. Cheriyan Varghese (Shinu), Easuparampil</span>
       </li>
       <li class="flex gap-3 cl-li py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
-        <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">19.</span>
-        <span class="cl-ph" data-s="clergy-priests-5.webp" style="--x:0;--y:18" aria-hidden="true"></span>
-        <span class="text-[14.5px] text-body/85 dark:text-ivory/70">Rev. Fr. Christy V. George, Valiyaveettil</span>
-      </li>
-      <li class="flex gap-3 cl-li py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
-        <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">20.</span>
+        <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">12.</span>
         <span class="cl-ph" data-s="clergy-priests-5.webp" style="--x:1;--y:18" aria-hidden="true"></span>
         <span class="text-[14.5px] text-body/85 dark:text-ivory/70">Rev. Fr. Geevarghese George (Lijo), Plavila</span>
       </li>
       <li class="flex gap-3 cl-li py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
-        <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">21.</span>
+        <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">13.</span>
         <span class="cl-ph" data-s="clergy-priests-5.webp" style="--x:2;--y:18" aria-hidden="true"></span>
         <span class="text-[14.5px] text-body/85 dark:text-ivory/70">Rev. Fr. George Babu</span>
       </li>
       <li class="flex gap-3 cl-li py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
-        <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">22.</span>
-        <span class="cl-ph" data-s="clergy-priests-5.webp" style="--x:3;--y:18" aria-hidden="true"></span>
-        <span class="text-[14.5px] text-body/85 dark:text-ivory/70">Rev. Fr. Gigi Mathew, Pullukattu</span>
-      </li>
-      <li class="flex gap-3 cl-li py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
-        <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">23.</span>
+        <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">14.</span>
         <span class="cl-ph" data-s="clergy-priests-5.webp" style="--x:4;--y:18" aria-hidden="true"></span>
         <span class="text-[14.5px] text-body/85 dark:text-ivory/70">Rev. Fr. Issac C. A., Kandathil</span>
       </li>
       <li class="flex gap-3 cl-li py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
-        <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">24.</span>
+        <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">15.</span>
         <span class="cl-ph" data-s="clergy-priests-5.webp" style="--x:5;--y:18" aria-hidden="true"></span>
         <span class="text-[14.5px] text-body/85 dark:text-ivory/70">Rev. Fr. Ivan Mathews, Maroorpadeettathil</span>
       </li>
       <li class="flex gap-3 cl-li py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
-        <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">25.</span>
-        <span class="cl-ph" data-s="clergy-priests-5.webp" style="--x:6;--y:18" aria-hidden="true"></span>
-        <span class="text-[14.5px] text-body/85 dark:text-ivory/70">Rev. Fr. Jacks Jacob, Cherampalill</span>
-      </li>
-      <li class="flex gap-3 cl-li py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
-        <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">26.</span>
-        <span class="cl-ph" data-s="clergy-priests-5.webp" style="--x:7;--y:18" aria-hidden="true"></span>
-        <span class="text-[14.5px] text-body/85 dark:text-ivory/70">Rev. Fr. James Philip</span>
-      </li>
-      <li class="flex gap-3 cl-li py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
-        <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">27.</span>
+        <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">16.</span>
         <span class="cl-ph" data-s="clergy-priests-5.webp" style="--x:8;--y:18" aria-hidden="true"></span>
         <span class="text-[14.5px] text-body/85 dark:text-ivory/70">Rev. Fr. Jejis V. M., Thiruthadupu</span>
       </li>
       <li class="flex gap-3 cl-li py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
-        <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">28.</span>
+        <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">17.</span>
         <span class="cl-ph" data-s="clergy-priests-5.webp" style="--x:9;--y:18" aria-hidden="true"></span>
         <span class="text-[14.5px] text-body/85 dark:text-ivory/70">Rev. Fr. Jibin Thomas Abraham, Thadayuzhathil</span>
       </li>
       <li class="flex gap-3 cl-li py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
-        <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">29.</span>
+        <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">18.</span>
         <span class="cl-ph" data-s="clergy-priests-5.webp" style="--x:0;--y:19" aria-hidden="true"></span>
         <span class="text-[14.5px] text-body/85 dark:text-ivory/70">Rev. Fr. Jithin Joy Mathew, Punchamannil</span>
       </li>
       <li class="flex gap-3 cl-li py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
-        <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">30.</span>
-        <span class="cl-ph" data-s="clergy-priests-5.webp" style="--x:1;--y:19" aria-hidden="true"></span>
-        <span class="text-[14.5px] text-body/85 dark:text-ivory/70">Rev. Fr. Joby George</span>
-      </li>
-      <li class="flex gap-3 cl-li py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
-        <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">31.</span>
-        <span class="cl-ph" data-s="clergy-priests-5.webp" style="--x:2;--y:19" aria-hidden="true"></span>
-        <span class="text-[14.5px] text-body/85 dark:text-ivory/70">Rev. Fr. Joe Thomas</span>
-      </li>
-      <li class="flex gap-3 cl-li py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
-        <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">32.</span>
-        <span class="cl-ph" data-s="clergy-priests-5.webp" style="--x:3;--y:19" aria-hidden="true"></span>
-        <span class="text-[14.5px] text-body/85 dark:text-ivory/70">Rev. Fr. John Joshbi Thomas</span>
-      </li>
-      <li class="flex gap-3 cl-li py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
-        <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">33.</span>
+        <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">19.</span>
         <span class="cl-ph" data-s="clergy-priests-5.webp" style="--x:4;--y:19" aria-hidden="true"></span>
         <span class="text-[14.5px] text-body/85 dark:text-ivory/70">Rev. Fr. Joseph Mannikoikal, Mannikoikal</span>
       </li>
       <li class="flex gap-3 cl-li py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
-        <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">34.</span>
-        <span class="cl-ph" data-s="clergy-priests-5.webp" style="--x:5;--y:19" aria-hidden="true"></span>
-        <span class="text-[14.5px] text-body/85 dark:text-ivory/70">Rev. Fr. Joshua Jacob (Roy)</span>
-      </li>
-      <li class="flex gap-3 cl-li py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
-        <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">35.</span>
+        <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">20.</span>
         <span class="cl-ph" data-s="clergy-priests-5.webp" style="--x:6;--y:19" aria-hidden="true"></span>
         <span class="text-[14.5px] text-body/85 dark:text-ivory/70">Rev. Fr. Kiran Jacob Joy</span>
       </li>
       <li class="flex gap-3 cl-li py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
-        <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">36.</span>
+        <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">21.</span>
         <span class="cl-ph" data-s="clergy-priests-5.webp" style="--x:7;--y:19" aria-hidden="true"></span>
         <span class="text-[14.5px] text-body/85 dark:text-ivory/70">Rev. Fr. Lijo Jacob, Kalluvila</span>
       </li>
       <li class="flex gap-3 cl-li py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
-        <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">37.</span>
+        <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">22.</span>
         <span class="cl-ph" data-s="clergy-priests-5.webp" style="--x:8;--y:19" aria-hidden="true"></span>
         <span class="text-[14.5px] text-body/85 dark:text-ivory/70">Rev. Fr. Liju K. Thomas, Kulathappallil</span>
       </li>
       <li class="flex gap-3 cl-li py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
-        <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">38.</span>
+        <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">23.</span>
         <span class="cl-ph" data-s="clergy-priests-5.webp" style="--x:9;--y:19" aria-hidden="true"></span>
         <span class="text-[14.5px] text-body/85 dark:text-ivory/70">Rev. Fr. Liju Samuel, Pandakasala</span>
       </li>
       <li class="flex gap-3 cl-li py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
-        <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">39.</span>
-        <span class="cl-ph" data-s="clergy-priests-5.webp" style="--x:0;--y:20" aria-hidden="true"></span>
-        <span class="text-[14.5px] text-body/85 dark:text-ivory/70">Rev. Fr. Linu Lukose</span>
-      </li>
-      <li class="flex gap-3 cl-li py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
-        <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">40.</span>
+        <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">24.</span>
         <span class="cl-ph" data-s="clergy-priests-5.webp" style="--x:1;--y:20" aria-hidden="true"></span>
         <span class="text-[14.5px] text-body/85 dark:text-ivory/70">Rev. Fr. M. P. Jacob</span>
       </li>
       <li class="flex gap-3 cl-li py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
-        <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">41.</span>
+        <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">25.</span>
         <span class="cl-ph" data-s="clergy-priests-5.webp" style="--x:2;--y:20" aria-hidden="true"></span>
         <span class="text-[14.5px] text-body/85 dark:text-ivory/70">Rev. Fr. Markose Geevarghese</span>
       </li>
       <li class="flex gap-3 cl-li py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
-        <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">42.</span>
+        <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">26.</span>
         <span class="cl-ph" data-s="clergy-priests-5.webp" style="--x:3;--y:20" aria-hidden="true"></span>
         <span class="text-[14.5px] text-body/85 dark:text-ivory/70">Rev. Fr. Mathew K. L. (Anu)</span>
       </li>
       <li class="flex gap-3 cl-li py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
-        <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">43.</span>
+        <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">27.</span>
         <span class="cl-ph" data-s="clergy-priests-5.webp" style="--x:4;--y:20" aria-hidden="true"></span>
         <span class="text-[14.5px] text-body/85 dark:text-ivory/70">Rev. Fr. Matthew Varghese (Sobin), Thottiyattu</span>
       </li>
       <li class="flex gap-3 cl-li py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
-        <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">44.</span>
+        <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">28.</span>
         <span class="cl-ph" data-s="clergy-priests-5.webp" style="--x:5;--y:20" aria-hidden="true"></span>
         <span class="text-[14.5px] text-body/85 dark:text-ivory/70">Rev. Fr. Nikhil Alex Tharakan, Aviratharakan</span>
       </li>
       <li class="flex gap-3 cl-li py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
-        <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">45.</span>
+        <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">29.</span>
         <span class="cl-ph" data-s="clergy-priests-5.webp" style="--x:6;--y:20" aria-hidden="true"></span>
         <span class="text-[14.5px] text-body/85 dark:text-ivory/70">Rev. Fr. P. J. Mathew (Binu), Balehonnur</span>
       </li>
       <li class="flex gap-3 cl-li py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
-        <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">46.</span>
+        <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">30.</span>
         <span class="cl-ph" data-s="clergy-priests-5.webp" style="--x:7;--y:20" aria-hidden="true"></span>
         <span class="text-[14.5px] text-body/85 dark:text-ivory/70">Rev. Fr. P. O. Geevarghese, Calvary</span>
       </li>
       <li class="flex gap-3 cl-li py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
-        <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">47.</span>
+        <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">31.</span>
         <span class="cl-ph" data-s="clergy-priests-5.webp" style="--x:8;--y:20" aria-hidden="true"></span>
         <span class="text-[14.5px] text-body/85 dark:text-ivory/70">Rev. Fr. P. P. Jacob, Padinjareparambil</span>
       </li>
       <li class="flex gap-3 cl-li py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
-        <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">48.</span>
+        <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">32.</span>
         <span class="cl-ph" data-s="clergy-priests-5.webp" style="--x:9;--y:20" aria-hidden="true"></span>
         <span class="text-[14.5px] text-body/85 dark:text-ivory/70">Rev. Fr. Pradeep Ponnachan</span>
       </li>
       <li class="flex gap-3 cl-li py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
-        <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">49.</span>
+        <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">33.</span>
         <span class="cl-ph" data-s="clergy-priests-5.webp" style="--x:0;--y:21" aria-hidden="true"></span>
         <span class="text-[14.5px] text-body/85 dark:text-ivory/70">Rev. Fr. Ranjith K. Raju</span>
       </li>
       <li class="flex gap-3 cl-li py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
-        <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">50.</span>
+        <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">34.</span>
         <span class="cl-ph" data-s="clergy-priests-5.webp" style="--x:1;--y:21" aria-hidden="true"></span>
         <span class="text-[14.5px] text-body/85 dark:text-ivory/70">Rev. Fr. Renju Thomas, Charumkal</span>
       </li>
       <li class="flex gap-3 cl-li py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
-        <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">51.</span>
+        <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">35.</span>
         <span class="cl-ph" data-s="clergy-priests-5.webp" style="--x:2;--y:21" aria-hidden="true"></span>
         <span class="text-[14.5px] text-body/85 dark:text-ivory/70">Rev. Fr. Rino P. Alex, Palavila</span>
       </li>
       <li class="flex gap-3 cl-li py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
-        <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">52.</span>
+        <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">36.</span>
         <span class="cl-ph" data-s="clergy-priests-5.webp" style="--x:3;--y:21" aria-hidden="true"></span>
         <span class="text-[14.5px] text-body/85 dark:text-ivory/70">Rev. Fr. Robin P. Thomas, Puthukeril</span>
       </li>
       <li class="flex gap-3 cl-li py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
-        <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">53.</span>
+        <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">37.</span>
         <span class="cl-ph" data-s="clergy-priests-5.webp" style="--x:4;--y:21" aria-hidden="true"></span>
         <span class="text-[14.5px] text-body/85 dark:text-ivory/70">Rev. Fr. Saji Thomas, Palathinkal</span>
       </li>
       <li class="flex gap-3 cl-li py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
-        <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">54.</span>
+        <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">38.</span>
         <span class="cl-ph" data-s="clergy-priests-5.webp" style="--x:5;--y:21" aria-hidden="true"></span>
         <span class="text-[14.5px] text-body/85 dark:text-ivory/70">Rev. Fr. Saju Unnoonni Paranthal, Valliayyathu</span>
       </li>
       <li class="flex gap-3 cl-li py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
-        <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">55.</span>
+        <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">39.</span>
         <span class="cl-ph" data-s="clergy-priests-5.webp" style="--x:6;--y:21" aria-hidden="true"></span>
         <span class="text-[14.5px] text-body/85 dark:text-ivory/70">Rev. Fr. Sam Baby, Plamuttathu</span>
       </li>
       <li class="flex gap-3 cl-li py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
-        <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">56.</span>
-        <span class="cl-ph" data-s="clergy-priests-5.webp" style="--x:7;--y:21" aria-hidden="true"></span>
-        <span class="text-[14.5px] text-body/85 dark:text-ivory/70">Rev. Fr. Sandeep S. Mathews, Peedikaparambill</span>
-      </li>
-      <li class="flex gap-3 cl-li py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
-        <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">57.</span>
+        <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">40.</span>
         <span class="cl-ph" data-s="clergy-priests-5.webp" style="--x:8;--y:21" aria-hidden="true"></span>
         <span class="text-[14.5px] text-body/85 dark:text-ivory/70">Rev. Fr. Shinu K. Thomas, Mallethu</span>
       </li>
       <li class="flex gap-3 cl-li py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
-        <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">58.</span>
-        <span class="cl-ph" data-s="clergy-priests-5.webp" style="--x:9;--y:21" aria-hidden="true"></span>
-        <span class="text-[14.5px] text-body/85 dark:text-ivory/70">Rev. Fr. Sinu Jacob, Kavumpattu</span>
-      </li>
-      <li class="flex gap-3 cl-li py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
-        <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">59.</span>
+        <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">41.</span>
         <span class="cl-ph" data-s="clergy-priests-5.webp" style="--x:0;--y:22" aria-hidden="true"></span>
         <span class="text-[14.5px] text-body/85 dark:text-ivory/70">Rev. Fr. Stalin T. Francis</span>
       </li>
       <li class="flex gap-3 cl-li py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
-        <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">60.</span>
+        <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">42.</span>
         <span class="cl-ph" data-s="clergy-priests-5.webp" style="--x:1;--y:22" aria-hidden="true"></span>
         <span class="text-[14.5px] text-body/85 dark:text-ivory/70">Rev. Fr. Steffi N. Joseph, Ponmelil</span>
       </li>
       <li class="flex gap-3 cl-li py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
-        <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">61.</span>
+        <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">43.</span>
         <span class="cl-ph" data-s="clergy-priests-5.webp" style="--x:2;--y:22" aria-hidden="true"></span>
         <span class="text-[14.5px] text-body/85 dark:text-ivory/70">Rev. Fr. Sujin Varghese Mappila, Edayileveettil</span>
       </li>
       <li class="flex gap-3 cl-li py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
-        <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">62.</span>
+        <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">44.</span>
         <span class="cl-ph" data-s="clergy-priests-5.webp" style="--x:3;--y:22" aria-hidden="true"></span>
         <span class="text-[14.5px] text-body/85 dark:text-ivory/70">Rev. Fr. Thomas Geevarghese (Subin), Painummoottil</span>
       </li>
       <li class="flex gap-3 cl-li py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
-        <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">63.</span>
+        <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">45.</span>
         <span class="cl-ph" data-s="clergy-priests-5.webp" style="--x:4;--y:22" aria-hidden="true"></span>
         <span class="text-[14.5px] text-body/85 dark:text-ivory/70">Rev. Fr. Thomas Issac (Sam)</span>
       </li>
       <li class="flex gap-3 cl-li py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
-        <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">64.</span>
-        <span class="cl-ph" data-s="clergy-priests-5.webp" style="--x:5;--y:22" aria-hidden="true"></span>
-        <span class="text-[14.5px] text-body/85 dark:text-ivory/70">Rev. Fr. Tony Mathew Jacob, Niranathe</span>
-      </li>
-      <li class="flex gap-3 cl-li py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
-        <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">65.</span>
+        <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">46.</span>
         <span class="cl-ph" data-s="clergy-priests-5.webp" style="--x:6;--y:22" aria-hidden="true"></span>
         <span class="text-[14.5px] text-body/85 dark:text-ivory/70">Rev. Fr. Varghese John, Shalom</span>
       </li>
       <li class="flex gap-3 cl-li py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
-        <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">66.</span>
+        <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">47.</span>
         <span class="cl-ph" data-s="clergy-priests-5.webp" style="--x:7;--y:22" aria-hidden="true"></span>
         <span class="text-[14.5px] text-body/85 dark:text-ivory/70">Rev. Fr. Varghese Valayil, Valayil</span>
       </li>
       <li class="flex gap-3 cl-li py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
-        <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">67.</span>
+        <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">48.</span>
         <span class="cl-ph" data-s="clergy-priests-5.webp" style="--x:8;--y:22" aria-hidden="true"></span>
         <span class="text-[14.5px] text-body/85 dark:text-ivory/70">Rev. Fr. Y. Charles Bose</span>
       </li>
       <li class="flex gap-3 cl-li py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
-        <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">68.</span>
+        <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">49.</span>
         <span class="cl-ph" data-s="clergy-priests-5.webp" style="--x:9;--y:22" aria-hidden="true"></span>
         <span class="text-[14.5px] text-body/85 dark:text-ivory/70">Rev. Fr. Zakaria Mathew</span>
+      </li>
+    </ol>
+  </div>
+
+  <div class="mb-10 sm:mb-12" id="priests-asia-pacific">
+    <div class="flex items-baseline gap-3 mb-3 sm:mb-4">
+      <h2 class="font-serif font-normal text-xl sm:text-2xl text-ink dark:text-ivory">Asia-Pacific</h2>
+      <span class="font-sans text-[11px] tracking-wide text-muted">30</span>
+    </div>
+    <ol class="flex flex-col">
+      <li class="flex gap-3 cl-li py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
+        <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">1.</span>
+        <span class="cl-ph" data-s="clergy-priests-5.webp" style="--x:3;--y:16" aria-hidden="true"></span>
+        <span class="text-[14.5px] text-body/85 dark:text-ivory/70">Rev. Fr. Abey M. Tharakan (Alexander), Mulamoottil</span>
+      </li>
+      <li class="flex gap-3 cl-li py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
+        <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">2.</span>
+        <span class="cl-ph" data-s="clergy-priests-5.webp" style="--x:7;--y:16" aria-hidden="true"></span>
+        <span class="text-[14.5px] text-body/85 dark:text-ivory/70">Rev. Fr. Ajin Koshy John, Poovakkattil</span>
+      </li>
+      <li class="flex gap-3 cl-li py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
+        <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">3.</span>
+        <span class="cl-ph" data-s="clergy-priests-5.webp" style="--x:9;--y:16" aria-hidden="true"></span>
+        <span class="text-[14.5px] text-body/85 dark:text-ivory/70">Rev. Fr. Aneesh Kunjappan (Thomas), Naduvilazhikathu</span>
+      </li>
+      <li class="flex gap-3 cl-li py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
+        <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">4.</span>
+        <span class="cl-ph" data-s="clergy-priests-5.webp" style="--x:1;--y:17" aria-hidden="true"></span>
+        <span class="text-[14.5px] text-body/85 dark:text-ivory/70">Rev. Fr. Anish Mathew, Keepanattu</span>
+      </li>
+      <li class="flex gap-3 cl-li py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
+        <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">5.</span>
+        <span class="cl-ph" data-s="clergy-priests-5.webp" style="--x:2;--y:17" aria-hidden="true"></span>
+        <span class="text-[14.5px] text-body/85 dark:text-ivory/70">Rev. Fr. Anu Mathew, Kottoor</span>
+      </li>
+      <li class="flex gap-3 cl-li py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
+        <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">6.</span>
+        <span class="cl-ph" data-s="clergy-priests-5.webp" style="--x:4;--y:17" aria-hidden="true"></span>
+        <span class="text-[14.5px] text-body/85 dark:text-ivory/70">Rev. Fr. Babu Kurian</span>
+      </li>
+      <li class="flex gap-3 cl-li py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
+        <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">7.</span>
+        <span class="cl-ph" data-s="clergy-priests-5.webp" style="--x:7;--y:17" aria-hidden="true"></span>
+        <span class="text-[14.5px] text-body/85 dark:text-ivory/70">Rev. Fr. Boby Daniel</span>
+      </li>
+      <li class="flex gap-3 cl-li py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
+        <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">8.</span>
+        <span class="cl-ph cl-none" aria-hidden="true"></span>
+        <span class="text-[14.5px] text-body/85 dark:text-ivory/70">Rev. Fr. Bristo Babu</span>
+      </li>
+      <li class="flex gap-3 cl-li py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
+        <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">9.</span>
+        <span class="cl-ph" data-s="clergy-priests-5.webp" style="--x:0;--y:18" aria-hidden="true"></span>
+        <span class="text-[14.5px] text-body/85 dark:text-ivory/70">Rev. Fr. Christy V. George, Valiyaveettil</span>
+      </li>
+      <li class="flex gap-3 cl-li py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
+        <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">10.</span>
+        <span class="cl-ph cl-none" aria-hidden="true"></span>
+        <span class="text-[14.5px] text-body/85 dark:text-ivory/70">Rev. Fr. Dr. Saji K. Mathew</span>
+      </li>
+      <li class="flex gap-3 cl-li py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
+        <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">11.</span>
+        <span class="cl-ph cl-none" aria-hidden="true"></span>
+        <span class="text-[14.5px] text-body/85 dark:text-ivory/70">Rev. Fr. Ferdinand Pathrose</span>
+      </li>
+      <li class="flex gap-3 cl-li py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
+        <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">12.</span>
+        <span class="cl-ph" data-s="clergy-priests-1.webp" style="--x:6;--y:19" aria-hidden="true"></span>
+        <span class="text-[14.5px] text-body/85 dark:text-ivory/70">Rev. Fr. Geevarghese Raju (Anoop)</span>
+      </li>
+      <li class="flex gap-3 cl-li py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
+        <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">13.</span>
+        <span class="cl-ph" data-s="clergy-priests-5.webp" style="--x:3;--y:18" aria-hidden="true"></span>
+        <span class="text-[14.5px] text-body/85 dark:text-ivory/70">Rev. Fr. Gigi Mathew, Pullukattu</span>
+      </li>
+      <li class="flex gap-3 cl-li py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
+        <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">14.</span>
+        <span class="cl-ph" data-s="clergy-priests-5.webp" style="--x:6;--y:18" aria-hidden="true"></span>
+        <span class="text-[14.5px] text-body/85 dark:text-ivory/70">Rev. Fr. Jacks Jacob, Cherampalill</span>
+      </li>
+      <li class="flex gap-3 cl-li py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
+        <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">15.</span>
+        <span class="cl-ph" data-s="clergy-priests-5.webp" style="--x:7;--y:18" aria-hidden="true"></span>
+        <span class="text-[14.5px] text-body/85 dark:text-ivory/70">Rev. Fr. James Philip</span>
+      </li>
+      <li class="flex gap-3 cl-li py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
+        <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">16.</span>
+        <span class="cl-ph" data-s="clergy-priests-5.webp" style="--x:1;--y:19" aria-hidden="true"></span>
+        <span class="text-[14.5px] text-body/85 dark:text-ivory/70">Rev. Fr. Joby George</span>
+      </li>
+      <li class="flex gap-3 cl-li py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
+        <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">17.</span>
+        <span class="cl-ph" data-s="clergy-priests-5.webp" style="--x:2;--y:19" aria-hidden="true"></span>
+        <span class="text-[14.5px] text-body/85 dark:text-ivory/70">Rev. Fr. Joe Thomas</span>
+      </li>
+      <li class="flex gap-3 cl-li py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
+        <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">18.</span>
+        <span class="cl-ph" data-s="clergy-priests-2.webp" style="--x:6;--y:8" aria-hidden="true"></span>
+        <span class="text-[14.5px] text-body/85 dark:text-ivory/70">Rev. Fr. Joem Mathews, Nellimoottile</span>
+      </li>
+      <li class="flex gap-3 cl-li py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
+        <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">19.</span>
+        <span class="cl-ph" data-s="clergy-priests-5.webp" style="--x:3;--y:19" aria-hidden="true"></span>
+        <span class="text-[14.5px] text-body/85 dark:text-ivory/70">Rev. Fr. John Joshbi Thomas</span>
+      </li>
+      <li class="flex gap-3 cl-li py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
+        <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">20.</span>
+        <span class="cl-ph" data-s="clergy-priests-5.webp" style="--x:5;--y:19" aria-hidden="true"></span>
+        <span class="text-[14.5px] text-body/85 dark:text-ivory/70">Rev. Fr. Joshua Jacob (Roy)</span>
+      </li>
+      <li class="flex gap-3 cl-li py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
+        <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">21.</span>
+        <span class="cl-ph" data-s="clergy-priests-3.webp" style="--x:5;--y:9" aria-hidden="true"></span>
+        <span class="text-[14.5px] text-body/85 dark:text-ivory/70">Rev. Fr. Lijomon Mathew, Chamathil</span>
+      </li>
+      <li class="flex gap-3 cl-li py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
+        <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">22.</span>
+        <span class="cl-ph" data-s="clergy-priests-5.webp" style="--x:0;--y:20" aria-hidden="true"></span>
+        <span class="text-[14.5px] text-body/85 dark:text-ivory/70">Rev. Fr. Linu Lukose</span>
+      </li>
+      <li class="flex gap-3 cl-li py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
+        <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">23.</span>
+        <span class="cl-ph" data-s="clergy-priests-1.webp" style="--x:3;--y:3" aria-hidden="true"></span>
+        <span class="text-[14.5px] text-body/85 dark:text-ivory/70">Rev. Fr. Lukose T. Panicker</span>
+      </li>
+      <li class="flex gap-3 cl-li py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
+        <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">24.</span>
+        <span class="cl-ph" data-s="clergy-priests-7.webp" style="--x:0;--y:7" aria-hidden="true"></span>
+        <span class="text-[14.5px] text-body/85 dark:text-ivory/70">Rev. Fr. Mathew K. Mathew</span>
+      </li>
+      <li class="flex gap-3 cl-li py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
+        <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">25.</span>
+        <span class="cl-ph" data-s="clergy-priests-5.webp" style="--x:7;--y:21" aria-hidden="true"></span>
+        <span class="text-[14.5px] text-body/85 dark:text-ivory/70">Rev. Fr. Sandeep S. Mathews, Peedikaparambill</span>
+      </li>
+      <li class="flex gap-3 cl-li py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
+        <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">26.</span>
+        <span class="cl-ph cl-none" aria-hidden="true"></span>
+        <span class="text-[14.5px] text-body/85 dark:text-ivory/70">Rev. Fr. Shino Sam</span>
+      </li>
+      <li class="flex gap-3 cl-li py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
+        <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">27.</span>
+        <span class="cl-ph" data-s="clergy-priests-5.webp" style="--x:9;--y:21" aria-hidden="true"></span>
+        <span class="text-[14.5px] text-body/85 dark:text-ivory/70">Rev. Fr. Sinu Jacob, Kavumpattu</span>
+      </li>
+      <li class="flex gap-3 cl-li py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
+        <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">28.</span>
+        <span class="cl-ph" data-s="clergy-priests-1.webp" style="--x:0;--y:24" aria-hidden="true"></span>
+        <span class="text-[14.5px] text-body/85 dark:text-ivory/70">Rev. Fr. Thomas Oommen (Jibin Sabu), Puthenparambil</span>
+      </li>
+      <li class="flex gap-3 cl-li py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
+        <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">29.</span>
+        <span class="cl-ph" data-s="clergy-priests-5.webp" style="--x:5;--y:22" aria-hidden="true"></span>
+        <span class="text-[14.5px] text-body/85 dark:text-ivory/70">Rev. Fr. Tony Mathew Jacob, Niranathe</span>
+      </li>
+      <li class="flex gap-3 cl-li py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
+        <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">30.</span>
+        <span class="cl-ph cl-none" aria-hidden="true"></span>
+        <span class="text-[14.5px] text-body/85 dark:text-ivory/70">Rev. Fr. Varghese Maniyampra</span>
       </li>
     </ol>
   </div>
@@ -7775,7 +7839,7 @@
   <div class="mb-10 sm:mb-12" id="priests-southwest-america">
     <div class="flex items-baseline gap-3 mb-3 sm:mb-4">
       <h2 class="font-serif font-normal text-xl sm:text-2xl text-ink dark:text-ivory">Southwest America</h2>
-      <span class="font-sans text-[11px] tracking-wide text-muted">71</span>
+      <span class="font-sans text-[11px] tracking-wide text-muted">65</span>
     </div>
     <ol class="flex flex-col">
       <li class="flex gap-3 cl-li py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
@@ -7790,28 +7854,28 @@
       </li>
       <li class="flex gap-3 cl-li py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
         <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">3.</span>
+        <span class="cl-ph cl-none" aria-hidden="true"></span>
+        <span class="text-[14.5px] text-body/85 dark:text-ivory/70">Rev. Fr. Argey George</span>
+      </li>
+      <li class="flex gap-3 cl-li py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
+        <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">4.</span>
+        <span class="cl-ph cl-none" aria-hidden="true"></span>
+        <span class="text-[14.5px] text-body/85 dark:text-ivory/70">Rev. Fr. Ashich Mohan</span>
+      </li>
+      <li class="flex gap-3 cl-li py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
+        <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">5.</span>
         <span class="cl-ph" data-s="clergy-priests-6.webp" style="--x:2;--y:23" aria-hidden="true"></span>
         <span class="text-[14.5px] text-body/85 dark:text-ivory/70">Rev. Fr. Binny Kuruvilla</span>
       </li>
       <li class="flex gap-3 cl-li py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
-        <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">4.</span>
+        <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">6.</span>
         <span class="cl-ph" data-s="clergy-priests-6.webp" style="--x:3;--y:23" aria-hidden="true"></span>
         <span class="text-[14.5px] text-body/85 dark:text-ivory/70">Rev. Fr. Binu Mathews</span>
       </li>
       <li class="flex gap-3 cl-li py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
-        <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">5.</span>
-        <span class="cl-ph" data-s="clergy-priests-6.webp" style="--x:4;--y:23" aria-hidden="true"></span>
-        <span class="text-[14.5px] text-body/85 dark:text-ivory/70">Rev. Fr. C. G. Thomas</span>
-      </li>
-      <li class="flex gap-3 cl-li py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
-        <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">6.</span>
+        <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">7.</span>
         <span class="cl-ph" data-s="clergy-priests-6.webp" style="--x:5;--y:23" aria-hidden="true"></span>
         <span class="text-[14.5px] text-body/85 dark:text-ivory/70">Rev. Fr. Chacko V. Issac</span>
-      </li>
-      <li class="flex gap-3 cl-li py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
-        <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">7.</span>
-        <span class="cl-ph" data-s="clergy-priests-6.webp" style="--x:6;--y:23" aria-hidden="true"></span>
-        <span class="text-[14.5px] text-body/85 dark:text-ivory/70">Rev. Fr. Cherian Kunnel</span>
       </li>
       <li class="flex gap-3 cl-li py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
         <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">8.</span>
@@ -7830,306 +7894,350 @@
       </li>
       <li class="flex gap-3 cl-li py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
         <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">11.</span>
-        <span class="cl-ph" data-s="clergy-priests-6.webp" style="--x:0;--y:24" aria-hidden="true"></span>
-        <span class="text-[14.5px] text-body/85 dark:text-ivory/70">Rev. Fr. Dr. V. C. Varghese</span>
-      </li>
-      <li class="flex gap-3 cl-li py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
-        <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">12.</span>
         <span class="cl-ph" data-s="clergy-priests-6.webp" style="--x:1;--y:24" aria-hidden="true"></span>
         <span class="text-[14.5px] text-body/85 dark:text-ivory/70">Rev. Fr. George (Benny) Daniel</span>
       </li>
       <li class="flex gap-3 cl-li py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
-        <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">13.</span>
+        <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">12.</span>
         <span class="cl-ph" data-s="clergy-priests-6.webp" style="--x:2;--y:24" aria-hidden="true"></span>
         <span class="text-[14.5px] text-body/85 dark:text-ivory/70">Rev. Fr. George (Rajiv) Hatcher</span>
       </li>
       <li class="flex gap-3 cl-li py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
-        <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">14.</span>
-        <span class="cl-ph" data-s="clergy-priests-6.webp" style="--x:3;--y:24" aria-hidden="true"></span>
-        <span class="text-[14.5px] text-body/85 dark:text-ivory/70">Rev. Fr. George (Shabu) Varghese</span>
-      </li>
-      <li class="flex gap-3 cl-li py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
-        <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">15.</span>
+        <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">13.</span>
         <span class="cl-ph" data-s="clergy-priests-6.webp" style="--x:4;--y:24" aria-hidden="true"></span>
         <span class="text-[14.5px] text-body/85 dark:text-ivory/70">Rev. Fr. George (Shinto) David</span>
       </li>
       <li class="flex gap-3 cl-li py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
-        <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">16.</span>
+        <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">14.</span>
         <span class="cl-ph" data-s="clergy-priests-6.webp" style="--x:5;--y:24" aria-hidden="true"></span>
         <span class="text-[14.5px] text-body/85 dark:text-ivory/70">Rev. Fr. George C. Mathew (Benny)</span>
       </li>
       <li class="flex gap-3 cl-li py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
-        <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">17.</span>
+        <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">15.</span>
         <span class="cl-ph" data-s="clergy-priests-6.webp" style="--x:6;--y:24" aria-hidden="true"></span>
         <span class="text-[14.5px] text-body/85 dark:text-ivory/70">Rev. Fr. George John</span>
       </li>
       <li class="flex gap-3 cl-li py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
-        <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">18.</span>
+        <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">16.</span>
         <span class="cl-ph" data-s="clergy-priests-6.webp" style="--x:7;--y:24" aria-hidden="true"></span>
         <span class="text-[14.5px] text-body/85 dark:text-ivory/70">Rev. Fr. George Ninan, Manampuram</span>
       </li>
       <li class="flex gap-3 cl-li py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
-        <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">19.</span>
+        <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">17.</span>
         <span class="cl-ph" data-s="clergy-priests-6.webp" style="--x:8;--y:24" aria-hidden="true"></span>
         <span class="text-[14.5px] text-body/85 dark:text-ivory/70">Rev. Fr. George P. C.</span>
       </li>
       <li class="flex gap-3 cl-li py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
-        <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">20.</span>
-        <span class="cl-ph" data-s="clergy-priests-6.webp" style="--x:9;--y:24" aria-hidden="true"></span>
-        <span class="text-[14.5px] text-body/85 dark:text-ivory/70">Rev. Fr. George Paulose</span>
-      </li>
-      <li class="flex gap-3 cl-li py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
-        <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">21.</span>
+        <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">18.</span>
         <span class="cl-ph" data-s="clergy-priests-7.webp" style="--x:0;--y:0" aria-hidden="true"></span>
         <span class="text-[14.5px] text-body/85 dark:text-ivory/70">Rev. Fr. George Sajeev Mathews</span>
       </li>
       <li class="flex gap-3 cl-li py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
-        <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">22.</span>
+        <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">19.</span>
         <span class="cl-ph" data-s="clergy-priests-7.webp" style="--x:1;--y:0" aria-hidden="true"></span>
         <span class="text-[14.5px] text-body/85 dark:text-ivory/70">Rev. Fr. Ham Joseph</span>
       </li>
       <li class="flex gap-3 cl-li py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
-        <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">23.</span>
+        <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">20.</span>
         <span class="cl-ph" data-s="clergy-priests-7.webp" style="--x:2;--y:0" aria-hidden="true"></span>
         <span class="text-[14.5px] text-body/85 dark:text-ivory/70">Rev. Fr. Immanuel (Amal) Punnose</span>
       </li>
       <li class="flex gap-3 cl-li py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
-        <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">24.</span>
+        <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">21.</span>
         <span class="cl-ph" data-s="clergy-priests-7.webp" style="--x:3;--y:0" aria-hidden="true"></span>
         <span class="text-[14.5px] text-body/85 dark:text-ivory/70">Rev. Fr. Isac B. Prakash</span>
       </li>
       <li class="flex gap-3 cl-li py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
-        <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">25.</span>
+        <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">22.</span>
         <span class="cl-ph" data-s="clergy-priests-7.webp" style="--x:4;--y:0" aria-hidden="true"></span>
         <span class="text-[14.5px] text-body/85 dark:text-ivory/70">Rev. Fr. Jacob Mathew, Ph.D.</span>
       </li>
       <li class="flex gap-3 cl-li py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
-        <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">26.</span>
+        <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">23.</span>
         <span class="cl-ph" data-s="clergy-priests-7.webp" style="--x:5;--y:0" aria-hidden="true"></span>
         <span class="text-[14.5px] text-body/85 dark:text-ivory/70">Rev. Fr. Jake Kurian</span>
       </li>
       <li class="flex gap-3 cl-li py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
-        <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">27.</span>
+        <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">24.</span>
         <span class="cl-ph" data-s="clergy-priests-7.webp" style="--x:6;--y:0" aria-hidden="true"></span>
         <span class="text-[14.5px] text-body/85 dark:text-ivory/70">Rev. Fr. James Cherian</span>
       </li>
       <li class="flex gap-3 cl-li py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
-        <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">28.</span>
+        <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">25.</span>
         <span class="cl-ph" data-s="clergy-priests-7.webp" style="--x:7;--y:0" aria-hidden="true"></span>
         <span class="text-[14.5px] text-body/85 dark:text-ivory/70">Rev. Fr. Jerry John Mathew</span>
       </li>
       <li class="flex gap-3 cl-li py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
-        <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">29.</span>
+        <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">26.</span>
         <span class="cl-ph" data-s="clergy-priests-7.webp" style="--x:8;--y:0" aria-hidden="true"></span>
         <span class="text-[14.5px] text-body/85 dark:text-ivory/70">Rev. Fr. Jithin Zachariah</span>
       </li>
       <li class="flex gap-3 cl-li py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
-        <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">30.</span>
+        <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">27.</span>
         <span class="cl-ph" data-s="clergy-priests-7.webp" style="--x:9;--y:0" aria-hidden="true"></span>
         <span class="text-[14.5px] text-body/85 dark:text-ivory/70">Rev. Fr. Joel Mathew</span>
       </li>
       <li class="flex gap-3 cl-li py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
-        <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">31.</span>
+        <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">28.</span>
         <span class="cl-ph" data-s="clergy-priests-7.webp" style="--x:0;--y:1" aria-hidden="true"></span>
         <span class="text-[14.5px] text-body/85 dark:text-ivory/70">Rev. Fr. John (Teji) Abraham</span>
       </li>
       <li class="flex gap-3 cl-li py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
-        <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">32.</span>
-        <span class="cl-ph" data-s="clergy-priests-7.webp" style="--x:1;--y:1" aria-hidden="true"></span>
-        <span class="text-[14.5px] text-body/85 dark:text-ivory/70">Rev. Fr. John Geevarghese</span>
-      </li>
-      <li class="flex gap-3 cl-li py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
-        <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">33.</span>
-        <span class="cl-ph" data-s="clergy-priests-7.webp" style="--x:2;--y:1" aria-hidden="true"></span>
-        <span class="text-[14.5px] text-body/85 dark:text-ivory/70">Rev. Fr. John Kunnathusseril</span>
-      </li>
-      <li class="flex gap-3 cl-li py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
-        <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">34.</span>
+        <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">29.</span>
         <span class="cl-ph" data-s="clergy-priests-7.webp" style="--x:3;--y:1" aria-hidden="true"></span>
         <span class="text-[14.5px] text-body/85 dark:text-ivory/70">Rev. Fr. John Mathews</span>
       </li>
       <li class="flex gap-3 cl-li py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
-        <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">35.</span>
+        <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">30.</span>
         <span class="cl-ph" data-s="clergy-priests-7.webp" style="--x:4;--y:1" aria-hidden="true"></span>
         <span class="text-[14.5px] text-body/85 dark:text-ivory/70">Rev. Fr. Johnson Punchakonam</span>
       </li>
       <li class="flex gap-3 cl-li py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
-        <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">36.</span>
+        <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">31.</span>
+        <span class="cl-ph cl-none" aria-hidden="true"></span>
+        <span class="text-[14.5px] text-body/85 dark:text-ivory/70">Rev. Fr. Joice Pappan</span>
+      </li>
+      <li class="flex gap-3 cl-li py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
+        <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">32.</span>
         <span class="cl-ph" data-s="clergy-priests-7.webp" style="--x:5;--y:1" aria-hidden="true"></span>
         <span class="text-[14.5px] text-body/85 dark:text-ivory/70">Rev. Fr. Joseph Kalapurayil</span>
       </li>
       <li class="flex gap-3 cl-li py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
-        <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">37.</span>
+        <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">33.</span>
         <span class="cl-ph" data-s="clergy-priests-7.webp" style="--x:6;--y:1" aria-hidden="true"></span>
         <span class="text-[14.5px] text-body/85 dark:text-ivory/70">Rev. Fr. Joshua (Binoy) George</span>
       </li>
       <li class="flex gap-3 cl-li py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
-        <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">38.</span>
+        <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">34.</span>
+        <span class="cl-ph cl-none" aria-hidden="true"></span>
+        <span class="text-[14.5px] text-body/85 dark:text-ivory/70">Rev. Fr. Joshua Varughese</span>
+      </li>
+      <li class="flex gap-3 cl-li py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
+        <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">35.</span>
         <span class="cl-ph" data-s="clergy-priests-7.webp" style="--x:7;--y:1" aria-hidden="true"></span>
         <span class="text-[14.5px] text-body/85 dark:text-ivory/70">Rev. Fr. Joy Pyngolil, Ph.D.</span>
       </li>
       <li class="flex gap-3 cl-li py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
-        <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">39.</span>
-        <span class="cl-ph cl-none" aria-hidden="true"></span>
-        <span class="text-[14.5px] text-body/85 dark:text-ivory/70">Rev. Fr. K. G. Philipose</span>
-      </li>
-      <li class="flex gap-3 cl-li py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
-        <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">40.</span>
-        <span class="cl-ph cl-none" aria-hidden="true"></span>
-        <span class="text-[14.5px] text-body/85 dark:text-ivory/70">Rev. Fr. M. C. Kuriakose (now a monk in Canada Diocese)</span>
-      </li>
-      <li class="flex gap-3 cl-li py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
-        <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">41.</span>
+        <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">36.</span>
         <span class="cl-ph" data-s="clergy-priests-7.webp" style="--x:8;--y:1" aria-hidden="true"></span>
         <span class="text-[14.5px] text-body/85 dark:text-ivory/70">Rev. Fr. M. Zachariah</span>
       </li>
       <li class="flex gap-3 cl-li py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
-        <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">42.</span>
-        <span class="cl-ph" data-s="clergy-priests-7.webp" style="--x:9;--y:1" aria-hidden="true"></span>
-        <span class="text-[14.5px] text-body/85 dark:text-ivory/70">Rev. Fr. Mammen P. Mathew</span>
-      </li>
-      <li class="flex gap-3 cl-li py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
-        <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">43.</span>
-        <span class="cl-ph" data-s="clergy-priests-7.webp" style="--x:0;--y:2" aria-hidden="true"></span>
-        <span class="text-[14.5px] text-body/85 dark:text-ivory/70">Rev. Fr. Mathai Alakot</span>
-      </li>
-      <li class="flex gap-3 cl-li py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
-        <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">44.</span>
+        <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">37.</span>
         <span class="cl-ph" data-s="clergy-priests-7.webp" style="--x:1;--y:2" aria-hidden="true"></span>
         <span class="text-[14.5px] text-body/85 dark:text-ivory/70">Rev. Fr. Mathew (Mat) Alexander</span>
       </li>
       <li class="flex gap-3 cl-li py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
-        <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">45.</span>
+        <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">38.</span>
         <span class="cl-ph" data-s="clergy-priests-7.webp" style="--x:2;--y:2" aria-hidden="true"></span>
         <span class="text-[14.5px] text-body/85 dark:text-ivory/70">Rev. Fr. Mathew Koshy</span>
       </li>
       <li class="flex gap-3 cl-li py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
-        <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">46.</span>
-        <span class="cl-ph" data-s="clergy-priests-7.webp" style="--x:3;--y:2" aria-hidden="true"></span>
-        <span class="text-[14.5px] text-body/85 dark:text-ivory/70">Rev. Fr. Mathew T. (Shaun) Mathew</span>
+        <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">39.</span>
+        <span class="cl-ph cl-none" aria-hidden="true"></span>
+        <span class="text-[14.5px] text-body/85 dark:text-ivory/70">Rev. Fr. Matthew (Basali) Mathew</span>
       </li>
       <li class="flex gap-3 cl-li py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
-        <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">47.</span>
-        <span class="cl-ph" data-s="clergy-priests-7.webp" style="--x:4;--y:2" aria-hidden="true"></span>
-        <span class="text-[14.5px] text-body/85 dark:text-ivory/70">Rev. Fr. Mathukutty Varghese</span>
+        <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">40.</span>
+        <span class="cl-ph cl-none" aria-hidden="true"></span>
+        <span class="text-[14.5px] text-body/85 dark:text-ivory/70">Rev. Fr. Matthew Poozhikunnel</span>
       </li>
       <li class="flex gap-3 cl-li py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
-        <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">48.</span>
+        <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">41.</span>
         <span class="cl-ph" data-s="clergy-priests-7.webp" style="--x:5;--y:2" aria-hidden="true"></span>
         <span class="text-[14.5px] text-body/85 dark:text-ivory/70">Rev. Fr. Melvin G. Mathai</span>
       </li>
       <li class="flex gap-3 cl-li py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
-        <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">49.</span>
-        <span class="cl-ph" data-s="clergy-priests-7.webp" style="--x:6;--y:2" aria-hidden="true"></span>
-        <span class="text-[14.5px] text-body/85 dark:text-ivory/70">Rev. Fr. Michael Durka</span>
+        <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">42.</span>
+        <span class="cl-ph" data-s="clergy-priests-4.webp" style="--x:2;--y:20" aria-hidden="true"></span>
+        <span class="text-[14.5px] text-body/85 dark:text-ivory/70">Rev. Fr. Merbin Gee Jose</span>
       </li>
       <li class="flex gap-3 cl-li py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
-        <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">50.</span>
-        <span class="cl-ph" data-s="clergy-priests-7.webp" style="--x:7;--y:2" aria-hidden="true"></span>
-        <span class="text-[14.5px] text-body/85 dark:text-ivory/70">Rev. Fr. P. C. Cherian</span>
-      </li>
-      <li class="flex gap-3 cl-li py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
-        <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">51.</span>
+        <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">43.</span>
         <span class="cl-ph" data-s="clergy-priests-7.webp" style="--x:8;--y:2" aria-hidden="true"></span>
         <span class="text-[14.5px] text-body/85 dark:text-ivory/70">Rev. Fr. P. M. Cheriyan</span>
       </li>
       <li class="flex gap-3 cl-li py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
-        <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">52.</span>
+        <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">44.</span>
         <span class="cl-ph" data-s="clergy-priests-7.webp" style="--x:9;--y:2" aria-hidden="true"></span>
         <span class="text-[14.5px] text-body/85 dark:text-ivory/70">Rev. Fr. P. M. Zachariah</span>
       </li>
       <li class="flex gap-3 cl-li py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
-        <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">53.</span>
-        <span class="cl-ph" data-s="clergy-priests-7.webp" style="--x:0;--y:3" aria-hidden="true"></span>
-        <span class="text-[14.5px] text-body/85 dark:text-ivory/70">Rev. Fr. Paul T. Varghese</span>
-      </li>
-      <li class="flex gap-3 cl-li py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
-        <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">54.</span>
-        <span class="cl-ph" data-s="clergy-priests-7.webp" style="--x:1;--y:3" aria-hidden="true"></span>
-        <span class="text-[14.5px] text-body/85 dark:text-ivory/70">Rev. Fr. Paulose Peter</span>
-      </li>
-      <li class="flex gap-3 cl-li py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
-        <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">55.</span>
+        <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">45.</span>
         <span class="cl-ph" data-s="clergy-priests-7.webp" style="--x:2;--y:3" aria-hidden="true"></span>
         <span class="text-[14.5px] text-body/85 dark:text-ivory/70">Rev. Fr. Philip (Roi) Abraham</span>
       </li>
       <li class="flex gap-3 cl-li py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
-        <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">56.</span>
+        <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">46.</span>
         <span class="cl-ph" data-s="clergy-priests-7.webp" style="--x:3;--y:3" aria-hidden="true"></span>
         <span class="text-[14.5px] text-body/85 dark:text-ivory/70">Rev. Fr. Philip Jacob</span>
       </li>
       <li class="flex gap-3 cl-li py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
-        <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">57.</span>
-        <span class="cl-ph" data-s="clergy-priests-7.webp" style="--x:4;--y:3" aria-hidden="true"></span>
-        <span class="text-[14.5px] text-body/85 dark:text-ivory/70">Rev. Fr. Philips G. Sankarathil</span>
-      </li>
-      <li class="flex gap-3 cl-li py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
-        <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">58.</span>
+        <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">47.</span>
         <span class="cl-ph" data-s="clergy-priests-7.webp" style="--x:5;--y:3" aria-hidden="true"></span>
         <span class="text-[14.5px] text-body/85 dark:text-ivory/70">Rev. Fr. Rajesh K. John</span>
       </li>
       <li class="flex gap-3 cl-li py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
-        <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">59.</span>
+        <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">48.</span>
+        <span class="cl-ph cl-none" aria-hidden="true"></span>
+        <span class="text-[14.5px] text-body/85 dark:text-ivory/70">Rev. Fr. Renin Cherian</span>
+      </li>
+      <li class="flex gap-3 cl-li py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
+        <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">49.</span>
+        <span class="cl-ph cl-none" aria-hidden="true"></span>
+        <span class="text-[14.5px] text-body/85 dark:text-ivory/70">Rev. Fr. Ryan Thomas</span>
+      </li>
+      <li class="flex gap-3 cl-li py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
+        <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">50.</span>
         <span class="cl-ph" data-s="clergy-priests-7.webp" style="--x:6;--y:3" aria-hidden="true"></span>
         <span class="text-[14.5px] text-body/85 dark:text-ivory/70">Rev. Fr. Sam Mathew</span>
       </li>
       <li class="flex gap-3 cl-li py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
-        <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">60.</span>
+        <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">51.</span>
         <span class="cl-ph" data-s="clergy-priests-7.webp" style="--x:7;--y:3" aria-hidden="true"></span>
         <span class="text-[14.5px] text-body/85 dark:text-ivory/70">Rev. Fr. Samuel (Saju) Varghese</span>
       </li>
       <li class="flex gap-3 cl-li py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
-        <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">61.</span>
+        <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">52.</span>
         <span class="cl-ph" data-s="clergy-priests-7.webp" style="--x:8;--y:3" aria-hidden="true"></span>
         <span class="text-[14.5px] text-body/85 dark:text-ivory/70">Rev. Fr. Sanjeev Maryoffer</span>
       </li>
       <li class="flex gap-3 cl-li py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
-        <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">62.</span>
+        <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">53.</span>
         <span class="cl-ph" data-s="clergy-priests-7.webp" style="--x:9;--y:3" aria-hidden="true"></span>
         <span class="text-[14.5px] text-body/85 dark:text-ivory/70">Rev. Fr. Shawn Poothicote Thomas</span>
       </li>
       <li class="flex gap-3 cl-li py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
-        <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">63.</span>
+        <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">54.</span>
+        <span class="cl-ph" data-s="clergy-priests-3.webp" style="--x:3;--y:11" aria-hidden="true"></span>
+        <span class="text-[14.5px] text-body/85 dark:text-ivory/70">Rev. Fr. Shinto Varghese</span>
+      </li>
+      <li class="flex gap-3 cl-li py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
+        <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">55.</span>
+        <span class="cl-ph" data-s="clergy-priests-3.webp" style="--x:4;--y:11" aria-hidden="true"></span>
+        <span class="text-[14.5px] text-body/85 dark:text-ivory/70">Rev. Fr. Shinu Thomas</span>
+      </li>
+      <li class="flex gap-3 cl-li py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
+        <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">56.</span>
+        <span class="cl-ph cl-none" aria-hidden="true"></span>
+        <span class="text-[14.5px] text-body/85 dark:text-ivory/70">Rev. Fr. Solomon Jacob</span>
+      </li>
+      <li class="flex gap-3 cl-li py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
+        <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">57.</span>
         <span class="cl-ph" data-s="clergy-priests-7.webp" style="--x:0;--y:4" aria-hidden="true"></span>
         <span class="text-[14.5px] text-body/85 dark:text-ivory/70">Rev. Fr. Sunoj Oommen</span>
       </li>
       <li class="flex gap-3 cl-li py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
-        <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">64.</span>
+        <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">58.</span>
         <span class="cl-ph" data-s="clergy-priests-7.webp" style="--x:1;--y:4" aria-hidden="true"></span>
         <span class="text-[14.5px] text-body/85 dark:text-ivory/70">Rev. Fr. T. U. Jacob</span>
       </li>
       <li class="flex gap-3 cl-li py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
-        <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">65.</span>
+        <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">59.</span>
         <span class="cl-ph" data-s="clergy-priests-7.webp" style="--x:2;--y:4" aria-hidden="true"></span>
         <span class="text-[14.5px] text-body/85 dark:text-ivory/70">Rev. Fr. Thampan Varghese</span>
       </li>
       <li class="flex gap-3 cl-li py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
-        <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">66.</span>
+        <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">60.</span>
         <span class="cl-ph" data-s="clergy-priests-7.webp" style="--x:3;--y:4" aria-hidden="true"></span>
         <span class="text-[14.5px] text-body/85 dark:text-ivory/70">Rev. Fr. Thomas (Manish) Mathai</span>
       </li>
       <li class="flex gap-3 cl-li py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
-        <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">67.</span>
+        <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">61.</span>
         <span class="cl-ph" data-s="clergy-priests-7.webp" style="--x:4;--y:4" aria-hidden="true"></span>
         <span class="text-[14.5px] text-body/85 dark:text-ivory/70">Rev. Fr. Thomas Mathew</span>
       </li>
       <li class="flex gap-3 cl-li py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
-        <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">68.</span>
+        <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">62.</span>
+        <span class="cl-ph cl-none" aria-hidden="true"></span>
+        <span class="text-[14.5px] text-body/85 dark:text-ivory/70">Rev. Fr. Toby John</span>
+      </li>
+      <li class="flex gap-3 cl-li py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
+        <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">63.</span>
         <span class="cl-ph" data-s="clergy-priests-7.webp" style="--x:5;--y:4" aria-hidden="true"></span>
         <span class="text-[14.5px] text-body/85 dark:text-ivory/70">Rev. Fr. V. T. Thomas</span>
       </li>
       <li class="flex gap-3 cl-li py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
-        <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">69.</span>
+        <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">64.</span>
+        <span class="cl-ph" data-s="clergy-priests-2.webp" style="--x:3;--y:14" aria-hidden="true"></span>
+        <span class="text-[14.5px] text-body/85 dark:text-ivory/70">Rev. Fr. Varghese Kaleekal</span>
+      </li>
+      <li class="flex gap-3 cl-li py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
+        <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">65.</span>
         <span class="cl-ph" data-s="clergy-priests-7.webp" style="--x:6;--y:4" aria-hidden="true"></span>
         <span class="text-[14.5px] text-body/85 dark:text-ivory/70">Rev. Fr. Varughese Thomas (Santhosh)</span>
       </li>
+    </ol>
+  </div>
+
+  <div class="mb-10 sm:mb-12" id="priests-canada">
+    <div class="flex items-baseline gap-3 mb-3 sm:mb-4">
+      <h2 class="font-serif font-normal text-xl sm:text-2xl text-ink dark:text-ivory">Canada</h2>
+      <span class="font-sans text-[11px] tracking-wide text-muted">13</span>
+    </div>
+    <ol class="flex flex-col">
       <li class="flex gap-3 cl-li py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
-        <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">70.</span>
-        <span class="cl-ph" data-s="clergy-priests-7.webp" style="--x:7;--y:4" aria-hidden="true"></span>
-        <span class="text-[14.5px] text-body/85 dark:text-ivory/70">Rev. Fr. Yohannan Panicker</span>
+        <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">1.</span>
+        <span class="cl-ph cl-none" aria-hidden="true"></span>
+        <span class="text-[14.5px] text-body/85 dark:text-ivory/70">Rev. Fr. Bibin Daniel</span>
       </li>
       <li class="flex gap-3 cl-li py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
-        <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">71.</span>
+        <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">2.</span>
+        <span class="cl-ph" data-s="clergy-priests-7.webp" style="--x:5;--y:9" aria-hidden="true"></span>
+        <span class="text-[14.5px] text-body/85 dark:text-ivory/70">Rev. Fr. Blessen Varghese</span>
+      </li>
+      <li class="flex gap-3 cl-li py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
+        <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">3.</span>
+        <span class="cl-ph" data-s="clergy-priests-7.webp" style="--x:0;--y:3" aria-hidden="true"></span>
+        <span class="text-[14.5px] text-body/85 dark:text-ivory/70">Rev. Fr. Dr. Paul Varghese</span>
+      </li>
+      <li class="flex gap-3 cl-li py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
+        <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">4.</span>
+        <span class="cl-ph" data-s="clergy-priests-7.webp" style="--x:5;--y:10" aria-hidden="true"></span>
+        <span class="text-[14.5px] text-body/85 dark:text-ivory/70">Rev. Fr. Dr. Thomas George</span>
+      </li>
+      <li class="flex gap-3 cl-li py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
+        <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">5.</span>
+        <span class="cl-ph cl-none" aria-hidden="true"></span>
+        <span class="text-[14.5px] text-body/85 dark:text-ivory/70">Rev. Fr. Geevarghese Thampan</span>
+      </li>
+      <li class="flex gap-3 cl-li py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
+        <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">6.</span>
+        <span class="cl-ph" data-s="clergy-priests-6.webp" style="--x:3;--y:24" aria-hidden="true"></span>
+        <span class="text-[14.5px] text-body/85 dark:text-ivory/70">Rev. Fr. George Varughese</span>
+      </li>
+      <li class="flex gap-3 cl-li py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
+        <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">7.</span>
+        <span class="cl-ph" data-s="clergy-priests-2.webp" style="--x:5;--y:17" aria-hidden="true"></span>
+        <span class="text-[14.5px] text-body/85 dark:text-ivory/70">Rev. Fr. Jojy James George, Chirackal</span>
+      </li>
+      <li class="flex gap-3 cl-li py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
+        <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">8.</span>
+        <span class="cl-ph" data-s="clergy-priests-7.webp" style="--x:5;--y:17" aria-hidden="true"></span>
+        <span class="text-[14.5px] text-body/85 dark:text-ivory/70">Rev. Fr. Liju M. Varghese Maruthoor</span>
+      </li>
+      <li class="flex gap-3 cl-li py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
+        <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">9.</span>
+        <span class="cl-ph" data-s="clergy-priests-7.webp" style="--x:4;--y:12" aria-hidden="true"></span>
+        <span class="text-[14.5px] text-body/85 dark:text-ivory/70">Rev. Fr. Mathew Thomas</span>
+      </li>
+      <li class="flex gap-3 cl-li py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
+        <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">10.</span>
+        <span class="cl-ph" data-s="clergy-priests-7.webp" style="--x:3;--y:13" aria-hidden="true"></span>
+        <span class="text-[14.5px] text-body/85 dark:text-ivory/70">Rev. Fr. Sam Thankachan</span>
+      </li>
+      <li class="flex gap-3 cl-li py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
+        <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">11.</span>
+        <span class="cl-ph" data-s="clergy-priests-7.webp" style="--x:3;--y:14" aria-hidden="true"></span>
+        <span class="text-[14.5px] text-body/85 dark:text-ivory/70">Rev. Fr. Thomas P. John</span>
+      </li>
+      <li class="flex gap-3 cl-li py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
+        <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">12.</span>
+        <span class="cl-ph cl-none" aria-hidden="true"></span>
+        <span class="text-[14.5px] text-body/85 dark:text-ivory/70">Rev. Fr. Vineeth V. Kurian</span>
+      </li>
+      <li class="flex gap-3 cl-li py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
+        <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">13.</span>
         <span class="cl-ph" data-s="clergy-priests-7.webp" style="--x:8;--y:4" aria-hidden="true"></span>
         <span class="text-[14.5px] text-body/85 dark:text-ivory/70">Rev. Fr. Zerah Paul</span>
       </li>
@@ -8139,7 +8247,7 @@
   <div class="mb-10 sm:mb-12" id="priests-uk-europe-africa">
     <div class="flex items-baseline gap-3 mb-3 sm:mb-4">
       <h2 class="font-serif font-normal text-xl sm:text-2xl text-ink dark:text-ivory">UK–Europe–Africa</h2>
-      <span class="font-sans text-[11px] tracking-wide text-muted">37</span>
+      <span class="font-sans text-[11px] tracking-wide text-muted">53</span>
     </div>
     <ol class="flex flex-col">
       <li class="flex gap-3 cl-li py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
@@ -8164,166 +8272,246 @@
       </li>
       <li class="flex gap-3 cl-li py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
         <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">5.</span>
+        <span class="cl-ph" data-s="clergy-priests-3.webp" style="--x:8;--y:3" aria-hidden="true"></span>
+        <span class="text-[14.5px] text-body/85 dark:text-ivory/70">Rev. Fr. Anu George, Vadakkemundakathil</span>
+      </li>
+      <li class="flex gap-3 cl-li py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
+        <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">6.</span>
+        <span class="cl-ph cl-none" aria-hidden="true"></span>
+        <span class="text-[14.5px] text-body/85 dark:text-ivory/70">Rev. Fr. Anu Mathew</span>
+      </li>
+      <li class="flex gap-3 cl-li py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
+        <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">7.</span>
+        <span class="cl-ph cl-none" aria-hidden="true"></span>
+        <span class="text-[14.5px] text-body/85 dark:text-ivory/70">Rev. Fr. Anub John K.</span>
+      </li>
+      <li class="flex gap-3 cl-li py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
+        <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">8.</span>
+        <span class="cl-ph" data-s="clergy-priests-3.webp" style="--x:0;--y:4" aria-hidden="true"></span>
+        <span class="text-[14.5px] text-body/85 dark:text-ivory/70">Rev. Fr. Aswin Varghese Eappen, Kuranjoor</span>
+      </li>
+      <li class="flex gap-3 cl-li py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
+        <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">9.</span>
         <span class="cl-ph" data-s="clergy-priests-7.webp" style="--x:3;--y:5" aria-hidden="true"></span>
         <span class="text-[14.5px] text-body/85 dark:text-ivory/70">Rev. Fr. Binoy C. Joshua</span>
       </li>
       <li class="flex gap-3 cl-li py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
-        <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">6.</span>
+        <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">10.</span>
+        <span class="cl-ph" data-s="clergy-priests-2.webp" style="--x:1;--y:15" aria-hidden="true"></span>
+        <span class="text-[14.5px] text-body/85 dark:text-ivory/70">Rev. Fr. Binu Thomas, Thompilethu</span>
+      </li>
+      <li class="flex gap-3 cl-li py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
+        <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">11.</span>
+        <span class="cl-ph cl-none" aria-hidden="true"></span>
+        <span class="text-[14.5px] text-body/85 dark:text-ivory/70">Rev. Fr. Calvin Koshy Poovathur</span>
+      </li>
+      <li class="flex gap-3 cl-li py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
+        <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">12.</span>
         <span class="cl-ph" data-s="clergy-priests-7.webp" style="--x:4;--y:5" aria-hidden="true"></span>
         <span class="text-[14.5px] text-body/85 dark:text-ivory/70">Rev. Fr. Dr. Abraham Koshy, Kunnumpurathu</span>
       </li>
       <li class="flex gap-3 cl-li py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
-        <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">7.</span>
+        <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">13.</span>
+        <span class="cl-ph" data-s="clergy-priests-4.webp" style="--x:4;--y:10" aria-hidden="true"></span>
+        <span class="text-[14.5px] text-body/85 dark:text-ivory/70">Rev. Fr. Eldhose Babu, Erekkattukuzhiyil</span>
+      </li>
+      <li class="flex gap-3 cl-li py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
+        <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">14.</span>
         <span class="cl-ph" data-s="clergy-priests-7.webp" style="--x:5;--y:5" aria-hidden="true"></span>
         <span class="text-[14.5px] text-body/85 dark:text-ivory/70">Rev. Fr. Eldo Parakkottil Varghese</span>
       </li>
       <li class="flex gap-3 cl-li py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
-        <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">8.</span>
+        <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">15.</span>
         <span class="cl-ph" data-s="clergy-priests-7.webp" style="--x:6;--y:5" aria-hidden="true"></span>
         <span class="text-[14.5px] text-body/85 dark:text-ivory/70">Rev. Fr. Geevarghese Jacob, Tharakan</span>
       </li>
       <li class="flex gap-3 cl-li py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
-        <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">9.</span>
+        <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">16.</span>
+        <span class="cl-ph cl-none" aria-hidden="true"></span>
+        <span class="text-[14.5px] text-body/85 dark:text-ivory/70">Rev. Fr. George Mathew</span>
+      </li>
+      <li class="flex gap-3 cl-li py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
+        <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">17.</span>
         <span class="cl-ph" data-s="clergy-priests-7.webp" style="--x:7;--y:5" aria-hidden="true"></span>
         <span class="text-[14.5px] text-body/85 dark:text-ivory/70">Rev. Fr. George Thankachen (T. George)</span>
       </li>
       <li class="flex gap-3 cl-li py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
-        <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">10.</span>
+        <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">18.</span>
         <span class="cl-ph" data-s="clergy-priests-7.webp" style="--x:8;--y:5" aria-hidden="true"></span>
         <span class="text-[14.5px] text-body/85 dark:text-ivory/70">Rev. Fr. Happy Jacob</span>
       </li>
       <li class="flex gap-3 cl-li py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
-        <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">11.</span>
+        <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">19.</span>
         <span class="cl-ph" data-s="clergy-priests-7.webp" style="--x:9;--y:5" aria-hidden="true"></span>
         <span class="text-[14.5px] text-body/85 dark:text-ivory/70">Rev. Fr. Jebin John Joseph</span>
       </li>
       <li class="flex gap-3 cl-li py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
-        <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">12.</span>
+        <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">20.</span>
         <span class="cl-ph" data-s="clergy-priests-7.webp" style="--x:0;--y:6" aria-hidden="true"></span>
         <span class="text-[14.5px] text-body/85 dark:text-ivory/70">Rev. Fr. Jeeson P. Wilson</span>
       </li>
       <li class="flex gap-3 cl-li py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
-        <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">13.</span>
+        <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">21.</span>
         <span class="cl-ph" data-s="clergy-priests-7.webp" style="--x:1;--y:6" aria-hidden="true"></span>
         <span class="text-[14.5px] text-body/85 dark:text-ivory/70">Rev. Fr. Jibin Thomas Abraham, Endenicher</span>
       </li>
       <li class="flex gap-3 cl-li py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
-        <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">14.</span>
+        <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">22.</span>
         <span class="cl-ph" data-s="clergy-priests-7.webp" style="--x:2;--y:6" aria-hidden="true"></span>
         <span class="text-[14.5px] text-body/85 dark:text-ivory/70">Rev. Fr. Jins K. John, Newfane</span>
       </li>
       <li class="flex gap-3 cl-li py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
-        <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">15.</span>
+        <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">23.</span>
+        <span class="cl-ph" data-s="clergy-priests-3.webp" style="--x:4;--y:7" aria-hidden="true"></span>
+        <span class="text-[14.5px] text-body/85 dark:text-ivory/70">Rev. Fr. Jobin Mammen Cherian, Sakthimangalam</span>
+      </li>
+      <li class="flex gap-3 cl-li py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
+        <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">24.</span>
         <span class="cl-ph" data-s="clergy-priests-7.webp" style="--x:3;--y:6" aria-hidden="true"></span>
         <span class="text-[14.5px] text-body/85 dark:text-ivory/70">Rev. Fr. Jobson Abraham</span>
       </li>
       <li class="flex gap-3 cl-li py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
-        <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">16.</span>
+        <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">25.</span>
         <span class="cl-ph" data-s="clergy-priests-7.webp" style="--x:4;--y:6" aria-hidden="true"></span>
         <span class="text-[14.5px] text-body/85 dark:text-ivory/70">Rev. Fr. Joe Mathew</span>
       </li>
       <li class="flex gap-3 cl-li py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
-        <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">17.</span>
+        <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">26.</span>
         <span class="cl-ph" data-s="clergy-priests-7.webp" style="--x:5;--y:6" aria-hidden="true"></span>
         <span class="text-[14.5px] text-body/85 dark:text-ivory/70">Rev. Fr. John Varughese, Mannamcheril</span>
       </li>
       <li class="flex gap-3 cl-li py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
-        <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">18.</span>
+        <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">27.</span>
         <span class="cl-ph" data-s="clergy-priests-7.webp" style="--x:6;--y:6" aria-hidden="true"></span>
         <span class="text-[14.5px] text-body/85 dark:text-ivory/70">Rev. Fr. Josen John</span>
       </li>
       <li class="flex gap-3 cl-li py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
-        <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">19.</span>
+        <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">28.</span>
         <span class="cl-ph" data-s="clergy-priests-7.webp" style="--x:7;--y:6" aria-hidden="true"></span>
         <span class="text-[14.5px] text-body/85 dark:text-ivory/70">Rev. Fr. Joseph Elavunkal Mathew</span>
       </li>
       <li class="flex gap-3 cl-li py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
-        <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">20.</span>
+        <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">29.</span>
         <span class="cl-ph" data-s="clergy-priests-7.webp" style="--x:8;--y:6" aria-hidden="true"></span>
         <span class="text-[14.5px] text-body/85 dark:text-ivory/70">Rev. Fr. Liju Varghese</span>
       </li>
       <li class="flex gap-3 cl-li py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
-        <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">21.</span>
+        <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">30.</span>
         <span class="cl-ph" data-s="clergy-priests-7.webp" style="--x:9;--y:6" aria-hidden="true"></span>
         <span class="text-[14.5px] text-body/85 dark:text-ivory/70">Rev. Fr. Mathew Abraham, Palathinkal</span>
       </li>
       <li class="flex gap-3 cl-li py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
-        <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">22.</span>
+        <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">31.</span>
         <span class="cl-ph" data-s="clergy-priests-7.webp" style="--x:0;--y:7" aria-hidden="true"></span>
         <span class="text-[14.5px] text-body/85 dark:text-ivory/70">Rev. Fr. Mathew K. Mathew</span>
       </li>
       <li class="flex gap-3 cl-li py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
-        <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">23.</span>
+        <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">32.</span>
         <span class="cl-ph" data-s="clergy-priests-7.webp" style="--x:1;--y:7" aria-hidden="true"></span>
         <span class="text-[14.5px] text-body/85 dark:text-ivory/70">Rev. Fr. Mathews Kuriakose</span>
       </li>
       <li class="flex gap-3 cl-li py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
-        <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">24.</span>
+        <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">33.</span>
         <span class="cl-ph" data-s="clergy-priests-7.webp" style="--x:2;--y:7" aria-hidden="true"></span>
         <span class="text-[14.5px] text-body/85 dark:text-ivory/70">Rev. Fr. Ninan P. Kuriakose</span>
       </li>
       <li class="flex gap-3 cl-li py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
-        <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">25.</span>
+        <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">34.</span>
         <span class="cl-ph" data-s="clergy-priests-7.webp" style="--x:3;--y:7" aria-hidden="true"></span>
         <span class="text-[14.5px] text-body/85 dark:text-ivory/70">Rev. Fr. Nithin Prasad Koshy</span>
       </li>
       <li class="flex gap-3 cl-li py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
-        <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">26.</span>
+        <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">35.</span>
         <span class="cl-ph" data-s="clergy-priests-7.webp" style="--x:4;--y:7" aria-hidden="true"></span>
         <span class="text-[14.5px] text-body/85 dark:text-ivory/70">Rev. Fr. P. J. Binu</span>
       </li>
       <li class="flex gap-3 cl-li py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
-        <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">27.</span>
+        <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">36.</span>
         <span class="cl-ph" data-s="clergy-priests-7.webp" style="--x:5;--y:7" aria-hidden="true"></span>
         <span class="text-[14.5px] text-body/85 dark:text-ivory/70">Rev. Fr. Ranju Kizhakayil Skaria</span>
       </li>
       <li class="flex gap-3 cl-li py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
-        <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">28.</span>
+        <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">37.</span>
+        <span class="cl-ph cl-none" aria-hidden="true"></span>
+        <span class="text-[14.5px] text-body/85 dark:text-ivory/70">Rev. Fr. Rikku Zacharia Cherian</span>
+      </li>
+      <li class="flex gap-3 cl-li py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
+        <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">38.</span>
         <span class="cl-ph" data-s="clergy-priests-7.webp" style="--x:6;--y:7" aria-hidden="true"></span>
         <span class="text-[14.5px] text-body/85 dark:text-ivory/70">Rev. Fr. Robin Varghese</span>
       </li>
       <li class="flex gap-3 cl-li py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
-        <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">29.</span>
+        <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">39.</span>
         <span class="cl-ph" data-s="clergy-priests-7.webp" style="--x:7;--y:7" aria-hidden="true"></span>
         <span class="text-[14.5px] text-body/85 dark:text-ivory/70">Rev. Fr. Rohith Skariah Georgy</span>
       </li>
       <li class="flex gap-3 cl-li py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
-        <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">30.</span>
+        <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">40.</span>
+        <span class="cl-ph" data-s="clergy-priests-5.webp" style="--x:7;--y:24" aria-hidden="true"></span>
+        <span class="text-[14.5px] text-body/85 dark:text-ivory/70">Rev. Fr. Sajan C. Mathew, Snehabhavan</span>
+      </li>
+      <li class="flex gap-3 cl-li py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
+        <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">41.</span>
         <span class="cl-ph" data-s="clergy-priests-7.webp" style="--x:8;--y:7" aria-hidden="true"></span>
         <span class="text-[14.5px] text-body/85 dark:text-ivory/70">Rev. Fr. Saji C. John</span>
       </li>
       <li class="flex gap-3 cl-li py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
-        <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">31.</span>
+        <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">42.</span>
+        <span class="cl-ph" data-s="clergy-priests-6.webp" style="--x:8;--y:17" aria-hidden="true"></span>
+        <span class="text-[14.5px] text-body/85 dark:text-ivory/70">Rev. Fr. Saju Philip, Valiya</span>
+      </li>
+      <li class="flex gap-3 cl-li py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
+        <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">43.</span>
         <span class="cl-ph" data-s="clergy-priests-7.webp" style="--x:9;--y:7" aria-hidden="true"></span>
         <span class="text-[14.5px] text-body/85 dark:text-ivory/70">Rev. Fr. Samuel Varghese (Mobin)</span>
       </li>
       <li class="flex gap-3 cl-li py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
-        <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">32.</span>
+        <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">44.</span>
+        <span class="cl-ph cl-none" aria-hidden="true"></span>
+        <span class="text-[14.5px] text-body/85 dark:text-ivory/70">Rev. Fr. Shaiju K. Mathai</span>
+      </li>
+      <li class="flex gap-3 cl-li py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
+        <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">45.</span>
         <span class="cl-ph" data-s="clergy-priests-7.webp" style="--x:0;--y:8" aria-hidden="true"></span>
         <span class="text-[14.5px] text-body/85 dark:text-ivory/70">Rev. Fr. Shyju P. Mathai</span>
       </li>
       <li class="flex gap-3 cl-li py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
-        <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">33.</span>
+        <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">46.</span>
         <span class="cl-ph" data-s="clergy-priests-7.webp" style="--x:1;--y:8" aria-hidden="true"></span>
         <span class="text-[14.5px] text-body/85 dark:text-ivory/70">Rev. Fr. Solomon Babu</span>
       </li>
       <li class="flex gap-3 cl-li py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
-        <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">34.</span>
+        <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">47.</span>
+        <span class="cl-ph" data-s="clergy-priests-2.webp" style="--x:7;--y:2" aria-hidden="true"></span>
+        <span class="text-[14.5px] text-body/85 dark:text-ivory/70">Rev. Fr. Sony Issac Thomas, Vazhayil</span>
+      </li>
+      <li class="flex gap-3 cl-li py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
+        <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">48.</span>
         <span class="cl-ph" data-s="clergy-priests-7.webp" style="--x:2;--y:8" aria-hidden="true"></span>
         <span class="text-[14.5px] text-body/85 dark:text-ivory/70">Rev. Fr. Stanly David James</span>
       </li>
       <li class="flex gap-3 cl-li py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
-        <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">35.</span>
+        <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">49.</span>
         <span class="cl-ph" data-s="clergy-priests-7.webp" style="--x:3;--y:8" aria-hidden="true"></span>
         <span class="text-[14.5px] text-body/85 dark:text-ivory/70">Rev. Fr. Tiji Thankachan</span>
       </li>
       <li class="flex gap-3 cl-li py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
-        <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">36.</span>
+        <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">50.</span>
+        <span class="cl-ph" data-s="clergy-priests-3.webp" style="--x:3;--y:12" aria-hidden="true"></span>
+        <span class="text-[14.5px] text-body/85 dark:text-ivory/70">Rev. Fr. Tijo Varghese, Puthiyedathu</span>
+      </li>
+      <li class="flex gap-3 cl-li py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
+        <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">51.</span>
         <span class="cl-ph" data-s="clergy-priests-7.webp" style="--x:4;--y:8" aria-hidden="true"></span>
         <span class="text-[14.5px] text-body/85 dark:text-ivory/70">Rev. Fr. Tom Jacob</span>
       </li>
       <li class="flex gap-3 cl-li py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
-        <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">37.</span>
+        <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">52.</span>
+        <span class="cl-ph cl-none" aria-hidden="true"></span>
+        <span class="text-[14.5px] text-body/85 dark:text-ivory/70">Rev. Fr. Varghese P. A.</span>
+      </li>
+      <li class="flex gap-3 cl-li py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
+        <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">53.</span>
         <span class="cl-ph" data-s="clergy-priests-7.webp" style="--x:5;--y:8" aria-hidden="true"></span>
         <span class="text-[14.5px] text-body/85 dark:text-ivory/70">Rev. Fr. Varghese T. Mathew</span>
       </li>
@@ -8333,68 +8521,68 @@
   <div class="mb-10 sm:mb-12" id="priests-northeast-america">
     <div class="flex items-baseline gap-3 mb-3 sm:mb-4">
       <h2 class="font-serif font-normal text-xl sm:text-2xl text-ink dark:text-ivory">Northeast America</h2>
-      <span class="font-sans text-[11px] tracking-wide text-muted">63</span>
+      <span class="font-sans text-[11px] tracking-wide text-muted">52</span>
     </div>
     <ol class="flex flex-col">
       <li class="flex gap-3 cl-li py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
         <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">1.</span>
-        <span class="cl-ph" data-s="clergy-priests-7.webp" style="--x:6;--y:8" aria-hidden="true"></span>
-        <span class="text-[14.5px] text-body/85 dark:text-ivory/70">Rev. Fr. A. K. Cherian</span>
-      </li>
-      <li class="flex gap-3 cl-li py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
-        <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">2.</span>
         <span class="cl-ph" data-s="clergy-priests-7.webp" style="--x:7;--y:8" aria-hidden="true"></span>
         <span class="text-[14.5px] text-body/85 dark:text-ivory/70">Rev. Fr. Abey George</span>
       </li>
       <li class="flex gap-3 cl-li py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
-        <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">3.</span>
+        <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">2.</span>
         <span class="cl-ph" data-s="clergy-priests-7.webp" style="--x:8;--y:8" aria-hidden="true"></span>
         <span class="text-[14.5px] text-body/85 dark:text-ivory/70">Rev. Fr. Abraham Philip</span>
       </li>
       <li class="flex gap-3 cl-li py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
-        <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">4.</span>
+        <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">3.</span>
         <span class="cl-ph" data-s="clergy-priests-7.webp" style="--x:9;--y:8" aria-hidden="true"></span>
         <span class="text-[14.5px] text-body/85 dark:text-ivory/70">Rev. Fr. Abu Varghese Peter</span>
       </li>
       <li class="flex gap-3 cl-li py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
-        <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">5.</span>
+        <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">4.</span>
         <span class="cl-ph" data-s="clergy-priests-7.webp" style="--x:0;--y:9" aria-hidden="true"></span>
         <span class="text-[14.5px] text-body/85 dark:text-ivory/70">Rev. Fr. Alex K. Joy</span>
       </li>
       <li class="flex gap-3 cl-li py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
-        <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">6.</span>
+        <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">5.</span>
         <span class="cl-ph" data-s="clergy-priests-7.webp" style="--x:1;--y:9" aria-hidden="true"></span>
         <span class="text-[14.5px] text-body/85 dark:text-ivory/70">Rev. Fr. Alexander James Kurien</span>
       </li>
       <li class="flex gap-3 cl-li py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
-        <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">7.</span>
-        <span class="cl-ph" data-s="clergy-priests-7.webp" style="--x:2;--y:9" aria-hidden="true"></span>
-        <span class="text-[14.5px] text-body/85 dark:text-ivory/70">Rev. Fr. Andrew (Leeson) Daniel</span>
-      </li>
-      <li class="flex gap-3 cl-li py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
-        <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">8.</span>
+        <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">6.</span>
         <span class="cl-ph" data-s="clergy-priests-7.webp" style="--x:3;--y:9" aria-hidden="true"></span>
         <span class="text-[14.5px] text-body/85 dark:text-ivory/70">Rev. Fr. Anoop Thomas</span>
       </li>
       <li class="flex gap-3 cl-li py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
-        <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">9.</span>
-        <span class="cl-ph" data-s="clergy-priests-7.webp" style="--x:5;--y:9" aria-hidden="true"></span>
-        <span class="text-[14.5px] text-body/85 dark:text-ivory/70">Rev. Fr. Blessen Varghese</span>
+        <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">7.</span>
+        <span class="cl-ph cl-none" aria-hidden="true"></span>
+        <span class="text-[14.5px] text-body/85 dark:text-ivory/70">Rev. Fr. Anthonios (Roby) Antony</span>
       </li>
       <li class="flex gap-3 cl-li py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
-        <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">10.</span>
+        <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">8.</span>
+        <span class="cl-ph cl-none" aria-hidden="true"></span>
+        <span class="text-[14.5px] text-body/85 dark:text-ivory/70">Rev. Fr. Basil Mannathikulam</span>
+      </li>
+      <li class="flex gap-3 cl-li py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
+        <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">9.</span>
         <span class="cl-ph" data-s="clergy-priests-7.webp" style="--x:6;--y:9" aria-hidden="true"></span>
         <span class="text-[14.5px] text-body/85 dark:text-ivory/70">Rev. Fr. Cherian Mundackal [1]</span>
       </li>
       <li class="flex gap-3 cl-li py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
-        <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">11.</span>
+        <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">10.</span>
         <span class="cl-ph" data-s="clergy-priests-7.webp" style="--x:7;--y:9" aria-hidden="true"></span>
         <span class="text-[14.5px] text-body/85 dark:text-ivory/70">Rev. Fr. Daniel (Dennis) Mathai</span>
       </li>
       <li class="flex gap-3 cl-li py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
-        <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">12.</span>
+        <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">11.</span>
         <span class="cl-ph" data-s="clergy-priests-7.webp" style="--x:8;--y:9" aria-hidden="true"></span>
         <span class="text-[14.5px] text-body/85 dark:text-ivory/70">Rev. Fr. Dr. Babu K. Mathew</span>
+      </li>
+      <li class="flex gap-3 cl-li py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
+        <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">12.</span>
+        <span class="cl-ph cl-none" aria-hidden="true"></span>
+        <span class="text-[14.5px] text-body/85 dark:text-ivory/70">Rev. Fr. Dr. Boby Varghese</span>
       </li>
       <li class="flex gap-3 cl-li py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
         <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">13.</span>
@@ -8403,251 +8591,196 @@
       </li>
       <li class="flex gap-3 cl-li py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
         <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">14.</span>
-        <span class="cl-ph" data-s="clergy-priests-7.webp" style="--x:0;--y:10" aria-hidden="true"></span>
-        <span class="text-[14.5px] text-body/85 dark:text-ivory/70">Rev. Fr. Dr. George Koshy</span>
-      </li>
-      <li class="flex gap-3 cl-li py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
-        <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">15.</span>
         <span class="cl-ph" data-s="clergy-priests-7.webp" style="--x:1;--y:10" aria-hidden="true"></span>
         <span class="text-[14.5px] text-body/85 dark:text-ivory/70">Rev. Fr. Dr. Johnson C. John</span>
       </li>
       <li class="flex gap-3 cl-li py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
-        <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">16.</span>
-        <span class="cl-ph" data-s="clergy-priests-7.webp" style="--x:2;--y:10" aria-hidden="true"></span>
-        <span class="text-[14.5px] text-body/85 dark:text-ivory/70">Rev. Fr. Dr. K. M. Samuel</span>
-      </li>
-      <li class="flex gap-3 cl-li py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
-        <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">17.</span>
+        <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">15.</span>
         <span class="cl-ph" data-s="clergy-priests-7.webp" style="--x:3;--y:10" aria-hidden="true"></span>
         <span class="text-[14.5px] text-body/85 dark:text-ivory/70">Rev. Fr. Dr. Mathew C. Chacko</span>
       </li>
       <li class="flex gap-3 cl-li py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
-        <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">18.</span>
+        <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">16.</span>
         <span class="cl-ph" data-s="clergy-priests-7.webp" style="--x:4;--y:10" aria-hidden="true"></span>
         <span class="text-[14.5px] text-body/85 dark:text-ivory/70">Rev. Fr. Dr. Raju Varghese</span>
       </li>
       <li class="flex gap-3 cl-li py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
-        <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">19.</span>
-        <span class="cl-ph" data-s="clergy-priests-7.webp" style="--x:5;--y:10" aria-hidden="true"></span>
-        <span class="text-[14.5px] text-body/85 dark:text-ivory/70">Rev. Fr. Dr. Thomas George</span>
-      </li>
-      <li class="flex gap-3 cl-li py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
-        <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">20.</span>
+        <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">17.</span>
         <span class="cl-ph" data-s="clergy-priests-7.webp" style="--x:6;--y:10" aria-hidden="true"></span>
         <span class="text-[14.5px] text-body/85 dark:text-ivory/70">Rev. Fr. Dr. Varghese M. Daniel</span>
       </li>
       <li class="flex gap-3 cl-li py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
-        <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">21.</span>
+        <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">18.</span>
         <span class="cl-ph" data-s="clergy-priests-7.webp" style="--x:7;--y:10" aria-hidden="true"></span>
         <span class="text-[14.5px] text-body/85 dark:text-ivory/70">Rev. Fr. Geevarghese (Bobby), Varghese</span>
       </li>
       <li class="flex gap-3 cl-li py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
-        <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">22.</span>
+        <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">19.</span>
         <span class="cl-ph" data-s="clergy-priests-7.webp" style="--x:8;--y:10" aria-hidden="true"></span>
         <span class="text-[14.5px] text-body/85 dark:text-ivory/70">Rev. Fr. Geevarghese (Eby) Paulose</span>
       </li>
       <li class="flex gap-3 cl-li py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
-        <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">23.</span>
+        <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">20.</span>
         <span class="cl-ph" data-s="clergy-priests-7.webp" style="--x:9;--y:10" aria-hidden="true"></span>
         <span class="text-[14.5px] text-body/85 dark:text-ivory/70">Rev. Fr. Geevarghese Mathew</span>
       </li>
       <li class="flex gap-3 cl-li py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
-        <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">24.</span>
+        <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">21.</span>
         <span class="cl-ph" data-s="clergy-priests-7.webp" style="--x:0;--y:11" aria-hidden="true"></span>
         <span class="text-[14.5px] text-body/85 dark:text-ivory/70">Rev. Fr. George (Dileep) Cherian</span>
       </li>
       <li class="flex gap-3 cl-li py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
-        <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">25.</span>
+        <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">22.</span>
         <span class="cl-ph" data-s="clergy-priests-7.webp" style="--x:1;--y:11" aria-hidden="true"></span>
         <span class="text-[14.5px] text-body/85 dark:text-ivory/70">Rev. Fr. George Mathew</span>
       </li>
       <li class="flex gap-3 cl-li py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
-        <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">26.</span>
+        <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">23.</span>
         <span class="cl-ph" data-s="clergy-priests-7.webp" style="--x:2;--y:11" aria-hidden="true"></span>
         <span class="text-[14.5px] text-body/85 dark:text-ivory/70">Rev. Fr. Gheevarghese John</span>
       </li>
       <li class="flex gap-3 cl-li py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
-        <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">27.</span>
+        <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">24.</span>
         <span class="cl-ph" data-s="clergy-priests-7.webp" style="--x:3;--y:11" aria-hidden="true"></span>
         <span class="text-[14.5px] text-body/85 dark:text-ivory/70">Rev. Fr. Givargis Koshy</span>
       </li>
       <li class="flex gap-3 cl-li py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
-        <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">28.</span>
+        <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">25.</span>
         <span class="cl-ph" data-s="clergy-priests-7.webp" style="--x:4;--y:11" aria-hidden="true"></span>
         <span class="text-[14.5px] text-body/85 dark:text-ivory/70">Rev. Fr. Gregory Varghese</span>
       </li>
       <li class="flex gap-3 cl-li py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
-        <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">29.</span>
+        <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">26.</span>
+        <span class="cl-ph" data-s="clergy-priests-7.webp" style="--x:8;--y:16" aria-hidden="true"></span>
+        <span class="text-[14.5px] text-body/85 dark:text-ivory/70">Rev. Fr. Jerry Varghese</span>
+      </li>
+      <li class="flex gap-3 cl-li py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
+        <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">27.</span>
         <span class="cl-ph" data-s="clergy-priests-7.webp" style="--x:5;--y:11" aria-hidden="true"></span>
         <span class="text-[14.5px] text-body/85 dark:text-ivory/70">Rev. Fr. Jobson Kottapurathu</span>
       </li>
       <li class="flex gap-3 cl-li py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
-        <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">30.</span>
-        <span class="cl-ph" data-s="clergy-priests-7.webp" style="--x:6;--y:11" aria-hidden="true"></span>
-        <span class="text-[14.5px] text-body/85 dark:text-ivory/70">Rev. Fr. John Kunjukunju</span>
-      </li>
-      <li class="flex gap-3 cl-li py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
-        <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">31.</span>
+        <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">28.</span>
         <span class="cl-ph" data-s="clergy-priests-7.webp" style="--x:7;--y:11" aria-hidden="true"></span>
         <span class="text-[14.5px] text-body/85 dark:text-ivory/70">Rev. Fr. John Thomas Alummoottil</span>
       </li>
       <li class="flex gap-3 cl-li py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
-        <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">32.</span>
+        <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">29.</span>
         <span class="cl-ph" data-s="clergy-priests-7.webp" style="--x:8;--y:11" aria-hidden="true"></span>
         <span class="text-[14.5px] text-body/85 dark:text-ivory/70">Rev. Fr. K. J. Varghese</span>
       </li>
       <li class="flex gap-3 cl-li py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
-        <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">33.</span>
+        <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">30.</span>
+        <span class="cl-ph cl-none" aria-hidden="true"></span>
+        <span class="text-[14.5px] text-body/85 dark:text-ivory/70">Rev. Fr. K. K. John</span>
+      </li>
+      <li class="flex gap-3 cl-li py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
+        <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">31.</span>
         <span class="cl-ph" data-s="clergy-priests-7.webp" style="--x:9;--y:11" aria-hidden="true"></span>
         <span class="text-[14.5px] text-body/85 dark:text-ivory/70">Rev. Fr. K. O. Chacko</span>
       </li>
       <li class="flex gap-3 cl-li py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
-        <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">34.</span>
-        <span class="cl-ph" data-s="clergy-priests-7.webp" style="--x:0;--y:12" aria-hidden="true"></span>
-        <span class="text-[14.5px] text-body/85 dark:text-ivory/70">Rev. Fr. K. P. Varghese</span>
-      </li>
-      <li class="flex gap-3 cl-li py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
-        <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">35.</span>
+        <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">32.</span>
         <span class="cl-ph" data-s="clergy-priests-7.webp" style="--x:1;--y:12" aria-hidden="true"></span>
         <span class="text-[14.5px] text-body/85 dark:text-ivory/70">Rev. Fr. Kuriakose Abraham (Alex)</span>
       </li>
       <li class="flex gap-3 cl-li py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
-        <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">36.</span>
+        <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">33.</span>
         <span class="cl-ph" data-s="clergy-priests-7.webp" style="--x:2;--y:12" aria-hidden="true"></span>
         <span class="text-[14.5px] text-body/85 dark:text-ivory/70">Rev. Fr. Laby George, Panackamattom</span>
       </li>
       <li class="flex gap-3 cl-li py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
-        <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">37.</span>
+        <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">34.</span>
         <span class="cl-ph" data-s="clergy-priests-7.webp" style="--x:3;--y:12" aria-hidden="true"></span>
         <span class="text-[14.5px] text-body/85 dark:text-ivory/70">Rev. Fr. M. K. Kuriakose</span>
       </li>
       <li class="flex gap-3 cl-li py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
-        <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">38.</span>
-        <span class="cl-ph" data-s="clergy-priests-7.webp" style="--x:4;--y:12" aria-hidden="true"></span>
-        <span class="text-[14.5px] text-body/85 dark:text-ivory/70">Rev. Fr. Mathew Thomas</span>
-      </li>
-      <li class="flex gap-3 cl-li py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
-        <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">39.</span>
+        <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">35.</span>
         <span class="cl-ph" data-s="clergy-priests-7.webp" style="--x:5;--y:12" aria-hidden="true"></span>
         <span class="text-[14.5px] text-body/85 dark:text-ivory/70">Rev. Fr. Mathew Thomas (Kodumon)</span>
       </li>
       <li class="flex gap-3 cl-li py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
-        <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">40.</span>
-        <span class="cl-ph" data-s="clergy-priests-7.webp" style="--x:6;--y:12" aria-hidden="true"></span>
-        <span class="text-[14.5px] text-body/85 dark:text-ivory/70">Rev. Fr. N. K. Ittanpillai</span>
-      </li>
-      <li class="flex gap-3 cl-li py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
-        <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">41.</span>
+        <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">36.</span>
         <span class="cl-ph" data-s="clergy-priests-7.webp" style="--x:7;--y:12" aria-hidden="true"></span>
         <span class="text-[14.5px] text-body/85 dark:text-ivory/70">Rev. Fr. Ninan T. Easo</span>
       </li>
       <li class="flex gap-3 cl-li py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
-        <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">42.</span>
+        <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">37.</span>
         <span class="cl-ph" data-s="clergy-priests-7.webp" style="--x:8;--y:12" aria-hidden="true"></span>
         <span class="text-[14.5px] text-body/85 dark:text-ivory/70">Rev. Fr. Paul Cherian</span>
       </li>
       <li class="flex gap-3 cl-li py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
-        <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">43.</span>
-        <span class="cl-ph" data-s="clergy-priests-7.webp" style="--x:9;--y:12" aria-hidden="true"></span>
-        <span class="text-[14.5px] text-body/85 dark:text-ivory/70">Rev. Fr. Paulose T. Peter</span>
-      </li>
-      <li class="flex gap-3 cl-li py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
-        <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">44.</span>
+        <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">38.</span>
         <span class="cl-ph" data-s="clergy-priests-7.webp" style="--x:0;--y:13" aria-hidden="true"></span>
         <span class="text-[14.5px] text-body/85 dark:text-ivory/70">Rev. Fr. Philip C. Abraham</span>
       </li>
       <li class="flex gap-3 cl-li py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
-        <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">45.</span>
-        <span class="cl-ph cl-none" aria-hidden="true"></span>
-        <span class="text-[14.5px] text-body/85 dark:text-ivory/70">Rev. Fr. Philip Varghese</span>
-      </li>
-      <li class="flex gap-3 cl-li py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
-        <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">46.</span>
+        <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">39.</span>
         <span class="cl-ph" data-s="clergy-priests-7.webp" style="--x:1;--y:13" aria-hidden="true"></span>
         <span class="text-[14.5px] text-body/85 dark:text-ivory/70">Rev. Fr. Roy P. George</span>
       </li>
       <li class="flex gap-3 cl-li py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
-        <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">47.</span>
+        <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">40.</span>
         <span class="cl-ph" data-s="clergy-priests-7.webp" style="--x:2;--y:13" aria-hidden="true"></span>
         <span class="text-[14.5px] text-body/85 dark:text-ivory/70">Rev. Fr. Saji Thomas Tharayil</span>
       </li>
       <li class="flex gap-3 cl-li py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
-        <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">48.</span>
-        <span class="cl-ph" data-s="clergy-priests-7.webp" style="--x:3;--y:13" aria-hidden="true"></span>
-        <span class="text-[14.5px] text-body/85 dark:text-ivory/70">Rev. Fr. Sam Thankachan</span>
-      </li>
-      <li class="flex gap-3 cl-li py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
-        <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">49.</span>
+        <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">41.</span>
         <span class="cl-ph" data-s="clergy-priests-7.webp" style="--x:4;--y:13" aria-hidden="true"></span>
         <span class="text-[14.5px] text-body/85 dark:text-ivory/70">Rev. Fr. Shibu Daniel</span>
       </li>
       <li class="flex gap-3 cl-li py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
-        <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">50.</span>
-        <span class="cl-ph" data-s="clergy-priests-7.webp" style="--x:5;--y:13" aria-hidden="true"></span>
-        <span class="text-[14.5px] text-body/85 dark:text-ivory/70">Rev. Fr. Shibu Venad Mathai</span>
-      </li>
-      <li class="flex gap-3 cl-li py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
-        <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">51.</span>
+        <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">42.</span>
         <span class="cl-ph" data-s="clergy-priests-7.webp" style="--x:6;--y:13" aria-hidden="true"></span>
         <span class="text-[14.5px] text-body/85 dark:text-ivory/70">Rev. Fr. Shinoj Thomas</span>
       </li>
       <li class="flex gap-3 cl-li py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
-        <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">52.</span>
-        <span class="cl-ph" data-s="clergy-priests-7.webp" style="--x:7;--y:13" aria-hidden="true"></span>
-        <span class="text-[14.5px] text-body/85 dark:text-ivory/70">Rev. Fr. Siby Varghese, Karottumuriyil</span>
-      </li>
-      <li class="flex gap-3 cl-li py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
-        <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">53.</span>
+        <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">43.</span>
         <span class="cl-ph" data-s="clergy-priests-7.webp" style="--x:8;--y:13" aria-hidden="true"></span>
         <span class="text-[14.5px] text-body/85 dark:text-ivory/70">Rev. Fr. Sujit Thomas</span>
       </li>
       <li class="flex gap-3 cl-li py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
-        <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">54.</span>
+        <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">44.</span>
         <span class="cl-ph" data-s="clergy-priests-7.webp" style="--x:9;--y:13" aria-hidden="true"></span>
         <span class="text-[14.5px] text-body/85 dark:text-ivory/70">Rev. Fr. Sunny Joseph</span>
       </li>
       <li class="flex gap-3 cl-li py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
-        <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">55.</span>
+        <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">45.</span>
         <span class="cl-ph" data-s="clergy-priests-7.webp" style="--x:0;--y:14" aria-hidden="true"></span>
         <span class="text-[14.5px] text-body/85 dark:text-ivory/70">Rev. Fr. T. A. Thomas</span>
       </li>
       <li class="flex gap-3 cl-li py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
-        <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">56.</span>
-        <span class="cl-ph" data-s="clergy-priests-7.webp" style="--x:1;--y:14" aria-hidden="true"></span>
-        <span class="text-[14.5px] text-body/85 dark:text-ivory/70">Rev. Fr. Thomas (Shawn) Poothicote</span>
-      </li>
-      <li class="flex gap-3 cl-li py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
-        <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">57.</span>
+        <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">46.</span>
         <span class="cl-ph" data-s="clergy-priests-7.webp" style="--x:2;--y:14" aria-hidden="true"></span>
         <span class="text-[14.5px] text-body/85 dark:text-ivory/70">Rev. Fr. Thomas Mathew</span>
       </li>
       <li class="flex gap-3 cl-li py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
-        <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">58.</span>
-        <span class="cl-ph" data-s="clergy-priests-7.webp" style="--x:3;--y:14" aria-hidden="true"></span>
-        <span class="text-[14.5px] text-body/85 dark:text-ivory/70">Rev. Fr. Thomas P. John</span>
-      </li>
-      <li class="flex gap-3 cl-li py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
-        <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">59.</span>
+        <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">47.</span>
         <span class="cl-ph" data-s="clergy-priests-7.webp" style="--x:4;--y:14" aria-hidden="true"></span>
         <span class="text-[14.5px] text-body/85 dark:text-ivory/70">Rev. Fr. Thomas Paul</span>
       </li>
       <li class="flex gap-3 cl-li py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
-        <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">60.</span>
+        <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">48.</span>
         <span class="cl-ph" data-s="clergy-priests-7.webp" style="--x:5;--y:14" aria-hidden="true"></span>
         <span class="text-[14.5px] text-body/85 dark:text-ivory/70">Rev. Fr. Timothy Thomas (Tenny)</span>
       </li>
       <li class="flex gap-3 cl-li py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
-        <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">61.</span>
+        <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">49.</span>
         <span class="cl-ph" data-s="clergy-priests-7.webp" style="--x:6;--y:14" aria-hidden="true"></span>
         <span class="text-[14.5px] text-body/85 dark:text-ivory/70">Rev. Fr. Tobin P. Mathew</span>
       </li>
       <li class="flex gap-3 cl-li py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
-        <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">62.</span>
+        <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">50.</span>
         <span class="cl-ph" data-s="clergy-priests-7.webp" style="--x:7;--y:14" aria-hidden="true"></span>
         <span class="text-[14.5px] text-body/85 dark:text-ivory/70">Rev. Fr. Tojo Baby</span>
       </li>
       <li class="flex gap-3 cl-li py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
-        <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">63.</span>
+        <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">51.</span>
+        <span class="cl-ph cl-none" aria-hidden="true"></span>
+        <span class="text-[14.5px] text-body/85 dark:text-ivory/70">Rev. Fr. V. M. Shibu</span>
+      </li>
+      <li class="flex gap-3 cl-li py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
+        <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">52.</span>
         <span class="cl-ph" data-s="clergy-priests-7.webp" style="--x:8;--y:14" aria-hidden="true"></span>
         <span class="text-[14.5px] text-body/85 dark:text-ivory/70">Rev. Fr. Vijay Thomas</span>
       </li>
