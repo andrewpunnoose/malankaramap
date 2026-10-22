@@ -6561,7 +6561,7 @@ html[lang=ml] header .megapanel .truncate, html[lang=ml] header .megapanel a.tru
     </section>
     <section id="map" class="px-5 sm:px-8">
 <style>
-.mapsearch{max-width:36rem;margin:0 auto 16px;display:flex;flex-direction:column;align-items:center;gap:8px}
+.mapsearch{max-width:36rem;margin:20px auto 0;display:flex;flex-direction:column;align-items:center;gap:8px}
 .mapsearch__row{display:flex;width:100%;gap:8px;align-items:center}
 .mapsearch__field{position:relative;flex:1;min-width:0}
 .mapsearch__field svg{position:absolute;left:16px;top:50%;transform:translateY(-50%);width:16px;height:16px;color:var(--thread);opacity:.7;pointer-events:none}
@@ -6580,7 +6580,18 @@ html[lang=ml] header .megapanel .truncate, html[lang=ml] header .megapanel a.tru
 .mapsearch__reset[hidden]{display:none}
 @media(max-width:480px){.mapsearch__go{padding:13px 16px}}
 </style>
-<form id="mapSearchForm" class="mapsearch" role="search" autocomplete="off">
+<div id="mapWrap" class="max-w-6xl mx-auto rounded-2xl overflow-hidden border border-line dark:border-white/10 shadow-medium bg-ivory dark:bg-charcoal">
+        <iframe id="mapFrame" src="https://www.google.com/maps/d/u/0/embed?mid=1TRfC9ZEHxXfzwAWy-tv1UNdUEvzL9C0&amp;ehbc=2E312F&amp;noprof=1" width="640" height="480" allowfullscreen loading="lazy" class="absolute inset-0 w-full h-full border-0" style="top:-77px;height:calc(100% + 91px)" name="mapFrame"></iframe>
+        <div id="mapLoader" class="absolute inset-0 z-20 flex flex-col items-center justify-center gap-3.5 bg-ivory dark:bg-charcoal transition-opacity duration-700">
+          <div class="relative w-11 h-11 flex items-center justify-center">
+            <span class="absolute inset-0 rounded-full border border-gold/50 animate-ping"></span> <span class="absolute inset-0 rounded-full border border-gold/25"></span> <svg class="relative w-5 h-5 text-gold" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 21 C12 21 18 14.5 18 9.5 A6 6 0 0 0 6 9.5 C6 14.5 12 21 12 21 Z"></path>
+            <circle cx="12" cy="9.5" r="2.1"></circle></svg>
+          </div>
+          <p class="font-serif italic text-[13px] text-body/50 dark:text-ivory/45 tracking-wide" data-en="Loading the map…" data-ml="ഭൂപടം ലോഡ് ചെയ്യുന്നു…">Loading the map…</p>
+        </div>
+      </div>
+      <form id="mapSearchForm" class="mapsearch" role="search" autocomplete="off">
   <div class="mapsearch__row">
     <label class="mapsearch__field">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg>
@@ -6628,17 +6639,6 @@ form.addEventListener("submit",function(e){
 });
 }();
 </script>
-      <div id="mapWrap" class="max-w-6xl mx-auto rounded-2xl overflow-hidden border border-line dark:border-white/10 shadow-medium bg-ivory dark:bg-charcoal">
-        <iframe id="mapFrame" src="https://www.google.com/maps/d/u/0/embed?mid=1TRfC9ZEHxXfzwAWy-tv1UNdUEvzL9C0&amp;ehbc=2E312F&amp;noprof=1" width="640" height="480" allowfullscreen loading="lazy" class="absolute inset-0 w-full h-full border-0" style="top:-77px;height:calc(100% + 91px)" name="mapFrame"></iframe>
-        <div id="mapLoader" class="absolute inset-0 z-20 flex flex-col items-center justify-center gap-3.5 bg-ivory dark:bg-charcoal transition-opacity duration-700">
-          <div class="relative w-11 h-11 flex items-center justify-center">
-            <span class="absolute inset-0 rounded-full border border-gold/50 animate-ping"></span> <span class="absolute inset-0 rounded-full border border-gold/25"></span> <svg class="relative w-5 h-5 text-gold" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M12 21 C12 21 18 14.5 18 9.5 A6 6 0 0 0 6 9.5 C6 14.5 12 21 12 21 Z"></path>
-            <circle cx="12" cy="9.5" r="2.1"></circle></svg>
-          </div>
-          <p class="font-serif italic text-[13px] text-body/50 dark:text-ivory/45 tracking-wide" data-en="Loading the map…" data-ml="ഭൂപടം ലോഡ് ചെയ്യുന്നു…">Loading the map…</p>
-        </div>
-      </div>
       <p class="text-center mt-3 font-sans text-[11px] tracking-wide text-muted" data-en="Map data via Google My Maps." data-ml="ഭൂപട വിവരം Google My Maps വഴി.">Map data via Google My Maps.</p>
     </section>
     <div class="section-divider is-tight" aria-hidden="true">
