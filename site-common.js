@@ -185,6 +185,9 @@
         el.innerHTML = lang === "ml" ? el.getAttribute("data-ml-html") : el.getAttribute("data-en-html");
         el.style.fontFamily = lang === "ml" ? "'Noto Serif Malayalam', serif" : "";
       });
+      document.querySelectorAll("a.skip-link:not([data-en])").forEach(function (el) {
+        el.textContent = lang === "ml" ? "ഉള്ളടക്കത്തിലേക്ക് പോകുക" : "Skip to content";
+      });
       document.querySelectorAll("[data-en-placeholder][data-ml-placeholder]").forEach(function (el) {
         el.setAttribute("placeholder", lang === "ml" ? el.getAttribute("data-ml-placeholder") : el.getAttribute("data-en-placeholder"));
       });
