@@ -87,7 +87,7 @@
         <span class="text-[10px] sm:text-[11px] tracking-wider uppercase text-body/60 dark:text-ivory/50 font-medium" data-en="Cathedrals" data-ml="ഭദ്രാസനപള്ളികൾ">Cathedrals</span>
       </div>
       <div class="border-b border-r border-line dark:border-white/10 p-4 sm:p-5 flex flex-col gap-1.5">
-        <span class="font-serif text-2xl sm:text-3xl text-ink dark:text-ivory">26</span>
+        <span class="font-serif text-2xl sm:text-3xl text-ink dark:text-ivory">27</span>
         <span class="text-[10px] sm:text-[11px] tracking-wider uppercase text-body/60 dark:text-ivory/50 font-medium" data-en="Churches" data-ml="ഇടവകകൾ">Churches</span>
       </div>
       <div class="border-b border-r border-line dark:border-white/10 p-4 sm:p-5 flex flex-col gap-1.5">
@@ -99,7 +99,7 @@
         <span class="text-[10px] sm:text-[11px] tracking-wider uppercase text-body/60 dark:text-ivory/50 font-medium" data-en="Chapels" data-ml="ചാപ്പലുകൾ">Chapels</span>
       </div>
       <div class="border-b border-r border-line dark:border-white/10 p-4 sm:p-5 flex flex-col gap-1.5">
-        <span class="font-serif text-2xl sm:text-3xl text-ink dark:text-ivory">69</span>
+        <span class="font-serif text-2xl sm:text-3xl text-ink dark:text-ivory">70</span>
         <span class="text-[10px] sm:text-[11px] tracking-wider uppercase text-body/60 dark:text-ivory/50 font-medium" data-en="Total Locations" data-ml="ആകെ സ്ഥലങ്ങൾ">Total Locations</span>
       </div>
   </div>
@@ -207,6 +207,7 @@
     <li data-en="Periyambra St. George Orthodox Church" data-ml="പെരിയമ്പ്ര മാർ ഗീവറുഗീസ് സഹദാ ഓർത്തഡോക്സ് പള്ളി">Periyambra St. George Orthodox Church</li>
     <li data-en="Piramadom St. John&#x27;s Bethlehem Orthodox Church" data-ml="പിരമടം മാർ യൂഹാനോൻ ബേതലഹേം ഓർത്തഡോക്സ് പള്ളി">Piramadom St. John's Bethlehem Orthodox Church</li>
     <li data-en="Poothrikka St. Mary&#x27;s Orthodox Church" data-ml="പൂതൃക്ക മർത്തമറിയം ഓർത്തഡോക്സ് പള്ളി">Poothrikka St. Mary's Orthodox Church</li>
+    <li data-en="Thodupuzha St. Mary&#x27;s Orthodox Church" data-ml="തൊടുപുഴ മർത്തമറിയം ഓർത്തഡോക്സ് പള്ളി">Thodupuzha St. Mary's Orthodox Church</li>
     <li data-en="Vadakara St. John&#x27;s Orthodox Church" data-ml="വടകര മാർ യൂഹാനോൻ ഓർത്തഡോക്സ് പള്ളി">Vadakara St. John's Orthodox Church</li>
     <li data-en="Varikoli St. Mary&#x27;s Orthodox Church" data-ml="വരിക്കോലി മർത്തമറിയം ഓർത്തഡോക്സ് പള്ളി">Varikoli St. Mary's Orthodox Church</li>
     <li data-en="Vettithara St. Mary&#x27;s Orthodox Church" data-ml="വെട്ടിത്തറ മർത്തമറിയം ഓർത്തഡോക്സ് പള്ളി">Vettithara St. Mary's Orthodox Church</li>
@@ -291,7 +292,6 @@
     <li data-en="South Marady Mount Horeb St. Thomas Orthodox Church" data-ml="തെക്കൻ മാറാടി ഹോറേബ് മല മാർ തോമ ഓർത്തഡോക്സ് പള്ളി">South Marady Mount Horeb St. Thomas Orthodox Church</li>
     <li data-en="South Paravoor St. John the Baptist Orthodox Church" data-ml="തെക്കൻ പറവൂർ മാർ യൂഹാനോൻ മാംദാന ഓർത്തഡോക്സ് പള്ളി">South Paravoor St. John the Baptist Orthodox Church</li>
     <li data-en="Thammanimattom St. Mary&#x27;s Orthodox Church" data-ml="തമ്മാനിമറ്റം മർത്തമറിയം ഓർത്തഡോക്സ് പള്ളി">Thammanimattom St. Mary's Orthodox Church</li>
-    <li data-en="Thodupuzha St. Mary&#x27;s Orthodox Church" data-ml="തൊടുപുഴ മർത്തമറിയം ഓർത്തഡോക്സ് പള്ളി">Thodupuzha St. Mary's Orthodox Church</li>
     <li data-en="Thottupuram St. Gregorios Orthodox Church (Mangalathuthazham)" data-ml="തോട്ടുപുറം മാർ ഗ്രീഗോറിയോസ് ഓർത്തഡോക്സ് പള്ളി (മംഗലത്തുതാഴം)">Thottupuram St. Gregorios Orthodox Church (Mangalathuthazham)</li>
     <li data-en="Vaikom St. George Orthodox Church" data-ml="വൈക്കം മാർ ഗീവറുഗീസ് സഹദാ ഓർത്തഡോക്സ് പള്ളി">Vaikom St. George Orthodox Church</li>
     <li data-en="Vannappuram St. Gregorios Orthodox Church" data-ml="വണ്ണപ്പുറം മാർ ഗ്രീഗോറിയോസ് ഓർത്തഡോക്സ് പള്ളി">Vannappuram St. Gregorios Orthodox Church</li>
@@ -375,19 +375,6 @@
   }
   include('header.html', document.getElementById('site-header'), function(){
     if(window.SiteCommon){ SiteCommon.initAll(); }
-    var music = document.getElementById('bgMusic');
-    if (!music) return;
-    music.volume = 0;
-    window.addEventListener('click', function(){
-      music.play();
-      var targetVolume = 0.5, fadeDuration = 42000, interval = 100;
-      var volume = 0, step = targetVolume / (fadeDuration / interval);
-      var fade = setInterval(function(){
-        volume += step;
-        if (volume >= targetVolume) { volume = targetVolume; clearInterval(fade); }
-        music.volume = volume;
-      }, interval);
-    }, { once: true });
   });
   include('footer.html', document.getElementById('site-footer'));
 })();

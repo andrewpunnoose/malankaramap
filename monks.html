@@ -76,8 +76,8 @@
     <a href="/#clergy" class="font-sans text-[11px] tracking-[0.14em] uppercase text-taupe hover:text-sage-dark dark:hover:text-sage transition-colors" data-en="&larr; Back to Malankara Map" data-ml="← ഭൂപടത്തിലേക്ക് മടങ്ങുക">&larr; Back to Malankara Map</a>
     <nav class="clergy-nav font-sans text-[11px] tracking-[0.06em] uppercase text-body/60 dark:text-ivory/50"><a href="metropolitans" class="hover:text-sage-dark dark:hover:text-sage transition-colors" data-en="Metropolitans" data-ml="മെത്രാപ്പോലീത്തന്മാർ">Metropolitans</a> <span class="text-muted">&middot;</span> <span class="text-ink dark:text-ivory font-semibold" data-en="Monks" data-ml="റമ്പാന്മാർ">Monks</span> <span class="text-muted">&middot;</span> <a href="cor-episcopa" class="hover:text-sage-dark dark:hover:text-sage transition-colors" data-en="Cor-Episcopi" data-ml="കോറെപ്പിസ്കോപ്പമാർ">Cor-Episcopi</a> <span class="text-muted">&middot;</span> <a href="priests" class="hover:text-sage-dark dark:hover:text-sage transition-colors" data-en="Priests" data-ml="വൈദികർ">Priests</a> <span class="text-muted">&middot;</span> <a href="deacons" class="hover:text-sage-dark dark:hover:text-sage transition-colors" data-en="Deacons" data-ml="ശെമ്മാശന്മാർ">Deacons</a></nav>
     <p class="text-[11px] sm:text-xs tracking-[0.22em] uppercase text-taupe font-semibold mt-6 mb-4 sm:mb-5" data-en="Ramban — The Monastic Order" data-ml="റമ്പാൻ — സന്യാസ പദവി">Ramban — The Monastic Order</p>
-    <h1 class="font-serif font-normal text-[36px] leading-[1.1] sm:text-5xl md:text-6xl tracking-tight text-ink dark:text-ivory mb-4 sm:mb-5" data-en-html="&lt;em class=&quot;italic text-sage-dark dark:text-sage&quot;&gt;47&lt;/em&gt; Monks" data-ml-html="&lt;em class=&quot;italic text-sage-dark dark:text-sage&quot;&gt;47&lt;/em&gt; റമ്പാന്മാർ"><em class="italic text-sage-dark dark:text-sage">47</em> Monks</h1>
-    <p class="text-[15px] sm:text-base text-body/80 dark:text-ivory/65 max-w-lg mx-auto leading-relaxed" data-en="Celibate monastics of the Church, many belonging to its religious orders and monasteries, listed by the diocese under which they serve." data-ml="സഭയിലെ ബ്രഹ്മചാരികളായ സന്യാസികൾ; അവരിൽ പലരും സഭയുടെ സന്യാസ സമൂഹങ്ങളിലും ദയറാകളിലും അംഗങ്ങളാണ്. അവർ ശുശ്രൂഷ ചെയ്യുന്ന ഭദ്രാസനം അനുസരിച്ച് ക്രമീകരിച്ചിരിക്കുന്നു.">Celibate monastics of the Church, many belonging to its religious orders and monasteries, listed by the diocese under which they serve.</p>
+    <h1 class="font-serif font-normal text-[36px] leading-[1.1] sm:text-5xl md:text-6xl tracking-tight text-ink dark:text-ivory mb-4 sm:mb-5" data-en-html="&lt;em class=&quot;italic text-sage-dark dark:text-sage&quot;&gt;77&lt;/em&gt; Monks" data-ml-html="&lt;em class=&quot;italic text-sage-dark dark:text-sage&quot;&gt;77&lt;/em&gt; റമ്പാന്മാർ"><em class="italic text-sage-dark dark:text-sage">77</em> Monks</h1>
+    <p class="text-[15px] sm:text-base text-body/80 dark:text-ivory/65 max-w-lg mx-auto leading-relaxed" data-en="Celibate monastics of the Church, many belonging to its religious orders and monasteries, listed by the diocese under which they serve." data-ml="സഭയിലെ ബ്രഹ്മചാരികളായ സന്യാസികൾ; അവരിൽ പലരും സഭയുടെ സന്യാസ സമൂഹങ്ങളിലും ദയറാകളിലും അംഗങ്ങളാണ്. അവർ ശുശ്രൂഷ ചെയ്യുന്ന ഭദ്രാസനം അനുസരിച്ച് ക്രമീകരിച്ചിരിക്കുന്നു.">Celibate monastics of the Church, many belonging to its religious orders and monasteries, listed by the diocese under which they serve.</p> <p class="font-serif italic text-[13px] text-body/55 dark:text-ivory/45 max-w-md mx-auto leading-relaxed mt-4" data-en="This count includes 47 monks only, plus 30 bishops who are monks as well as bishops. Only the 47 are listed below." data-ml="ഈ എണ്ണത്തിൽ റമ്പാൻ മാത്രമായ 47 പേരും, റമ്പാനും മെത്രാപ്പോലീത്തയും ആയ 30 പേരും ഉൾപ്പെടുന്നു. താഴെ പട്ടികപ്പെടുത്തിയിരിക്കുന്നത് ആ 47 പേരെ മാത്രമാണ്.">This count includes 47 monks only, plus 30 bishops who are monks as well as bishops. Only the 47 are listed below.</p>
     <div class="w-px h-8 sm:h-10 bg-gold/70 mx-auto mt-7 sm:mt-9"></div>
   </div>
 </section>
@@ -525,19 +525,6 @@
   }
   include('header.html', document.getElementById('site-header'), function(){
     if(window.SiteCommon){ SiteCommon.initAll(); }
-    var music = document.getElementById('bgMusic');
-    if (!music) return;
-    music.volume = 0;
-    window.addEventListener('click', function(){
-      music.play();
-      var targetVolume = 0.5, fadeDuration = 42000, interval = 100;
-      var volume = 0, step = targetVolume / (fadeDuration / interval);
-      var fade = setInterval(function(){
-        volume += step;
-        if (volume >= targetVolume) { volume = targetVolume; clearInterval(fade); }
-        music.volume = volume;
-      }, interval);
-    }, { once: true });
   });
   include('footer.html', document.getElementById('site-footer'));
 })();

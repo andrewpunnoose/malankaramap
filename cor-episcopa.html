@@ -996,32 +996,6 @@
 </script>
 
 <script>
-const music = document.getElementById("bgMusic");
-music.volume = 0;
-
-window.addEventListener("click", function () {
-  music.play();
-
-  const targetVolume = 0.5;     // End at 50%
-  const fadeDuration = 42000;   // 42 seconds
-  const interval = 100;         // Update every 100 ms
-
-  let volume = 0;
-  const step = targetVolume / (fadeDuration / interval);
-
-  const fade = setInterval(() => {
-    volume += step;
-
-    if (volume >= targetVolume) {
-      volume = targetVolume;
-      clearInterval(fade);
-    }
-
-    music.volume = volume;
-  }, interval);
-}, { once: true });
-</script>
-<script>
 (function(){var els=[].slice.call(document.querySelectorAll('.cl-ph[data-s]'));
 function load(e){e.style.backgroundImage='url('+e.getAttribute('data-s')+')';e.removeAttribute('data-s');}
 if(!('IntersectionObserver' in window)){els.forEach(load);return;}

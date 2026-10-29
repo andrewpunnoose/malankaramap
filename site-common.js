@@ -98,7 +98,17 @@
   function initMusic() {
     var music = document.getElementById("bgMusic");
     var mbtn = document.getElementById("musicToggle");
-    if (!music || !mbtn) return;
+    if (!mbtn) return;
+    if (!music) {
+      /* Pages without their own <audio> get one on demand, so the music
+         button works everywhere. Nothing loads or plays until pressed. */
+      music = document.createElement("audio");
+      music.id = "bgMusic";
+      music.loop = true;
+      music.preload = "none";
+      music.src = "audio.mp3";
+      document.body.appendChild(music);
+    }
     var onIcon = mbtn.querySelector(".icon-sound-on");
     var offIcon = mbtn.querySelector(".icon-sound-off");
     var fadeTimer = null;

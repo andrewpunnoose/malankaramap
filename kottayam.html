@@ -467,19 +467,6 @@
   }
   include('header.html', document.getElementById('site-header'), function(){
     if(window.SiteCommon){ SiteCommon.initAll(); }
-    var music = document.getElementById('bgMusic');
-    if (!music) return;
-    music.volume = 0;
-    window.addEventListener('click', function(){
-      music.play();
-      var targetVolume = 0.5, fadeDuration = 42000, interval = 100;
-      var volume = 0, step = targetVolume / (fadeDuration / interval);
-      var fade = setInterval(function(){
-        volume += step;
-        if (volume >= targetVolume) { volume = targetVolume; clearInterval(fade); }
-        music.volume = volume;
-      }, interval);
-    }, { once: true });
   });
   include('footer.html', document.getElementById('site-footer'));
 })();

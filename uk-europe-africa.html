@@ -301,7 +301,7 @@
 <section class="px-5 sm:px-8 pb-10 sm:pb-12 max-w-4xl mx-auto">
   <h2 class="font-serif font-normal text-lg sm:text-xl text-ink dark:text-ivory mb-5" data-en="Chapels" data-ml="ചാപ്പലുകൾ">Chapels</h2>
   <ol class="list-decimal marker:text-taupe marker:font-serif columns-1 sm:columns-2 gap-x-10 pl-5 space-y-1.5 text-[13.5px] text-body/75 dark:text-ivory/60 [&_li]:break-inside-avoid [&_a]:hover:text-sage-dark [&_a]:dark:hover:text-sage">
-    <li data-en="Bromley Palatial Chapel" data-ml="ബ്രോംലി അരമന ചാപ്പൽ">Bromley Palatial Chapel</li>
+    <li data-en="Bromley St. Mary&#x27;s Palatial Chapel" data-ml="ബ്രോംലി മർത്തമറിയം അരമന ചാപ്പൽ">Bromley St. Mary's Palatial Chapel</li>
     <li data-en="Groblersdal St. Gregorios Indian Orthodox Chapel" data-ml="ഗ്രോബ്ലെർസ്ഡാൽ മാർ ഗ്രീഗോറിയോസ് ഇന്ത്യൻ ഓർത്തഡോക്സ് ചാപ്പൽ">Groblersdal St. Gregorios Indian Orthodox Chapel</li>
     <li data-en="Ourense Our Lady of All Graces Spanish Orthodox Chapel" data-ml="ഒരെൻസെ സകല കൃപകളുടെ മാതാവ് സ്പാനിഷ് ഓർത്തഡോക്സ് ചാപ്പൽ">Ourense Our Lady of All Graces Spanish Orthodox Chapel</li>
     <li data-en="Telford St. Gregorios Indian Orthodox Chapel" data-ml="ടെൽഫോർഡ് മാർ ഗ്രീഗോറിയോസ് ഇന്ത്യൻ ഓർത്തഡോക്സ് ചാപ്പൽ">Telford St. Gregorios Indian Orthodox Chapel</li>
@@ -416,19 +416,6 @@
   }
   include('header.html', document.getElementById('site-header'), function(){
     if(window.SiteCommon){ SiteCommon.initAll(); }
-    var music = document.getElementById('bgMusic');
-    if (!music) return;
-    music.volume = 0;
-    window.addEventListener('click', function(){
-      music.play();
-      var targetVolume = 0.5, fadeDuration = 42000, interval = 100;
-      var volume = 0, step = targetVolume / (fadeDuration / interval);
-      var fade = setInterval(function(){
-        volume += step;
-        if (volume >= targetVolume) { volume = targetVolume; clearInterval(fade); }
-        music.volume = volume;
-      }, interval);
-    }, { once: true });
   });
   include('footer.html', document.getElementById('site-footer'));
 })();
