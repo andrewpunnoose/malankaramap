@@ -5100,6 +5100,9 @@
   @keyframes mobileNavFade { from { opacity: 0; transform: translateY(-3px) } to { opacity: 1; transform: none } }
   #mobileMenu .mobile-nav-accordion[open] > .mobile-nav-panel{ animation: mobileNavFade .26s ease-out both; }
   @media (prefers-reduced-motion: reduce) { #mobileMenu .mobile-nav-accordion[open] > .mobile-nav-panel{ animation: none; } }
+  /* Desktop menus: dropdown panels fade in with the same timing and motion as the mobile menu sections */
+  header .group:hover > .group-hover\:block > .megapanel{ animation: mobileNavFade .26s ease-out both; }
+  @media (prefers-reduced-motion: reduce) { header .group:hover > .group-hover\:block > .megapanel{ animation: none; } }
   #mobileMenu .mobile-nav-panel{
     font-family: Marcellus, Georgia, serif;
     border-left: 1px solid rgba(17,24,39,.08);
@@ -7573,7 +7576,7 @@ form.addEventListener("submit",function(e){
       [1585, "1585 CE", "Archdeacon Yohannan succeeds the late Archdeacon Geevarghese.", 0, [10.196,76.386,"Angamaly","അങ്കമാലി"], "അർക്കദിയാക്കോൻ യോഹന്നാൻ, കാലം ചെയ്ത അർക്കദിയാക്കോൻ ഗീവർഗീസിന്റെ പിൻഗാമിയായി."],
       [1593, "1593 CE", "Archdeacon Geevarghese of the Cross succeeds the late Archdeacon Yohannan.", 0, [10.196,76.386,"Angamaly","അങ്കമാലി"], "കുരിശിങ്കൽ അർക്കദിയാക്കോൻ ഗീവർഗീസ്, കാലം ചെയ്ത അർക്കദിയാക്കോൻ യോഹന്നാന്റെ പിൻഗാമിയായി."],
       [1597, "1597 CE", "The Second Synod of Angamaly formally denies Latin doctrine and jurisdiction.", 0, [null,null,null,"അങ്കമാലി"], "രണ്ടാം അങ്കമാലി സുന്നഹദോസ് ലത്തീൻ വിശ്വാസത്തെയും അധികാരത്തെയും ഔപചാരികമായി നിരാകരിച്ചു."],
-      [1599, "1599 CE", "The Synod of Diamper forces Latin rule on the St. Thomas Christians, burning the libraries of Angamaly and Chengannur.", 0, [null,null,null,"ഉദയംപേരൂർ"], "ഉദയംപേരൂർ സുന്നഹദോസ് മാർ തോമ ക്രിസ്ത്യാനികളുടെമേൽ ലത്തീൻ ഭരണം അടിച്ചേൽപ്പിച്ചു; അങ്കമാലിയിലെയും ചെങ്ങന്നൂരിലെയും ഗ്രന്ഥശാലകൾ ചുട്ടെരിക്കപ്പെട്ടു."],
+      [1599, "1599 CE", "The Synod of Diamper forces Latin rule on the St. Thomas Christians, burning the libraries of Angamaly and Chengannur.", 0, [null,null,null,"ഉദയംപേരൂർ"], "ഉദയംപേരൂർ സുന്നഹദോസ് മാർ തോമാ നസ്രാണികളുടെമേൽ ലത്തീൻ ഭരണം അടിച്ചേൽപ്പിച്ചു; അങ്കമാലിയിലെയും ചെങ്ങന്നൂരിലെയും ഗ്രന്ഥശാലകൾ ചുട്ടെരിക്കപ്പെട്ടു."],
       [1599, "1599 CE", "Kozhencherry St. Thomas Orthodox Church is raised.", 1, [9.33817,76.70792,"Kozhencherry","കോഴഞ്ചേരി"], "കോഴഞ്ചേരി മാർ തോമ ഓർത്തഡോക്സ് പള്ളി സ്ഥാപിക്കപ്പെട്ടു."],
       [1603, "1603 CE", "The Third Synod of Angamaly meets amid rising opposition to Diamper's decrees.", 0, [10.196,76.386,"Angamaly","അങ്കമാലി"], "ഉദയംപേരൂർ തീരുമാനങ്ങൾക്കെതിരെ എതിർപ്പ് ശക്തിപ്പെടുന്നതിനിടെ മൂന്നാം അങ്കമാലി സുന്നഹദോസ് ചേർന്നു."],
       [1609, "1609 CE", "A visiting Syrian bishop is excommunicated by Bishop Ros.", 0, null, "സന്ദർശനത്തിനെത്തിയ ഒരു സുറിയാനി മെത്രാനെ റോസ് മെത്രാൻ ഭ്രഷ്ടനാക്കി."],

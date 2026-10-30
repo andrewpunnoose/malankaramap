@@ -684,6 +684,9 @@ header #mobileMenu .mobile-nav-accordion[open] > summary .mobile-nav-chevron {
 @keyframes mobileNavFade { from { opacity: 0; transform: translateY(-3px) } to { opacity: 1; transform: none } }
 #mobileMenu .mobile-nav-accordion[open] > .mobile-nav-panel { animation: mobileNavFade .26s ease-out both }
 @media (prefers-reduced-motion: reduce) { #mobileMenu .mobile-nav-accordion[open] > .mobile-nav-panel { animation: none } }
+/* Desktop menus: dropdown panels fade in with the same timing and motion as the mobile menu sections */
+header .group:hover > .group-hover\:block > .megapanel { animation: mobileNavFade .26s ease-out both }
+@media (prefers-reduced-motion: reduce) { header .group:hover > .group-hover\:block > .megapanel { animation: none } }
 header #mobileMenu .mobile-nav-panel {
     font-family: Marcellus, Georgia, serif;
     border-left: 1px solid rgba(17,24,39,.08);
