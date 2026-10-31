@@ -747,6 +747,10 @@ html[lang=ml] header .megapanel .truncate, html[lang=ml] header .megapanel a.tru
   html[lang=ml] header #mobileMenuBtn { display: flex }
   html[lang=ml] header #mobileMenu { display: flex }
 }
+/* 6. Language button: Malayalam "മ" sits high in its font's line box, so pin the line-height and nudge it down to sit in the optical centre of the circle */
+html[lang=ml] header #langToggleLabel, html[lang=ml] header #langToggleMenuIcon {
+  display: block; line-height: 1; padding: 0; margin: 0; font-size: 15px; transform: translateY(.05em)
+}
 </style>
 <header class="relative z-50 border-b border-line dark:border-white/10">
     <div class="header-glass inset-0" style="position:absolute;z-index:-1;"></div>
