@@ -6612,6 +6612,20 @@ html[lang=ml] #mainContent section [class*="tracking-["] { letter-spacing: norma
 .mapsearch__reset{background:none;border:0;padding:0;margin-left:10px;font:inherit;font-style:normal;color:#7c6a4a;text-decoration:underline;text-underline-offset:3px;cursor:pointer}
 .mapsearch__reset[hidden]{display:none}
 @media(max-width:480px){.mapsearch__go{padding:13px 16px}}
+
+/* Search floats on the map itself, near the bottom, as a frosted pill (clear of Google's logo and zoom buttons) */
+#mapWrap .mapsearch{position:absolute;left:50%;bottom:30px;transform:translateX(-50%);z-index:30;width:min(32rem,calc(100% - 9rem));max-width:none;margin:0;flex-direction:column-reverse;gap:10px;pointer-events:none}
+#mapWrap .mapsearch>*{pointer-events:auto}
+#mapWrap .mapsearch__row{gap:6px;padding:5px;border-radius:999px;background:rgba(247,245,238,.86);-webkit-backdrop-filter:blur(14px) saturate(1.3);backdrop-filter:blur(14px) saturate(1.3);border:1px solid rgba(255,255,255,.7);box-shadow:0 14px 34px -12px rgba(16,20,13,.45),0 2px 6px rgba(16,20,13,.12);transition:box-shadow .2s ease}
+#mapWrap .mapsearch__row:focus-within{box-shadow:0 0 0 2px var(--thread),0 14px 34px -12px rgba(16,20,13,.45)}
+#mapWrap .mapsearch__input,.dark #mapWrap .mapsearch__input{background:transparent!important;border:0!important;box-shadow:none;padding:10px 12px 10px 42px}
+#mapWrap .mapsearch__input:focus{outline:0}
+#mapWrap .mapsearch__go{padding:11px 22px}
+#mapWrap .mapsearch__meta{align-self:center;max-width:100%;padding:6px 14px;border-radius:999px;background:rgba(247,245,238,.88);-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);box-shadow:0 8px 22px -10px rgba(16,20,13,.4)}
+.dark #mapWrap .mapsearch__row{background:rgba(31,41,55,.82);border-color:rgba(247,245,238,.12)}
+.dark #mapWrap .mapsearch__meta{background:rgba(31,41,55,.86)}
+@media(max-width:640px){#mapWrap .mapsearch{width:calc(100% - 24px);bottom:22px}#mapWrap .mapsearch__input{font-size:14px}}
+@media(max-width:480px){#mapWrap .mapsearch__go{padding:11px 15px;letter-spacing:.06em}#mapWrap .mapsearch__input{font-size:12.5px;padding:10px 4px 10px 36px}#mapWrap .mapsearch__field svg{left:14px}}
 </style>
 <div id="mapWrap" class="max-w-6xl mx-auto rounded-2xl overflow-hidden border border-line dark:border-white/10 shadow-medium bg-ivory dark:bg-charcoal">
         <iframe id="mapFrame" src="https://www.google.com/maps/d/u/0/embed?mid=1TRfC9ZEHxXfzwAWy-tv1UNdUEvzL9C0&amp;ehbc=2E312F&amp;noprof=1" width="640" height="480" allowfullscreen loading="lazy" class="absolute inset-0 w-full h-full border-0" style="top:-77px;height:calc(100% + 91px)" name="mapFrame"></iframe>
@@ -6623,8 +6637,8 @@ html[lang=ml] #mainContent section [class*="tracking-["] { letter-spacing: norma
           </div>
           <p class="font-serif italic text-[13px] text-body/50 dark:text-ivory/45 tracking-wide" data-en="Loading the map…" data-ml="ഭൂപടം ലോഡ് ചെയ്യുന്നു…">Loading the map…</p>
         </div>
-      </div>
-      <form id="mapSearchForm" class="mapsearch" role="search" autocomplete="off">
+      
+  <form id="mapSearchForm" class="mapsearch" role="search" autocomplete="off">
   <div class="mapsearch__row">
     <label class="mapsearch__field">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg>
@@ -6634,6 +6648,7 @@ html[lang=ml] #mainContent section [class*="tracking-["] { letter-spacing: norma
   </div>
   <p id="mapSearchMeta" class="mapsearch__meta" aria-live="polite"></p>
 </form>
+</div>
 <script>
 !function(){
 var form=document.getElementById("mapSearchForm"),input=document.getElementById("mapSearchInput"),btn=document.getElementById("mapSearchBtn"),meta=document.getElementById("mapSearchMeta"),loader=null;
