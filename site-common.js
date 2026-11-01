@@ -362,9 +362,28 @@
       window.location.href = "index.html?q=" + encodeURIComponent(q);
     }
 
+    function applyOverlayLang() {
+      if (!overlay) return;
+      var ml = document.documentElement.getAttribute("lang") === "ml";
+      input.setAttribute("placeholder", ml ? "സൈറ്റിൽ മുഴുവൻ തിരയുക…" : "Search the whole site\u2026");
+      overlay.querySelector(".ssrch-hint").textContent = ml
+        ? "നിങ്ങൾ തിരയുന്നത് ടൈപ്പ് ചെയ്ത് എല്ലാ ഫലങ്ങളും കാണാൻ Enter അമർത്തുക."
+        : "Type what you are looking for and press Enter to see all results.";
+      overlay.querySelector(".ssrch-close").textContent = ml ? "ഒഴിവാക്കുക" : "Esc";
+      var go = overlay.querySelector(".ssrch-go");
+      go.setAttribute("aria-label", ml ? "എല്ലാ ഫലങ്ങളും കാണുക" : "View all results");
+      go.setAttribute("title", ml ? "എല്ലാ ഫലങ്ങളും കാണുക (Enter)" : "View all results (Enter)");
+      overlay.style.fontFamily = ml ? "'Noto Serif Malayalam', serif" : "";
+    }
+
     function open() {
       if (window.__closeMobileMenu) window.__closeMobileMenu();
       buildOverlay();
+      applyOverlayLang();
+      if (window.MutationObserver && !overlay.__langWatch) {
+        overlay.__langWatch = true;
+        new MutationObserver(applyOverlayLang).observe(document.documentElement, { attributes: true, attributeFilter: ["lang"] });
+      }
       overlay.classList.remove("hidden");
       input.value = "";
       setTimeout(function () {

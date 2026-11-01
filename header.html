@@ -747,10 +747,26 @@ html[lang=ml] header .megapanel .truncate, html[lang=ml] header .megapanel a.tru
   html[lang=ml] header #mobileMenuBtn { display: flex }
   html[lang=ml] header #mobileMenu { display: flex }
 }
-/* 6. Language button: Malayalam "മ" sits high in its font's line box, so pin the line-height and nudge it down to sit in the optical centre of the circle */
+/* 6. Language button "മ": drawn as a shape instead of text, so it sits dead-centre in the circle on every device whatever Malayalam font loads */
 html[lang=ml] header #langToggleLabel, html[lang=ml] header #langToggleMenuIcon {
-  display: block; line-height: 1; padding: 0; margin: 0; font-size: 15px; transform: translateY(.05em)
+  display: block !important; flex: none; width: 12px; height: 12px; padding: 0; margin: 0; transform: none;
+  font-size: 0 !important; line-height: 0 !important;
+  background-color: currentColor; -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='64 -560 558 560'%3E%3Cpath d='M64 0V-296Q64 -388 103.5 -446.5Q143 -505 207.5 -532.5Q272 -560 347 -560Q405 -560 455 -543Q505 -526 542.5 -493.5Q580 -461 601 -413Q622 -365 622 -303V0ZM156 -25 123 -54Q186 -91 236 -136Q286 -181 315 -233Q344 -285 344 -340Q344 -372 333.5 -398.5Q323 -425 300.5 -441Q278 -457 240 -457Q208 -457 181.5 -442Q155 -427 139 -391Q123 -355 123 -291V-54H536V-298Q536 -352 521.5 -391.5Q507 -431 480.5 -456Q454 -481 415.5 -493Q377 -505 329 -505Q271 -505 233.5 -492.5Q196 -480 173 -461L162 -466Q185 -478 211.5 -486Q238 -494 266 -494Q321 -494 360.5 -473.5Q400 -453 421.5 -416.5Q443 -380 443 -331Q443 -278 414 -223.5Q385 -169 322 -118.5Q259 -68 156 -25Z'/%3E%3C/svg%3E") center / contain no-repeat; mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='64 -560 558 560'%3E%3Cpath d='M64 0V-296Q64 -388 103.5 -446.5Q143 -505 207.5 -532.5Q272 -560 347 -560Q405 -560 455 -543Q505 -526 542.5 -493.5Q580 -461 601 -413Q622 -365 622 -303V0ZM156 -25 123 -54Q186 -91 236 -136Q286 -181 315 -233Q344 -285 344 -340Q344 -372 333.5 -398.5Q323 -425 300.5 -441Q278 -457 240 -457Q208 -457 181.5 -442Q155 -427 139 -391Q123 -355 123 -291V-54H536V-298Q536 -352 521.5 -391.5Q507 -431 480.5 -456Q454 -481 415.5 -493Q377 -505 329 -505Q271 -505 233.5 -492.5Q196 -480 173 -461L162 -466Q185 -478 211.5 -486Q238 -494 266 -494Q321 -494 360.5 -473.5Q400 -453 421.5 -416.5Q443 -380 443 -331Q443 -278 414 -223.5Q385 -169 322 -118.5Q259 -68 156 -25Z'/%3E%3C/svg%3E") center / contain no-repeat
 }
+/* 7. The four header buttons (search, music, language, theme): identical size, shape and colour, icons centred */
+header #searchToggle, header #musicToggle, header #langToggle, header #themeToggle {
+  box-sizing: border-box; flex: none; width: 2.25rem !important; height: 2.25rem !important; min-width: 0; padding: 0; margin: 0;
+  align-items: center; justify-content: center; position: relative; overflow: hidden; line-height: 1;
+  background: var(--glass-fill) !important; border-color: var(--glass-border) !important; box-shadow: none !important; transform: none !important
+}
+@media (min-width: 640px) {
+  header #searchToggle, header #musicToggle, header #langToggle, header #themeToggle { width: 2.5rem !important; height: 2.5rem !important }
+}
+header #searchToggle svg, header #musicToggle svg, header #themeToggle svg { display: block; flex: none; width: 1rem; height: 1rem; margin: 0 }
+header #musicToggle svg.hidden, header #themeToggle svg.hidden { display: none }
+header #searchToggle svg *, header #musicToggle svg *, header #themeToggle svg * { stroke-width: 1.5 }
+header #searchToggle svg { transform: translate(-.33px, -.33px) }
+header .flex.items-center.gap-2.shrink-0 { align-items: center }
 </style>
 <header class="relative z-50 border-b border-line dark:border-white/10">
     <div class="header-glass inset-0" style="position:absolute;z-index:-1;"></div>
@@ -919,5 +935,36 @@ html[lang=ml] header #langToggleLabel, html[lang=ml] header #langToggleMenuIcon 
       }
     });
   });
+}();
+</script>
+<script>
+/* Language helpers shared by every page: SM(en, ml) picks a string for the current language, DIO(name) gives a diocese name in the current language,
+   and the tooltip translator swaps hover tooltips / screen-reader labels (title, aria-label) between English and Malayalam, including ones set later by scripts. */
+!function () {
+  if (window.__tipLang) return; window.__tipLang = true;
+  var isML = function () { return document.documentElement.getAttribute("lang") === "ml"; };
+  window.SM = function (en, ml) { return isML() ? ml : en; };
+  var DIO = {"Malabar": "മലബാർ", "Southwest America": "സൗത്ത്-വെസ്റ്റ് അമേരിക്ക", "Kottayam Central": "കോട്ടയം-സെൻട്രൽ", "Thrissur": "തൃശ്ശൂർ", "Adoor-Kadampanad": "അടൂർ-കടമ്പനാട്", "Thiruvananthapuram": "തിരുവനന്തപുരം", "Kottarakkara-Punalur": "കൊട്ടാരക്കര-പുനലൂർ", "Angamaly": "അങ്കമാലി", "Knanaya": "ക്നാനായ", "Mavelikara": "മാവേലിക്കര", "Kottayam": "കോട്ടയം", "Bangalore": "ബാംഗ്ലൂർ", "Kochi": "കൊച്ചി", "Niranam": "നിരണം", "Kollam": "കൊല്ലം", "Evangelistic Association of the East": "പൗരസ്ത്യ സുവിശേഷ സമാജം", "Kunnamkulam": "കുന്നംകുളം", "Northeast America": "നോർത്ത്-ഈസ്റ്റ് അമേരിക്ക", "Thumpamon": "തുമ്പമൺ", "Calcutta": "കൽക്കട്ട", "Chengannur": "ചെങ്ങന്നൂർ", "Kandanad West": "കണ്ടനാട്-വെസ്റ്റ്", "Delhi": "ഡൽഹി", "Nilackal": "നിലയ്ക്കൽ", "Asia-Pacific": "ഏഷ്യ-പസഫിക്", "Kandanad East": "കണ്ടനാട്-ഈസ്റ്റ്", "Idukki": "ഇടുക്കി", "UK-Europe-Africa": "യു.കെ-യൂറോപ്പ്", "Sulthan Bathery": "സുൽത്താൻ ബത്തേരി", "Brahmavar": "ബ്രഹ്മവാർ", "Canada": "കാനഡ", "Bombay": "മുംബൈ", "Ahmedabad": "അഹമ്മദാബാദ്", "Madras": "ചെന്നൈ", "Proprietary Churches": "കുടുംബപള്ളികൾ"};
+  window.DIO = function (n) { return isML() && DIO[n] ? DIO[n] : n; };
+  var E2M = {"Verified director": "സ്ഥിരീകരിച്ച ഡയറക്ടർ", "Back to top": "മുകളിലേക്ക് മടങ്ങുക", "Pause background music": "പശ്ചാത്തല സംഗീതം നിർത്തുക", "Play background music": "പശ്ചാത്തല സംഗീതം പ്ലേ ചെയ്യുക", "Search the directory": "ഡയറക്ടറിയിൽ തിരയുക", "Switch to Malayalam": "മലയാളത്തിലേക്ക് മാറുക", "Switch to English": "ഇംഗ്ലീഷിലേക്ക് മാറുക", "Toggle dark mode": "ഡാർക്ക് മോഡ് മാറ്റുക", "Close menu": "മെനു അടയ്ക്കുക", "Open menu": "മെനു തുറക്കുക", "Menu": "മെനു", "Table of contents": "ഉള്ളടക്കപ്പട്ടിക", "Contents": "ഉള്ളടക്കം", "Article number": "വകുപ്പ് നമ്പർ", "Back to the list of dioceses": "ഭദ്രാസനങ്ങളുടെ പട്ടികയിലേക്ക് മടങ്ങുക", "Close": "അടയ്ക്കുക", "Dioceses": "ഭദ്രാസനങ്ങൾ", "Map of the seven dioceses, 1906": "ഏഴ് ഭദ്രാസനങ്ങളുടെ ഭൂപടം, 1906", "View all results": "എല്ലാ ഫലങ്ങളും കാണുക", "View all results (Enter)": "എല്ലാ ഫലങ്ങളും കാണുക (Enter)", "Search": "തിരയുക", "Search a location on the map": "ഭൂപടത്തിൽ ഒരു സ്ഥലം തിരയുക", "Search results": "തിരയൽ ഫലങ്ങൾ", "Kerala population versus diaspora population, 1901 to 2026": "കേരളത്തിലെ ജനസംഖ്യയും പ്രവാസി ജനസംഖ്യയും, 1901 മുതൽ 2026 വരെ", "Net membership change by decade": "ദശകം തോറുമുള്ള അംഗസംഖ്യയിലെ ആകെ മാറ്റം", "Worldwide population growth rate by decade": "ദശകം തോറുമുള്ള ലോകവ്യാപക ജനസംഖ്യാ വളർച്ചാനിരക്ക്", "Worldwide population, 1901 to 2026": "ലോകവ്യാപക ജനസംഖ്യ, 1901 മുതൽ 2026 വരെ", "Departures from the Church by decade, broken down by destination, with conversions in shown as a line": "ദശകം തോറും സഭ വിട്ടുപോയവർ, പോയ ഇടം തിരിച്ച്; സഭയിലേക്കു വന്ന മതപരിവർത്തനങ്ങൾ ഒരു വരയായി കാണിച്ചിരിക്കുന്നു", "Scrollable tools: locate nearest parish, request Qurbana, discover a parish at random": "സ്ക്രോൾ ചെയ്യാവുന്ന ഉപകരണങ്ങൾ: അടുത്തുള്ള ഇടവക കണ്ടെത്തുക, കുർബാന അഭ്യർത്ഥിക്കുക, ഒരു ഇടവക ക്രമരഹിതമായി കണ്ടെത്തുക"}, M2E = {};
+  Object.keys(E2M).forEach(function (k) { M2E[E2M[k]] = k; });
+  function conv(v, ml) {
+    if (ml) { if (E2M[v]) return E2M[v]; var a = /^Article (\d+)$/.exec(v); return a ? "വകുപ്പ് " + a[1] : v; }
+    if (M2E[v]) return M2E[v]; var b = /^വകുപ്പ് (\d+)$/.exec(v); return b ? "Article " + b[1] : v;
+  }
+  var queued = false;
+  function run() {
+    queued = false; var ml = isML();
+    document.querySelectorAll("[title],[aria-label]").forEach(function (el) {
+      ["title", "aria-label"].forEach(function (at) {
+        var v = el.getAttribute(at); if (v === null) return;
+        var nv = conv(v, ml); if (nv !== v) el.setAttribute(at, nv);
+      });
+    });
+  }
+  function queue() { if (!queued) { queued = true; (window.requestAnimationFrame || setTimeout)(run); } }
+  if (window.MutationObserver) new MutationObserver(queue).observe(document.documentElement, { attributes: true, attributeFilter: ["lang", "title", "aria-label"], subtree: true, childList: true });
+  if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", queue); else queue();
+  window.addEventListener("load", queue);
 }();
 </script>
