@@ -767,6 +767,8 @@ header #musicToggle svg.hidden, header #themeToggle svg.hidden { display: none }
 header #searchToggle svg *, header #musicToggle svg *, header #themeToggle svg * { stroke-width: 1.5 }
 header #searchToggle svg { transform: translate(-.33px, -.33px) }
 header .flex.items-center.gap-2.shrink-0 { align-items: center }
+/* 8. Malayalam is never letter-spaced (tracking breaks up the conjuncts): normal spacing for all text on every page, like the header */
+html[lang=ml] body *, html[lang=ml] body *::before, html[lang=ml] body *::after { letter-spacing: normal !important }
 </style>
 <header class="relative z-50 border-b border-line dark:border-white/10">
     <div class="header-glass inset-0" style="position:absolute;z-index:-1;"></div>

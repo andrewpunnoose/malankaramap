@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <script>"dark"===localStorage.getItem("malankara-theme")&&document.documentElement.classList.add("dark")</script>
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
-<title data-en="404 — Not Found | Malankara Map" data-ml="404 — കണ്ടെത്തിയില്ല | മലങ്കര മാപ്പ്">404 — Not Found | Malankara Map</title>
+<title data-en="404 — Not Found | Malankara Map" data-ml="404 — കണ്ടെത്തിയില്ല | മലങ്കര സഭാ വിജ്ഞാനകോശം">404 — Not Found | Malankara Map</title>
 <meta name="description" content="This address does not correspond to any recorded page.">
 <meta name="robots" content="noindex">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -34,6 +34,9 @@ html.dark .card .cite{color:rgba(247,245,238,.4)}
 .card a.home{display:inline-flex;align-items:center;gap:.5rem;font-family:Inter,system-ui,sans-serif;font-size:13px;font-weight:600;letter-spacing:.04em;text-transform:uppercase;color:var(--sage-dark);text-decoration:none;border-bottom:1px solid var(--sage);padding-bottom:3px;transition:opacity .2s ease}
 html.dark .card a.home{color:var(--sage)}
 .card a.home:hover{opacity:.7}
+
+/* Malayalam is never letter-spaced */
+html[lang=ml] body *{letter-spacing:normal!important}
 </style>
 </head>
 <body class="bg-ivory dark:bg-midnight text-body dark:text-ivory/85 font-sans transition-colors duration-300">
@@ -65,7 +68,7 @@ html.dark .card a.home{color:var(--sage)}
 
 <div class="error-wrap">
   <div class="card">
-    <div class="kicker" data-en="Malankara Map &middot; Est. 52 CE" data-ml="മലങ്കര മാപ്പ് · സ്ഥാപിതം ക്രി.വ. 52">Malankara Map &middot; Est. 52 CE</div>
+    <div class="kicker" data-en="Malankara Map &middot; Est. 52 CE" data-ml="മലങ്കര സഭാ വിജ്ഞാനകോശം · സ്ഥാപിതം ക്രി.വ. 52">Malankara Map &middot; Est. 52 CE</div>
     <div class="num">404</div>
     <div class="thread"></div>
     <h1 data-en="No Entry Found in the Record" data-ml="രേഖയിൽ ഒരു എൻട്രിയും കണ്ടെത്തിയില്ല">No Entry Found in the Record</h1>

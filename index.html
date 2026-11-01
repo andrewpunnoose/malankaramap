@@ -12,7 +12,7 @@
   <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
   <link rel="apple-touch-icon" href="apple-touch-icon.png">
   <link rel="manifest" href="site.webmanifest">
-  <title data-en="Malankara Map — Global Directory" data-ml="മലങ്കര മാപ്പ് — ആഗോള ഡയറക്ടറി">Malankara Map — Global Directory</title>
+  <title data-en="Malankara Map — Global Directory" data-ml="മലങ്കര സഭാ വിജ്ഞാനകോശം — ആഗോള ഡയറക്ടറി">Malankara Map — Global Directory</title>
   <meta name="description" content="Every parish, chapel, cathedral, and shrine of the Malankara Orthodox Syrian Church, mapped — 3,500+ locations across 32 dioceses worldwide.">
   <link rel="canonical" href="https://malankaramap.com/">
   <meta property="og:type" content="website">
@@ -5973,6 +5973,9 @@ header #musicToggle svg.hidden, header #themeToggle svg.hidden { display: none }
 header #searchToggle svg *, header #musicToggle svg *, header #themeToggle svg * { stroke-width: 1.5 }
 header #searchToggle svg { transform: translate(-.33px, -.33px) }
 header .flex.items-center.gap-2.shrink-0 { align-items: center }
+/* 8. Malayalam is never letter-spaced (tracking breaks up the conjuncts): normal spacing for all text on every page, like the header */
+html[lang=ml] body *, html[lang=ml] body *::before, html[lang=ml] body *::after { letter-spacing: normal !important }
+html[lang=ml] #mainContent section [class*="tracking-["] { letter-spacing: normal !important }
 </style>
   <header class="relative z-50 border-b border-line dark:border-white/10">
     <div class="header-glass inset-0" style="position:absolute;z-index:-1;"></div>
@@ -7357,7 +7360,7 @@ form.addEventListener("submit",function(e){
     <div class="font-sans text-[10px] tracking-wide mb-3" style="color:rgba(247,245,238,.35);" data-en-html="‎&lt;a href=&quot;record&quot; class=&quot;underline underline-offset-2 hover:text-ivory transition-colors&quot;&gt;Report an Issue&lt;/a&gt; &nbsp;·&nbsp; &lt;a href=&quot;privacy&quot; class=&quot;underline underline-offset-2 hover:text-ivory transition-colors&quot;&gt;Privacy Policy&lt;/a&gt; &nbsp;·&nbsp; &lt;a href=&quot;terms&quot; class=&quot;underline underline-offset-2 hover:text-ivory transition-colors&quot;&gt;Terms of Service&lt;/a&gt;" data-ml-html="‎&lt;a href=&quot;record&quot; class=&quot;underline underline-offset-2 hover:text-ivory transition-colors&quot;&gt;ഒരു പിശക് അറിയിക്കുക&lt;/a&gt; &nbsp;·&nbsp; &lt;a href=&quot;privacy&quot; class=&quot;underline underline-offset-2 hover:text-ivory transition-colors&quot;&gt;സ്വകാര്യതാ നയം&lt;/a&gt; &nbsp;·&nbsp; &lt;a href=&quot;terms&quot; class=&quot;underline underline-offset-2 hover:text-ivory transition-colors&quot;&gt;സേവന നിബന്ധനകൾ&lt;/a&gt;">
       <a href="record" class="underline underline-offset-2 hover:text-ivory transition-colors">Report an Issue</a> &nbsp;·&nbsp; <a href="privacy" class="underline underline-offset-2 hover:text-ivory transition-colors">Privacy Policy</a> &nbsp;·&nbsp; <a href="terms" class="underline underline-offset-2 hover:text-ivory transition-colors">Terms of Service</a>
     </div>
-    <div class="font-sans text-[10px] tracking-wide mt-3" style="color:rgba(247,245,238,.35);" data-en="© Malankara Map, October 2026" data-ml="© മലങ്കര സഭാ ആരാധനാലയഭൂപടം, ഒക്ടോബർ 2026">
+    <div class="font-sans text-[10px] tracking-wide mt-3" style="color:rgba(247,245,238,.35);" data-en="© Malankara Map, October 2026" data-ml="© മലങ്കര സഭാ വിജ്ഞാനകോശം, ഒക്ടോബർ 2026">
       © Malankara Map, October 2026
     </div>
   </footer>
