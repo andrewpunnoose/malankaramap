@@ -5805,6 +5805,9 @@
 /* 9. Accordion toggles: calmer */
 .acc-toggle{padding:10px 16px!important}
 .acc-body.is-open{margin-top:20px}
+/* Sections that open up (Reading the Map, Register, diocesan map, sources list, etc.): same soft fade-in as the header menus */
+.acc-body.is-open>div,.src-details[open]>:not(summary){animation:mobileNavFade .26s ease-out both}
+@media (prefers-reduced-motion:reduce){.acc-body.is-open>div,.src-details[open]>:not(summary){animation:none}}
 </style>
 <style id="tl-scroll">
 /* ===== Timeline + globe ===== */
