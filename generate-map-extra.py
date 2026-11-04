@@ -18,7 +18,7 @@ description, coordinates, status). This script adds what it does not carry:
 
 Icon keys: p pin (church, congregation, community, centre, shrine, chapel...)
            b episcopal palace   m monastery or convent   a archcathedral
-           s cathedral          u church under the Catholicos (UDC)
+           s cathedral          z church in a secret location (Saudi Arabia)
            x dormant or closed  c schismatic-occupied    h undetermined location
            e seminary or educational centre   o online prayer group
 
@@ -40,7 +40,7 @@ PAGES = [  # (file, type code) - first match wins when a name is on several page
 ]
 # Google My Maps icon code -> our icon key
 KMZ_ICON = {"1899": "p", "1541": "c", "1676": "m", "1594": "h", "1502": "s", "1598": "b",
-            "1556": "x", "1682": "e", "1628": "u", "1820": "o", "1501": "a"}
+            "1556": "x", "1682": "e", "1628": "z", "1820": "o", "1501": "a"}
 TYPE_ICON = {"P": "b", "V": "m", "M": "m", "C": "s", "S": "e", "T": "e", "N": "e", "G": "o"}
 
 def norm(s):

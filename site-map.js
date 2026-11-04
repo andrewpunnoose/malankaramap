@@ -5,11 +5,11 @@
  * Usage:  MalankaraMap.init({ el:'#malankaraMap', data:'malankara.json', extra:'map-extra.json',
  *                              search:true, nearest:true, loader:'#mapLoader' });
  * Needs:  Leaflet + leaflet.markercluster (loaded from cdnjs automatically if the page lacks them).
- * Imagery: Esri World Imagery (+ Esri place labels); Light/Dark use CARTO / OpenStreetMap.
+ * Imagery: Esri World Imagery (+ Esri place labels); Light/Dark use Esri Light/Dark Gray Canvas (no API key needed).
  */
 (function () {
   "use strict";
-  var T = {"dio":[["thiruvananthapuram","#817713","Thiruvananthapuram","തിരുവനന്തപുരം",1],["kollam","#757575","Kollam","കൊല്ലം",1],["kottarakkara-punalur","#ff5252","Kottarakkara–Punalur","കൊട്ടാരക്കര-പുനലൂർ",1],["adoor-kadampanad","#1a237e","Adoor–Kadampanad","അടൂർ-കടമ്പനാട്",1],["thumpamon","#9c27b0","Thumpamon","തുമ്പമൺ",1],["mavelikara","#e65100","Mavelikara","മാവേലിക്കര",1],["chengannur","#afb42b","Chengannur","ചെങ്ങന്നൂർ",1],["niranam","#000000","Niranam","നിരണം",1],["nilackal","#fbc02d","Nilackal","നിലയ്ക്കൽ",1],["kottayam","#0288d1","Kottayam","കോട്ടയം",1],["kottayam-central","#880e4f","Kottayam Central","കോട്ടയം-സെൻട്രൽ",1],["idukki","#795548","Idukki","ഇടുക്കി",1],["kandanad-east","#673ab7","Kandanad East","കണ്ടനാട്-ഈസ്റ്റ്",1],["kandanad-west","#ffea00","Kandanad West","കണ്ടനാട്-വെസ്റ്റ്",1],["angamaly","#f57c00","Angamaly","അങ്കമാലി",1],["kochi","#558b2f","Kochi","കൊച്ചി",1],["thrissur","#424242","Thrissur","തൃശ്ശൂർ",1],["kunnamkulam","#a52714","Kunnamkulam","കുന്നംകുളം",1],["malabar","#4e342e","Malabar","മലബാർ",1],["sulthan-bathery","#006064","Sulthan Bathery","സുൽത്താൻ ബത്തേരി",1],["brahmavar","#3949ab","Brahmavar","ബ്രഹ്മവാർ",1],["madras","#7cb342","Madras","ചെന്നൈ",1],["bangalore","#f9a825","Bangalore","ബാംഗ്ലൂർ",1],["bombay","#817713","Bombay","മുംബൈ",1],["calcutta","#a52714","Calcutta","കൽക്കട്ട",1],["delhi","#558b2f","Delhi","ഡൽഹി",1],["ahmedabad","#880e4f","Ahmedabad","അഹമ്മദാബാദ്",1],["asia-pacific","#3949ab","Asia–Pacific","ഏഷ്യ-പസഫിക്",1],["northeast-america","#9c27b0","Northeast America","നോർത്ത്-ഈസ്റ്റ് അമേരിക്ക",1],["southwest-america","#f57c00","Southwest America","സൗത്ത്-വെസ്റ്റ് അമേരിക്ക",1],["canada","#0288d1","Canada","കാനഡ",1],["uk-europe-africa","#0f9d58","UK–Europe–Africa","യു.കെ-യൂറോപ്പ്",1],["knanaya","#bdbdbd","Knanaya","ക്നാനായ",1],["evangelistic-association-of-the-east","#c2185b","Evangelistic Assoc. of the East","പൗരസ്ത്യ സുവിശേഷ സമാജം",1],["proprietary-churches","#673ab7","Proprietary Churches","കുടുംബപള്ളികൾ",1]],"leg":{"b":["Episcopal palace","അരമന"],"m":["Monastery or convent","ദയറാ അല്ലെങ്കിൽ കന്യാസ്ത്രീ മഠം"],"a":["Archcathedral","വലിയ ഭദ്രാസനപള്ളി"],"s":["Cathedral","ഭദ്രാസനപള്ളി"],"u":["Church under the direct administration of the Catholicos (UDC)","കാതോലിക്കായുടെ നേരിട്ടുള്ള ഭരണത്തിൻ കീഴിലുള്ള പള്ളി (UDC)"],"p":["Church, congregation, community, Catholicate centre, retreat centre, or chapel","പള്ളി, കോൺഗ്രിഗേഷൻ, കമ്യൂണിറ്റി, കാതോലിക്കേറ്റ് കേന്ദ്രം, ധ്യാന കേന്ദ്രം, അല്ലെങ്കിൽ ചാപ്പൽ"],"x":["Dormant or closed church","പ്രവർത്തനരഹിതമോ അടച്ചുപൂട്ടിയതോ ആയ പള്ളി"],"c":["Schismatic-occupied church","വിഘടിത വിഭാഗം കൈവശം വച്ചിരിക്കുന്ന പള്ളി"],"h":["Church of undetermined specific location","കൃത്യമായ സ്ഥാനം നിർണ്ണയിക്കപ്പെടാത്ത പള്ളി"],"e":["Seminary or educational centre","സെമിനാരി അല്ലെങ്കിൽ വിദ്യാഭ്യാസ കേന്ദ്രം"],"o":["Online prayer group","ഓൺലൈൻ പ്രാർത്ഥനാ കൂട്ടം"]}};           // dio: [slug, colour, en, ml, hasPage]  leg: symbol labels
+  var T = {"dio":[["thiruvananthapuram","#817713","Thiruvananthapuram","തിരുവനന്തപുരം",1],["kollam","#757575","Kollam","കൊല്ലം",1],["kottarakkara-punalur","#ff5252","Kottarakkara–Punalur","കൊട്ടാരക്കര-പുനലൂർ",1],["adoor-kadampanad","#1a237e","Adoor–Kadampanad","അടൂർ-കടമ്പനാട്",1],["thumpamon","#9c27b0","Thumpamon","തുമ്പമൺ",1],["mavelikara","#e65100","Mavelikara","മാവേലിക്കര",1],["chengannur","#afb42b","Chengannur","ചെങ്ങന്നൂർ",1],["niranam","#000000","Niranam","നിരണം",1],["nilackal","#fbc02d","Nilackal","നിലയ്ക്കൽ",1],["kottayam","#0288d1","Kottayam","കോട്ടയം",1],["kottayam-central","#880e4f","Kottayam Central","കോട്ടയം-സെൻട്രൽ",1],["idukki","#795548","Idukki","ഇടുക്കി",1],["kandanad-east","#673ab7","Kandanad East","കണ്ടനാട്-ഈസ്റ്റ്",1],["kandanad-west","#ffea00","Kandanad West","കണ്ടനാട്-വെസ്റ്റ്",1],["angamaly","#f57c00","Angamaly","അങ്കമാലി",1],["kochi","#558b2f","Kochi","കൊച്ചി",1],["thrissur","#424242","Thrissur","തൃശ്ശൂർ",1],["kunnamkulam","#a52714","Kunnamkulam","കുന്നംകുളം",1],["malabar","#4e342e","Malabar","മലബാർ",1],["sulthan-bathery","#006064","Sulthan Bathery","സുൽത്താൻ ബത്തേരി",1],["brahmavar","#3949ab","Brahmavar","ബ്രഹ്മവാർ",1],["madras","#7cb342","Madras","ചെന്നൈ",1],["bangalore","#f9a825","Bangalore","ബാംഗ്ലൂർ",1],["bombay","#817713","Bombay","മുംബൈ",1],["calcutta","#a52714","Calcutta","കൽക്കട്ട",1],["delhi","#558b2f","Delhi","ഡൽഹി",1],["ahmedabad","#880e4f","Ahmedabad","അഹമ്മദാബാദ്",1],["asia-pacific","#3949ab","Asia–Pacific","ഏഷ്യ-പസഫിക്",1],["northeast-america","#9c27b0","Northeast America","നോർത്ത്-ഈസ്റ്റ് അമേരിക്ക",1],["southwest-america","#f57c00","Southwest America","സൗത്ത്-വെസ്റ്റ് അമേരിക്ക",1],["canada","#0288d1","Canada","കാനഡ",1],["uk-europe-africa","#0f9d58","UK–Europe–Africa","യു.കെ-യൂറോപ്പ്",1],["knanaya","#bdbdbd","Knanaya","ക്നാനായ",1],["evangelistic-association-of-the-east","#c2185b","Evangelistic Assoc. of the East","പൗരസ്ത്യ സുവിശേഷ സമാജം",1],["proprietary-churches","#673ab7","Proprietary Churches","കുടുംബപള്ളികൾ",1]],"leg":{"b":["Episcopal palace","അരമന"],"m":["Monastery or convent","ദയറാ അല്ലെങ്കിൽ കന്യാസ്ത്രീ മഠം"],"a":["Archcathedral","വലിയ ഭദ്രാസനപള്ളി"],"s":["Cathedral","ഭദ്രാസനപള്ളി"],"z":["Church in a secret location (Saudi Arabia)","രഹസ്യ സ്ഥാനത്തുള്ള പള്ളി (സൗദി അറേബ്യ)"],"p":["Church, congregation, community, Catholicate centre, retreat centre, or chapel","പള്ളി, കോൺഗ്രിഗേഷൻ, കമ്യൂണിറ്റി, കാതോലിക്കേറ്റ് കേന്ദ്രം, ധ്യാന കേന്ദ്രം, അല്ലെങ്കിൽ ചാപ്പൽ"],"x":["Dormant or closed church","പ്രവർത്തനരഹിതമോ അടച്ചുപൂട്ടിയതോ ആയ പള്ളി"],"c":["Schismatic-occupied church","വിഘടിത വിഭാഗം കൈവശം വച്ചിരിക്കുന്ന പള്ളി"],"h":["Church of undetermined specific location","കൃത്യമായ സ്ഥാനം നിർണ്ണയിക്കപ്പെടാത്ത പള്ളി"],"e":["Seminary or educational centre","സെമിനാരി അല്ലെങ്കിൽ വിദ്യാഭ്യാസ കേന്ദ്രം"],"o":["Online prayer group","ഓൺലൈൻ പ്രാർത്ഥനാ കൂട്ടം"]}};           // dio: [slug, colour, en, ml, hasPage]  leg: symbol labels
   var CDN = "https://cdnjs.cloudflare.com/ajax/libs/";
   var DIO = {}; T.dio.forEach(function (d) { DIO[d[0]] = d; });
   var ISML = function () { return document.documentElement.getAttribute("lang") === "ml"; };
@@ -36,7 +36,7 @@
     K: ["Catholicate centre", "കാതോലിക്കേറ്റ് കേന്ദ്രം"], Q: ["Qurbana centre", "പ്രാർത്ഥനാലയം"], O: ["Congregation", "കോൺഗ്രിഗേഷൻ"],
     Y: ["Community", "കമ്മ്യൂണിറ്റി"], X: ["Institution", "സ്ഥാപനം"], F: ["Church", "പള്ളി"] };
   var STATUS = { x: ["Dormant or closed", "പ്രവർത്തനരഹിതം / അടച്ചത്"], c: ["Under schismatic occupation", "വിഘടിത വിഭാഗത്തിന്റെ കൈവശം"],
-    h: ["Exact location not fixed", "കൃത്യമായ സ്ഥാനം നിർണ്ണയിച്ചിട്ടില്ല"], a: ["Archcathedral", "വലിയ ഭദ്രാസനപള്ളി"], u: ["Under the Catholicos (UDC)", "കാതോലിക്കായുടെ നേരിട്ടുള്ള ഭരണം (UDC)"] };
+    h: ["Exact location not fixed", "കൃത്യമായ സ്ഥാനം നിർണ്ണയിച്ചിട്ടില്ല"], a: ["Archcathedral", "വലിയ ഭദ്രാസനപള്ളി"], z: ["Secret location", "രഹസ്യ സ്ഥാനം"] };
   function t(k) { return UI[k][ISML() ? 1 : 0]; }
   function two(a) { return a[ISML() ? 1 : 0]; }
   function esc(s) { return String(s == null ? "" : s).replace(/[&<>"']/g, function (c) { return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]; }); }
@@ -63,7 +63,7 @@
     m: '<path d="M12 4.5 C12 8 9.8 8.8 9.8 11.8 a2.2 2.2 0 0 0 4.4 0 c0 -3 -2.2 -3.8 -2.2 -7.3Z"/><path d="M7.5 19.5 V15.5 a4.5 4.5 0 0 1 9 0 v4"/>',
     a: '<path d="M12 4.5 L19 12 L12 19.5 L5 12 Z"/>',
     s: '<path d="M12 4.5 L14 9.8 L19.5 10.2 L15.3 13.7 L16.6 19 L12 16 L7.4 19 L8.7 13.7 L4.5 10.2 L10 9.8 Z"/>',
-    u: '<path d="M12 4 L18 6.3 V10.5 C18 14.8 15.5 17.8 12 19.3 C8.5 17.8 6 14.8 6 10.5 V6.3 Z"/>',
+    z: '<rect x="6.5" y="11" width="11" height="8" rx="1.6"/><path d="M8.8 11 V8.7 a3.2 3.2 0 0 1 6.4 0 V11"/><circle cx="12" cy="15" r="0.9" fill="F" stroke="none"/>',
     x: '<path d="M6 18.5 L18 6.5 M18 18.5 L6 6.5"/><circle cx="12" cy="11" r="5.2"/>',
     c: '<path d="M12 4.5 L20 19 H4 Z"/><path d="M12 10.2 V14.5"/><circle cx="12" cy="16.7" r="0.7" fill="F" stroke="none"/>',
     h: '<circle cx="12" cy="12" r="7.5"/><path d="M10.1 10.2 a2 2 0 1 1 3 1.8 c-0.8 0.5 -1.1 0.9 -1.1 1.7"/><circle cx="12" cy="16.3" r="0.7" fill="F" stroke="none"/>',
@@ -173,18 +173,18 @@
     var ESRI = "https://server.arcgisonline.com/ArcGIS/rest/services/";
     var BASES = {
       sat: function () { return [L.tileLayer(ESRI + "World_Imagery/MapServer/tile/{z}/{y}/{x}", { maxZoom: 19, attribution: "Imagery © Esri, Maxar, Earthstar Geographics" }),
-        L.tileLayer(ESRI + "Reference/World_Boundaries_and_Places/MapServer/tile/{z}/{y}/{x}", { maxZoom: 19, pane: "mmLabels", attribution: "Places © Esri" })]; },
-      light: function () { return [L.tileLayer("https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png", { subdomains: "abcd", maxZoom: 20, attribution: "© OpenStreetMap contributors © CARTO" })]; },
-      dark: function () { return [L.tileLayer("https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png", { subdomains: "abcd", maxZoom: 20, attribution: "© OpenStreetMap contributors © CARTO" })]; }
+        L.tileLayer(ESRI + "Reference/World_Boundaries_and_Places/MapServer/tile/{z}/{y}/{x}", { maxZoom: 19, pane: "mmLabels" })]; },
+      light: function () { return [L.tileLayer(ESRI + "Canvas/World_Light_Gray_Base/MapServer/tile/{z}/{y}/{x}", { maxZoom: 19, maxNativeZoom: 16, attribution: "© Esri" }),
+        L.tileLayer(ESRI + "Canvas/World_Light_Gray_Reference/MapServer/tile/{z}/{y}/{x}", { maxZoom: 19, maxNativeZoom: 16, pane: "mmLabels" })]; },
+      dark: function () { return [L.tileLayer(ESRI + "Canvas/World_Dark_Gray_Base/MapServer/tile/{z}/{y}/{x}", { maxZoom: 19, maxNativeZoom: 16, attribution: "© Esri" }),
+        L.tileLayer(ESRI + "Canvas/World_Dark_Gray_Reference/MapServer/tile/{z}/{y}/{x}", { maxZoom: 19, maxNativeZoom: 16, pane: "mmLabels" })]; }
     };
     var isDarkSite = function () { return document.documentElement.classList.contains("dark"); };
-    var saved = null; try { saved = localStorage.getItem("malankara-map-style"); } catch (e) {}
-    var mode = saved && BASES[saved] ? saved : "sat", layers = [];
+    var mode = isDarkSite() ? "dark" : "light", layers = [];
     function setMode(m, persist) {
       layers.forEach(function (l) { map.removeLayer(l); });
       layers = BASES[m](); layers.forEach(function (l) { l.addTo(map); });
       mode = m; segBtns.forEach(function (b) { b.setAttribute("aria-pressed", b.getAttribute("data-s") === m ? "true" : "false"); });
-      if (persist) { try { localStorage.setItem("malankara-map-style", m); } catch (e) {} }
     }
 
     /* cluster + markers */
@@ -197,11 +197,11 @@
     function popupHTML(e) {
       var dd = DIO[e.slug], dn = dioName(e.slug);
       var sub = [typeLabel(e), dn].filter(Boolean).join(" · ");
-      var flag = (e.icon === "x" || e.icon === "c" || e.icon === "h" || e.icon === "u") ? '<div class="mm-flag">' + esc(two(STATUS[e.icon])) + "</div>" : "";
+      var flag = (e.icon === "x" || e.icon === "c" || e.icon === "h" || e.icon === "z") ? '<div class="mm-flag">' + esc(two(STATUS[e.icon])) + "</div>" : "";
       var d = cleanDesc(e.ds), hasText = d.replace(/<[^>]+>/g, "").trim().length > 0;
       var body = d ? d : '<span class="mm-none">' + esc(t("nodesc")) + "</span>";
       var note = ISML() && hasText && !/[\u0d00-\u0d7f]/.test(d) ? '<p class="mm-note">' + esc(t("endesc")) + "</p>" : "";
-      var acts = '<a href="https://www.google.com/maps/dir/?api=1&destination=' + e.lat + "," + e.lon + '" target="_blank" rel="noopener">' + esc(t("directions")) + "</a>" +
+      var acts = (e.icon === "z" ? "" : '<a href="https://www.google.com/maps/dir/?api=1&destination=' + e.lat + "," + e.lon + '" target="_blank" rel="noopener">' + esc(t("directions")) + "</a>") +
         (dd && dd[4] && cfg.dioceseLinks !== false ? '<a class="o" href="' + esc(dd[0]) + '">' + esc(t("dpage")) + "</a>" : "");
       return '<div class="mm-ph"><span class="mm-dot" style="background:' + e.col + '"></span><div><h3>' + esc(entryName(e)) + '</h3><p class="mm-sub">' + esc(sub) + "</p></div></div>" + flag +
         '<div class="mm-body">' + body + note + '</div><div class="mm-pf">' + acts + "</div>";
@@ -236,7 +236,7 @@
       T.dio.forEach(function (d) { if (!usedDio[d[0]]) return; h += '<label class="mm-row"><input type="checkbox" data-d="' + d[0] + '"' + (onDio[d[0]] !== false ? " checked" : "") + '><i style="background:' + d[1] + '"></i><span>' + esc(dioName(d[0])) + "</span></label>"; });
       if (cfg.symbols !== false) {
         h += "<h4>" + esc(t("symbols")) + "</h4>";
-        ["p", "b", "m", "a", "s", "u", "e", "o", "h", "c", "x"].forEach(function (k) { if (!usedIcon[k]) return; h += '<label class="mm-row"><input type="checkbox" data-i="' + k + '"' + (onIcon[k] !== false ? " checked" : "") + ">" + glyphSVG(k) + "<span>" + esc(two(T.leg[k])) + "</span></label>"; });
+        ["p", "b", "m", "a", "s", "z", "e", "o", "h", "c", "x"].forEach(function (k) { if (!usedIcon[k]) return; h += '<label class="mm-row"><input type="checkbox" data-i="' + k + '"' + (onIcon[k] !== false ? " checked" : "") + ">" + glyphSVG(k) + "<span>" + esc(two(T.leg[k])) + "</span></label>"; });
         h += '<label class="mm-row"><input type="checkbox" data-shr="1"' + (shrinesOn ? " checked" : "") + '><svg viewBox="0 0 24 24" width="18" height="18"><circle cx="12" cy="12" r="4" fill="#6b7a5c"/></svg><span>' + esc(t("shrines")) + "</span></label>";
       }
       panel.innerHTML = h;
@@ -276,6 +276,11 @@
       list.forEach(function (e, i) { L.marker([e.lat, e.lon], { icon: L.divIcon({ className: "", html: '<div class="mm-hl">' + (i + 1) + "</div>", iconSize: [30, 30], iconAnchor: [15, 15] }), zIndexOffset: 2000 }).on("click", function () { reveal(e, 16); }).addTo(hl); pts.push([e.lat, e.lon]); });
       if (origin) { youMarker = L.marker(origin, { icon: L.divIcon({ className: "", html: '<div class="mm-you"></div>', iconSize: [18, 18], iconAnchor: [9, 9] }), zIndexOffset: 1500, interactive: false }).addTo(map); pts.push(origin); }
       if (pts.length) map.flyToBounds(L.latLngBounds(pts).pad(0.25), { maxZoom: 15, duration: 1.1 });
+    }
+    function showYou(lat, lon) {
+      hl.clearLayers(); if (youMarker) { map.removeLayer(youMarker); youMarker = null; } map.closePopup();
+      youMarker = L.marker([lat, lon], { icon: L.divIcon({ className: "", html: '<div class="mm-you"></div>', iconSize: [18, 18], iconAnchor: [9, 9] }), zIndexOffset: 1500, interactive: false }).addTo(map);
+      map.flyTo([lat, lon], 13, { duration: 1.1 });
     }
     function nearestTo(lat, lon, label) {
       var list = entries.filter(function (e) { return !e.status && /^[psau]$/.test(e.icon) && "HGXSTNPVM".indexOf(e.t || "-") < 0; })
@@ -327,7 +332,7 @@
       nbtn.addEventListener("click", function () {
         if (!navigator.geolocation) { setMeta(t("locFail")); return; }
         setMeta(t("loc"));
-        navigator.geolocation.getCurrentPosition(function (p) { nearestTo(p.coords.latitude, p.coords.longitude, t("you")); setMeta(t("showing") + ": " + t("nearTitle"), [[t("reset"), resetView]]); },
+        navigator.geolocation.getCurrentPosition(function (p) { showYou(p.coords.latitude, p.coords.longitude); setMeta(t("showing") + ": " + t("you"), [[t("reset"), resetView]]); },
           function (er) { setMeta(er && er.code === 1 ? t("locDenied") : t("locFail")); }, { enableHighAccuracy: true, timeout: 10000 });
       });
       /* the "Locate the Nearest Parish" card on the page highlights its five results here too */
@@ -348,8 +353,8 @@
 
     /* language + theme */
     new MutationObserver(function () { renderUI(); }).observe(document.documentElement, { attributes: true, attributeFilter: ["lang"] });
-    new MutationObserver(function () { if (mode !== "sat") setMode(isDarkSite() ? "dark" : "light", false); }).observe(document.documentElement, { attributes: true, attributeFilter: ["class"] });
-    if (!saved && cfg.defaultMode) mode = cfg.defaultMode;
+    var lastDark = isDarkSite();
+    new MutationObserver(function () { var d = isDarkSite(); if (d !== lastDark) { lastDark = d; setMode(d ? "dark" : "light", false); } }).observe(document.documentElement, { attributes: true, attributeFilter: ["class"] });
     setMode(mode, false); renderUI(); fitAll(); setMeta(t("whole"));
     map.once("load", hideLoader); setTimeout(hideLoader, 1200); hideLoader();
     window.addEventListener("resize", function () { map.invalidateSize(); });

@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <script>
-  "dark" === localStorage.getItem("malankara-theme") && document.documentElement.classList.add("dark")
+  (function(){try{if(!sessionStorage.getItem("malankara-open")){sessionStorage.setItem("malankara-open","1");localStorage.setItem("malankara-theme","light")}if("dark"===localStorage.getItem("malankara-theme"))document.documentElement.classList.add("dark")}catch(e){}})();
   </script>
   <link rel="icon" href="favicon.ico" sizes="any">
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
@@ -6673,7 +6673,7 @@ html[lang="ml"] .msn-eyebrow{letter-spacing:normal}
 </div>
 <script src="site-map.js" defer></script>
 <script>document.addEventListener("DOMContentLoaded",function(){if(window.MalankaraMap)MalankaraMap.init({el:"#malankaraMap",data:"malankara.json",extra:"map-extra.json",loader:"#mapLoader"})});</script>
-      <p class="text-center mt-3 font-sans text-[11px] tracking-wide text-muted" data-en="Map data: Malankara Map. Satellite imagery © Esri, Maxar, Earthstar Geographics." data-ml="ഭൂപട വിവരം: മലങ്കര സഭാ വിജ്ഞാനകോശം. ഉപഗ്രഹ ചിത്രങ്ങൾ © Esri, Maxar, Earthstar Geographics.">Map data: Malankara Map. Satellite imagery © Esri, Maxar, Earthstar Geographics.</p>
+      <p class="text-center mt-3 font-sans text-[11px] tracking-wide text-muted" data-en="Satellite imagery © Esri, Maxar, Earthstar Geographics." data-ml="ഉപഗ്രഹ ചിത്രങ്ങൾ © Esri, Maxar, Earthstar Geographics.">Satellite imagery © Esri, Maxar, Earthstar Geographics.</p>
     </section>
     <div class="section-divider is-tight" aria-hidden="true">
       <span class="section-divider__line"></span><span class="section-divider__mark"><svg width="15" height="15" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
@@ -7066,7 +7066,9 @@ html[lang="ml"] .msn-eyebrow{letter-spacing:normal}
         </div>
         <div class="bg-ivory dark:bg-midnight p-4 sm:p-5 flex items-baseline gap-4">
           <span class="flex items-center gap-2.5 w-[150px] shrink-0"><svg class="w-4 h-4 text-taupe shrink-0" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round">
-          <path d="M12 4 L18 6.3 V10.5 C18 14.8 15.5 17.8 12 19.3 C8.5 17.8 6 14.8 6 10.5 V6.3 Z"></path></svg><span class="font-serif italic text-taupe text-sm" data-en="Police station" data-ml="പോലീസ് സ്റ്റേഷൻ">Police station</span></span> <span class="text-xs sm:text-sm text-body/70 dark:text-ivory/60 leading-snug" data-en="Church under the direct administration of the Catholicos (UDC)" data-ml="കാതോലിക്കായുടെ നേരിട്ടുള്ള ഭരണത്തിൻ കീഴിലുള്ള പള്ളി (UDC)">Church under the direct administration of the Catholicos (UDC)</span>
+          <rect x="6.5" y="11" width="11" height="8" rx="1.6"></rect>
+          <path d="M8.8 11 V8.7 a3.2 3.2 0 0 1 6.4 0 V11"></path>
+          <circle cx="12" cy="15" r="0.9" fill="currentColor" stroke="none"></circle></svg><span class="font-serif italic text-taupe text-sm" data-en="Padlock" data-ml="പൂട്ട്">Padlock</span></span> <span class="text-xs sm:text-sm text-body/70 dark:text-ivory/60 leading-snug" data-en="Church in a secret location (Saudi Arabia)" data-ml="രഹസ്യ സ്ഥാനത്തുള്ള പള്ളി (സൗദി അറേബ്യ)">Church in a secret location (Saudi Arabia)</span>
         </div>
         <div class="bg-ivory dark:bg-midnight p-4 sm:p-5 flex items-baseline gap-4">
           <span class="flex items-center gap-2.5 w-[150px] shrink-0"><svg class="w-4 h-4 text-taupe shrink-0" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round">
@@ -7328,7 +7330,7 @@ html[lang="ml"] .msn-eyebrow{letter-spacing:normal}
       Managed by Andrew Punnoose
     </div>
     <p class="font-serif italic text-[13px] leading-relaxed mx-auto" style="max-width:21rem; color:rgba(247,245,238,.55);" data-en="This website is not affiliated with the Malankara Orthodox Syrian Church, or with any other church, institution, or platform." data-ml="ഈ വെബ്സൈറ്റ് മലങ്കര ഓർത്തഡോക്സ് സുറിയാനി സഭയുമായോ, മറ്റേതെങ്കിലും സഭ, സ്ഥാപനം, അല്ലെങ്കിൽ പ്ലാറ്റ്ഫോമുമായോ ബന്ധപ്പെട്ടതല്ല.">This website is not affiliated with the Malankara Orthodox Syrian Church, or with any other church, institution, or platform.</p>
-    <p class="font-sans text-[11px] mt-3" style="color:rgba(247,245,238,.4);" data-en="Map data: Malankara Map. Satellite imagery © Esri, Maxar, Earthstar Geographics." data-ml="ഭൂപട വിവരം: മലങ്കര സഭാ വിജ്ഞാനകോശം. ഉപഗ്രഹ ചിത്രങ്ങൾ © Esri, Maxar, Earthstar Geographics.">Map data: Malankara Map. Satellite imagery © Esri, Maxar, Earthstar Geographics.</p>
+    <p class="font-sans text-[11px] mt-3" style="color:rgba(247,245,238,.4);" data-en="Satellite imagery © Esri, Maxar, Earthstar Geographics." data-ml="ഉപഗ്രഹ ചിത്രങ്ങൾ © Esri, Maxar, Earthstar Geographics.">Satellite imagery © Esri, Maxar, Earthstar Geographics.</p>
     <div class="mx-auto" style="width:32px; height:1px; margin:2rem auto; background:rgba(247,245,238,.15);"></div>
     <div class="font-sans text-[10px] tracking-wide text-ivory/45 mb-3 px-4" data-en="For corrections, additions, or inquiries, please write to" data-ml="തിരുത്തലുകൾ, കൂട്ടിച്ചേർക്കലുകൾ, അല്ലെങ്കിൽ അന്വേഷണങ്ങൾക്ക് ദയവായി എഴുതുക">
       For corrections, additions, or inquiries, please write to
