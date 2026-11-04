@@ -72,7 +72,7 @@
 
 <section class="px-5 sm:px-8 pb-16 sm:pb-20 max-w-5xl mx-auto">
   <div class="relative rounded-2xl overflow-hidden border border-line dark:border-white/10 shadow-medium bg-ivory dark:bg-charcoal h-[420px] sm:h-[560px]">
-    <iframe id="mapFrame1906" src="https://www.google.com/maps/d/u/0/embed?mid=1Kml4SoCKi-tJLEK4Max61dyZlSzuvww&ehbc=2E312F&noprof=1" allowfullscreen loading="lazy" title="Map of the seven dioceses, 1906" class="absolute left-0 w-full border-0" style="top:-77px; height:calc(100% + 77px);"></iframe>
+    <div id="malankaraMap1906" role="application" aria-label="Map of the seven dioceses, 1906"></div>
     <div id="mapLoader1906" class="absolute inset-0 z-10 flex flex-col items-center justify-center gap-3.5 bg-ivory dark:bg-charcoal transition-opacity duration-700">
       <div class="relative w-11 h-11 flex items-center justify-center">
         <span class="absolute inset-0 rounded-full border border-gold/50 animate-ping"></span>
@@ -85,17 +85,16 @@
   <p class="text-center mt-3 font-serif italic text-sm text-body/60 dark:text-ivory/50" data-en="The original seven dioceses, as they stood in 1906." data-ml="1906-ൽ ഉണ്ടായിരുന്നതുപോലെ, ആദ്യത്തെ ഏഴ് ഭദ്രാസനങ്ങൾ.">The original seven dioceses, as they stood in 1906.</p>
 </section>
 
+<script src="site-map.js" defer></script>
 <script>
-(function(){
-  var frame = document.getElementById('mapFrame1906');
-  var loader = document.getElementById('mapLoader1906');
-  function hide(){
-    loader.style.opacity = '0';
-    setTimeout(function(){ loader.style.display = 'none'; }, 700);
-  }
-  frame.addEventListener('load', hide);
-  setTimeout(hide, 6000);
-})();
+document.addEventListener('DOMContentLoaded', function () {
+  if (!window.MalankaraMap) return;
+  MalankaraMap.init({
+    el: '#malankaraMap1906', data: '1906-map.json', loader: '#mapLoader1906',
+    search: false, nearest: false, symbols: false, dioceseLinks: false,
+    labels: { 'kandanad-east': ['Kandanad', 'കണ്ടനാട്'], 'kochi': ['Kochi (Cochin)', 'കൊച്ചി'] }
+  });
+});
 </script>
 
 <section class="px-5 sm:px-8 pb-16 sm:pb-20 max-w-2xl mx-auto text-center">

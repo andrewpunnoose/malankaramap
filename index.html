@@ -6650,7 +6650,7 @@ html[lang="ml"] .msn-eyebrow{letter-spacing:normal}
 @media(max-width:480px){#mapWrap .mapsearch__go{padding:11px 15px;letter-spacing:.06em}#mapWrap .mapsearch__input{font-size:12.5px;padding:10px 4px 10px 36px}#mapWrap .mapsearch__field svg{left:14px}}
 </style>
 <div id="mapWrap" class="max-w-6xl mx-auto rounded-2xl overflow-hidden border border-line dark:border-white/10 shadow-medium bg-ivory dark:bg-charcoal">
-        <iframe id="mapFrame" src="https://www.google.com/maps/d/u/0/embed?mid=1TRfC9ZEHxXfzwAWy-tv1UNdUEvzL9C0&amp;ehbc=2E312F&amp;noprof=1" width="640" height="480" allowfullscreen loading="lazy" class="absolute inset-0 w-full h-full border-0" style="top:-77px;height:calc(100% + 91px)" name="mapFrame"></iframe>
+        <div id="malankaraMap" role="application" aria-label="Interactive map of Malankara Church locations"></div>
         <div id="mapLoader" class="absolute inset-0 z-20 flex flex-col items-center justify-center gap-3.5 bg-ivory dark:bg-charcoal transition-opacity duration-700">
           <div class="relative w-11 h-11 flex items-center justify-center">
             <span class="absolute inset-0 rounded-full border border-gold/50 animate-ping"></span> <span class="absolute inset-0 rounded-full border border-gold/25"></span> <svg class="relative w-5 h-5 text-gold" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
@@ -6671,73 +6671,15 @@ html[lang="ml"] .msn-eyebrow{letter-spacing:normal}
   <p id="mapSearchMeta" class="mapsearch__meta" aria-live="polite"></p>
 </form>
 </div>
-<script>
-!function(){
-var form=document.getElementById("mapSearchForm"),input=document.getElementById("mapSearchInput"),btn=document.getElementById("mapSearchBtn"),meta=document.getElementById("mapSearchMeta"),loader=null;
-if(!form)return;
-var ML=function(){return document.documentElement.getAttribute("lang")==="ml"};
-var T={finding:["Finding","തിരയുന്നു"],nf:["Couldn\u2019t find that place \u2014 try adding the country or district.","ആ സ്ഥലം കണ്ടെത്താനായില്ല; രാജ്യമോ ജില്ലയോ കൂടി ചേർത്ത് ശ്രമിക്കുക."],err:["Something went wrong \u2014 please try again.","എന്തോ പിഴവ് സംഭവിച്ചു; വീണ്ടും ശ്രമിക്കുക."],showing:["Showing","കാണിക്കുന്നത്"],reset:["Show the whole map","മുഴുവൻ മാപ്പും കാണിക്കുക"]};
-function t(k){return T[k][ML()?1:0]}
-function setMeta(msg,withReset){meta.textContent=msg;if(withReset){var b=document.createElement("button");b.type="button";b.className="mapsearch__reset";b.textContent=t("reset");b.addEventListener("click",function(){loadMap(null)});meta.appendChild(b)}}
-function loadMap(c){
-  var old=document.getElementById("mapFrame");if(!old)return;loader=document.getElementById("mapLoader");
-  var u=old.getAttribute("src").replace(/&(?:amp;)?(?:ll|z)=[^&]*/g,"");
-  if(c)u+="&ll="+c.lat.toFixed(5)+"%2C"+c.lng.toFixed(5)+"&z="+c.z;
-  var f=old.cloneNode(false);f.setAttribute("src",u);f.removeAttribute("loading");
-  if(loader){loader.style.display="flex";loader.style.opacity="1"}
-  var done=false;function hide(){if(done||!loader)return;done=true;loader.style.opacity="0";setTimeout(function(){loader.style.display="none"},700)}
-  f.addEventListener("load",hide);setTimeout(hide,6000);
-  old.parentNode.replaceChild(f,old);
-  if(!c)setMeta(ML()?"മുഴുവൻ മാപ്പും കാണിക്കുന്നു.":"Showing the whole map.",false);
-}
-function zoomFor(bb){
-  var s=Math.max(Math.abs(bb[1]-bb[0]),Math.abs(bb[3]-bb[2]),0.004);
-  var z=Math.round(Math.log(360/s)/Math.LN2)-0;
-  return Math.max(3,Math.min(16,z));
-}
-form.addEventListener("submit",function(e){
-  e.preventDefault();var q=input.value.trim();if(!q)return;
-  btn.disabled=true;setMeta(t("finding")+" \u201c"+q+"\u201d\u2026",false);
-  fetch("https://nominatim.openstreetmap.org/search?format=json&limit=1&q="+encodeURIComponent(q)).then(function(r){return r.json()}).then(function(r){
-    if(!r||!r.length){setMeta(t("nf"),false);return}
-    var p=r[0],bb=(p.boundingbox||[]).map(parseFloat);
-    var z=bb.length===4?zoomFor(bb):12;
-    loadMap({lat:parseFloat(p.lat),lng:parseFloat(p.lon),z:z});
-    setMeta(t("showing")+": "+p.display_name.split(",").slice(0,2).join(",").trim(),true);
-    var m=document.getElementById("map");if(m&&m.getBoundingClientRect().top<-60)m.scrollIntoView({behavior:"smooth",block:"start"});
-  }).catch(function(){setMeta(t("err"),false)}).then(function(){btn.disabled=false});
-});
-}();
-</script>
-      <p class="text-center mt-3 font-sans text-[11px] tracking-wide text-muted" data-en="Map data via Google My Maps." data-ml="ഭൂപട വിവരം Google My Maps വഴി.">Map data via Google My Maps.</p>
+<script src="site-map.js" defer></script>
+<script>document.addEventListener("DOMContentLoaded",function(){if(window.MalankaraMap)MalankaraMap.init({el:"#malankaraMap",data:"malankara.json",extra:"map-extra.json",loader:"#mapLoader"})});</script>
+      <p class="text-center mt-3 font-sans text-[11px] tracking-wide text-muted" data-en="Map data: Malankara Map. Satellite imagery © Esri, Maxar, Earthstar Geographics." data-ml="ഭൂപട വിവരം: മലങ്കര സഭാ വിജ്ഞാനകോശം. ഉപഗ്രഹ ചിത്രങ്ങൾ © Esri, Maxar, Earthstar Geographics.">Map data: Malankara Map. Satellite imagery © Esri, Maxar, Earthstar Geographics.</p>
     </section>
     <div class="section-divider is-tight" aria-hidden="true">
       <span class="section-divider__line"></span><span class="section-divider__mark"><svg width="15" height="15" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
       <path d="M12 3 L21 12 L12 21 L3 12 Z"></path></svg></span><span class="section-divider__line"></span>
     </div>
-    <script>
-    ! function() {
-    var o = document.getElementById("mapFrame"),
-    i = document.getElementById("mapLoader");
-
-    function c() {
-    i.style.opacity = "0", setTimeout(function() {
-      i.style.display = "none"
-    }, 700)
-    }
-    o.addEventListener("load", c), setTimeout(c, 6e3),
-    function() {
-      var e = document.getElementById("mapScrollBtn"),
-        t = document.getElementById("tools");
-      e && t && e.addEventListener("click", function() {
-        t.scrollIntoView({
-          behavior: "smooth",
-          block: "start"
-        })
-      })
-    }()
-    }()
-    </script>
+    <script>!function(){var e=document.getElementById("mapScrollBtn"),t=document.getElementById("tools");e&&t&&e.addEventListener("click",function(){t.scrollIntoView({behavior:"smooth",block:"start"})})}()</script>
     <section class="relative sec-tight-y" id="tools">
       <div class="tool-row-track" tabindex="0" aria-label="Scrollable tools: locate nearest parish, request Qurbana, discover a parish at random">
         <div class="tool-row-inner">
@@ -6761,8 +6703,8 @@ form.addEventListener("submit",function(e){
             <p class="text-[13.5px] text-body/80 dark:text-ivory/65 mb-8 leading-relaxed" data-en="If no parish is nearby, let us know — we work to bring Qurbana to underserved communities wherever the faithful may be." data-ml="അടുത്ത് ഇടവക ഇല്ലെങ്കിൽ, അറിയിക്കുക — സാന്നിധ്യമില്ലാത്ത സമൂഹങ്ങളിലേക്ക് കുർബാന എത്തിക്കാൻ ഞങ്ങൾ പ്രവർത്തിക്കുന്നു.">If no parish is nearby, let us know — we work to bring Qurbana to underserved communities wherever the faithful may be.</p><a href="https://forms.gle/bPzyM9xmCwwNF7PSA" target="_blank" rel="noopener" class="inline-flex items-center gap-2 font-sans text-xs font-semibold tracking-[0.1em] uppercase bg-sage text-white px-9 py-3 rounded-full hover:bg-sage-dark transition-colors" data-en="Request Qurbana" data-ml="കുർബാന അഭ്യർത്ഥിക്കുക">Request Qurbana</a>
           </div>
           <div id="discover" class="tool-card reveal premium-card texture-paper rounded-2xl border border-gold/25 shadow-medium px-6 py-10 sm:px-8 text-center">
-            <div class="font-sans text-[10.5px] tracking-[0.2em] uppercase text-taupe font-semibold mb-4" data-en="212 Parishes, Their Own Words" data-ml="212 ഇടവകകൾ, അവരുടെ സ്വന്തം വാക്കുകളിൽ">
-              212 Parishes, Their Own Words
+            <div class="font-sans text-[10.5px] tracking-[0.2em] uppercase text-taupe font-semibold mb-4" data-en="276 Parishes, Their Own Words" data-ml="276 ഇടവകകൾ, അവരുടെ സ്വന്തം വാക്കുകളിൽ">
+              276 Parishes, Their Own Words
             </div>
             <div id="discoverIntro">
               <h3 class="font-serif italic text-xl sm:text-2xl text-ink dark:text-ivory mb-3" data-en="Consult an Entry" data-ml="ഒരു എൻട്രി കാണുക">Consult an Entry</h3>
@@ -7386,7 +7328,7 @@ form.addEventListener("submit",function(e){
       Managed by Andrew Punnoose
     </div>
     <p class="font-serif italic text-[13px] leading-relaxed mx-auto" style="max-width:21rem; color:rgba(247,245,238,.55);" data-en="This website is not affiliated with the Malankara Orthodox Syrian Church, or with any other church, institution, or platform." data-ml="ഈ വെബ്സൈറ്റ് മലങ്കര ഓർത്തഡോക്സ് സുറിയാനി സഭയുമായോ, മറ്റേതെങ്കിലും സഭ, സ്ഥാപനം, അല്ലെങ്കിൽ പ്ലാറ്റ്ഫോമുമായോ ബന്ധപ്പെട്ടതല്ല.">This website is not affiliated with the Malankara Orthodox Syrian Church, or with any other church, institution, or platform.</p>
-    <p class="font-sans text-[11px] mt-3" style="color:rgba(247,245,238,.4);" data-en="Map data via Google My Maps." data-ml="ഭൂപട വിവരം Google My Maps വഴി.">Map data via Google My Maps.</p>
+    <p class="font-sans text-[11px] mt-3" style="color:rgba(247,245,238,.4);" data-en="Map data: Malankara Map. Satellite imagery © Esri, Maxar, Earthstar Geographics." data-ml="ഭൂപട വിവരം: മലങ്കര സഭാ വിജ്ഞാനകോശം. ഉപഗ്രഹ ചിത്രങ്ങൾ © Esri, Maxar, Earthstar Geographics.">Map data: Malankara Map. Satellite imagery © Esri, Maxar, Earthstar Geographics.</p>
     <div class="mx-auto" style="width:32px; height:1px; margin:2rem auto; background:rgba(247,245,238,.15);"></div>
     <div class="font-sans text-[10px] tracking-wide text-ivory/45 mb-3 px-4" data-en="For corrections, additions, or inquiries, please write to" data-ml="തിരുത്തലുകൾ, കൂട്ടിച്ചേർക്കലുകൾ, അല്ലെങ്കിൽ അന്വേഷണങ്ങൾക്ക് ദയവായി എഴുതുക">
       For corrections, additions, or inquiries, please write to
