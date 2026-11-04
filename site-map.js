@@ -164,8 +164,7 @@
     });
 
     root.classList.add("mm");
-    var map = L.map(root, { zoomControl: false, minZoom: 2, maxZoom: 19, worldCopyJump: true, zoomSnap: 0.5, attributionControl: true, preferCanvas: false });
-    map.attributionControl.setPrefix(false); map.attributionControl.setPosition("bottomleft");
+    var map = L.map(root, { zoomControl: false, minZoom: 2, maxZoom: 19, worldCopyJump: true, zoomSnap: 0.5, attributionControl: false, preferCanvas: false });
     L.control.zoom({ position: "topleft" }).addTo(map);
     map.createPane("mmLabels").style.zIndex = 250; map.getPane("mmLabels").style.pointerEvents = "none";
 

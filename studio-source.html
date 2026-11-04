@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow,noarchive,nosnippet">
+<meta name="referrer" content="no-referrer">
+<title>Directory Studio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Marcellus&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css">
+<style>
+:root{--ivory:#F8F7F4;--cream:#F2F0EB;--ink:#111827;--body:#374151;--muted:#6B7280;--line:#E5E7EB;--sage:#7A9E7E;--sage-d:#5E8062;--gold:#C8A24A;--gold-d:#B58E33;--taupe:#8B7355;--err:#B42318;--feat:#EEF3EE}
+*{box-sizing:border-box}
+html,body{height:100%;margin:0}
+body{font:14px/1.5 Inter,system-ui,sans-serif;color:var(--body);background:var(--ivory);-webkit-font-smoothing:antialiased}
+h1,h2,h3{font-family:Marcellus,Georgia,serif;font-weight:400;color:var(--ink);margin:0}
+button,input,select,textarea{font:inherit;color:inherit}
+#app{display:grid;grid-template-columns:420px 1fr;height:100%}
+#side{display:flex;flex-direction:column;min-height:0;background:var(--ivory);border-right:1px solid var(--line)}
+.brand{padding:22px 24px 14px}
+.eyebrow{font-size:10.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--taupe);font-weight:600;margin-bottom:6px}
+.brand h1{font-size:28px;line-height:1.1}
+.brand p{margin:8px 0 0;color:var(--muted);font-size:12.5px}
+#scroll{flex:1;overflow:auto;padding:0 24px 18px;min-height:0}
+.field{margin-bottom:14px}
+label.l{display:block;font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--taupe);font-weight:600;margin-bottom:6px}
+input[type=text],input[type=number],input[type=password],select,textarea{width:100%;background:#fff;border:1px solid var(--line);border-radius:12px;padding:10px 13px;outline:none;transition:border-color .15s,box-shadow .15s}
+textarea{resize:vertical;min-height:130px;line-height:1.55}
+input:focus,select:focus,textarea:focus{border-color:var(--sage);box-shadow:0 0 0 3px rgba(122,158,126,.18)}
+.row{display:flex;gap:10px}.row>*{flex:1;min-width:0}
+.btn{border:1px solid var(--line);background:#fff;border-radius:999px;padding:9px 18px;cursor:pointer;font-weight:500;transition:all .15s;white-space:nowrap}
+.btn:hover{border-color:var(--ink);color:var(--ink)}
+.btn.primary{background:var(--ink);color:#fff;border-color:var(--ink)}
+.btn.primary:hover{background:#000}
+.btn.sage{background:var(--sage-d);color:#fff;border-color:var(--sage-d)}
+.btn.sage:hover{background:#4d6d51}
+.btn.danger{color:var(--err)}.btn.danger:hover{border-color:var(--err);color:var(--err)}
+.btn.sm{padding:6px 13px;font-size:12.5px}
+.btn:disabled{opacity:.45;cursor:default}
+.search{position:relative;margin-bottom:10px}
+.search input{padding-left:38px;border-radius:999px}
+.search svg{position:absolute;left:14px;top:50%;transform:translateY(-50%);width:16px;height:16px;stroke:var(--muted);fill:none;stroke-width:1.8}
+.filters{display:flex;gap:8px;margin-bottom:12px}
+.filters select{border-radius:999px;padding:8px 13px;font-size:13px}
+.count{font-size:12px;color:var(--muted);margin:2px 2px 8px}
+.item{display:block;width:100%;text-align:left;background:#fff;border:1px solid var(--line);border-radius:14px;padding:11px 14px;margin-bottom:8px;cursor:pointer;transition:all .15s}
+.item:hover{border-color:var(--sage);box-shadow:0 2px 12px rgba(17,24,39,.06)}
+.item b{display:block;font-weight:500;color:var(--ink);font-size:13.5px;line-height:1.35}
+.item span{display:flex;align-items:center;gap:7px;font-size:12px;color:var(--muted);margin-top:3px}
+.dot{width:9px;height:9px;border-radius:50%;flex:none;border:1px solid rgba(0,0,0,.15)}
+.tag{font-size:10px;letter-spacing:.08em;text-transform:uppercase;font-weight:600;border-radius:999px;padding:2px 8px}
+.tag.new{background:#F6EBCB;color:#7A5B12}.tag.edit{background:var(--feat);color:var(--sage-d)}
+.empty{padding:26px 8px;text-align:center;color:var(--muted)}
+.foot{border-top:1px solid var(--line);padding:14px 24px;background:var(--cream);display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+.foot .grow{flex:1}
+.pending{font-size:12.5px;color:var(--muted)}
+.pending b{color:var(--ink)}
+#mapwrap{position:relative;min-height:0}
+#map{position:absolute;inset:0;background:#d9dfd2}
+.basebar{position:absolute;z-index:500;top:16px;right:16px;display:flex;background:rgba(248,247,244,.94);border-radius:999px;box-shadow:0 8px 24px -8px rgba(17,24,39,.4);padding:4px;backdrop-filter:blur(8px)}
+.basebar button{border:0;background:none;border-radius:999px;padding:7px 15px;cursor:pointer;font-weight:500;color:var(--body)}
+.basebar button[aria-pressed=true]{background:var(--ink);color:#fff}
+.hint{position:absolute;z-index:500;left:50%;bottom:22px;transform:translateX(-50%);background:var(--ink);color:#fff;border-radius:999px;padding:9px 18px;font-size:13px;box-shadow:0 10px 30px -8px rgba(0,0,0,.5);display:none}
+.hint.on{display:block}
+.loc-note{font-size:12px;color:var(--muted);margin:6px 2px 0}
+.warn{background:#FBF3DC;border:1px solid #EBD79A;color:#6A4F0F;border-radius:12px;padding:10px 13px;font-size:12.5px;margin-bottom:14px}
+.back{display:inline-flex;align-items:center;gap:6px;background:none;border:0;color:var(--taupe);cursor:pointer;font-weight:500;padding:0;margin:4px 0 14px}
+.back:hover{color:var(--ink)}
+.form-actions{display:flex;gap:8px;align-items:center;margin-top:6px;padding-bottom:10px}
+.form-actions .grow{flex:1}
+.pin{width:30px;height:40px}
+.crosshair .leaflet-container,.crosshair#map{cursor:crosshair!important}
+dialog{border:0;border-radius:20px;padding:0;max-width:min(560px,92vw);width:100%;box-shadow:0 30px 80px -20px rgba(17,24,39,.55);background:var(--ivory);color:var(--body)}
+dialog::backdrop{background:rgba(17,24,39,.45);backdrop-filter:blur(2px)}
+.dlg{padding:26px 28px 22px}
+.dlg h2{font-size:24px;margin-bottom:6px}
+.dlg p.s{margin:0 0 16px;color:var(--muted);font-size:13px}
+.dlg .actions{display:flex;justify-content:flex-end;gap:8px;margin-top:18px}
+.chg{max-height:46vh;overflow:auto;border:1px solid var(--line);border-radius:14px;background:#fff;padding:6px 14px}
+.chg div{padding:7px 0;border-bottom:1px solid var(--line);font-size:13px;display:flex;gap:10px;align-items:baseline}
+.chg div:last-child{border:0}
+.chg em{font-style:normal;font-size:10px;letter-spacing:.08em;text-transform:uppercase;font-weight:600;min-width:58px}
+.chg .a{color:var(--sage-d)}.chg .e{color:var(--gold-d)}.chg .d{color:var(--err)}
+.msg{font-size:13px;margin-top:12px;min-height:18px}
+.msg.err{color:var(--err)}.msg.ok{color:var(--sage-d)}
+.toast{position:fixed;z-index:3000;left:50%;bottom:26px;transform:translate(-50%,20px);background:var(--ink);color:#fff;border-radius:999px;padding:10px 20px;font-size:13px;opacity:0;pointer-events:none;transition:all .25s}
+.toast.on{opacity:1;transform:translate(-50%,0)}
+.small{font-size:12px;color:var(--muted)}
+.chk{display:flex;gap:8px;align-items:center;font-size:13px;margin-top:10px}
+.leaflet-container{font-family:Inter,system-ui,sans-serif}
+@media(max-width:860px){
+ #app{grid-template-columns:1fr;grid-template-rows:42vh 1fr}
+ #mapwrap{order:-1}#side{border-right:0;border-top:1px solid var(--line)}
+}
+</style>
+</head>
+<body>
+<div id="app">
+  <aside id="side">
+    <div class="brand">
+      <div class="eyebrow">Malankara Map</div>
+      <h1>Directory Studio</h1>
+      <p id="loadmsg">Loading the directory…</p>
+    </div>
+
+    <div id="scroll">
+      <!-- LIST VIEW -->
+      <div id="listView" hidden>
+        <div class="search">
+          <svg viewBox="0 0 24 24" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg>
+          <input id="q" type="text" placeholder="Search by name, diocese or Malayalam name" autocomplete="off">
+        </div>
+        <div class="filters">
+          <select id="fDio" aria-label="Diocese"></select>
+          <select id="fChg" aria-label="Show">
+            <option value="">All places</option>
+            <option value="chg">Changed in this session</option>
+          </select>
+        </div>
+        <button class="btn sage" id="addBtn" style="width:100%;margin-bottom:14px">+ Add a new place</button>
+        <div class="count" id="count"></div>
+        <div id="results"></div>
+      </div>
+
+      <!-- FORM VIEW -->
+      <form id="formView" hidden autocomplete="off">
+        <button type="button" class="back" id="backBtn">← Back to the list</button>
+        <h2 id="formTitle" style="font-size:24px;margin-bottom:14px">Edit place</h2>
+
+        <div class="field"><label class="l" for="fName">Name</label><input id="fName" type="text" required></div>
+        <div class="field"><label class="l" for="fMl">Malayalam name</label><input id="fMl" type="text" lang="ml" placeholder="Optional"></div>
+        <div class="row">
+          <div class="field"><label class="l" for="fDiocese">Diocese</label><select id="fDiocese"></select></div>
+          <div class="field"><label class="l" for="fStatus">Status</label>
+            <select id="fStatus">
+              <option value="">Active</option>
+              <option value="caution">Under schismatic occupation</option>
+              <option value="death">Dormant or closed</option>
+            </select></div>
+        </div>
+        <div class="row">
+          <div class="field"><label class="l" for="fType">Type</label><select id="fType"></select></div>
+          <div class="field"><label class="l" for="fIcon">Symbol</label><select id="fIcon"></select></div>
+        </div>
+        <div id="secretWarn" class="warn" hidden>Secret locations get no Directions link on the map. The coordinates below are still public in the data file, so use a city-centre point rather than the exact address.</div>
+
+        <div class="field"><label class="l" for="fDesc">Description</label>
+          <textarea id="fDesc" placeholder="History, parish size, notes…"></textarea>
+          <div class="small" style="margin-top:5px">Plain text. For a paragraph break type &lt;br&gt;&lt;br&gt;, exactly as in the existing entries.</div>
+        </div>
+
+        <div class="field">
+          <label class="l">Location</label>
+          <div class="row">
+            <input id="fLat" type="number" step="any" placeholder="Latitude">
+            <input id="fLon" type="number" step="any" placeholder="Longitude">
+          </div>
+          <div class="loc-note">Drag the gold pin, click the map after pressing the button below, or use one of the quick options.</div>
+          <div style="display:flex;gap:8px;margin-top:10px;flex-wrap:wrap">
+            <button type="button" class="btn sm" id="pickBtn">Click the map to place the pin</button>
+          </div>
+          <div class="row" style="margin-top:10px">
+            <input id="fAddr" type="text" placeholder="Find an address or place">
+            <button type="button" class="btn sm" id="addrBtn" style="flex:none">Find</button>
+          </div>
+          <input id="fPaste" type="text" placeholder="Paste coordinates or a Google Maps link" style="margin-top:10px">
+        </div>
+
+        <div class="form-actions">
+          <button type="submit" class="btn primary">Save place</button>
+          <button type="button" class="btn" id="cancelBtn">Cancel</button>
+          <span class="grow"></span>
+          <button type="button" class="btn danger sm" id="delBtn">Delete</button>
+        </div>
+      </form>
+    </div>
+
+    <div class="foot">
+      <button class="btn sm" id="reviewBtn">Review changes</button>
+      <span class="pending" id="pending"></span>
+      <span class="grow"></span>
+      <button class="btn sm" id="dlBtn" disabled>Download files</button>
+      <button class="btn sm primary" id="pubBtn" disabled>Publish</button>
+    </div>
+  </aside>
+
+  <main id="mapwrap">
+    <div id="map"></div>
+    <div class="basebar" role="group" aria-label="Map style">
+      <button type="button" data-b="sat" aria-pressed="true">Satellite</button>
+      <button type="button" data-b="light" aria-pressed="false">Light</button>
+    </div>
+    <div class="hint" id="hint">Click anywhere on the map to place the pin</div>
+  </main>
+</div>
+
+<dialog id="dlgChanges"><div class="dlg">
+  <h2>Changes in this session</h2><p class="s">Nothing is live until you publish or upload the downloaded files.</p>
+  <div class="chg" id="chgList"></div>
+  <div class="actions"><button class="btn" id="chgClose">Close</button></div>
+</div></dialog>
+
+<dialog id="dlgPub"><div class="dlg">
+  <h2>Publish to the website</h2>
+  <p class="s">Saves <b>malankara.json</b> and <b>map-extra.json</b> straight to your GitHub repository. The site updates a minute or two later.</p>
+  <div class="field"><label class="l" for="gRepo">Repository</label><input id="gRepo" type="text" placeholder="owner/repository" autocomplete="off"></div>
+  <div class="row">
+    <div class="field"><label class="l" for="gBranch">Branch</label><input id="gBranch" type="text" value="main" autocomplete="off"></div>
+    <div class="field"><label class="l" for="gDir">Folder (blank = root)</label><input id="gDir" type="text" autocomplete="off"></div>
+  </div>
+  <div class="field"><label class="l" for="gTok">Access token</label><input id="gTok" type="password" autocomplete="off" placeholder="GitHub fine-grained token">
+    <div class="small" style="margin-top:5px">Create one at GitHub → Settings → Developer settings → Fine-grained tokens, limited to this repository, with <b>Contents: Read and write</b>.</div>
+    <label class="chk"><input type="checkbox" id="gRem"> Remember these on this device</label></div>
+  <div class="msg" id="pubMsg"></div>
+  <div class="actions"><button class="btn" id="pubClose">Close</button><button class="btn primary" id="pubGo">Publish now</button></div>
+</div></dialog>
+
+<dialog id="dlgFiles"><div class="dlg">
+  <h2>Load the directory files</h2>
+  <p class="s">The studio couldn’t read the files from the site automatically. Choose them from your computer.</p>
+  <div class="field"><label class="l">malankara.json</label><input type="file" id="fileA" accept=".json"></div>
+  <div class="field"><label class="l">map-extra.json</label><input type="file" id="fileB" accept=".json"></div>
+  <div class="msg err" id="fileMsg"></div>
+  <div class="actions"><button class="btn primary" id="fileGo">Load</button></div>
+</div></dialog>
+
+<div class="toast" id="toast"></div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
+<script>
+(function () {
+"use strict";
+var DIO_COL = /*__DIO_COL__*/{};
+var TYPES = [["", "— none —"], ["F", "Church"], ["O", "Congregation"], ["Y", "Community"], ["L", "Chapel"], ["H", "Wayside shrine"], ["G", "Prayer group"], ["Q", "Qurbana centre"], ["K", "Catholicate centre"], ["C", "Cathedral"], ["P", "Episcopal palace"], ["M", "Monastery"], ["V", "Convent"], ["S", "Seminary"], ["T", "Student centre"], ["N", "Sunday school"], ["X", "Other institution"]];
+var ICONS = [["", "Automatic"], ["p", "Pin (church, chapel, congregation…)"], ["b", "Episcopal palace"], ["m", "Monastery or convent"], ["a", "Archcathedral"], ["s", "Cathedral"], ["e", "Seminary or education"], ["o", "Online prayer group"], ["h", "Location not fixed"], ["z", "Secret location (Saudi Arabia)"], ["c", "Schismatic-occupied"], ["x", "Dormant or closed"]];
+var TYPE_ICON = { P: "b", V: "m", M: "m", C: "s", S: "e", T: "e", N: "e", G: "o" };
+var TYPE_NAME = {}; TYPES.forEach(function (t) { TYPE_NAME[t[0]] = t[1]; });
+
+function $(id) { return document.getElementById(id); }
+function esc(s) { return String(s == null ? "" : s).replace(/[&<>"']/g, function (c) { return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]; }); }
+function slug(d) { return String(d || "").toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, ""); }
+function norm(s) { return String(s || "").normalize("NFKC").toLowerCase(); }
+function colOf(d) { return DIO_COL[slug(d)] || "#4a5d3d"; }
+
+var P = [], N0 = 0, map, renderer, base = null, layers = [], selRing = null, editPin = null, pickMode = false, editing = null, loaded = false;
+
+/* ---------- pure helpers (also used by the self-test) ---------- */
+function autoIcon(p) {
+  var i = p.status === "caution" ? "c" : p.status === "death" ? "x" : (TYPE_ICON[p.t] || "p");
+  if (/archcathedral/i.test(p.n)) i = "a";
+  return i;
+}
+function parseCoords(s) {
+  s = String(s || "");
+  var m = s.match(/!3d(-?\d+(?:\.\d+)?)!4d(-?\d+(?:\.\d+)?)/) || s.match(/@(-?\d+(?:\.\d+)?),(-?\d+(?:\.\d+)?)/) || s.match(/(?:[?&](?:q|ll|query|destination)=)(-?\d+(?:\.\d+)?)(?:,|%2C)\s*(-?\d+(?:\.\d+)?)/) || s.match(/^\s*(-?\d+(?:\.\d+)?)\s*[,;\s]\s*(-?\d+(?:\.\d+)?)\s*$/);
+  if (!m) return null;
+  var a = parseFloat(m[1]), b = parseFloat(m[2]);
+  if (!(a >= -90 && a <= 90 && b >= -180 && b <= 180)) return null;
+  return [a, b];
+}
+function pyDump(arr) { /* same layout as the existing malankara.json */
+  return "[" + arr.map(function (o) { return "{" + Object.keys(o).map(function (k) { return JSON.stringify(k) + ": " + JSON.stringify(o[k]); }).join(", ") + "}"; }).join(", ") + "]";
+}
+function fields(p) { return JSON.stringify([p.n, p.d, p.ds, p.lat, p.lon, p.status || "", p.icon || "", p.ml || "", p.t || ""]); }
+function stateOf(p) { return p.deleted ? (p.isNew ? "" : "del") : p.isNew ? "new" : (p.o !== fields(p) ? "edit" : ""); }
+function changes() {
+  var a = [], e = [], d = [];
+  P.forEach(function (p) { var s = stateOf(p); if (s === "new") a.push(p); else if (s === "edit") e.push(p); else if (s === "del") d.push(p); });
+  return { a: a, e: e, d: d, n: a.length + e.length + d.length };
+}
+function buildFiles() {
+  var live = P.filter(function (p) { return !p.deleted; });
+  var data = live.map(function (p) { var o = { n: p.n, d: p.d, ds: p.ds, lat: p.lat, lon: p.lon }; if (p.status) o.status = p.status; return o; });
+  var ex = {};
+  live.forEach(function (p) { if (!Object.prototype.hasOwnProperty.call(ex, p.n)) ex[p.n] = [p.icon || autoIcon(p), p.ml || "", p.t || ""]; });
+  return { a: pyDump(data), b: JSON.stringify(ex) };
+}
+
+/* ---------- load ---------- */
+function init(data, extra) {
+  P = data.map(function (r, i) {
+    var x = extra[r.n] || [], p = { id: i, n: r.n, d: r.d, ds: r.ds || "", lat: r.lat, lon: r.lon, status: r.status || "", icon: x[0] || "", ml: x[1] || "", t: x[2] || "" };
+    if (p.icon === autoIcon(p)) p.icon = "";
+    p.o = fields(p); return p;
+  });
+  N0 = P.length;
+  var ds = {}; P.forEach(function (p) { ds[p.d] = (ds[p.d] || 0) + 1; });
+  var names = Object.keys(ds).sort();
+  $("fDio").innerHTML = '<option value="">All dioceses</option>' + names.map(function (d) { return '<option>' + esc(d) + "</option>"; }).join("");
+  $("fDiocese").innerHTML = names.map(function (d) { return '<option>' + esc(d) + "</option>"; }).join("");
+  $("fType").innerHTML = TYPES.map(function (t) { return '<option value="' + t[0] + '">' + esc(t[1]) + "</option>"; }).join("");
+  $("fIcon").innerHTML = ICONS.map(function (t) { return '<option value="' + t[0] + '">' + esc(t[1]) + "</option>"; }).join("");
+  P.forEach(addMarker);
+  $("loadmsg").textContent = P.length.toLocaleString() + " places · edit, add or remove, then publish.";
+  $("listView").hidden = false; loaded = true;
+  renderList(); refreshFoot();
+}
+function loadRemote() {
+  var bust = "?v=" + Date.now();
+  return Promise.all([fetch("malankara.json" + bust, { cache: "no-store" }), fetch("map-extra.json" + bust, { cache: "no-store" })]).then(function (r) {
+    if (!r[0].ok || !r[1].ok) throw new Error("fetch");
+    return Promise.all([r[0].json(), r[1].json()]);
+  }).then(function (j) { init(j[0], j[1]); });
+}
+function askFiles() { $("dlgFiles").showModal(); }
+$("fileGo").addEventListener("click", function () {
+  var a = $("fileA").files[0], b = $("fileB").files[0];
+  if (!a || !b) { $("fileMsg").textContent = "Please choose both files."; return; }
+  Promise.all([a.text(), b.text()]).then(function (t) { init(JSON.parse(t[0]), JSON.parse(t[1])); $("dlgFiles").close(); }).catch(function () { $("fileMsg").textContent = "Those don’t look like the right files."; });
+});
+
+/* ---------- map ---------- */
+function setBase(b) {
+  layers.forEach(function (l) { map.removeLayer(l); });
+  var E = "https://server.arcgisonline.com/ArcGIS/rest/services/";
+  layers = b === "sat"
+    ? [L.tileLayer(E + "World_Imagery/MapServer/tile/{z}/{y}/{x}", { maxZoom: 19 }), L.tileLayer(E + "Reference/World_Boundaries_and_Places/MapServer/tile/{z}/{y}/{x}", { maxZoom: 19, pane: "labels" })]
+    : [L.tileLayer(E + "Canvas/World_Light_Gray_Base/MapServer/tile/{z}/{y}/{x}", { maxZoom: 19, maxNativeZoom: 16 }), L.tileLayer(E + "Canvas/World_Light_Gray_Reference/MapServer/tile/{z}/{y}/{x}", { maxZoom: 19, maxNativeZoom: 16, pane: "labels" })];
+  layers.forEach(function (l) { l.addTo(map); });
+  Array.prototype.forEach.call(document.querySelectorAll(".basebar button"), function (x) { x.setAttribute("aria-pressed", x.getAttribute("data-b") === b ? "true" : "false"); });
+}
+function initMap() {
+  map = L.map("map", { zoomControl: false, attributionControl: false, minZoom: 2, maxZoom: 19, worldCopyJump: true, preferCanvas: true, zoomSnap: .5 }).setView([20, 40], 2.5);
+  L.control.zoom({ position: "topleft" }).addTo(map);
+  map.createPane("labels").style.zIndex = 250; map.getPane("labels").style.pointerEvents = "none";
+  renderer = L.canvas({ padding: .5 });
+  setBase("sat");
+  Array.prototype.forEach.call(document.querySelectorAll(".basebar button"), function (x) { x.addEventListener("click", function () { setBase(x.getAttribute("data-b")); }); });
+  map.on("click", function (e) { if (pickMode && editing) { setPin(e.latlng.lat, e.latlng.lng, true); setPick(false); } });
+}
+function styleOf(p) { return { radius: 5, weight: p.status ? 2 : 1.2, color: p.status === "caution" ? "#D97706" : p.status === "death" ? "#111827" : "#ffffff", fillColor: colOf(p.d), fillOpacity: .92 }; }
+function addMarker(p) {
+  p.m = L.circleMarker([p.lat, p.lon], Object.assign({ renderer: renderer }, styleOf(p))).addTo(map);
+  p.m.on("click", function () { if (editing) { toast("Save or cancel the open place first"); return; } select(p, false); });
+  p.m.bindTooltip(function () { return esc(p.n); }, { direction: "top", offset: [0, -4] });
+}
+function pinIcon() {
+  return L.divIcon({ className: "", iconSize: [30, 40], iconAnchor: [15, 39], html: '<svg class="pin" viewBox="0 0 32 42"><path d="M16 40.5C16 40.5 29.4 26.6 29.4 15.4A13.4 13.4 0 0 0 2.6 15.4C2.6 26.6 16 40.5 16 40.5Z" fill="#C8A24A" stroke="#fff" stroke-width="2.2"/><circle cx="16" cy="15.4" r="5" fill="#fff"/></svg>' });
+}
+function setPin(lat, lon, fly) {
+  lat = +lat; lon = +lon; if (!isFinite(lat) || !isFinite(lon)) return;
+  $("fLat").value = round(lat); $("fLon").value = round(lon);
+  if (!editPin) {
+    editPin = L.marker([lat, lon], { draggable: true, icon: pinIcon(), zIndexOffset: 1000 }).addTo(map);
+    editPin.on("dragend", function () { var q = editPin.getLatLng(); $("fLat").value = round(q.lat); $("fLon").value = round(q.lng); });
+  } else editPin.setLatLng([lat, lon]);
+  if (fly) map.flyTo([lat, lon], Math.max(map.getZoom(), 15), { duration: .8 });
+}
+function round(n) { return Math.round(n * 1e7) / 1e7; }
+function setPick(on) { pickMode = on; $("hint").classList.toggle("on", on); $("mapwrap").classList.toggle("crosshair", on); $("pickBtn").textContent = on ? "Cancel placing" : "Click the map to place the pin"; }
+
+/* ---------- list ---------- */
+function renderList() {
+  var q = norm($("q").value.trim()), fd = $("fDio").value, fc = $("fChg").value;
+  var out = [];
+  for (var i = 0; i < P.length; i++) {
+    var p = P[i]; if (p.deleted) continue;
+    if (fd && p.d !== fd) continue;
+    if (fc && !stateOf(p)) continue;
+    if (q) { var k = norm(p.n); var hit = k.indexOf(q) > -1 || norm(p.d).indexOf(q) > -1 || (p.ml && p.ml.indexOf($("q").value.trim()) > -1); if (!hit) continue; p._r = k.indexOf(q) === 0 ? 0 : k.indexOf(q) > -1 ? 1 : 2; } else p._r = 0;
+    out.push(p);
+  }
+  if (q) out.sort(function (a, b) { return a._r - b._r || a.n.length - b.n.length; });
+  $("count").textContent = out.length.toLocaleString() + (out.length === 1 ? " place" : " places") + (out.length > 100 ? " · showing the first 100" : "");
+  $("results").innerHTML = out.length ? out.slice(0, 100).map(function (p) {
+    var s = stateOf(p), t = TYPE_NAME[p.t] && p.t ? " · " + TYPE_NAME[p.t] : "";
+    return '<button type="button" class="item" data-i="' + p.id + '"><b>' + esc(p.n) + '</b><span><i class="dot" style="background:' + colOf(p.d) + '"></i>' + esc(p.d) + t + (s ? ' <em class="tag ' + (s === "new" ? "new" : "edit") + '" style="font-style:normal">' + (s === "new" ? "New" : "Edited") + "</em>" : "") + "</span></button>";
+  }).join("") : '<div class="empty">Nothing matches.</div>';
+}
+$("results").addEventListener("click", function (e) { var b = e.target.closest(".item"); if (b) select(P[+b.getAttribute("data-i")], true); });
+$("q").addEventListener("input", renderList); $("fDio").addEventListener("change", renderList); $("fChg").addEventListener("change", renderList);
+
+/* ---------- edit form ---------- */
+function select(p, fly) {
+  editing = p; setPick(false);
+  $("listView").hidden = true; $("formView").hidden = false; $("scroll").scrollTop = 0;
+  $("formTitle").textContent = p.isNew ? "New place" : "Edit place";
+  $("fName").value = p.n; $("fMl").value = p.ml; $("fDiocese").value = p.d; $("fStatus").value = p.status;
+  $("fType").value = p.t; $("fIcon").value = p.icon; $("fDesc").value = p.ds;
+  $("fAddr").value = ""; $("fPaste").value = "";
+  $("delBtn").hidden = !!p.isNew; $("secretWarn").hidden = p.icon !== "z";
+  if (selRing) { map.removeLayer(selRing); selRing = null; }
+  setPin(p.lat, p.lon, false);
+  if (fly !== false) map.flyTo([p.lat, p.lon], Math.max(map.getZoom(), 15), { duration: .9 });
+}
+function closeForm() {
+  editing = null; setPick(false);
+  if (editPin) { map.removeLayer(editPin); editPin = null; }
+  $("formView").hidden = true; $("listView").hidden = false; renderList();
+}
+$("fIcon").addEventListener("change", function () { $("secretWarn").hidden = $("fIcon").value !== "z"; });
+$("pickBtn").addEventListener("click", function () { setPick(!pickMode); });
+$("backBtn").addEventListener("click", cancelEdit); $("cancelBtn").addEventListener("click", cancelEdit);
+function cancelEdit() { var p = editing; if (p && p.isNew && !p.saved) discardNew(p); closeForm(); }
+function discardNew(p) { if (p.m) map.removeLayer(p.m); P.splice(P.indexOf(p), 1); }
+$("addBtn").addEventListener("click", function () {
+  var c = map.getCenter(), cur = $("fDio").value || $("fDiocese").options[0].value;
+  var p = { id: P.length, n: "", d: cur, ds: "", lat: round(c.lat), lon: round(c.lng), status: "", icon: "", ml: "", t: "F", isNew: true, saved: false };
+  P.push(p); p.o = ""; select(p, false);
+  $("fName").focus();
+});
+$("fPaste").addEventListener("input", function () { var c = parseCoords($("fPaste").value); if (c) { setPin(c[0], c[1], true); toast("Pin moved"); } });
+$("fLat").addEventListener("change", syncPinFromInputs); $("fLon").addEventListener("change", syncPinFromInputs);
+function syncPinFromInputs() { var a = parseFloat($("fLat").value), b = parseFloat($("fLon").value); if (isFinite(a) && isFinite(b)) setPin(a, b, true); }
+function findAddr() {
+  var q = $("fAddr").value.trim(); if (!q) return;
+  $("addrBtn").disabled = true;
+  fetch("https://nominatim.openstreetmap.org/search?format=json&limit=1&q=" + encodeURIComponent(q)).then(function (r) { return r.json(); }).then(function (r) {
+    if (!r.length) { toast("Couldn’t find that place"); return; }
+    setPin(parseFloat(r[0].lat), parseFloat(r[0].lon), true);
+  }).catch(function () { toast("Search failed, try again"); }).then(function () { $("addrBtn").disabled = false; });
+}
+$("addrBtn").addEventListener("click", findAddr);
+$("fAddr").addEventListener("keydown", function (e) { if (e.key === "Enter") { e.preventDefault(); findAddr(); } });
+
+$("formView").addEventListener("submit", function (e) {
+  e.preventDefault();
+  var p = editing; if (!p) return;
+  var n = $("fName").value.trim().replace(/\s+/g, " "), lat = parseFloat($("fLat").value), lon = parseFloat($("fLon").value);
+  if (!n) { toast("Please enter a name"); $("fName").focus(); return; }
+  if (!(lat >= -90 && lat <= 90 && lon >= -180 && lon <= 180)) { toast("Please set a valid location"); return; }
+  var dup = P.some(function (q) { return q !== p && !q.deleted && q.n === n; });
+  if (dup && !confirm("Another place already has this exact name. That is only right for a church claimed by two dioceses. Save anyway?")) return;
+  var oldName = p.n;
+  p.n = n; p.d = $("fDiocese").value; p.ds = $("fDesc").value.trim(); p.lat = lat; p.lon = lon;
+  p.status = $("fStatus").value; p.ml = $("fMl").value.trim(); p.t = $("fType").value; p.icon = $("fIcon").value;
+  if (p.icon === autoIcon(p)) p.icon = "";
+  /* places that share one name share one symbol, Malayalam name and type */
+  if (!p.isNew || p.saved) P.forEach(function (q) { if (q !== p && !q.deleted && q.n === oldName && oldName === n) { q.ml = p.ml; q.t = p.t; q.icon = p.icon; if (q.icon === autoIcon(q)) q.icon = ""; } });
+  p.saved = true;
+  if (!p.m) addMarker(p); else { p.m.setLatLng([lat, lon]); p.m.setStyle(styleOf(p)); }
+  closeForm(); toast(p.isNew ? "Place added" : "Place saved"); refreshFoot();
+  map.flyTo([lat, lon], Math.max(map.getZoom(), 14), { duration: .8 });
+});
+$("delBtn").addEventListener("click", function () {
+  var p = editing; if (!p) return;
+  if (!confirm("Remove “" + p.n + "” from the map?")) return;
+  p.deleted = true; if (p.m) map.removeLayer(p.m); closeForm(); toast("Place removed"); refreshFoot();
+});
+
+/* ---------- footer / review / download ---------- */
+function refreshFoot() {
+  var c = changes();
+  $("pending").innerHTML = c.n ? "<b>" + c.n + "</b> unsaved " + (c.n === 1 ? "change" : "changes") : "No changes yet";
+  $("dlBtn").disabled = $("pubBtn").disabled = !c.n;
+  renderList();
+}
+window.addEventListener("beforeunload", function (e) { if (loaded && changes().n) { e.preventDefault(); e.returnValue = ""; } });
+$("reviewBtn").addEventListener("click", function () {
+  var c = changes(), h = "";
+  c.a.forEach(function (p) { h += '<div><em class="a">Added</em><span>' + esc(p.n) + " · " + esc(p.d) + "</span></div>"; });
+  c.e.forEach(function (p) { h += '<div><em class="e">Edited</em><span>' + esc(p.n) + "</span></div>"; });
+  c.d.forEach(function (p) { h += '<div><em class="d">Removed</em><span>' + esc(p.n) + "</span></div>"; });
+  $("chgList").innerHTML = h || '<div class="small">No changes yet.</div>'; $("dlgChanges").showModal();
+});
+$("chgClose").addEventListener("click", function () { $("dlgChanges").close(); });
+function download(name, text) {
+  var a = document.createElement("a"); a.href = URL.createObjectURL(new Blob([text], { type: "application/json" })); a.download = name;
+  document.body.appendChild(a); a.click(); setTimeout(function () { URL.revokeObjectURL(a.href); a.remove(); }, 800);
+}
+$("dlBtn").addEventListener("click", function () {
+  var f = buildFiles(); download("malankara.json", f.a); setTimeout(function () { download("map-extra.json", f.b); }, 350);
+  toast("Both files downloaded — upload them to the site, replacing the old ones");
+});
+
+/* ---------- publish to GitHub ---------- */
+function b64(text) { var u = new TextEncoder().encode(text), s = ""; for (var i = 0; i < u.length; i += 0x8000) s += String.fromCharCode.apply(null, u.subarray(i, i + 0x8000)); return btoa(s); }
+function ghPut(cfg, path, text, msg) {
+  var api = "https://api.github.com/repos/" + cfg.repo + "/contents/" + (cfg.dir ? cfg.dir.replace(/^\/|\/$/g, "") + "/" : "") + path;
+  var h = { Authorization: "Bearer " + cfg.tok, Accept: "application/vnd.github+json" };
+  return fetch(api + "?ref=" + encodeURIComponent(cfg.branch), { headers: h }).then(function (g) {
+    if (g.status === 404) return null;
+    if (!g.ok) throw new Error("GitHub said " + g.status + " while reading " + path + (g.status === 401 || g.status === 403 ? " (check the token)" : ""));
+    return g.json().then(function (j) { return j.sha; });
+  }).then(function (sha) {
+    var body = { message: msg, content: b64(text), branch: cfg.branch }; if (sha) body.sha = sha;
+    return fetch(api, { method: "PUT", headers: h, body: JSON.stringify(body) });
+  }).then(function (r) { if (!r.ok) return r.json().catch(function () { return {}; }).then(function (j) { throw new Error("GitHub said " + r.status + " while saving " + path + (j.message ? ": " + j.message : "")); }); });
+}
+function loadCfg() {
+  var s = {}; try { s = JSON.parse(localStorage.getItem("studio-gh") || "{}"); } catch (e) {}
+  $("gRepo").value = s.repo || ""; $("gBranch").value = s.branch || "main"; $("gDir").value = s.dir || ""; $("gTok").value = s.tok || ""; $("gRem").checked = !!s.tok || !!s.repo;
+}
+$("pubBtn").addEventListener("click", function () { loadCfg(); $("pubMsg").textContent = ""; $("pubMsg").className = "msg"; $("dlgPub").showModal(); });
+$("pubClose").addEventListener("click", function () { $("dlgPub").close(); });
+$("pubGo").addEventListener("click", function () {
+  var cfg = { repo: $("gRepo").value.trim(), branch: $("gBranch").value.trim() || "main", dir: $("gDir").value.trim(), tok: $("gTok").value.trim() }, m = $("pubMsg");
+  if (!/^[\w.-]+\/[\w.-]+$/.test(cfg.repo) || !cfg.tok) { m.className = "msg err"; m.textContent = "Enter the repository (owner/name) and your token."; return; }
+  try { if ($("gRem").checked) localStorage.setItem("studio-gh", JSON.stringify(cfg)); else localStorage.removeItem("studio-gh"); } catch (e) {}
+  var c = changes(), f = buildFiles(), msg = "Directory Studio: " + (c.a.length ? c.a.length + " added, " : "") + (c.e.length ? c.e.length + " edited, " : "") + (c.d.length ? c.d.length + " removed, " : "");
+  msg = msg.replace(/, $/, "");
+  $("pubGo").disabled = true; m.className = "msg"; m.textContent = "Publishing…";
+  ghPut(cfg, "malankara.json", f.a, msg).then(function () { m.textContent = "Saving the symbols file…"; return ghPut(cfg, "map-extra.json", f.b, msg); }).then(function () {
+    m.className = "msg ok"; m.textContent = "Published. The site updates in a minute or two — hard-refresh the map to see it.";
+    P.forEach(function (p) { if (p.deleted) return; p.o = fields(p); p.isNew = false; }); P = P.filter(function (p) { return !p.deleted; }); P.forEach(function (p, i) { p.id = i; }); refreshFoot();
+  }).catch(function (e) { m.className = "msg err"; m.textContent = e.message || "Publishing failed."; }).then(function () { $("pubGo").disabled = false; });
+});
+
+/* ---------- toast ---------- */
+var tt; function toast(s) { var t = $("toast"); t.textContent = s; t.classList.add("on"); clearTimeout(tt); tt = setTimeout(function () { t.classList.remove("on"); }, 2800); }
+
+/* ---------- go ---------- */
+window.__studio = { autoIcon: autoIcon, parseCoords: parseCoords, pyDump: pyDump, init: init, buildFiles: buildFiles, changes: changes, P: function () { return P; } };
+initMap();
+loadRemote().catch(function () { $("loadmsg").textContent = "Couldn’t reach the site files."; askFiles(); });
+})();
+</script>
+</body>
+</html>
