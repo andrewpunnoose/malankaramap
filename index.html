@@ -6682,7 +6682,7 @@ html[lang="ml"] .msn-eyebrow{letter-spacing:normal}
     <script>!function(){var e=document.getElementById("mapScrollBtn"),t=document.getElementById("tools");e&&t&&e.addEventListener("click",function(){t.scrollIntoView({behavior:"smooth",block:"start"})})}()</script>
         <section id="today" class="tdc px-5 sm:px-8" aria-labelledby="tdcTitle">
 <style>
-.tdc{--t-ink:#10140D;--t-body:#333A2D;--t-muted:#7E8774;--t-line:#DBE1D2;--t-card:#FBFAF5;--t-soft:rgba(186,148,80,.14);--t-sage:#4A5D3D;--t-gold:#BA9450;--t-taupe:#7C6A4A;max-width:72rem;margin:0 auto;padding:1.5rem 0 .5rem;font-family:Inter,system-ui,sans-serif}
+.tdc{--t-ink:#10140D;--t-body:#333A2D;--t-muted:#7E8774;--t-line:#DBE1D2;--t-card:#FBFAF5;--t-soft:rgba(186,148,80,.14);--t-sage:#4A5D3D;--t-gold:#BA9450;--t-taupe:#7C6A4A;max-width:72rem;margin:0 auto;padding:2.25rem 0 0;font-family:Inter,system-ui,sans-serif}
 .dark .tdc{--t-ink:#F7F5EE;--t-body:rgba(247,245,238,.82);--t-muted:rgba(247,245,238,.5);--t-line:rgba(255,255,255,.11);--t-card:#1B2330;--t-soft:rgba(212,176,106,.14);--t-sage:#A5BD92;--t-gold:#D4B06A;--t-taupe:#D4B06A}
 .tdc-card{display:grid;grid-template-columns:auto minmax(0,1.5fr) minmax(0,1fr);gap:0;background:var(--t-card);border:1px solid var(--t-line);border-radius:22px;box-shadow:0 8px 30px rgba(17,24,39,.08);overflow:hidden}
 .dark .tdc-card{box-shadow:0 14px 40px rgba(0,0,0,.35)}
@@ -6690,9 +6690,10 @@ html[lang="ml"] .msn-eyebrow{letter-spacing:normal}
 .dark .tdc-date{background:linear-gradient(140deg,#1D2A21 0%,#2A3B2E 58%,#35493A 100%)}
 .tdc-eyebrow,.tdc-day,.tdc-mon,.tdc-wd{display:block}
 .tdc-eyebrow{font-size:10px;letter-spacing:.2em;text-transform:uppercase;font-weight:600;color:#D4B06A}
-.tdc-day{font-family:Marcellus,Georgia,serif;font-size:3.6rem;line-height:1;margin:.55rem 0 .25rem}
-.tdc-mon{font-family:Marcellus,Georgia,serif;font-size:1.05rem}
-.tdc-wd{font-size:11.5px;opacity:.78;margin-top:.15rem}
+.tdc-eyebrow{margin-bottom:.8rem}
+.tdc-day{font-family:Marcellus,Georgia,serif;font-size:3.6rem;line-height:1;margin:0}
+.tdc-mon{font-family:Marcellus,Georgia,serif;font-size:1.05rem;line-height:1.25;margin-top:.6rem}
+.tdc-wd{font-size:11.5px;line-height:1.25;opacity:.78;margin-top:.3rem}
 .tdc-main{padding:1.5rem 1.7rem;min-width:0}
 .tdc-h{font-family:Marcellus,Georgia,serif;font-weight:400;font-size:1.35rem;line-height:1.25;color:var(--t-ink);margin:0 0 .85rem}
 .tdc-h em{font-style:italic;color:var(--t-sage)}
@@ -6713,9 +6714,13 @@ html[lang="ml"] .msn-eyebrow{letter-spacing:normal}
 .tdc-go{display:inline-block;margin-top:1rem;font-size:12.5px;font-weight:600;color:var(--t-sage);text-decoration:none;border-bottom:1px solid transparent;transition:border-color .2s}
 .tdc-go:hover,.tdc-more:hover{border-bottom-color:currentColor}
 html[lang="ml"] .tdc .tdc-eyebrow,html[lang="ml"] .tdc .tdc-cat,html[lang="ml"] .tdc .tdc-sh{letter-spacing:normal;text-transform:none}
-html[lang="ml"] .tdc .tdc-h,html[lang="ml"] .tdc .tdc-t,html[lang="ml"] .tdc .tdc-day,html[lang="ml"] .tdc .tdc-mon{font-family:"Noto Serif Malayalam",serif}
+html[lang="ml"] .tdc,html[lang="ml"] .tdc a{font-family:Inter,"Noto Serif Malayalam",serif}
+html[lang="ml"] .tdc .tdc-h,html[lang="ml"] .tdc .tdc-t,html[lang="ml"] .tdc .tdc-day,html[lang="ml"] .tdc .tdc-mon{font-family:Marcellus,"Noto Serif Malayalam",serif}
 html[lang="ml"] .tdc .tdc-t{line-height:1.65}
+html[lang="ml"] .tdc .tdc-mon,html[lang="ml"] .tdc .tdc-wd{line-height:1.55}
 html[lang="ml"] .tdc .tdc-up a{grid-template-columns:5.6rem minmax(0,1fr)}
+#today ~ #numbers{padding-top:2.25rem!important}
+@media (min-width:1024px){#today ~ #numbers{padding-top:2.25rem!important}}
 @media (max-width:860px){
   .tdc-card{grid-template-columns:minmax(0,1fr)}
   .tdc-date{flex-direction:row;gap:1rem;justify-content:flex-start;text-align:left;padding:1.1rem 1.3rem;min-width:0}
@@ -6751,7 +6756,7 @@ html[lang="ml"] .tdc .tdc-up a{grid-template-columns:5.6rem minmax(0,1fr)}
     var l=lg(), now=new Date(), td=iso(now), first=D.dates[0], last=D.dates[D.dates.length-1];
     var inY=td.slice(0,4)==='2026', ref=inY?td:(td<'2026'?'2026-01-01':null);
     var dateStr=ref||'2026-01-01', pr=dateStr.split('-'), dt=new Date(+pr[0],+pr[1]-1,+pr[2]);
-    document.getElementById('tdcDate').innerHTML='<div class="tdc-dt"><span class="tdc-eyebrow">'+esc(t('eyebrow'))+'</span></div>'+'<div class="tdc-dt"><span class="tdc-day">'+dt.getDate()+'</span><span class="tdc-mon">'+esc(M[l][dt.getMonth()])+'</span><span class="tdc-wd">'+esc(W[l][dt.getDay()])+'</span></div>';
+    document.getElementById('tdcDate').innerHTML='<div class="tdc-dt"><span class="tdc-eyebrow">'+esc(t('eyebrow'))+'</span></div>'+'<div class="tdc-dt"><span class="tdc-day">'+dt.getDate()+'</span> <span class="tdc-mon">'+esc(M[l][dt.getMonth()])+'</span> <span class="tdc-wd">'+esc(W[l][dt.getDay()])+'</span></div>';
     var main='', side='';
     if(!ref){
       main='<h3 class="tdc-h" id="tdcTitle">'+esc(t('eyebrow'))+'</h3><p class="tdc-none">'+esc(t('ended'))+'</p>';
@@ -6786,159 +6791,7 @@ html[lang="ml"] .tdc .tdc-up a{grid-template-columns:5.6rem minmax(0,1fr)}
 })();
 </script>
     </section>
-    <section class="relative sec-tight-y" id="tools">
-      <div class="tool-row-track" tabindex="0" aria-label="Scrollable tools: locate nearest parish, request Qurbana, discover a parish at random">
-        <div class="tool-row-inner">
-          <div id="nearest" class="tool-card reveal premium-card texture-paper rounded-2xl border border-gold/25 shadow-medium px-6 py-10 sm:px-8 text-center">
-            <div class="font-sans text-[10.5px] tracking-[0.2em] uppercase text-taupe font-semibold mb-4" data-en="3,640 Locations, Mapped by Coordinate" data-ml="3,640 സ്ഥലങ്ങൾ, കോർഡിനേറ്റ് പ്രകാരം അടയാളപ്പെടുത്തിയത്">
-              3,640 Locations, Mapped by Coordinate
-            </div>
-            <h3 class="font-serif italic text-xl sm:text-2xl text-ink dark:text-ivory mb-3" data-en="Locate the Nearest Parish" data-ml="ഏറ്റവും അടുത്തുള്ള ഇടവക കണ്ടെത്തുക">Locate the Nearest Parish</h3>
-            <p class="text-[13.5px] text-body/80 dark:text-ivory/65 mb-6 leading-relaxed" data-en="Enter any place in the world, and the five nearest churches, chapels, or cathedrals will be identified." data-ml="ലോകത്തിലെ ഏതെങ്കിലും സ്ഥലം നൽകുക, ഏറ്റവും അടുത്തുള്ള അഞ്ച് പള്ളികൾ കണ്ടെത്തുന്നതാണ്.">Enter any place in the world, and the five nearest churches, chapels, or cathedrals will be identified.</p>
-            <form id="nearestForm" class="flex flex-col gap-3 mb-3" name="nearestForm">
-              <input id="nearestInput" placeholder="e.g. Dallas, Texas" autocomplete="off" data-en-placeholder="e.g. Dallas, Texas" data-ml-placeholder="ഉദാ. ഡാളസ്, ടെക്സാസ്" class="w-full font-sans text-sm px-4 py-3 rounded-full border border-line dark:border-white/15 bg-ivory dark:bg-midnight text-ink dark:text-ivory placeholder:text-muted focus:outline-none focus:border-sage transition-colors"> <button type="submit" id="nearestBtn" class="font-sans text-xs font-semibold tracking-[0.1em] uppercase bg-sage text-white px-9 py-3 rounded-full hover:bg-sage-dark transition-colors disabled:opacity-50 disabled:cursor-default shrink-0" data-en="Find nearest" data-ml="അടുത്തുള്ളത് കണ്ടെത്തുക">Find nearest</button>
-            </form><button type="button" id="nearestLocBtn" class="inline-flex items-center gap-1.5 font-serif italic text-sage-dark dark:text-sage hover:text-sage-dark transition-colors text-sm underline underline-offset-4 decoration-sage/40 disabled:opacity-50 disabled:cursor-default mb-2"><span data-en="or use my current location" data-ml="അല്ലെങ്കിൽ എന്റെ നിലവിലെ സ്ഥാനം ഉപയോഗിക്കുക">or use my current location</span></button>
-            <p class="font-sans text-[11px] text-muted mb-2" id="nearestStatus">&nbsp;</p>
-            <div id="nearestResults" class="hidden text-left flex flex-col gap-3 mt-4"></div>
-          </div>
-          <div id="qurbana" class="tool-card reveal premium-card texture-paper rounded-2xl border border-gold/25 shadow-medium px-6 py-10 sm:px-8 text-center">
-            <div class="font-sans text-[10.5px] tracking-[0.2em] uppercase text-taupe font-semibold mb-4" data-en="No Parish Nearby?" data-ml="അടുത്ത് ഇടവക ഇല്ലേ?">
-              No Parish Nearby?
-            </div>
-            <h3 class="font-serif italic text-xl sm:text-2xl text-ink dark:text-ivory mb-3" data-en="Request Qurbana" data-ml="കുർബാന അഭ്യർത്ഥിക്കുക">Request Qurbana</h3>
-            <p class="text-[13.5px] text-body/80 dark:text-ivory/65 mb-8 leading-relaxed" data-en="If no parish is nearby, let us know — we work to bring Qurbana to underserved communities wherever the faithful may be." data-ml="അടുത്ത് ഇടവക ഇല്ലെങ്കിൽ, അറിയിക്കുക — സാന്നിധ്യമില്ലാത്ത സമൂഹങ്ങളിലേക്ക് കുർബാന എത്തിക്കാൻ ഞങ്ങൾ പ്രവർത്തിക്കുന്നു.">If no parish is nearby, let us know — we work to bring Qurbana to underserved communities wherever the faithful may be.</p><a href="https://forms.gle/bPzyM9xmCwwNF7PSA" target="_blank" rel="noopener" class="inline-flex items-center gap-2 font-sans text-xs font-semibold tracking-[0.1em] uppercase bg-sage text-white px-9 py-3 rounded-full hover:bg-sage-dark transition-colors" data-en="Request Qurbana" data-ml="കുർബാന അഭ്യർത്ഥിക്കുക">Request Qurbana</a>
-          </div>
-          <div id="discover" class="tool-card reveal premium-card texture-paper rounded-2xl border border-gold/25 shadow-medium px-6 py-10 sm:px-8 text-center">
-            <div class="font-sans text-[10.5px] tracking-[0.2em] uppercase text-taupe font-semibold mb-4" data-en="276 Parishes, Their Own Words" data-ml="276 ഇടവകകൾ, അവരുടെ സ്വന്തം വാക്കുകളിൽ">
-              276 Parishes, Their Own Words
-            </div>
-            <div id="discoverIntro">
-              <h3 class="font-serif italic text-xl sm:text-2xl text-ink dark:text-ivory mb-3" data-en="Consult an Entry" data-ml="ഒരു എൻട്രി കാണുക">Consult an Entry</h3>
-              <p class="text-[13.5px] text-body/80 dark:text-ivory/65 mb-6 leading-relaxed" data-en="Behind every marker lies a history someone chose to set down — a founding date, a first Qurbana, a gathering of families." data-ml="ഓരോ അടയാളത്തിനും പിന്നിൽ ഒരു ചരിത്രമുണ്ട് — ഒരു സ്ഥാപന തീയതി, ആദ്യ കുർബാന, കുടുംബങ്ങളുടെ ഒത്തുചേരൽ.">Behind every marker lies a history someone chose to set down — a founding date, a first Qurbana, a gathering of families.</p><button class="font-sans text-xs font-semibold tracking-[0.1em] uppercase bg-sage text-white px-8 py-3.5 rounded-full hover:bg-sage-dark transition-colors disabled:opacity-50 disabled:cursor-default" id="discoverBtn" data-en="Surprise Me" data-ml="എന്നെ അതിശയിപ്പിക്കൂ">Surprise Me</button>
-            </div>
-            <div class="hidden text-left" id="discoverResult">
-              <div class="flex items-center gap-2.5 font-sans text-[11px] tracking-[0.1em] uppercase text-body/55 dark:text-ivory/45 mb-5">
-                <span class="w-2.5 h-2.5 rounded-full shrink-0" id="drDot"></span><span id="drDiocese"></span>
-              </div>
-              <h3 class="font-serif italic font-normal text-lg sm:text-xl text-ink dark:text-ivory mb-5 leading-[1.25]" id="drName"></h3>
-              <div id="drDescWrap" class="space-y-4"></div><button class="font-serif italic text-[15px] text-sage-dark dark:text-sage hover:text-sage transition-colors underline underline-offset-4 decoration-sage/40 mt-2" id="drAgain" data-en="Consult another →" data-ml="മറ്റൊന്ന് കാണുക →">Consult another →</button>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-    <script>
-    ! function() {
-    var e = {
-      Thiruvananthapuram: ["#817713", "1979"],
-      Kollam: ["#757575", "1877"],
-      "Kottarakkara-Punalur": ["#FF5252", "2010"],
-      "Adoor-Kadampanad": ["#1A237E", "2002"],
-      Thumpamon: ["#9C27B0", "1877"],
-      Mavelikara: ["#E65100", "2002"],
-      Chengannur: ["#AFB42B", "2002"],
-      Niranam: ["#000000", "1877"],
-      Nilackal: ["#FBC02D", "2010"],
-      Kottayam: ["#0288D1", "1877"],
-      "Kottayam Central": ["#880E4F", "1982"],
-      Idukki: ["#795548", "1982"],
-      "Kandanad East": ["#673AB7", "2002"],
-      "Kandanad West": ["#FFEA00", "2002"],
-      Angamaly: ["#F57C00", "1877"],
-      Kochi: ["#558B2F", "1877"],
-      Thrissur: ["#424242", "1982"],
-      Kunnamkulam: ["#A52714", "1985"],
-      Malabar: ["#4E342E", "1953"],
-      "Sulthan Bathery": ["#006064", "1986"],
-      Brahmavar: ["#3949AB", "2010"],
-      Madras: ["#7CB342", "1976"],
-      Bangalore: ["#F9A825", "2009"],
-      Bombay: ["#817713", "1976"],
-      Calcutta: ["#A52714", "1979"],
-      Delhi: ["#558B2F", "1976"],
-      Ahmedabad: ["#880E4F", "2009"],
-      "Asia-Pacific": ["#3949AB", "2024"],
-      "Northeast America": ["#9C27B0", "2009"],
-      "Southwest America": ["#F57C00", "2009"],
-      Canada: ["#0288D1", "2024"],
-      "UK-Europe-Africa": ["#0F9D58", "2009"],
-      Knanaya: ["#BDBDBD", "1910"],
-      "Evangelistic Association of the East": ["#C2185B", "1924"],
-      "Proprietary Churches": ["#673AB7", ""]
-    },
-    t = null,
-    n = !1,
-    a = document.getElementById("discoverBtn"),
-    r = document.getElementById("drAgain"),
-    i = document.getElementById("discoverIntro"),
-    o = document.getElementById("discoverResult");
-
-    function d() {
-    var n = t[Math.floor(Math.random() * t.length)],
-      a = n.n || n.name || n.Name || window.SM("Unnamed location", "പേരില്ലാത്ത സ്ഥലം"),
-      r = n.d || n.diocese || n.Diocese || "",
-      d = c(n);
-    document.getElementById("drName").textContent = a;
-    var l = e[r];
-    document.getElementById("drDot").style.background = l ? l[0] : "#8B7355";
-    var s = r ? window.DIO(r) : window.SM("Diocese unrecorded", "ഭദ്രാസനം രേഖപ്പെടുത്തിയിട്ടില്ല");
-    l && l[1] && (s += window.SM(" · Est. ", " · സ്ഥാപിതം ") + l[1]), document.getElementById("drDiocese").textContent = s;
-    var u = document.getElementById("drDescWrap");
-    if (u.innerHTML = "", d) {
-      var m = function(e) {
-        var t = [],
-          n = e.replace(/<img[^>]*src=["']([^"']+)["'][^>]*>/gi, function(e, n) {
-            return t.push(n), "\n\n"
-          });
-        n = (n = (n = n.replace(/<br\s*\/?>\s*<br\s*\/?>/gi, "\n\n")).replace(/<br\s*\/?>/gi, "\n")).replace(/<[^>]+>/g, " ");
-        var a = document.createElement("div");
-        return a.innerHTML = n, {
-          paras: (n = a.textContent || a.innerText || "").split(/\n{2,}/).map(function(e) {
-            return e.replace(/\s+/g, " ").trim()
-          }).filter(Boolean),
-          images: t
-        }
-      }(d);
-      m.paras.forEach(function(e) {
-        var t = document.createElement("p");
-        t.className = "text-[14.5px] text-body/80 dark:text-ivory/65 leading-[1.8]", t.textContent = e, u.appendChild(t)
-      }), m.images.forEach(function(e) {
-        var t = document.createElement("img");
-        t.className = "w-full h-auto block rounded-lg border border-line dark:border-white/10", t.alt = a, t.loading = "lazy", t.onerror = function() {
-          t.remove()
-        }, u.appendChild(t)
-      })
-    } else {
-      var h = document.createElement("p");
-      h.className = "text-[14.5px] text-body/50 dark:text-ivory/40 italic leading-[1.8]", h.textContent = window.SM("No written history has yet been recorded for this entry — yet it retains its own pin upon the map, and its own place within the Church.", "ഈ എൻട്രിയുടെ ചരിത്രം ഇതുവരെ രേഖപ്പെടുത്തിയിട്ടില്ല; എങ്കിലും ഭൂപടത്തിൽ അതിന് സ്വന്തമായ അടയാളവും സഭയിൽ സ്വന്തമായ സ്ഥാനവുമുണ്ട്."), u.appendChild(h)
-    }
-    i.classList.add("hidden"), o.classList.remove("hidden")
-    }
-
-    function c(e) {
-    return e.ds || e.description || e.desc || e.Description || ""
-    }
-
-    function l() {
-    t ? d() : n || (n = !0, a.disabled = !0, a.textContent = window.SM("Finding one…", "കണ്ടെത്തുന്നു…"), fetch("malankara.json").then(function(e) {
-      return e.json()
-    }).then(function(e) {
-      var r = Array.isArray(e) ? e : e.features || e.locations || e.churches || [];
-      if (t = r.filter(function(e) {
-          return function(e) {
-            if (!e) return 0;
-            var t = String(e).replace(/<[^>]+>/g, " ").replace(/\s+/g, " ").trim();
-            return t ? t.split(" ").length : 0
-          }(c(e)) >= 50
-        }), n = !1, !t.length) return a.disabled = !1, void(a.textContent = window.SM("None Available", "ഒന്നും ലഭ്യമല്ല"));
-      d()
-    }).catch(function() {
-      a.disabled = !1, a.textContent = window.SM("Try Again", "വീണ്ടും ശ്രമിക്കുക"), n = !1
-    }))
-    }
-    a.addEventListener("click", l), r.addEventListener("click", l)
-    }()
-    </script> 
+ 
     <script>
 
     ! function() {
@@ -7383,67 +7236,6 @@ html[lang="ml"] .tdc .tdc-up a{grid-template-columns:5.6rem minmax(0,1fr)}
       © Malankara Map, November 2026
     </div>
   </footer>
-  <script>
-  ! function() {
-  var t = document.getElementById("nearestForm"),
-    e = document.getElementById("nearestInput"),
-    n = document.getElementById("nearestBtn"),
-    a = document.getElementById("nearestLocBtn"),
-    o = document.getElementById("nearestStatus"),
-    s = document.getElementById("nearestResults"),
-    i = null;
-
-  function d(t, e, n) {
-    return o.textContent = window.SM("Searching locations…", "സ്ഥലങ്ങൾ തിരയുന്നു…"), s.classList.add("hidden"), (i || (i = fetch("malankara2.json").then(function(t) {
-      return t.json()
-    })), i).then(function(a) {
-      /* only active Orthodox-held places: never closed or schismatic-occupied (flagged with a status) */
-      a = a.filter(function(n) { return !n.status });
-      a.forEach(function(n) {
-          var a, o, s, i, d, r, c;
-          n.distKm = (a = t, o = e, s = n.lat, i = n.lng, d = (s - a) * Math.PI / 180, r = (i - o) * Math.PI / 180, c = Math.sin(d / 2) * Math.sin(d / 2) + Math.cos(a * Math.PI / 180) * Math.cos(s * Math.PI / 180) * Math.sin(r / 2) * Math.sin(r / 2), 12742 * Math.atan2(Math.sqrt(c), Math.sqrt(1 - c)))
-        }), a.sort(function(t, e) {
-          return t.distKm - e.distKm
-        }),
-        function(t, e) {
-          s.innerHTML = "";
-          var n = document.createElement("p");
-          n.className = "font-serif italic text-sm text-body/60 dark:text-ivory/50 mb-2", n.textContent = window.SM("Closest to " + e + ":", "അടുത്തുള്ള സ്ഥലങ്ങൾ — " + (e === "you" ? "നിങ്ങളുടെ സ്ഥാനം" : e) + ":"), s.appendChild(n), t.forEach(function(t, e) {
-            var n = document.createElement("div");
-            n.className = "flex items-baseline gap-3 py-2.5 border-b border-line dark:border-white/10 last:border-b-0", n.innerHTML = '<span class="font-sans text-[11px] text-muted w-5 shrink-0 text-right">' + (e + 1) + '.</span><span class="flex-1 min-w-0"><span class="text-[14.5px] text-body/90 dark:text-ivory/80">' + t.n + '</span><span class="block font-serif italic text-taupe text-[12px] mt-0.5">' + window.DIO(t.t) + '</span></span><span class="font-sans text-[12px] text-muted shrink-0">' + t.distKm.toFixed(1) + " km &middot; " + (.621371 * t.distKm).toFixed(1) + " mi</span>", s.appendChild(n)
-          }), s.classList.remove("hidden")
-        }(a.slice(0, 5), n), o.textContent = " "
-    }).catch(function() {
-      o.textContent = window.SM("Something went wrong — please try again.", "എന്തോ പിഴവ് സംഭവിച്ചു; വീണ്ടും ശ്രമിക്കുക.")
-    })
-  }
-  t.addEventListener("submit", function(t) {
-    t.preventDefault();
-    var i = e.value.trim();
-    i && (n.disabled = !0, a.disabled = !0, o.textContent = window.SM('Locating "' + i + '"…', 'തിരയുന്നു “' + i + '”…'), s.classList.add("hidden"), fetch("https://nominatim.openstreetmap.org/search?format=json&limit=1&q=" + encodeURIComponent(i)).then(function(t) {
-      return t.json()
-    }).then(function(t) {
-      if (t && t.length) return d(parseFloat(t[0].lat), parseFloat(t[0].lon), t[0].display_name.split(",").slice(0, 2).join(","));
-      o.textContent = window.SM("Couldn’t find that place — try being more specific.", "ആ സ്ഥലം കണ്ടെത്താനായില്ല; കൂടുതൽ വ്യക്തമായി ശ്രമിക്കുക.")
-    }).catch(function() {
-      o.textContent = window.SM("Something went wrong — please try again.", "എന്തോ പിഴവ് സംഭവിച്ചു; വീണ്ടും ശ്രമിക്കുക.")
-    }).then(function() {
-      n.disabled = !1, a.disabled = !1
-    }))
-  }), a.addEventListener("click", function() {
-    "geolocation" in navigator ? (n.disabled = !0, a.disabled = !0, o.textContent = window.SM("Getting your location…", "നിങ്ങളുടെ സ്ഥാനം കണ്ടെത്തുന്നു…"), s.classList.add("hidden"), navigator.geolocation.getCurrentPosition(function(t) {
-      d(t.coords.latitude, t.coords.longitude, "you").then(function() {
-        n.disabled = !1, a.disabled = !1
-      })
-    }, function(t) {
-      n.disabled = !1, a.disabled = !1, t.code === t.PERMISSION_DENIED ? o.textContent = window.SM("Location access was denied — enable it in your browser settings to use this.", "സ്ഥാനം ഉപയോഗിക്കാനുള്ള അനുമതി നിരസിക്കപ്പെട്ടു; ഇത് ഉപയോഗിക്കാൻ ബ്രൗസർ ക്രമീകരണത്തിൽ അനുവദിക്കുക.") : o.textContent = window.SM("Couldn’t get your location. Please try again.", "നിങ്ങളുടെ സ്ഥാനം ലഭ്യമായില്ല. വീണ്ടും ശ്രമിക്കുക.")
-    }, {
-      enableHighAccuracy: !0,
-      timeout: 1e4
-    })) : o.textContent = window.SM("Your browser doesn’t support location access.", "നിങ്ങളുടെ ബ്രൗസർ സ്ഥാനം ലഭ്യമാക്കുന്നത് പിന്തുണയ്ക്കുന്നില്ല.")
-  })
-  }()
-  </script>
   <script>
 
   ! function() {
