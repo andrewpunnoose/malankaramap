@@ -254,6 +254,18 @@ html[lang="ml"] .cal-resh h3{font-family:Marcellus,"Noto Serif Malayalam",serif}
   .cal-pill{padding:0 .7rem}
 }
 .cal-loading{padding:5rem 1rem;text-align:center;font-style:italic;color:var(--muted)}
+/* ---------- sources (same look as the index "Sources" list: author-first, italic title, hanging indent) ---------- */
+.cal-cite{max-width:72rem;margin:-1.5rem auto 0;padding:0 1.25rem 4.5rem}
+.cal-cite-in{border-top:1px solid #DBE1D2;padding-top:2.25rem}
+.cal-cite h2{font-family:Marcellus,Georgia,serif;font-style:italic;font-weight:400;font-size:1.5rem;line-height:1.3;color:#10140D;margin:0 0 .6rem}
+.cal-cite .lede{font-size:15px;line-height:1.7;color:rgba(51,58,45,.62);margin:0 0 1.4rem;max-width:44rem}
+.cal-cite .ref{font-size:13px;line-height:1.7;color:rgba(51,58,45,.74);margin:0 0 .9rem;padding-left:1.5rem;text-indent:-1.5rem;max-width:52rem}
+html.dark .cal-cite-in{border-top-color:rgba(255,255,255,.1)}
+html.dark .cal-cite h2{color:#F7F5EE}
+html.dark .cal-cite .lede{color:rgba(247,245,238,.5)}
+html.dark .cal-cite .ref{color:rgba(247,245,238,.6)}
+html[lang="ml"] .cal-cite h2{font-family:Marcellus,"Noto Serif Malayalam",serif}
+html[lang="ml"] .cal-cite .lede,html[lang="ml"] .cal-cite .ref{font-family:Inter,"Noto Serif Malayalam",serif}
 @media (prefers-reduced-motion:reduce){.cal *{transition:none !important}html{scroll-behavior:auto}}
 </style>
 <title data-en="Liturgical Calendar 2026 — Malankara Map" data-ml="ആരാധനാ കലണ്ടർ 2026 — മലങ്കര സഭാ വിജ്ഞാനകോശം">Liturgical Calendar 2026 — Malankara Map</title>
@@ -290,6 +302,14 @@ html[lang="ml"] .cal-resh h3{font-family:Marcellus,"Noto Serif Malayalam",serif}
   <div class="cal" id="calApp">
     <div class="cal-loading" id="calLoading" data-en="Opening the calendar…" data-ml="കലണ്ടർ തുറക്കുന്നു…">Opening the calendar…</div>
   </div>
+  <section class="cal-cite" id="sources" aria-labelledby="calSrcTitle">
+    <div class="cal-cite-in">
+      <h2 id="calSrcTitle" data-en="Sources" data-ml="അവലംബങ്ങൾ">Sources</h2>
+      <p class="lede" data-en="The dates, feasts and commemorations on this page are compiled from the two sources below. The details panel for each day shows which source an entry comes from." data-ml="ഈ പേജിലെ തീയതികളും പെരുന്നാളുകളും ഓർമ്മകളും താഴെ നൽകിയിരിക്കുന്ന രണ്ട് സ്രോതസ്സുകളിൽ നിന്ന് സമാഹരിച്ചതാണ്. ഓരോ ദിവസത്തെയും വിവരങ്ങളിൽ അതത് ആചരണത്തിന്റെ സ്രോതസ്സ് കാണിച്ചിരിക്കുന്നു.">The dates, feasts and commemorations on this page are compiled from the two sources below. The details panel for each day shows which source an entry comes from.</p>
+      <p class="ref" data-en-html="George, David. &lt;em&gt;A Malankara Proto Synaxarium (Karaṭu-Pañchāṅgam).&lt;/em&gt;" data-ml-html="ജോർജ്, ഡേവിഡ്. &lt;em&gt;എ മലങ്കര പ്രോട്ടോ-സിനാക്സേറിയം (കരടു-പഞ്ചാംഗം).&lt;/em&gt;">George, David. <em>A Malankara Proto Synaxarium (Karaṭu-Pañchāṅgam).</em></p>
+      <p class="ref" data-en-html="Malankara Orthodox Syrian Church. &lt;em&gt;Liturgical Calendar (Panchangam), 2026.&lt;/em&gt; Catholicate Office, Devalokam, Kottayam." data-ml-html="മലങ്കര ഓർത്തഡോക്സ് സുറിയാനി സഭ. &lt;em&gt;ആരാധനാ പഞ്ചാംഗം, 2026.&lt;/em&gt; കാതോലിക്കേറ്റ് ഓഫീസ്, ദേവലോകം, കോട്ടയം.">Malankara Orthodox Syrian Church. <em>Liturgical Calendar (Panchangam), 2026.</em> Catholicate Office, Devalokam, Kottayam.</p>
+    </div>
+  </section>
 </main>
 
 <!-- ==================== FOOTER ==================== -->
