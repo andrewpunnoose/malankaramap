@@ -1,0 +1,707 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script>
+  (function(){
+    try{
+      if(!sessionStorage.getItem('malankara-open')){ sessionStorage.setItem('malankara-open','1'); localStorage.setItem('malankara-theme','light'); }
+      if(localStorage.getItem('malankara-theme') === 'dark'){ document.documentElement.classList.add('dark'); }
+    }catch(e){}
+  })();
+</script>
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Marcellus&family=Inter:wght@400;500;600;700&family=Noto+Serif+Malayalam:wght@400;500;600&family=Manjari:wght@400;700&display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+  tailwind.config = {
+    darkMode: 'class',
+    theme: {
+      extend: {
+        colors: {
+          ivory: '#F7F5EE', cream: '#F2F0EB', charcoal: '#1F2937', midnight: '#111827',
+          sage: { DEFAULT: '#6B8259', dark: '#4A5D3D' }, taupe: '#7C6A4A',
+          gold: { DEFAULT: '#BA9450', dark: '#A5813F' }, ink: '#10140D', body: '#333A2D',
+          secondary: '#5F6857', muted: '#969E8C', line: '#DBE1D2', 'line-light': '#EDF0E6',
+          divider: '#D6D3C8', herobg: '#EEF0E6', featured: '#F0EDE5'
+        },
+        fontFamily: { serif: ['Marcellus','Georgia','serif'], sans: ['Inter','system-ui','sans-serif'] },
+        boxShadow: {
+          soft: '0 2px 12px rgba(17,24,39,0.06)', medium: '0 8px 30px rgba(17,24,39,0.10)',
+          large: '0 20px 60px rgba(17,24,39,0.16)'
+        }
+      }
+    }
+  }
+</script>
+<style>
+html{scroll-behavior:smooth;} ::selection{background:#6B8259;color:#fff;}
+body{background:#F7F5EE;color:#333A2D;font-family:Inter,system-ui,sans-serif;}
+html.dark body{background:#111827;color:rgba(247,245,238,.85);}
+[lang="ml"] body{font-family:Manjari,Inter,system-ui,sans-serif;}
+
+/* ============================================================
+   LITURGICAL CALENDAR — scoped under .cal
+   Colours are the site tokens (ivory / sage / gold / taupe).
+   ============================================================ */
+.cal{
+  --ink:#10140D; --body:#333A2D; --muted:#7E8774; --line:#DBE1D2; --line-soft:#E8E9DC;
+  --card:#FBFAF5; --cell:#F4F0E4; --cell-hover:#EFE9D6;
+  --sage:#4A5D3D; --sage-2:#6B8259; --gold:#BA9450; --gold-soft:rgba(186,148,80,.16); --taupe:#7C6A4A;
+  --sel-bg:#3A4B30; --sel-fg:#F7F5EE;
+  --head-1:#2F3F27; --head-2:#4A5D3D; --head-3:#62794F;
+  --shadow:0 8px 30px rgba(17,24,39,.10);
+  --g-liturgical_year:#6B8259; --g-feasts_saints:#BA9450; --g-fathers:#A0674D; --g-church_life:#4F7F8C; --g-national:#8A93A3;
+  max-width:72rem; margin:0 auto; padding:0 1.25rem 4.5rem;
+  font-family:Inter,system-ui,sans-serif; color:var(--body);
+}
+html.dark .cal{
+  --ink:#F7F5EE; --body:rgba(247,245,238,.82); --muted:rgba(247,245,238,.5); --line:rgba(255,255,255,.11); --line-soft:rgba(255,255,255,.07);
+  --card:#1B2330; --cell:rgba(255,255,255,.045); --cell-hover:rgba(255,255,255,.085);
+  --sage:#A5BD92; --sage-2:#7F9A6C; --gold:#D4B06A; --gold-soft:rgba(212,176,106,.16); --taupe:#C9B48B;
+  --sel-bg:#55704A; --sel-fg:#FFFFFF;
+  --head-1:#1D2A21; --head-2:#2A3B2E; --head-3:#35493A;
+  --shadow:0 14px 40px rgba(0,0,0,.35);
+}
+html[lang="ml"] .cal{font-family:Manjari,"Noto Serif Malayalam",sans-serif}
+.cal *{box-sizing:border-box}
+.cal button{font:inherit;color:inherit;cursor:pointer}
+.cal-serif{font-family:Marcellus,Georgia,serif}
+html[lang="ml"] .cal-serif{font-family:"Noto Serif Malayalam",serif}
+/* Malayalam is never letter-spaced */
+html[lang="ml"] .cal [class*="cal-"]{letter-spacing:normal !important;text-transform:none !important}
+
+/* ---------- hero ---------- */
+.cal-hero{max-width:42rem;margin:0 auto;padding:3.5rem 1.25rem 2.25rem;text-align:center}
+.cal-eyebrow{font-size:11px;letter-spacing:.22em;text-transform:uppercase;font-weight:600;color:#7C6A4A}
+html.dark .cal-eyebrow{color:#D4B06A}
+.cal-h1{font-family:Marcellus,Georgia,serif;font-weight:400;font-size:clamp(2.1rem,5.4vw,3.6rem);line-height:1.1;color:var(--ink,#10140D);margin:1rem 0 1.1rem}
+html.dark .cal-h1{color:#F7F5EE}
+html[lang="ml"] .cal-h1{font-family:"Noto Serif Malayalam",serif;line-height:1.3}
+.cal-h1 em{font-style:italic;color:#4A5D3D}
+html.dark .cal-h1 em{color:#A5BD92}
+.cal-lede{font-size:15px;line-height:1.75;color:rgba(51,58,45,.82);max-width:34rem;margin:0 auto}
+html.dark .cal-lede{color:rgba(247,245,238,.66)}
+.cal-thread{width:1px;height:2.5rem;background:rgba(186,148,80,.7);margin:1.75rem auto 0}
+
+/* ---------- month tabs ---------- */
+.cal-tabs{display:flex;gap:.25rem;overflow-x:auto;scrollbar-width:none;border-bottom:1px solid var(--line);margin-bottom:1.1rem;-webkit-overflow-scrolling:touch}
+.cal-tabs::-webkit-scrollbar{display:none}
+.cal-tab{position:relative;flex:0 0 auto;padding:.7rem .85rem .8rem;background:none;border:0;font-size:13px;font-weight:500;color:var(--muted);white-space:nowrap;transition:color .2s}
+.cal-tab:hover{color:var(--ink)}
+.cal-tab[aria-selected="true"]{color:var(--ink);font-weight:600}
+.cal-tab[aria-selected="true"]::after{content:"";position:absolute;left:.6rem;right:.6rem;bottom:-1px;height:2px;border-radius:2px;background:var(--gold)}
+.cal-tab small{display:block;margin-top:1px;font-size:10px;font-weight:400;color:var(--muted);text-align:center}
+
+/* ---------- tools ---------- */
+.cal-tools{display:flex;flex-wrap:wrap;gap:.75rem;align-items:center;margin-bottom:.9rem}
+.cal-search{flex:1 1 16rem;display:flex;align-items:center;gap:.55rem;min-width:0;height:2.6rem;padding:0 .9rem;background:var(--card);border:1px solid var(--line);border-radius:999px;transition:border-color .2s, box-shadow .2s}
+.cal-search:focus-within{border-color:var(--gold);box-shadow:0 0 0 3px var(--gold-soft)}
+.cal-search svg{width:15px;height:15px;flex:none;color:var(--muted)}
+.cal-search input{flex:1;min-width:0;border:0;outline:0;background:transparent;font:inherit;font-size:14px;color:var(--ink)}
+.cal-search input::placeholder{color:var(--muted)}
+.cal-search input::-webkit-search-cancel-button{-webkit-appearance:none}
+.cal-seg{display:inline-flex;padding:3px;background:var(--card);border:1px solid var(--line);border-radius:999px}
+.cal-seg button{border:0;background:none;padding:.42rem 1rem;border-radius:999px;font-size:13px;font-weight:500;color:var(--muted);transition:background .2s,color .2s}
+.cal-seg button[aria-pressed="true"]{background:var(--sage);color:#fff}
+html.dark .cal-seg button[aria-pressed="true"]{background:#3F5A38;color:#fff}
+
+/* ---------- filter chips ---------- */
+.cal-chips{display:flex;flex-wrap:wrap;gap:.5rem;margin-bottom:1.35rem}
+.cal-chip{display:inline-flex;align-items:center;gap:.5rem;padding:.38rem .8rem .38rem .65rem;border-radius:999px;border:1px solid var(--line);background:var(--card);font-size:12.5px;color:var(--body);transition:opacity .2s,border-color .2s,background .2s}
+.cal-chip i{width:9px;height:9px;border-radius:50%;background:var(--c);flex:none}
+.cal-chip b{font-weight:500;font-size:11px;color:var(--muted)}
+.cal-chip:hover{border-color:var(--c)}
+@media (max-width:640px){
+  .cal-chips{flex-wrap:nowrap;overflow-x:auto;scrollbar-width:none;margin-left:-1.25rem;margin-right:-1.25rem;padding:0 1.25rem .25rem}
+  .cal-chips::-webkit-scrollbar{display:none}
+  .cal-chip{flex:0 0 auto;white-space:nowrap}
+}
+.cal-chip[aria-pressed="false"]{opacity:.5;background:transparent}
+.cal-chip[aria-pressed="false"] i{background:transparent;box-shadow:inset 0 0 0 1.5px var(--c)}
+
+/* ---------- layout ---------- */
+.cal-layout{display:grid;grid-template-columns:minmax(0,1.6fr) minmax(0,1fr);gap:1.6rem;align-items:start}
+@media (max-width:1000px){.cal-layout{grid-template-columns:minmax(0,1fr)}}
+
+/* ---------- calendar card ---------- */
+.cal-card{container-type:inline-size;background:var(--card);border:1px solid var(--line);border-radius:22px;box-shadow:var(--shadow);overflow:hidden}
+.cal-card-h{position:relative;display:flex;align-items:flex-end;justify-content:space-between;gap:1rem;padding:1.35rem 1.4rem 1.2rem;color:#F7F5EE;background:linear-gradient(140deg,var(--head-1) 0%,var(--head-2) 58%,var(--head-3) 100%)}
+.cal-card-h::after{content:"";position:absolute;left:1.4rem;right:1.4rem;bottom:0;height:1px;background:linear-gradient(90deg,transparent,rgba(212,176,106,.7),transparent)}
+.cal-kicker{font-size:10px;letter-spacing:.2em;text-transform:uppercase;font-weight:600;color:#D4B06A}
+.cal-month{font-family:Marcellus,Georgia,serif;font-size:clamp(1.55rem,3.4vw,2.1rem);line-height:1.15;margin:.3rem 0 0;font-weight:400}
+html[lang="ml"] .cal-month{font-family:"Noto Serif Malayalam",serif;line-height:1.35}
+.cal-month span{color:#D4B06A}
+.cal-nav{display:flex;align-items:center;gap:.45rem;flex:none}
+.cal-pill{height:2.1rem;padding:0 .95rem;border-radius:999px;border:1px solid rgba(255,255,255,.28);background:rgba(255,255,255,.12);color:#F7F5EE;font-size:12.5px;font-weight:600;transition:background .2s}
+.cal-pill:hover{background:rgba(255,255,255,.22)}
+.cal-pill[disabled]{opacity:.35;pointer-events:none}
+.cal-arrow{display:grid;place-items:center;width:2.1rem;height:2.1rem;border-radius:50%;border:1px solid rgba(255,255,255,.28);background:rgba(255,255,255,.12);color:#F7F5EE;transition:background .2s}
+.cal-arrow:hover{background:rgba(255,255,255,.22)}
+.cal-arrow[disabled]{opacity:.3;pointer-events:none}
+.cal-arrow svg{width:14px;height:14px}
+.cal-wd{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:6px;padding:1rem 1rem .35rem}
+.cal-wd span{text-align:center;font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;font-weight:600;color:var(--muted)}
+.cal-grid{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:6px;padding:.2rem 1rem 1.1rem}
+.cal-blank{min-height:1px}
+.cal-day{position:relative;display:flex;flex-direction:column;align-items:flex-start;gap:3px;min-width:0;min-height:4.4rem;padding:.45rem .5rem .42rem;border-radius:12px;border:1px solid transparent;background:transparent;text-align:left;color:var(--muted);transition:background .18s,border-color .18s,transform .18s,box-shadow .18s}
+.cal-day:hover{background:var(--cell-hover)}
+.cal-day:focus-visible{outline:2px solid var(--gold);outline-offset:1px}
+.cal-day.has{background:var(--cell);border-color:var(--line);color:var(--body)}
+.cal-day.has:hover{background:var(--cell-hover);transform:translateY(-1px)}
+.cal-dn{font-size:14px;font-weight:600;line-height:1;color:inherit}
+.cal-day.sun .cal-dn{color:var(--sage)}
+.cal-day.has .cal-dn{color:var(--ink)}
+.cal-day.today{box-shadow:inset 0 0 0 2px var(--gold)}
+.cal-day.today .cal-dn::after{content:"";display:inline-block;width:5px;height:5px;margin-left:5px;border-radius:50%;background:var(--gold);vertical-align:middle;transform:translateY(-1px)}
+.cal-day.major::before{content:"";position:absolute;top:.5rem;right:.5rem;width:7px;height:7px;background:var(--gold);transform:rotate(45deg);border-radius:1px}
+.cal-day.sel{background:var(--sel-bg);border-color:var(--sel-bg);color:var(--sel-fg);box-shadow:0 6px 18px rgba(30,45,25,.28)}
+.cal-day.sel .cal-dn,.cal-day.sel.sun .cal-dn{color:var(--sel-fg)}
+.cal-day.sel.today{box-shadow:inset 0 0 0 2px var(--gold),0 6px 18px rgba(30,45,25,.28)}
+.cal-first,.cal-count{display:none}
+.cal-first{max-width:100%;font-size:11px;line-height:1.32;color:var(--body);overflow:hidden;display:none;-webkit-box-orient:vertical;-webkit-line-clamp:3}
+.cal-day.sel .cal-first,.cal-day.sel .cal-count{color:rgba(247,245,238,.85)}
+.cal-count{font-size:10px;color:var(--muted)}
+.cal-dots{display:flex;gap:3px;margin-top:auto;flex-wrap:wrap}
+.cal-dots i{width:6px;height:6px;border-radius:50%;background:var(--c)}
+.cal-day.sel .cal-dots i{box-shadow:0 0 0 1.5px rgba(247,245,238,.9)}
+@container (min-width:430px){.cal-count{display:block}.cal-day{min-height:5.1rem}}
+@container (min-width:640px){
+  .cal-count{display:none}
+  .cal-first{display:-webkit-box}
+  .cal-day{min-height:6.9rem}
+}
+@container (max-width:429px){
+  .cal-grid,.cal-wd{gap:3px;padding-left:.55rem;padding-right:.55rem}
+  .cal-day{min-height:3.6rem;padding:.4rem .35rem;align-items:center}
+  .cal-dots{justify-content:center}
+  .cal-day.major::before{top:.3rem;right:.3rem}
+}
+.cal-foot{display:flex;flex-wrap:wrap;gap:.4rem 1.1rem;align-items:center;padding:.85rem 1.4rem 1.1rem;border-top:1px solid var(--line-soft);font-size:11.5px;color:var(--muted)}
+.cal-foot span{display:inline-flex;align-items:center;gap:.4rem}
+.cal-foot .d{width:7px;height:7px;background:var(--gold);transform:rotate(45deg);border-radius:1px}
+.cal-foot .r{width:12px;height:12px;border-radius:50%;box-shadow:inset 0 0 0 2px var(--gold)}
+
+/* ---------- side panel ---------- */
+.cal-panel{position:sticky;top:1.25rem}
+@media (max-width:1000px){.cal-panel{position:static}}
+.cal-eyebrow-s{font-size:10.5px;letter-spacing:.18em;text-transform:uppercase;font-weight:600;color:#7C6A4A}
+html.dark .cal-eyebrow-s{color:#D4B06A}
+.cal-date{font-family:Marcellus,Georgia,serif;font-weight:400;font-size:clamp(1.4rem,2.6vw,1.75rem);line-height:1.2;color:var(--ink);margin:.4rem 0 .15rem}
+html[lang="ml"] .cal-date{font-family:"Noto Serif Malayalam",serif;line-height:1.4}
+.cal-sub{font-size:12.5px;color:var(--muted);margin:0 0 1.1rem}
+.cal-entries{display:flex;flex-direction:column;gap:.75rem;max-height:calc(100vh - 14rem);overflow-y:auto;padding-right:.15rem;scrollbar-width:thin}
+@media (max-width:1000px){.cal-entries{max-height:none;overflow:visible}}
+.cal-entry{position:relative;padding:1rem 1.1rem 1rem 1.25rem;background:var(--card);border:1px solid var(--line);border-radius:16px;box-shadow:0 2px 12px rgba(17,24,39,.05)}
+.cal-entry::before{content:"";position:absolute;left:0;top:.9rem;bottom:.9rem;width:3px;border-radius:0 3px 3px 0;background:var(--c)}
+.cal-cat{display:flex;align-items:center;gap:.45rem;font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;font-weight:600;color:var(--muted)}
+.cal-cat i{width:7px;height:7px;border-radius:50%;background:var(--c);flex:none}
+.cal-etitle{font-family:Marcellus,Georgia,serif;font-weight:400;font-size:1.05rem;line-height:1.4;color:var(--ink);margin:.4rem 0 0}
+html[lang="ml"] .cal-etitle{font-family:"Noto Serif Malayalam",serif;font-size:.98rem;line-height:1.65}
+.cal-place,.cal-held,.cal-note{display:flex;gap:.45rem;margin:.55rem 0 0;font-size:12.5px;line-height:1.55;color:var(--body)}
+.cal-place svg{width:13px;height:13px;flex:none;margin-top:.2rem;color:var(--gold)}
+.cal-held,.cal-note{color:var(--muted);font-style:italic}
+.cal-badges{display:flex;flex-wrap:wrap;gap:.35rem;margin-top:.7rem}
+.cal-badge{padding:.18rem .55rem;border-radius:999px;font-size:10.5px;font-weight:600;letter-spacing:.04em;background:var(--gold-soft);color:var(--taupe)}
+.cal-src{margin:.75rem 0 0;font-size:10.5px;color:var(--muted)}
+.cal-empty{padding:2rem 1.5rem;text-align:center;background:var(--gold-soft);border:1px solid var(--line);border-radius:18px}
+.cal-empty h3{font-family:Marcellus,Georgia,serif;font-weight:400;font-size:1.1rem;color:var(--ink);margin:0 0 .4rem}
+html[lang="ml"] .cal-empty h3{font-family:"Noto Serif Malayalam",serif}
+.cal-empty p{font-size:12.5px;line-height:1.6;color:var(--muted);margin:0 auto;max-width:18rem}
+.cal-skip{margin-top:.8rem;display:flex;gap:.5rem;flex-wrap:wrap}
+.cal-skip button,.cal-linkbtn{display:inline-flex;align-items:center;gap:.4rem;padding:.5rem .9rem;border-radius:999px;border:1px solid var(--line);background:var(--card);font-size:12.5px;font-weight:500;color:var(--sage);transition:border-color .2s,background .2s}
+.cal-skip button:hover,.cal-linkbtn:hover{border-color:var(--gold);background:var(--gold-soft)}
+.cal-skip button[disabled]{opacity:.4;pointer-events:none}
+.cal-empty .cal-skip{justify-content:center}
+.cal-skip button svg,.cal-linkbtn svg{width:14px;height:14px;flex:none}
+
+/* ---------- list view & search results ---------- */
+.cal-bar{display:flex;align-items:center;justify-content:space-between;gap:1rem;padding:1.15rem 1.4rem;border-radius:22px 22px 0 0;color:#F7F5EE;background:linear-gradient(140deg,var(--head-1) 0%,var(--head-2) 58%,var(--head-3) 100%)}
+.cal-list{background:var(--card);border:1px solid var(--line);border-top:0;border-radius:0 0 22px 22px;box-shadow:var(--shadow)}
+.cal-row{display:grid;grid-template-columns:5.2rem minmax(0,1fr);gap:1.1rem;padding:1.1rem 1.4rem;border-top:1px solid var(--line-soft)}
+.cal-row:first-child{border-top:0}
+.cal-row.is-sel{background:var(--gold-soft)}
+.cal-rd{text-align:center}
+.cal-rd b{display:block;font-family:Marcellus,Georgia,serif;font-weight:400;font-size:1.9rem;line-height:1;color:var(--ink)}
+.cal-rd span{display:block;margin-top:.3rem;font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;font-weight:600;color:var(--muted)}
+.cal-rd.sun b{color:var(--sage)}
+.cal-rows{display:flex;flex-direction:column;gap:.85rem;min-width:0}
+.cal-item{position:relative;padding-left:.95rem;min-width:0}
+.cal-item::before{content:"";position:absolute;left:0;top:.2rem;bottom:.2rem;width:3px;border-radius:3px;background:var(--c)}
+.cal-item .cal-etitle{margin-top:.25rem;font-size:1rem}
+.cal-none{padding:2.5rem 1.5rem;text-align:center;color:var(--muted);font-size:14px}
+.cal-resh{display:flex;align-items:center;justify-content:space-between;gap:1rem;padding:1.1rem 1.4rem;border-bottom:1px solid var(--line-soft)}
+.cal-resh h3{margin:0;font-family:Marcellus,Georgia,serif;font-weight:400;font-size:1.15rem;color:var(--ink)}
+html[lang="ml"] .cal-resh h3{font-family:"Noto Serif Malayalam",serif}
+.cal-mh{padding:.7rem 1.4rem;font-size:10.5px;letter-spacing:.18em;text-transform:uppercase;font-weight:600;color:var(--taupe);background:var(--gold-soft)}
+.cal-hit{display:grid;grid-template-columns:5.4rem minmax(0,1fr) auto;gap:.9rem;align-items:center;width:100%;padding:.85rem 1.4rem;border:0;border-top:1px solid var(--line-soft);background:none;text-align:left;transition:background .2s}
+.cal-hit:hover{background:var(--cell)}
+.cal-hit .dd{font-size:12.5px;font-weight:600;color:var(--sage)}
+.cal-hit .dd small{display:block;font-weight:400;font-size:10.5px;color:var(--muted)}
+.cal-hit .tt{min-width:0;font-size:14px;color:var(--ink);line-height:1.45}
+.cal-hit .tt small{display:block;font-size:11.5px;color:var(--muted)}
+.cal-hit i{width:9px;height:9px;border-radius:50%;background:var(--c)}
+@media (max-width:560px){
+  .cal-row{grid-template-columns:3.6rem minmax(0,1fr);gap:.7rem;padding:1rem}
+  .cal-hit{grid-template-columns:4.4rem minmax(0,1fr) auto;padding:.8rem 1rem}
+  .cal-card-h,.cal-bar{padding-left:1.1rem;padding-right:1.1rem}
+  .cal-pill{padding:0 .7rem}
+}
+.cal-note-end{max-width:44rem;margin:2.5rem auto 0;text-align:center;font-size:12px;line-height:1.75;color:var(--muted)}
+.cal-note-end b{font-weight:600;color:var(--body)}
+.cal-loading{padding:5rem 1rem;text-align:center;font-style:italic;color:var(--muted)}
+@media (prefers-reduced-motion:reduce){.cal *{transition:none !important}html{scroll-behavior:auto}}
+</style>
+<title data-en="Liturgical Calendar 2026 — Malankara Map" data-ml="ആരാധനാ കലണ്ടർ 2026 — മലങ്കര സഭാ വിജ്ഞാനകോശം">Liturgical Calendar 2026 — Malankara Map</title>
+<meta name="description" content="The 2026 liturgical calendar of the Malankara Orthodox Syrian Church — feasts, fasts, Sundays of the liturgical year and commemorations, month by month, in English and Malayalam.">
+<link rel="canonical" href="https://malankaramap.com/calendar">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Malankara Map">
+<meta property="og:title" content="Liturgical Calendar 2026 — Malankara Map">
+<meta property="og:description" content="Feasts, fasts, Sundays of the liturgical year and commemorations of the Malankara Orthodox Syrian Church, month by month.">
+<meta property="og:image" content="https://malankaramap.com/og-image.png">
+<meta property="og:url" content="https://malankaramap.com/calendar">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Liturgical Calendar 2026 — Malankara Map">
+<meta name="twitter:description" content="Feasts, fasts, Sundays of the liturgical year and commemorations of the Malankara Orthodox Syrian Church, month by month.">
+<meta name="twitter:image" content="https://malankaramap.com/og-image.png">
+</head>
+<body class="bg-ivory dark:bg-midnight text-body dark:text-ivory/85 font-sans transition-colors duration-300">
+<audio id="bgMusic" loop>
+  <source src="audio.mp3" type="audio/mpeg">
+</audio>
+
+<!-- ==================== HEADER ====================
+     Loaded from header.html at runtime (same as every other page). -->
+<div id="site-header"></div>
+
+<main>
+  <section class="cal-hero">
+    <div class="cal-eyebrow" data-en="Liturgical Calendar · 2026" data-ml="ആരാധനാ കലണ്ടർ · 2026">Liturgical Calendar · 2026</div>
+    <h1 class="cal-h1" data-en-html="The Church&rsquo;s year,&lt;br/&gt;&lt;em&gt;day by day.&lt;/em&gt;" data-ml-html="സഭയുടെ വർഷം,&lt;br/&gt;&lt;em&gt;ദിനം ദിനമായി.&lt;/em&gt;">The Church&rsquo;s year,<br/><em>day by day.</em></h1>
+    <p class="cal-lede" data-en="Feast days, fasting seasons, the Sundays of the liturgical year, and the commemorations of the Malankara Orthodox Syrian Church. Select any day to see what is observed." data-ml="മലങ്കര ഓർത്തഡോക്സ് സുറിയാനി സഭയുടെ പെരുന്നാളുകൾ, നോമ്പുകാലങ്ങൾ, ആരാധനാ വർഷത്തിലെ ഞായറാഴ്ചകൾ, ഓർമ്മകൾ. ഏതെങ്കിലും ദിവസം തിരഞ്ഞെടുത്ത് അന്ന് ആചരിക്കുന്നവ കാണുക.">Feast days, fasting seasons, the Sundays of the liturgical year, and the commemorations of the Malankara Orthodox Syrian Church. Select any day to see what is observed.</p>
+    <div class="cal-thread"></div>
+  </section>
+
+  <div class="cal" id="calApp">
+    <div class="cal-loading" id="calLoading" data-en="Opening the calendar…" data-ml="കലണ്ടർ തുറക്കുന്നു…">Opening the calendar…</div>
+  </div>
+</main>
+
+<!-- ==================== FOOTER ==================== -->
+<div id="site-footer"></div>
+<script src="site-common.js"></script>
+<script>
+(function(){
+  function runScripts(container){
+    var scripts = container.querySelectorAll('script');
+    scripts.forEach(function(old){
+      var s = document.createElement('script');
+      if (old.src) { s.src = old.src; }
+      else { s.textContent = old.textContent; }
+      old.parentNode.replaceChild(s, old);
+    });
+  }
+  function include(url, target, cb){
+    fetch(url).then(function(r){ return r.text(); }).then(function(html){
+      target.innerHTML = html;
+      runScripts(target);
+      if (cb) cb();
+    });
+  }
+  include('header.html', document.getElementById('site-header'), function(){
+    if(window.SiteCommon){ SiteCommon.initAll(); }
+    document.dispatchEvent(new Event('header:loaded'));
+  });
+  include('footer.html', document.getElementById('site-footer'));
+})();
+</script>
+
+<script>
+/* ====================================================================
+   LITURGICAL CALENDAR APP
+   Data: calendar-2026.json (297 entries, English + Malayalam).
+   To add another year later: add calendar-YYYY.json and point YEAR /
+   DATA_URL at it (a year switcher can be added on top of this).
+   ==================================================================== */
+(function(){
+  'use strict';
+  var YEAR = 2026, DATA_URL = 'calendar-2026.json?v=1';
+  var app = document.getElementById('calApp');
+
+  var MONTHS = {
+    en:['January','February','March','April','May','June','July','August','September','October','November','December'],
+    ml:['ജനുവരി','ഫെബ്രുവരി','മാർച്ച്','ഏപ്രിൽ','മേയ്','ജൂൺ','ജൂലൈ','ഓഗസ്റ്റ്','സെപ്റ്റംബർ','ഒക്ടോബർ','നവംബർ','ഡിസംബർ']
+  };
+  var MONTHS_S = { en:['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'], ml:MONTHS.ml };
+  var WD  = { en:['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'],
+              ml:['ഞായർ','തിങ്കൾ','ചൊവ്വ','ബുധൻ','വ്യാഴം','വെള്ളി','ശനി'] };
+  var WDS = { en:['Sun','Mon','Tue','Wed','Thu','Fri','Sat'], ml:['ഞാ','തി','ചൊ','ബു','വ്യാ','വെ','ശ'] };
+
+  var GROUPS = ['liturgical_year','feasts_saints','fathers','church_life','national'];
+  var GSHORT = {
+    en:{ liturgical_year:'Liturgical year', feasts_saints:'Feasts & saints', fathers:'Fathers & figures', church_life:'Church events', national:'National days' },
+    ml:{ liturgical_year:'ആരാധനാ വർഷം', feasts_saints:'പെരുന്നാളുകളും വിശുദ്ധരും', fathers:'പിതാക്കന്മാരും പ്രമുഖരും', church_life:'സഭാ സംഭവങ്ങളും ദിനങ്ങളും', national:'ദേശീയ, പൊതു ദിനങ്ങൾ' }
+  };
+  var COLOR = { liturgical_year:'#6B8259', feasts_saints:'#BA9450', fathers:'#A0674D', church_life:'#4F7F8C', national:'#8A93A3' };
+
+  var T = {
+    today:['Today','ഇന്ന്'], cal:['Calendar','കലണ്ടർ'], list:['List','പട്ടിക'],
+    search:['Search feasts, saints, places…','പെരുന്നാൾ, വിശുദ്ധർ, സ്ഥലം എന്നിവ തിരയുക…'],
+    kicker:['Liturgical Year','ആരാധനാ വർഷം'],
+    sel:['Selected day','തിരഞ്ഞെടുത്ത ദിവസം'],
+    none:['No observances on this date','ഈ ദിവസം ആചരണങ്ങളൊന്നുമില്ല'],
+    hint:['Choose a highlighted date on the calendar to view feasts, fasts and commemorations.','പെരുന്നാളുകളും നോമ്പുകളും ഓർമ്മകളും കാണാൻ കലണ്ടറിൽ അടയാളപ്പെടുത്തിയ ഒരു തീയതി തിരഞ്ഞെടുക്കുക.'],
+    pick:['Select a day','ഒരു ദിവസം തിരഞ്ഞെടുക്കുക'],
+    prev:['Previous observance','മുമ്പത്തെ ആചരണം'], next:['Next observance','അടുത്ത ആചരണം'],
+    prevM:['Previous month','കഴിഞ്ഞ മാസം'], nextM:['Next month','അടുത്ത മാസം'],
+    has:['Has observances','ആചരണങ്ങളുണ്ട്'], major:['Feast of the Lord / major feast','കർത്താവിന്റെ / പ്രധാന പെരുന്നാൾ'], tdy:['Today','ഇന്ന്'],
+    foreign:['Foreign','വിദേശ'], prov:['Provisional','താൽക്കാലികം'],
+    approx:['Date approximate','തീയതി ഏകദേശം'], uncertain:['Date uncertain','തീയതി ഉറപ്പില്ല'],
+    foreignTip:['A foreign prelate or figure commemorated in Malankara','മലങ്കരയിൽ ഓർമ്മ ആചരിക്കുന്ന വിദേശ പിതാവ്/വ്യക്തി'],
+    provTip:['May be removed in future versions of the source','സ്രോതസ്സിന്റെ പുതിയ പതിപ്പുകളിൽ ഒഴിവാക്കിയേക്കാം'],
+    s_official:['Official Liturgical Calendar, Catholicate Office, Devalokam','ഔദ്യോഗിക പഞ്ചാംഗം, ദേവലോകം കാതോലിക്കേറ്റ് ഓഫീസ്'],
+    s_proto:['A Malankara Proto-Synaxarium (D. P. George, unofficial)','എ മലങ്കര പ്രോട്ടോ-സിനാക്സേറിയം (ഡേവിഡ് പി. ജോർജ്, അനൗദ്യോഗികം)'],
+    s_both:['Official Calendar and Proto-Synaxarium','ഔദ്യോഗിക പഞ്ചാംഗവും പ്രോട്ടോ-സിനാക്സേറിയവും'],
+    src:['Source','സ്രോതസ്സ്'],
+    clear:['Clear search','തിരച്ചിൽ മായ്ക്കുക'],
+    nomatch:['No matches. Try a saint’s name, a place, or a feast.','ഫലങ്ങളൊന്നുമില്ല. ഒരു വിശുദ്ധന്റെ പേരോ സ്ഥലമോ പെരുന്നാളോ തിരയുക.'],
+    foot:['Sources: the official Liturgical Calendar 2026 (Catholicate Office, Devalokam) and A Malankara Proto-Synaxarium (David P. George, unofficial). Dates follow the Gregorian calendar; observances tied to Easter move from year to year.','സ്രോതസ്സുകൾ: ദേവലോകം കാതോലിക്കേറ്റ് ഓഫീസ് പ്രസിദ്ധീകരിച്ച 2026-ലെ ഔദ്യോഗിക പഞ്ചാംഗവും ഡേവിഡ് പി. ജോർജിന്റെ എ മലങ്കര പ്രോട്ടോ-സിനാക്സേറിയവും (അനൗദ്യോഗികം). തീയതികൾ ഗ്രിഗോറിയൻ കലണ്ടർ അനുസരിച്ച്; ഈസ്റ്ററിനെ ആശ്രയിച്ചുള്ള ആചരണങ്ങൾ ഓരോ വർഷവും മാറും.'],
+    marks:['Foreign = a foreign prelate or figure commemorated in Malankara · Provisional = may be removed in future versions of the source.','വിദേശ = മലങ്കരയിൽ ഓർമ്മ ആചരിക്കുന്ന വിദേശ പിതാവ്/വ്യക്തി · താൽക്കാലികം = സ്രോതസ്സിന്റെ പുതിയ പതിപ്പുകളിൽ ഒഴിവാക്കിയേക്കാം.']
+  };
+
+  function lang(){ return document.documentElement.getAttribute('lang') === 'ml' ? 'ml' : 'en'; }
+  function t(k){ return T[k][lang() === 'ml' ? 1 : 0]; }
+  function pick(o, base){ var l = lang(); return o[base + '_' + l] || o[base + '_en'] || ''; }
+  function esc(s){ return String(s == null ? '' : s).replace(/[&<>"']/g, function(c){ return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]; }); }
+  function tidy(s){ return String(s || '').replace(/\.\s*$/, ''); }
+  function cellTitle(it){
+    var s = tidy(pick(it, 'title'));
+    if (lang() === 'ml') return s.replace(/\s+[—–-]\s+\d+-ാം\s+ഓർമ്മ$/, '');
+    return s.replace(/^(c\.\s*)?\d+(st|nd|rd|th)\s+(Commemoration|Memorial)\s+of\s+/i, '').replace(/^Commemoration\s+of\s+/i, '');
+  }
+  function plural(n){ return lang() === 'ml' ? n + (n === 1 ? ' ആചരണം' : ' ആചരണങ്ങൾ') : n + (n === 1 ? ' observance' : ' observances'); }
+  function pad(n){ return n < 10 ? '0' + n : '' + n; }
+  function iso(y, m, d){ return y + '-' + pad(m + 1) + '-' + pad(d); }
+  function parse(s){ var p = s.split('-'); return { y:+p[0], m:+p[1] - 1, d:+p[2] }; }
+  function dow(s){ var p = parse(s); return new Date(p.y, p.m, p.d).getDay(); }
+  function todayISO(){ var n = new Date(); return iso(n.getFullYear(), n.getMonth(), n.getDate()); }
+  function fmtLong(s){
+    var p = parse(s), w = WD[lang()][dow(s)];
+    return lang() === 'ml' ? MONTHS.ml[p.m] + ' ' + p.d + ', ' + p.y + ' · ' + w : w + ', ' + p.d + ' ' + MONTHS.en[p.m] + ' ' + p.y;
+  }
+  function fmtShort(s){
+    var p = parse(s);
+    return lang() === 'ml' ? MONTHS.ml[p.m] + ' ' + p.d : MONTHS_S.en[p.m] + ' ' + p.d;
+  }
+  function icon(n){
+    var I = {
+      prev:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 6l-6 6 6 6"/></svg>',
+      next:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"/></svg>',
+      search:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg>',
+      pin:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s6-5.6 6-10.5a6 6 0 0 0-12 0C6 15.4 12 21 12 21z"/><circle cx="12" cy="10.5" r="2.2"/></svg>'
+    };
+    return I[n] || '';
+  }
+
+  var S = { data:null, byDate:{}, dates:[], catName:{}, groupName:{}, count:{}, monthCount:[], m:0, sel:null, q:'', on:{}, view:'cal' };
+  GROUPS.forEach(function(g){ S.on[g] = true; });
+
+  /* ---------- data ---------- */
+  function prepare(d){
+    S.data = d;
+    var gi = {}, ci = {};
+    d.taxonomy.groups.forEach(function(g, i){ gi[g.code] = i; S.groupName[g.code] = g; });
+    d.taxonomy.categories.forEach(function(c, i){ ci[c.code] = i; S.catName[c.code] = c; });
+    d.items.forEach(function(it, i){ it._i = i; });
+    d.items.sort(function(a, b){
+      return a.date < b.date ? -1 : a.date > b.date ? 1 :
+        (gi[a.group] - gi[b.group]) || (ci[a.category] - ci[b.category]) || (a._i - b._i);
+    });
+    S.byDate = {}; S.count = {}; S.monthCount = [0,0,0,0,0,0,0,0,0,0,0,0];
+    d.items.forEach(function(it){
+      (S.byDate[it.date] = S.byDate[it.date] || []).push(it);
+      S.count[it.group] = (S.count[it.group] || 0) + 1;
+    });
+    S.dates = Object.keys(S.byDate).sort();
+  }
+  function vis(it){ return S.on[it.group]; }
+  function itemsOn(d){ return (S.byDate[d] || []).filter(vis); }
+  function obsDates(){ return S.dates.filter(function(d){ return itemsOn(d).length; }); }
+  function monthTotals(){
+    var c = [0,0,0,0,0,0,0,0,0,0,0,0];
+    S.dates.forEach(function(d){ c[parse(d).m] += itemsOn(d).length; });
+    return c;
+  }
+  function inYear(s){ return s.slice(0, 4) === String(YEAR); }
+
+  /* ---------- hash ---------- */
+  function readHash(){
+    var h = (location.hash || '').replace('#', '');
+    var m = h.match(/^(\d{4})-(\d{2})(?:-(\d{2}))?$/);
+    if (m && +m[1] === YEAR && +m[2] >= 1 && +m[2] <= 12){
+      S.m = +m[2] - 1;
+      S.sel = m[3] ? iso(YEAR, S.m, +m[3]) : null;
+      return true;
+    }
+    return false;
+  }
+  function writeHash(){
+    try{ history.replaceState(null, '', '#' + (S.sel || YEAR + '-' + pad(S.m + 1))); }catch(e){}
+  }
+
+  /* ---------- pieces ---------- */
+  function badges(it){
+    var b = [];
+    if (it.foreign) b.push('<span class="cal-badge" title="' + esc(t('foreignTip')) + '">' + esc(t('foreign')) + '</span>');
+    if (it.provisional) b.push('<span class="cal-badge" title="' + esc(t('provTip')) + '">' + esc(t('prov')) + '</span>');
+    if (it.date_approx) b.push('<span class="cal-badge">' + esc(t('approx')) + '</span>');
+    if (it.date_uncertain) b.push('<span class="cal-badge">' + esc(t('uncertain')) + '</span>');
+    return b.length ? '<div class="cal-badges">' + b.join('') + '</div>' : '';
+  }
+  function srcLabel(it){
+    return it.source === 'official' ? t('s_official') : it.source === 'proto' ? t('s_proto') : t('s_both');
+  }
+  function entryHTML(it, compact){
+    var l = lang(), cat = S.catName[it.category], notes = (it['notes_' + l] && it['notes_' + l].length ? it['notes_' + l] : it.notes_en) || [];
+    var place = pick(it, 'place'), held = pick(it, 'held_by');
+    var h = '<article class="' + (compact ? 'cal-item' : 'cal-entry') + '" style="--c:' + COLOR[it.group] + '">' +
+      '<div class="cal-cat"><i></i><span>' + esc(cat ? cat[l] : '') + '</span></div>' +
+      '<h4 class="cal-etitle">' + esc(tidy(pick(it, 'title'))) + '</h4>';
+    if (place) h += '<p class="cal-place">' + icon('pin') + '<span>' + esc(place) + '</span></p>';
+    if (held) h += '<p class="cal-held">' + esc(held) + '</p>';
+    notes.forEach(function(n){ h += '<p class="cal-note">' + esc(n) + '</p>'; });
+    h += badges(it);
+    if (!compact) h += '<p class="cal-src">' + esc(t('src')) + ': ' + esc(srcLabel(it)) + '</p>';
+    return h + '</article>';
+  }
+
+  /* ---------- shell ---------- */
+  function shell(){
+    var q = S.q;
+    app.innerHTML =
+      '<div class="cal-tabs" id="calTabs" role="tablist"></div>' +
+      '<div class="cal-tools">' +
+        '<label class="cal-search">' + icon('search') + '<input id="calQ" type="search" autocomplete="off" placeholder="' + esc(t('search')) + '" aria-label="' + esc(t('search')) + '"></label>' +
+        '<div class="cal-seg" id="calView"></div>' +
+      '</div>' +
+      '<div class="cal-chips" id="calChips"></div>' +
+      '<div id="calMain"></div>' +
+      '<p class="cal-note-end">' + esc(t('marks')) + '<br>' + esc(t('foot')) + '</p>';
+    document.getElementById('calQ').value = q;
+  }
+  function renderTabs(){
+    var tot = monthTotals(), l = lang();
+    document.getElementById('calTabs').innerHTML = MONTHS[l].map(function(n, i){
+      var nm = (window.innerWidth < 560 && l === 'en') ? MONTHS_S.en[i] : n;
+      return '<button class="cal-tab" role="tab" data-act="month" data-m="' + i + '" aria-selected="' + (i === S.m && !S.q) + '">' + esc(nm) + '<small>' + tot[i] + '</small></button>';
+    }).join('');
+    var a = document.querySelector('.cal-tab[aria-selected="true"]');
+    if (a && a.parentNode.scrollWidth > a.parentNode.clientWidth){
+      var p = a.parentNode; p.scrollLeft = a.offsetLeft - (p.clientWidth - a.offsetWidth) / 2;
+    }
+  }
+  function renderChips(){
+    var l = lang();
+    document.getElementById('calChips').innerHTML = GROUPS.map(function(g){
+      return '<button class="cal-chip" data-act="chip" data-g="' + g + '" aria-pressed="' + !!S.on[g] + '" style="--c:' + COLOR[g] + '"><i></i>' + esc(GSHORT[l][g]) + ' <b>' + (S.count[g] || 0) + '</b></button>';
+    }).join('');
+  }
+  function renderSeg(){
+    document.getElementById('calView').innerHTML =
+      '<button data-act="view" data-v="cal" aria-pressed="' + (S.view === 'cal') + '">' + esc(t('cal')) + '</button>' +
+      '<button data-act="view" data-v="list" aria-pressed="' + (S.view === 'list') + '">' + esc(t('list')) + '</button>';
+  }
+  function monthNav(cls){
+    var l = lang(), tdy = todayISO();
+    return '<div>' +
+        '<div class="cal-kicker">' + esc(t('kicker')) + '</div>' +
+        '<h2 class="cal-month">' + esc(MONTHS[l][S.m]) + ' <span>' + YEAR + '</span></h2>' +
+      '</div>' +
+      '<div class="cal-nav">' +
+        '<button class="cal-pill" data-act="today"' + (inYear(tdy) ? '' : ' disabled') + '>' + esc(t('today')) + '</button>' +
+        '<button class="cal-arrow" data-act="pm" aria-label="' + esc(t('prevM')) + '"' + (S.m === 0 ? ' disabled' : '') + '>' + icon('prev') + '</button>' +
+        '<button class="cal-arrow" data-act="nm" aria-label="' + esc(t('nextM')) + '"' + (S.m === 11 ? ' disabled' : '') + '>' + icon('next') + '</button>' +
+      '</div>';
+  }
+
+  /* ---------- calendar view ---------- */
+  function gridHTML(){
+    var l = lang(), first = new Date(YEAR, S.m, 1).getDay(), dim = new Date(YEAR, S.m + 1, 0).getDate(), tdy = todayISO(), h = '';
+    for (var b = 0; b < first; b++) h += '<span class="cal-blank"></span>';
+    for (var d = 1; d <= dim; d++){
+      var s = iso(YEAR, S.m, d), its = itemsOn(s), cls = 'cal-day';
+      if (its.length) cls += ' has';
+      if (dow(s) === 0) cls += ' sun';
+      if (s === tdy) cls += ' today';
+      if (s === S.sel) cls += ' sel';
+      if (its.some(function(x){ return x.category === 'lord_feast'; })) cls += ' major';
+      var gs = []; its.forEach(function(x){ if (gs.indexOf(x.group) < 0) gs.push(x.group); });
+      var lab = fmtLong(s) + (its.length ? ', ' + plural(its.length) : '');
+      h += '<button class="' + cls + '" data-act="day" data-date="' + s + '" aria-pressed="' + (s === S.sel) + '" aria-label="' + esc(lab) + '"' + (s === tdy ? ' aria-current="date"' : '') + '>' +
+        '<span class="cal-dn">' + d + '</span>' +
+        (its.length ? '<span class="cal-first">' + esc(cellTitle(its[0])) + (its.length > 1 ? ' <b style="font-weight:600;color:var(--muted)">+' + (its.length - 1) + '</b>' : '') + '</span>' +
+                      '<span class="cal-count">' + esc(plural(its.length)) + '</span>' +
+                      '<span class="cal-dots">' + gs.slice(0, 5).map(function(g){ return '<i style="--c:' + COLOR[g] + '"></i>'; }).join('') + '</span>' : '') +
+        '</button>';
+    }
+    return h;
+  }
+  function panelHTML(){
+    var l = lang();
+    if (!S.sel){
+      return '<div class="cal-eyebrow-s">' + esc(t('sel')) + '</div>' +
+        '<h3 class="cal-date">' + esc(t('pick')) + '</h3>' +
+        '<div class="cal-empty" style="margin-top:1rem"><p>' + esc(t('hint')) + '</p></div>';
+    }
+    var its = itemsOn(S.sel), od = obsDates(), prev = null, next = null;
+    od.forEach(function(d){ if (d < S.sel) prev = d; if (d > S.sel && !next) next = d; });
+    var nav = '<div class="cal-skip">' +
+      '<button data-act="goto" data-date="' + (prev || '') + '"' + (prev ? '' : ' disabled') + '>' + icon('prev') + esc(t('prev')) + (prev ? ' · ' + esc(fmtShort(prev)) : '') + '</button>' +
+      '<button data-act="goto" data-date="' + (next || '') + '"' + (next ? '' : ' disabled') + '>' + esc(t('next')) + (next ? ' · ' + esc(fmtShort(next)) : '') + icon('next') + '</button></div>';
+    var h = '<div class="cal-eyebrow-s">' + esc(t('sel')) + '</div>' +
+      '<h3 class="cal-date">' + esc(fmtLong(S.sel)) + '</h3>' +
+      '<p class="cal-sub">' + (its.length ? esc(plural(its.length)) : esc(t('none'))) + '</p>';
+    if (its.length){
+      h += '<div class="cal-entries">' + its.map(function(it){ return entryHTML(it, false); }).join('') + '</div>' + nav;
+    } else {
+      h += '<div class="cal-empty"><h3>' + esc(t('none')) + '</h3><p>' + esc(t('hint')) + '</p>' + nav + '</div>';
+    }
+    return h;
+  }
+  function renderCal(){
+    document.getElementById('calMain').innerHTML =
+      '<div class="cal-layout">' +
+        '<section class="cal-card" aria-label="' + esc(MONTHS[lang()][S.m] + ' ' + YEAR) + '">' +
+          '<div class="cal-card-h">' + monthNav() + '</div>' +
+          '<div class="cal-wd">' + WDS[lang()].map(function(w){ return '<span>' + esc(w) + '</span>'; }).join('') + '</div>' +
+          '<div class="cal-grid" id="calGrid">' + gridHTML() + '</div>' +
+          '<div class="cal-foot"><span><i class="d"></i>' + esc(t('major')) + '</span><span><i class="r"></i>' + esc(t('tdy')) + '</span></div>' +
+        '</section>' +
+        '<aside class="cal-panel" id="calPanel" aria-live="polite">' + panelHTML() + '</aside>' +
+      '</div>';
+  }
+
+  /* ---------- list view ---------- */
+  function renderList(){
+    var rows = '', tdy = todayISO();
+    var ds = S.dates.filter(function(d){ return parse(d).m === S.m && itemsOn(d).length; });
+    ds.forEach(function(d){
+      var p = parse(d), w = dow(d);
+      rows += '<div class="cal-row' + (d === S.sel ? ' is-sel' : '') + '" id="row-' + d + '">' +
+        '<div class="cal-rd' + (w === 0 ? ' sun' : '') + '"><b>' + p.d + '</b><span>' + esc(WDS[lang()][w]) + '</span></div>' +
+        '<div class="cal-rows">' + itemsOn(d).map(function(it){ return entryHTML(it, true); }).join('') + '</div></div>';
+    });
+    document.getElementById('calMain').innerHTML =
+      '<div class="cal-bar">' + monthNav() + '</div>' +
+      '<div class="cal-list">' + (rows || '<div class="cal-none">' + esc(t('none')) + '</div>') + '</div>';
+  }
+
+  /* ---------- search ---------- */
+  function norm(s){ return String(s || '').toLowerCase(); }
+  function hay(it){
+    return norm([it.title_en, it.title_ml, it.place_en, it.place_ml, it.held_by_en, it.held_by_ml].concat(it.notes_en || [], it.notes_ml || []).join(' | '));
+  }
+  function renderResults(){
+    var q = norm(S.q.trim()), words = q.split(/\s+/).filter(Boolean);
+    var hits = S.data.items.filter(function(it){
+      if (!vis(it)) return false;
+      var h = it._h || (it._h = hay(it));
+      return words.every(function(w){ return h.indexOf(w) >= 0; });
+    });
+    var h = '<div class="cal-bar"><div><div class="cal-kicker">' + esc(t('kicker')) + ' · ' + YEAR + '</div>' +
+      '<h2 class="cal-month">' + esc(lang() === 'ml' ? '“' + S.q.trim() + '” — ' + hits.length : hits.length + ' ' + (hits.length === 1 ? 'result' : 'results')) + '</h2></div>' +
+      '<div class="cal-nav"><button class="cal-pill" data-act="clearq">' + esc(t('clear')) + '</button></div></div><div class="cal-list">';
+    if (!hits.length) h += '<div class="cal-none">' + esc(t('nomatch')) + '</div>';
+    var lastM = -1;
+    hits.forEach(function(it){
+      var p = parse(it.date);
+      if (p.m !== lastM){ lastM = p.m; h += '<div class="cal-mh">' + esc(MONTHS[lang()][p.m]) + '</div>'; }
+      var cat = S.catName[it.category], place = pick(it, 'place');
+      h += '<button class="cal-hit" data-act="go" data-date="' + it.date + '">' +
+        '<span class="dd">' + esc(fmtShort(it.date)) + '<small>' + esc(WD[lang()][dow(it.date)]) + '</small></span>' +
+        '<span class="tt">' + esc(tidy(pick(it, 'title'))) + '<small>' + esc((cat ? cat[lang()] : '') + (place ? ' · ' + place : '')) + '</small></span>' +
+        '<i style="--c:' + COLOR[it.group] + '"></i></button>';
+    });
+    document.getElementById('calMain').innerHTML = h + '</div>';
+  }
+
+  /* ---------- render ---------- */
+  function render(){
+    renderTabs(); renderChips(); renderSeg();
+    if (S.q.trim().length >= 2) renderResults();
+    else if (S.view === 'list') renderList();
+    else renderCal();
+  }
+  function setDate(s, opts){
+    var p = parse(s); S.sel = s; S.m = p.m; S.q = ''; var qi = document.getElementById('calQ'); if (qi) qi.value = '';
+    writeHash(); render();
+    if (opts && opts.focus){ var b = document.querySelector('.cal-day[data-date="' + s + '"]'); if (b) b.focus(); }
+    var pn = document.getElementById('calPanel');
+    if (pn && window.innerWidth <= 1000 && (!opts || !opts.focus)){
+      var r = pn.getBoundingClientRect();
+      if (r.top > window.innerHeight * 0.65) pn.scrollIntoView({ behavior:'smooth', block:'start' });
+    }
+    if (S.view === 'list'){ var row = document.getElementById('row-' + s); if (row) row.scrollIntoView({ behavior:'smooth', block:'center' }); }
+  }
+  function setMonth(m){
+    if (m < 0 || m > 11) return;
+    S.m = m; if (S.sel && parse(S.sel).m !== m) S.sel = null;
+    S.q = ''; var qi = document.getElementById('calQ'); if (qi) qi.value = '';
+    writeHash(); render();
+  }
+
+  /* ---------- events ---------- */
+  app.addEventListener('click', function(e){
+    var el = e.target.closest('[data-act]'); if (!el || el.disabled) return;
+    var a = el.getAttribute('data-act');
+    if (a === 'day') setDate(el.getAttribute('data-date'));
+    else if (a === 'go'){ S.view = 'cal'; setDate(el.getAttribute('data-date')); }
+    else if (a === 'goto'){ var d = el.getAttribute('data-date'); if (d) setDate(d); }
+    else if (a === 'month') setMonth(+el.getAttribute('data-m'));
+    else if (a === 'pm') setMonth(S.m - 1);
+    else if (a === 'nm') setMonth(S.m + 1);
+    else if (a === 'today'){ var t0 = todayISO(); if (inYear(t0)) setDate(t0); }
+    else if (a === 'view'){ S.view = el.getAttribute('data-v'); render(); }
+    else if (a === 'chip'){
+      var g = el.getAttribute('data-g'); S.on[g] = !S.on[g];
+      if (!GROUPS.some(function(x){ return S.on[x]; })) GROUPS.forEach(function(x){ S.on[x] = true; });
+      render();
+    }
+    else if (a === 'clearq'){ S.q = ''; document.getElementById('calQ').value = ''; render(); }
+  });
+  app.addEventListener('input', function(e){
+    if (e.target.id !== 'calQ') return;
+    var v = e.target.value; clearTimeout(app._qt);
+    app._qt = setTimeout(function(){ S.q = v; render(); }, 120);
+  });
+  app.addEventListener('keydown', function(e){
+    var b = e.target.closest && e.target.closest('.cal-day'); if (!b) return;
+    var step = { ArrowLeft:-1, ArrowRight:1, ArrowUp:-7, ArrowDown:7 }[e.key]; if (!step) return;
+    e.preventDefault();
+    var p = parse(b.getAttribute('data-date')), n = new Date(p.y, p.m, p.d + step);
+    if (n.getFullYear() !== YEAR) return;
+    setDate(iso(YEAR, n.getMonth(), n.getDate()), { focus:true });
+  });
+  window.addEventListener('hashchange', function(){ if (readHash()) render(); });
+  new MutationObserver(function(){ if (!S.data) return; shell(); render(); }).observe(document.documentElement, { attributes:true, attributeFilter:['lang'] });
+  var rz; window.addEventListener('resize', function(){ clearTimeout(rz); rz = setTimeout(renderTabs, 150); });
+
+  /* ---------- boot ---------- */
+  fetch(DATA_URL).then(function(r){ if (!r.ok) throw new Error(r.status); return r.json(); }).then(function(d){
+    prepare(d);
+    var tdy = todayISO();
+    if (!readHash()){
+      if (inYear(tdy)){ S.sel = tdy; S.m = parse(tdy).m; } else { S.m = 0; S.sel = null; }
+    }
+    shell(); render();
+  }).catch(function(){
+    app.innerHTML = '<div class="cal-loading">The calendar could not be loaded. Please refresh the page.</div>';
+  });
+})();
+</script>
+</body>
+</html>
