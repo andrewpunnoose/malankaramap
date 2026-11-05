@@ -355,6 +355,8 @@ html body section .page-hero::after{display:none!important}
 @media (min-width:1024px){.director-grid{grid-template-columns:repeat(4,minmax(0,1fr))}}
 .exec-grid{display:grid;grid-template-columns:1fr;gap:1.5rem}
 @media (min-width:900px){.exec-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.exec-grid.exec-grid--solo{grid-template-columns:minmax(0,1fr)}@media (min-width:640px){.exec-grid--solo .premium-card>.flex>div:first-child{width:340px}.exec-grid--solo .premium-card .p-6{padding:2.5rem}}.exec-grid--solo .premium-card h3{font-size:1.85rem;line-height:1.2}.exec-grid--solo .premium-card p{font-size:15.5px}@media (min-width:900px){.exec-grid--members>.premium-card:last-child:nth-child(odd){grid-column:1/-1}}
+
 </style>
 
 <section class="relative overflow-hidden bg-herobg dark:bg-midnight px-5 sm:px-8 pt-14 sm:pt-20 pb-10 sm:pb-14 text-center">
@@ -367,14 +369,14 @@ html body section .page-hero::after{display:none!important}
 
 <div class="section-divider is-tight" aria-hidden="true"><span class="section-divider__line"></span><span class="section-divider__mark"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 3 L21 12 L12 21 L3 12 Z"/></svg></span><span class="section-divider__line"></span></div>
 
-<section class="px-5 sm:px-8 sec-tight max-w-6xl mx-auto" id="exec-council">
+<section class="px-5 sm:px-8 sec-tight max-w-6xl mx-auto" id="global-director">
   <div class="reveal max-w-2xl mb-8 sm:mb-10">
     <div class="font-sans text-[10.5px] tracking-[0.2em] uppercase text-sage font-semibold mb-3" data-en="Leadership" data-ml="നേതൃത്വം">Leadership</div>
-    <h2 class="font-serif font-normal text-[26px] sm:text-4xl text-ink dark:text-ivory mb-3 leading-tight" data-en="The Executive Council" data-ml="നിർവാഹക സമിതി">The Executive Council</h2>
-    <p class="text-[15px] text-body/75 dark:text-ivory/60 leading-[1.8]" data-en-html="The seven who guide the project as a whole &amp;mdash; its Global Director, Assistant Global Director, Co-Global Secretaries, Assistant Global Secretary, and Spiritual Advisors." data-ml-html="പദ്ധതിയെ മൊത്തത്തിൽ നയിക്കുന്ന ഏഴുപേർ — ആഗോള ഡയറക്ടർ, സഹായ ആഗോള ഡയറക്ടർ, സഹ ആഗോള സെക്രട്ടറിമാർ, സഹായ ആഗോള സെക്രട്ടറി, ആത്മീയ ഉപദേഷ്ടാക്കൾ.">The seven who guide the project as a whole &mdash; its Global Director, Assistant Global Director, Co-Global Secretaries, Assistant Global Secretary, and Spiritual Advisors.</p>
+    <h2 class="font-serif font-normal text-[26px] sm:text-4xl text-ink dark:text-ivory mb-3 leading-tight" data-en="The Global Director" data-ml="ആഗോള ഡയറക്ടർ">The Global Director</h2>
+    <p class="text-[15px] text-body/75 dark:text-ivory/60 leading-[1.8]" data-en-html="The founder of Malankara Map, leading the project worldwide." data-ml-html="മലങ്കര സഭാ വിജ്ഞാനകോശത്തിന്റെ സ്ഥാപകൻ; ലോകമെമ്പാടും പദ്ധതിയെ നയിക്കുന്നു.">The founder of Malankara Map, leading the project worldwide.</p>
   </div>
-  <div class="exec-grid">
-    <div class="premium-card texture-paper rounded-[28px] border border-gold/25 shadow-medium overflow-hidden reveal">
+  <div class="exec-grid exec-grid--solo">
+<div class="premium-card texture-paper rounded-[28px] border border-gold/25 shadow-medium overflow-hidden reveal">
   <div class="flex h-full flex-col sm:flex-row">
     <div class="sm:w-[220px] shrink-0"><span class="verified-badge verified-badge--lg" title="Verified director"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg><span data-en="Verified" data-ml="പരിശോധിച്ചു">Verified</span></span>
       <img src="director-andrew-punnoose.jpg" alt="Andrew Punnoose" loading="lazy" class="w-full h-[240px] sm:h-full object-cover object-[center_20%]">
@@ -390,6 +392,18 @@ html body section .page-hero::after{display:none!important}
     </div>
   </div>
 </div>
+  </div>
+</section>
+
+<div class="section-divider is-tight" aria-hidden="true"><span class="section-divider__line"></span><span class="section-divider__mark"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 3 L21 12 L12 21 L3 12 Z"/></svg></span><span class="section-divider__line"></span></div>
+
+<section class="px-5 sm:px-8 sec-tight max-w-6xl mx-auto" id="exec-council">
+  <div class="reveal max-w-2xl mb-8 sm:mb-10">
+    <div class="font-sans text-[10.5px] tracking-[0.2em] uppercase text-sage font-semibold mb-3" data-en="Council" data-ml="സമിതി">Council</div>
+    <h2 class="font-serif font-normal text-[26px] sm:text-4xl text-ink dark:text-ivory mb-3 leading-tight" data-en="The Executive Council" data-ml="നിർവാഹക സമിതി">The Executive Council</h2>
+    <p class="text-[15px] text-body/75 dark:text-ivory/60 leading-[1.8]" data-en-html="The team that guides the project alongside the Global Director — the Assistant Global Director, Co-Global Secretaries, Assistant Global Secretary, and Chief Digital Officer." data-ml-html="ആഗോള ഡയറക്ടറോടൊപ്പം പദ്ധതിയെ നയിക്കുന്ന സംഘം — സഹായ ആഗോള ഡയറക്ടർ, സഹ ആഗോള സെക്രട്ടറിമാർ, സഹായ ആഗോള സെക്രട്ടറി, ചീഫ് ഡിജിറ്റൽ ഓഫീസർ.">The team that guides the project alongside the Global Director — the Assistant Global Director, Co-Global Secretaries, Assistant Global Secretary, and Chief Digital Officer.</p>
+  </div>
+  <div class="exec-grid exec-grid--members">
 <div class="premium-card texture-paper rounded-[28px] border border-gold/25 shadow-medium overflow-hidden reveal">
   <div class="flex h-full flex-col sm:flex-row">
     <div class="sm:w-[220px] shrink-0"><span class="verified-badge verified-badge--lg" title="Verified director"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg><span data-en="Verified" data-ml="പരിശോധിച്ചു">Verified</span></span>
@@ -425,12 +439,12 @@ html body section .page-hero::after{display:none!important}
 <div class="premium-card texture-paper rounded-[28px] border border-gold/25 shadow-medium overflow-hidden reveal">
   <div class="flex h-full flex-col sm:flex-row">
     <div class="sm:w-[220px] shrink-0"><span class="verified-badge" title="Verified director"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg><span data-en="Verified" data-ml="പരിശോധിച്ചു">Verified</span></span>
-      <img src="director-rinzu-rajan.jpg" alt="Rinzu Rajan" loading="lazy" class="w-full h-[240px] sm:h-full object-cover object-[center_20%]">
+      <img src="director-rinzu-rajan.jpg" alt="Dr. Rinzu Rajan" loading="lazy" class="w-full h-[240px] sm:h-full object-cover object-[center_20%]">
     </div>
     <div class="p-6 sm:p-8 flex flex-col justify-start">
       <div class="font-sans text-[10.5px] tracking-[0.18em] uppercase text-taupe font-semibold mb-2" data-en="Co-Global Secretary" data-ml="സഹ ആഗോള സെക്രട്ടറി">Co-Global Secretary</div>
-      <h3 class="font-serif font-normal text-xl sm:text-2xl text-ink dark:text-ivory mb-3" data-en="Rinzu Rajan" data-ml="റിൻസു രാജൻ">Rinzu Rajan</h3>
-      <p class="text-[13.5px] sm:text-[14.5px] text-body/80 dark:text-ivory/65 leading-[1.75] mb-4" data-en-html="Rinzu was born and raised in Delhi and is a biotechnology researcher turned patent lawyer. She is from the ancient Pulipra family of Kuravilangad. After living in several Indian cities, she moved to Canada and the Netherlands for further study. She recently completed a four-month course in Orthodox Christian Nurture, organised by the Calcutta Diocese, before enrolling in Divyabodhanam. An avid reader and writer, and an author in her own right, she aspires to deepen her knowledge of Orthodox theology and church history while pursuing her entrepreneurial ambitions." data-ml-html="റിൻസു ഡൽഹിയിൽ ജനിച്ചുവളർന്നു; ജൈവസാങ്കേതികവിദ്യയിൽ ഗവേഷകയായിരുന്ന അവർ ഇപ്പോൾ കണ്ടുപിടിത്തങ്ങളുടെ ബൗദ്ധികസ്വത്തവകാശ അഭിഭാഷകയാണ്. പുരാതനമായ കുറവിലങ്ങാട്ടെ പുലിപ്ര കുടുംബാംഗമാണ്. ഇന്ത്യയിലെ പല നഗരങ്ങളിൽ താമസിച്ച ശേഷം, തുടർപഠനത്തിനായി അവർ കാനഡയിലേക്കും നെതർലൻഡ്സിലേക്കും പോയി. കൽക്കട്ട ഭദ്രാസനം സംഘടിപ്പിച്ച നാലുമാസത്തെ ഓർത്തഡോക്സ് ക്രൈസ്തവ പരിപോഷണ പഠനപദ്ധതി അടുത്തിടെ പൂർത്തിയാക്കിയ ശേഷം അവർ ദിവ്യബോധനത്തിൽ ചേർന്നു. തീവ്രമായി വായിക്കുകയും എഴുതുകയും ചെയ്യുന്ന, സ്വന്തമായി ഗ്രന്ഥരചനയും നടത്തിയിട്ടുള്ള അവർ, സംരംഭകസ്വപ്നങ്ങൾ പിന്തുടരുന്നതിനൊപ്പം ഓർത്തഡോക്സ് ദൈവശാസ്ത്രത്തെയും സഭാചരിത്രത്തെയും കുറിച്ചുള്ള അറിവ് ആഴപ്പെടുത്താൻ ആഗ്രഹിക്കുന്നു.">Rinzu was born and raised in Delhi and is a biotechnology researcher turned patent lawyer. She is from the ancient Pulipra family of Kuravilangad. After living in several Indian cities, she moved to Canada and the Netherlands for further study. She recently completed a four-month course in Orthodox Christian Nurture, organised by the Calcutta Diocese, before enrolling in Divyabodhanam. An avid reader and writer, and an author in her own right, she aspires to deepen her knowledge of Orthodox theology and church history while pursuing her entrepreneurial ambitions.</p>
+      <h3 class="font-serif font-normal text-xl sm:text-2xl text-ink dark:text-ivory mb-3" data-en="Dr. Rinzu Rajan" data-ml="ഡോ. റിൻസു രാജൻ">Dr. Rinzu Rajan</h3>
+      <p class="text-[13.5px] sm:text-[14.5px] text-body/80 dark:text-ivory/65 leading-[1.75] mb-4" data-en-html="Rinzu was born and raised in Delhi and holds a PhD in bioreactor design. A biotechnology researcher turned patent lawyer, she is from the ancient Pulipra family of Kuravilangad. After living in several Indian cities, she moved to Canada and the Netherlands for further study. She recently completed a four-month course in Orthodox Christian Nurture, organised by the Calcutta Diocese, before enrolling in Divyabodhanam. An avid reader and writer, and an author in her own right, she aspires to deepen her knowledge of Orthodox theology and church history while pursuing her entrepreneurial ambitions." data-ml-html="റിൻസു ഡൽഹിയിൽ ജനിച്ചുവളർന്നു; ബയോറിയാക്ടർ രൂപകൽപ്പനയിൽ പിഎച്ച്.ഡി. നേടിയിട്ടുണ്ട്. ജൈവസാങ്കേതികവിദ്യയിൽ ഗവേഷകയായിരുന്ന അവർ ഇപ്പോൾ കണ്ടുപിടിത്തങ്ങളുടെ ബൗദ്ധികസ്വത്തവകാശ അഭിഭാഷകയാണ്. പുരാതനമായ കുറവിലങ്ങാട്ടെ പുലിപ്ര കുടുംബാംഗമാണ്. ഇന്ത്യയിലെ പല നഗരങ്ങളിൽ താമസിച്ച ശേഷം, തുടർപഠനത്തിനായി അവർ കാനഡയിലേക്കും നെതർലൻഡ്സിലേക്കും പോയി. കൽക്കട്ട ഭദ്രാസനം സംഘടിപ്പിച്ച നാലുമാസത്തെ ഓർത്തഡോക്സ് ക്രൈസ്തവ പരിപോഷണ പഠനപദ്ധതി അടുത്തിടെ പൂർത്തിയാക്കിയ ശേഷം അവർ ദിവ്യബോധനത്തിൽ ചേർന്നു. തീവ്രമായി വായിക്കുകയും എഴുതുകയും ചെയ്യുന്ന, സ്വന്തമായി ഗ്രന്ഥരചനയും നടത്തിയിട്ടുള്ള അവർ, സംരംഭകസ്വപ്നങ്ങൾ പിന്തുടരുന്നതിനൊപ്പം ഓർത്തഡോക്സ് ദൈവശാസ്ത്രത്തെയും സഭാചരിത്രത്തെയും കുറിച്ചുള്ള അറിവ് ആഴപ്പെടുത്താൻ ആഗ്രഹിക്കുന്നു.">Rinzu was born and raised in Delhi and holds a PhD in bioreactor design. A biotechnology researcher turned patent lawyer, she is from the ancient Pulipra family of Kuravilangad. After living in several Indian cities, she moved to Canada and the Netherlands for further study. She recently completed a four-month course in Orthodox Christian Nurture, organised by the Calcutta Diocese, before enrolling in Divyabodhanam. An avid reader and writer, and an author in her own right, she aspires to deepen her knowledge of Orthodox theology and church history while pursuing her entrepreneurial ambitions.</p>
       <div class="flex flex-col gap-1 font-sans text-[11.5px] text-body/55 dark:text-ivory/45 border-t border-line dark:border-white/10 pt-3">
         <span><span class="text-taupe font-semibold uppercase tracking-wide text-[10px]" data-en="Home Parish " data-ml="സ്വന്തം ഇടവക ">Home Parish&nbsp;</span> <span data-en="Omalloor St. Thomas Orthodox Church" data-ml="ഓമല്ലൂർ മാർ തോമ ഓർത്തഡോക്സ് പള്ളി">Omalloor St. Thomas Orthodox Church</span></span>
         <span><span class="text-taupe font-semibold uppercase tracking-wide text-[10px]" data-en="Parish " data-ml="ഇടവക ">Parish&nbsp;</span> <span data-en="Palarivattom St. George Orthodox Church" data-ml="പാലാരിവട്ടം മാർ ഗീവറുഗീസ് സഹദാ ഓർത്തഡോക്സ് പള്ളി">Palarivattom St. George Orthodox Church</span></span>
@@ -454,6 +468,34 @@ html body section .page-hero::after{display:none!important}
     </div>
   </div>
 </div>
+<div class="premium-card texture-paper rounded-[28px] border border-gold/25 shadow-medium overflow-hidden reveal">
+  <div class="flex h-full flex-col sm:flex-row">
+    <div class="sm:w-[220px] shrink-0"><span class="verified-badge verified-badge--lg" title="Verified director"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg><span data-en="Verified" data-ml="പരിശോധിച്ചു">Verified</span></span>
+      <img src="director-ashita-mary-abraham.jpg" alt="Ashita Mary Abraham" loading="lazy" class="w-full h-[240px] sm:h-full object-cover object-[center_20%]">
+    </div>
+    <div class="p-6 sm:p-8 flex flex-col justify-start">
+      <div class="font-sans text-[10.5px] tracking-[0.18em] uppercase text-taupe font-semibold mb-2" data-en="Chief Digital Officer" data-ml="ചീഫ് ഡിജിറ്റൽ ഓഫീസർ">Chief Digital Officer</div>
+      <h3 class="font-serif font-normal text-xl sm:text-2xl text-ink dark:text-ivory mb-3" data-en="Ashita Mary Abraham" data-ml="അഷിത മേരി എബ്രഹാം">Ashita Mary Abraham</h3>
+      <p class="text-[13.5px] sm:text-[14.5px] text-body/80 dark:text-ivory/65 leading-[1.75] mb-4" data-en-html="Ashita was born and raised in the Kingdom of Bahrain, where she grew up in the fellowship of St. Mary’s Orthodox Cathedral. She now lives in Omaha, Nebraska, where she is pursuing her undergraduate degree with a triple major in Computer Science, Artificial Intelligence, and Cybersecurity. She belongs to the Vettiyadathu Parambil Poovathoor family, with ancestral roots in Mavelikara and Kadapra, and is a member of E-MGOCSM, through which she deepens her Orthodox faith and engages with the Church’s youth community. Treasuring her Orthodox heritage and traditions, Ashita delights in bringing people together. As Chief Digital Officer, she supports Malankara Map’s mission to preserve the Church’s heritage and connect Orthodox faithful around the world." data-ml-html="അഷിത ജനിച്ചുവളർന്നത് ബഹ്റൈൻ രാജ്യത്താണ്; അവിടെ മർത്തമറിയം ഓർത്തഡോക്സ് കത്തീഡ്രലിലെ കൂട്ടായ്മയിലാണ് അവർ വളർന്നത്. ഇപ്പോൾ നെബ്രാസ്കയിലെ ഒമാഹയിൽ താമസിക്കുന്ന അവർ, കമ്പ്യൂട്ടർ സയൻസ്, ആർട്ടിഫിഷ്യൽ ഇന്റലിജൻസ്, സൈബർ സെക്യൂരിറ്റി എന്നീ മൂന്ന് വിഷയങ്ങളിൽ ബിരുദപഠനം നടത്തുന്നു. വെട്ടിയാടത്ത് പറമ്പിൽ പൂവത്തൂർ കുടുംബാംഗമായ അവർക്ക് മാവേലിക്കരയിലും കടപ്രയിലും പൂർവിക വേരുകളുണ്ട്; ഇ-എംജിഒസിഎസ്എം അംഗമായ അവർ, അതിലൂടെ ഓർത്തഡോക്സ് വിശ്വാസത്തോടുള്ള ബന്ധം ദൃഢമാക്കുകയും സഭയുടെ യുവജനസമൂഹവുമായി ഇടപഴകുകയും ചെയ്യുന്നു. ഓർത്തഡോക്സ് പൈതൃകത്തെയും പാരമ്പര്യങ്ങളെയും ഹൃദയത്തോടു ചേർത്തുവയ്ക്കുന്ന അഷിത, ആളുകളെ ഒരുമിപ്പിക്കുന്നതിൽ ആനന്ദം കണ്ടെത്തുന്നു. ചീഫ് ഡിജിറ്റൽ ഓഫീസർ എന്ന നിലയിൽ, സഭയുടെ പൈതൃകം സംരക്ഷിക്കാനും ലോകമെമ്പാടുമുള്ള ഓർത്തഡോക്സ് വിശ്വാസികളെ ബന്ധിപ്പിക്കാനുമുള്ള മലങ്കര സഭാ വിജ്ഞാനകോശത്തിന്റെ ദൗത്യത്തിന് അവർ പിന്തുണ നൽകുന്നു.">Ashita was born and raised in the Kingdom of Bahrain, where she grew up in the fellowship of St. Mary’s Orthodox Cathedral. She now lives in Omaha, Nebraska, where she is pursuing her undergraduate degree with a triple major in Computer Science, Artificial Intelligence, and Cybersecurity. She belongs to the Vettiyadathu Parambil Poovathoor family, with ancestral roots in Mavelikara and Kadapra, and is a member of E-MGOCSM, through which she deepens her Orthodox faith and engages with the Church’s youth community. Treasuring her Orthodox heritage and traditions, Ashita delights in bringing people together. As Chief Digital Officer, she supports Malankara Map’s mission to preserve the Church’s heritage and connect Orthodox faithful around the world.</p>
+      <div class="flex flex-col gap-1 font-sans text-[11.5px] text-body/55 dark:text-ivory/45 border-t border-line dark:border-white/10 pt-3">
+        <span><span class="text-taupe font-semibold uppercase tracking-wide text-[10px]" data-en="Home Parish " data-ml="സ്വന്തം ഇടവക ">Home Parish&nbsp;</span> <span data-en="Mavelikara-Puthiyacavu St. Mary’s Orthodox Cathedral" data-ml="മാവേലിക്കര-പുതിയകാവ് മർത്തമറിയം ഓർത്തഡോക്സ് കത്തീഡ്രൽ">Mavelikara-Puthiyacavu St. Mary’s Orthodox Cathedral</span></span>
+        <span><span class="text-taupe font-semibold uppercase tracking-wide text-[10px]" data-en="Parish " data-ml="ഇടവക ">Parish&nbsp;</span> <span data-en="Kallumala St. Gregorios Orthodox Chapel" data-ml="കല്ലുമല മാർ ഗ്രീഗോറിയോസ് ഓർത്തഡോക്സ് ചാപ്പൽ">Kallumala St. Gregorios Orthodox Chapel</span></span>
+      </div>
+    </div>
+  </div>
+</div>
+  </div>
+</section>
+
+<div class="section-divider is-tight" aria-hidden="true"><span class="section-divider__line"></span><span class="section-divider__mark"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 3 L21 12 L12 21 L3 12 Z"/></svg></span><span class="section-divider__line"></span></div>
+
+<section class="px-5 sm:px-8 sec-tight max-w-6xl mx-auto" id="spiritual-advisors">
+  <div class="reveal max-w-2xl mb-8 sm:mb-10">
+    <div class="font-sans text-[10.5px] tracking-[0.2em] uppercase text-sage font-semibold mb-3" data-en="Guidance" data-ml="മാർഗദർശനം">Guidance</div>
+    <h2 class="font-serif font-normal text-[26px] sm:text-4xl text-ink dark:text-ivory mb-3 leading-tight" data-en="Spiritual Advisors" data-ml="ആത്മീയ ഉപദേഷ്ടാക്കൾ">Spiritual Advisors</h2>
+    <p class="text-[15px] text-body/75 dark:text-ivory/60 leading-[1.8]" data-en-html="Priests who offer spiritual counsel and guidance to the project." data-ml-html="പദ്ധതിക്ക് ആത്മീയ ഉപദേശവും മാർഗനിർദേശവും നൽകുന്ന വൈദികർ.">Priests who offer spiritual counsel and guidance to the project.</p>
+  </div>
+  <div class="exec-grid exec-grid--advisors">
 <div class="premium-card texture-paper rounded-[28px] border border-gold/25 shadow-medium overflow-hidden reveal">
   <div class="flex h-full flex-col sm:flex-row">
     <div class="sm:w-[220px] shrink-0"><span class="verified-badge" title="Verified director"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg><span data-en="Verified" data-ml="പരിശോധിച്ചു">Verified</span></span>
@@ -511,6 +553,14 @@ html body section .page-hero::after{display:none!important}
     <div class="font-sans text-[9.5px] tracking-[0.16em] uppercase text-taupe font-semibold mb-1.5" data-en="Ahmedabad Diocesan Coordinator" data-ml="അഹമ്മദാബാദ് ഭദ്രാസന ഏകോപകൻ">Ahmedabad Diocesan Coordinator</div>
     <h4 class="font-serif font-normal text-[16px] sm:text-[17px] text-ink dark:text-ivory mb-2.5 leading-snug" data-en="Anish Chacko" data-ml="അനീഷ് ചാക്കോ">Anish Chacko</h4>
     <div class="flex flex-col gap-0.5 font-sans text-[10.5px] text-body/55 dark:text-ivory/45 leading-[1.5]"><span><span class="text-taupe font-semibold uppercase tracking-wide text-[9.5px]" data-en="Home Parish " data-ml="സ്വന്തം ഇടവക ">Home Parish&nbsp;</span><span data-en="Naranganam St. Osio’s Orthodox Church" data-ml="നാരങ്ങാനം മാർ ഓസിയോ ഓർത്തഡോക്സ് പള്ളി">Naranganam St. Osio’s Orthodox Church</span></span><span><span class="text-taupe font-semibold uppercase tracking-wide text-[9.5px]" data-en="Parish " data-ml="ഇടവക ">Parish&nbsp;</span><span data-en="Vadodara St. Gregorios Orthodox Church" data-ml="വഡോദര മാർ ഗ്രീഗോറിയോസ് ഓർത്തഡോക്സ് പള്ളി">Vadodara St. Gregorios Orthodox Church</span></span></div>
+  </div>
+</div>
+<div class="director-card premium-card texture-paper rounded-2xl border border-gold/20 shadow-soft overflow-hidden reveal">
+  <img src="director-johan-melby.jpg" alt="Johan Melby" loading="lazy" class="director-card__photo"><span class="verified-badge" title="Verified director"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg><span data-en="Verified" data-ml="പരിശോധിച്ചു">Verified</span></span>
+  <div class="p-4 sm:p-5">
+    <div class="font-sans text-[9.5px] tracking-[0.16em] uppercase text-taupe font-semibold mb-1.5" data-en="Angamaly Diocesan Coordinator" data-ml="അങ്കമാലി ഭദ്രാസന ഏകോപകൻ">Angamaly Diocesan Coordinator</div>
+    <h4 class="font-serif font-normal text-[16px] sm:text-[17px] text-ink dark:text-ivory mb-2.5 leading-snug" data-en="Johan Melby" data-ml="ജോഹാൻ മെൽബി">Johan Melby</h4>
+    <div class="flex flex-col gap-0.5 font-sans text-[10.5px] text-body/55 dark:text-ivory/45 leading-[1.5]"><span><span class="text-taupe font-semibold uppercase tracking-wide text-[9.5px]" data-en="Parish " data-ml="ഇടവക ">Parish&nbsp;</span><span data-en="Aluva St. Mary’s Orthodox Church (Thrikkunnathu)" data-ml="ആലുവ മർത്തമറിയം ഓർത്തഡോക്സ് പള്ളി (തൃക്കുന്നത്തു)">Aluva St. Mary’s Orthodox Church (Thrikkunnathu)</span></span></div>
   </div>
 </div>
 <div class="director-card premium-card texture-paper rounded-2xl border border-gold/20 shadow-soft overflow-hidden reveal">
@@ -610,6 +660,14 @@ html body section .page-hero::after{display:none!important}
   </div>
 </div>
 <div class="director-card premium-card texture-paper rounded-2xl border border-gold/20 shadow-soft overflow-hidden reveal">
+  <img src="director-aju-alex.jpg" alt="Aju Alex" loading="lazy" class="director-card__photo"><span class="verified-badge" title="Verified director"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg><span data-en="Verified" data-ml="പരിശോധിച്ചു">Verified</span></span>
+  <div class="p-4 sm:p-5">
+    <div class="font-sans text-[9.5px] tracking-[0.16em] uppercase text-taupe font-semibold mb-1.5" data-en="Kottarakkara–Punalur Diocesan Coordinator" data-ml="കൊട്ടാരക്കര–പുനലൂർ ഭദ്രാസന ഏകോപകൻ">Kottarakkara–Punalur Diocesan Coordinator</div>
+    <h4 class="font-serif font-normal text-[16px] sm:text-[17px] text-ink dark:text-ivory mb-2.5 leading-snug" data-en="Aju Alex" data-ml="അജു അലക്സ്">Aju Alex</h4>
+    <div class="flex flex-col gap-0.5 font-sans text-[10.5px] text-body/55 dark:text-ivory/45 leading-[1.5]"><span><span class="text-taupe font-semibold uppercase tracking-wide text-[9.5px]" data-en="Parish " data-ml="ഇടവക ">Parish&nbsp;</span><span data-en="Kottarakkara-Kottappuram St. Ignatius Orthodox Church" data-ml="കൊട്ടാരക്കര-കോട്ടപ്പുറം മാർ ഇഗ്നാത്തിയോസ് ഓർത്തഡോക്സ് പള്ളി">Kottarakkara-Kottappuram St. Ignatius Orthodox Church</span></span></div>
+  </div>
+</div>
+<div class="director-card premium-card texture-paper rounded-2xl border border-gold/20 shadow-soft overflow-hidden reveal">
   <img src="director-mark-abraham.jpg" alt="Mark Abraham" loading="lazy" class="director-card__photo"><span class="verified-badge" title="Verified director"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg><span data-en="Verified" data-ml="പരിശോധിച്ചു">Verified</span></span>
   <div class="p-4 sm:p-5">
     <div class="font-sans text-[9.5px] tracking-[0.16em] uppercase text-taupe font-semibold mb-1.5" data-en="Kottayam Diocesan Coordinator" data-ml="കോട്ടയം ഭദ്രാസന ഏകോപകൻ">Kottayam Diocesan Coordinator</div>
@@ -686,7 +744,7 @@ html body section .page-hero::after{display:none!important}
   <div class="p-4 sm:p-5">
     <div class="font-sans text-[9.5px] tracking-[0.16em] uppercase text-taupe font-semibold mb-1.5" data-en="Thrissur Diocesan Coordinator" data-ml="തൃശ്ശൂർ ഭദ്രാസന ഏകോപിക">Thrissur Diocesan Coordinator</div>
     <h4 class="font-serif font-normal text-[16px] sm:text-[17px] text-ink dark:text-ivory mb-2.5 leading-snug" data-en="Aldrina Elsa Babukutty" data-ml="അൽഡ്രിന എൽസ ബാബുക്കുട്ടി">Aldrina Elsa Babukutty</h4>
-    <div class="flex flex-col gap-0.5 font-sans text-[10.5px] text-body/55 dark:text-ivory/45 leading-[1.5]"><span><span class="text-taupe font-semibold uppercase tracking-wide text-[9.5px]" data-en="Home Parish " data-ml="സ്വന്തം ഇടവക ">Home Parish&nbsp;</span><span data-en="Vazhamuttom West St. Behanan’s Orthodox Church" data-ml="പടിഞ്ഞാറൻ വാഴമുട്ടം മാർ ബഹനാൻ ഓർത്തഡോക്സ് പള്ളി">Vazhamuttom West St. Behanan’s Orthodox Church</span></span><span><span class="text-taupe font-semibold uppercase tracking-wide text-[9.5px]" data-en="Parish " data-ml="ഇടവക ">Parish&nbsp;</span><span data-en="Riyadh St. Mary’s Orthodox Prayer Group" data-ml="റിയാദ് മർത്തമറിയം ഓർത്തഡോക്സ് പ്രാർത്ഥന യോഗം">Riyadh St. Mary’s Orthodox Prayer Group</span></span></div>
+    <div class="flex flex-col gap-0.5 font-sans text-[10.5px] text-body/55 dark:text-ivory/45 leading-[1.5]"><span><span class="text-taupe font-semibold uppercase tracking-wide text-[9.5px]" data-en="Home Parish " data-ml="സ്വന്തം ഇടവക ">Home Parish&nbsp;</span><span data-en="Vazhamuttom West St. Behanan’s Orthodox Church" data-ml="പടിഞ്ഞാറൻ വാഴമുട്ടം മാർ ബഹനാൻ ഓർത്തഡോക്സ് പള്ളി">Vazhamuttom West St. Behanan’s Orthodox Church</span></span><span><span class="text-taupe font-semibold uppercase tracking-wide text-[9.5px]" data-en="Parish " data-ml="ഇടവക ">Parish&nbsp;</span><span data-en="Riyadh St. Mary’s Orthodox Prayer Group" data-ml="റിയാദ് മർത്തമറിയം ഓർത്തഡോക്സ് പ്രാർത്ഥന യോഗം">Riyadh St. Mary’s Orthodox Prayer Group</span></span></div>
   </div>
 </div>
 <div class="director-card premium-card texture-paper rounded-2xl border border-gold/20 shadow-soft overflow-hidden reveal">
@@ -747,6 +805,14 @@ html body section .page-hero::after{display:none!important}
     <div class="font-sans text-[9.5px] tracking-[0.16em] uppercase text-taupe font-semibold mb-1.5" data-en="Andamans Zonal Coordinator" data-ml="ആൻഡമാൻ മേഖലാ ഏകോപകൻ">Andamans Zonal Coordinator</div>
     <h4 class="font-serif font-normal text-[16px] sm:text-[17px] text-ink dark:text-ivory mb-2.5 leading-snug" data-en="Ashish Peter" data-ml="ആശിഷ് പീറ്റർ">Ashish Peter</h4>
     <div class="flex flex-col gap-0.5 font-sans text-[10.5px] text-body/55 dark:text-ivory/45 leading-[1.5]"><span><span class="text-taupe font-semibold uppercase tracking-wide text-[9.5px]" data-en="Diocese " data-ml="ഭദ്രാസനം ">Diocese&nbsp;</span><span data-en="Madras" data-ml="മദ്രാസ്">Madras</span></span><span><span class="text-taupe font-semibold uppercase tracking-wide text-[9.5px]" data-en="Home Parish " data-ml="സ്വന്തം ഇടവക ">Home Parish&nbsp;</span><span data-en="Makkamkunnu St. Stephen’s Orthodox Cathedral" data-ml="മക്കംകുന്ന് മാർ സ്തേഫാനോസ് സഹദാ ഓർത്തഡോക്സ് കത്തീഡ്രൽ">Makkamkunnu St. Stephen’s Orthodox Cathedral</span></span><span><span class="text-taupe font-semibold uppercase tracking-wide text-[9.5px]" data-en="Parish " data-ml="ഇടവക ">Parish&nbsp;</span><span data-en="Port Blair St. Mary’s Orthodox Cathedral" data-ml="പോർട്ട് ബ്ലെയർ മർത്തമറിയം ഓർത്തഡോക്സ് കത്തീഡ്രൽ">Port Blair St. Mary’s Orthodox Cathedral</span></span></div>
+  </div>
+</div>
+<div class="director-card premium-card texture-paper rounded-2xl border border-gold/20 shadow-soft overflow-hidden reveal">
+  <img src="director-shibin-cheruvathoor-shibu.jpg" alt="Shibin Cheruvathoor Shibu" loading="lazy" class="director-card__photo"><span class="verified-badge" title="Verified director"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg><span data-en="Verified" data-ml="പരിശോധിച്ചു">Verified</span></span>
+  <div class="p-4 sm:p-5">
+    <div class="font-sans text-[9.5px] tracking-[0.16em] uppercase text-taupe font-semibold mb-1.5" data-en="Arthat Zonal Coordinator" data-ml="ആർത്താറ്റ് മേഖലാ ഏകോപകൻ">Arthat Zonal Coordinator</div>
+    <h4 class="font-serif font-normal text-[16px] sm:text-[17px] text-ink dark:text-ivory mb-2.5 leading-snug" data-en="Shibin Cheruvathoor Shibu" data-ml="ഷിബിൻ ചെറുവത്തൂർ ഷിബു">Shibin Cheruvathoor Shibu</h4>
+    <div class="flex flex-col gap-0.5 font-sans text-[10.5px] text-body/55 dark:text-ivory/45 leading-[1.5]"><span><span class="text-taupe font-semibold uppercase tracking-wide text-[9.5px]" data-en="Diocese " data-ml="ഭദ്രാസനം ">Diocese&nbsp;</span><span data-en="Kunnamkulam" data-ml="കുന്നംകുളം">Kunnamkulam</span></span><span><span class="text-taupe font-semibold uppercase tracking-wide text-[9.5px]" data-en="Parish " data-ml="ഇടവക ">Parish&nbsp;</span><span data-en="Adupputty St. George Orthodox Church" data-ml="അടുപ്പുട്ടി മാർ ഗീവറുഗീസ് സഹദാ ഓർത്തഡോക്സ് പള്ളി">Adupputty St. George Orthodox Church</span></span></div>
   </div>
 </div>
 <div class="director-card premium-card texture-paper rounded-2xl border border-gold/20 shadow-soft overflow-hidden reveal">
@@ -834,7 +900,7 @@ html body section .page-hero::after{display:none!important}
   <div class="p-4 sm:p-5">
     <div class="font-sans text-[9.5px] tracking-[0.16em] uppercase text-taupe font-semibold mb-1.5" data-en="Chengaroor Zonal Coordinator" data-ml="ചെങ്ങരൂർ മേഖലാ ഏകോപകൻ">Chengaroor Zonal Coordinator</div>
     <h4 class="font-serif font-normal text-[16px] sm:text-[17px] text-ink dark:text-ivory mb-2.5 leading-snug" data-en="Alwin Binu Varghese" data-ml="ആൽവിൻ ബിനു വർഗീസ്">Alwin Binu Varghese</h4>
-    <div class="flex flex-col gap-0.5 font-sans text-[10.5px] text-body/55 dark:text-ivory/45 leading-[1.5]"><span><span class="text-taupe font-semibold uppercase tracking-wide text-[9.5px]" data-en="Diocese " data-ml="ഭദ്രാസനം ">Diocese&nbsp;</span><span data-en="Niranam" data-ml="നിരണം">Niranam</span></span><span><span class="text-taupe font-semibold uppercase tracking-wide text-[9.5px]" data-en="Parish " data-ml="ഇടവക ">Parish&nbsp;</span><span data-en="Chengaroor St. George Orthodox Church" data-ml="ചെങ്ങരൂർ മാർ ഗീവറുഗീസ് സഹദാ ഓർത്തഡോക്സ് പള്ളി">Chengaroor St. George Orthodox Church</span></span></div>
+    <div class="flex flex-col gap-0.5 font-sans text-[10.5px] text-body/55 dark:text-ivory/45 leading-[1.5]"><span><span class="text-taupe font-semibold uppercase tracking-wide text-[9.5px]" data-en="Diocese " data-ml="ഭദ്രാസനം ">Diocese&nbsp;</span><span data-en="Niranam" data-ml="നിരണം">Niranam</span></span><span><span class="text-taupe font-semibold uppercase tracking-wide text-[9.5px]" data-en="Parish " data-ml="ഇടവക ">Parish&nbsp;</span><span data-en="Chengaroor St. George Orthodox Church" data-ml="ചെങ്ങരൂർ മാർ ഗീവറുഗീസ് സഹദാ ഓർത്തഡോക്സ് പള്ളി">Chengaroor St. George Orthodox Church</span></span></div>
   </div>
 </div>
 <div class="director-card premium-card texture-paper rounded-2xl border border-gold/20 shadow-soft overflow-hidden reveal">
@@ -886,6 +952,14 @@ html body section .page-hero::after{display:none!important}
   </div>
 </div>
 <div class="director-card premium-card texture-paper rounded-2xl border border-gold/20 shadow-soft overflow-hidden reveal">
+  <img src="director-anandhu-anil.jpg" alt="Anandhu Anil" loading="lazy" class="director-card__photo"><span class="verified-badge" title="Verified director"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg><span data-en="Verified" data-ml="പരിശോധിച്ചു">Verified</span></span>
+  <div class="p-4 sm:p-5">
+    <div class="font-sans text-[9.5px] tracking-[0.16em] uppercase text-taupe font-semibold mb-1.5" data-en="Ernakulam Zonal Coordinator" data-ml="എറണാകുളം മേഖലാ ഏകോപകൻ">Ernakulam Zonal Coordinator</div>
+    <h4 class="font-serif font-normal text-[16px] sm:text-[17px] text-ink dark:text-ivory mb-2.5 leading-snug" data-en="Anandhu Anil" data-ml="ആനന്ദു അനിൽ">Anandhu Anil</h4>
+    <div class="flex flex-col gap-0.5 font-sans text-[10.5px] text-body/55 dark:text-ivory/45 leading-[1.5]"><span><span class="text-taupe font-semibold uppercase tracking-wide text-[9.5px]" data-en="Diocese " data-ml="ഭദ്രാസനം ">Diocese&nbsp;</span><span data-en="Kochi" data-ml="കൊച്ചി">Kochi</span></span><span><span class="text-taupe font-semibold uppercase tracking-wide text-[9.5px]" data-en="Parish " data-ml="ഇടവക ">Parish&nbsp;</span><span data-en="Thrippunithura St. Gregorios Orthodox Church" data-ml="തൃപ്പൂണിത്തുറ മാർ ഗ്രീഗോറിയോസ് ഓർത്തഡോക്സ് പള്ളി">Thrippunithura St. Gregorios Orthodox Church</span></span></div>
+  </div>
+</div>
+<div class="director-card premium-card texture-paper rounded-2xl border border-gold/20 shadow-soft overflow-hidden reveal">
   <img src="director-sherry-mathew-elias.jpg" alt="Sherry Mathew Elias" loading="lazy" class="director-card__photo"><span class="verified-badge" title="Verified director"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg><span data-en="Verified" data-ml="പരിശോധിച്ചു">Verified</span></span>
   <div class="p-4 sm:p-5">
     <div class="font-sans text-[9.5px] tracking-[0.16em] uppercase text-taupe font-semibold mb-1.5" data-en="Europe Zonal Coordinator" data-ml="യൂറോപ്പ് മേഖലാ ഏകോപകൻ">Europe Zonal Coordinator</div>
@@ -922,7 +996,15 @@ html body section .page-hero::after{display:none!important}
   <div class="p-4 sm:p-5">
     <div class="font-sans text-[9.5px] tracking-[0.16em] uppercase text-taupe font-semibold mb-1.5" data-en="Hyderabad Zonal Coordinator" data-ml="ഹൈദരാബാദ് മേഖലാ ഏകോപകൻ">Hyderabad Zonal Coordinator</div>
     <h4 class="font-serif font-normal text-[16px] sm:text-[17px] text-ink dark:text-ivory mb-2.5 leading-snug" data-en="Roshan Reju" data-ml="റോഷൻ റെജു">Roshan Reju</h4>
-    <div class="flex flex-col gap-0.5 font-sans text-[10.5px] text-body/55 dark:text-ivory/45 leading-[1.5]"><span><span class="text-taupe font-semibold uppercase tracking-wide text-[9.5px]" data-en="Diocese " data-ml="ഭദ്രാസനം ">Diocese&nbsp;</span><span data-en="Bangalore" data-ml="ബാംഗ്ലൂർ">Bangalore</span></span><span><span class="text-taupe font-semibold uppercase tracking-wide text-[9.5px]" data-en="Parish " data-ml="ഇടവക ">Parish&nbsp;</span><span data-en="Jeedimetla St. George Orthodox Church" data-ml="ജീഡിമെറ്റ്ല മാർ ഗീവറുഗീസ് സഹദാ ഓർത്തഡോക്സ് പള്ളി">Jeedimetla St. George Orthodox Church</span></span></div>
+    <div class="flex flex-col gap-0.5 font-sans text-[10.5px] text-body/55 dark:text-ivory/45 leading-[1.5]"><span><span class="text-taupe font-semibold uppercase tracking-wide text-[9.5px]" data-en="Diocese " data-ml="ഭദ്രാസനം ">Diocese&nbsp;</span><span data-en="Bangalore" data-ml="ബാംഗ്ലൂർ">Bangalore</span></span><span><span class="text-taupe font-semibold uppercase tracking-wide text-[9.5px]" data-en="Parish " data-ml="ഇടവക ">Parish&nbsp;</span><span data-en="Jeedimetla St. George Orthodox Church" data-ml="ജീഡിമെറ്റ്ല മാർ ഗീവറുഗീസ് സഹദാ ഓർത്തഡോക്സ് പള്ളി">Jeedimetla St. George Orthodox Church</span></span></div>
+  </div>
+</div>
+<div class="director-card premium-card texture-paper rounded-2xl border border-gold/20 shadow-soft overflow-hidden reveal">
+  <img src="director-alap-binu.jpg" alt="Alap Binu" loading="lazy" class="director-card__photo"><span class="verified-badge" title="Verified director"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg><span data-en="Verified" data-ml="പരിശോധിച്ചു">Verified</span></span>
+  <div class="p-4 sm:p-5">
+    <div class="font-sans text-[9.5px] tracking-[0.16em] uppercase text-taupe font-semibold mb-1.5" data-en="Idukki Zonal Coordinator" data-ml="ഇടുക്കി മേഖലാ ഏകോപകൻ">Idukki Zonal Coordinator</div>
+    <h4 class="font-serif font-normal text-[16px] sm:text-[17px] text-ink dark:text-ivory mb-2.5 leading-snug" data-en="Alap Binu" data-ml="അലാപ് ബിനു">Alap Binu</h4>
+    <div class="flex flex-col gap-0.5 font-sans text-[10.5px] text-body/55 dark:text-ivory/45 leading-[1.5]"><span><span class="text-taupe font-semibold uppercase tracking-wide text-[9.5px]" data-en="Diocese " data-ml="ഭദ്രാസനം ">Diocese&nbsp;</span><span data-en="Kandanad East" data-ml="കണ്ടനാട് ഈസ്റ്റ്">Kandanad East</span></span><span><span class="text-taupe font-semibold uppercase tracking-wide text-[9.5px]" data-en="Parish " data-ml="ഇടവക ">Parish&nbsp;</span><span data-en="Kathipparathadom St. George Orthodox Church" data-ml="കത്തിപ്പറത്തടം മാർ ഗീവറുഗീസ് സഹദാ ഓർത്തഡോക്സ് പള്ളി">Kathipparathadom St. George Orthodox Church</span></span></div>
   </div>
 </div>
 <div class="director-card premium-card texture-paper rounded-2xl border border-gold/20 shadow-soft overflow-hidden reveal">
@@ -939,6 +1021,14 @@ html body section .page-hero::after{display:none!important}
     <div class="font-sans text-[9.5px] tracking-[0.16em] uppercase text-taupe font-semibold mb-1.5" data-en="Kanakapalam Zonal Coordinator" data-ml="കനകപ്പാലം മേഖലാ ഏകോപിക">Kanakapalam Zonal Coordinator</div>
     <h4 class="font-serif font-normal text-[16px] sm:text-[17px] text-ink dark:text-ivory mb-2.5 leading-snug" data-en="Jissmol Varghese" data-ml="ജിസ്മോൾ വർഗീസ്">Jissmol Varghese</h4>
     <div class="flex flex-col gap-0.5 font-sans text-[10.5px] text-body/55 dark:text-ivory/45 leading-[1.5]"><span><span class="text-taupe font-semibold uppercase tracking-wide text-[9.5px]" data-en="Diocese " data-ml="ഭദ്രാസനം ">Diocese&nbsp;</span><span data-en="Nilackal" data-ml="നിലയ്ക്കൽ">Nilackal</span></span><span><span class="text-taupe font-semibold uppercase tracking-wide text-[9.5px]" data-en="Parish " data-ml="ഇടവക ">Parish&nbsp;</span><span data-en="Punchavayal St. Mary’s Orthodox Church" data-ml="പുഞ്ചവയൽ മർത്തമറിയം ഓർത്തഡോക്സ് പള്ളി">Punchavayal St. Mary’s Orthodox Church</span></span></div>
+  </div>
+</div>
+<div class="director-card premium-card texture-paper rounded-2xl border border-gold/20 shadow-soft overflow-hidden reveal">
+  <img src="director-beaulah-anne-binoy.jpg" alt="Beaulah Anne Binoy" loading="lazy" class="director-card__photo"><span class="verified-badge" title="Verified director"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg><span data-en="Verified" data-ml="പരിശോധിച്ചു">Verified</span></span>
+  <div class="p-4 sm:p-5">
+    <div class="font-sans text-[9.5px] tracking-[0.16em] uppercase text-taupe font-semibold mb-1.5" data-en="Kannur–Kasaragod Zonal Coordinator" data-ml="കണ്ണൂർ–കാസർകോട് മേഖലാ ഏകോപിക">Kannur–Kasaragod Zonal Coordinator</div>
+    <h4 class="font-serif font-normal text-[16px] sm:text-[17px] text-ink dark:text-ivory mb-2.5 leading-snug" data-en="Beaulah Anne Binoy" data-ml="ബ്യൂല ആൻ ബിനോയ്">Beaulah Anne Binoy</h4>
+    <div class="flex flex-col gap-0.5 font-sans text-[10.5px] text-body/55 dark:text-ivory/45 leading-[1.5]"><span><span class="text-taupe font-semibold uppercase tracking-wide text-[9.5px]" data-en="Diocese " data-ml="ഭദ്രാസനം ">Diocese&nbsp;</span><span data-en="Brahmavar" data-ml="ബ്രഹ്മാവർ">Brahmavar</span></span><span><span class="text-taupe font-semibold uppercase tracking-wide text-[9.5px]" data-en="Parish " data-ml="ഇടവക ">Parish&nbsp;</span><span data-en="Ettukudukka St. Mary’s Orthodox Church" data-ml="ഏറ്റുകുടുക്ക മർത്തമറിയം ഓർത്തഡോക്സ് പള്ളി">Ettukudukka St. Mary’s Orthodox Church</span></span></div>
   </div>
 </div>
 <div class="director-card premium-card texture-paper rounded-2xl border border-gold/20 shadow-soft overflow-hidden reveal">
@@ -978,7 +1068,7 @@ html body section .page-hero::after{display:none!important}
   <div class="p-4 sm:p-5">
     <div class="font-sans text-[9.5px] tracking-[0.16em] uppercase text-taupe font-semibold mb-1.5" data-en="Malad Zonal Coordinator" data-ml="മലാഡ് മേഖലാ ഏകോപിക">Malad Zonal Coordinator</div>
     <h4 class="font-serif font-normal text-[16px] sm:text-[17px] text-ink dark:text-ivory mb-2.5 leading-snug" data-en="Jeslin John" data-ml="ജെസ്ലിൻ ജോൺ">Jeslin John</h4>
-    <div class="flex flex-col gap-0.5 font-sans text-[10.5px] text-body/55 dark:text-ivory/45 leading-[1.5]"><span><span class="text-taupe font-semibold uppercase tracking-wide text-[9.5px]" data-en="Diocese " data-ml="ഭദ്രാസനം ">Diocese&nbsp;</span><span data-en="Bombay" data-ml="ബോംബെ">Bombay</span></span><span><span class="text-taupe font-semibold uppercase tracking-wide text-[9.5px]" data-en="Home Parish " data-ml="സ്വന്തം ഇടവക ">Home Parish&nbsp;</span><span data-en="Haripad" data-ml="ഹരിപ്പാട്">Haripad</span></span><span><span class="text-taupe font-semibold uppercase tracking-wide text-[9.5px]" data-en="Parish " data-ml="ഇടവക ">Parish&nbsp;</span><span data-en="Malad St. Thomas Orthodox Church" data-ml="മലാഡ് മാർ തോമ ഓർത്തഡോക്സ് പള്ളി">Malad St. Thomas Orthodox Church</span></span></div>
+    <div class="flex flex-col gap-0.5 font-sans text-[10.5px] text-body/55 dark:text-ivory/45 leading-[1.5]"><span><span class="text-taupe font-semibold uppercase tracking-wide text-[9.5px]" data-en="Diocese " data-ml="ഭദ്രാസനം ">Diocese&nbsp;</span><span data-en="Bombay" data-ml="ബോംബെ">Bombay</span></span><span><span class="text-taupe font-semibold uppercase tracking-wide text-[9.5px]" data-en="Home Parish " data-ml="സ്വന്തം ഇടവക ">Home Parish&nbsp;</span><span data-en="Haripad" data-ml="ഹരിപ്പാട്">Haripad</span></span><span><span class="text-taupe font-semibold uppercase tracking-wide text-[9.5px]" data-en="Parish " data-ml="ഇടവക ">Parish&nbsp;</span><span data-en="Malad St. Thomas Orthodox Church" data-ml="മലാഡ് മാർ തോമ ഓർത്തഡോക്സ് പള്ളി">Malad St. Thomas Orthodox Church</span></span></div>
   </div>
 </div>
 <div class="director-card premium-card texture-paper rounded-2xl border border-gold/20 shadow-soft overflow-hidden reveal">
@@ -1006,11 +1096,11 @@ html body section .page-hero::after{display:none!important}
   </div>
 </div>
 <div class="director-card premium-card texture-paper rounded-2xl border border-gold/20 shadow-soft overflow-hidden reveal">
-  <img src="director-ashita-mary-abraham.jpg" alt="Ashita Mary Abraham" loading="lazy" class="director-card__photo"><span class="verified-badge" title="Verified director"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg><span data-en="Verified" data-ml="പരിശോധിച്ചു">Verified</span></span>
+  <img src="director-reuben-abraham.jpg" alt="Reuben Abraham" loading="lazy" class="director-card__photo"><span class="verified-badge" title="Verified director"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg><span data-en="Verified" data-ml="പരിശോധിച്ചു">Verified</span></span>
   <div class="p-4 sm:p-5">
-    <div class="font-sans text-[9.5px] tracking-[0.16em] uppercase text-taupe font-semibold mb-1.5" data-en="Midwest America Zonal Coordinator" data-ml="മിഡ്‌വെസ്റ്റ് അമേരിക്ക മേഖലാ ഏകോപിക">Midwest America Zonal Coordinator</div>
-    <h4 class="font-serif font-normal text-[16px] sm:text-[17px] text-ink dark:text-ivory mb-2.5 leading-snug" data-en="Ashita Mary Abraham" data-ml="അഷിത മേരി എബ്രഹാം">Ashita Mary Abraham</h4>
-    <div class="flex flex-col gap-0.5 font-sans text-[10.5px] text-body/55 dark:text-ivory/45 leading-[1.5]"><span><span class="text-taupe font-semibold uppercase tracking-wide text-[9.5px]" data-en="Diocese " data-ml="ഭദ്രാസനം ">Diocese&nbsp;</span><span data-en="Southwest America" data-ml="തെക്കുപടിഞ്ഞാറൻ അമേരിക്ക">Southwest America</span></span><span><span class="text-taupe font-semibold uppercase tracking-wide text-[9.5px]" data-en="Home Parish " data-ml="സ്വന്തം ഇടവക ">Home Parish&nbsp;</span><span data-en="Mavelikara-Puthiyacavu St. Mary’s Orthodox Cathedral" data-ml="മാവേലിക്കര-പുതിയകാവ് മർത്തമറിയം ഓർത്തഡോക്സ് കത്തീഡ്രൽ">Mavelikara-Puthiyacavu St. Mary’s Orthodox Cathedral</span></span><span><span class="text-taupe font-semibold uppercase tracking-wide text-[9.5px]" data-en="Parish " data-ml="ഇടവക ">Parish&nbsp;</span><span data-en="Omaha, Nebraska" data-ml="ഒമാഹ, നെബ്രാസ്ക">Omaha, Nebraska</span></span></div>
+    <div class="font-sans text-[9.5px] tracking-[0.16em] uppercase text-taupe font-semibold mb-1.5" data-en="Midwest America Zonal Coordinator" data-ml="മിഡ്‌വെസ്റ്റ് അമേരിക്ക മേഖലാ ഏകോപകൻ">Midwest America Zonal Coordinator</div>
+    <h4 class="font-serif font-normal text-[16px] sm:text-[17px] text-ink dark:text-ivory mb-2.5 leading-snug" data-en="Reuben Abraham" data-ml="റൂബൻ എബ്രഹാം">Reuben Abraham</h4>
+    <div class="flex flex-col gap-0.5 font-sans text-[10.5px] text-body/55 dark:text-ivory/45 leading-[1.5]"><span><span class="text-taupe font-semibold uppercase tracking-wide text-[9.5px]" data-en="Diocese " data-ml="ഭദ്രാസനം ">Diocese&nbsp;</span><span data-en="Southwest America" data-ml="തെക്കുപടിഞ്ഞാറൻ അമേരിക്ക">Southwest America</span></span><span><span class="text-taupe font-semibold uppercase tracking-wide text-[9.5px]" data-en="Home Parish " data-ml="സ്വന്തം ഇടവക ">Home Parish&nbsp;</span><span data-en="Puthencavu St. Mary’s Orthodox Cathedral" data-ml="പുത്തൻകാവ് മർത്തമറിയം ഓർത്തഡോക്സ് കത്തീഡ്രൽ">Puthencavu St. Mary’s Orthodox Cathedral</span></span><span><span class="text-taupe font-semibold uppercase tracking-wide text-[9.5px]" data-en="Parish " data-ml="ഇടവക ">Parish&nbsp;</span><span data-en="Detroit St. Thomas Orthodox Church" data-ml="ഡെട്രോയിറ്റ് മാർ തോമ ഓർത്തഡോക്സ് പള്ളി">Detroit St. Thomas Orthodox Church</span></span></div>
   </div>
 </div>
 <div class="director-card premium-card texture-paper rounded-2xl border border-gold/20 shadow-soft overflow-hidden reveal">
@@ -1018,7 +1108,7 @@ html body section .page-hero::after{display:none!important}
   <div class="p-4 sm:p-5">
     <div class="font-sans text-[9.5px] tracking-[0.16em] uppercase text-taupe font-semibold mb-1.5" data-en="Nagpur Zonal Coordinator" data-ml="നാഗ്പൂർ മേഖലാ ഏകോപിക">Nagpur Zonal Coordinator</div>
     <h4 class="font-serif font-normal text-[16px] sm:text-[17px] text-ink dark:text-ivory mb-2.5 leading-snug" data-en="Anna Thomas" data-ml="അന്ന തോമസ്">Anna Thomas</h4>
-    <div class="flex flex-col gap-0.5 font-sans text-[10.5px] text-body/55 dark:text-ivory/45 leading-[1.5]"><span><span class="text-taupe font-semibold uppercase tracking-wide text-[9.5px]" data-en="Diocese " data-ml="ഭദ്രാസനം ">Diocese&nbsp;</span><span data-en="Calcutta" data-ml="കൽക്കട്ട">Calcutta</span></span><span><span class="text-taupe font-semibold uppercase tracking-wide text-[9.5px]" data-en="Home Parish " data-ml="സ്വന്തം ഇടവക ">Home Parish&nbsp;</span><span data-en="Thalavady East-Amichakary St. Mary’s Orthodox Church" data-ml="കിഴക്കൻ തലവടി-അമിച്ചക്കരി മർത്തമറിയം ഓർത്തഡോക്സ് പള്ളി">Thalavady East-Amichakary St. Mary’s Orthodox Church</span></span><span><span class="text-taupe font-semibold uppercase tracking-wide text-[9.5px]" data-en="Parish " data-ml="ഇടവക ">Parish&nbsp;</span><span data-en="Nagpur St. George Orthodox Cathedral" data-ml="നാഗ്പൂർ മാർ ഗീവറുഗീസ് സഹദാ ഓർത്തഡോക്സ് ഭദ്രാസനപള്ളി">Nagpur St. George Orthodox Cathedral</span></span></div>
+    <div class="flex flex-col gap-0.5 font-sans text-[10.5px] text-body/55 dark:text-ivory/45 leading-[1.5]"><span><span class="text-taupe font-semibold uppercase tracking-wide text-[9.5px]" data-en="Diocese " data-ml="ഭദ്രാസനം ">Diocese&nbsp;</span><span data-en="Calcutta" data-ml="കൽക്കട്ട">Calcutta</span></span><span><span class="text-taupe font-semibold uppercase tracking-wide text-[9.5px]" data-en="Home Parish " data-ml="സ്വന്തം ഇടവക ">Home Parish&nbsp;</span><span data-en="Thalavady East-Amichakary St. Mary’s Orthodox Church" data-ml="കിഴക്കൻ തലവടി-അമിച്ചക്കരി മർത്തമറിയം ഓർത്തഡോക്സ് പള്ളി">Thalavady East-Amichakary St. Mary’s Orthodox Church</span></span><span><span class="text-taupe font-semibold uppercase tracking-wide text-[9.5px]" data-en="Parish " data-ml="ഇടവക ">Parish&nbsp;</span><span data-en="Nagpur St. George Orthodox Cathedral" data-ml="നാഗ്പൂർ മാർ ഗീവറുഗീസ് സഹദാ ഓർത്തഡോക്സ് ഭദ്രാസനപള്ളി">Nagpur St. George Orthodox Cathedral</span></span></div>
   </div>
 </div>
 <div class="director-card premium-card texture-paper rounded-2xl border border-gold/20 shadow-soft overflow-hidden reveal">
@@ -1043,6 +1133,22 @@ html body section .page-hero::after{display:none!important}
     <div class="font-sans text-[9.5px] tracking-[0.16em] uppercase text-taupe font-semibold mb-1.5" data-en="Nilackal Zonal Coordinator" data-ml="നിലയ്ക്കൽ മേഖലാ ഏകോപിക">Nilackal Zonal Coordinator</div>
     <h4 class="font-serif font-normal text-[16px] sm:text-[17px] text-ink dark:text-ivory mb-2.5 leading-snug" data-en="Merlin Mary Thomas" data-ml="മെർലിൻ മേരി തോമസ്">Merlin Mary Thomas</h4>
     <div class="flex flex-col gap-0.5 font-sans text-[10.5px] text-body/55 dark:text-ivory/45 leading-[1.5]"><span><span class="text-taupe font-semibold uppercase tracking-wide text-[9.5px]" data-en="Diocese " data-ml="ഭദ്രാസനം ">Diocese&nbsp;</span><span data-en="Nilackal" data-ml="നിലയ്ക്കൽ">Nilackal</span></span><span><span class="text-taupe font-semibold uppercase tracking-wide text-[9.5px]" data-en="Parish " data-ml="ഇടവക ">Parish&nbsp;</span><span data-en="Nilackal St. Thomas Orthodox Church (Angamoozhy)" data-ml="നിലയ്ക്കൽ മാർ തോമ ഓർത്തഡോക്സ് പള്ളി (അങ്ങാമൂഴി)">Nilackal St. Thomas Orthodox Church (Angamoozhy)</span></span></div>
+  </div>
+</div>
+<div class="director-card premium-card texture-paper rounded-2xl border border-gold/20 shadow-soft overflow-hidden reveal">
+  <img src="director-bibi-kuriakose.jpg" alt="Bibi Kuriakose" loading="lazy" class="director-card__photo"><span class="verified-badge" title="Verified director"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg><span data-en="Verified" data-ml="പരിശോധിച്ചു">Verified</span></span>
+  <div class="p-4 sm:p-5">
+    <div class="font-sans text-[9.5px] tracking-[0.16em] uppercase text-taupe font-semibold mb-1.5" data-en="Niranam Zonal Coordinator" data-ml="നിരണം മേഖലാ ഏകോപകൻ">Niranam Zonal Coordinator</div>
+    <h4 class="font-serif font-normal text-[16px] sm:text-[17px] text-ink dark:text-ivory mb-2.5 leading-snug" data-en="Bibi Kuriakose" data-ml="ബിബി കുര്യാക്കോസ്">Bibi Kuriakose</h4>
+    <div class="flex flex-col gap-0.5 font-sans text-[10.5px] text-body/55 dark:text-ivory/45 leading-[1.5]"><span><span class="text-taupe font-semibold uppercase tracking-wide text-[9.5px]" data-en="Diocese " data-ml="ഭദ്രാസനം ">Diocese&nbsp;</span><span data-en="Niranam" data-ml="നിരണം">Niranam</span></span><span><span class="text-taupe font-semibold uppercase tracking-wide text-[9.5px]" data-en="Parish " data-ml="ഇടവക ">Parish&nbsp;</span><span data-en="Eramallikkara St. Gregorios Orthodox Chapel" data-ml="എരമല്ലിക്കര മാർ ഗ്രീഗോറിയോസ് ഓർത്തഡോക്സ് ചാപ്പൽ">Eramallikkara St. Gregorios Orthodox Chapel</span></span></div>
+  </div>
+</div>
+<div class="director-card premium-card texture-paper rounded-2xl border border-gold/20 shadow-soft overflow-hidden reveal">
+  <img src="director-prince-abraham.jpg" alt="Prince Abraham" loading="lazy" class="director-card__photo"><span class="verified-badge" title="Verified director"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg><span data-en="Verified" data-ml="പരിശോധിച്ചു">Verified</span></span>
+  <div class="p-4 sm:p-5">
+    <div class="font-sans text-[9.5px] tracking-[0.16em] uppercase text-taupe font-semibold mb-1.5" data-en="NJLI Zonal Coordinator" data-ml="എൻജെഎൽഐ മേഖലാ ഏകോപകൻ">NJLI Zonal Coordinator</div>
+    <h4 class="font-serif font-normal text-[16px] sm:text-[17px] text-ink dark:text-ivory mb-2.5 leading-snug" data-en="Prince Abraham" data-ml="പ്രിൻസ് എബ്രഹാം">Prince Abraham</h4>
+    <div class="flex flex-col gap-0.5 font-sans text-[10.5px] text-body/55 dark:text-ivory/45 leading-[1.5]"><span><span class="text-taupe font-semibold uppercase tracking-wide text-[9.5px]" data-en="Diocese " data-ml="ഭദ്രാസനം ">Diocese&nbsp;</span><span data-en="Northeast America" data-ml="വടക്കുകിഴക്കൻ അമേരിക്ക">Northeast America</span></span><span><span class="text-taupe font-semibold uppercase tracking-wide text-[9.5px]" data-en="Parish " data-ml="ഇടവക ">Parish&nbsp;</span><span data-en="Central Jersey St. Basil and St. Gregory Indian Orthodox Church" data-ml="സെൻട്രൽ ജേഴ്‌സി മാർ ബസേലിയോസ് മാർ ഗ്രീഗോറിയോസ് ഇന്ത്യൻ ഓർത്തഡോക്സ് പള്ളി">Central Jersey St. Basil and St. Gregory Indian Orthodox Church</span></span></div>
   </div>
 </div>
 <div class="director-card premium-card texture-paper rounded-2xl border border-gold/20 shadow-soft overflow-hidden reveal">
@@ -1102,6 +1208,14 @@ html body section .page-hero::after{display:none!important}
   </div>
 </div>
 <div class="director-card premium-card texture-paper rounded-2xl border border-gold/20 shadow-soft overflow-hidden reveal">
+  <img src="director-jijo-raju.jpg" alt="Jijo Raju" loading="lazy" class="director-card__photo"><span class="verified-badge" title="Verified director"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg><span data-en="Verified" data-ml="പരിശോധിച്ചു">Verified</span></span>
+  <div class="p-4 sm:p-5">
+    <div class="font-sans text-[9.5px] tracking-[0.16em] uppercase text-taupe font-semibold mb-1.5" data-en="Pazhanji Zonal Coordinator" data-ml="പഴഞ്ഞി മേഖലാ ഏകോപകൻ">Pazhanji Zonal Coordinator</div>
+    <h4 class="font-serif font-normal text-[16px] sm:text-[17px] text-ink dark:text-ivory mb-2.5 leading-snug" data-en="Jijo Raju" data-ml="ജിജോ രാജു">Jijo Raju</h4>
+    <div class="flex flex-col gap-0.5 font-sans text-[10.5px] text-body/55 dark:text-ivory/45 leading-[1.5]"><span><span class="text-taupe font-semibold uppercase tracking-wide text-[9.5px]" data-en="Diocese " data-ml="ഭദ്രാസനം ">Diocese&nbsp;</span><span data-en="Kunnamkulam" data-ml="കുന്നംകുളം">Kunnamkulam</span></span><span><span class="text-taupe font-semibold uppercase tracking-wide text-[9.5px]" data-en="Parish " data-ml="ഇടവക ">Parish&nbsp;</span><span data-en="Pazhanji St. Mary’s Orthodox Cathedral" data-ml="പഴഞ്ഞി മർത്തമറിയം ഓർത്തഡോക്സ് ഭദ്രാസനപള്ളി">Pazhanji St. Mary’s Orthodox Cathedral</span></span></div>
+  </div>
+</div>
+<div class="director-card premium-card texture-paper rounded-2xl border border-gold/20 shadow-soft overflow-hidden reveal">
   <img src="director-neha-george.jpg" alt="Neha George" loading="lazy" class="director-card__photo"><span class="verified-badge" title="Verified director"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg><span data-en="Verified" data-ml="പരിശോധിച്ചു">Verified</span></span>
   <div class="p-4 sm:p-5">
     <div class="font-sans text-[9.5px] tracking-[0.16em] uppercase text-taupe font-semibold mb-1.5" data-en="Philadelphia Zonal Coordinator" data-ml="ഫിലാഡൽഫിയ മേഖലാ ഏകോപിക">Philadelphia Zonal Coordinator</div>
@@ -1130,7 +1244,7 @@ html body section .page-hero::after{display:none!important}
   <div class="p-4 sm:p-5">
     <div class="font-sans text-[9.5px] tracking-[0.16em] uppercase text-taupe font-semibold mb-1.5" data-en="Sharjah Zonal Coordinator" data-ml="ഷാർജ മേഖലാ ഏകോപകൻ">Sharjah Zonal Coordinator</div>
     <h4 class="font-serif font-normal text-[16px] sm:text-[17px] text-ink dark:text-ivory mb-2.5 leading-snug" data-en="Mathew George" data-ml="മാത്യു ജോർജ്">Mathew George</h4>
-    <div class="flex flex-col gap-0.5 font-sans text-[10.5px] text-body/55 dark:text-ivory/45 leading-[1.5]"><span><span class="text-taupe font-semibold uppercase tracking-wide text-[9.5px]" data-en="Diocese " data-ml="ഭദ്രാസനം ">Diocese&nbsp;</span><span data-en="Madras" data-ml="മദ്രാസ്">Madras</span></span><span><span class="text-taupe font-semibold uppercase tracking-wide text-[9.5px]" data-en="Home Parish " data-ml="സ്വന്തം ഇടവക ">Home Parish&nbsp;</span><span data-en="Nellimoodu St. Mary’s Bethany Orthodox Church" data-ml="നെല്ലിമൂട് മർത്തമറിയം ബഥനി ഓർത്തഡോക്സ് പള്ളി">Nellimoodu St. Mary’s Bethany Orthodox Church</span></span><span><span class="text-taupe font-semibold uppercase tracking-wide text-[9.5px]" data-en="Parish " data-ml="ഇടവക ">Parish&nbsp;</span><span data-en="Sharjah St. Gregorios Orthodox Church" data-ml="ഷാർജ മാർ ഗ്രീഗോറിയോസ് ഓർത്തഡോക്സ് പള്ളി">Sharjah St. Gregorios Orthodox Church</span></span></div>
+    <div class="flex flex-col gap-0.5 font-sans text-[10.5px] text-body/55 dark:text-ivory/45 leading-[1.5]"><span><span class="text-taupe font-semibold uppercase tracking-wide text-[9.5px]" data-en="Diocese " data-ml="ഭദ്രാസനം ">Diocese&nbsp;</span><span data-en="Madras" data-ml="മദ്രാസ്">Madras</span></span><span><span class="text-taupe font-semibold uppercase tracking-wide text-[9.5px]" data-en="Home Parish " data-ml="സ്വന്തം ഇടവക ">Home Parish&nbsp;</span><span data-en="Nellimoodu St. Mary’s Bethany Orthodox Church" data-ml="നെല്ലിമൂട് മർത്തമറിയം ബഥനി ഓർത്തഡോക്സ് പള്ളി">Nellimoodu St. Mary’s Bethany Orthodox Church</span></span><span><span class="text-taupe font-semibold uppercase tracking-wide text-[9.5px]" data-en="Parish " data-ml="ഇടവക ">Parish&nbsp;</span><span data-en="Sharjah St. Gregorios Orthodox Church" data-ml="ഷാർജ മാർ ഗ്രീഗോറിയോസ് ഓർത്തഡോക്സ് പള്ളി">Sharjah St. Gregorios Orthodox Church</span></span></div>
   </div>
 </div>
 <div class="director-card premium-card texture-paper rounded-2xl border border-gold/20 shadow-soft overflow-hidden reveal">
@@ -1243,14 +1357,6 @@ html body section .page-hero::after{display:none!important}
   </div>
   <div class="director-grid">
     <div class="director-card premium-card texture-paper rounded-2xl border border-gold/20 shadow-soft overflow-hidden reveal">
-  <img src="director-reuben-abraham.jpg" alt="Reuben Abraham" loading="lazy" class="director-card__photo"><span class="verified-badge" title="Verified director"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg><span data-en="Verified" data-ml="പരിശോധിച്ചു">Verified</span></span>
-  <div class="p-4 sm:p-5">
-    <div class="font-sans text-[9.5px] tracking-[0.16em] uppercase text-taupe font-semibold mb-1.5" data-en="Qurbana Requests Coordinator" data-ml="കുർബാന അഭ്യർത്ഥനാ ഏകോപകൻ">Qurbana Requests Coordinator</div>
-    <h4 class="font-serif font-normal text-[16px] sm:text-[17px] text-ink dark:text-ivory mb-2.5 leading-snug" data-en="Reuben Abraham" data-ml="റൂബൻ എബ്രഹാം">Reuben Abraham</h4>
-    <div class="flex flex-col gap-0.5 font-sans text-[10.5px] text-body/55 dark:text-ivory/45 leading-[1.5]"><span><span class="text-taupe font-semibold uppercase tracking-wide text-[9.5px]" data-en="Home Parish " data-ml="സ്വന്തം ഇടവക ">Home Parish&nbsp;</span><span data-en="Puthencavu St. Mary’s Orthodox Cathedral" data-ml="പുത്തൻകാവ് മർത്തമറിയം ഓർത്തഡോക്സ് കത്തീഡ്രൽ">Puthencavu St. Mary’s Orthodox Cathedral</span></span><span><span class="text-taupe font-semibold uppercase tracking-wide text-[9.5px]" data-en="Parish " data-ml="ഇടവക ">Parish&nbsp;</span><span data-en="Detroit St. Thomas Orthodox Church" data-ml="ഡെട്രോയിറ്റ് മാർ തോമ ഓർത്തഡോക്സ് പള്ളി">Detroit St. Thomas Orthodox Church</span></span></div>
-  </div>
-</div>
-<div class="director-card premium-card texture-paper rounded-2xl border border-gold/20 shadow-soft overflow-hidden reveal">
   <img src="director-john-abraham-james.jpg" alt="John Abraham James" loading="lazy" class="director-card__photo"><span class="verified-badge" title="Verified director"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg><span data-en="Verified" data-ml="പരിശോധിച്ചു">Verified</span></span>
   <div class="p-4 sm:p-5">
     <div class="font-sans text-[9.5px] tracking-[0.16em] uppercase text-taupe font-semibold mb-1.5" data-en="Assistant Qurbana Requests Coordinator" data-ml="സഹായ കുർബാന അഭ്യർത്ഥനാ ഏകോപകൻ">Assistant Qurbana Requests Coordinator</div>
