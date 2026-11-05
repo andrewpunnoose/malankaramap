@@ -6722,7 +6722,8 @@ html[lang="ml"] .tdc .tdc-up a{grid-template-columns:5.6rem minmax(0,1fr)}
 #today ~ #numbers{padding-top:2.25rem!important}
 @media (min-width:1024px){#today ~ #numbers{padding-top:2.25rem!important}}
 @media (max-width:860px){
-  .tdc-card{grid-template-columns:minmax(0,1fr)}
+  #today.tdc{padding-left:0!important;padding-right:0!important}
+  .tdc-card{grid-template-columns:minmax(0,1fr);border-radius:0;border-left:0;border-right:0;box-shadow:none}
   .tdc-date{flex-direction:row;gap:1rem;justify-content:flex-start;text-align:left;padding:1.1rem 1.3rem;min-width:0}
   .tdc-date{flex-wrap:wrap}
   .tdc-date .tdc-dt:first-child{flex:0 0 100%}
