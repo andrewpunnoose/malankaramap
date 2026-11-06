@@ -159,6 +159,7 @@ html[lang="ml"] .cal-month{font-family:Marcellus,"Noto Serif Malayalam",serif;li
 .cal-day.today .cal-dn::after{content:"";display:inline-block;width:5px;height:5px;margin-left:5px;border-radius:50%;background:var(--gold);vertical-align:middle;transform:translateY(-1px)}
 .cal-day.major::before{content:"";position:absolute;top:.5rem;right:.5rem;width:7px;height:7px;background:var(--gold);transform:rotate(45deg);border-radius:1px}
 .cal-day.sel{background:var(--sel-bg);border-color:var(--sel-bg);color:var(--sel-fg);box-shadow:0 6px 18px rgba(30,45,25,.28)}
+.cal-day.sel:hover,.cal-day.has.sel:hover{background:var(--sel-bg);border-color:var(--sel-bg);color:var(--sel-fg);transform:none}
 .cal-day.sel .cal-dn,.cal-day.sel.sun .cal-dn{color:var(--sel-fg)}
 .cal-day.sel.today{box-shadow:inset 0 0 0 2px var(--gold),0 6px 18px rgba(30,45,25,.28)}
 .cal-first,.cal-count{display:none}
@@ -266,19 +267,33 @@ html.dark .cal-cite .lede{color:rgba(247,245,238,.5)}
 html.dark .cal-cite .ref{color:rgba(247,245,238,.6)}
 html[lang="ml"] .cal-cite h2{font-family:Marcellus,"Noto Serif Malayalam",serif}
 html[lang="ml"] .cal-cite .lede,html[lang="ml"] .cal-cite .ref{font-family:Inter,"Noto Serif Malayalam",serif}
+/* ---------- projection notice, movable badge, rule line ---------- */
+.cal-proj{margin:0 0 1.25rem;padding:.85rem 1.05rem;border:1px solid var(--line);border-left:3px solid var(--gold);border-radius:12px;background:var(--gold-soft);font-size:12.5px;line-height:1.65;color:var(--body)}
+.cal-badge--mv{background:transparent;box-shadow:inset 0 0 0 1px var(--gold)}
+.cal-rule{margin:.6rem 0 0;font-size:11.5px;color:var(--muted)}
+/* ---------- a note on the calendar ---------- */
+.cal-aside{max-width:72rem;margin:-1.5rem auto 0;padding:0 1.25rem 3rem}
+.cal-aside-in{max-width:40rem;margin:0 auto;padding:2.25rem 1rem 0;text-align:center}
+.cal-aside-d{display:block;width:9px;height:9px;margin:0 auto 1.1rem;background:#BA9450;transform:rotate(45deg);border-radius:1px}
+.cal-aside-h{margin:0 0 .75rem;font-size:10.5px;letter-spacing:.2em;text-transform:uppercase;font-weight:600;color:#7C6A4A}
+html.dark .cal-aside-h{color:#D4B06A}
+.cal-aside-p{margin:0;font-family:Marcellus,Georgia,serif;font-size:1.2rem;line-height:1.65;color:#10140D;text-wrap:balance}
+html.dark .cal-aside-p{color:#F7F5EE}
+html[lang="ml"] .cal-aside-h{letter-spacing:normal;text-transform:none}
+html[lang="ml"] .cal-aside-p{font-family:Marcellus,"Noto Serif Malayalam",serif;line-height:1.8}
 @media (prefers-reduced-motion:reduce){.cal *{transition:none !important}html{scroll-behavior:auto}}
 </style>
-<title data-en="Liturgical Calendar 2026 — Malankara Map" data-ml="ആരാധനാ കലണ്ടർ 2026 — മലങ്കര സഭാ വിജ്ഞാനകോശം">Liturgical Calendar 2026 — Malankara Map</title>
-<meta name="description" content="The 2026 liturgical calendar of the Malankara Orthodox Syrian Church — feasts, fasts, Sundays of the liturgical year and commemorations, month by month, in English and Malayalam.">
+<title data-en="Liturgical Calendar 2026–2027 — Malankara Map" data-ml="ആരാധനാ കലണ്ടർ 2026–2027 — മലങ്കര സഭാ വിജ്ഞാനകോശം">Liturgical Calendar 2026–2027 — Malankara Map</title>
+<meta name="description" content="The 2026 and 2027 liturgical calendar of the Malankara Orthodox Syrian Church — feasts, fasts, Sundays of the liturgical year and commemorations, month by month, in English and Malayalam, with the movable dates marked.">
 <link rel="canonical" href="https://malankaramap.com/calendar">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Malankara Map">
-<meta property="og:title" content="Liturgical Calendar 2026 — Malankara Map">
+<meta property="og:title" content="Liturgical Calendar 2026–2027 — Malankara Map">
 <meta property="og:description" content="Feasts, fasts, Sundays of the liturgical year and commemorations of the Malankara Orthodox Syrian Church, month by month.">
 <meta property="og:image" content="https://malankaramap.com/og-image.png">
 <meta property="og:url" content="https://malankaramap.com/calendar">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Liturgical Calendar 2026 — Malankara Map">
+<meta name="twitter:title" content="Liturgical Calendar 2026–2027 — Malankara Map">
 <meta name="twitter:description" content="Feasts, fasts, Sundays of the liturgical year and commemorations of the Malankara Orthodox Syrian Church, month by month.">
 <meta name="twitter:image" content="https://malankaramap.com/og-image.png">
 </head>
@@ -293,7 +308,7 @@ html[lang="ml"] .cal-cite .lede,html[lang="ml"] .cal-cite .ref{font-family:Inter
 
 <main>
   <section class="cal-hero">
-    <div class="cal-eyebrow" data-en="Liturgical Calendar · 2026" data-ml="ആരാധനാ കലണ്ടർ · 2026">Liturgical Calendar · 2026</div>
+    <div class="cal-eyebrow" data-en="Liturgical Calendar · 2026 – 2027" data-ml="ആരാധനാ കലണ്ടർ · 2026 – 2027">Liturgical Calendar · 2026 – 2027</div>
     <h1 class="cal-h1" data-en-html="The Church&rsquo;s year,&lt;br/&gt;&lt;em&gt;day by day.&lt;/em&gt;" data-ml-html="സഭയുടെ വർഷം,&lt;br/&gt;&lt;em&gt;ദിനം ദിനമായി.&lt;/em&gt;">The Church&rsquo;s year,<br/><em>day by day.</em></h1>
     <p class="cal-lede" data-en="Feast days, fasting seasons, the Sundays of the liturgical year, and the commemorations of the Malankara Orthodox Syrian Church. Select any day to see what is observed." data-ml="മലങ്കര ഓർത്തഡോക്സ് സുറിയാനി സഭയുടെ പെരുന്നാളുകൾ, നോമ്പുകാലങ്ങൾ, ആരാധനാ വർഷത്തിലെ ഞായറാഴ്ചകൾ, ഓർമ്മകൾ. ഏതെങ്കിലും ദിവസം തിരഞ്ഞെടുത്ത് അന്ന് ആചരിക്കുന്നവ കാണുക.">Feast days, fasting seasons, the Sundays of the liturgical year, and the commemorations of the Malankara Orthodox Syrian Church. Select any day to see what is observed.</p>
     <div class="cal-thread"></div>
@@ -302,10 +317,18 @@ html[lang="ml"] .cal-cite .lede,html[lang="ml"] .cal-cite .ref{font-family:Inter
   <div class="cal" id="calApp">
     <div class="cal-loading" id="calLoading" data-en="Opening the calendar…" data-ml="കലണ്ടർ തുറക്കുന്നു…">Opening the calendar…</div>
   </div>
+  <aside class="cal-aside" aria-labelledby="calNoteT">
+    <div class="cal-aside-in">
+      <span class="cal-aside-d" aria-hidden="true"></span>
+      <h2 class="cal-aside-h" id="calNoteT" data-en="A note on the calendar" data-ml="കലണ്ടറിനെക്കുറിച്ച് ഒരു കുറിപ്പ്">A note on the calendar</h2>
+      <p class="cal-aside-p" data-en="The Malankara Church switched entirely to the Gregorian calendar in 1953, following Encyclical No. 620 from Patriarch Mor Ignatius Aphrem I in December 1952." data-ml="1952 ഡിസംബറിലെ പാത്രിയർക്കീസ് മോർ ഇഗ്നാത്തിയോസ് അപ്രേം ഒന്നാമന്റെ 620-ാം നമ്പർ കൽപ്പനയെത്തുടർന്ന്, മലങ്കര സഭ 1953-ൽ പൂർണ്ണമായും ഗ്രിഗോറിയൻ കലണ്ടറിലേക്ക് മാറി.">The Malankara Church switched entirely to the Gregorian calendar in 1953, following Encyclical No. 620 from Patriarch Mor Ignatius Aphrem I in December 1952.</p>
+    </div>
+  </aside>
+
   <section class="cal-cite" id="sources" aria-labelledby="calSrcTitle">
     <div class="cal-cite-in">
       <h2 id="calSrcTitle" data-en="Sources" data-ml="അവലംബങ്ങൾ">Sources</h2>
-      <p class="lede" data-en="The dates, feasts and commemorations on this page are compiled from the two sources below. The details panel for each day shows which source an entry comes from." data-ml="ഈ പേജിലെ തീയതികളും പെരുന്നാളുകളും ഓർമ്മകളും താഴെ നൽകിയിരിക്കുന്ന രണ്ട് സ്രോതസ്സുകളിൽ നിന്ന് സമാഹരിച്ചതാണ്. ഓരോ ദിവസത്തെയും വിവരങ്ങളിൽ അതത് ആചരണത്തിന്റെ സ്രോതസ്സ് കാണിച്ചിരിക്കുന്നു.">The dates, feasts and commemorations on this page are compiled from the two sources below. The details panel for each day shows which source an entry comes from.</p>
+      <p class="lede" data-en="The dates, feasts and commemorations on this page are compiled from the two sources below. The details panel for each day shows which source an entry comes from. The 2027 calendar is projected from 2026 using the Church’s rules for movable observances, and will be checked against the official 2027 panchangam once it is printed." data-ml="ഈ പേജിലെ തീയതികളും പെരുന്നാളുകളും ഓർമ്മകളും താഴെ നൽകിയിരിക്കുന്ന രണ്ട് സ്രോതസ്സുകളിൽ നിന്ന് സമാഹരിച്ചതാണ്. ഓരോ ദിവസത്തെയും വിവരങ്ങളിൽ അതത് ആചരണത്തിന്റെ സ്രോതസ്സ് കാണിച്ചിരിക്കുന്നു. 2027-ലെ കലണ്ടർ, മാറിവരുന്ന ആചരണങ്ങൾക്കുള്ള സഭയുടെ നിയമങ്ങൾ ഉപയോഗിച്ച് 2026-ൽ നിന്ന് കണക്കാക്കിയതാണ്; 2027-ലെ ഔദ്യോഗിക പഞ്ചാംഗം അച്ചടിച്ചശേഷം അതുമായി ഒത്തുനോക്കും.">The dates, feasts and commemorations on this page are compiled from the two sources below. The details panel for each day shows which source an entry comes from. The 2027 calendar is projected from 2026 using the Church’s rules for movable observances, and will be checked against the official 2027 panchangam once it is printed.</p>
       <p class="ref" data-en-html="George, David. &lt;em&gt;A Malankara Proto-Synaxarium (Karaṭu-Pañchāṅgam).&lt;/em&gt;" data-ml-html="ജോർജ്, ഡേവിഡ്. &lt;em&gt;ഒരു മലങ്കര കരടു-പഞ്ചാംഗം.&lt;/em&gt;">George, David. <em>A Malankara Proto-Synaxarium (Karaṭu-Pañchāṅgam).</em></p>
       <p class="ref" data-en-html="Malankara Orthodox Syrian Church. &lt;em&gt;Liturgical Calendar (Panchangam), 2026.&lt;/em&gt; Catholicate Office, Devalokam, Kottayam." data-ml-html="മലങ്കര ഓർത്തഡോക്സ് സുറിയാനി സഭ. &lt;em&gt;ആരാധനാ പഞ്ചാംഗം, 2026.&lt;/em&gt; കാതോലിക്കേറ്റ് ഓഫീസ്, ദേവലോകം, കോട്ടയം.">Malankara Orthodox Syrian Church. <em>Liturgical Calendar (Panchangam), 2026.</em> Catholicate Office, Devalokam, Kottayam.</p>
     </div>
@@ -344,13 +367,13 @@ html[lang="ml"] .cal-cite .lede,html[lang="ml"] .cal-cite .ref{font-family:Inter
 <script>
 /* ====================================================================
    LITURGICAL CALENDAR APP
-   Data: calendar-2026.json (297 entries, English + Malayalam).
-   To add another year later: add calendar-YYYY.json and point YEAR /
-   DATA_URL at it (a year switcher can be added on top of this).
+   Data: calendar-2026.json and calendar-2027.json (English + Malayalam).
+   To add another year: create calendar-YYYY.json (same shape) and add the
+   year to YEARS below; the year switcher and month arrows pick it up.
    ==================================================================== */
 (function(){
   'use strict';
-  var YEAR = 2026, DATA_URL = 'calendar-2026.json?v=1';
+  var YEARS = [2026, 2027], DATA_URLS = YEARS.map(function(y){ return 'calendar-' + y + '.json?v=2'; });
   var app = document.getElementById('calApp');
 
   var MONTHS = {
@@ -380,6 +403,12 @@ html[lang="ml"] .cal-cite .lede,html[lang="ml"] .cal-cite .ref{font-family:Inter
     prev:['Previous observance','മുമ്പത്തെ ആചരണം'], next:['Next observance','അടുത്ത ആചരണം'],
     prevM:['Previous month','കഴിഞ്ഞ മാസം'], nextM:['Next month','അടുത്ത മാസം'],
     has:['Has observances','ആചരണങ്ങളുണ്ട്'], major:['Dominical feasts','കർത്താവിന്റെ പെരുന്നാളുകൾ'], tdy:['Today','ഇന്ന്'],
+    mvE:['Moves with Easter','ഈസ്റ്ററിനൊപ്പം മാറും'], mvS:['Moves yearly','വർഷംതോറും മാറും'],
+    mvETip:['The date changes every year with Western (Gregorian) Easter','പാശ്ചാത്യ (ഗ്രിഗോറിയൻ) ഈസ്റ്ററിനൊപ്പം ഓരോ വർഷവും തീയതി മാറും'],
+    mvSTip:['Counted from a fixed feast or date, so the Sunday changes every year','ഒരു നിശ്ചിത പെരുന്നാളിൽ/തീയതിയിൽ നിന്ന് എണ്ണുന്നതിനാൽ ഞായറാഴ്ച ഓരോ വർഷവും മാറും'],
+    rule:['Date rule','തീയതി കണക്ക്'], easterDay:['Western Easter Sunday','പാശ്ചാത്യ ഈസ്റ്റർ ഞായർ'],
+    proj:['The {y} dates are projected from the {p} calendar using the Church’s rules for movable observances (Easter-based dates, and Sundays counted from a fixed feast). They will be checked against the official {y} panchangam when it is printed.','{y}-ലെ തീയതികൾ, {p}-ലെ കലണ്ടറിൽ നിന്ന് മാറിവരുന്ന ആചരണങ്ങൾക്കുള്ള സഭയുടെ നിയമങ്ങൾ (ഈസ്റ്ററിനെ ആശ്രയിച്ചുള്ള തീയതികളും ഒരു നിശ്ചിത പെരുന്നാളിൽ നിന്ന് എണ്ണുന്ന ഞായറാഴ്ചകളും) ഉപയോഗിച്ച് കണക്കാക്കിയതാണ്. {y}-ലെ ഔദ്യോഗിക പഞ്ചാംഗം അച്ചടിക്കുമ്പോൾ അതുമായി ഒത്തുനോക്കും.'],
+    projsrc:['Projected from the previous year · Source','കഴിഞ്ഞ വർഷത്തിൽ നിന്ന് കണക്കാക്കിയത് · സ്രോതസ്സ്'],
     foreign:['Foreign','വിദേശ'], prov:['Provisional','താൽക്കാലികം'],
     approx:['Date approximate','തീയതി ഏകദേശം'], uncertain:['Date uncertain','തീയതി ഉറപ്പില്ല'],
     foreignTip:['A foreign prelate or figure commemorated in Malankara','മലങ്കരയിൽ ഓർമ്മ ആചരിക്കുന്ന വിദേശ പിതാവ്/വ്യക്തി'],
@@ -426,25 +455,29 @@ html[lang="ml"] .cal-cite .lede,html[lang="ml"] .cal-cite .ref{font-family:Inter
     return I[n] || '';
   }
 
-  var S = { data:null, byDate:{}, dates:[], catName:{}, groupName:{}, count:{}, monthCount:[], m:0, sel:null, q:'', on:{}, view:'cal' };
+  var S = { data:null, byDate:{}, dates:[], catName:{}, groupName:{}, cy:{}, years:{}, y:2026, m:0, sel:null, q:'', on:{}, view:'cal' };
   GROUPS.forEach(function(g){ S.on[g] = true; });
 
   /* ---------- data ---------- */
-  function prepare(d){
-    S.data = d;
-    var gi = {}, ci = {};
+  function prepare(list){
+    var d = list[0], gi = {}, ci = {}, all = [];
     d.taxonomy.groups.forEach(function(g, i){ gi[g.code] = i; S.groupName[g.code] = g; });
     d.taxonomy.categories.forEach(function(c, i){ ci[c.code] = i; S.catName[c.code] = c; });
-    d.items.forEach(function(it, i){ it._i = i; });
-    d.items.sort(function(a, b){
+    list.forEach(function(doc){
+      S.years[doc.year] = { projected: !!doc.projected };
+      S.cy[doc.year] = {};
+      doc.items.forEach(function(it, i){
+        it._i = i; all.push(it);
+        S.cy[doc.year][it.group] = (S.cy[doc.year][it.group] || 0) + 1;
+      });
+    });
+    all.sort(function(a, b){
       return a.date < b.date ? -1 : a.date > b.date ? 1 :
         (gi[a.group] - gi[b.group]) || (ci[a.category] - ci[b.category]) || (a._i - b._i);
     });
-    S.byDate = {}; S.count = {}; S.monthCount = [0,0,0,0,0,0,0,0,0,0,0,0];
-    d.items.forEach(function(it){
-      (S.byDate[it.date] = S.byDate[it.date] || []).push(it);
-      S.count[it.group] = (S.count[it.group] || 0) + 1;
-    });
+    S.data = { items: all, taxonomy: d.taxonomy };
+    S.byDate = {};
+    all.forEach(function(it){ (S.byDate[it.date] = S.byDate[it.date] || []).push(it); });
     S.dates = Object.keys(S.byDate).sort();
   }
   function vis(it){ return S.on[it.group]; }
@@ -452,29 +485,33 @@ html[lang="ml"] .cal-cite .lede,html[lang="ml"] .cal-cite .ref{font-family:Inter
   function obsDates(){ return S.dates.filter(function(d){ return itemsOn(d).length; }); }
   function monthTotals(){
     var c = [0,0,0,0,0,0,0,0,0,0,0,0];
-    S.dates.forEach(function(d){ c[parse(d).m] += itemsOn(d).length; });
+    S.dates.forEach(function(d){ if (parse(d).y === S.y) c[parse(d).m] += itemsOn(d).length; });
     return c;
   }
-  function inYear(s){ return s.slice(0, 4) === String(YEAR); }
+  function hasYear(s){ return !!S.years[s.slice(0, 4)]; }
+  function isProj(y){ return !!(S.years[y] && S.years[y].projected); }
+  function canShift(dir){ var m = S.m + dir; if (m >= 0 && m <= 11) return true; return !!S.years[S.y + (m < 0 ? -1 : 1)]; }
 
   /* ---------- hash ---------- */
   function readHash(){
     var h = (location.hash || '').replace('#', '');
     var m = h.match(/^(\d{4})-(\d{2})(?:-(\d{2}))?$/);
-    if (m && +m[1] === YEAR && +m[2] >= 1 && +m[2] <= 12){
-      S.m = +m[2] - 1;
-      S.sel = m[3] ? iso(YEAR, S.m, +m[3]) : null;
+    if (m && S.years[m[1]] && +m[2] >= 1 && +m[2] <= 12){
+      S.y = +m[1]; S.m = +m[2] - 1;
+      S.sel = m[3] ? iso(S.y, S.m, +m[3]) : null;
       return true;
     }
     return false;
   }
   function writeHash(){
-    try{ history.replaceState(null, '', '#' + (S.sel || YEAR + '-' + pad(S.m + 1))); }catch(e){}
+    try{ history.replaceState(null, '', '#' + (S.sel || S.y + '-' + pad(S.m + 1))); }catch(e){}
   }
 
   /* ---------- pieces ---------- */
   function badges(it){
     var b = [];
+    if (it.mv === 'e') b.push('<span class="cal-badge cal-badge--mv" title="' + esc(t('mvETip')) + '">' + esc(t('mvE')) + '</span>');
+    if (it.mv === 's') b.push('<span class="cal-badge cal-badge--mv" title="' + esc(t('mvSTip')) + '">' + esc(t('mvS')) + '</span>');
     if (it.foreign) b.push('<span class="cal-badge" title="' + esc(t('foreignTip')) + '">' + esc(t('foreign')) + '</span>');
     if (it.provisional) b.push('<span class="cal-badge" title="' + esc(t('provTip')) + '">' + esc(t('prov')) + '</span>');
     if (it.date_approx) b.push('<span class="cal-badge">' + esc(t('approx')) + '</span>');
@@ -494,7 +531,8 @@ html[lang="ml"] .cal-cite .lede,html[lang="ml"] .cal-cite .ref{font-family:Inter
     if (held) h += '<p class="cal-held">' + esc(held) + '</p>';
     notes.forEach(function(n){ h += '<p class="cal-note">' + esc(n) + '</p>'; });
     h += badges(it);
-    if (!compact) h += '<p class="cal-src">' + esc(t('src')) + ': ' + esc(srcLabel(it)) + '</p>';
+    if (!compact && it.mv === 'e' && it.eo != null) h += '<p class="cal-rule">' + esc(t('rule')) + ': ' + esc(ruleText(it.eo)) + '</p>';
+    if (!compact) h += '<p class="cal-src">' + esc(isProj(+it.date.slice(0, 4)) ? t('projsrc') : t('src')) + ': ' + esc(srcLabel(it)) + '</p>';
     return h + '</article>';
   }
 
@@ -505,9 +543,11 @@ html[lang="ml"] .cal-cite .lede,html[lang="ml"] .cal-cite .ref{font-family:Inter
       '<div class="cal-tabs" id="calTabs" role="tablist"></div>' +
       '<div class="cal-tools">' +
         '<label class="cal-search">' + icon('search') + '<input id="calQ" type="search" autocomplete="off" placeholder="' + esc(t('search')) + '" aria-label="' + esc(t('search')) + '"></label>' +
+        '<div class="cal-seg" id="calYear"></div>' +
         '<div class="cal-seg" id="calView"></div>' +
       '</div>' +
       '<div class="cal-chips" id="calChips"></div>' +
+      '<div id="calProj"></div>' +
       '<div id="calMain"></div>' +
       '';
     document.getElementById('calQ').value = q;
@@ -526,7 +566,7 @@ html[lang="ml"] .cal-cite .lede,html[lang="ml"] .cal-cite .ref{font-family:Inter
   function renderChips(){
     var l = lang();
     document.getElementById('calChips').innerHTML = GROUPS.map(function(g){
-      return '<button class="cal-chip" data-act="chip" data-g="' + g + '" aria-pressed="' + !!S.on[g] + '" style="--c:' + COLOR[g] + '"><i></i>' + esc(GSHORT[l][g]) + ' <b>' + (S.count[g] || 0) + '</b></button>';
+      return '<button class="cal-chip" data-act="chip" data-g="' + g + '" aria-pressed="' + !!S.on[g] + '" style="--c:' + COLOR[g] + '"><i></i>' + esc(GSHORT[l][g]) + ' <b>' + ((S.cy[S.y] || {})[g] || 0) + '</b></button>';
     }).join('');
   }
   function renderSeg(){
@@ -534,25 +574,39 @@ html[lang="ml"] .cal-cite .lede,html[lang="ml"] .cal-cite .ref{font-family:Inter
       '<button data-act="view" data-v="cal" aria-pressed="' + (S.view === 'cal') + '">' + esc(t('cal')) + '</button>' +
       '<button data-act="view" data-v="list" aria-pressed="' + (S.view === 'list') + '">' + esc(t('list')) + '</button>';
   }
+  function renderYear(){
+    document.getElementById('calYear').innerHTML = YEARS.filter(function(y){ return S.years[y]; }).map(function(y){
+      return '<button data-act="year" data-y="' + y + '" aria-pressed="' + (y === S.y) + '">' + y + '</button>';
+    }).join('');
+  }
+  function renderProj(){
+    var el = document.getElementById('calProj');
+    el.innerHTML = (isProj(S.y) && S.q.trim().length < 2) ? '<p class="cal-proj"><span>' + esc(t('proj').replace(/\{y\}/g, S.y).replace(/\{p\}/g, S.y - 1)) + '</span></p>' : '';
+  }
+  function ruleText(eo){
+    var l = lang();
+    if (eo === 0) return t('easterDay');
+    return (l === 'ml' ? 'ഈസ്റ്റർ ' : 'Easter ') + (eo > 0 ? '+ ' : '− ') + Math.abs(eo) + (l === 'ml' ? ' ദിവസം' : (Math.abs(eo) === 1 ? ' day' : ' days'));
+  }
   function monthNav(cls){
     var l = lang(), tdy = todayISO();
     return '<div>' +
         '<div class="cal-kicker">' + esc(t('kicker')) + '</div>' +
-        '<h2 class="cal-month">' + esc(MONTHS[l][S.m]) + ' <span>' + YEAR + '</span></h2>' +
+        '<h2 class="cal-month">' + esc(MONTHS[l][S.m]) + ' <span>' + S.y + '</span></h2>' +
       '</div>' +
       '<div class="cal-nav">' +
-        '<button class="cal-pill" data-act="today"' + (inYear(tdy) ? '' : ' disabled') + '>' + esc(t('today')) + '</button>' +
-        '<button class="cal-arrow" data-act="pm" aria-label="' + esc(t('prevM')) + '"' + (S.m === 0 ? ' disabled' : '') + '>' + icon('prev') + '</button>' +
-        '<button class="cal-arrow" data-act="nm" aria-label="' + esc(t('nextM')) + '"' + (S.m === 11 ? ' disabled' : '') + '>' + icon('next') + '</button>' +
+        '<button class="cal-pill" data-act="today"' + (hasYear(tdy) ? '' : ' disabled') + '>' + esc(t('today')) + '</button>' +
+        '<button class="cal-arrow" data-act="pm" aria-label="' + esc(t('prevM')) + '"' + (canShift(-1) ? '' : ' disabled') + '>' + icon('prev') + '</button>' +
+        '<button class="cal-arrow" data-act="nm" aria-label="' + esc(t('nextM')) + '"' + (canShift(1) ? '' : ' disabled') + '>' + icon('next') + '</button>' +
       '</div>';
   }
 
   /* ---------- calendar view ---------- */
   function gridHTML(){
-    var l = lang(), first = new Date(YEAR, S.m, 1).getDay(), dim = new Date(YEAR, S.m + 1, 0).getDate(), tdy = todayISO(), h = '';
+    var l = lang(), first = new Date(S.y, S.m, 1).getDay(), dim = new Date(S.y, S.m + 1, 0).getDate(), tdy = todayISO(), h = '';
     for (var b = 0; b < first; b++) h += '<span class="cal-blank"></span>';
     for (var d = 1; d <= dim; d++){
-      var s = iso(YEAR, S.m, d), its = itemsOn(s), cls = 'cal-day';
+      var s = iso(S.y, S.m, d), its = itemsOn(s), cls = 'cal-day';
       if (its.length) cls += ' has';
       if (dow(s) === 0) cls += ' sun';
       if (s === tdy) cls += ' today';
@@ -594,7 +648,7 @@ html[lang="ml"] .cal-cite .lede,html[lang="ml"] .cal-cite .ref{font-family:Inter
   function renderCal(){
     document.getElementById('calMain').innerHTML =
       '<div class="cal-layout">' +
-        '<section class="cal-card" aria-label="' + esc(MONTHS[lang()][S.m] + ' ' + YEAR) + '">' +
+        '<section class="cal-card" aria-label="' + esc(MONTHS[lang()][S.m] + ' ' + S.y) + '">' +
           '<div class="cal-card-h">' + monthNav() + '</div>' +
           '<div class="cal-wd">' + WDS[lang()].map(function(w){ return '<span>' + esc(w) + '</span>'; }).join('') + '</div>' +
           '<div class="cal-grid" id="calGrid">' + gridHTML() + '</div>' +
@@ -607,7 +661,7 @@ html[lang="ml"] .cal-cite .lede,html[lang="ml"] .cal-cite .ref{font-family:Inter
   /* ---------- list view ---------- */
   function renderList(){
     var rows = '', tdy = todayISO();
-    var ds = S.dates.filter(function(d){ return parse(d).m === S.m && itemsOn(d).length; });
+    var ds = S.dates.filter(function(d){ return parse(d).y === S.y && parse(d).m === S.m && itemsOn(d).length; });
     ds.forEach(function(d){
       var p = parse(d), w = dow(d);
       rows += '<div class="cal-row' + (d === S.sel ? ' is-sel' : '') + '" id="row-' + d + '">' +
@@ -631,14 +685,14 @@ html[lang="ml"] .cal-cite .lede,html[lang="ml"] .cal-cite .ref{font-family:Inter
       var h = it._h || (it._h = hay(it));
       return words.every(function(w){ return h.indexOf(w) >= 0; });
     });
-    var h = '<div class="cal-bar"><div><div class="cal-kicker">' + esc(t('kicker')) + ' · ' + YEAR + '</div>' +
+    var h = '<div class="cal-bar"><div><div class="cal-kicker">' + esc(t('kicker')) + '</div>' +
       '<h2 class="cal-month">' + esc(lang() === 'ml' ? '“' + S.q.trim() + '” — ' + hits.length : hits.length + ' ' + (hits.length === 1 ? 'result' : 'results')) + '</h2></div>' +
       '<div class="cal-nav"><button class="cal-pill" data-act="clearq">' + esc(t('clear')) + '</button></div></div><div class="cal-list">';
     if (!hits.length) h += '<div class="cal-none">' + esc(t('nomatch')) + '</div>';
-    var lastM = -1;
+    var lastK = -1;
     hits.forEach(function(it){
       var p = parse(it.date);
-      if (p.m !== lastM){ lastM = p.m; h += '<div class="cal-mh">' + esc(MONTHS[lang()][p.m]) + '</div>'; }
+      if (p.y * 12 + p.m !== lastK){ lastK = p.y * 12 + p.m; h += '<div class="cal-mh">' + esc(MONTHS[lang()][p.m] + ' ' + p.y) + '</div>'; }
       var cat = S.catName[it.category], place = pick(it, 'place');
       h += '<button class="cal-hit" data-act="go" data-date="' + it.date + '">' +
         '<span class="dd">' + esc(fmtShort(it.date)) + '<small>' + esc(WD[lang()][dow(it.date)]) + '</small></span>' +
@@ -650,13 +704,13 @@ html[lang="ml"] .cal-cite .lede,html[lang="ml"] .cal-cite .ref{font-family:Inter
 
   /* ---------- render ---------- */
   function render(){
-    renderTabs(); renderChips(); renderSeg();
+    renderTabs(); renderChips(); renderSeg(); renderYear(); renderProj();
     if (S.q.trim().length >= 2) renderResults();
     else if (S.view === 'list') renderList();
     else renderCal();
   }
   function setDate(s, opts){
-    var p = parse(s); S.sel = s; S.m = p.m; S.q = ''; var qi = document.getElementById('calQ'); if (qi) qi.value = '';
+    var p = parse(s); S.sel = s; S.y = p.y; S.m = p.m; S.q = ''; var qi = document.getElementById('calQ'); if (qi) qi.value = '';
     writeHash(); render();
     if (opts && opts.focus){ var b = document.querySelector('.cal-day[data-date="' + s + '"]'); if (b) b.focus(); }
     var pn = document.getElementById('calPanel');
@@ -665,6 +719,15 @@ html[lang="ml"] .cal-cite .lede,html[lang="ml"] .cal-cite .ref{font-family:Inter
       if (r.top > window.innerHeight * 0.65) pn.scrollIntoView({ behavior:'smooth', block:'start' });
     }
     if (S.view === 'list'){ var row = document.getElementById('row-' + s); if (row) row.scrollIntoView({ behavior:'smooth', block:'center' }); }
+  }
+  function shiftMonth(dir){
+    var m = S.m + dir, y = S.y;
+    if (m < 0){ y--; m = 11; } else if (m > 11){ y++; m = 0; }
+    if (!S.years[y]) return;
+    S.y = y; S.m = m;
+    if (S.sel){ var p = parse(S.sel); if (p.y !== y || p.m !== m) S.sel = null; }
+    S.q = ''; var qi = document.getElementById('calQ'); if (qi) qi.value = '';
+    writeHash(); render();
   }
   function setMonth(m){
     if (m < 0 || m > 11) return;
@@ -681,9 +744,10 @@ html[lang="ml"] .cal-cite .lede,html[lang="ml"] .cal-cite .ref{font-family:Inter
     else if (a === 'go'){ S.view = 'cal'; setDate(el.getAttribute('data-date')); }
     else if (a === 'goto'){ var d = el.getAttribute('data-date'); if (d) setDate(d); }
     else if (a === 'month') setMonth(+el.getAttribute('data-m'));
-    else if (a === 'pm') setMonth(S.m - 1);
-    else if (a === 'nm') setMonth(S.m + 1);
-    else if (a === 'today'){ var t0 = todayISO(); if (inYear(t0)) setDate(t0); }
+    else if (a === 'pm') shiftMonth(-1);
+    else if (a === 'nm') shiftMonth(1);
+    else if (a === 'year'){ S.y = +el.getAttribute('data-y'); S.sel = null; S.q = ''; var qy = document.getElementById('calQ'); if (qy) qy.value = ''; writeHash(); render(); }
+    else if (a === 'today'){ var t0 = todayISO(); if (hasYear(t0)) setDate(t0); }
     else if (a === 'view'){ S.view = el.getAttribute('data-v'); render(); }
     else if (a === 'chip'){
       var g = el.getAttribute('data-g'); S.on[g] = !S.on[g];
@@ -702,19 +766,19 @@ html[lang="ml"] .cal-cite .lede,html[lang="ml"] .cal-cite .ref{font-family:Inter
     var step = { ArrowLeft:-1, ArrowRight:1, ArrowUp:-7, ArrowDown:7 }[e.key]; if (!step) return;
     e.preventDefault();
     var p = parse(b.getAttribute('data-date')), n = new Date(p.y, p.m, p.d + step);
-    if (n.getFullYear() !== YEAR) return;
-    setDate(iso(YEAR, n.getMonth(), n.getDate()), { focus:true });
+    if (!S.years[n.getFullYear()]) return;
+    setDate(iso(n.getFullYear(), n.getMonth(), n.getDate()), { focus:true });
   });
   window.addEventListener('hashchange', function(){ if (readHash()) render(); });
   new MutationObserver(function(){ if (!S.data) return; shell(); render(); }).observe(document.documentElement, { attributes:true, attributeFilter:['lang'] });
   var rz; window.addEventListener('resize', function(){ clearTimeout(rz); rz = setTimeout(renderTabs, 150); });
 
   /* ---------- boot ---------- */
-  fetch(DATA_URL).then(function(r){ if (!r.ok) throw new Error(r.status); return r.json(); }).then(function(d){
-    prepare(d);
+  Promise.all(DATA_URLS.map(function(u){ return fetch(u).then(function(r){ if (!r.ok) throw new Error(r.status); return r.json(); }); })).then(function(list){
+    prepare(list);
     var tdy = todayISO();
     if (!readHash()){
-      if (inYear(tdy)){ S.sel = tdy; S.m = parse(tdy).m; } else { S.m = 0; S.sel = null; }
+      if (hasYear(tdy)){ S.sel = tdy; S.y = +tdy.slice(0, 4); S.m = parse(tdy).m; } else { S.y = YEARS[0]; S.m = 0; S.sel = null; }
     }
     shell(); render();
   }).catch(function(){

@@ -6633,6 +6633,9 @@ html[lang="ml"] .msn-eyebrow{letter-spacing:normal}
 .dark .mapsearch__meta{color:rgba(247,245,238,.5)}
 .mapsearch__reset{background:none;border:0;padding:0;margin-left:10px;font:inherit;font-style:normal;color:#7c6a4a;text-decoration:underline;text-underline-offset:3px;cursor:pointer}
 .mapsearch__reset[hidden]{display:none}
+html[lang="ml"] .mapsearch__input,html[lang="ml"] .mapsearch__go,html[lang="ml"] .mapsearch__reset,html[lang="ml"] #mapLoader p{font-family:Inter,"Noto Serif Malayalam",serif}
+html[lang="ml"] .mapsearch__meta{font-family:Marcellus,"Noto Serif Malayalam",serif}
+html[lang="ml"] .mapsearch__go{letter-spacing:normal;text-transform:none}
 @media(max-width:480px){.mapsearch__go{padding:13px 16px}}
 
 /* Search floats on the map itself, near the bottom, as a frosted pill (clear of Google's logo and zoom buttons) */
@@ -6724,11 +6727,7 @@ html[lang="ml"] .tdc .tdc-up a{grid-template-columns:5.6rem minmax(0,1fr)}
 @media (max-width:860px){
   #today.tdc{padding-left:0!important;padding-right:0!important}
   .tdc-card{grid-template-columns:minmax(0,1fr);border-radius:0;border-left:0;border-right:0;box-shadow:none}
-  .tdc-date{flex-direction:row;gap:1rem;justify-content:flex-start;text-align:left;padding:1.1rem 1.3rem;min-width:0}
-  .tdc-date{flex-wrap:wrap}
-  .tdc-date .tdc-dt:first-child{flex:0 0 100%}
-  .tdc-day{font-size:2.6rem;margin:0}
-  .tdc-dt{display:flex;flex-direction:column}
+  .tdc-date{display:none}
   .tdc-side{border-left:0;border-top:1px solid var(--t-line)}
 }
 </style>
@@ -6743,7 +6742,7 @@ html[lang="ml"] .tdc .tdc-up a{grid-template-columns:5.6rem minmax(0,1fr)}
   var M={en:['January','February','March','April','May','June','July','August','September','October','November','December'],ml:['ജനുവരി','ഫെബ്രുവരി','മാർച്ച്','ഏപ്രിൽ','മേയ്','ജൂൺ','ജൂലൈ','ഓഗസ്റ്റ്','സെപ്റ്റംബർ','ഒക്ടോബർ','നവംബർ','ഡിസംബർ']};
   var W={en:['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'],ml:['ഞായർ','തിങ്കൾ','ചൊവ്വ','ബുധൻ','വ്യാഴം','വെള്ളി','ശനി']};
   var C={liturgical_year:'#6B8259',feasts_saints:'#BA9450',fathers:'#A0674D',church_life:'#4F7F8C',national:'#8A93A3'};
-  var T={eyebrow:['Today in the Church','ഇന്ന് സഭയിൽ'],head:['Observed <em>today</em>','ഇന്ന് <em>ആചരിക്കുന്നവ</em>'],none:['No feasts or commemorations are listed for today.','ഇന്നത്തേക്ക് പെരുന്നാളുകളോ ഓർമ്മകളോ പട്ടികയിലില്ല.'],more:['more','കൂടി'],all:['See all of today →','ഇന്നത്തെ എല്ലാം കാണുക →'],up:['Coming up','വരുന്നവ'],open:['Open the full calendar →','പൂർണ്ണ കലണ്ടർ തുറക്കുക →'],ended:['The 2026 calendar has ended. Browse it any time.','2026-ലെ കലണ്ടർ അവസാനിച്ചു. എപ്പോൾ വേണമെങ്കിലും കാണാം.'],start:['The 2026 calendar begins on 1 January.','2026-ലെ കലണ്ടർ ജനുവരി 1-ന് ആരംഭിക്കുന്നു.']};
+  var T={eyebrow:['Today in the Church','ഇന്ന് സഭയിൽ'],head:['Observed <em>today</em>','ഇന്ന് <em>ആചരിക്കുന്നവ</em>'],none:['No feasts or commemorations are listed for today.','ഇന്നത്തേക്ക് പെരുന്നാളുകളോ ഓർമ്മകളോ പട്ടികയിലില്ല.'],more:['more','കൂടി'],all:['See all of today →','ഇന്നത്തെ എല്ലാം കാണുക →'],up:['Coming up','വരുന്നവ'],open:['Open the full calendar →','പൂർണ്ണ കലണ്ടർ തുറക്കുക →'],ended:['The {y} calendar has ended. Browse it any time.','{y}-ലെ കലണ്ടർ അവസാനിച്ചു. എപ്പോൾ വേണമെങ്കിലും കാണാം.'],start:['The 2026 calendar begins on 1 January.','2026-ലെ കലണ്ടർ ജനുവരി 1-ന് ആരംഭിക്കുന്നു.']};
   var D=null,L=null;
   function lg(){return document.documentElement.getAttribute('lang')==='ml'?'ml':'en';}
   function t(k){return T[k][lg()==='ml'?1:0];}
@@ -6755,12 +6754,12 @@ html[lang="ml"] .tdc .tdc-up a{grid-template-columns:5.6rem minmax(0,1fr)}
   function render(){
     if(!D) return;
     var l=lg(), now=new Date(), td=iso(now), first=D.dates[0], last=D.dates[D.dates.length-1];
-    var inY=td.slice(0,4)==='2026', ref=inY?td:(td<'2026'?'2026-01-01':null);
-    var dateStr=ref||'2026-01-01', pr=dateStr.split('-'), dt=new Date(+pr[0],+pr[1]-1,+pr[2]);
+    var fy=first.slice(0,4), ly=last.slice(0,4), inY=td>=fy+'-01-01'&&td<=ly+'-12-31', ref=inY?td:(td<fy+'-01-01'?fy+'-01-01':null);
+    var dateStr=ref||td, pr=dateStr.split('-'), dt=new Date(+pr[0],+pr[1]-1,+pr[2]);
     document.getElementById('tdcDate').innerHTML='<div class="tdc-dt"><span class="tdc-eyebrow">'+esc(t('eyebrow'))+'</span></div>'+'<div class="tdc-dt"><span class="tdc-day">'+dt.getDate()+'</span> <span class="tdc-mon">'+esc(M[l][dt.getMonth()])+'</span> <span class="tdc-wd">'+esc(W[l][dt.getDay()])+'</span></div>';
     var main='', side='';
     if(!ref){
-      main='<h3 class="tdc-h" id="tdcTitle">'+esc(t('eyebrow'))+'</h3><p class="tdc-none">'+esc(t('ended'))+'</p>';
+      main='<h3 class="tdc-h" id="tdcTitle">'+esc(t('eyebrow'))+'</h3><p class="tdc-none">'+esc(t('ended').replace('{y}',ly))+'</p>';
       side='<a class="tdc-go" href="calendar">'+esc(t('open'))+'</a>';
     } else {
       var its=D.by[ref]||[], list='';
@@ -6778,12 +6777,11 @@ html[lang="ml"] .tdc .tdc-up a{grid-template-columns:5.6rem minmax(0,1fr)}
     document.getElementById('tdcSide').innerHTML=side;
     card.hidden=false;
   }
-  fetch('calendar-2026.json?v=1').then(function(r){return r.json();}).then(function(d){
-    var gi={},ci={},cat={};
+  Promise.all(['calendar-2026.json?v=2','calendar-2027.json?v=2'].map(function(u){return fetch(u).then(function(r){if(!r.ok)throw 0;return r.json();});})).then(function(list){
+    var d=list[0],gi={},ci={},cat={},by={};
     d.taxonomy.groups.forEach(function(g,i){gi[g.code]=i;});
     d.taxonomy.categories.forEach(function(c,i){ci[c.code]=i;cat[c.code]=c;});
-    var by={};
-    d.items.forEach(function(it,i){it._i=i;(by[it.date]=by[it.date]||[]).push(it);});
+    list.forEach(function(doc){doc.items.forEach(function(it,i){it._i=i;(by[it.date]=by[it.date]||[]).push(it);});});
     Object.keys(by).forEach(function(k){by[k].sort(function(a,b){return(gi[a.group]-gi[b.group])||(ci[a.category]-ci[b.category])||(a._i-b._i);});});
     D={by:by,cat:cat,dates:Object.keys(by).sort()};
     render();
