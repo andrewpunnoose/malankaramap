@@ -272,18 +272,52 @@ html[lang="ml"] .cal-cite .lede,html[lang="ml"] .cal-cite .ref{font-family:Inter
 .cal-badge--mv{background:transparent;box-shadow:inset 0 0 0 1px var(--gold)}
 .cal-rule{margin:.6rem 0 0;font-size:11.5px;color:var(--muted)}
 /* ---------- a note on the calendar ---------- */
-.cal-aside{max-width:72rem;margin:-1.5rem auto 0;padding:0 1.25rem 3rem}
-.cal-aside-in{max-width:40rem;margin:0 auto;padding:2.25rem 1rem 0;text-align:center}
-.cal-aside-d{display:block;width:9px;height:9px;margin:0 auto 1.1rem;background:#BA9450;transform:rotate(45deg);border-radius:1px}
-.cal-aside-h{margin:0 0 .75rem;font-size:10.5px;letter-spacing:.2em;text-transform:uppercase;font-weight:600;color:#7C6A4A}
+.cal-aside{max-width:72rem;margin:-1.75rem auto 0;padding:0 1.25rem 3rem}
+.cal-aside-in{max-width:44rem;margin:0;padding:.15rem 0 .15rem 1rem;border-left:3px solid #BA9450;text-align:left}
+.cal-aside-d{display:none}
+.cal-aside-h{margin:0 0 .35rem;font-size:10.5px;letter-spacing:.2em;text-transform:uppercase;font-weight:600;color:#7C6A4A}
 html.dark .cal-aside-h{color:#D4B06A}
-.cal-aside-p{margin:0;font-family:Marcellus,Georgia,serif;font-size:1.2rem;line-height:1.65;color:#10140D;text-wrap:balance}
+.cal-aside-p{margin:0;font-family:Marcellus,Georgia,serif;font-size:1.02rem;line-height:1.7;color:#10140D}
 html.dark .cal-aside-p{color:#F7F5EE}
 html[lang="ml"] .cal-aside-h{letter-spacing:normal;text-transform:none}
-html[lang="ml"] .cal-aside-p{font-family:Marcellus,"Noto Serif Malayalam",serif;line-height:1.8}
+html[lang="ml"] .cal-aside-p{font-family:Marcellus,"Noto Serif Malayalam",serif;line-height:1.85}
+/* ---------- liturgical seasons ---------- */
+.cal-ss{position:absolute;left:.45rem;right:.45rem;top:0;height:3px;border-radius:0 0 3px 3px;opacity:.9;pointer-events:none}
+@container (max-width:429px){.cal-ss{left:.3rem;right:.3rem}}
+.cal-seasonline{display:flex;flex-wrap:wrap;gap:.25rem .9rem;margin-top:.55rem;font-size:12px;line-height:1.4;color:rgba(247,245,238,.88)}
+.cal-seasonline span{display:inline-flex;align-items:center;gap:.4rem}
+.cal-seasonline i{width:8px;height:8px;border-radius:50%;box-shadow:0 0 0 1.5px rgba(255,255,255,.65)}
+.cal-season{display:flex;align-items:center;gap:.5rem;margin:-.6rem 0 1rem;font-size:12.5px;color:var(--body)}
+.cal-season i{width:8px;height:8px;border-radius:50%;flex:none}
+.cal-seas{margin:3.25rem 0 0}
+.cal-seas-head{display:flex;align-items:flex-end;justify-content:space-between;gap:1rem}
+.cal-seas-k{font-size:10.5px;letter-spacing:.2em;text-transform:uppercase;font-weight:600;color:var(--taupe)}
+.cal-seas-h{font-family:Marcellus,Georgia,serif;font-style:italic;font-weight:400;font-size:clamp(1.6rem,3vw,2.1rem);line-height:1.2;margin:.35rem 0 0;color:var(--ink)}
+.cal-seas-ly{font-size:12px;font-weight:600;color:var(--muted);white-space:nowrap}
+.cal-seas-p{max-width:44rem;margin:.6rem 0 1.5rem;font-size:15px;line-height:1.7;color:var(--body)}
+.cal-strip{position:relative;display:flex;gap:3px;height:2.3rem;margin:0 0 1.5rem}
+.cal-sseg{min-width:0;border:0;border-radius:7px;color:#fff;font-size:11px;font-weight:700;opacity:.5;transition:opacity .2s}
+.cal-sseg:hover:not([disabled]){opacity:.82}
+.cal-sseg.is-on{opacity:1}
+.cal-sseg[disabled]{cursor:default}
+.cal-pin{position:absolute;top:-9px;bottom:-5px;width:2px;margin-left:-1px;background:var(--gold);border-radius:2px;pointer-events:none}
+.cal-pin::before{content:"";position:absolute;top:-2px;left:-4px;width:9px;height:9px;background:var(--gold);transform:rotate(45deg);border-radius:1px}
+.cal-sgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(15.5rem,1fr));gap:.85rem}
+.cal-sc{display:flex;flex-direction:column;gap:.3rem;text-align:left;padding:.9rem 1rem 1.05rem;background:var(--card);border:1px solid var(--line);border-top:3px solid var(--c);border-radius:14px;transition:transform .18s,border-color .18s,box-shadow .18s}
+.cal-sc:hover:not([disabled]){transform:translateY(-1px);border-color:var(--c)}
+.cal-sc.is-on{box-shadow:0 0 0 2px var(--c),var(--shadow)}
+.cal-sc[disabled]{cursor:default}
+.cal-sc .n{display:flex;align-items:center;gap:.5rem}
+.cal-sc .n b{display:grid;place-items:center;width:1.45rem;height:1.45rem;border-radius:50%;background:var(--c);color:#fff;font-size:11px}
+.cal-now{margin-left:auto;padding:.12rem .55rem;border-radius:999px;background:var(--gold-soft);color:var(--taupe);font-style:normal;font-size:10px;font-weight:700;letter-spacing:.06em}
+.cal-sc h3{margin:.15rem 0 0;font-family:Marcellus,Georgia,serif;font-weight:400;font-size:1.12rem;line-height:1.3;color:var(--ink)}
+.cal-sc .r{font-size:12px;font-weight:600;color:var(--sage)}
+.cal-sc p{margin:.25rem 0 0;font-size:12.5px;line-height:1.65;color:var(--body)}
+html[lang="ml"] .cal-seas-h,html[lang="ml"] .cal-sc h3{font-family:Marcellus,"Noto Serif Malayalam",serif;line-height:1.5}
+@media (max-width:560px){.cal-strip{height:2rem}.cal-seas{margin-top:2.5rem}}
 @media (prefers-reduced-motion:reduce){.cal *{transition:none !important}html{scroll-behavior:auto}}
 </style>
-<title data-en="Liturgical Calendar 2026–2027 — Malankara Map" data-ml="ആരാധനാ കലണ്ടർ 2026–2027 — മലങ്കര സഭാ വിജ്ഞാനകോശം">Liturgical Calendar 2026–2027 — Malankara Map</title>
+<title data-en="Liturgical Calendar 2026–2027 — Malankara Map" data-ml="ആരാധനാ പഞ്ചാംഗം 2026–2027 — മലങ്കര സഭാ വിജ്ഞാനകോശം">Liturgical Calendar 2026–2027 — Malankara Map</title>
 <meta name="description" content="The 2026 and 2027 liturgical calendar of the Malankara Orthodox Syrian Church — feasts, fasts, Sundays of the liturgical year and commemorations, month by month, in English and Malayalam, with the movable dates marked.">
 <link rel="canonical" href="https://malankaramap.com/calendar">
 <meta property="og:type" content="website">
@@ -308,29 +342,29 @@ html[lang="ml"] .cal-aside-p{font-family:Marcellus,"Noto Serif Malayalam",serif;
 
 <main>
   <section class="cal-hero">
-    <div class="cal-eyebrow" data-en="Liturgical Calendar · 2026 – 2027" data-ml="ആരാധനാ കലണ്ടർ · 2026 – 2027">Liturgical Calendar · 2026 – 2027</div>
+    <div class="cal-eyebrow" data-en="Liturgical Calendar · 2026 – 2027" data-ml="ആരാധനാ പഞ്ചാംഗം · 2026 – 2027">Liturgical Calendar · 2026 – 2027</div>
     <h1 class="cal-h1" data-en-html="The Church&rsquo;s year,&lt;br/&gt;&lt;em&gt;day by day.&lt;/em&gt;" data-ml-html="സഭയുടെ വർഷം,&lt;br/&gt;&lt;em&gt;ദിനം ദിനമായി.&lt;/em&gt;">The Church&rsquo;s year,<br/><em>day by day.</em></h1>
     <p class="cal-lede" data-en="Feast days, fasting seasons, the Sundays of the liturgical year, and the commemorations of the Malankara Orthodox Syrian Church. Select any day to see what is observed." data-ml="മലങ്കര ഓർത്തഡോക്സ് സുറിയാനി സഭയുടെ പെരുന്നാളുകൾ, നോമ്പുകാലങ്ങൾ, ആരാധനാ വർഷത്തിലെ ഞായറാഴ്ചകൾ, ഓർമ്മകൾ. ഏതെങ്കിലും ദിവസം തിരഞ്ഞെടുത്ത് അന്ന് ആചരിക്കുന്നവ കാണുക.">Feast days, fasting seasons, the Sundays of the liturgical year, and the commemorations of the Malankara Orthodox Syrian Church. Select any day to see what is observed.</p>
     <div class="cal-thread"></div>
   </section>
 
   <div class="cal" id="calApp">
-    <div class="cal-loading" id="calLoading" data-en="Opening the calendar…" data-ml="കലണ്ടർ തുറക്കുന്നു…">Opening the calendar…</div>
+    <div class="cal-loading" id="calLoading" data-en="Opening the calendar…" data-ml="പഞ്ചാംഗം തുറക്കുന്നു…">Opening the calendar…</div>
   </div>
   <aside class="cal-aside" aria-labelledby="calNoteT">
     <div class="cal-aside-in">
       <span class="cal-aside-d" aria-hidden="true"></span>
-      <h2 class="cal-aside-h" id="calNoteT" data-en="A note on the calendar" data-ml="കലണ്ടറിനെക്കുറിച്ച് ഒരു കുറിപ്പ്">A note on the calendar</h2>
-      <p class="cal-aside-p" data-en="The Malankara Church switched entirely to the Gregorian calendar in 1953, following Encyclical No. 620 from Patriarch Mor Ignatius Aphrem I in December 1952." data-ml="1952 ഡിസംബറിലെ പാത്രിയർക്കീസ് മോർ ഇഗ്നാത്തിയോസ് അപ്രേം ഒന്നാമന്റെ 620-ാം നമ്പർ കൽപ്പനയെത്തുടർന്ന്, മലങ്കര സഭ 1953-ൽ പൂർണ്ണമായും ഗ്രിഗോറിയൻ കലണ്ടറിലേക്ക് മാറി.">The Malankara Church switched entirely to the Gregorian calendar in 1953, following Encyclical No. 620 from Patriarch Mor Ignatius Aphrem I in December 1952.</p>
+      <h2 class="cal-aside-h" id="calNoteT" data-en="A note on the calendar" data-ml="പഞ്ചാംഗത്തെക്കുറിച്ച് ഒരു കുറിപ്പ്">A note on the calendar</h2>
+      <p class="cal-aside-p" data-en="The Malankara Church switched entirely to the Gregorian calendar in 1953, following Encyclical No. 620 from Patriarch Mor Ignatius Aphrem I in December 1952." data-ml="1952 ഡിസംബറിലെ പാത്രിയർക്കീസ് മോർ ഇഗ്നാത്തിയോസ് അപ്രേം ഒന്നാമന്റെ 620-ാം നമ്പർ കൽപ്പനയെത്തുടർന്ന്, മലങ്കര സഭ 1953-ൽ പൂർണ്ണമായും ഗ്രിഗോറിയൻ പഞ്ചാംഗത്തിലേക്ക് മാറി.">The Malankara Church switched entirely to the Gregorian calendar in 1953, following Encyclical No. 620 from Patriarch Mor Ignatius Aphrem I in December 1952.</p>
     </div>
   </aside>
 
   <section class="cal-cite" id="sources" aria-labelledby="calSrcTitle">
     <div class="cal-cite-in">
       <h2 id="calSrcTitle" data-en="Sources" data-ml="അവലംബങ്ങൾ">Sources</h2>
-      <p class="lede" data-en="The dates, feasts and commemorations on this page are compiled from the two sources below. The details panel for each day shows which source an entry comes from. The 2027 calendar is projected from 2026 using the Church’s rules for movable observances, and will be checked against the official 2027 panchangam once it is printed." data-ml="ഈ പേജിലെ തീയതികളും പെരുന്നാളുകളും ഓർമ്മകളും താഴെ നൽകിയിരിക്കുന്ന രണ്ട് സ്രോതസ്സുകളിൽ നിന്ന് സമാഹരിച്ചതാണ്. ഓരോ ദിവസത്തെയും വിവരങ്ങളിൽ അതത് ആചരണത്തിന്റെ സ്രോതസ്സ് കാണിച്ചിരിക്കുന്നു. 2027-ലെ കലണ്ടർ, മാറിവരുന്ന ആചരണങ്ങൾക്കുള്ള സഭയുടെ നിയമങ്ങൾ ഉപയോഗിച്ച് 2026-ൽ നിന്ന് കണക്കാക്കിയതാണ്; 2027-ലെ ഔദ്യോഗിക പഞ്ചാംഗം അച്ചടിച്ചശേഷം അതുമായി ഒത്തുനോക്കും.">The dates, feasts and commemorations on this page are compiled from the two sources below. The details panel for each day shows which source an entry comes from. The 2027 calendar is projected from 2026 using the Church’s rules for movable observances, and will be checked against the official 2027 panchangam once it is printed.</p>
+      <p class="lede" data-en="The dates, feasts and commemorations on this page are compiled from the two sources below. The details panel for each day shows which source an entry comes from. The 2027 calendar is projected from 2026 using the Church’s rules for movable observances, and will be checked against the official 2027 calendar once it is printed." data-ml="ഈ പേജിലെ തീയതികളും പെരുന്നാളുകളും ഓർമ്മകളും താഴെ നൽകിയിരിക്കുന്ന രണ്ട് സ്രോതസ്സുകളിൽ നിന്ന് സമാഹരിച്ചതാണ്. ഓരോ ദിവസത്തെയും വിവരങ്ങളിൽ അതത് ആചരണത്തിന്റെ സ്രോതസ്സ് കാണിച്ചിരിക്കുന്നു. 2027-ലെ പഞ്ചാംഗം, മാറിവരുന്ന ആചരണങ്ങൾക്കുള്ള സഭയുടെ നിയമങ്ങൾ ഉപയോഗിച്ച് 2026-ൽ നിന്ന് കണക്കാക്കിയതാണ്; 2027-ലെ ഔദ്യോഗിക പഞ്ചാംഗം അച്ചടിച്ചശേഷം അതുമായി ഒത്തുനോക്കും.">The dates, feasts and commemorations on this page are compiled from the two sources below. The details panel for each day shows which source an entry comes from. The 2027 calendar is projected from 2026 using the Church’s rules for movable observances, and will be checked against the official 2027 calendar once it is printed.</p>
       <p class="ref" data-en-html="George, David. &lt;em&gt;A Malankara Proto-Synaxarium (Karaṭu-Pañchāṅgam).&lt;/em&gt;" data-ml-html="ജോർജ്, ഡേവിഡ്. &lt;em&gt;ഒരു മലങ്കര കരടു-പഞ്ചാംഗം.&lt;/em&gt;">George, David. <em>A Malankara Proto-Synaxarium (Karaṭu-Pañchāṅgam).</em></p>
-      <p class="ref" data-en-html="Malankara Orthodox Syrian Church. &lt;em&gt;Liturgical Calendar (Panchangam), 2026.&lt;/em&gt; Catholicate Office, Devalokam, Kottayam." data-ml-html="മലങ്കര ഓർത്തഡോക്സ് സുറിയാനി സഭ. &lt;em&gt;ആരാധനാ പഞ്ചാംഗം, 2026.&lt;/em&gt; കാതോലിക്കേറ്റ് ഓഫീസ്, ദേവലോകം, കോട്ടയം.">Malankara Orthodox Syrian Church. <em>Liturgical Calendar (Panchangam), 2026.</em> Catholicate Office, Devalokam, Kottayam.</p>
+      <p class="ref" data-en-html="Malankara Orthodox Syrian Church. &lt;em&gt;Liturgical Calendar, 2026.&lt;/em&gt; Catholicate Office, Devalokam, Kottayam." data-ml-html="മലങ്കര ഓർത്തഡോക്സ് സുറിയാനി സഭ. &lt;em&gt;ആരാധനാ പഞ്ചാംഗം, 2026.&lt;/em&gt; കാതോലിക്കേറ്റ് ഓഫീസ്, ദേവലോകം, കോട്ടയം.">Malankara Orthodox Syrian Church. <em>Liturgical Calendar, 2026.</em> Catholicate Office, Devalokam, Kottayam.</p>
     </div>
   </section>
 </main>
@@ -393,22 +427,24 @@ html[lang="ml"] .cal-aside-p{font-family:Marcellus,"Noto Serif Malayalam",serif;
   var COLOR = { liturgical_year:'#6B8259', feasts_saints:'#BA9450', fathers:'#A0674D', church_life:'#4F7F8C', national:'#8A93A3' };
 
   var T = {
-    today:['Today','ഇന്ന്'], cal:['Calendar','കലണ്ടർ'], list:['List','പട്ടിക'],
+    today:['Today','ഇന്ന്'], cal:['Calendar','പഞ്ചാംഗം'], list:['List','പട്ടിക'],
     search:['Search feasts, saints, places…','പെരുന്നാൾ, വിശുദ്ധർ, സ്ഥലം എന്നിവ തിരയുക…'],
     kicker:['Liturgical Year','ആരാധനാ വർഷം'],
     sel:['Selected day','തിരഞ്ഞെടുത്ത ദിവസം'],
     none:['No observances on this date','ഈ ദിവസം ആചരണങ്ങളൊന്നുമില്ല'],
-    hint:['Choose a highlighted date on the calendar to view feasts, fasts and commemorations.','പെരുന്നാളുകളും നോമ്പുകളും ഓർമ്മകളും കാണാൻ കലണ്ടറിൽ അടയാളപ്പെടുത്തിയ ഒരു തീയതി തിരഞ്ഞെടുക്കുക.'],
+    hint:['Choose a highlighted date on the calendar to view feasts, fasts and commemorations.','പെരുന്നാളുകളും നോമ്പുകളും ഓർമ്മകളും കാണാൻ പഞ്ചാംഗത്തിൽ അടയാളപ്പെടുത്തിയ ഒരു തീയതി തിരഞ്ഞെടുക്കുക.'],
     pick:['Select a day','ഒരു ദിവസം തിരഞ്ഞെടുക്കുക'],
     prev:['Previous observance','മുമ്പത്തെ ആചരണം'], next:['Next observance','അടുത്ത ആചരണം'],
     prevM:['Previous month','കഴിഞ്ഞ മാസം'], nextM:['Next month','അടുത്ത മാസം'],
     has:['Has observances','ആചരണങ്ങളുണ്ട്'], major:['Dominical feasts','കർത്താവിന്റെ പെരുന്നാളുകൾ'], tdy:['Today','ഇന്ന്'],
-    mvE:['Moves with Easter','ഈസ്റ്ററിനൊപ്പം മാറും'], mvS:['Moves yearly','വർഷംതോറും മാറും'],
-    mvETip:['The date changes every year with Western (Gregorian) Easter','പാശ്ചാത്യ (ഗ്രിഗോറിയൻ) ഈസ്റ്ററിനൊപ്പം ഓരോ വർഷവും തീയതി മാറും'],
+    mvE:['Moves with Easter','ഉയിർപ്പിനൊപ്പം മാറും'], mvS:['Moves yearly','വർഷംതോറും മാറും'],
+    mvETip:['The date changes every year with Western (Gregorian) Easter','പാശ്ചാത്യ (ഗ്രിഗോറിയൻ) ഉയിർപ്പിനൊപ്പം ഓരോ വർഷവും തീയതി മാറും'],
     mvSTip:['Counted from a fixed feast or date, so the Sunday changes every year','ഒരു നിശ്ചിത പെരുന്നാളിൽ/തീയതിയിൽ നിന്ന് എണ്ണുന്നതിനാൽ ഞായറാഴ്ച ഓരോ വർഷവും മാറും'],
-    rule:['Date rule','തീയതി കണക്ക്'], easterDay:['Western Easter Sunday','പാശ്ചാത്യ ഈസ്റ്റർ ഞായർ'],
-    proj:['The {y} dates are projected from the {p} calendar using the Church’s rules for movable observances (Easter-based dates, and Sundays counted from a fixed feast). They will be checked against the official {y} panchangam when it is printed.','{y}-ലെ തീയതികൾ, {p}-ലെ കലണ്ടറിൽ നിന്ന് മാറിവരുന്ന ആചരണങ്ങൾക്കുള്ള സഭയുടെ നിയമങ്ങൾ (ഈസ്റ്ററിനെ ആശ്രയിച്ചുള്ള തീയതികളും ഒരു നിശ്ചിത പെരുന്നാളിൽ നിന്ന് എണ്ണുന്ന ഞായറാഴ്ചകളും) ഉപയോഗിച്ച് കണക്കാക്കിയതാണ്. {y}-ലെ ഔദ്യോഗിക പഞ്ചാംഗം അച്ചടിക്കുമ്പോൾ അതുമായി ഒത്തുനോക്കും.'],
+    rule:['Date rule','തീയതി കണക്ക്'], easterDay:['Western Easter Sunday','പാശ്ചാത്യ ഉയിർപ്പ് ഞായർ'],
+    proj:['The {y} dates are projected from the {p} calendar using the Church’s rules for movable observances (Easter-based dates, and Sundays counted from a fixed feast). They will be checked against the official {y} calendar when it is printed.','{y}-ലെ തീയതികൾ, {p}-ലെ പഞ്ചാംഗത്തിൽ നിന്ന് മാറിവരുന്ന ആചരണങ്ങൾക്കുള്ള സഭയുടെ നിയമങ്ങൾ (ഉയിർപ്പിനെ ആശ്രയിച്ചുള്ള തീയതികളും ഒരു നിശ്ചിത പെരുന്നാളിൽ നിന്ന് എണ്ണുന്ന ഞായറാഴ്ചകളും) ഉപയോഗിച്ച് കണക്കാക്കിയതാണ്. {y}-ലെ ഔദ്യോഗിക പഞ്ചാംഗം അച്ചടിക്കുമ്പോൾ അതുമായി ഒത്തുനോക്കും.'],
     projsrc:['Projected from the previous year · Source','കഴിഞ്ഞ വർഷത്തിൽ നിന്ന് കണക്കാക്കിയത് · സ്രോതസ്സ്'],
+    now:['Now','ഇപ്പോൾ'], seasonsK:['Seven seasons','ഏഴ് കാലങ്ങൾ'], seasonsH:['The liturgical year','ആരാധനാ വർഷം'],
+    seasonsP:['The liturgical year begins on Koodosh Eetho Sunday, the first Sunday between October 30 and November 5, and moves through seven seasons that recall the life of Christ.','ആരാധനാ വർഷം ആരംഭിക്കുന്നത് കൂദാശ് ഈത്തോ ഞായറാഴ്ചയാണ് — ഒക്ടോബർ 30-നും നവംബർ 5-നും ഇടയിലുള്ള ആദ്യ ഞായർ. ക്രിസ്തുവിന്റെ ജീവിതത്തെ അനുസ്മരിക്കുന്ന ഏഴ് കാലങ്ങളിലൂടെ അത് കടന്നുപോകുന്നു.'],
     foreign:['Foreign','വിദേശ'], prov:['Provisional','താൽക്കാലികം'],
     approx:['Date approximate','തീയതി ഏകദേശം'], uncertain:['Date uncertain','തീയതി ഉറപ്പില്ല'],
     foreignTip:['A foreign prelate or figure commemorated in Malankara','മലങ്കരയിൽ ഓർമ്മ ആചരിക്കുന്ന വിദേശ പിതാവ്/വ്യക്തി'],
@@ -453,6 +489,81 @@ html[lang="ml"] .cal-aside-p{font-family:Marcellus,"Noto Serif Malayalam",serif;
       pin:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s6-5.6 6-10.5a6 6 0 0 0-12 0C6 15.4 12 21 12 21z"/><circle cx="12" cy="10.5" r="2.2"/></svg>'
     };
     return I[n] || '';
+  }
+
+  /* ---------- liturgical seasons (computed, not stored) ----------
+     The liturgical year starts on Koodosh Eetho Sunday (the first Sunday between
+     Oct 30 and Nov 5) and runs through seven seasons recalling the life of Christ. */
+  var SEAS = [
+    { k:'subara',    c:'#6C86B5', n:['Season of Annunciation','സുബോറോക്കാലം'],
+      w:['Begins on Koodosh Eetho Sunday and runs until the Feast of the Nativity (Yeldho, December 25).','കൂദാശ് ഈത്തോ ഞായറാഴ്ച ആരംഭിച്ച് യൽദോ പെരുന്നാൾ (ഡിസംബർ 25) വരെ.'] },
+    { k:'denha',     c:'#4F9C8C', n:['Season of Epiphany','ദനഹാക്കാലം'],
+      w:['Begins with Yeldho (December 25) and extends up to the start of Great Lent.','യൽദോ പെരുന്നാൾ (ഡിസംബർ 25) മുതൽ വലിയ നോമ്പിന്റെ ആരംഭം വരെ.'] },
+    { k:'nombu',     c:'#7C5C8E', n:['Season of Great Lent','വലിയ നോമ്പുകാലം'],
+      w:['Begins around Kothine Sunday, moves through Holy Week, and extends up to the Feast of the Resurrection.','കൊത്തിനേ ഞായറാഴ്ചയോടെ ആരംഭിച്ച്, ഹാശാ ആഴ്ചയിലൂടെ കടന്ന്, ഉയിർപ്പ് പെരുന്നാൾ വരെ.'] },
+    { k:'kyomtho',   c:'#BA9450', n:['Season of Resurrection','ക്യംതാക്കാലം'],
+      w:['Begins on Easter Sunday and extends to the Feast of Pentecost. It celebrates the resurrection of Jesus Christ and victory over death.','ക്യംതാ പെരുന്നാൾ (ഉയിർപ്പ്) ദിനത്തിൽ ആരംഭിച്ച് പെന്തിക്കോസ്തി പെരുന്നാൾ വരെ. യേശുക്രിസ്തുവിന്റെ ഉയിർപ്പും മരണത്തിന്മേലുള്ള വിജയവും ആഘോഷിക്കുന്നു.'] },
+    { k:'pentecost', c:'#C0604C', n:['Season of Pentecost','പെന്തിക്കോസ്തിക്കാലം'],
+      w:['Begins on the Feast of Pentecost and runs up to the Feast of the Transfiguration (August 6).','പെന്തിക്കോസ്തി പെരുന്നാളിൽ ആരംഭിച്ച് കൂടാരപ്പെരുന്നാൾ (ഓഗസ്റ്റ് 6) വരെ.'] },
+    { k:'transfig',  c:'#5E9BC4', n:['Season of Transfiguration','തേജസ്കരണക്കാലം'],
+      w:['Begins with the Feast of the Transfiguration (August 6) and extends up to the Feast of the Holy Cross.','കൂടാരപ്പെരുന്നാളോടെ (ഓഗസ്റ്റ് 6) ആരംഭിച്ച് സ്ലീബാ പെരുന്നാൾ വരെ.'] },
+    { k:'cross',     c:'#8D6E4B', n:['Season of the Holy Cross','സ്ലീബാക്കാലം'],
+      w:['Begins on September 14 with the Feast of the Holy Cross and continues until the next Koodosh Eetho.','സെപ്റ്റംബർ 14-ന് സ്ലീബാ പെരുന്നാളോടെ ആരംഭിച്ച് അടുത്ത കൂദാശ് ഈത്തോ വരെ തുടരുന്നു.'] }
+  ];
+  function sname(i){ return SEAS[i].n[lang() === 'ml' ? 1 : 0]; }
+  function swhen(i){ return SEAS[i].w[lang() === 'ml' ? 1 : 0]; }
+  function dn(y, m, d){ return Math.round(Date.UTC(y, m, d) / 864e5); }
+  function dnOf(s){ var p = parse(s); return dn(p.y, p.m, p.d); }
+  function dnDate(n){ return new Date(n * 864e5); }
+  function isoOf(n){ var o = dnDate(n); return iso(o.getUTCFullYear(), o.getUTCMonth(), o.getUTCDate()); }
+  function easterDn(y){
+    var a = y % 19, b = Math.floor(y / 100), c = y % 100, d = Math.floor(b / 4), e = b % 4, f = Math.floor((b + 8) / 25),
+        g = Math.floor((b - f + 1) / 3), h = (19 * a + b - d - g + 15) % 30, i = Math.floor(c / 4), k = c % 4,
+        l = (32 + 2 * e + 2 * i - h - k) % 7, m = Math.floor((a + 11 * h + 22 * l) / 451),
+        mo = Math.floor((h + l - 7 * m + 114) / 31), da = ((h + l - 7 * m + 114) % 31) + 1;
+    return dn(y, mo - 1, da);
+  }
+  function koodoshDn(y){ var n = dn(y, 9, 30), wd = dnDate(n).getUTCDay(); return n + ((7 - wd) % 7); }
+  function litYear(y){
+    var K = koodoshDn(y), K2 = koodoshDn(y + 1), E = easterDn(y + 1);
+    var st = [K, dn(y, 11, 25), E - 49, E, E + 49, dn(y + 1, 7, 6), dn(y + 1, 8, 14), K2];
+    return SEAS.map(function(s, i){ return { i:i, start:st[i], end:st[i + 1] - 1 }; });
+  }
+  function litYearOf(n){ var y = dnDate(n).getUTCFullYear(); return n >= koodoshDn(y) ? y : y - 1; }
+  function seasonOf(n){
+    var ly = litYearOf(n), a = litYear(ly);
+    for (var i = 0; i < a.length; i++) if (n >= a[i].start && n <= a[i].end) return { i:i, start:a[i].start, end:a[i].end, ly:ly };
+  }
+  function dshort(n){ var o = dnDate(n); return lang() === 'ml' ? MONTHS.ml[o.getUTCMonth()] + ' ' + o.getUTCDate() : MONTHS_S.en[o.getUTCMonth()] + ' ' + o.getUTCDate(); }
+  function drange(a, b){
+    var ya = dnDate(a).getUTCFullYear(), yb = dnDate(b).getUTCFullYear();
+    return ya === yb ? dshort(a) + ' – ' + dshort(b) + ', ' + yb : dshort(a) + ', ' + ya + ' – ' + dshort(b) + ', ' + yb;
+  }
+  function focusDn(){ return S.sel ? dnOf(S.sel) : dn(S.y, S.m, 15); }
+  function seasonLine(){
+    var seen = [], dim = new Date(S.y, S.m + 1, 0).getDate();
+    for (var d = 1; d <= dim; d++){ var se = seasonOf(dn(S.y, S.m, d)); if (seen.indexOf(se.i) < 0) seen.push(se.i); }
+    return '<div class="cal-seasonline">' + seen.map(function(i){ return '<span><i style="background:' + SEAS[i].c + '"></i>' + esc(sname(i)) + '</span>'; }).join('') + '</div>';
+  }
+  function renderSeasons(){
+    var el = document.getElementById('calSeasons'); if (!el) return;
+    var f = focusDn(), ly = litYearOf(f), a = litYear(ly), now = dnOf(todayISO()), foc = seasonOf(f).i;
+    var total = a[6].end - a[0].start + 1, nowOn = now >= a[0].start && now <= a[6].end, nowI = nowOn ? seasonOf(now).i : -1;
+    var strip = a.map(function(x, i){
+      var s = isoOf(x.start), ok = hasYear(s);
+      return '<button class="cal-sseg' + (i === foc ? ' is-on' : '') + '" data-act="season" data-i="' + i + '"' + (ok ? '' : ' disabled') + ' style="flex:' + (x.end - x.start + 1) + ';background:' + SEAS[i].c + '" title="' + esc(sname(i) + ' · ' + drange(x.start, x.end)) + '" aria-label="' + esc(sname(i)) + '">' + (i + 1) + '</button>';
+    }).join('') + (nowOn ? '<span class="cal-pin" style="left:' + ((now - a[0].start + .5) / total * 100).toFixed(2) + '%"></span>' : '');
+    var cards = a.map(function(x, i){
+      var s = isoOf(x.start), ok = hasYear(s);
+      return '<button class="cal-sc' + (i === foc ? ' is-on' : '') + '" data-act="season" data-i="' + i + '"' + (ok ? '' : ' disabled') + ' style="--c:' + SEAS[i].c + '">' +
+        '<span class="n"><b>' + (i + 1) + '</b>' + (i === nowI ? '<em class="cal-now">' + esc(t('now')) + '</em>' : '') + '</span>' +
+        '<h3>' + esc(sname(i)) + '</h3><span class="r">' + esc(drange(x.start, x.end)) + '</span><p>' + esc(swhen(i)) + '</p></button>';
+    }).join('');
+    el.innerHTML = '<section class="cal-seas" aria-labelledby="calSeasT">' +
+      '<div class="cal-seas-head"><div><div class="cal-seas-k">' + esc(t('seasonsK')) + '</div><h2 class="cal-seas-h" id="calSeasT">' + esc(t('seasonsH')) + '</h2></div><div class="cal-seas-ly">' + ly + ' – ' + (ly + 1) + '</div></div>' +
+      '<p class="cal-seas-p">' + esc(t('seasonsP')) + '</p>' +
+      '<div class="cal-strip" role="group" aria-label="' + esc(t('seasonsH')) + '">' + strip + '</div>' +
+      '<div class="cal-sgrid">' + cards + '</div></section>';
   }
 
   var S = { data:null, byDate:{}, dates:[], catName:{}, groupName:{}, cy:{}, years:{}, y:2026, m:0, sel:null, q:'', on:{}, view:'cal' };
@@ -549,6 +660,7 @@ html[lang="ml"] .cal-aside-p{font-family:Marcellus,"Noto Serif Malayalam",serif;
       '<div class="cal-chips" id="calChips"></div>' +
       '<div id="calProj"></div>' +
       '<div id="calMain"></div>' +
+      '<div id="seasons"><div id="calSeasons"></div></div>' +
       '';
     document.getElementById('calQ').value = q;
   }
@@ -586,13 +698,13 @@ html[lang="ml"] .cal-aside-p{font-family:Marcellus,"Noto Serif Malayalam",serif;
   function ruleText(eo){
     var l = lang();
     if (eo === 0) return t('easterDay');
-    return (l === 'ml' ? 'ഈസ്റ്റർ ' : 'Easter ') + (eo > 0 ? '+ ' : '− ') + Math.abs(eo) + (l === 'ml' ? ' ദിവസം' : (Math.abs(eo) === 1 ? ' day' : ' days'));
+    return (l === 'ml' ? 'ഉയിർപ്പ് ' : 'Easter ') + (eo > 0 ? '+ ' : '− ') + Math.abs(eo) + (l === 'ml' ? ' ദിവസം' : (Math.abs(eo) === 1 ? ' day' : ' days'));
   }
   function monthNav(cls){
     var l = lang(), tdy = todayISO();
     return '<div>' +
         '<div class="cal-kicker">' + esc(t('kicker')) + '</div>' +
-        '<h2 class="cal-month">' + esc(MONTHS[l][S.m]) + ' <span>' + S.y + '</span></h2>' +
+        '<h2 class="cal-month">' + esc(MONTHS[l][S.m]) + ' <span>' + S.y + '</span></h2>' + seasonLine() +
       '</div>' +
       '<div class="cal-nav">' +
         '<button class="cal-pill" data-act="today"' + (hasYear(tdy) ? '' : ' disabled') + '>' + esc(t('today')) + '</button>' +
@@ -614,7 +726,9 @@ html[lang="ml"] .cal-aside-p{font-family:Marcellus,"Noto Serif Malayalam",serif;
       if (its.some(function(x){ return x.category === 'lord_feast'; })) cls += ' major';
       var gs = []; its.forEach(function(x){ if (gs.indexOf(x.group) < 0) gs.push(x.group); });
       var lab = fmtLong(s) + (its.length ? ', ' + plural(its.length) : '');
+      var se = seasonOf(dn(S.y, S.m, d));
       h += '<button class="' + cls + '" data-act="day" data-date="' + s + '" aria-pressed="' + (s === S.sel) + '" aria-label="' + esc(lab) + '"' + (s === tdy ? ' aria-current="date"' : '') + '>' +
+        '<i class="cal-ss" style="background:' + SEAS[se.i].c + '"></i>' +
         '<span class="cal-dn">' + d + '</span>' +
         (its.length ? '<span class="cal-first">' + esc(cellTitle(its[0])) + (its.length > 1 ? ' <b style="font-weight:600;color:var(--muted)">+' + (its.length - 1) + '</b>' : '') + '</span>' +
                       '<span class="cal-count">' + esc(plural(its.length)) + '</span>' +
@@ -637,7 +751,8 @@ html[lang="ml"] .cal-aside-p{font-family:Marcellus,"Noto Serif Malayalam",serif;
       '<button data-act="goto" data-date="' + (next || '') + '"' + (next ? '' : ' disabled') + '>' + esc(t('next')) + (next ? ' · ' + esc(fmtShort(next)) : '') + icon('next') + '</button></div>';
     var h = '<div class="cal-eyebrow-s">' + esc(t('sel')) + '</div>' +
       '<h3 class="cal-date">' + esc(fmtLong(S.sel)) + '</h3>' +
-      '<p class="cal-sub">' + (its.length ? esc(plural(its.length)) : esc(t('none'))) + '</p>';
+      '<p class="cal-sub">' + (its.length ? esc(plural(its.length)) : esc(t('none'))) + '</p>' +
+      (function(){ var si = seasonOf(dnOf(S.sel)).i; return '<p class="cal-season"><i style="background:' + SEAS[si].c + '"></i>' + esc(sname(si)) + '</p>'; })();
     if (its.length){
       h += '<div class="cal-entries">' + its.map(function(it){ return entryHTML(it, false); }).join('') + '</div>' + nav;
     } else {
@@ -704,7 +819,7 @@ html[lang="ml"] .cal-aside-p{font-family:Marcellus,"Noto Serif Malayalam",serif;
 
   /* ---------- render ---------- */
   function render(){
-    renderTabs(); renderChips(); renderSeg(); renderYear(); renderProj();
+    renderTabs(); renderChips(); renderSeg(); renderYear(); renderProj(); renderSeasons();
     if (S.q.trim().length >= 2) renderResults();
     else if (S.view === 'list') renderList();
     else renderCal();
@@ -714,7 +829,7 @@ html[lang="ml"] .cal-aside-p{font-family:Marcellus,"Noto Serif Malayalam",serif;
     writeHash(); render();
     if (opts && opts.focus){ var b = document.querySelector('.cal-day[data-date="' + s + '"]'); if (b) b.focus(); }
     var pn = document.getElementById('calPanel');
-    if (pn && window.innerWidth <= 1000 && (!opts || !opts.focus)){
+    if (pn && window.innerWidth <= 1000 && (!opts || (!opts.focus && !opts.noscroll))){
       var r = pn.getBoundingClientRect();
       if (r.top > window.innerHeight * 0.65) pn.scrollIntoView({ behavior:'smooth', block:'start' });
     }
@@ -744,6 +859,10 @@ html[lang="ml"] .cal-aside-p{font-family:Marcellus,"Noto Serif Malayalam",serif;
     else if (a === 'go'){ S.view = 'cal'; setDate(el.getAttribute('data-date')); }
     else if (a === 'goto'){ var d = el.getAttribute('data-date'); if (d) setDate(d); }
     else if (a === 'month') setMonth(+el.getAttribute('data-m'));
+    else if (a === 'season'){
+      var sx = litYear(litYearOf(focusDn()))[+el.getAttribute('data-i')], sd = isoOf(sx.start);
+      if (hasYear(sd)){ setDate(sd, { noscroll:true }); var mm = document.getElementById('calMain'); if (mm) mm.scrollIntoView({ behavior:'smooth', block:'start' }); }
+    }
     else if (a === 'pm') shiftMonth(-1);
     else if (a === 'nm') shiftMonth(1);
     else if (a === 'year'){ S.y = +el.getAttribute('data-y'); S.sel = null; S.q = ''; var qy = document.getElementById('calQ'); if (qy) qy.value = ''; writeHash(); render(); }
