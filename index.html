@@ -6707,21 +6707,7 @@ html[lang="ml"] .tdc .tdc-up a{grid-template-columns:5.6rem minmax(0,1fr)}
 #today ~ #numbers{padding-top:2.25rem!important}
 #clergy ~ .url-wrap{padding-top:3rem!important}
 @media (min-width:1024px){#today ~ #numbers{padding-top:2.25rem!important}}
-.tdc-season{grid-column:1/-1;padding:1rem 1.5rem 1.2rem;border-top:1px solid var(--t-line)}
-.tdc-sline{display:flex;flex-wrap:nowrap;align-items:center;gap:.6rem;margin-bottom:.85rem}
-.tdc-sdot{width:9px;height:9px;border-radius:50%;flex:none}
-.tdc-sname{flex:1 1 auto;min-width:0;font-family:Marcellus,Georgia,serif;font-size:1.05rem;line-height:1.3;color:var(--t-ink)}
-.tdc-srange{font-size:12px;color:var(--t-muted)}
-.tdc-slink{flex:none;margin-left:auto;white-space:nowrap;font-size:12.5px;font-weight:600;color:var(--t-sage);text-decoration:none;border-bottom:1px solid transparent}
-.tdc-slink:hover{border-bottom-color:currentColor}
-.tdc-strip{position:relative;display:flex;gap:3px;height:6px}
-.tdc-strip span{min-width:0;border-radius:3px;opacity:.38}
-.tdc-strip span.on{opacity:1}
-.tdc-pin{position:absolute;top:-5px;bottom:-5px;width:2px;margin-left:-1px;background:var(--t-gold);border-radius:2px}
-html[lang="ml"] .tdc .tdc-sname{font-family:Marcellus,"Noto Serif Malayalam",serif;line-height:1.5}
-html[lang="ml"] .tdc .tdc-slink,html[lang="ml"] .tdc .tdc-srange{font-family:Inter,"Noto Serif Malayalam",serif}
 @media (max-width:860px){
-  .tdc-season{padding:1rem 1.3rem 1.2rem}
   #today.tdc{padding-left:0!important;padding-right:0!important}
   .tdc-card{grid-template-columns:minmax(0,1fr);border-radius:0;border-left:0;border-right:0;box-shadow:none}
   .tdc-date{display:none}
@@ -6732,7 +6718,6 @@ html[lang="ml"] .tdc .tdc-slink,html[lang="ml"] .tdc .tdc-srange{font-family:Int
   <div class="tdc-date" id="tdcDate"></div>
   <div class="tdc-main" id="tdcMain"></div>
   <div class="tdc-side" id="tdcSide"></div>
-  <div class="tdc-season" id="tdcSeason"></div>
 </div>
 <script>
 (function(){
@@ -6740,28 +6725,7 @@ html[lang="ml"] .tdc .tdc-slink,html[lang="ml"] .tdc .tdc-srange{font-family:Int
   var M={en:['January','February','March','April','May','June','July','August','September','October','November','December'],ml:['ജനുവരി','ഫെബ്രുവരി','മാർച്ച്','ഏപ്രിൽ','മേയ്','ജൂൺ','ജൂലൈ','ഓഗസ്റ്റ്','സെപ്റ്റംബർ','ഒക്ടോബർ','നവംബർ','ഡിസംബർ']};
   var W={en:['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'],ml:['ഞായർ','തിങ്കൾ','ചൊവ്വ','ബുധൻ','വ്യാഴം','വെള്ളി','ശനി']};
   var C={liturgical_year:'#6B8259',feasts_saints:'#BA9450',fathers:'#A0674D',church_life:'#4F7F8C',national:'#8A93A3'};
-  var T={eyebrow:['Today in the Church','ഇന്ന് സഭയിൽ'],head:['Observed <em>today</em>','ഇന്ന് <em>ആചരിക്കുന്നവ</em>'],none:['No feasts or commemorations are listed for today.','ഇന്നത്തേക്ക് പെരുന്നാളുകളോ ഓർമ്മകളോ പട്ടികയിലില്ല.'],more:['more','കൂടി'],all:['See all of today →','ഇന്നത്തെ എല്ലാം കാണുക →'],up:['Coming up','വരുന്നവ'],open:['Open the full calendar →','പൂർണ്ണ പഞ്ചാംഗം തുറക്കുക →'],ended:['The {y} calendar has ended. Browse it any time.','{y}-ലെ പഞ്ചാംഗം അവസാനിച്ചു. എപ്പോൾ വേണമെങ്കിലും കാണാം.'],start:['The 2026 calendar begins on 1 January.','2026-ലെ പഞ്ചാംഗം ജനുവരി 1-ന് ആരംഭിക്കുന്നു.']};
-  var SEAS=[
-    {c:'#6C86B5',n:['Season of Annunciation','സുബോറോക്കാലം']},
-    {c:'#4F9C8C',n:['Season of Epiphany','ദനഹാക്കാലം']},
-    {c:'#7C5C8E',n:['Season of Great Lent','വലിയ നോമ്പുകാലം']},
-    {c:'#BA9450',n:['Season of Resurrection','ക്യംതാക്കാലം']},
-    {c:'#C0604C',n:['Season of Pentecost','പെന്തിക്കോസ്തിക്കാലം']},
-    {c:'#5E9BC4',n:['Season of Transfiguration','തേജസ്കരണക്കാലം']},
-    {c:'#8D6E4B',n:['Season of the Holy Cross','സ്ലീബാക്കാലം']}];
-  var ST={ly:['The liturgical year →','ആരാധനാ വർഷം →']};
-  function dn(y,m,d){return Math.round(Date.UTC(y,m,d)/864e5);}
-  function dd(n){return new Date(n*864e5);}
-  function easterDn(y){var a=y%19,b=Math.floor(y/100),c=y%100,d=Math.floor(b/4),e=b%4,f=Math.floor((b+8)/25),g=Math.floor((b-f+1)/3),h=(19*a+b-d-g+15)%30,i=Math.floor(c/4),k=c%4,l=(32+2*e+2*i-h-k)%7,m=Math.floor((a+11*h+22*l)/451);return dn(y,Math.floor((h+l-7*m+114)/31)-1,((h+l-7*m+114)%31)+1);}
-  function koodoshDn(y){var n=dn(y,9,30);return n+((7-dd(n).getUTCDay())%7);}
-  function litYear(y){var K=koodoshDn(y),K2=koodoshDn(y+1),E=easterDn(y+1),st=[K,dn(y,11,25),E-49,E,E+49,dn(y+1,7,6),dn(y+1,8,14),K2];return SEAS.map(function(s,i){return{start:st[i],end:st[i+1]-1};});}
-  function seasonOf(n){var y=dd(n).getUTCFullYear(),ly=n>=koodoshDn(y)?y:y-1,a=litYear(ly);for(var i=0;i<a.length;i++)if(n>=a[i].start&&n<=a[i].end)return{i:i,a:a};}
-  function dsh(n){var o=dd(n);return lg()==='ml'?M.ml[o.getUTCMonth()]+' '+o.getUTCDate():M.en[o.getUTCMonth()].slice(0,3)+' '+o.getUTCDate();}
-  function renderSeason(now){
-    var l=lg(),n=dn(now.getFullYear(),now.getMonth(),now.getDate()),s=seasonOf(n),a=s.a,cur=a[s.i],tot=a[6].end-a[0].start+1;
-    var seg=a.map(function(x,i){return'<span'+(i===s.i?' class="on"':'')+' style="flex:'+(x.end-x.start+1)+';background:'+SEAS[i].c+'" title="'+esc(SEAS[i].n[l==='ml'?1:0])+'"></span>';}).join('');
-    document.getElementById('tdcSeason').innerHTML='<div class="tdc-sline"><span class="tdc-sdot" style="background:'+SEAS[s.i].c+'"></span><span class="tdc-sname">'+esc(SEAS[s.i].n[l==='ml'?1:0])+'</span><a class="tdc-slink" href="calendar#seasons">'+esc(ST.ly[l==='ml'?1:0])+'</a></div><div class="tdc-strip">'+seg+'<i class="tdc-pin" style="left:'+((n-a[0].start+.5)/tot*100).toFixed(2)+'%"></i></div>';
-  }
+  var T={eyebrow:['Today in the Church','ഇന്ന് സഭയിൽ'],head:['Observed <em>today</em>','ഇന്ന് <em>ആചരിക്കുന്നവ</em>'],none:['No feasts or commemorations are listed for today.','ഇന്നത്തേക്ക് പെരുന്നാളുകളോ ഓർമ്മകളോ പട്ടികയിലില്ല.'],more:['more','കൂടി'],all:['See all of today →','ഇന്നത്തെ എല്ലാം കാണുക →'],up:['Coming up','വരുന്നവ'],open:['The Liturgical Year →','ആരാധനാ വർഷം →'],ended:['The {y} calendar has ended. Browse it any time.','{y}-ലെ പഞ്ചാംഗം അവസാനിച്ചു. എപ്പോൾ വേണമെങ്കിലും കാണാം.'],start:['The 2026 calendar begins on 1 January.','2026-ലെ പഞ്ചാംഗം ജനുവരി 1-ന് ആരംഭിക്കുന്നു.']};
   var D=null,L=null;
   function lg(){return document.documentElement.getAttribute('lang')==='ml'?'ml':'en';}
   function t(k){return T[k][lg()==='ml'?1:0];}
@@ -6779,7 +6743,7 @@ html[lang="ml"] .tdc .tdc-slink,html[lang="ml"] .tdc .tdc-srange{font-family:Int
     var main='', side='';
     if(!ref){
       main='<h3 class="tdc-h" id="tdcTitle">'+esc(t('eyebrow'))+'</h3><p class="tdc-none">'+esc(t('ended').replace('{y}',ly))+'</p>';
-      side='<a class="tdc-go" href="calendar">'+esc(t('open'))+'</a>';
+      side='<a class="tdc-go" href="calendar#seasons">'+esc(t('open'))+'</a>';
     } else {
       var its=D.by[ref]||[], list='';
       its.slice(0,4).forEach(function(it){
@@ -6790,11 +6754,10 @@ html[lang="ml"] .tdc .tdc-slink,html[lang="ml"] .tdc .tdc-srange{font-family:Int
       else if(its.length) main+='<a class="tdc-more" href="calendar#'+ref+'">'+esc(t('all'))+'</a>';
       var nx=D.dates.filter(function(d){return d>ref;}).slice(0,3), up='';
       nx.forEach(function(d){var x=D.by[d][0];up+='<li><a href="calendar#'+d+'"><b>'+esc(short(d))+'</b><span>'+esc(tidy(x['title_'+l]||x.title_en))+'</span></a></li>';});
-      side='<p class="tdc-sh">'+esc(t('up'))+'</p>'+(up?'<ul class="tdc-up">'+up+'</ul>':'')+'<a class="tdc-go" href="calendar#'+ref+'">'+esc(t('open'))+'</a>';
+      side='<p class="tdc-sh">'+esc(t('up'))+'</p>'+(up?'<ul class="tdc-up">'+up+'</ul>':'')+'<a class="tdc-go" href="calendar#seasons">'+esc(t('open'))+'</a>';
     }
     document.getElementById('tdcMain').innerHTML=main;
     document.getElementById('tdcSide').innerHTML=side;
-    renderSeason(now);
     card.hidden=false;
   }
   Promise.all(['calendar-2026.json?v=2','calendar-2027.json?v=2'].map(function(u){return fetch(u).then(function(r){if(!r.ok)throw 0;return r.json();});})).then(function(list){

@@ -258,7 +258,7 @@ html[lang="ml"] .cal-resh h3{font-family:Marcellus,"Noto Serif Malayalam",serif}
 /* ---------- sources (same look as the index "Sources" list: author-first, italic title, hanging indent) ---------- */
 .cal-cite{max-width:72rem;margin:-1.5rem auto 0;padding:0 1.25rem 4.5rem}
 .cal-cite-in{border-top:1px solid #DBE1D2;padding-top:2.25rem}
-.cal-cite h2{font-family:Marcellus,Georgia,serif;font-style:italic;font-weight:400;font-size:1.5rem;line-height:1.3;color:#10140D;margin:0 0 .6rem}
+.cal-cite h2{font-family:Marcellus,Georgia,serif;font-style:normal;font-weight:400;font-size:1.5rem;line-height:1.3;color:#10140D;margin:0 0 .6rem}
 .cal-cite .lede{font-size:15px;line-height:1.7;color:rgba(51,58,45,.62);margin:0 0 1.4rem;max-width:44rem}
 .cal-cite .ref{font-size:13px;line-height:1.7;color:rgba(51,58,45,.74);margin:0 0 .9rem;padding-left:1.5rem;text-indent:-1.5rem;max-width:52rem}
 html.dark .cal-cite-in{border-top-color:rgba(255,255,255,.1)}
@@ -292,7 +292,7 @@ html[lang="ml"] .cal-aside-p{font-family:Marcellus,"Noto Serif Malayalam",serif;
 .cal-seas{margin:3.25rem 0 0}
 .cal-seas-head{display:flex;align-items:flex-end;justify-content:space-between;gap:1rem}
 .cal-seas-k{font-size:10.5px;letter-spacing:.2em;text-transform:uppercase;font-weight:600;color:var(--taupe)}
-.cal-seas-h{font-family:Marcellus,Georgia,serif;font-style:italic;font-weight:400;font-size:clamp(1.6rem,3vw,2.1rem);line-height:1.2;margin:.35rem 0 0;color:var(--ink)}
+.cal-seas-h{font-family:Marcellus,Georgia,serif;font-style:normal;font-weight:400;font-size:clamp(1.6rem,3vw,2.1rem);line-height:1.2;margin:.35rem 0 0;color:var(--ink)}
 .cal-seas-ly{font-size:12px;font-weight:600;color:var(--muted);white-space:nowrap}
 .cal-seas-p{max-width:44rem;margin:.6rem 0 1.5rem;font-size:15px;line-height:1.7;color:var(--body)}
 .cal-strip{position:relative;display:flex;gap:3px;height:2.3rem;margin:0 0 1.5rem}
@@ -354,7 +354,7 @@ html[lang="ml"] .cal-seas-h,html[lang="ml"] .cal-sc h3{font-family:Marcellus,"No
   <aside class="cal-aside" aria-labelledby="calNoteT">
     <div class="cal-aside-in">
       <span class="cal-aside-d" aria-hidden="true"></span>
-      <h2 class="cal-aside-h" id="calNoteT" data-en="A note on the calendar" data-ml="പഞ്ചാംഗത്തെക്കുറിച്ച് ഒരു കുറിപ്പ്">A note on the calendar</h2>
+      <h2 class="cal-aside-h" id="calNoteT" data-en="A Note on the Calendar" data-ml="പഞ്ചാംഗത്തെക്കുറിച്ച് ഒരു കുറിപ്പ്">A Note on the Calendar</h2>
       <p class="cal-aside-p" data-en="The Malankara Church switched entirely to the Gregorian calendar in 1953, following Encyclical No. 620 from Patriarch Mor Ignatius Aphrem I in December 1952." data-ml="1952 ഡിസംബറിലെ പാത്രിയർക്കീസ് മോർ ഇഗ്നാത്തിയോസ് അപ്രേം ഒന്നാമന്റെ 620-ാം നമ്പർ കൽപ്പനയെത്തുടർന്ന്, മലങ്കര സഭ 1953-ൽ പൂർണ്ണമായും ഗ്രിഗോറിയൻ പഞ്ചാംഗത്തിലേക്ക് മാറി.">The Malankara Church switched entirely to the Gregorian calendar in 1953, following Encyclical No. 620 from Patriarch Mor Ignatius Aphrem I in December 1952.</p>
     </div>
   </aside>
@@ -421,7 +421,7 @@ html[lang="ml"] .cal-seas-h,html[lang="ml"] .cal-sc h3{font-family:Marcellus,"No
 
   var GROUPS = ['liturgical_year','feasts_saints','fathers','church_life','national'];
   var GSHORT = {
-    en:{ liturgical_year:'Liturgical year', feasts_saints:'Feasts & saints', fathers:'Fathers & figures', church_life:'Church events', national:'National days' },
+    en:{ liturgical_year:'Liturgical Year', feasts_saints:'Feasts & Saints', fathers:'Fathers & Figures', church_life:'Church Events', national:'National Days' },
     ml:{ liturgical_year:'ആരാധനാ വർഷം', feasts_saints:'പെരുന്നാളുകളും വിശുദ്ധരും', fathers:'പിതാക്കന്മാരും പ്രമുഖരും', church_life:'സഭാ സംഭവങ്ങളും ദിനങ്ങളും', national:'ദേശീയ, പൊതു ദിനങ്ങൾ' }
   };
   var COLOR = { liturgical_year:'#6B8259', feasts_saints:'#BA9450', fathers:'#A0674D', church_life:'#4F7F8C', national:'#8A93A3' };
@@ -430,20 +430,20 @@ html[lang="ml"] .cal-seas-h,html[lang="ml"] .cal-sc h3{font-family:Marcellus,"No
     today:['Today','ഇന്ന്'], cal:['Calendar','പഞ്ചാംഗം'], list:['List','പട്ടിക'],
     search:['Search feasts, saints, places…','പെരുന്നാൾ, വിശുദ്ധർ, സ്ഥലം എന്നിവ തിരയുക…'],
     kicker:['Liturgical Year','ആരാധനാ വർഷം'],
-    sel:['Selected day','തിരഞ്ഞെടുത്ത ദിവസം'],
+    sel:['Selected Day','തിരഞ്ഞെടുത്ത ദിവസം'],
     none:['No observances on this date','ഈ ദിവസം ആചരണങ്ങളൊന്നുമില്ല'],
     hint:['Choose a highlighted date on the calendar to view feasts, fasts and commemorations.','പെരുന്നാളുകളും നോമ്പുകളും ഓർമ്മകളും കാണാൻ പഞ്ചാംഗത്തിൽ അടയാളപ്പെടുത്തിയ ഒരു തീയതി തിരഞ്ഞെടുക്കുക.'],
     pick:['Select a day','ഒരു ദിവസം തിരഞ്ഞെടുക്കുക'],
     prev:['Previous observance','മുമ്പത്തെ ആചരണം'], next:['Next observance','അടുത്ത ആചരണം'],
     prevM:['Previous month','കഴിഞ്ഞ മാസം'], nextM:['Next month','അടുത്ത മാസം'],
-    has:['Has observances','ആചരണങ്ങളുണ്ട്'], major:['Dominical feasts','കർത്താവിന്റെ പെരുന്നാളുകൾ'], tdy:['Today','ഇന്ന്'],
+    has:['Has observances','ആചരണങ്ങളുണ്ട്'], major:['Dominical Feasts','മാറാനായ പെരുന്നാളുകൾ'], tdy:['Today','ഇന്ന്'],
     mvE:['Moves with Easter','ഉയിർപ്പിനൊപ്പം മാറും'], mvS:['Moves yearly','വർഷംതോറും മാറും'],
     mvETip:['The date changes every year with Western (Gregorian) Easter','പാശ്ചാത്യ (ഗ്രിഗോറിയൻ) ഉയിർപ്പിനൊപ്പം ഓരോ വർഷവും തീയതി മാറും'],
     mvSTip:['Counted from a fixed feast or date, so the Sunday changes every year','ഒരു നിശ്ചിത പെരുന്നാളിൽ/തീയതിയിൽ നിന്ന് എണ്ണുന്നതിനാൽ ഞായറാഴ്ച ഓരോ വർഷവും മാറും'],
     rule:['Date rule','തീയതി കണക്ക്'], easterDay:['Western Easter Sunday','പാശ്ചാത്യ ഉയിർപ്പ് ഞായർ'],
     proj:['The {y} dates are projected from the {p} calendar using the Church’s rules for movable observances (Easter-based dates, and Sundays counted from a fixed feast). They will be checked against the official {y} calendar when it is printed.','{y}-ലെ തീയതികൾ, {p}-ലെ പഞ്ചാംഗത്തിൽ നിന്ന് മാറിവരുന്ന ആചരണങ്ങൾക്കുള്ള സഭയുടെ നിയമങ്ങൾ (ഉയിർപ്പിനെ ആശ്രയിച്ചുള്ള തീയതികളും ഒരു നിശ്ചിത പെരുന്നാളിൽ നിന്ന് എണ്ണുന്ന ഞായറാഴ്ചകളും) ഉപയോഗിച്ച് കണക്കാക്കിയതാണ്. {y}-ലെ ഔദ്യോഗിക പഞ്ചാംഗം അച്ചടിക്കുമ്പോൾ അതുമായി ഒത്തുനോക്കും.'],
     projsrc:['Projected from the previous year · Source','കഴിഞ്ഞ വർഷത്തിൽ നിന്ന് കണക്കാക്കിയത് · സ്രോതസ്സ്'],
-    now:['Now','ഇപ്പോൾ'], seasonsK:['Seven seasons','ഏഴ് കാലങ്ങൾ'], seasonsH:['The liturgical year','ആരാധനാ വർഷം'],
+    now:['Now','ഇപ്പോൾ'], seasonsK:['Seven Seasons','ഏഴ് കാലങ്ങൾ'], seasonsH:['The Liturgical Year','ആരാധനാ വർഷം'],
     seasonsP:['The liturgical year begins on Koodosh Eetho Sunday, the first Sunday between October 30 and November 5, and moves through seven seasons that recall the life of Christ.','ആരാധനാ വർഷം ആരംഭിക്കുന്നത് കൂദാശ് ഈത്തോ ഞായറാഴ്ചയാണ് — ഒക്ടോബർ 30-നും നവംബർ 5-നും ഇടയിലുള്ള ആദ്യ ഞായർ. ക്രിസ്തുവിന്റെ ജീവിതത്തെ അനുസ്മരിക്കുന്ന ഏഴ് കാലങ്ങളിലൂടെ അത് കടന്നുപോകുന്നു.'],
     foreign:['Foreign','വിദേശ'], prov:['Provisional','താൽക്കാലികം'],
     approx:['Date approximate','തീയതി ഏകദേശം'], uncertain:['Date uncertain','തീയതി ഉറപ്പില്ല'],
@@ -465,7 +465,8 @@ html[lang="ml"] .cal-seas-h,html[lang="ml"] .cal-sc h3{font-family:Marcellus,"No
   function cellTitle(it){
     var s = tidy(pick(it, 'title'));
     if (lang() === 'ml') return s.replace(/\s+[—–-]\s+\d+-ാം\s+ഓർമ്മ$/, '');
-    return s.replace(/^(c\.\s*)?\d+(st|nd|rd|th)\s+(Commemoration|Memorial)\s+of\s+/i, '').replace(/^Commemoration\s+of\s+/i, '');
+    s = s.replace(/^(c\.\s*)?\d+(st|nd|rd|th)\s+(Commemoration|Memorial)\s+of\s+/i, '').replace(/^Commemoration\s+of\s+/i, '').replace(/^the\s+/i, '');
+    return s.charAt(0).toUpperCase() + s.slice(1);
   }
   function plural(n){ return lang() === 'ml' ? n + (n === 1 ? ' ആചരണം' : ' ആചരണങ്ങൾ') : n + (n === 1 ? ' observance' : ' observances'); }
   function pad(n){ return n < 10 ? '0' + n : '' + n; }
