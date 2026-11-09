@@ -144,6 +144,14 @@ dialog::backdrop{background:rgba(17,24,39,.45);backdrop-filter:blur(2px)}
           <div class="field"><label class="l" for="fType">Type</label><select id="fType"></select></div>
           <div class="field"><label class="l" for="fIcon">Symbol</label><select id="fIcon"></select></div>
         </div>
+        <div class="row">
+          <div class="field"><label class="l" for="fCountry">Country</label><select id="fCountry"></select></div>
+        </div>
+        <div class="row" id="ctyOther" hidden>
+          <div class="field"><input id="fCtyEn" type="text" placeholder="Country (English)"></div>
+          <div class="field"><input id="fCtyMl" type="text" lang="ml" placeholder="Country (Malayalam)"></div>
+        </div>
+        <div class="small" id="syncNote" style="margin:-4px 0 14px">Name, Malayalam name, type, status, diocese and country are carried to the diocese page, the institution page and every count (menus, home page, statistics) when you publish. Moving the pin or editing the description changes only the map.</div>
         <div id="secretWarn" class="warn" hidden>Secret locations get no Directions link on the map. The coordinates below are still public in the data file, so use a city-centre point rather than the exact address.</div>
 
         <div class="field"><label class="l" for="fDesc">Description</label>
@@ -204,7 +212,7 @@ dialog::backdrop{background:rgba(17,24,39,.45);backdrop-filter:blur(2px)}
 
 <dialog id="dlgPub"><div class="dlg">
   <h2>Publish to the website</h2>
-  <p class="s">Saves <b>malankara.json</b> and <b>map-extra.json</b> straight to your GitHub repository. The site updates a minute or two later.</p>
+  <p class="s">Saves <b>malankara.json</b>, <b>map-extra.json</b> and every diocese page, institution page, menu and home-page count that your changes touch, straight to your GitHub repository. The site updates a minute or two later.</p>
   <div class="field"><label class="l" for="gRepo">Repository</label><input id="gRepo" type="text" placeholder="owner/repository" autocomplete="off"></div>
   <div class="row">
     <div class="field"><label class="l" for="gBranch">Branch</label><input id="gBranch" type="text" value="main" autocomplete="off"></div>
@@ -233,6 +241,412 @@ dialog::backdrop{background:rgba(17,24,39,.45);backdrop-filter:blur(2px)}
 (function () {
 "use strict";
 var DIO_COL = /*__DIO_COL__*/{};
+var SITE_T = {"dioMl":{"Asia-Pacific":"ഏഷ്യ-പസഫിക്","Canada":"കാനഡ","Kottayam":"കോട്ടയം","Southwest America":"സൗത്ത്-വെസ്റ്റ് അമേരിക്ക","Thrissur":"തൃശ്ശൂർ","UK-Europe-Africa":"യു.കെ-യൂറോപ്പ്","Knanaya":"ക്നാനായ","Ahmedabad":"അഹമ്മദാബാദ്","Bangalore":"ബാംഗ്ലൂർ","Bombay":"മുംബൈ","Brahmavar":"ബ്രഹ്മവാർ","Calcutta":"കൽക്കട്ട","Delhi":"ഡൽഹി","Kottayam Central":"കോട്ടയം-സെൻട്രൽ","Madras":"ചെന്നൈ","Adoor-Kadampanad":"അടൂർ-കടമ്പനാട്","Angamaly":"അങ്കമാലി","Chengannur":"ചെങ്ങന്നൂർ","Idukki":"ഇടുക്കി","Kandanad East":"കണ്ടനാട്-ഈസ്റ്റ്","Kandanad West":"കണ്ടനാട്-വെസ്റ്റ്","Kochi":"കൊച്ചി","Kollam":"കൊല്ലം","Kottarakkara-Punalur":"കൊട്ടാരക്കര-പുനലൂർ","Kunnamkulam":"കുന്നംകുളം","Malabar":"മലബാർ","Mavelikara":"മാവേലിക്കര","Nilackal":"നിലയ്ക്കൽ","Niranam":"നിരണം","Sulthan Bathery":"സുൽത്താൻ ബത്തേരി","Thiruvananthapuram":"തിരുവനന്തപുരം","Thumpamon":"തുമ്പമൺ","Northeast America":"നോർത്ത്-ഈസ്റ്റ് അമേരിക്ക","Proprietary Churches":"കുടുംബപള്ളികൾ","Evangelistic Association of the East":"പൗരസ്ത്യ സുവിശേഷ സമാജം"},"countries":{"Brunei":"ബ്രൂണൈ","Hong Kong":"ഹോങ്കോങ്ങ്","Indonesia":"ഇന്തോനേഷ്യ","Japan":"ജപ്പാൻ","South Korea":"ദക്ഷിണ കൊറിയ","China":"ചൈന","Philippines":"ഫിലിപ്പീൻസ്","Taiwan":"തായ്‌വാൻ","Thailand":"തായ്‌ലൻഡ്","Vietnam":"വിയറ്റ്നാം","Canada":"കാനഡ","India":"ഇന്ത്യ","United States":"അമേരിക്കൻ ഐക്യനാടുകൾ","Saudi Arabia":"സൗദി അറേബ്യ","Ireland":"അയർലൻഡ്","Israel":"ഇസ്രായേൽ","Oman":"ഒമാൻ","Australia":"ഓസ്ട്രേലിയ","Malaysia":"മലേഷ്യ","New Zealand":"ന്യൂസിലാന്റ്","United Arab Emirates":"യുണൈറ്റഡ് അറബ് എമിറേറ്റ്സ്","Kuwait":"കുവൈറ്റ്","United Kingdom":"യുണൈറ്റഡ് കിംഗ്ഡം","Sweden":"സ്വീഡൻ","Italy":"ഇറ്റലി","Lesotho":"ലെസോത്തോ","Belgium":"ബെൽജിയം","Portugal":"പോർച്ചുഗൽ","Germany":"ജർമ്മനി","Luxembourg":"ലക്സംബർഗ്","Malta":"മാൾട്ട","France":"ഫ്രാൻസ്","Netherlands":"നെതർലാൻഡ്സ്","Georgia":"ജോർജിയ","Austria":"ഓസ്ട്രിയ","Poland":"പോളണ്ട്","Brazil":"ബ്രസീൽ","Ecuador":"ഇക്വഡോർ","Armenia":"അർമേനിയ","Ethiopia":"എത്യോപ്യ","Latvia":"ലാത്വിയ","Lithuania":"ലിത്വാനിയ","Bulgaria":"ബൾഗേറിയ","Rwanda":"റുവാണ്ട","Uganda":"ഉഗാണ്ട","Singapore":"സിംഗപ്പൂർ","Bahrain":"ബഹ്‌റൈൻ","Sri Lanka":"ശ്രീലങ്ക","Qatar":"ഖത്തർ","Nigeria":"നൈജീരിയ","South Africa":"ദക്ഷിണാഫ്രിക്ക","Switzerland":"സ്വിറ്റ്സർലൻഡ്","Yemen":"യെമൻ","Spain":"സ്പെയിൻ","Botswana":"ബോട്സ്വാന"},"typeMl":{"Palaces":"അരമനകൾ","Monasteries":"ദയറാകൾ","Convents":"കന്യാസ്ത്രീ മഠങ്ങൾ","Cathedrals":"ഭദ്രാസനപള്ളികൾ","Churches":"പള്ളികൾ","Chapels":"ചാപ്പലുകൾ","Other Institutions":"മറ്റ് സ്ഥാപനങ്ങൾ","Congregations":"കോൺഗ്രിഗേഷനുകൾ","Communities":"കമ്മ്യൂണിറ്റികൾ","Independent Prayer Groups":"സ്വതന്ത്ര പ്രാർത്ഥന യോഗങ്ങൾ","Student Centres":"വിദ്യാർത്ഥി കേന്ദ്രങ്ങൾ","Seminaries":"സെമിനാരികൾ","Independent Sunday Schools":"സ്വതന്ത്ര ഞായർ പള്ളിക്കൂടങ്ങൾ","Catholicate Centres":"കാതോലിക്കേറ്റ് കേന്ദ്രങ്ങൾ","Qurbana Centres":"പ്രാർത്ഥനാലയങ്ങൾ"},"defCountry":{"Asia-Pacific":"Australia","Canada":"Canada","Kottayam":"India","Southwest America":"United States","Thrissur":"India","UK-Europe-Africa":"United Kingdom","Knanaya":"India","Ahmedabad":"India","Bangalore":"India","Bombay":"India","Brahmavar":"India","Calcutta":"India","Delhi":"India","Kottayam Central":"India","Madras":"India","Adoor-Kadampanad":"India","Angamaly":"India","Chengannur":"India","Idukki":"India","Kandanad East":"India","Kandanad West":"India","Kochi":"India","Kollam":"India","Kottarakkara-Punalur":"India","Kunnamkulam":"India","Malabar":"India","Mavelikara":"India","Nilackal":"India","Niranam":"India","Sulthan Bathery":"India","Thiruvananthapuram":"India","Thumpamon":"India","Northeast America":"United States","Proprietary Churches":"India","Evangelistic Association of the East":"India"}};
+/* SiteSync: applies place changes (add / rename / move / retype / re-status / delete) to the
+   hand-written site pages, so diocese pages, institution pages, menu counts and the home-page
+   numbers all stay in step with malankara.json.  Pure string work, no DOM, runs in a browser or node. */
+var SiteSync = (function () {
+"use strict";
+
+var TYPES = {
+  P: { file: "type-palaces", plural: "Palaces" }, V: { file: "type-convents", plural: "Convents" },
+  M: { file: "type-monasteries", plural: "Monasteries" }, C: { file: "type-cathedrals", plural: "Cathedrals" },
+  S: { file: "type-seminaries", plural: "Seminaries" }, T: { file: "type-student-centres", plural: "Student Centres" },
+  N: { file: "type-sunday-schools", plural: "Independent Sunday Schools" }, G: { file: "type-prayer-groups", plural: "Independent Prayer Groups" },
+  H: { file: "type-shrines", plural: "", menu: "Wayside Shrines" }, L: { file: "type-chapels", plural: "Chapels" },
+  K: { file: "type-catholicate-centres", plural: "Catholicate Centres" }, Q: { file: "type-qurbana-centres", plural: "Qurbana Centres" },
+  O: { file: "type-congregations", plural: "Congregations" }, Y: { file: "type-communities", plural: "Communities" },
+  X: { file: "type-other-institutions", plural: "Other Institutions" }, F: { file: "type-parish-churches", plural: "Churches" }
+};
+var DIO_ORDER = ["P", "M", "V", "S", "C", "F", "K", "Q", "L", "O", "Y", "G", "N", "T", "X"];
+var SUFFIX = { death: " \u2014 Closed", caution: " \u2014 Schismatic-Occupied", semi: " \u2014 Semi-Autonomous" };
+var SUFFIX_ML = { death: "അടച്ചുപൂട്ടിയവ", caution: "വിഘടിത അധിനിവേശത്തിലുള്ളവ", semi: "അർധ സ്വയംഭരണം" };
+var PRE_EN = { death: "Closed ", caution: "Schismatic-Occupied " };
+var PRE_ML = { death: "അടച്ചുപൂട്ടിയ ", caution: "വിഘടിത അധിനിവേശ " };
+var NOTE_EN = "Grouped by diocese \u2014 not included in the totals above.";
+var NOTE_ML = "ഭദ്രാസനം അനുസരിച്ച് തരംതിരിച്ചിരിക്കുന്നു — മുകളിലുള്ള ആകെത്തുകകളിൽ ഉൾപ്പെടുത്തിയിട്ടില്ല.";
+
+/* ---------- small helpers ---------- */
+function esc(s) { return String(s).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;").replace(/'/g, "&#x27;"); }
+var NAMED = { amp: "&", lt: "<", gt: ">", quot: '"', apos: "'", nbsp: "\u00a0", mdash: "\u2014", ndash: "\u2013", rsquo: "\u2019", lsquo: "\u2018", hellip: "\u2026" };
+function unesc(s) {
+  return String(s).replace(/&(#x[0-9a-f]+|#\d+|[a-z]+);/gi, function (m, e) {
+    if (e[0] === "#") return String.fromCodePoint(e[1].toLowerCase() === "x" ? parseInt(e.slice(2), 16) : parseInt(e.slice(1), 10));
+    return Object.prototype.hasOwnProperty.call(NAMED, e.toLowerCase()) ? NAMED[e.toLowerCase()] : m;
+  });
+}
+function escText(s) { return String(s).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;"); }
+function key(s) { return unesc(s).replace(/[\u00a0\u200b]/g, " ").replace(/\s+/g, " ").trim(); }
+function rx(s) { return s.replace(/[.*+?^${}()|[\]\\]/g, "\\$&"); }
+function slug(d) { return String(d || "").toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, ""); }
+function lineStart(s, i) { return s.lastIndexOf("\n", i - 1) + 1; }
+function fmtNum(n) { return n.toLocaleString("en-US"); }
+function cmp(a, b) { return a < b ? -1 : a > b ? 1 : 0; }
+function stRole(st) { return st === "death" ? "closed" : st === "caution" ? "schism" : "every"; }
+
+/* ============================ diocese pages ============================ */
+var DIO_SECTION_ML = null;
+function dioSections(s) {
+  var out = [], re = /<section[^>]*>\s*<h2[^>]*data-en="([^"]*)"[^>]*>[^<]*<\/h2>\s*<ol[^>]*>([\s\S]*?)<\/ol>\s*<\/section>/g, m;
+  while ((m = re.exec(s))) {
+    var inner = m.index + m[0].indexOf(">", m[0].indexOf("<ol")) + 1;
+    out.push({ title: key(m[1]), start: m.index, end: m.index + m[0].length, innerStart: inner, innerEnd: inner + m[2].length });
+  }
+  return out;
+}
+function dioItems(s, sec) {
+  var inner = s.slice(sec.innerStart, sec.innerEnd), re = /[ \t]*<li[^>]*data-en="([^"]*)"(?: data-ml="([^"]*)")?[^>]*>[\s\S]*?<\/li>[ \t]*\n?/g, a = [], m;
+  while ((m = re.exec(inner))) a.push({ name: key(m[1]), ml: m[2] === undefined ? "" : unesc(m[2]), start: sec.innerStart + m.index, end: sec.innerStart + m.index + m[0].length });
+  return a;
+}
+function secTitleParts(title) { var i = title.indexOf(" \u2014 "); return i < 0 ? { base: title, suf: "" } : { base: title.slice(0, i), suf: title.slice(i) }; }
+function secRank(title) {
+  var p = secTitleParts(title), t = null, k;
+  for (k in TYPES) if (TYPES[k].plural === p.base) t = k;
+  if (!t) return null;
+  return [p.suf === "" ? 0 : p.suf === SUFFIX.death ? 1 : 2, DIO_ORDER.indexOf(t)];
+}
+function rankLess(a, b) { return a[0] < b[0] || (a[0] === b[0] && a[1] < b[1]); }
+function dioSufKey(s, st) {
+  if (st === "death") return SUFFIX.death;
+  if (st === "caution") return (/\u2014 Semi-Autonomous<\/h2>|\u2014 Semi-Autonomous"/.test(s) && !/\u2014 Schismatic-Occupied/.test(s)) ? SUFFIX.semi : SUFFIX.caution;
+  return "";
+}
+function liHtml(name, ml) { return '    <li data-en="' + esc(name) + '" data-ml="' + esc(ml || name) + '">' + escText(name) + "</li>\n"; }
+function dioSectionHtml(title, titleMl, name, ml) {
+  return '<section class="px-5 sm:px-8 pb-10 sm:pb-12 max-w-4xl mx-auto">\n  <h2 class="font-serif font-normal text-lg sm:text-xl text-ink dark:text-ivory mb-5" data-en="' + esc(title) + '" data-ml="' + esc(titleMl) + '">' + esc(title) + '</h2>\n  <ol class="list-decimal marker:text-taupe marker:font-serif columns-1 sm:columns-2 gap-x-10 pl-5 space-y-1.5 text-[13.5px] text-body/75 dark:text-ivory/60 [&_li]:break-inside-avoid [&_a]:hover:text-sage-dark [&_a]:dark:hover:text-sage">\n' + liHtml(name, ml) + "  </ol>\n</section>";
+}
+function dioRemove(s, name, expTitle, remain) {
+  var secs = dioSections(s), order = secs.slice().sort(function (a, b) { return (b.title === expTitle) - (a.title === expTitle); }), k = key(name);
+  for (var i = 0; i < order.length; i++) {
+    var sec = order[i], items = dioItems(s, sec);
+    for (var j = 0; j < items.length; j++) {
+      if (items[j].name !== k) continue;
+      var same = items.filter(function (x) { return x.name === k; }).length;
+      if (remain !== undefined && same <= remain) return { s: s, found: true, kept: true, ml: items[j].ml, title: sec.title, counted: sec.title.indexOf(" \u2014 ") < 0, base: secTitleParts(sec.title).base };
+      if (items.length === 1) { var e = sec.end; if (s.substr(e, 2) === "\n\n") e += 2; s = s.slice(0, sec.start) + s.slice(e); }
+      else s = s.slice(0, items[j].start) + s.slice(items[j].end);
+      return { s: s, found: true, ml: items[j].ml, title: sec.title, counted: sec.title.indexOf(" \u2014 ") < 0, base: secTitleParts(sec.title).base };
+    }
+  }
+  /* the Proprietary Churches page lists its chapels without the place prefix ("Koipuram ..." for "Chathannoor Koipuram ..."): accept a single unambiguous tail match */
+  var cand = [];
+  for (var a = 0; a < secs.length; a++) {
+    var its = dioItems(s, secs[a]);
+    for (var b = 0; b < its.length; b++) if (its[b].name.split(" ").length >= 3 && k.length > its[b].name.length && k.slice(-(its[b].name.length + 1)) === " " + its[b].name) cand.push([secs[a], its[b], its.length]);
+  }
+  if (cand.length === 1) {
+    var sec2 = cand[0][0], it = cand[0][1];
+    var res = { s: s, found: true, ml: it.ml, title: sec2.title, counted: sec2.title.indexOf(" \u2014 ") < 0, base: secTitleParts(sec2.title).base };
+    if (remain !== undefined && remain >= 1) { res.kept = true; return res; }
+    if (cand[0][2] === 1) { var e3 = sec2.end; if (s.substr(e3, 2) === "\n\n") e3 += 2; res.s = s.slice(0, sec2.start) + s.slice(e3); }
+    else res.s = s.slice(0, it.start) + s.slice(it.end);
+    return res;
+  }
+  return { s: s, found: false };
+}
+function dioInsert(s, snap, ctx, pinsAfter) {
+  var info = TYPES[snap.t], suf = dioSufKey(s, snap.st), title = info.plural + suf, secs = dioSections(s), sec = null, i;
+  for (i = 0; i < secs.length; i++) if (secs[i].title === title) sec = secs[i];
+  if (sec) {
+    var items = dioItems(s, sec), at = null, nm = key(snap.n);
+    if (pinsAfter !== undefined && items.filter(function (x) { return x.name === nm; }).length >= pinsAfter) return s;
+    for (i = 0; i < items.length; i++) if (cmp(nm, items[i].name) < 0) { at = items[i].start; break; }
+    if (at === null) at = lineStart(s, s.indexOf("</ol>", sec.innerStart));
+    return s.slice(0, at) + liHtml(snap.n, snap.ml) + s.slice(at);
+  }
+  var tm = (ctx.typeMl && ctx.typeMl[info.plural]) || info.plural;
+  var tml = suf === "" ? tm : tm + " \u2014 " + SUFFIX_ML[suf === SUFFIX.death ? "death" : suf === SUFFIX.semi ? "semi" : "caution"];
+  var html = dioSectionHtml(title, tml, snap.n, snap.ml) + "\n\n", rk = secRank(title), at2 = -1;
+  for (i = 0; i < secs.length; i++) { var r = secRank(secs[i].title); if (r && rankLess(rk, r)) { at2 = secs[i].start; break; } }
+  if (at2 < 0) {
+    var nav = s.search(/<div class="px-5 sm:px-8 py-6 max-w-4xl mx-auto flex items-center justify-between/);
+    if (nav < 0) nav = s.indexOf('<div id="site-footer"');
+    if (nav < 0) throw new Error("no place to add a section");
+    at2 = nav;
+  }
+  return s.slice(0, at2) + html + s.slice(at2);
+}
+/* stat boxes at the top of a diocese page */
+function statBoxes(s) {
+  var out = [], re = /<div[^>]*>\s*<span class="font-serif[^"]*">([^<]*)<\/span>\s*<span[^>]*data-en="([^"]*)"[^>]*>[^<]*<\/span>\s*<\/div>/g, m;
+  while ((m = re.exec(s))) out.push({ label: key(m[2]), val: m[1], start: m.index, end: m.index + m[0].length, text: m[0] });
+  return out;
+}
+function dioStatSet(s, label, value, ctx) {
+  var boxes = statBoxes(s), box = null, i;
+  for (i = 0; i < boxes.length; i++) if (boxes[i].label === label) { box = boxes[i]; break; }
+  var isTotal = label === "Total Locations";
+  if (box) {
+    if (value <= 0 && !isTotal) { var ls = lineStart(s, box.start), e = box.end; if (s[e] === "\n") e++; return s.slice(0, ls) + s.slice(e); }
+    var t = box.text.replace(/(<span class="font-serif[^"]*">)[^<]*(<\/span>)/, "$1" + Math.max(value, 0) + "$2");
+    return s.slice(0, box.start) + t + s.slice(box.end);
+  }
+  if (value <= 0 || isTotal) return s;
+  var ph = null; for (i = 0; i < boxes.length; i++) if (boxes[i].label === "Institutions" && /^0*$/.test(boxes[i].val)) ph = boxes[i];
+  if (ph) { var pls = lineStart(s, ph.start), pe = ph.end; if (s[pe] === "\n") pe++; s = s.slice(0, pls) + s.slice(pe); boxes = statBoxes(s); }
+  var tot = null; for (i = 0; i < boxes.length; i++) if (boxes[i].label === "Total Locations") tot = boxes[i];
+  if (!tot) return s;
+  var tm = (ctx.typeMl && ctx.typeMl[label]) || label;
+  var nb = tot.text.replace(/(<span class="font-serif[^"]*">)[^<]*(<\/span>)/, "$1" + value + "$2").replace(/data-en="Total Locations" data-ml="[^"]*">Total Locations/, 'data-en="' + esc(label) + '" data-ml="' + esc(tm) + '">' + esc(label));
+  var rk = null, tk; for (var k in TYPES) if (TYPES[k].plural === label) rk = DIO_ORDER.indexOf(k);
+  var at = tot.start;
+  for (i = 0; i < boxes.length; i++) { for (tk in TYPES) if (TYPES[tk].plural === boxes[i].label && DIO_ORDER.indexOf(tk) > rk) { at = boxes[i].start; i = boxes.length; break; } }
+  var ind = s.slice(lineStart(s, at), at);
+  return s.slice(0, at) + nb + "\n" + ind + s.slice(at);
+}
+function dioEyebrowSet(s, value) {
+  return s.replace(/(<span[^>]*data-en=")(\d[\d,]*)( Locations[^"]*"\s+data-ml=")(\d[\d,]*)( [^"]*"[^>]*>)(\d[\d,]*)( Locations[^<]*<\/span>)/, function (m, a, n1, b, n2, c, n3, d) {
+    return a + value + b + value + c + value + d;
+  });
+}
+/* make every number at the top of a diocese page agree with the lists on that page */
+function dioRecount(s, ctx) {
+  var secs = dioSections(s), counts = {}, i, total = 0;
+  for (i = 0; i < secs.length; i++) { var p = secTitleParts(secs[i].title); if (p.suf === "") counts[p.base] = (counts[p.base] || 0) + dioItems(s, secs[i]).length; }
+  for (i = 0; i < DIO_ORDER.length; i++) { var lab = TYPES[DIO_ORDER[i]].plural, c = counts[lab] || 0; total += c; s = dioStatSet(s, lab, c, ctx); }
+  s = dioStatSet(s, "Total Locations", total, ctx);
+  return dioEyebrowSet(s, total);
+}
+function normalize(files, ctx) {
+  var changed = {}, n;
+  for (n in files) if (/Total Locations/.test(files[n]) && !/^(type-|header|index)/.test(n)) { var t = dioRecount(files[n], ctx || {}); if (t !== files[n]) changed[n] = t; }
+  return changed;
+}
+
+/* ============================ institution (type) pages ============================ */
+function typeSections(s) {
+  var out = [], re = /<section[^>]*>[\s\S]*?<\/section>/g, m;
+  while ((m = re.exec(s))) {
+    var h = /<h2[^>]*data-en="([^"]*)"/.exec(m[0]), role = null;
+    if (h) { var t = key(h[1]); role = /^Every /.test(t) ? "every" : /^Closed /.test(t) ? "closed" : /^Schismatic-Occupied /.test(t) ? "schism" : null; }
+    out.push({ start: m.index, end: m.index + m[0].length, role: role });
+  }
+  return out;
+}
+var GROUP_RE = /<div class="mb-10 sm:mb-12">\s*<a href="\/([^"]*)"[^>]*>\s*<span[^>]*style="background:([^"]*)"><\/span>\s*<h3[^>]*data-en="([^"]*)" data-ml="([^"]*)">[^<]*<\/h3>\s*<span[^>]*>\((\d+)\)<\/span>\s*<\/a>\s*<div class="flex flex-col">/g;
+var ENTRY_RE = /\s*<div class="flex items-baseline[^"]*">\s*<span[^>]*data-en="([^"]*)" data-ml="([^"]*)">[^<]*<\/span>\s*<span[^>]*data-en="([^"]*)" data-ml="([^"]*)">[^<]*<\/span>\s*<\/div>/y;
+var END_RE = /\s*<\/div>\s*<\/div>/y;
+function typeGroups(s, sec) {
+  var text = s.slice(sec.start, sec.end), re = new RegExp(GROUP_RE.source, "g"), m, out = [];
+  while ((m = re.exec(text))) {
+    var g = { name: key(m[3]), start: sec.start + m.index, countAt: sec.start + m.index + m[0].indexOf("(" + m[5] + ")", m[0].lastIndexOf("text-muted")), count: +m[5], entries: [] };
+    var p = m.index + m[0].length;
+    for (;;) {
+      var er = new RegExp(ENTRY_RE.source, "y"); er.lastIndex = p;
+      var em = er.exec(text); if (!em) break;
+      g.entries.push({ name: key(em[1]), ml: unesc(em[2]), country: { en: unesc(em[3]), ml: unesc(em[4]) }, start: sec.start + p, end: sec.start + p + em[0].length });
+      p += em[0].length;
+    }
+    var xr = new RegExp(END_RE.source, "y"); xr.lastIndex = p;
+    var xm = xr.exec(text); if (!xm) throw new Error("unrecognised group layout");
+    g.end = sec.start + p + xm[0].length; g.entriesEnd = sec.start + p;
+    out.push(g); re.lastIndex = p + xm[0].length;
+  }
+  return out;
+}
+function entryHtml(name, ml, c) {
+  return '\n      <div class="flex items-baseline gap-3 py-2.5 border-b border-line dark:border-white/10 last:border-b-0">\n          <span class="flex-1 min-w-0 text-[14.5px] text-body/90 dark:text-ivory/80" data-en="' + esc(name) + '" data-ml="' + esc(ml || name) + '">' + esc(name) + '</span>\n          <span class="font-serif text-taupe text-[12px] shrink-0" data-en="' + esc(c.en) + '" data-ml="' + esc(c.ml || c.en) + '">' + esc(c.en) + "</span>\n        </div>";
+}
+function groupHtml(d, dml, sl, col, entries) {
+  return '<div class="mb-10 sm:mb-12">\n    <a href="/' + sl + '" class="flex items-center gap-2.5 mb-3 group">\n      <span class="w-2.5 h-2.5 rounded-full shrink-0" style="background:' + String(col).toUpperCase() + '"></span>\n      <h3 class="font-serif text-lg sm:text-xl text-ink dark:text-ivory group-hover:text-sage-dark dark:group-hover:text-sage transition-colors" data-en="' + esc(d) + '" data-ml="' + esc(dml || d) + '">' + esc(d) + '</h3>\n      <span class="font-sans text-[12px] text-muted">(' + entries.length + ')</span>\n    </a>\n    <div class="flex flex-col">' + entries.join("") + "\n    </div>\n  </div>";
+}
+function findSec(s, role) { var a = typeSections(s); for (var i = 0; i < a.length; i++) if (a[i].role === role) return a[i]; return null; }
+function typeRemove(s, d, name, role, remain) {
+  var roles = [role].concat(["every", "closed", "schism"].filter(function (r) { return r !== role; })), k = key(name);
+  for (var ri = 0; ri < roles.length; ri++) {
+    var sec = findSec(s, roles[ri]); if (!sec) continue;
+    var gs = typeGroups(s, sec);
+    for (var gi = 0; gi < gs.length; gi++) {
+      if (gs[gi].name !== key(d)) continue;
+      for (var ei = 0; ei < gs[gi].entries.length; ei++) {
+        var e = gs[gi].entries[ei]; if (e.name !== k) continue;
+        var g = gs[gi], country = e.country, eml = e.ml;
+        var sameT = gs[gi].entries.filter(function (x) { return x.name === k; }).length;
+        if (remain !== undefined && sameT <= remain) return { s: s, found: true, kept: true, role: roles[ri], country: country, ml: eml };
+        if (g.entries.length === 1) {
+          var a = g.start, b = g.end;
+          if (s.substr(b, 3) === "\n  " && s.substr(b + 3, 8) === "<div cla") b += 3; else if (s.substr(a - 3, 3) === "\n  " && /<\/div>\s*$/.test(s.slice(Math.max(0, a - 12), a - 3))) a -= 3;
+          s = s.slice(0, a) + s.slice(b);
+          if (!typeGroups(s, findSec(s, roles[ri])).length && roles[ri] !== "every") {
+            var sc = findSec(s, roles[ri]), e2 = sc.end; if (s.substr(e2, 2) === "\n\n") e2 += 2; s = s.slice(0, sc.start) + s.slice(e2);
+          }
+        } else {
+          s = s.slice(0, e.start) + s.slice(e.end);
+          s = s.slice(0, g.countAt) + s.slice(g.countAt).replace(/^\(\d+\)/, "(" + (g.count - 1) + ")");
+        }
+        return { s: s, found: true, role: roles[ri], country: country, ml: eml };
+      }
+    }
+  }
+  return { s: s, found: false };
+}
+function typeInsert(s, snap, role, country, ctx, pinsAfter) {
+  var sec = findSec(s, role), name = snap.n, d = snap.d, sl = slug(d), i;
+  if (!sec) {
+    if (role === "every") throw new Error("page has no main list");
+    var h1 = /<h1[^>]*data-en="([^"]*)" data-ml="([^"]*)"/.exec(s), hen = h1 ? unesc(h1[1]) : TYPES[snap.t].plural, hml = h1 ? unesc(h1[2]) : hen;
+    var grp = groupHtml(d, ctx.dioMl && ctx.dioMl[d], sl, (ctx.col && ctx.col[sl]) || "#4a5d3d", [entryHtml(name, snap.ml, country)]);
+    var st = '<section class="px-5 sm:px-8 pb-16 sm:pb-24 max-w-4xl mx-auto">\n  <h2 class="font-serif font-normal text-2xl sm:text-[32px] text-ink dark:text-ivory mb-2" data-en="' + esc(PRE_EN[snap.st] + hen) + '" data-ml="' + esc(PRE_ML[snap.st] + hml) + '">' + esc(PRE_EN[snap.st] + hen) + '</h2>\n  <p class="text-[15px] text-body/75 dark:text-ivory/60 leading-[1.8] mb-8 sm:mb-10" data-en="' + esc(NOTE_EN) + '" data-ml="' + esc(NOTE_ML) + '">Grouped by diocese &mdash; not included in the totals above.</p>\n\n  ' + grp + "\n</section>\n\n";
+    var secs = typeSections(s), at = -1, order = { every: 0, closed: 1, schism: 2 };
+    for (i = 0; i < secs.length; i++) if (secs[i].role && order[secs[i].role] > order[role]) { at = secs[i].start; break; }
+    if (at < 0) { var nav = s.indexOf('data-en="\u2190 Previous"'); at = nav > 0 ? s.lastIndexOf("<section", nav) : s.indexOf('<div id="site-footer-mount"'); if (at < 0) throw new Error("no place to add a section"); }
+    return s.slice(0, at) + st + s.slice(at);
+  }
+  var gs = typeGroups(s, sec), g = null;
+  for (i = 0; i < gs.length; i++) if (gs[i].name === key(d)) g = gs[i];
+  if (g) {
+    var at3 = null, nm = key(name);
+    if (pinsAfter !== undefined && g.entries.filter(function (x) { return x.name === nm; }).length >= pinsAfter) return s;
+    for (i = 0; i < g.entries.length; i++) if (cmp(nm, g.entries[i].name) < 0) { at3 = g.entries[i].start; break; }
+    if (at3 === null) at3 = g.entriesEnd;
+    s = s.slice(0, at3) + entryHtml(name, snap.ml, country) + s.slice(at3);
+    gs = typeGroups(s, findSec(s, role)); for (i = 0; i < gs.length; i++) if (gs[i].name === key(d)) g = gs[i];
+    return s.slice(0, g.countAt) + s.slice(g.countAt).replace(/^\(\d+\)/, "(" + (g.count + 1) + ")");
+  }
+  var ng = groupHtml(d, ctx.dioMl && ctx.dioMl[d], sl, (ctx.col && ctx.col[sl]) || "#4a5d3d", [entryHtml(name, snap.ml, country)]), nxt = null;
+  for (i = 0; i < gs.length; i++) if (cmp(key(d), gs[i].name) < 0) { nxt = gs[i]; break; }
+  if (nxt) return s.slice(0, nxt.start) + ng + "\n  " + s.slice(nxt.start);
+  if (gs.length) return s.slice(0, gs[gs.length - 1].end) + "\n  " + ng + s.slice(gs[gs.length - 1].end);
+  var pe = s.indexOf("</p>", sec.start), at4 = pe + 4;
+  var ws = /^\s*/.exec(s.slice(at4))[0];
+  return s.slice(0, at4 + ws.length) + ng + "\n" + s.slice(at4 + ws.length);
+}
+/* headline sentence of an institution page: "454 chapels across 9 nations and 31 dioceses." */
+function typeHeader(s, delta) {
+  var every = findSec(s, "every"); if (!every) return s;
+  var gs = typeGroups(s, every), cs = {}, i, j;
+  for (i = 0; i < gs.length; i++) for (j = 0; j < gs[i].entries.length; j++) cs[gs[i].entries[j].country.en] = 1;
+  var nations = Object.keys(cs).length, dios = gs.length;
+  var re = /(<p[^>]*data-en-html=")([^"]*)(" data-ml-html=")([^"]*)(">)([\s\S]*?)(<\/p>)/, m = re.exec(s); if (!m) return s;
+  var numRe = /(&gt;|>)(\d[\d,]*)(&lt;\/strong&gt;|<\/strong>)/g;
+  function patch(txt, order) {
+    var idx = 0;
+    return txt.replace(numRe, function (a, p, n, q) {
+      var which = order[idx++], v = which === "total" ? Math.max((parseInt(n.replace(/,/g, ""), 10) || 0) + delta, 0) : which === "nations" ? nations : dios;
+      return p + v + q;
+    });
+  }
+  var en = patch(m[2], ["total", "nations", "dios"]);
+  en = en.replace(/(&lt;\/strong&gt;) nations?( and)/, "$1 nation" + (nations === 1 ? "" : "s") + "$2");
+  var ml = patch(m[4], ["nations", "dios", "total"]);
+  ml = nations === 1 ? ml.replace("രാജ്യങ്ങളിലും", "രാജ്യത്തും") : ml.replace("രാജ്യത്തും", "രാജ്യങ്ങളിലും");
+  var vis = patch(m[6], ["total", "nations", "dios"]).replace(/(<\/strong> nation)s?( and)/, "$1" + (nations === 1 ? "" : "s") + "$2");
+  return s.slice(0, m.index) + m[1] + en + m[3] + ml + m[5] + vis + m[7] + s.slice(m.index + m[0].length);
+}
+
+/* ============================ menu + home-page numbers ============================ */
+function menuBump(s, label, delta) {
+  var re = new RegExp('(data-en="' + rx(esc(label)) + '"[^>]*>[^<]*<\\/span><\\/span><span class="font-sans text-\\[11px\\] text-muted shrink-0">)([\\d,]+)(<\\/span>)', "g");
+  return s.replace(re, function (m, a, n, c) { var v = Math.max((parseInt(n.replace(/,/g, ""), 10) || 0) + delta, 0); return a + (/,/.test(n) ? fmtNum(v) : v) + c; });
+}
+function boxBump(s, label, delta) {
+  var re = new RegExp('(data-count=")(\\d+)(">)([\\d,]*)(<\\/span>\\s*<span[^>]*data-en="' + rx(esc(label)) + '")', "g");
+  return s.replace(re, function (m, a, n, b, vis, c) { var v = Math.max((parseInt(n, 10) || 0) + delta, 0); return a + v + b + (/,/.test(vis) ? fmtNum(v) : vis === "0" || vis === "" ? vis : String(v)) + c; });
+}
+
+/* ============================ driver ============================ */
+function mlWith(w, rem) { return w.ml || !rem || !rem.found || !rem.ml ? w : Object.assign({}, w, { ml: rem.ml }); }
+function snapOf(p) { return p && p.t ? p : null; }
+function apply(files, changes, ctx) {
+  ctx = ctx || {};
+  var out = {}, warnings = [], touched = {}, k;
+  for (k in files) out[k] = files[k];
+  var typeDelta = {}, locDelta = 0, refs = ctx.refs ? Object.assign({}, ctx.refs) : null;
+  function rk(p) { return [p.t, p.d, p.st, key(p.n)].join("|"); }
+  function get(name) { if (out[name] === undefined) throw new Error("missing file " + name); return out[name]; }
+  function put(name, text) { if (out[name] !== text) { out[name] = text; touched[name] = 1; } }
+  changes.forEach(function (c) {
+    var o = c.old, w = c.nw, isAdd = !o, isDel = !w, remT = null, remD = null, country = null;
+    if (isAdd) locDelta++; else if (isDel) locDelta--;
+    var sameKey = o && w && o.t && w.t && rk(o) === rk(w), remain, pinsAfter;
+    if (refs && o && o.t && !sameKey) { var k1 = rk(o); refs[k1] = (refs[k1] || 1) - 1; remain = refs[k1]; }
+    if (refs && w && w.t && !sameKey) { var k2 = rk(w); pinsAfter = (refs[k2] || 0) + 1; refs[k2] = pinsAfter; }
+    /* 1. take the old entry out */
+    if (o && o.t) {
+      var oldFile = TYPES[o.t].file + ".html";
+      try { remT = typeRemove(get(oldFile), o.d, o.n, stRole(o.st), remain); } catch (e) { warnings.push(oldFile + ": " + e.message + " (" + o.n + ")"); remT = { found: false }; }
+      if (remT.found && remT.kept) country = remT.country;
+      else if (remT.found) {
+        put(oldFile, remT.s); country = remT.country;
+        if (remT.role !== stRole(o.st)) warnings.push("\u201c" + o.n + "\u201d was listed under a different heading on " + oldFile + " than its status says \u2014 it has been filed correctly now.");
+        if (remT.role === "every") { typeDelta[o.t] = (typeDelta[o.t] || 0) - 1; put(oldFile, typeHeader(get(oldFile), -1)); } else put(oldFile, typeHeader(get(oldFile), 0));
+      } else warnings.push("\u201c" + o.n + "\u201d wasn\u2019t found on " + oldFile + " (" + o.d + ") \u2014 left alone.");
+      if (o.t !== "H") {
+        var dfile = slug(o.d) + ".html";
+        if (out[dfile] === undefined) { warnings.push("No page for the diocese \u201c" + o.d + "\u201d."); remD = { found: false }; }
+        else {
+          remD = dioRemove(get(dfile), o.n, TYPES[o.t].plural + dioSufKey(get(dfile), o.st), remain);
+          if (remD.found && remD.kept) { /* another pin still uses this line */ }
+          else if (remD.found) { put(dfile, remD.s); put(dfile, dioRecount(get(dfile), ctx)); }
+          else warnings.push("\u201c" + o.n + "\u201d wasn\u2019t found on the " + o.d + " diocese page \u2014 left alone.");
+        }
+      }
+    }
+    if (o && w && key(o.n) !== key(w.n) && (!w.ml || w.ml === o.ml)) warnings.push("\u201c" + o.n + "\u201d was renamed but its Malayalam name wasn\u2019t changed \u2014 check it.");
+    if (w && w.t && !w.ml && !(o && o.t)) warnings.push("\u201c" + w.n + "\u201d has no Malayalam name yet, so the English name shows in Malayalam mode.");
+    /* 2. put the new entry in */
+    if (w && w.t) {
+      var wantC = w.country && w.country.en ? w.country : country, wFile = TYPES[w.t].file + ".html";
+      var insT = isAdd || !o || !o.t ? true : remT.found;
+      var insD = isAdd || !o || !o.t ? true : (o.t === "H" ? remT.found : remD && remD.found);
+      if (!wantC) wantC = { en: (ctx.defCountry && ctx.defCountry[w.d]) || "India", ml: "" };
+      if (!wantC.ml && ctx.countries && ctx.countries[wantC.en]) wantC = { en: wantC.en, ml: ctx.countries[wantC.en] };
+      if (insT) {
+        try {
+          var before = get(wFile), s2 = typeInsert(before, mlWith(w, remT), stRole(w.st), wantC, ctx, pinsAfter), added = s2 !== before;
+          put(wFile, s2);
+          if (added && !w.st) { typeDelta[w.t] = (typeDelta[w.t] || 0) + 1; put(wFile, typeHeader(get(wFile), 1)); } else put(wFile, typeHeader(get(wFile), 0));
+        } catch (e) { warnings.push(wFile + ": " + e.message + " (" + w.n + ")"); }
+      } else warnings.push("\u201c" + w.n + "\u201d: not re-added to " + wFile + " because the old entry wasn\u2019t there.");
+      if (w.t !== "H") {
+        var nfile = slug(w.d) + ".html";
+        if (out[nfile] === undefined) warnings.push("No page for the diocese \u201c" + w.d + "\u201d \u2014 \u201c" + w.n + "\u201d not added to a diocese page.");
+        else if (insD) {
+          try { put(nfile, dioInsert(get(nfile), mlWith(w, remD), ctx, pinsAfter)); put(nfile, dioRecount(get(nfile), ctx)); }
+          catch (e2) { warnings.push(nfile + ": " + e2.message + " (" + w.n + ")"); }
+        } else warnings.push("\u201c" + w.n + "\u201d: not re-added to the " + w.d + " diocese page because the old entry wasn\u2019t there.");
+      }
+    }
+  });
+  /* 3. menu counts + home page numbers */
+  var any = false; for (k in typeDelta) if (typeDelta[k]) any = true;
+  if (any || locDelta) {
+    ["header.html", "index.html"].forEach(function (f) {
+      if (out[f] === undefined) return;
+      var s = out[f];
+      var ch = (typeDelta.F || 0) + (typeDelta.C || 0) + (typeDelta.K || 0);
+      for (var t in TYPES) {
+        var d = t === "F" ? ch : (typeDelta[t] || 0);
+        if (!d) continue;
+        s = menuBump(s, TYPES[t].menu || TYPES[t].plural, d);
+        if (f === "index.html" && t !== "H" && t !== "X") s = boxBump(s, TYPES[t].plural, d);
+      }
+      if (f === "index.html" && locDelta) s = boxBump(s, "Locations mapped", locDelta);
+      put(f, s);
+    });
+    var chd = (typeDelta.C || 0) + (typeDelta.K || 0);
+    if (chd && out["type-parish-churches.html"] !== undefined) put("type-parish-churches.html", typeHeader(get("type-parish-churches.html"), chd));
+  }
+  var changed = {}; for (k in touched) changed[k] = out[k];
+  return { files: out, changed: changed, warnings: warnings };
+}
+/* which page files a set of changes can touch */
+function filesFor(changes) {
+  var set = { "header.html": 1, "index.html": 1 };
+  changes.forEach(function (c) {
+    [c.old, c.nw].forEach(function (p) {
+      if (!p || !p.t) return;
+      set[TYPES[p.t].file + ".html"] = 1;
+      if (p.t !== "H") set[slug(p.d) + ".html"] = 1;
+    });
+    if ((c.old && (c.old.t === "C" || c.old.t === "K")) || (c.nw && (c.nw.t === "C" || c.nw.t === "K"))) set["type-parish-churches.html"] = 1;
+  });
+  return Object.keys(set);
+}
+return { apply: apply, normalize: normalize, filesFor: filesFor, TYPES: TYPES, _: { typeGroups: typeGroups, findSec: findSec, dioSections: dioSections, dioItems: dioItems, key: key, slug: slug } };
+})();
+
 var TYPES = [["", "— none —"], ["F", "Church"], ["O", "Congregation"], ["Y", "Community"], ["L", "Chapel"], ["H", "Wayside shrine"], ["G", "Prayer group"], ["Q", "Qurbana centre"], ["K", "Catholicate centre"], ["C", "Cathedral"], ["P", "Episcopal palace"], ["M", "Monastery"], ["V", "Convent"], ["S", "Seminary"], ["T", "Student centre"], ["N", "Sunday school"], ["X", "Other institution"]];
 var ICONS = [["", "Automatic"], ["p", "Pin (church, chapel, congregation…)"], ["b", "Episcopal palace"], ["m", "Monastery or convent"], ["a", "Archcathedral"], ["s", "Cathedral"], ["e", "Seminary or education"], ["o", "Online prayer group"], ["h", "Location not fixed"], ["z", "Secret location (Saudi Arabia)"], ["c", "Schismatic-occupied"], ["x", "Dormant or closed"]];
 var TYPE_ICON = { P: "b", V: "m", M: "m", C: "s", S: "e", T: "e", N: "e", G: "o" };
@@ -263,7 +677,25 @@ function parseCoords(s) {
 function pyDump(arr) { /* same layout as the existing malankara.json */
   return "[" + arr.map(function (o) { return "{" + Object.keys(o).map(function (k) { return JSON.stringify(k) + ": " + JSON.stringify(o[k]); }).join(", ") + "}"; }).join(", ") + "]";
 }
-function fields(p) { return JSON.stringify([p.n, p.d, p.ds, p.lat, p.lon, p.status || "", p.icon || "", p.ml || "", p.t || ""]); }
+function fields(p) { return JSON.stringify([p.n, p.d, p.ds, p.lat, p.lon, p.status || "", p.icon || "", p.ml || "", p.t || "", p.cty || "", p.ctyMl || ""]); }
+function snap(p) { return { n: p.n, ml: p.ml || "", d: p.d, t: p.t || "", st: p.status || "" }; }
+function ctyOf(p) { if (!p.cty) return null; return { en: p.cty, ml: SITE_T.countries[p.cty] || p.ctyMl || "" }; }
+function nsnap(p) { var s = snap(p), c = ctyOf(p); if (c) s.country = c; return s; }
+function siteChanges() {
+  var out = [];
+  P.forEach(function (p) {
+    if (p.isNew) { if (!p.deleted && p.saved) out.push({ old: null, nw: nsnap(p) }); return; }
+    if (p.deleted) { out.push({ old: p.old, nw: null }); return; }
+    var a = p.old, b = nsnap(p);
+    if (a.n !== b.n || a.ml !== b.ml || a.d !== b.d || a.t !== b.t || a.st !== b.st || b.country) out.push({ old: a, nw: b });
+  });
+  return out;
+}
+function siteCtx() {
+  var refs = {};
+  P.forEach(function (p) { if (p.isNew || !p.old || !p.old.t) return; var k = [p.old.t, p.old.d, p.old.st, SiteSync._.key(p.old.n)].join("|"); refs[k] = (refs[k] || 0) + 1; });
+  return { col: DIO_COL, dioMl: SITE_T.dioMl, countries: SITE_T.countries, typeMl: SITE_T.typeMl, defCountry: SITE_T.defCountry, refs: refs };
+}
 function stateOf(p) { return p.deleted ? (p.isNew ? "" : "del") : p.isNew ? "new" : (p.o !== fields(p) ? "edit" : ""); }
 function changes() {
   var a = [], e = [], d = [];
@@ -283,7 +715,7 @@ function init(data, extra) {
   P = data.map(function (r, i) {
     var x = extra[r.n] || [], p = { id: i, n: r.n, d: r.d, ds: r.ds || "", lat: r.lat, lon: r.lon, status: r.status || "", icon: x[0] || "", ml: x[1] || "", t: x[2] || "" };
     if (p.icon === autoIcon(p)) p.icon = "";
-    p.o = fields(p); return p;
+    p.old = snap(p); p.cty = ""; p.ctyMl = ""; p.o = fields(p); return p;
   });
   N0 = P.length;
   var ds = {}; P.forEach(function (p) { ds[p.d] = (ds[p.d] || 0) + 1; });
@@ -291,6 +723,8 @@ function init(data, extra) {
   $("fDio").innerHTML = '<option value="">All dioceses</option>' + names.map(function (d) { return '<option>' + esc(d) + "</option>"; }).join("");
   $("fDiocese").innerHTML = names.map(function (d) { return '<option>' + esc(d) + "</option>"; }).join("");
   $("fType").innerHTML = TYPES.map(function (t) { return '<option value="' + t[0] + '">' + esc(t[1]) + "</option>"; }).join("");
+  var cn = Object.keys(SITE_T.countries).sort();
+  $("fCountry").innerHTML = '<option value="">— as listed on the site —</option>' + cn.map(function (c) { return '<option>' + esc(c) + "</option>"; }).join("") + '<option value="__other">Another country…</option>';
   $("fIcon").innerHTML = ICONS.map(function (t) { return '<option value="' + t[0] + '">' + esc(t[1]) + "</option>"; }).join("");
   P.forEach(addMarker);
   $("loadmsg").textContent = P.length.toLocaleString() + " places · edit, add or remove, then publish.";
@@ -381,10 +815,25 @@ function select(p, fly) {
   $("fType").value = p.t; $("fIcon").value = p.icon; $("fDesc").value = p.ds;
   $("fAddr").value = ""; $("fPaste").value = "";
   $("delBtn").hidden = !!p.isNew; $("secretWarn").hidden = p.icon !== "z";
+  ctyTouched = !!p.cty;
+  setCtyUI(p.cty || (p.isNew ? (SITE_T.defCountry[p.d] || "India") : ""), p.ctyMl);
   if (selRing) { map.removeLayer(selRing); selRing = null; }
   setPin(p.lat, p.lon, false);
   if (fly !== false) map.flyTo([p.lat, p.lon], Math.max(map.getZoom(), 15), { duration: .9 });
 }
+function setCtyUI(c, ml) {
+  var known = !c || SITE_T.countries[c] !== undefined;
+  $("fCountry").value = known ? c : "__other"; $("ctyOther").hidden = known;
+  $("fCtyEn").value = known ? "" : c; $("fCtyMl").value = known ? "" : (ml || "");
+}
+function readCty() {
+  var v = $("fCountry").value;
+  if (v === "__other") return { c: $("fCtyEn").value.trim(), ml: $("fCtyMl").value.trim() };
+  return { c: v, ml: "" };
+}
+var ctyTouched = false;
+$("fCountry").addEventListener("change", function () { ctyTouched = true; $("ctyOther").hidden = $("fCountry").value !== "__other"; });
+$("fDiocese").addEventListener("change", function () { if (editing && editing.isNew && !ctyTouched && $("fCountry").value !== "__other") $("fCountry").value = SITE_T.defCountry[$("fDiocese").value] || "India"; });
 function closeForm() {
   editing = null; setPick(false);
   if (editPin) { map.removeLayer(editPin); editPin = null; }
@@ -397,7 +846,7 @@ function cancelEdit() { var p = editing; if (p && p.isNew && !p.saved) discardNe
 function discardNew(p) { if (p.m) map.removeLayer(p.m); P.splice(P.indexOf(p), 1); }
 $("addBtn").addEventListener("click", function () {
   var c = map.getCenter(), cur = $("fDio").value || $("fDiocese").options[0].value;
-  var p = { id: P.length, n: "", d: cur, ds: "", lat: round(c.lat), lon: round(c.lng), status: "", icon: "", ml: "", t: "F", isNew: true, saved: false };
+  var p = { id: P.length, n: "", d: cur, ds: "", lat: round(c.lat), lon: round(c.lng), status: "", icon: "", ml: "", t: "F", isNew: true, saved: false, cty: "", ctyMl: "", old: null };
   P.push(p); p.o = ""; select(p, false);
   $("fName").focus();
 });
@@ -426,6 +875,8 @@ $("formView").addEventListener("submit", function (e) {
   var oldName = p.n;
   p.n = n; p.d = $("fDiocese").value; p.ds = $("fDesc").value.trim(); p.lat = lat; p.lon = lon;
   p.status = $("fStatus").value; p.ml = $("fMl").value.trim(); p.t = $("fType").value; p.icon = $("fIcon").value;
+  var cy = readCty(); p.cty = cy.c; p.ctyMl = cy.ml;
+  if (p.cty === "__other") p.cty = "";
   if (p.icon === autoIcon(p)) p.icon = "";
   /* places that share one name share one symbol, Malayalam name and type */
   if (!p.isNew || p.saved) P.forEach(function (q) { if (q !== p && !q.deleted && q.n === oldName && oldName === n) { q.ml = p.ml; q.t = p.t; q.icon = p.icon; if (q.icon === autoIcon(q)) q.icon = ""; } });
@@ -448,21 +899,60 @@ function refreshFoot() {
   renderList();
 }
 window.addEventListener("beforeunload", function (e) { if (loaded && changes().n) { e.preventDefault(); e.returnValue = ""; } });
+function describe(p) {
+  var o = p.old, b = [];
+  if (!o) return "";
+  if (o.n !== p.n) b.push("renamed from \u201c" + o.n + "\u201d");
+  if ((o.ml || "") !== (p.ml || "")) b.push("Malayalam name changed");
+  if (o.d !== p.d) b.push("moved from " + o.d + " to " + p.d);
+  if (o.t !== (p.t || "")) b.push("type " + (TYPE_NAME[o.t] || "none") + " \u2192 " + (TYPE_NAME[p.t] || "none"));
+  if (o.st !== (p.status || "")) b.push("status changed");
+  if (p.cty) b.push("country set to " + p.cty);
+  if (p.o !== fields(p) && !b.length) b.push("details or position");
+  return b.length ? " \u2014 " + b.join("; ") : "";
+}
+function renderPlan(el, res) {
+  var names = Object.keys(res.changed), h = "";
+  h += '<div class="small" style="margin-top:12px"><b>Pages that will be updated:</b> ' + (names.length ? names.map(esc).join(", ") : "none") + ", malankara.json, map-extra.json</div>";
+  if (res.warnings.length) h += '<div class="warn" style="margin-top:10px">' + res.warnings.map(function (w) { return "<div>\u2022 " + esc(w) + "</div>"; }).join("") + "</div>";
+  el.innerHTML = h;
+}
 $("reviewBtn").addEventListener("click", function () {
   var c = changes(), h = "";
-  c.a.forEach(function (p) { h += '<div><em class="a">Added</em><span>' + esc(p.n) + " · " + esc(p.d) + "</span></div>"; });
-  c.e.forEach(function (p) { h += '<div><em class="e">Edited</em><span>' + esc(p.n) + "</span></div>"; });
+  c.a.forEach(function (p) { h += '<div><em class="a">Added</em><span>' + esc(p.n) + " \u00b7 " + esc(p.d) + "</span></div>"; });
+  c.e.forEach(function (p) { h += '<div><em class="e">Edited</em><span>' + esc(p.n) + esc(describe(p)) + "</span></div>"; });
   c.d.forEach(function (p) { h += '<div><em class="d">Removed</em><span>' + esc(p.n) + "</span></div>"; });
-  $("chgList").innerHTML = h || '<div class="small">No changes yet.</div>'; $("dlgChanges").showModal();
+  $("chgList").innerHTML = (h || '<div class="small">No changes yet.</div>') + '<div id="chgPages" class="small" style="margin-top:12px">Checking the site pages\u2026</div>';
+  $("dlgChanges").showModal();
+  if (!c.n) { $("chgPages").textContent = ""; return; }
+  planSite(siteRead).then(function (res) { renderPlan($("chgPages"), res); }).catch(function (e) { $("chgPages").innerHTML = '<div class="warn">Couldn\u2019t check the pages: ' + esc(e.message || "error") + "</div>"; });
 });
 $("chgClose").addEventListener("click", function () { $("dlgChanges").close(); });
 function download(name, text) {
-  var a = document.createElement("a"); a.href = URL.createObjectURL(new Blob([text], { type: "application/json" })); a.download = name;
+  var a = document.createElement("a"); a.href = URL.createObjectURL(new Blob([text], { type: /\.html$/.test(name) ? "text/html" : "application/json" })); a.download = name;
   document.body.appendChild(a); a.click(); setTimeout(function () { URL.revokeObjectURL(a.href); a.remove(); }, 800);
 }
+function siteRead(name) {
+  return fetch(name + "?v=" + Date.now(), { cache: "no-store" }).then(function (r) { if (!r.ok) throw new Error(name + " (" + r.status + ")"); return r.text(); });
+}
+function planSite(read) {
+  var ch = siteChanges();
+  if (!ch.length) return Promise.resolve({ changed: {}, warnings: [] });
+  var names = SiteSync.filesFor(ch), files = {}, pre = [];
+  return Promise.all(names.map(function (n) {
+    return read(n).then(function (t) { files[n] = t; }, function (e) { if (/^(type-|header|index)/.test(n)) throw new Error("Couldn\u2019t read " + n + ": " + (e.message || e)); pre.push("Couldn\u2019t read " + n + " \u2014 it may not exist."); });
+  })).then(function () {
+    var r = SiteSync.apply(files, ch, siteCtx());
+    return { changed: r.changed, warnings: pre.concat(r.warnings) };
+  });
+}
 $("dlBtn").addEventListener("click", function () {
-  var f = buildFiles(); download("malankara.json", f.a); setTimeout(function () { download("map-extra.json", f.b); }, 350);
-  toast("Both files downloaded — upload them to the site, replacing the old ones");
+  var f = buildFiles(); $("dlBtn").disabled = true;
+  planSite(siteRead).then(function (res) {
+    var list = [["malankara.json", f.a], ["map-extra.json", f.b]].concat(Object.keys(res.changed).map(function (n) { return [n, res.changed[n]]; }));
+    list.forEach(function (x, i) { setTimeout(function () { download(x[0], x[1]); }, i * 400); });
+    toast(list.length + " files downloaded \u2014 upload them to the site, replacing the old ones" + (res.warnings.length ? " (" + res.warnings.length + " notes: use Review changes)" : ""));
+  }).catch(function (e) { toast("Couldn\u2019t prepare the pages: " + (e.message || "error")); }).then(function () { refreshFoot(); });
 });
 
 /* ---------- publish to GitHub ---------- */
@@ -479,6 +969,13 @@ function ghPut(cfg, path, text, msg) {
     return fetch(api, { method: "PUT", headers: h, body: JSON.stringify(body) });
   }).then(function (r) { if (!r.ok) return r.json().catch(function () { return {}; }).then(function (j) { throw new Error("GitHub said " + r.status + " while saving " + path + (j.message ? ": " + j.message : "")); }); });
 }
+function ghGet(cfg, path) {
+  var api = "https://api.github.com/repos/" + cfg.repo + "/contents/" + (cfg.dir ? cfg.dir.replace(/^\/|\/$/g, "") + "/" : "") + path;
+  return fetch(api + "?ref=" + encodeURIComponent(cfg.branch), { headers: { Authorization: "Bearer " + cfg.tok, Accept: "application/vnd.github.raw+json" } }).then(function (r) {
+    if (!r.ok) throw new Error("GitHub said " + r.status + " while reading " + path + (r.status === 401 || r.status === 403 ? " (check the token)" : ""));
+    return r.text();
+  });
+}
 function loadCfg() {
   var s = {}; try { s = JSON.parse(localStorage.getItem("studio-gh") || "{}"); } catch (e) {}
   $("gRepo").value = s.repo || ""; $("gBranch").value = s.branch || "main"; $("gDir").value = s.dir || ""; $("gTok").value = s.tok || ""; $("gRem").checked = !!s.tok || !!s.repo;
@@ -491,10 +988,16 @@ $("pubGo").addEventListener("click", function () {
   try { if ($("gRem").checked) localStorage.setItem("studio-gh", JSON.stringify(cfg)); else localStorage.removeItem("studio-gh"); } catch (e) {}
   var c = changes(), f = buildFiles(), msg = "Directory Studio: " + (c.a.length ? c.a.length + " added, " : "") + (c.e.length ? c.e.length + " edited, " : "") + (c.d.length ? c.d.length + " removed, " : "");
   msg = msg.replace(/, $/, "");
-  $("pubGo").disabled = true; m.className = "msg"; m.textContent = "Publishing…";
-  ghPut(cfg, "malankara.json", f.a, msg).then(function () { m.textContent = "Saving the symbols file…"; return ghPut(cfg, "map-extra.json", f.b, msg); }).then(function () {
-    m.className = "msg ok"; m.textContent = "Published. The site updates in a minute or two — hard-refresh the map to see it.";
-    P.forEach(function (p) { if (p.deleted) return; p.o = fields(p); p.isNew = false; }); P = P.filter(function (p) { return !p.deleted; }); P.forEach(function (p, i) { p.id = i; }); refreshFoot();
+  $("pubGo").disabled = true; m.className = "msg"; m.style.whiteSpace = "pre-wrap"; m.textContent = "Reading the current pages\u2026";
+  var notes = [];
+  planSite(function (n) { return ghGet(cfg, n); }).then(function (res) {
+    notes = res.warnings;
+    var chain = Promise.resolve();
+    Object.keys(res.changed).forEach(function (n) { chain = chain.then(function () { m.textContent = "Saving " + n + "\u2026"; return ghPut(cfg, n, res.changed[n], msg); }); });
+    return chain;
+  }).then(function () { m.textContent = "Saving the map data\u2026"; return ghPut(cfg, "malankara.json", f.a, msg); }).then(function () { m.textContent = "Saving the symbols file\u2026"; return ghPut(cfg, "map-extra.json", f.b, msg); }).then(function () {
+    m.className = "msg ok"; m.textContent = "Published. The site updates in a minute or two \u2014 hard-refresh to see it." + (notes.length ? "\n\nNotes:\n\u2022 " + notes.join("\n\u2022 ") : "");
+    P.forEach(function (p) { if (p.deleted) return; p.o = fields(p); p.isNew = false; p.old = snap(p); p.cty = ""; p.ctyMl = ""; p.o = fields(p); }); P = P.filter(function (p) { return !p.deleted; }); P.forEach(function (p, i) { p.id = i; }); refreshFoot();
   }).catch(function (e) { m.className = "msg err"; m.textContent = e.message || "Publishing failed."; }).then(function () { $("pubGo").disabled = false; });
 });
 
@@ -502,7 +1005,7 @@ $("pubGo").addEventListener("click", function () {
 var tt; function toast(s) { var t = $("toast"); t.textContent = s; t.classList.add("on"); clearTimeout(tt); tt = setTimeout(function () { t.classList.remove("on"); }, 2800); }
 
 /* ---------- go ---------- */
-window.__studio = { autoIcon: autoIcon, parseCoords: parseCoords, pyDump: pyDump, init: init, buildFiles: buildFiles, changes: changes, P: function () { return P; } };
+window.__studio = { planSite: planSite, siteChanges: siteChanges, SiteSync: SiteSync, autoIcon: autoIcon, parseCoords: parseCoords, pyDump: pyDump, init: init, buildFiles: buildFiles, changes: changes, P: function () { return P; } };
 initMap();
 loadRemote().catch(function () { $("loadmsg").textContent = "Couldn’t reach the site files."; askFiles(); });
 })();
