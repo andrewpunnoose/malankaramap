@@ -221,10 +221,15 @@
     var onDio = {}, onIcon = {}, shrinesOn = true;
     var usedDio = {}, usedIcon = {}; entries.forEach(function (e) { usedDio[e.slug] = (usedDio[e.slug] || 0) + 1; usedIcon[e.icon] = (usedIcon[e.icon] || 0) + 1; });
     Object.keys(usedDio).forEach(function (k) { onDio[k] = true; }); Object.keys(usedIcon).forEach(function (k) { onIcon[k] = true; });
+    /* Closed and schismatic-occupied places are not held by the Church, so they start switched off.
+       They appear only when ticked under Layers, or when a search or "nearest parish" result jumps to one.
+       e.g groups them by status too, so a place marked occupied but drawn with another symbol is covered as well. */
+    entries.forEach(function (e) { e.g = (e.icon === "x" || e.status === "death") ? "x" : (e.icon === "c" || e.status === "caution") ? "c" : ""; });
+    onIcon.c = false; onIcon.x = false;
     var applyT = null;
     function applyFilters() { clearTimeout(applyT); applyT = setTimeout(function () { cg.clearLayers(); cg.addLayers(entries.filter(visible).map(function (e) { return e.m; })); }, 30); }
-    function visible(e) { return onDio[e.slug] !== false && onIcon[e.icon] !== false && (shrinesOn || !e.shr); }
-    cg.addLayers(entries.map(function (e) { return e.m; }));
+    function visible(e) { return onDio[e.slug] !== false && onIcon[e.icon] !== false && (!e.g || onIcon[e.g] !== false) && (shrinesOn || !e.shr); }
+    cg.addLayers(entries.filter(visible).map(function (e) { return e.m; }));
 
     /* controls */
     var ctl = document.createElement("div"); ctl.className = "mm-ctl";
@@ -266,7 +271,7 @@
     function reveal(e, zoom, cb) {
       map.closePopup();
       var go = function () { e.m.openPopup(); cb && cb(); };
-      if (!visible(e)) { onDio[e.slug] = true; onIcon[e.icon] = true; if (e.shr) shrinesOn = true; renderPanel(); cg.clearLayers(); cg.addLayers(entries.filter(visible).map(function (x) { return x.m; })); }
+      if (!visible(e)) { onDio[e.slug] = true; onIcon[e.icon] = true; if (e.g) onIcon[e.g] = true; if (e.shr) shrinesOn = true; renderPanel(); cg.clearLayers(); cg.addLayers(entries.filter(visible).map(function (x) { return x.m; })); }
       map.flyTo([e.lat, e.lon], Math.max(map.getZoom(), zoom || 15), { duration: 1.1 });
       map.once("moveend", function () { cg.zoomToShowLayer(e.m, go); });
     }
