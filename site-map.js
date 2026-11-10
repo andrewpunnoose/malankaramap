@@ -76,8 +76,14 @@
     var g = glyph ? '<g transform="translate(7.6 6.6) scale(.7)" fill="none" stroke="' + fg + '" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round">' + GLYPH[ic].replace(/fill="F"/g, 'fill="' + fg + '"') + "</g>" : "";
     return '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 42" width="' + w + '" height="' + h + '"><path d="M16 40.5C16 40.5 29.4 26.6 29.4 15.4A13.4 13.4 0 0 0 2.6 15.4C2.6 26.6 16 40.5 16 40.5Z" fill="' + col + '" stroke="#fff" stroke-width="2.2" stroke-linejoin="round"/>' + g + "</svg>";
   }
+  /* Pin width follows what the place IS (its type), never its status: a closed or schismatic-occupied chapel is still chapel-sized.
+     Cathedral > Church > Chapel > Other institution > Sunday school = Prayer group > Wayside shrine.
+     The status symbol (closed, occupied, unfixed location...) stays on the pin and simply scales down with it. */
+  var PIN_W = { C: 30, F: 25, L: 21, X: 19.6, N: 18.2, G: 18.2, H: 17 };
+  var OWN_ICON = { a: 1, s: 1, b: 1, m: 1, e: 1 }; /* types whose symbol is the type itself (monastery, palace, seminary...) keep full size */
+  function pinWidth(e) { return PIN_W[e.t] || (OWN_ICON[e.icon] ? 30 : 25); }
   function iconFor(e) {
-    var big = e.icon !== "p", w = big ? 30 : (e.t === "H" ? 17 : e.t === "L" ? 21 : 25), glyph = big || w >= 21;
+    var w = pinWidth(e), glyph = e.icon !== "p" || w >= 21;
     var key = e.col + "|" + e.icon + "|" + w;
     if (!ICON_CACHE[key]) {
       var h = Math.round(w * 1.31);
