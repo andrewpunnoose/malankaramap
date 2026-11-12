@@ -47,6 +47,14 @@
   .clergy-art-pair .clergy-art-cap{font-size:12.5px;margin-top:.75rem}
 </style>
 <style id="ml-tracking">html[lang="ml"] [class*="tracking-"],html[lang="ml"] .clergy-nav{letter-spacing:normal!important}</style>
+<style id="clergy-photos">
+.cl-li{align-items:center}
+.cl-ph{flex:none;display:block;width:44px;height:52px;border-radius:8px;background-color:#e4e8dc;background-repeat:no-repeat;background-size:440px auto;background-position:calc(var(--x,0)*-44px) calc(var(--y,0)*-52px)}
+.dark .cl-ph{background-color:#2c3328}
+.cl-ph.cl-none{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 44 52'%3E%3Ccircle cx='22' cy='20' r='8' fill='%23b9c1ad'/%3E%3Cpath d='M6 52c0-12 7-18 16-18s16 6 16 18z' fill='%23b9c1ad'/%3E%3C/svg%3E");background-size:100% 100%;background-position:0 0}
+.cl-ph.cl-lg{float:right;width:72px;height:90px;margin:2px 0 8px 14px;border-radius:10px;background-size:432px auto;background-position:calc(var(--x,0)*-72px) calc(var(--y,0)*-90px)}
+.cl-ph.cl-lg.cl-none{background-size:100% 100%;background-position:0 0}
+</style>
 </head>
 <body class="bg-ivory dark:bg-midnight text-body dark:text-ivory/85 font-sans transition-colors duration-300">
 <audio id="bgMusic" loop>
@@ -124,12 +132,14 @@
       <span class="font-sans text-[11px] tracking-wide text-muted">2</span>
     </div>
     <ol class="flex flex-col">
-      <li class="flex gap-3 py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
+      <li class="flex gap-3 cl-li py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
         <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">1.</span>
+        <span class="cl-ph cl-none" aria-hidden="true"></span>
         <span class="text-[14.5px] text-body/85 dark:text-ivory/70" data-en="Rev. Dn. Mathew Johnson, Kunnathu" data-ml="കുന്നത്ത് ബഹു. മാത്യു ജോൺസൺ ശെമ്മാശൻ">Rev. Dn. Mathew Johnson, Kunnathu</span>
       </li>
-      <li class="flex gap-3 py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
+      <li class="flex gap-3 cl-li py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
         <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">2.</span>
+        <span class="cl-ph cl-none" aria-hidden="true"></span>
         <span class="text-[14.5px] text-body/85 dark:text-ivory/70" data-en="Rev. Dn. Thomas Johnson (Akhil)" data-ml="ബഹു. തോമസ് ജോൺസൺ (അഖിൽ) ശെമ്മാശൻ">Rev. Dn. Thomas Johnson (Akhil)</span>
       </li>
     </ol>
@@ -141,16 +151,19 @@
       <span class="font-sans text-[11px] tracking-wide text-muted">3</span>
     </div>
     <ol class="flex flex-col">
-      <li class="flex gap-3 py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
+      <li class="flex gap-3 cl-li py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
         <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">1.</span>
+        <span class="cl-ph cl-none" aria-hidden="true"></span>
         <span class="text-[14.5px] text-body/85 dark:text-ivory/70" data-en="Rev. Dn. Gibin George" data-ml="ബഹു. ജിബിൻ ജോർജ് ശെമ്മാശൻ">Rev. Dn. Gibin George</span>
       </li>
-      <li class="flex gap-3 py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
+      <li class="flex gap-3 cl-li py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
         <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">2.</span>
+        <span class="cl-ph cl-none" aria-hidden="true"></span>
         <span class="text-[14.5px] text-body/85 dark:text-ivory/70" data-en="Rev. Dn. Rony R. John, Kurumuttathu" data-ml="കുറുമുട്ടത്ത് ബഹു. റോണി ആർ. ജോൺ ശെമ്മാശൻ">Rev. Dn. Rony R. John, Kurumuttathu</span>
       </li>
-      <li class="flex gap-3 py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
+      <li class="flex gap-3 cl-li py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
         <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">3.</span>
+        <span class="cl-ph cl-none" aria-hidden="true"></span>
         <span class="text-[14.5px] text-body/85 dark:text-ivory/70" data-en="Rev. Dn. Sijo Kunjumone" data-ml="ബഹു. സിജോ കുഞ്ഞുമോൻ ശെമ്മാശൻ">Rev. Dn. Sijo Kunjumone</span>
       </li>
     </ol>
@@ -162,16 +175,19 @@
       <span class="font-sans text-[11px] tracking-wide text-muted">3</span>
     </div>
     <ol class="flex flex-col">
-      <li class="flex gap-3 py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
+      <li class="flex gap-3 cl-li py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
         <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">1.</span>
+        <span class="cl-ph cl-none" aria-hidden="true"></span>
         <span class="text-[14.5px] text-body/85 dark:text-ivory/70" data-en="Rev. Dn. Albin K. Samuel, Kottamukalil" data-ml="കോട്ടമുകളിൽ ബഹു. ആൽബിൻ കെ. സാമുവേൽ ശെമ്മാശൻ">Rev. Dn. Albin K. Samuel, Kottamukalil</span>
       </li>
-      <li class="flex gap-3 py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
+      <li class="flex gap-3 cl-li py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
         <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">2.</span>
+        <span class="cl-ph cl-none" aria-hidden="true"></span>
         <span class="text-[14.5px] text-body/85 dark:text-ivory/70" data-en="Rev. Dn. Glory Mathew George, Kodiyattumannil" data-ml="കൊടിയാട്ടുമണ്ണിൽ ബഹു. ഗ്ലോറി മാത്യു ജോർജ് ശെമ്മാശൻ">Rev. Dn. Glory Mathew George, Kodiyattumannil</span>
       </li>
-      <li class="flex gap-3 py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
+      <li class="flex gap-3 cl-li py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
         <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">3.</span>
+        <span class="cl-ph cl-none" aria-hidden="true"></span>
         <span class="text-[14.5px] text-body/85 dark:text-ivory/70" data-en="Rev. Dn. Ribin R. Baby, Neelamvila" data-ml="നീലംവിള ബഹു. റിബിൻ ആർ. ബേബി ശെമ്മാശൻ">Rev. Dn. Ribin R. Baby, Neelamvila</span>
       </li>
     </ol>
@@ -183,36 +199,44 @@
       <span class="font-sans text-[11px] tracking-wide text-muted">8</span>
     </div>
     <ol class="flex flex-col">
-      <li class="flex gap-3 py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
+      <li class="flex gap-3 cl-li py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
         <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">1.</span>
+        <span class="cl-ph cl-none" aria-hidden="true"></span>
         <span class="text-[14.5px] text-body/85 dark:text-ivory/70" data-en="Rev. Dn. Aneesh Skariah, Thachiramanill" data-ml="തച്ചിറമണിൽ ബഹു. അനീഷ് സ്കറിയാ ശെമ്മാശൻ">Rev. Dn. Aneesh Skariah, Thachiramanill</span>
       </li>
-      <li class="flex gap-3 py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
+      <li class="flex gap-3 cl-li py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
         <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">2.</span>
+        <span class="cl-ph cl-none" aria-hidden="true"></span>
         <span class="text-[14.5px] text-body/85 dark:text-ivory/70" data-en="Rev. Dn. Bibin Bejoy, Kolanjikombil" data-ml="കൊളഞ്ഞിക്കൊമ്പിൽ ബഹു. ബിബിൻ ബെജോയ് ശെമ്മാശൻ">Rev. Dn. Bibin Bejoy, Kolanjikombil</span>
       </li>
-      <li class="flex gap-3 py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
+      <li class="flex gap-3 cl-li py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
         <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">3.</span>
+        <span class="cl-ph cl-none" aria-hidden="true"></span>
         <span class="text-[14.5px] text-body/85 dark:text-ivory/70" data-en="Rev. Dn. Jobin P. Saji, Pulivelil" data-ml="പുളിവേലിൽ ബഹു. ജോബിൻ പി. സജി ശെമ്മാശൻ">Rev. Dn. Jobin P. Saji, Pulivelil</span>
       </li>
-      <li class="flex gap-3 py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
+      <li class="flex gap-3 cl-li py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
         <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">4.</span>
+        <span class="cl-ph cl-none" aria-hidden="true"></span>
         <span class="text-[14.5px] text-body/85 dark:text-ivory/70" data-en="Rev. Dn. Libin C. Simon, Thevadathu" data-ml="തേവടത്ത് ബഹു. ലിബിൻ സി. സൈമൺ ശെമ്മാശൻ">Rev. Dn. Libin C. Simon, Thevadathu</span>
       </li>
-      <li class="flex gap-3 py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
+      <li class="flex gap-3 cl-li py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
         <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">5.</span>
+        <span class="cl-ph cl-none" aria-hidden="true"></span>
         <span class="text-[14.5px] text-body/85 dark:text-ivory/70" data-en="Rev. Dn. Renny Rajan, Charivupuriyadathil" data-ml="ചരിവുപുരയിടത്തിൽ ബഹു. റെന്നി രാജൻ ശെമ്മാശൻ">Rev. Dn. Renny Rajan, Charivupuriyadathil</span>
       </li>
-      <li class="flex gap-3 py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
+      <li class="flex gap-3 cl-li py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
         <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">6.</span>
+        <span class="cl-ph cl-none" aria-hidden="true"></span>
         <span class="text-[14.5px] text-body/85 dark:text-ivory/70" data-en="Rev. Dn. Rijosh G. George, Kandathil" data-ml="കണ്ടത്തിൽ ബഹു. റിജോഷ് ജി. ജോർജ് ശെമ്മാശൻ">Rev. Dn. Rijosh G. George, Kandathil</span>
       </li>
-      <li class="flex gap-3 py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
+      <li class="flex gap-3 cl-li py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
         <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">7.</span>
+        <span class="cl-ph cl-none" aria-hidden="true"></span>
         <span class="text-[14.5px] text-body/85 dark:text-ivory/70" data-en="Rev. Dn. Rinil Peter, Vadakkekara" data-ml="വടക്കേക്കര ബഹു. റിനിൽ പീറ്റർ ശെമ്മാശൻ">Rev. Dn. Rinil Peter, Vadakkekara</span>
       </li>
-      <li class="flex gap-3 py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
+      <li class="flex gap-3 cl-li py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
         <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">8.</span>
+        <span class="cl-ph cl-none" aria-hidden="true"></span>
         <span class="text-[14.5px] text-body/85 dark:text-ivory/70" data-en="Rev. Dn. Sibi Sebastian, Valiyaparampil" data-ml="വലിയപറമ്പിൽ ബഹു. സിബി സെബാസ്റ്റ്യൻ ശെമ്മാശൻ">Rev. Dn. Sibi Sebastian, Valiyaparampil</span>
       </li>
     </ol>
@@ -224,16 +248,19 @@
       <span class="font-sans text-[11px] tracking-wide text-muted">3</span>
     </div>
     <ol class="flex flex-col">
-      <li class="flex gap-3 py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
+      <li class="flex gap-3 cl-li py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
         <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">1.</span>
+        <span class="cl-ph cl-none" aria-hidden="true"></span>
         <span class="text-[14.5px] text-body/85 dark:text-ivory/70" data-en="Rev. Dn. Jestin Jose, Kopparakannimel" data-ml="കൊപ്പറക്കണ്ണിമേൽ ബഹു. ജെസ്റ്റിൻ ജോസ് ശെമ്മാശൻ">Rev. Dn. Jestin Jose, Kopparakannimel</span>
       </li>
-      <li class="flex gap-3 py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
+      <li class="flex gap-3 cl-li py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
         <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">2.</span>
+        <span class="cl-ph cl-none" aria-hidden="true"></span>
         <span class="text-[14.5px] text-body/85 dark:text-ivory/70" data-en="Rev. Dn. Jijo K. Joy, Kalluvilayil" data-ml="കല്ലുവിളയിൽ ബഹു. ജിജോ കെ. ജോയ് ശെമ്മാശൻ">Rev. Dn. Jijo K. Joy, Kalluvilayil</span>
       </li>
-      <li class="flex gap-3 py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
+      <li class="flex gap-3 cl-li py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
         <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">3.</span>
+        <span class="cl-ph cl-none" aria-hidden="true"></span>
         <span class="text-[14.5px] text-body/85 dark:text-ivory/70" data-en="Rev. Dn. Sanju P. Mathew, Pulimoottil" data-ml="പുളിമൂട്ടിൽ ബഹു. സഞ്ജു പി. മാത്യു ശെമ്മാശൻ">Rev. Dn. Sanju P. Mathew, Pulimoottil</span>
       </li>
     </ol>
@@ -245,12 +272,14 @@
       <span class="font-sans text-[11px] tracking-wide text-muted">2</span>
     </div>
     <ol class="flex flex-col">
-      <li class="flex gap-3 py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
+      <li class="flex gap-3 cl-li py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
         <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">1.</span>
+        <span class="cl-ph cl-none" aria-hidden="true"></span>
         <span class="text-[14.5px] text-body/85 dark:text-ivory/70" data-en="Rev. Dn. Jithin Jose, Panackal" data-ml="പനയ്ക്കൽ ബഹു. ജിതിൻ ജോസ് ശെമ്മാശൻ">Rev. Dn. Jithin Jose, Panackal</span>
       </li>
-      <li class="flex gap-3 py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
+      <li class="flex gap-3 cl-li py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
         <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">2.</span>
+        <span class="cl-ph cl-none" aria-hidden="true"></span>
         <span class="text-[14.5px] text-body/85 dark:text-ivory/70" data-en="Rev. Dn. Robin K. Mathew, Kottor" data-ml="കോട്ടൂർ ബഹു. റോബിൻ കെ. മാത്യു ശെമ്മാശൻ">Rev. Dn. Robin K. Mathew, Kottor</span>
       </li>
     </ol>
@@ -262,12 +291,14 @@
       <span class="font-sans text-[11px] tracking-wide text-muted">2</span>
     </div>
     <ol class="flex flex-col">
-      <li class="flex gap-3 py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
+      <li class="flex gap-3 cl-li py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
         <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">1.</span>
+        <span class="cl-ph cl-none" aria-hidden="true"></span>
         <span class="text-[14.5px] text-body/85 dark:text-ivory/70" data-en="Rev. Dn. Joby Joseph George, Anjilivelil" data-ml="അഞ്ഞിലിവേലിൽ ബഹു. ജോബി ജോസഫ് ജോർജ് ശെമ്മാശൻ">Rev. Dn. Joby Joseph George, Anjilivelil</span>
       </li>
-      <li class="flex gap-3 py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
+      <li class="flex gap-3 cl-li py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
         <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">2.</span>
+        <span class="cl-ph cl-none" aria-hidden="true"></span>
         <span class="text-[14.5px] text-body/85 dark:text-ivory/70" data-en="Rev. Dn. Siju Thomas, Thadathel" data-ml="തടത്തേൽ ബഹു. സിജു തോമസ് ശെമ്മാശൻ">Rev. Dn. Siju Thomas, Thadathel</span>
       </li>
     </ol>
@@ -279,20 +310,24 @@
       <span class="font-sans text-[11px] tracking-wide text-muted">4</span>
     </div>
     <ol class="flex flex-col">
-      <li class="flex gap-3 py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
+      <li class="flex gap-3 cl-li py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
         <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">1.</span>
+        <span class="cl-ph cl-none" aria-hidden="true"></span>
         <span class="text-[14.5px] text-body/85 dark:text-ivory/70" data-en="Rev. Dn. Alexander Joseph, Marukanchira" data-ml="മരുക്കഞ്ചിറ ബഹു. അലക്സാണ്ടർ ജോസഫ് ശെമ്മാശൻ">Rev. Dn. Alexander Joseph, Marukanchira</span>
       </li>
-      <li class="flex gap-3 py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
+      <li class="flex gap-3 cl-li py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
         <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">2.</span>
+        <span class="cl-ph cl-none" aria-hidden="true"></span>
         <span class="text-[14.5px] text-body/85 dark:text-ivory/70" data-en="Rev. Dn. Amal V. Mathew, Mackal" data-ml="മാക്കൽ ബഹു. അമൽ വി. മാത്യു ശെമ്മാശൻ">Rev. Dn. Amal V. Mathew, Mackal</span>
       </li>
-      <li class="flex gap-3 py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
+      <li class="flex gap-3 cl-li py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
         <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">3.</span>
+        <span class="cl-ph cl-none" aria-hidden="true"></span>
         <span class="text-[14.5px] text-body/85 dark:text-ivory/70" data-en="Rev. Dn. Dennis Reji, Chennattumattam" data-ml="ചെന്നാട്ടുമറ്റം ബഹു. ഡെന്നിസ് റെജി ശെമ്മാശൻ">Rev. Dn. Dennis Reji, Chennattumattam</span>
       </li>
-      <li class="flex gap-3 py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
+      <li class="flex gap-3 cl-li py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
         <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">4.</span>
+        <span class="cl-ph cl-none" aria-hidden="true"></span>
         <span class="text-[14.5px] text-body/85 dark:text-ivory/70" data-en="Rev. Dn. Emil T. Abraham, Thiruvanparampil" data-ml="തിരുവൻപറമ്പിൽ ബഹു. എമിൽ ടി. അബ്രഹാം ശെമ്മാശൻ">Rev. Dn. Emil T. Abraham, Thiruvanparampil</span>
       </li>
     </ol>
@@ -304,8 +339,9 @@
       <span class="font-sans text-[11px] tracking-wide text-muted">1</span>
     </div>
     <ol class="flex flex-col">
-      <li class="flex gap-3 py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
+      <li class="flex gap-3 cl-li py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
         <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">1.</span>
+        <span class="cl-ph cl-none" aria-hidden="true"></span>
         <span class="text-[14.5px] text-body/85 dark:text-ivory/70" data-en="Rev. Dn. Alan K. Varghese, Kottuppallil" data-ml="കൊട്ടുപ്പള്ളിൽ ബഹു. അലൻ കെ. വർഗീസ് ശെമ്മാശൻ">Rev. Dn. Alan K. Varghese, Kottuppallil</span>
       </li>
     </ol>
@@ -317,8 +353,9 @@
       <span class="font-sans text-[11px] tracking-wide text-muted">1</span>
     </div>
     <ol class="flex flex-col">
-      <li class="flex gap-3 py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
+      <li class="flex gap-3 cl-li py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
         <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">1.</span>
+        <span class="cl-ph cl-none" aria-hidden="true"></span>
         <span class="text-[14.5px] text-body/85 dark:text-ivory/70" data-en="Rev. Dn. Amal Umman, Mannil" data-ml="മണ്ണിൽ ബഹു. അമൽ ഉമ്മൻ ശെമ്മാശൻ">Rev. Dn. Amal Umman, Mannil</span>
       </li>
     </ol>
@@ -330,12 +367,14 @@
       <span class="font-sans text-[11px] tracking-wide text-muted">2</span>
     </div>
     <ol class="flex flex-col">
-      <li class="flex gap-3 py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
+      <li class="flex gap-3 cl-li py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
         <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">1.</span>
+        <span class="cl-ph cl-none" aria-hidden="true"></span>
         <span class="text-[14.5px] text-body/85 dark:text-ivory/70" data-en="Rev. Dn. Jovin Joshy, Naduvilaparambil" data-ml="നടുവിലപ്പറമ്പിൽ ബഹു. ജോവിൻ ജോഷി ശെമ്മാശൻ">Rev. Dn. Jovin Joshy, Naduvilaparambil</span>
       </li>
-      <li class="flex gap-3 py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
+      <li class="flex gap-3 cl-li py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
         <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">2.</span>
+        <span class="cl-ph cl-none" aria-hidden="true"></span>
         <span class="text-[14.5px] text-body/85 dark:text-ivory/70" data-en="Rev. Dn. Lijin John, Thenguvila" data-ml="തെങ്ങുവിള ബഹു. ലിജിൻ ജോൺ ശെമ്മാശൻ">Rev. Dn. Lijin John, Thenguvila</span>
       </li>
     </ol>
@@ -347,16 +386,19 @@
       <span class="font-sans text-[11px] tracking-wide text-muted">3</span>
     </div>
     <ol class="flex flex-col">
-      <li class="flex gap-3 py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
+      <li class="flex gap-3 cl-li py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
         <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">1.</span>
+        <span class="cl-ph cl-none" aria-hidden="true"></span>
         <span class="text-[14.5px] text-body/85 dark:text-ivory/70" data-en="Rev. Dn. Jithin Mathew Philip" data-ml="ബഹു. ജിതിൻ മാത്യു ഫിലിപ്പ് ശെമ്മാശൻ">Rev. Dn. Jithin Mathew Philip</span>
       </li>
-        <li class="flex gap-3 py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
+        <li class="flex gap-3 cl-li py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
         <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">2.</span>
+        <span class="cl-ph cl-none" aria-hidden="true"></span>
         <span class="text-[14.5px] text-body/85 dark:text-ivory/70" data-en="Rev. Dn. Jomon K. George, Karukayil" data-ml="കറുകയിൽ ബഹു. ജോമോൻ കെ. ജോർജ് ശെമ്മാശൻ">Rev. Dn. Jomon K. George, Karukayil</span>
       </li>
-      <li class="flex gap-3 py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
+      <li class="flex gap-3 cl-li py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
         <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">3.</span>
+        <span class="cl-ph cl-none" aria-hidden="true"></span>
         <span class="text-[14.5px] text-body/85 dark:text-ivory/70" data-en="Rev. Dn. Robin K. Jacob, Kuriannoor" data-ml="കുറിയന്നൂർ ബഹു. റോബിൻ കെ. ജേക്കബ് ശെമ്മാശൻ">Rev. Dn. Robin K. Jacob, Kuriannoor</span>
       </li>
     </ol>
@@ -368,12 +410,14 @@
       <span class="font-sans text-[11px] tracking-wide text-muted">2</span>
     </div>
     <ol class="flex flex-col">
-      <li class="flex gap-3 py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
+      <li class="flex gap-3 cl-li py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
         <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">1.</span>
+        <span class="cl-ph cl-none" aria-hidden="true"></span>
         <span class="text-[14.5px] text-body/85 dark:text-ivory/70" data-en="Rev. Dn. Ebin Eldho, Padinjarekudiyil" data-ml="പടിഞ്ഞാറേക്കുടിയിൽ ബഹു. എബിൻ എൽദോ ശെമ്മാശൻ">Rev. Dn. Ebin Eldho, Padinjarekudiyil</span>
       </li>
-      <li class="flex gap-3 py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
+      <li class="flex gap-3 cl-li py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
         <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">2.</span>
+        <span class="cl-ph cl-none" aria-hidden="true"></span>
         <span class="text-[14.5px] text-body/85 dark:text-ivory/70" data-en="Rev. Dn. Georgi K. Sunny, Karanattu" data-ml="കാരനാട്ട് ബഹു. ജോർജി കെ. സണ്ണി ശെമ്മാശൻ">Rev. Dn. Georgi K. Sunny, Karanattu</span>
       </li>
     </ol>
@@ -385,16 +429,19 @@
       <span class="font-sans text-[11px] tracking-wide text-muted">3</span>
     </div>
     <ol class="flex flex-col">
-      <li class="flex gap-3 py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
+      <li class="flex gap-3 cl-li py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
         <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">1.</span>
+        <span class="cl-ph cl-none" aria-hidden="true"></span>
         <span class="text-[14.5px] text-body/85 dark:text-ivory/70" data-en="Rev. Dn. Emmanuel Thomas" data-ml="ബഹു. ഇമ്മാനുവേൽ തോമസ് ശെമ്മാശൻ">Rev. Dn. Emmanuel Thomas</span>
       </li>
-      <li class="flex gap-3 py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
+      <li class="flex gap-3 cl-li py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
         <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">2.</span>
+        <span class="cl-ph cl-none" aria-hidden="true"></span>
         <span class="text-[14.5px] text-body/85 dark:text-ivory/70" data-en="Rev. Dn. Ribin Rajan, Vattakkattu" data-ml="വട്ടക്കാട്ട് ബഹു. റിബിൻ രാജൻ ശെമ്മാശൻ">Rev. Dn. Ribin Rajan, Vattakkattu</span>
       </li>
-      <li class="flex gap-3 py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
+      <li class="flex gap-3 cl-li py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
         <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">3.</span>
+        <span class="cl-ph cl-none" aria-hidden="true"></span>
         <span class="text-[14.5px] text-body/85 dark:text-ivory/70" data-en="Rev. Dn. Sanjay Alias Joy, Kuzhiyelil" data-ml="കുഴിയേലിൽ ബഹു. സഞ്ജയ് അലിയാസ് ജോയ് ശെമ്മാശൻ">Rev. Dn. Sanjay Alias Joy, Kuzhiyelil</span>
       </li>
     </ol>
@@ -406,8 +453,9 @@
       <span class="font-sans text-[11px] tracking-wide text-muted">1</span>
     </div>
     <ol class="flex flex-col">
-      <li class="flex gap-3 py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
+      <li class="flex gap-3 cl-li py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
         <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">1.</span>
+        <span class="cl-ph cl-none" aria-hidden="true"></span>
         <span class="text-[14.5px] text-body/85 dark:text-ivory/70" data-en="Rev. Dn. Varghese Joseph, Valel" data-ml="വാലേൽ ബഹു. വർഗീസ് ജോസഫ് ശെമ്മാശൻ">Rev. Dn. Varghese Joseph, Valel</span>
       </li>
     </ol>
@@ -419,16 +467,19 @@
       <span class="font-sans text-[11px] tracking-wide text-muted">3</span>
     </div>
     <ol class="flex flex-col">
-      <li class="flex gap-3 py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
+      <li class="flex gap-3 cl-li py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
         <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">1.</span>
+        <span class="cl-ph cl-none" aria-hidden="true"></span>
         <span class="text-[14.5px] text-body/85 dark:text-ivory/70" data-en="Rev. Dn. Ajin Chacko M., Mananthan" data-ml="മാനന്തൻ ബഹു. അജിൻ ചാക്കോ എം. ശെമ്മാശൻ">Rev. Dn. Ajin Chacko M., Mananthan</span>
       </li>
-      <li class="flex gap-3 py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
+      <li class="flex gap-3 cl-li py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
         <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">2.</span>
+        <span class="cl-ph cl-none" aria-hidden="true"></span>
         <span class="text-[14.5px] text-body/85 dark:text-ivory/70" data-en="Rev. Dn. Melvin Mathew, Kunnilath" data-ml="കുന്നിലത്ത് ബഹു. മെൽവിൻ മാത്യു ശെമ്മാശൻ">Rev. Dn. Melvin Mathew, Kunnilath</span>
       </li>
-      <li class="flex gap-3 py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
+      <li class="flex gap-3 cl-li py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
         <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">3.</span>
+        <span class="cl-ph cl-none" aria-hidden="true"></span>
         <span class="text-[14.5px] text-body/85 dark:text-ivory/70" data-en="Rev. Dn. Rinu Prince, Koothur" data-ml="കൂത്തൂർ ബഹു. റിനു പ്രിൻസ് ശെമ്മാശൻ">Rev. Dn. Rinu Prince, Koothur</span>
       </li>
     </ol>
@@ -440,16 +491,19 @@
       <span class="font-sans text-[11px] tracking-wide text-muted">3</span>
     </div>
     <ol class="flex flex-col">
-      <li class="flex gap-3 py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
+      <li class="flex gap-3 cl-li py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
         <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">1.</span>
+        <span class="cl-ph cl-none" aria-hidden="true"></span>
         <span class="text-[14.5px] text-body/85 dark:text-ivory/70" data-en="Rev. Dn. Thomas John (Jinu), Nadayathumkara" data-ml="നടയത്തുംകര ബഹു. തോമസ് ജോൺ (ജിനു) ശെമ്മാശൻ">Rev. Dn. Thomas John (Jinu), Nadayathumkara</span>
       </li>
-      <li class="flex gap-3 py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
+      <li class="flex gap-3 cl-li py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
         <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">2.</span>
+        <span class="cl-ph cl-none" aria-hidden="true"></span>
         <span class="text-[14.5px] text-body/85 dark:text-ivory/70" data-en="Rev. Dn. Thomas Samuel (Tiju), Ebenezer" data-ml="എബനേസർ ബഹു. തോമസ് സാമുവേൽ (തിജു) ശെമ്മാശൻ">Rev. Dn. Thomas Samuel (Tiju), Ebenezer</span>
       </li>
-      <li class="flex gap-3 py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
+      <li class="flex gap-3 cl-li py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
         <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">3.</span>
+        <span class="cl-ph cl-none" aria-hidden="true"></span>
         <span class="text-[14.5px] text-body/85 dark:text-ivory/70" data-en="Rev. Dn. Vinod Thomas, Kaduppel" data-ml="കടുപ്പേൽ ബഹു. വിനോദ് തോമസ് ശെമ്മാശൻ">Rev. Dn. Vinod Thomas, Kaduppel</span>
       </li>
     </ol>
@@ -461,8 +515,9 @@
       <span class="font-sans text-[11px] tracking-wide text-muted">1</span>
     </div>
     <ol class="flex flex-col">
-      <li class="flex gap-3 py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
+      <li class="flex gap-3 cl-li py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
         <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">1.</span>
+        <span class="cl-ph cl-none" aria-hidden="true"></span>
         <span class="text-[14.5px] text-body/85 dark:text-ivory/70" data-en="Rev. Dn. Nithin Thomas, Thanikyakuyhi" data-ml="താനിക്കുഴി ബഹു. നിതിൻ തോമസ് ശെമ്മാശൻ">Rev. Dn. Nithin Thomas, Thanikyakuyhi</span>
       </li>
     </ol>
@@ -474,36 +529,44 @@
       <span class="font-sans text-[11px] tracking-wide text-muted">8</span>
     </div>
     <ol class="flex flex-col">
-      <li class="flex gap-3 py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
+      <li class="flex gap-3 cl-li py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
         <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">1.</span>
+        <span class="cl-ph cl-none" aria-hidden="true"></span>
         <span class="text-[14.5px] text-body/85 dark:text-ivory/70" data-en="Rev. Dn. Abey Mathew Abraham" data-ml="ബഹു. അബി മാത്യു അബ്രഹാം ശെമ്മാശൻ">Rev. Dn. Abey Mathew Abraham</span>
       </li>
-      <li class="flex gap-3 py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
+      <li class="flex gap-3 cl-li py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
         <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">2.</span>
+        <span class="cl-ph cl-none" aria-hidden="true"></span>
         <span class="text-[14.5px] text-body/85 dark:text-ivory/70" data-en="Rev. Dn. Blesson G. Babu" data-ml="ബഹു. ബ്ലെസ്സൺ ജി. ബാബു ശെമ്മാശൻ">Rev. Dn. Blesson G. Babu</span>
       </li>
-      <li class="flex gap-3 py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
+      <li class="flex gap-3 cl-li py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
         <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">3.</span>
+        <span class="cl-ph cl-none" aria-hidden="true"></span>
         <span class="text-[14.5px] text-body/85 dark:text-ivory/70" data-en="Rev. Dn. Jerin Thomas, Thondalil" data-ml="തൊണ്ടലിൽ ബഹു. ജെറിൻ തോമസ് ശെമ്മാശൻ">Rev. Dn. Jerin Thomas, Thondalil</span>
       </li>
-      <li class="flex gap-3 py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
+      <li class="flex gap-3 cl-li py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
         <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">4.</span>
+        <span class="cl-ph cl-none" aria-hidden="true"></span>
         <span class="text-[14.5px] text-body/85 dark:text-ivory/70" data-en="Rev. Dn. K. Smijai Simon" data-ml="ബഹു. കെ. സ്മിജയ് സൈമൺ ശെമ്മാശൻ">Rev. Dn. K. Smijai Simon</span>
       </li>
-      <li class="flex gap-3 py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
+      <li class="flex gap-3 cl-li py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
         <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">5.</span>
+        <span class="cl-ph cl-none" aria-hidden="true"></span>
         <span class="text-[14.5px] text-body/85 dark:text-ivory/70" data-en="Rev. Dn. Kurian Mathew" data-ml="ബഹു. കുര്യൻ മാത്യു ശെമ്മാശൻ">Rev. Dn. Kurian Mathew</span>
       </li>
-      <li class="flex gap-3 py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
+      <li class="flex gap-3 cl-li py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
         <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">6.</span>
+        <span class="cl-ph cl-none" aria-hidden="true"></span>
         <span class="text-[14.5px] text-body/85 dark:text-ivory/70" data-en="Rev. Dn. Shainu Shaji, Mechirayil" data-ml="മേച്ചിറയിൽ ബഹു. ഷൈനു ഷാജി ശെമ്മാശൻ">Rev. Dn. Shainu Shaji, Mechirayil</span>
       </li>
-      <li class="flex gap-3 py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
+      <li class="flex gap-3 cl-li py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
         <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">7.</span>
+        <span class="cl-ph cl-none" aria-hidden="true"></span>
         <span class="text-[14.5px] text-body/85 dark:text-ivory/70" data-en="Rev. Dn. Sijin Samuel, Puthenpura" data-ml="പുത്തൻപുര ബഹു. സിജിൻ സാമുവേൽ ശെമ്മാശൻ">Rev. Dn. Sijin Samuel, Puthenpura</span>
       </li>
-      <li class="flex gap-3 py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
+      <li class="flex gap-3 cl-li py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
         <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">8.</span>
+        <span class="cl-ph cl-none" aria-hidden="true"></span>
         <span class="text-[14.5px] text-body/85 dark:text-ivory/70" data-en="Rev. Dn. Sino Mathew" data-ml="ബഹു. സിനോ മാത്യു ശെമ്മാശൻ">Rev. Dn. Sino Mathew</span>
       </li>
     </ol>
@@ -515,12 +578,14 @@
       <span class="font-sans text-[11px] tracking-wide text-muted">2</span>
     </div>
     <ol class="flex flex-col">
-      <li class="flex gap-3 py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
+      <li class="flex gap-3 cl-li py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
         <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">1.</span>
+        <span class="cl-ph cl-none" aria-hidden="true"></span>
         <span class="text-[14.5px] text-body/85 dark:text-ivory/70" data-en="Rev. Dn. Shibin Mathew John" data-ml="ബഹു. ഷിബിൻ മാത്യു ജോൺ ശെമ്മാശൻ">Rev. Dn. Shibin Mathew John</span>
       </li>
-        <li class="flex gap-3 py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
+        <li class="flex gap-3 cl-li py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
         <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">2.</span>
+        <span class="cl-ph cl-none" aria-hidden="true"></span>
         <span class="text-[14.5px] text-body/85 dark:text-ivory/70" data-en="Rev. Dn. Stephen Lawrance" data-ml="ബഹു. സ്റ്റീഫൻ ലോറൻസ് ശെമ്മാശൻ">Rev. Dn. Stephen Lawrance</span>
       </li>
     </ol>
@@ -532,12 +597,14 @@
       <span class="font-sans text-[11px] tracking-wide text-muted">2</span>
     </div>
     <ol class="flex flex-col">
-      <li class="flex gap-3 py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
+      <li class="flex gap-3 cl-li py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
         <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">1.</span>
+        <span class="cl-ph cl-none" aria-hidden="true"></span>
         <span class="text-[14.5px] text-body/85 dark:text-ivory/70" data-en="Rev. Dn. Jerin John" data-ml="ബഹു. ജെറിൻ ജോൺ ശെമ്മാശൻ">Rev. Dn. Jerin John</span>
       </li>
-      <li class="flex gap-3 py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
+      <li class="flex gap-3 cl-li py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
         <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">2.</span>
+        <span class="cl-ph cl-none" aria-hidden="true"></span>
         <span class="text-[14.5px] text-body/85 dark:text-ivory/70" data-en="Rev. Dn. Johnson Philipose" data-ml="ബഹു. ജോൺസൺ ഫിലിപ്പോസ് ശെമ്മാശൻ">Rev. Dn. Johnson Philipose</span>
       </li>
     </ol>
@@ -549,12 +616,14 @@
       <span class="font-sans text-[11px] tracking-wide text-muted">2</span>
     </div>
     <ol class="flex flex-col">
-      <li class="flex gap-3 py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
+      <li class="flex gap-3 cl-li py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
         <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">1.</span>
+        <span class="cl-ph cl-none" aria-hidden="true"></span>
         <span class="text-[14.5px] text-body/85 dark:text-ivory/70" data-en="Rev. Dn. Joel Mathew, Maruthoor" data-ml="മരുതൂർ ബഹു. ജോയൽ മാത്യു ശെമ്മാശൻ">Rev. Dn. Joel Mathew, Maruthoor</span>
       </li>
-      <li class="flex gap-3 py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
+      <li class="flex gap-3 cl-li py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
         <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">2.</span>
+        <span class="cl-ph cl-none" aria-hidden="true"></span>
         <span class="text-[14.5px] text-body/85 dark:text-ivory/70" data-en="Rev. Dn. Samson Y. John" data-ml="ബഹു. സാംസൺ വൈ. ജോൺ ശെമ്മാശൻ">Rev. Dn. Samson Y. John</span>
       </li>
     </ol>
@@ -566,8 +635,9 @@
       <span class="font-sans text-[11px] tracking-wide text-muted">1</span>
     </div>
     <ol class="flex flex-col">
-      <li class="flex gap-3 py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
+      <li class="flex gap-3 cl-li py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
         <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">1.</span>
+        <span class="cl-ph cl-none" aria-hidden="true"></span>
         <span class="text-[14.5px] text-body/85 dark:text-ivory/70" data-en="Rev. Dn. Aaron Joshua John" data-ml="ബഹു. ആരോൺ ജോഷ്വാ ജോൺ ശെമ്മാശൻ">Rev. Dn. Aaron Joshua John</span>
       </li>
     </ol>
@@ -579,8 +649,9 @@
       <span class="font-sans text-[11px] tracking-wide text-muted">1</span>
     </div>
     <ol class="flex flex-col">
-      <li class="flex gap-3 py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
+      <li class="flex gap-3 cl-li py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
         <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">1.</span>
+        <span class="cl-ph cl-none" aria-hidden="true"></span>
         <span class="text-[14.5px] text-body/85 dark:text-ivory/70" data-en="Rev. Dn. Anil Thankachan" data-ml="ബഹു. അനിൽ തങ്കച്ചൻ ശെമ്മാശൻ">Rev. Dn. Anil Thankachan</span>
       </li>
     </ol>
@@ -592,16 +663,19 @@
       <span class="font-sans text-[11px] tracking-wide text-muted">3</span>
     </div>
     <ol class="flex flex-col">
-      <li class="flex gap-3 py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
+      <li class="flex gap-3 cl-li py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
         <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">1.</span>
+        <span class="cl-ph cl-none" aria-hidden="true"></span>
         <span class="text-[14.5px] text-body/85 dark:text-ivory/70" data-en="Rev. Dn. Abraham (Shojil) Abraham" data-ml="ബഹു. അബ്രഹാം (ഷോജിൽ) അബ്രഹാം ശെമ്മാശൻ">Rev. Dn. Abraham (Shojil) Abraham</span>
       </li>
-      <li class="flex gap-3 py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
+      <li class="flex gap-3 cl-li py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
         <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">2.</span>
+        <span class="cl-ph cl-none" aria-hidden="true"></span>
         <span class="text-[14.5px] text-body/85 dark:text-ivory/70" data-en="Rev. Dn. Alexander (Pradeep) Hatcher" data-ml="ബഹു. അലക്സാണ്ടർ (പ്രദീപ്) ഹാച്ചർ ശെമ്മാശൻ">Rev. Dn. Alexander (Pradeep) Hatcher</span>
       </li>
-      <li class="flex gap-3 py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
+      <li class="flex gap-3 cl-li py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
         <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">3.</span>
+        <span class="cl-ph cl-none" aria-hidden="true"></span>
         <span class="text-[14.5px] text-body/85 dark:text-ivory/70" data-en="Rev. Dn. Mathew (Royce) Mathew" data-ml="ബഹു. മാത്യു (റോയ്സ്) മാത്യു ശെമ്മാശൻ">Rev. Dn. Mathew (Royce) Mathew</span>
       </li>
     </ol>
@@ -613,24 +687,29 @@
       <span class="font-sans text-[11px] tracking-wide text-muted">5</span>
     </div>
     <ol class="flex flex-col">
-      <li class="flex gap-3 py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
+      <li class="flex gap-3 cl-li py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
         <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">1.</span>
+        <span class="cl-ph cl-none" aria-hidden="true"></span>
         <span class="text-[14.5px] text-body/85 dark:text-ivory/70" data-en="Rev. Dn. Gabriel R. Pike" data-ml="ബഹു. ഗബ്രിയേൽ ആർ. പൈക്ക് ശെമ്മാശൻ">Rev. Dn. Gabriel R. Pike</span>
       </li>
-      <li class="flex gap-3 py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
+      <li class="flex gap-3 cl-li py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
         <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">2.</span>
+        <span class="cl-ph cl-none" aria-hidden="true"></span>
         <span class="text-[14.5px] text-body/85 dark:text-ivory/70" data-en="Rev. Dn. George Poovathoor" data-ml="ബഹു. ജോർജ് പൂവത്തൂർ ശെമ്മാശൻ">Rev. Dn. George Poovathoor</span>
       </li>
-      <li class="flex gap-3 py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
+      <li class="flex gap-3 cl-li py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
         <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">3.</span>
+        <span class="cl-ph cl-none" aria-hidden="true"></span>
         <span class="text-[14.5px] text-body/85 dark:text-ivory/70" data-en="Rev. Dn. John Sankarathil" data-ml="ബഹു. ജോൺ ശങ്കരത്തിൽ ശെമ്മാശൻ">Rev. Dn. John Sankarathil</span>
       </li>
-      <li class="flex gap-3 py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
+      <li class="flex gap-3 cl-li py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
         <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">4.</span>
+        <span class="cl-ph cl-none" aria-hidden="true"></span>
         <span class="text-[14.5px] text-body/85 dark:text-ivory/70" data-en="Rev. Dn. Reuben Thomas" data-ml="ബഹു. റൂബൻ തോമസ് ശെമ്മാശൻ">Rev. Dn. Reuben Thomas</span>
       </li>
-      <li class="flex gap-3 py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
+      <li class="flex gap-3 cl-li py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
         <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">5.</span>
+        <span class="cl-ph cl-none" aria-hidden="true"></span>
         <span class="text-[14.5px] text-body/85 dark:text-ivory/70" data-en="Rev. Dn. Stephen (Anish) Mathew" data-ml="ബഹു. സ്റ്റീഫൻ (അനീഷ്) മാത്യു ശെമ്മാശൻ">Rev. Dn. Stephen (Anish) Mathew</span>
       </li>
     </ol>
@@ -642,8 +721,9 @@
       <span class="font-sans text-[11px] tracking-wide text-muted">1</span>
     </div>
     <ol class="flex flex-col">
-      <li class="flex gap-3 py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
+      <li class="flex gap-3 cl-li py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
         <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">1.</span>
+        <span class="cl-ph cl-none" aria-hidden="true"></span>
         <span class="text-[14.5px] text-body/85 dark:text-ivory/70" data-en="Rev. Dn. Calvin Koshy Poovathur (Joshua)" data-ml="ബഹു. കാൽവിൻ കോശി പൂവത്തൂർ (ജോഷ്വാ) ശെമ്മാശൻ">Rev. Dn. Calvin Koshy Poovathur (Joshua)</span>
       </li>
     </ol>
@@ -655,32 +735,39 @@
       <span class="font-sans text-[11px] tracking-wide text-muted">7</span>
     </div>
     <ol class="flex flex-col">
-      <li class="flex gap-3 py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
+      <li class="flex gap-3 cl-li py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
         <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">1.</span>
+        <span class="cl-ph cl-none" aria-hidden="true"></span>
         <span class="text-[14.5px] text-body/85 dark:text-ivory/70" data-en="Rev. Dn. Abin Bennit" data-ml="ബഹു. അബിൻ ബെന്നിറ്റ് ശെമ്മാശൻ">Rev. Dn. Abin Bennit</span>
       </li>
-      <li class="flex gap-3 py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
+      <li class="flex gap-3 cl-li py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
         <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">2.</span>
+        <span class="cl-ph cl-none" aria-hidden="true"></span>
         <span class="text-[14.5px] text-body/85 dark:text-ivory/70" data-en="Rev. Dn. Alwin Thomas" data-ml="ബഹു. ആൽവിൻ തോമസ് ശെമ്മാശൻ">Rev. Dn. Alwin Thomas</span>
       </li>
-      <li class="flex gap-3 py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
+      <li class="flex gap-3 cl-li py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
         <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">3.</span>
+        <span class="cl-ph cl-none" aria-hidden="true"></span>
         <span class="text-[14.5px] text-body/85 dark:text-ivory/70" data-en="Rev. Dn. Dr. K. A. George, Kallarckal" data-ml="കല്ലാർക്കൽ ബഹു. ഡോ. കെ. എ. ജോർജ് ശെമ്മാശൻ">Rev. Dn. Dr. K. A. George, Kallarckal</span>
       </li>
-      <li class="flex gap-3 py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
+      <li class="flex gap-3 cl-li py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
         <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">4.</span>
+        <span class="cl-ph cl-none" aria-hidden="true"></span>
         <span class="text-[14.5px] text-body/85 dark:text-ivory/70" data-en="Rev. Dn. Jesuratnam Immanuel, Sahayarajan" data-ml="സഹായരാജൻ ബഹു. യേശുരത്നം ഇമ്മാനുവേൽ ശെമ്മാശൻ">Rev. Dn. Jesuratnam Immanuel, Sahayarajan</span>
       </li>
-      <li class="flex gap-3 py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
+      <li class="flex gap-3 cl-li py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
         <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">5.</span>
+        <span class="cl-ph cl-none" aria-hidden="true"></span>
         <span class="text-[14.5px] text-body/85 dark:text-ivory/70" data-en="Rev. Dn. Jibin Saji" data-ml="ബഹു. ജിബിൻ സജി ശെമ്മാശൻ">Rev. Dn. Jibin Saji</span>
       </li>
-      <li class="flex gap-3 py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
+      <li class="flex gap-3 cl-li py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
         <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">6.</span>
+        <span class="cl-ph cl-none" aria-hidden="true"></span>
         <span class="text-[14.5px] text-body/85 dark:text-ivory/70" data-en="Rev. Dn. Jobu Jacob John, Inchappara" data-ml="ഇഞ്ചപ്പാറ ബഹു. ജോബു ജേക്കബ് ജോൺ ശെമ്മാശൻ">Rev. Dn. Jobu Jacob John, Inchappara</span>
       </li>
-      <li class="flex gap-3 py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
+      <li class="flex gap-3 cl-li py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
         <span class="font-sans text-[11px] text-muted w-6 shrink-0 pt-0.5 text-right">7.</span>
+        <span class="cl-ph cl-none" aria-hidden="true"></span>
         <span class="text-[14.5px] text-body/85 dark:text-ivory/70" data-en="Rev. Dn. Sibin K. Nixon" data-ml="ബഹു. സിബിൻ കെ. നിക്സൺ ശെമ്മാശൻ">Rev. Dn. Sibin K. Nixon</span>
       </li>
     </ol>
@@ -709,5 +796,12 @@
 })();
 </script>
 
+<script>
+(function(){var els=[].slice.call(document.querySelectorAll('.cl-ph[data-s]'));
+function load(e){e.style.backgroundImage='url('+e.getAttribute('data-s')+')';e.removeAttribute('data-s');}
+if(!('IntersectionObserver' in window)){els.forEach(load);return;}
+var io=new IntersectionObserver(function(en){en.forEach(function(x){if(x.isIntersecting){load(x.target);io.unobserve(x.target);}});},{rootMargin:'600px 0px'});
+els.forEach(function(e){io.observe(e);});})();
+</script>
 </body>
 </html>
