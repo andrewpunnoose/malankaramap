@@ -92,6 +92,44 @@
     return ICON_CACHE[key];
   }
 
+
+  /* ---------- canvas pins (used when the map runs unclustered) ---------- */
+  var PIN_BMP = {};
+  function pinBitmap(e) {
+    var w = pinWidth(e), h = Math.round(w * 1.31), glyph = e.icon !== "p" || w >= 21, key = e.col + "|" + e.icon + "|" + w;
+    if (PIN_BMP[key]) return PIN_BMP[key];
+    var o = { c: null, w: w, h: h, pad: 4 };
+    PIN_BMP[key] = o;
+    var img = new Image(), sc = Math.max(1, Math.min(2, window.devicePixelRatio || 1));
+    img.onload = function () {
+      var c = document.createElement("canvas"), x = c.getContext("2d");
+      c.width = Math.ceil((w + 8) * sc); c.height = Math.ceil((h + 8) * sc);
+      x.shadowColor = "rgba(0,0,0,.45)"; x.shadowBlur = 3 * sc; x.shadowOffsetY = 1.5 * sc;
+      x.drawImage(img, 4 * sc, 4 * sc, w * sc, h * sc);
+      o.c = c;
+      if (pinRedraw) pinRedraw();
+    };
+    img.src = "data:image/svg+xml;charset=utf-8," + encodeURIComponent(pinSVG(e.col, e.icon, w, glyph));
+    return o;
+  }
+  var PinCanvas, PinMarker, pinRedraw = null;
+  function makePinClasses() {
+    if (PinCanvas) return;
+    PinCanvas = L.Canvas.extend({
+    _updateCircle: function (layer) {
+      if (!this._drawing || layer._empty()) return;
+      var pb = layer.options.pin, p = layer._point;
+      if (pb && pb.c) this._ctx.drawImage(pb.c, p.x - pb.w / 2 - pb.pad, p.y - (pb.h - 1) - pb.pad, pb.w + 2 * pb.pad, pb.h + 2 * pb.pad);
+    }
+    });
+    PinMarker = L.CircleMarker.extend({
+      _containsPoint: function (p) {
+        var q = this._point, pb = this.options.pin, hw = pb.w / 2 + 2;
+        return p.x >= q.x - hw && p.x <= q.x + hw && p.y >= q.y - pb.h - 2 && p.y <= q.y + 3;
+      }
+    });
+  }
+
   /* ---------- styles ---------- */
   var CSS = '.mm{position:absolute;inset:0;z-index:0;background:#d9dfd2;font-family:inherit}.dark .mm{background:#111827}' +
     '.mm .leaflet-control-zoom{border:0;box-shadow:0 6px 18px -6px rgba(16,20,13,.5);border-radius:12px;overflow:hidden}.mm .leaflet-control-zoom a{width:34px;height:34px;line-height:34px;background:rgba(247,245,238,.92);color:#2b3326;border:0;backdrop-filter:blur(10px)}.mm .leaflet-control-zoom a:hover{background:#fff}' +
@@ -193,14 +231,23 @@
     }
 
     /* cluster + markers */
-    var cg;
+    var cg, pinRenderer = null, PIN_PAD = 4;
     if (cfg.cluster === false) {
-      /* No clustering: every place is its own pin. Pins are stacked north to south, so a pin
-         further south always sits on top of the pins to its north (see pinZ below). */
+      /* No clustering: every place is its own pin, but all pins are painted on ONE canvas instead of
+         thousands of separate page elements, which keeps the map fast. Pins are drawn from north to
+         south, so a pin further south always sits on top of the pins to its north, and a click lands
+         on the topmost pin. */
+      map.createPane("mmPins").style.zIndex = 590;
+      makePinClasses();
+      pinRenderer = new PinCanvas({ pane: "mmPins", padding: 0.35 });
+      var redrawT = null;
+      pinRedraw = function () { clearTimeout(redrawT); redrawT = setTimeout(function () { if (pinRenderer && pinRenderer._map) pinRenderer._update(); }, 60); };
       var pinLayer = L.layerGroup().addTo(map);
       cg = {
         clearLayers: function () { pinLayer.clearLayers(); },
-        addLayers: function (ms) { ms.forEach(function (m) { pinLayer.addLayer(m); }); },
+        addLayers: function (ms) {
+          ms.slice().sort(function (p, q) { return q.getLatLng().lat - p.getLatLng().lat; }).forEach(function (m) { pinLayer.addLayer(m); });
+        },
         zoomToShowLayer: function (m, cb) { cb && cb(); }
       };
     } else {
@@ -208,8 +255,6 @@
         iconCreateFunction: function (c) { var n = c.getChildCount(), s = n < 20 ? 36 : n < 150 ? 44 : 54; return L.divIcon({ html: '<div class="mm-cl" style="width:' + s + "px;height:" + s + 'px">' + n + "</div>", className: "", iconSize: [s, s] }); } });
       map.addLayer(cg);
     }
-    /* stacking order for unclustered pins: the further south, the higher the pin (and the further north, the lower) */
-    function pinZ(lat) { return Math.round((90 - lat) * 10000); }
     var openEntry = null;
     function typeLabel(e) { return e.icon === "a" ? two(STATUS.a) : (TYPE[e.t] ? two(TYPE[e.t]) : ""); }
     function entryName(e) { return ISML() && e.ml ? e.ml : e.n; }
@@ -226,8 +271,13 @@
         '<div class="mm-body">' + body + note + '</div><div class="mm-pf">' + acts + "</div>";
     }
     entries.forEach(function (e) {
-      e.m = L.marker([e.lat, e.lon], cfg.cluster === false ? { icon: iconFor(e), title: e.n, riseOnHover: true, riseOffset: 3000000, zIndexOffset: pinZ(e.lat) } : { icon: iconFor(e), title: e.n, riseOnHover: true });
-      e.m.bindPopup(function () { return popupHTML(e); }, { maxWidth: 340, minWidth: 230, className: "mm-popup", autoPanPaddingTopLeft: [20, 70], autoPanPaddingBottomRight: [20, 120] });
+      if (cfg.cluster === false) {
+        var pb = pinBitmap(e);
+        e.m = new PinMarker([e.lat, e.lon], { renderer: pinRenderer, pane: "mmPins", radius: pb.h + 2, stroke: false, fill: false, interactive: true, bubblingMouseEvents: false, pin: pb });
+        e.m.bindTooltip(function () { return entryName(e); }, { direction: "top", offset: [0, -pb.h], opacity: 0.95 });
+      } else e.m = L.marker([e.lat, e.lon], { icon: iconFor(e), title: e.n, riseOnHover: true });
+      e.m.bindPopup(function () { return popupHTML(e); }, { maxWidth: 340, minWidth: 230, className: "mm-popup", autoPanPaddingTopLeft: [20, 70], autoPanPaddingBottomRight: [20, 120], offset: cfg.cluster === false ? [0, -(e.m.options.pin.h - 6)] : [0, 7] });
+      if (cfg.cluster === false) { e.m.off("click", e.m._openPopup, e.m); e.m.on("click", function () { e.m.openPopup(e.m.getLatLng()); }); }
       e.m.on("popupopen", function () { openEntry = e; }); e.m.on("popupclose", function () { if (openEntry === e) openEntry = null; });
     });
 
@@ -297,13 +347,13 @@
     function highlight(list, origin) {
       hl.clearLayers(); if (youMarker) { map.removeLayer(youMarker); youMarker = null; }
       var pts = [];
-      list.forEach(function (e, i) { L.marker([e.lat, e.lon], { icon: L.divIcon({ className: "", html: '<div class="mm-hl">' + (i + 1) + "</div>", iconSize: [30, 30], iconAnchor: [15, 15] }), zIndexOffset: 20000000 }).on("click", function () { reveal(e, 16); }).addTo(hl); pts.push([e.lat, e.lon]); });
-      if (origin) { youMarker = L.marker(origin, { icon: L.divIcon({ className: "", html: '<div class="mm-you"></div>', iconSize: [18, 18], iconAnchor: [9, 9] }), zIndexOffset: 15000000, interactive: false }).addTo(map); pts.push(origin); }
+      list.forEach(function (e, i) { L.marker([e.lat, e.lon], { icon: L.divIcon({ className: "", html: '<div class="mm-hl">' + (i + 1) + "</div>", iconSize: [30, 30], iconAnchor: [15, 15] }), zIndexOffset: 2000 }).on("click", function () { reveal(e, 16); }).addTo(hl); pts.push([e.lat, e.lon]); });
+      if (origin) { youMarker = L.marker(origin, { icon: L.divIcon({ className: "", html: '<div class="mm-you"></div>', iconSize: [18, 18], iconAnchor: [9, 9] }), zIndexOffset: 1500, interactive: false }).addTo(map); pts.push(origin); }
       if (pts.length) map.flyToBounds(L.latLngBounds(pts).pad(0.25), { maxZoom: 15, duration: 1.1 });
     }
     function showYou(lat, lon) {
       hl.clearLayers(); if (youMarker) { map.removeLayer(youMarker); youMarker = null; } map.closePopup();
-      youMarker = L.marker([lat, lon], { icon: L.divIcon({ className: "", html: '<div class="mm-you"></div>', iconSize: [18, 18], iconAnchor: [9, 9] }), zIndexOffset: 15000000, interactive: false }).addTo(map);
+      youMarker = L.marker([lat, lon], { icon: L.divIcon({ className: "", html: '<div class="mm-you"></div>', iconSize: [18, 18], iconAnchor: [9, 9] }), zIndexOffset: 1500, interactive: false }).addTo(map);
       map.flyTo([lat, lon], 13, { duration: 1.1 });
     }
     function nearestTo(lat, lon, label) {
