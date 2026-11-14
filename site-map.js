@@ -9,7 +9,7 @@
  */
 (function () {
   "use strict";
-  var T = {"dio":[["thiruvananthapuram","#817713","Thiruvananthapuram","തിരുവനന്തപുരം",1],["kollam","#757575","Kollam","കൊല്ലം",1],["kottarakkara-punalur","#ff5252","Kottarakkara–Punalur","കൊട്ടാരക്കര-പുനലൂർ",1],["adoor-kadampanad","#1a237e","Adoor–Kadampanad","അടൂർ-കടമ്പനാട്",1],["thumpamon","#9c27b0","Thumpamon","തുമ്പമൺ",1],["mavelikara","#e65100","Mavelikara","മാവേലിക്കര",1],["chengannur","#afb42b","Chengannur","ചെങ്ങന്നൂർ",1],["niranam","#000000","Niranam","നിരണം",1],["nilackal","#fbc02d","Nilackal","നിലയ്ക്കൽ",1],["kottayam","#0288d1","Kottayam","കോട്ടയം",1],["kottayam-central","#880e4f","Kottayam Central","കോട്ടയം-സെൻട്രൽ",1],["idukki","#795548","Idukki","ഇടുക്കി",1],["kandanad-east","#673ab7","Kandanad East","കണ്ടനാട്-ഈസ്റ്റ്",1],["kandanad-west","#ffea00","Kandanad West","കണ്ടനാട്-വെസ്റ്റ്",1],["angamaly","#f57c00","Angamaly","അങ്കമാലി",1],["kochi","#558b2f","Kochi","കൊച്ചി",1],["thrissur","#424242","Thrissur","തൃശ്ശൂർ",1],["kunnamkulam","#a52714","Kunnamkulam","കുന്നംകുളം",1],["malabar","#4e342e","Malabar","മലബാർ",1],["sulthan-bathery","#006064","Sulthan Bathery","സുൽത്താൻ ബത്തേരി",1],["brahmavar","#3949ab","Brahmavar","ബ്രഹ്മവാർ",1],["madras","#7cb342","Madras","ചെന്നൈ",1],["bangalore","#f9a825","Bangalore","ബാംഗ്ലൂർ",1],["bombay","#817713","Bombay","മുംബൈ",1],["calcutta","#a52714","Calcutta","കൽക്കട്ട",1],["delhi","#558b2f","Delhi","ഡൽഹി",1],["ahmedabad","#880e4f","Ahmedabad","അഹമ്മദാബാദ്",1],["asia-pacific","#3949ab","Asia–Pacific","ഏഷ്യ-പസഫിക്",1],["northeast-america","#9c27b0","Northeast America","നോർത്ത്-ഈസ്റ്റ് അമേരിക്ക",1],["southwest-america","#f57c00","Southwest America","സൗത്ത്-വെസ്റ്റ് അമേരിക്ക",1],["canada","#0288d1","Canada","കാനഡ",1],["uk-europe-africa","#0f9d58","UK–Europe–Africa","യു.കെ-യൂറോപ്പ്",1],["knanaya","#bdbdbd","Knanaya","ക്നാനായ",1],["evangelistic-association-of-the-east","#c2185b","Evangelistic Assoc. of the East","പൗരസ്ത്യ സുവിശേഷ സമാജം",1],["proprietary-churches","#673ab7","Proprietary Churches","കുടുംബപള്ളികൾ",1]],"leg":{"b":["Episcopal palace","അരമന"],"m":["Monastery or convent","ദയറാ അല്ലെങ്കിൽ കന്യാസ്ത്രീ മഠം"],"a":["Archcathedral","വലിയ ഭദ്രാസനപള്ളി"],"s":["Cathedral","ഭദ്രാസനപള്ളി"],"z":["Church in a secret location (Saudi Arabia)","രഹസ്യ സ്ഥാനത്തുള്ള പള്ളി (സൗദി അറേബ്യ)"],"p":["Church, congregation, community, Catholicate centre, retreat centre, or chapel","പള്ളി, കോൺഗ്രിഗേഷൻ, കമ്യൂണിറ്റി, കാതോലിക്കേറ്റ് കേന്ദ്രം, ധ്യാന കേന്ദ്രം, അല്ലെങ്കിൽ ചാപ്പൽ"],"x":["Dormant or closed church","പ്രവർത്തനരഹിതമോ അടച്ചുപൂട്ടിയതോ ആയ പള്ളി"],"c":["Schismatic-occupied church","വിഘടിത വിഭാഗം കൈവശം വച്ചിരിക്കുന്ന പള്ളി"],"h":["Church of undetermined specific location","കൃത്യമായ സ്ഥാനം നിർണ്ണയിക്കപ്പെടാത്ത പള്ളി"],"e":["Seminary or educational centre","സെമിനാരി അല്ലെങ്കിൽ വിദ്യാഭ്യാസ കേന്ദ്രം"],"o":["Online prayer group","ഓൺലൈൻ പ്രാർത്ഥനാ കൂട്ടം"]}};           // dio: [slug, colour, en, ml, hasPage]  leg: symbol labels
+  var T = {"dio":[["thiruvananthapuram","#817713","Thiruvananthapuram","തിരുവനന്തപുരം",1],["kollam","#757575","Kollam","കൊല്ലം",1],["kottarakkara-punalur","#ff5252","Kottarakkara–Punalur","കൊട്ടാരക്കര-പുനലൂർ",1],["adoor-kadampanad","#1a237e","Adoor–Kadampanad","അടൂർ-കടമ്പനാട്",1],["thumpamon","#9c27b0","Thumpamon","തുമ്പമൺ",1],["mavelikara","#e65100","Mavelikara","മാവേലിക്കര",1],["chengannur","#afb42b","Chengannur","ചെങ്ങന്നൂർ",1],["niranam","#000000","Niranam","നിരണം",1],["nilackal","#fbc02d","Nilackal","നിലയ്ക്കൽ",1],["kottayam","#0288d1","Kottayam","കോട്ടയം",1],["kottayam-central","#880e4f","Kottayam Central","കോട്ടയം-സെൻട്രൽ",1],["idukki","#795548","Idukki","ഇടുക്കി",1],["kandanad-east","#673ab7","Kandanad East","കണ്ടനാട്-ഈസ്റ്റ്",1],["kandanad-west","#ffea00","Kandanad West","കണ്ടനാട്-വെസ്റ്റ്",1],["angamaly","#f57c00","Angamaly","അങ്കമാലി",1],["kochi","#558b2f","Kochi","കൊച്ചി",1],["thrissur","#424242","Thrissur","തൃശ്ശൂർ",1],["kunnamkulam","#a52714","Kunnamkulam","കുന്നംകുളം",1],["malabar","#4e342e","Malabar","മലബാർ",1],["sulthan-bathery","#006064","Sulthan Bathery","സുൽത്താൻ ബത്തേരി",1],["brahmavar","#3949ab","Brahmavar","ബ്രഹ്മവാർ",1],["madras","#7cb342","Madras","ചെന്നൈ",1],["bangalore","#f9a825","Bangalore","ബാംഗ്ലൂർ",1],["bombay","#817713","Bombay","മുംബൈ",1],["calcutta","#a52714","Calcutta","കൽക്കട്ട",1],["delhi","#558b2f","Delhi","ഡൽഹി",1],["ahmedabad","#880e4f","Ahmedabad","അഹമ്മദാബാദ്",1],["asia-pacific","#3949ab","Asia–Pacific","ഏഷ്യ-പസഫിക്",1],["northeast-america","#9c27b0","Northeast America","നോർത്ത്-ഈസ്റ്റ് അമേരിക്ക",1],["southwest-america","#f57c00","Southwest America","സൗത്ത്-വെസ്റ്റ് അമേരിക്ക",1],["canada","#0288d1","Canada","കാനഡ",1],["uk-europe-africa","#0f9d58","UK–Europe–Africa","യു.കെ-യൂറോപ്പ്",1],["knanaya","#bdbdbd","Knanaya","ക്നാനായ",1],["evangelistic-association-of-the-east","#c2185b","Evangelistic Assoc. of the East","പൗരസ്ത്യ സുവിശേഷ സമാജം",1],["proprietary-churches","#673ab7","Proprietary Churches","കുടുംബപള്ളികൾ",1]],"leg":{"b":["Episcopal palace","അരമന"],"m":["Monastery or convent","ദയറാ അല്ലെങ്കിൽ കന്യാസ്ത്രീ മഠം"],"a":["Archcathedral","വലിയ ഭദ്രാസനപള്ളി"],"s":["Cathedral","ഭദ്രാസനപള്ളി"],"z":["Church in a secret location (Saudi Arabia)","രഹസ്യ സ്ഥാനത്തുള്ള പള്ളി (സൗദി അറേബ്യ)"],"p":["Church, congregation, community, Catholicate centre, retreat centre, or chapel","പള്ളി, കോൺഗ്രിഗേഷൻ, കമ്യൂണിറ്റി, കാതോലിക്കേറ്റ് കേന്ദ്രം, ധ്യാന കേന്ദ്രം, അല്ലെങ്കിൽ ചാപ്പൽ"],"x":["Dormant/closed","പ്രവർത്തനരഹിതം/അടച്ചത്"],"c":["Schismatic-occupied","വിഘടിത വിഭാഗം കൈവശം"],"k":["Semi-autonomous (Knanaya)","അർധ സ്വയംഭരണം (ക്നാനായ)"],"h":["Church of undetermined specific location","കൃത്യമായ സ്ഥാനം നിർണ്ണയിക്കപ്പെടാത്ത പള്ളി"],"e":["Seminary or educational centre","സെമിനാരി അല്ലെങ്കിൽ വിദ്യാഭ്യാസ കേന്ദ്രം"],"o":["Online prayer group","ഓൺലൈൻ പ്രാർത്ഥനാ കൂട്ടം"]}};           // dio: [slug, colour, en, ml, hasPage]  leg: symbol labels
   var CDN = "https://cdnjs.cloudflare.com/ajax/libs/";
   var DIO = {}; T.dio.forEach(function (d) { DIO[d[0]] = d; });
   var ISML = function () { return document.documentElement.getAttribute("lang") === "ml"; };
@@ -35,7 +35,7 @@
     G: ["Prayer group", "പ്രാർത്ഥന യോഗം"], H: ["Wayside shrine", "കുരിശടി"], L: ["Chapel", "ചാപ്പൽ"],
     K: ["Catholicate centre", "കാതോലിക്കേറ്റ് കേന്ദ്രം"], Q: ["Qurbana centre", "പ്രാർത്ഥനാലയം"], O: ["Congregation", "കോൺഗ്രിഗേഷൻ"],
     Y: ["Community", "കമ്മ്യൂണിറ്റി"], X: ["Institution", "സ്ഥാപനം"], F: ["Church", "പള്ളി"] };
-  var STATUS = { x: ["Dormant or closed", "പ്രവർത്തനരഹിതം / അടച്ചത്"], c: ["Under schismatic occupation", "വിഘടിത വിഭാഗത്തിന്റെ കൈവശം"],
+  var STATUS = { x: ["Dormant/closed", "പ്രവർത്തനരഹിതം/അടച്ചത്"], c: ["Schismatic-occupied", "വിഘടിത വിഭാഗം കൈവശം"], k: ["Semi-autonomous (Knanaya)", "അർധ സ്വയംഭരണം (ക്നാനായ)"],
     h: ["Exact location not fixed", "കൃത്യമായ സ്ഥാനം നിർണ്ണയിച്ചിട്ടില്ല"], a: ["Archcathedral", "വലിയ ഭദ്രാസനപള്ളി"], z: ["Secret location", "രഹസ്യ സ്ഥാനം"] };
   function t(k) { return UI[k][ISML() ? 1 : 0]; }
   function two(a) { return a[ISML() ? 1 : 0]; }
@@ -70,6 +70,7 @@
     e: '<path d="M4 9.5 L12 5.5 L20 9.5 L12 13.5 Z"/><path d="M7.5 11.3 V15.3 C7.5 16.6 9.5 17.8 12 17.8 C14.5 17.8 16.5 16.6 16.5 15.3 V11.3"/><path d="M20 9.5 V14.5"/>',
     o: '<path d="M4 5.5 H20 V15 H4 Z"/><path d="M9 19 H15 M12 15 V19"/>'
   };
+  GLYPH.k = GLYPH.c; /* Knanaya keep the same triangle symbol on the map */
   var ICON_CACHE = {};
   function pinSVG(col, ic, w, glyph) {
     var h = Math.round(w * 1.31), fg = lum(col) > 0.55 ? "#1b2117" : "#ffffff";
@@ -261,7 +262,7 @@
     function popupHTML(e) {
       var dd = DIO[e.slug], dn = dioName(e.slug);
       var sub = [typeLabel(e), dn].filter(Boolean).join(" · ");
-      var flag = (e.icon === "x" || e.icon === "c" || e.icon === "h" || e.icon === "z") ? '<div class="mm-flag">' + esc(two(STATUS[e.icon])) + "</div>" : "";
+      var fk = e.g === "k" ? "k" : e.icon, flag = (fk === "x" || fk === "c" || fk === "k" || fk === "h" || fk === "z") ? '<div class="mm-flag">' + esc(two(STATUS[fk])) + "</div>" : "";
       var d = cleanDesc(e.ds), hasText = d.replace(/<[^>]+>/g, "").trim().length > 0;
       var body = d ? d : '<span class="mm-none">' + esc(t("nodesc")) + "</span>";
       var note = ISML() && hasText && !/[\u0d00-\u0d7f]/.test(d) ? '<p class="mm-note">' + esc(t("endesc")) + "</p>" : "";
@@ -283,16 +284,22 @@
 
     /* filters */
     var onDio = {}, onIcon = {}, shrinesOn = true;
-    var usedDio = {}, usedIcon = {}; entries.forEach(function (e) { usedDio[e.slug] = (usedDio[e.slug] || 0) + 1; usedIcon[e.icon] = (usedIcon[e.icon] || 0) + 1; });
-    Object.keys(usedDio).forEach(function (k) { onDio[k] = true; }); Object.keys(usedIcon).forEach(function (k) { onIcon[k] = true; });
     /* Closed and schismatic-occupied places are not held by the Church, so they start switched off.
        They appear only when ticked under Layers, or when a search or "nearest parish" result jumps to one.
-       e.g groups them by status too, so a place marked occupied but drawn with another symbol is covered as well. */
-    entries.forEach(function (e) { e.g = (e.icon === "x" || e.status === "death") ? "x" : (e.icon === "c" || e.status === "caution") ? "c" : ""; });
-    onIcon.c = false; onIcon.x = false;
+       e.g groups them by status too, so a place marked occupied but drawn with another symbol is covered as well.
+       Knanaya places (semi-autonomous, not schismatic) form their own group "k", also off at first; e.fi is the symbol
+       checkbox that governs a pin, so a Knanaya triangle follows "k" rather than the schismatic-occupied "c". */
+    entries.forEach(function (e) {
+      var occ = e.icon === "c" || e.status === "caution", kn = e.slug === "knanaya";
+      e.g = (e.icon === "x" || e.status === "death") ? "x" : (occ && kn) ? "k" : occ ? "c" : "";
+      e.fi = (kn && e.icon === "c") ? "k" : e.icon;
+    });
+    var usedDio = {}, usedIcon = {}; entries.forEach(function (e) { usedDio[e.slug] = (usedDio[e.slug] || 0) + 1; usedIcon[e.fi] = (usedIcon[e.fi] || 0) + 1; if (e.g === "k") usedIcon.k = usedIcon.k || 1; });
+    Object.keys(usedDio).forEach(function (k) { onDio[k] = true; }); Object.keys(usedIcon).forEach(function (k) { onIcon[k] = true; });
+    onIcon.c = false; onIcon.x = false; onIcon.k = false;
     var applyT = null;
     function applyFilters() { clearTimeout(applyT); applyT = setTimeout(function () { cg.clearLayers(); cg.addLayers(entries.filter(visible).map(function (e) { return e.m; })); }, 30); }
-    function visible(e) { return onDio[e.slug] !== false && onIcon[e.icon] !== false && (!e.g || onIcon[e.g] !== false) && (shrinesOn || !e.shr); }
+    function visible(e) { return onDio[e.slug] !== false && onIcon[e.fi] !== false && (!e.g || onIcon[e.g] !== false) && (shrinesOn || !e.shr); }
     cg.addLayers(entries.filter(visible).map(function (e) { return e.m; }));
 
     /* controls */
@@ -310,13 +317,14 @@
       T.dio.forEach(function (d) { if (!usedDio[d[0]]) return; h += '<label class="mm-row"><input type="checkbox" data-d="' + d[0] + '"' + (onDio[d[0]] !== false ? " checked" : "") + '><i style="background:' + d[1] + '"></i><span>' + esc(dioName(d[0])) + "</span></label>"; });
       if (cfg.symbols !== false) {
         h += "<h4>" + esc(t("symbols")) + "</h4>";
-        ["p", "b", "m", "a", "s", "z", "e", "o", "h", "c", "x"].forEach(function (k) { if (!usedIcon[k]) return; h += '<label class="mm-row"><input type="checkbox" data-i="' + k + '"' + (onIcon[k] !== false ? " checked" : "") + ">" + glyphSVG(k) + "<span>" + esc(two(T.leg[k])) + "</span></label>"; });
+        ["p", "b", "m", "a", "s", "z", "e", "o", "h", "c", "k", "x"].forEach(function (k) { if (!usedIcon[k]) return; h += '<label class="mm-row"><input type="checkbox" data-i="' + k + '"' + (onIcon[k] !== false ? " checked" : "") + ">" + glyphSVG(k) + "<span>" + esc(two(T.leg[k])) + "</span></label>"; });
         h += '<label class="mm-row"><input type="checkbox" data-shr="1"' + (shrinesOn ? " checked" : "") + '><svg viewBox="0 0 24 24" width="18" height="18"><circle cx="12" cy="12" r="4" fill="#6b7a5c"/></svg><span>' + esc(t("shrines")) + "</span></label>";
       }
       panel.innerHTML = h;
     }
     panel.addEventListener("change", function (ev) {
-      var i = ev.target; if (i.hasAttribute("data-d")) onDio[i.getAttribute("data-d")] = i.checked; else if (i.hasAttribute("data-i")) onIcon[i.getAttribute("data-i")] = i.checked; else if (i.hasAttribute("data-shr")) shrinesOn = i.checked;
+      var i = ev.target; if (i.hasAttribute("data-d")) { onDio[i.getAttribute("data-d")] = i.checked;
+        if (i.getAttribute("data-d") === "knanaya" && usedIcon.k) { onIcon.k = i.checked; var kb = panel.querySelector('[data-i="k"]'); if (kb) kb.checked = i.checked; } } else if (i.hasAttribute("data-i")) onIcon[i.getAttribute("data-i")] = i.checked; else if (i.hasAttribute("data-shr")) shrinesOn = i.checked;
       applyFilters();
     });
     panel.addEventListener("click", function (ev) {
@@ -335,7 +343,7 @@
     function reveal(e, zoom, cb) {
       map.closePopup();
       var go = function () { e.m.openPopup(); cb && cb(); };
-      if (!visible(e)) { onDio[e.slug] = true; onIcon[e.icon] = true; if (e.g) onIcon[e.g] = true; if (e.shr) shrinesOn = true; renderPanel(); cg.clearLayers(); cg.addLayers(entries.filter(visible).map(function (x) { return x.m; })); }
+      if (!visible(e)) { onDio[e.slug] = true; onIcon[e.fi] = true; if (e.g) onIcon[e.g] = true; if (e.shr) shrinesOn = true; renderPanel(); cg.clearLayers(); cg.addLayers(entries.filter(visible).map(function (x) { return x.m; })); }
       map.flyTo([e.lat, e.lon], Math.max(map.getZoom(), zoom || 15), { duration: 1.1 });
       map.once("moveend", function () { cg.zoomToShowLayer(e.m, go); });
     }
