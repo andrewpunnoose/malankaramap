@@ -47,11 +47,11 @@
   /* ---------- loading ---------- */
   function loadCSS(h) { return new Promise(function (ok) { var l = document.createElement("link"); l.rel = "stylesheet"; l.href = h; l.onload = l.onerror = ok; document.head.appendChild(l); }); }
   function loadJS(s) { return new Promise(function (ok, no) { var e = document.createElement("script"); e.src = s; e.onload = ok; e.onerror = no; document.head.appendChild(e); }); }
-  function ensureLib() {
+  function ensureLib(cfg) {
     var p = Promise.resolve();
     if (!window.L) p = p.then(function () { return Promise.all([loadCSS(CDN + "leaflet/1.9.4/leaflet.min.css"), loadJS(CDN + "leaflet/1.9.4/leaflet.min.js")]); });
     return p.then(function () {
-      if (window.L.markerClusterGroup) return;
+      if ((cfg && cfg.cluster === false) || window.L.markerClusterGroup) return;
       return Promise.all([loadCSS(CDN + "leaflet.markercluster/1.5.3/MarkerCluster.min.css"), loadJS(CDN + "leaflet.markercluster/1.5.3/leaflet.markercluster.min.js")]);
     });
   }
@@ -154,7 +154,7 @@
     var loader = cfg.loader ? document.querySelector(cfg.loader) : null;
     function hideLoader() { if (!loader) return; loader.style.opacity = "0"; setTimeout(function () { loader.style.display = "none"; }, 700); }
     var req = [fetch(cfg.data).then(function (r) { return r.json(); }), cfg.extra ? fetch(cfg.extra).then(function (r) { return r.ok ? r.json() : {}; }).catch(function () { return {}; }) : Promise.resolve({})];
-    return Promise.all([ensureLib(), Promise.all(req)]).then(function (res) { return start(root, cfg, res[1][0], res[1][1], hideLoader); })
+    return Promise.all([ensureLib(cfg), Promise.all(req)]).then(function (res) { return start(root, cfg, res[1][0], res[1][1], hideLoader); })
       .catch(function () { hideLoader(); root.innerHTML = '<p style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;text-align:center;padding:24px;opacity:.7">' + esc(t("loading")) + "</p>"; });
   }
 
@@ -193,9 +193,23 @@
     }
 
     /* cluster + markers */
-    var cg = L.markerClusterGroup({ chunkedLoading: true, showCoverageOnHover: false, maxClusterRadius: 40, spiderfyOnMaxZoom: true, disableClusteringAtZoom: 16,
-      iconCreateFunction: function (c) { var n = c.getChildCount(), s = n < 20 ? 36 : n < 150 ? 44 : 54; return L.divIcon({ html: '<div class="mm-cl" style="width:' + s + "px;height:" + s + 'px">' + n + "</div>", className: "", iconSize: [s, s] }); } });
-    map.addLayer(cg);
+    var cg;
+    if (cfg.cluster === false) {
+      /* No clustering: every place is its own pin. Pins are stacked north to south, so a pin
+         further south always sits on top of the pins to its north (see pinZ below). */
+      var pinLayer = L.layerGroup().addTo(map);
+      cg = {
+        clearLayers: function () { pinLayer.clearLayers(); },
+        addLayers: function (ms) { ms.forEach(function (m) { pinLayer.addLayer(m); }); },
+        zoomToShowLayer: function (m, cb) { cb && cb(); }
+      };
+    } else {
+      cg = L.markerClusterGroup({ chunkedLoading: true, showCoverageOnHover: false, maxClusterRadius: 40, spiderfyOnMaxZoom: true, disableClusteringAtZoom: 16,
+        iconCreateFunction: function (c) { var n = c.getChildCount(), s = n < 20 ? 36 : n < 150 ? 44 : 54; return L.divIcon({ html: '<div class="mm-cl" style="width:' + s + "px;height:" + s + 'px">' + n + "</div>", className: "", iconSize: [s, s] }); } });
+      map.addLayer(cg);
+    }
+    /* stacking order for unclustered pins: the further south, the higher the pin (and the further north, the lower) */
+    function pinZ(lat) { return Math.round((90 - lat) * 10000); }
     var openEntry = null;
     function typeLabel(e) { return e.icon === "a" ? two(STATUS.a) : (TYPE[e.t] ? two(TYPE[e.t]) : ""); }
     function entryName(e) { return ISML() && e.ml ? e.ml : e.n; }
@@ -212,7 +226,7 @@
         '<div class="mm-body">' + body + note + '</div><div class="mm-pf">' + acts + "</div>";
     }
     entries.forEach(function (e) {
-      e.m = L.marker([e.lat, e.lon], { icon: iconFor(e), title: e.n, riseOnHover: true });
+      e.m = L.marker([e.lat, e.lon], cfg.cluster === false ? { icon: iconFor(e), title: e.n, riseOnHover: true, riseOffset: 3000000, zIndexOffset: pinZ(e.lat) } : { icon: iconFor(e), title: e.n, riseOnHover: true });
       e.m.bindPopup(function () { return popupHTML(e); }, { maxWidth: 340, minWidth: 230, className: "mm-popup", autoPanPaddingTopLeft: [20, 70], autoPanPaddingBottomRight: [20, 120] });
       e.m.on("popupopen", function () { openEntry = e; }); e.m.on("popupclose", function () { if (openEntry === e) openEntry = null; });
     });
@@ -283,13 +297,13 @@
     function highlight(list, origin) {
       hl.clearLayers(); if (youMarker) { map.removeLayer(youMarker); youMarker = null; }
       var pts = [];
-      list.forEach(function (e, i) { L.marker([e.lat, e.lon], { icon: L.divIcon({ className: "", html: '<div class="mm-hl">' + (i + 1) + "</div>", iconSize: [30, 30], iconAnchor: [15, 15] }), zIndexOffset: 2000 }).on("click", function () { reveal(e, 16); }).addTo(hl); pts.push([e.lat, e.lon]); });
-      if (origin) { youMarker = L.marker(origin, { icon: L.divIcon({ className: "", html: '<div class="mm-you"></div>', iconSize: [18, 18], iconAnchor: [9, 9] }), zIndexOffset: 1500, interactive: false }).addTo(map); pts.push(origin); }
+      list.forEach(function (e, i) { L.marker([e.lat, e.lon], { icon: L.divIcon({ className: "", html: '<div class="mm-hl">' + (i + 1) + "</div>", iconSize: [30, 30], iconAnchor: [15, 15] }), zIndexOffset: 20000000 }).on("click", function () { reveal(e, 16); }).addTo(hl); pts.push([e.lat, e.lon]); });
+      if (origin) { youMarker = L.marker(origin, { icon: L.divIcon({ className: "", html: '<div class="mm-you"></div>', iconSize: [18, 18], iconAnchor: [9, 9] }), zIndexOffset: 15000000, interactive: false }).addTo(map); pts.push(origin); }
       if (pts.length) map.flyToBounds(L.latLngBounds(pts).pad(0.25), { maxZoom: 15, duration: 1.1 });
     }
     function showYou(lat, lon) {
       hl.clearLayers(); if (youMarker) { map.removeLayer(youMarker); youMarker = null; } map.closePopup();
-      youMarker = L.marker([lat, lon], { icon: L.divIcon({ className: "", html: '<div class="mm-you"></div>', iconSize: [18, 18], iconAnchor: [9, 9] }), zIndexOffset: 1500, interactive: false }).addTo(map);
+      youMarker = L.marker([lat, lon], { icon: L.divIcon({ className: "", html: '<div class="mm-you"></div>', iconSize: [18, 18], iconAnchor: [9, 9] }), zIndexOffset: 15000000, interactive: false }).addTo(map);
       map.flyTo([lat, lon], 13, { duration: 1.1 });
     }
     function nearestTo(lat, lon, label) {
