@@ -203,7 +203,7 @@
     var entries = [];
     data.forEach(function (p, i) {
       var x = extra[p.n] || [], slug = slugOf(p.d), dd = DIO[slug];
-      var icon = x[0] || (p.status === "caution" ? "c" : p.status === "death" ? "x" : "p");
+      var icon = x[0] || (p.status === "caution" || p.status === "semi" ? "c" : p.status === "death" ? "x" : "p");
       entries.push({ i: i, n: p.n, ml: x[1] || "", t: x[2] || "", icon: icon, slug: slug, col: dd ? dd[1] : "#4a5d3d", ds: p.ds || "", lat: p.lat, lon: p.lon, status: p.status || "",
         shr: x[2] === "H" && icon === "p", k: norm(p.n), kml: x[1] || "" });
     });
@@ -290,7 +290,7 @@
        Knanaya places (semi-autonomous, not schismatic) form their own group "k", also off at first; e.fi is the symbol
        checkbox that governs a pin, so a Knanaya triangle follows "k" rather than the schismatic-occupied "c". */
     entries.forEach(function (e) {
-      var occ = e.icon === "c" || e.status === "caution", kn = e.slug === "knanaya";
+      var occ = e.icon === "c" || e.status === "caution" || e.status === "semi", kn = e.slug === "knanaya" || e.status === "semi";
       e.g = (e.icon === "x" || e.status === "death") ? "x" : (occ && kn) ? "k" : occ ? "c" : "";
       e.fi = (kn && e.icon === "c") ? "k" : e.icon;
     });

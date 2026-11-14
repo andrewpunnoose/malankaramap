@@ -101,7 +101,7 @@ def main():
             k = min(cands, key=lambda k: abs(k[1] - p["lat"]) + abs(k[2] - p["lon"]))
             icon = k[3]; from_kmz += 1
         if icon is None:
-            icon = {"caution": "c", "death": "x"}.get(p.get("status")) or TYPE_ICON.get(code) or "p"
+            icon = {"caution": "c", "semi": "c", "death": "x"}.get(p.get("status")) or TYPE_ICON.get(code) or "p"
             if re.search(r"archcathedral", n, re.I): icon = "a"
         out[n] = [icon, ml, code]
     json.dump(out, open("map-extra.json", "w", encoding="utf-8"), ensure_ascii=False, separators=(",", ":"))
