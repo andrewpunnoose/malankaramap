@@ -6701,6 +6701,7 @@ html[lang="ml"] .mapsearch__go{letter-spacing:normal;text-transform:none}
 .tdc-list li::before{content:"";position:absolute;left:0;top:.2rem;bottom:.2rem;width:3px;border-radius:3px;background:var(--c)}
 .tdc-cat{display:block;font-size:10px;letter-spacing:.1em;text-transform:uppercase;font-weight:600;color:var(--t-muted)}
 .tdc-t{display:block;font-family:Marcellus,Georgia,serif;font-size:1rem;line-height:1.4;color:var(--t-ink)}
+.tdc-s{display:block;margin-top:.2rem;font-size:12.5px;line-height:1.5;font-style:italic;color:var(--t-muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .tdc-none{margin:0;font-size:13.5px;line-height:1.65;color:var(--t-body)}
 .tdc-more{display:inline-block;margin-top:.7rem;font-size:12.5px;font-weight:600;color:var(--t-sage);text-decoration:none}
 .tdc-side{padding:1.5rem 1.6rem;border-left:1px solid var(--t-line);background:var(--t-soft);min-width:0}
@@ -6740,7 +6741,8 @@ html[lang="ml"] .tdc .tdc-up a{grid-template-columns:5.6rem minmax(0,1fr)}
   var W={en:['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'],ml:['ഞായർ','തിങ്കൾ','ചൊവ്വ','ബുധൻ','വ്യാഴം','വെള്ളി','ശനി']};
   var C={liturgical_year:'#6B8259',feasts_saints:'#BA9450',fathers:'#A0674D',church_life:'#4F7F8C',national:'#8A93A3'};
   var T={eyebrow:['Today in the Church','ഇന്ന് സഭയിൽ'],head:['Observed <em>today</em>','ഇന്ന് <em>ആചരിക്കുന്നവ</em>'],none:['No feasts or commemorations are listed for today.','ഇന്നത്തേക്ക് പെരുന്നാളുകളോ ഓർമ്മകളോ പട്ടികയിലില്ല.'],more:['more','കൂടി'],all:['See all of today →','ഇന്നത്തെ എല്ലാം കാണുക →'],up:['Coming up','വരുന്നവ'],open:['The Liturgical Year →','ആരാധനാ വർഷം →'],ended:['The {y} calendar has ended. Browse it any time.','{y}-ലെ പഞ്ചാംഗം അവസാനിച്ചു. എപ്പോൾ വേണമെങ്കിലും കാണാം.'],start:['The 2026 calendar begins on 1 January.','2026-ലെ പഞ്ചാംഗം ജനുവരി 1-ന് ആരംഭിക്കുന്നു.']};
-  var D=null,L=null;
+  var D=null,L=null,SYN={x:[],m:{},ml:null};
+  function teaser(it){var i=SYN.m[it.id];if(i==null)return '';var l=lg(),ml=l==='ml'&&SYN.ml&&SYN.ml[i],s=(ml||SYN.x[i]||'').replace(/\*/g,'');return s?'<span class="tdc-s" lang="'+(ml?'ml':'en')+'">'+esc(s)+'</span>':'';}
   function lg(){return document.documentElement.getAttribute('lang')==='ml'?'ml':'en';}
   function t(k){return T[k][lg()==='ml'?1:0];}
   function esc(s){return String(s==null?'':s).replace(/[&<>"']/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c];});}
@@ -6761,7 +6763,7 @@ html[lang="ml"] .tdc .tdc-up a{grid-template-columns:5.6rem minmax(0,1fr)}
     } else {
       var its=D.by[ref]||[], list='';
       its.slice(0,4).forEach(function(it){
-        list+='<li style="--c:'+C[it.group]+'"><span class="tdc-cat">'+esc(D.cat[it.category][l])+'</span><span class="tdc-t">'+esc(tidy(it['title_'+l]||it.title_en))+'</span></li>';
+        list+='<li style="--c:'+C[it.group]+'"><span class="tdc-cat">'+esc(D.cat[it.category][l])+'</span><span class="tdc-t">'+esc(tidy(it['title_'+l]||it.title_en))+'</span>'+teaser(it)+'</li>';
       });
       main='<h3 class="tdc-h" id="tdcTitle">'+t('head')+'</h3>'+(its.length?'<ul class="tdc-list">'+list+'</ul>':'<p class="tdc-none">'+esc(t('none'))+'</p>');
       if(its.length>4) main+='<a class="tdc-more" href="calendar#'+ref+'">+'+(its.length-4)+' '+esc(t('more'))+' →</a>';
@@ -6774,7 +6776,9 @@ html[lang="ml"] .tdc .tdc-up a{grid-template-columns:5.6rem minmax(0,1fr)}
     document.getElementById('tdcSide').innerHTML=side;
     card.hidden=false;
   }
-  Promise.all(['calendar-2026.json?v=2','calendar-2027.json?v=2'].map(function(u){return fetch(u).then(function(r){if(!r.ok)throw 0;return r.json();});})).then(function(list){
+  var synP=fetch('calendar-synaxarium.json?v=1').then(function(r){return r.ok?r.json():null;}).catch(function(){return null;});
+  Promise.all(['calendar-2026.json?v=3','calendar-2027.json?v=3'].map(function(u){return fetch(u).then(function(r){if(!r.ok)throw 0;return r.json();});}).concat([synP])).then(function(list){
+    var sx=list.pop();if(sx&&sx.entries){SYN.x=sx.entries;SYN.m=sx.map||{};SYN.ml=sx.entries_ml||null;}
     var d=list[0],gi={},ci={},cat={},by={};
     d.taxonomy.groups.forEach(function(g,i){gi[g.code]=i;});
     d.taxonomy.categories.forEach(function(c,i){ci[c.code]=i;cat[c.code]=c;});
