@@ -679,7 +679,6 @@ html[lang="ml"] .cal-seas-h,html[lang="ml"] .cal-sc h3{font-family:Marcellus,"No
     h += synBlock(it, !compact && open);
     h += badges(it);
     if (!compact && it.mv === 'e' && it.eo != null) h += '<p class="cal-rule">' + esc(t('rule')) + ': ' + esc(ruleText(it.eo)) + '</p>';
-    if (!compact) h += '<p class="cal-src">' + esc(isProj(+it.date.slice(0, 4)) ? t('projsrc') : t('src')) + ': ' + esc(srcLabel(it)) + '</p>';
     return h + '</article>';
   }
 
