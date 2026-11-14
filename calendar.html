@@ -222,6 +222,27 @@ html[lang="ml"] .cal-empty h3{font-family:Marcellus,"Noto Serif Malayalam",serif
 .cal-empty .cal-skip{justify-content:center}
 .cal-skip button svg,.cal-linkbtn svg{width:14px;height:14px;flex:none}
 
+/* ---------- synaxarium reading (the story behind each observance) ---------- */
+.cal-syn{margin:.85rem 0 0;padding-top:.7rem;border-top:1px solid var(--line-soft)}
+.cal-syn>summary{list-style:none;display:flex;align-items:center;gap:.5rem;cursor:pointer;user-select:none;font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;font-weight:600;color:var(--taupe);transition:color .2s}
+.cal-syn>summary::-webkit-details-marker{display:none}
+.cal-syn>summary:hover{color:var(--ink)}
+.cal-syn>summary:focus-visible{outline:2px solid var(--gold);outline-offset:3px;border-radius:4px}
+.cal-syn>summary svg{width:14px;height:14px;flex:none;color:var(--gold)}
+.cal-syn>summary::after{content:"";margin-left:auto;width:6px;height:6px;border-right:1.5px solid currentColor;border-bottom:1.5px solid currentColor;transform:rotate(45deg) translateY(-2px);opacity:.7;transition:transform .2s}
+.cal-syn[open]>summary::after{transform:rotate(-135deg) translate(-1px,-1px)}
+.cal-syn-t{margin:.7rem 0 0;font-family:Marcellus,Georgia,serif;font-size:.97rem;line-height:1.8;color:var(--body);hyphens:auto;-webkit-hyphens:auto}
+.cal-syn-t em{font-style:italic}
+.cal-entry .cal-syn-t::first-letter{float:left;font-size:2.6em;line-height:.82;padding:.08em .1em 0 0;color:var(--gold)}
+.cal-syn-n{margin:.5rem 0 0;font-size:10.5px;color:var(--muted);font-style:italic}
+.cal-item .cal-syn{margin-top:.55rem;padding-top:.5rem}
+.cal-item .cal-syn-t{font-size:.93rem;max-width:46rem}
+html[lang="ml"] .cal-syn>summary{letter-spacing:normal;text-transform:none}
+html[lang="ml"] .cal-syn-t[lang="ml"]{font-family:Marcellus,"Noto Serif Malayalam",serif;line-height:1.95}
+html[lang="ml"] .cal-entry .cal-syn-t[lang="ml"]::first-letter{float:none;font-size:inherit;padding:0;color:inherit}
+.cal-hit .tt small.sn{margin-top:.25rem;font-style:italic;line-height:1.5;color:var(--body);opacity:.8}
+@media print{.cal-syn:not([open])>.cal-syn-t{display:block}}
+
 /* ---------- list view & search results ---------- */
 .cal-bar{display:flex;align-items:center;justify-content:space-between;gap:1rem;padding:1.15rem 1.4rem;border-radius:22px 22px 0 0;color:#F7F5EE;background:linear-gradient(140deg,var(--head-1) 0%,var(--head-2) 58%,var(--head-3) 100%)}
 .cal-list{background:var(--card);border:1px solid var(--line);border-top:0;border-radius:0 0 22px 22px;box-shadow:var(--shadow)}
@@ -453,6 +474,7 @@ html[lang="ml"] .cal-seas-h,html[lang="ml"] .cal-sc h3{font-family:Marcellus,"No
     s_proto:['A Malankara Proto-Synaxarium (D. P. George, unofficial)','ഒരു മലങ്കര കരടു-പഞ്ചാംഗം (ഡേവിഡ് പി. ജോർജ്, അനൗദ്യോഗികം)'],
     s_both:['Official Calendar and Proto-Synaxarium','ഔദ്യോഗിക പഞ്ചാംഗവും കരടു-പഞ്ചാംഗവും'],
     src:['Source','സ്രോതസ്സ്'],
+    synK:['From the Synaxarium','സിനാക്സാരിയം'], synR:['Read the Synaxarium entry','സിനാക്സാരിയം വായിക്കുക'], synEn:['Currently in English only','ഇപ്പോൾ ഇംഗ്ലീഷിൽ മാത്രം'],
     clear:['Clear search','തിരച്ചിൽ മായ്ക്കുക'],
     nomatch:['No matches. Try a saint’s name, a place, or a feast.','ഫലങ്ങളൊന്നുമില്ല. ഒരു വിശുദ്ധന്റെ പേരോ സ്ഥലമോ പെരുന്നാളോ തിരയുക.']
   };
@@ -487,7 +509,8 @@ html[lang="ml"] .cal-seas-h,html[lang="ml"] .cal-sc h3{font-family:Marcellus,"No
       prev:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 6l-6 6 6 6"/></svg>',
       next:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"/></svg>',
       search:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg>',
-      pin:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s6-5.6 6-10.5a6 6 0 0 0-12 0C6 15.4 12 21 12 21z"/><circle cx="12" cy="10.5" r="2.2"/></svg>'
+      book:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 5.5A2.5 2.5 0 0 1 6.5 3H20v16H6.5A2.5 2.5 0 0 0 4 21.5z"/><path d="M4 5.5v16"/><path d="M9 8h7"/></svg>',
+    pin:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s6-5.6 6-10.5a6 6 0 0 0-12 0C6 15.4 12 21 12 21z"/><circle cx="12" cy="10.5" r="2.2"/></svg>'
     };
     return I[n] || '';
   }
@@ -567,6 +590,7 @@ html[lang="ml"] .cal-seas-h,html[lang="ml"] .cal-sc h3{font-family:Marcellus,"No
       '<div class="cal-sgrid">' + cards + '</div></section>';
   }
 
+  var SYN = { x:[], m:{}, ml:null };
   var S = { data:null, byDate:{}, dates:[], catName:{}, groupName:{}, cy:{}, years:{}, y:2026, m:0, sel:null, q:'', on:{}, view:'cal' };
   GROUPS.forEach(function(g){ S.on[g] = true; });
 
@@ -633,7 +657,17 @@ html[lang="ml"] .cal-seas-h,html[lang="ml"] .cal-sc h3{font-family:Marcellus,"No
   function srcLabel(it){
     return it.source === 'official' ? t('s_official') : it.source === 'proto' ? t('s_proto') : t('s_both');
   }
-  function entryHTML(it, compact){
+  /* ---------- synaxarium entries (calendar-synaxarium.json) ---------- */
+  function synIdx(it){ var i = SYN.m[it.id]; return i == null ? -1 : i; }
+  function synText(it){ var i = synIdx(it); if (i < 0) return { s:'', l:'en' }; if (lang() === 'ml' && SYN.ml && SYN.ml[i]) return { s:SYN.ml[i], l:'ml' }; return { s:SYN.x[i] || '', l:'en' }; }
+  function synHTML(s){ return esc(s).replace(/\*([^*]+)\*/g, '<em>$1</em>'); }
+  function synBlock(it, open){
+    var o = synText(it); if (!o.s) return '';
+    return '<details class="cal-syn"' + (open ? ' open' : '') + '><summary>' + icon('book') + '<span>' + esc(t(open ? 'synK' : 'synR')) + '</span></summary>' +
+      '<p class="cal-syn-t" lang="' + o.l + '">' + synHTML(o.s) + '</p>' +
+      (lang() === 'ml' && o.l === 'en' ? '<p class="cal-syn-n">' + esc(t('synEn')) + '</p>' : '') + '</details>';
+  }
+  function entryHTML(it, compact, open){
     var l = lang(), cat = S.catName[it.category], notes = (it['notes_' + l] && it['notes_' + l].length ? it['notes_' + l] : it.notes_en) || [];
     var place = pick(it, 'place'), held = pick(it, 'held_by');
     var h = '<article class="' + (compact ? 'cal-item' : 'cal-entry') + '" style="--c:' + COLOR[it.group] + '">' +
@@ -642,6 +676,7 @@ html[lang="ml"] .cal-seas-h,html[lang="ml"] .cal-sc h3{font-family:Marcellus,"No
     if (place) h += '<p class="cal-place">' + icon('pin') + '<span>' + esc(place) + '</span></p>';
     if (held) h += '<p class="cal-held">' + esc(held) + '</p>';
     notes.forEach(function(n){ h += '<p class="cal-note">' + esc(n) + '</p>'; });
+    h += synBlock(it, !compact && open);
     h += badges(it);
     if (!compact && it.mv === 'e' && it.eo != null) h += '<p class="cal-rule">' + esc(t('rule')) + ': ' + esc(ruleText(it.eo)) + '</p>';
     if (!compact) h += '<p class="cal-src">' + esc(isProj(+it.date.slice(0, 4)) ? t('projsrc') : t('src')) + ': ' + esc(srcLabel(it)) + '</p>';
@@ -755,7 +790,7 @@ html[lang="ml"] .cal-seas-h,html[lang="ml"] .cal-sc h3{font-family:Marcellus,"No
       '<p class="cal-sub">' + (its.length ? esc(plural(its.length)) : esc(t('none'))) + '</p>' +
       (function(){ var si = seasonOf(dnOf(S.sel)).i; return '<p class="cal-season"><i style="background:' + SEAS[si].c + '"></i>' + esc(sname(si)) + '</p>'; })();
     if (its.length){
-      h += '<div class="cal-entries">' + its.map(function(it){ return entryHTML(it, false); }).join('') + '</div>' + nav;
+      h += '<div class="cal-entries">' + its.map(function(it){ return entryHTML(it, false, its.length <= 3); }).join('') + '</div>' + nav;
     } else {
       h += '<div class="cal-empty"><h3>' + esc(t('none')) + '</h3><p>' + esc(t('hint')) + '</p>' + nav + '</div>';
     }
@@ -792,7 +827,20 @@ html[lang="ml"] .cal-seas-h,html[lang="ml"] .cal-sc h3{font-family:Marcellus,"No
   /* ---------- search ---------- */
   function norm(s){ return String(s || '').toLowerCase(); }
   function hay(it){
-    return norm([it.title_en, it.title_ml, it.place_en, it.place_ml, it.held_by_en, it.held_by_ml].concat(it.notes_en || [], it.notes_ml || []).join(' | '));
+    var i = synIdx(it), s = i < 0 ? '' : (SYN.x[i] || '') + ' ' + (SYN.ml && SYN.ml[i] || '');
+    return norm([it.title_en, it.title_ml, it.place_en, it.place_ml, it.held_by_en, it.held_by_ml].concat(it.notes_en || [], it.notes_ml || [], s).join(' | '));
+  }
+  function snippet(it, words){
+    var o = synText(it), s = o.s; if (!s) return '';
+    var low = s.toLowerCase(), at = -1, ttl = norm(pick(it, 'title') + ' ' + (pick(it, 'place') || ''));
+    var need = words.filter(function(w){ return ttl.indexOf(w) < 0; });      // only show a snippet when the match is in the text itself
+    if (!need.length) return '';
+    for (var k = 0; k < need.length; k++){ var p = low.indexOf(need[k]); if (p >= 0){ at = p; break; } }
+    if (at < 0) return '';
+    var a = Math.max(0, at - 55), b = Math.min(s.length, at + 95);
+    if (a > 0){ var sp = s.indexOf(' ', a); if (sp >= 0 && sp < at) a = sp + 1; }
+    if (b < s.length){ var sp2 = s.lastIndexOf(' ', b); if (sp2 > at) b = sp2; }
+    return '<small class="sn" lang="' + o.l + '">' + (a > 0 ? '… ' : '') + synHTML(s.slice(a, b)) + (b < s.length ? ' …' : '') + '</small>';
   }
   function renderResults(){
     var q = norm(S.q.trim()), words = q.split(/\s+/).filter(Boolean);
@@ -812,7 +860,7 @@ html[lang="ml"] .cal-seas-h,html[lang="ml"] .cal-sc h3{font-family:Marcellus,"No
       var cat = S.catName[it.category], place = pick(it, 'place');
       h += '<button class="cal-hit" data-act="go" data-date="' + it.date + '">' +
         '<span class="dd">' + esc(fmtShort(it.date)) + '<small>' + esc(WD[lang()][dow(it.date)]) + '</small></span>' +
-        '<span class="tt">' + esc(tidy(pick(it, 'title'))) + '<small>' + esc((cat ? cat[lang()] : '') + (place ? ' · ' + place : '')) + '</small></span>' +
+        '<span class="tt">' + esc(tidy(pick(it, 'title'))) + '<small>' + esc((cat ? cat[lang()] : '') + (place ? ' · ' + place : '')) + '</small>' + snippet(it, words) + '</span>' +
         '<i style="--c:' + COLOR[it.group] + '"></i></button>';
     });
     document.getElementById('calMain').innerHTML = h + '</div>';
@@ -894,7 +942,9 @@ html[lang="ml"] .cal-seas-h,html[lang="ml"] .cal-sc h3{font-family:Marcellus,"No
   var rz; window.addEventListener('resize', function(){ clearTimeout(rz); rz = setTimeout(renderTabs, 150); });
 
   /* ---------- boot ---------- */
-  Promise.all(DATA_URLS.map(function(u){ return fetch(u).then(function(r){ if (!r.ok) throw new Error(r.status); return r.json(); }); })).then(function(list){
+  var synLoad = fetch('calendar-synaxarium.json?v=1').then(function(r){ return r.ok ? r.json() : null; }).catch(function(){ return null; });
+  Promise.all(DATA_URLS.map(function(u){ return fetch(u).then(function(r){ if (!r.ok) throw new Error(r.status); return r.json(); }); }).concat([synLoad])).then(function(list){
+    var sx = list.pop(); if (sx && sx.entries){ SYN.x = sx.entries; SYN.m = sx.map || {}; SYN.ml = sx.entries_ml || null; }
     prepare(list);
     var tdy = todayISO();
     if (!readHash()){
