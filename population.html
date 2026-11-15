@@ -1598,6 +1598,8 @@ button:focus-visible, a:focus-visible{ outline-color: rgb(var(--accent-a)); }
 .pop-hero-canvas-wrap canvas{ position:absolute; inset:0; width:100%; height:100%; opacity:.55; }
 html.dark .pop-hero-canvas-wrap canvas{ opacity:.4; }
 
+.pop-tag{max-width:17rem;margin-left:auto;margin-right:auto;text-wrap:balance}
+@media (min-width:1024px){.pop-tag{max-width:none;margin-left:0;margin-right:0;text-wrap:wrap}}
 .pop-headline-num{
   font-family:'Marcellus', Georgia, serif;
   font-size:clamp(2.75rem, 9vw, 5.5rem);
@@ -1857,7 +1859,7 @@ html.dark .chart-legend-swatch.is-dot{ border-color:rgb(247,245,238); background
       <div class="text-center lg:text-left">
         <div class="font-sans text-[10.5px] tracking-[0.18em] uppercase text-taupe font-semibold mb-4" data-en="Estimated Worldwide" data-ml="ലോകമെമ്പാടും ഏകദേശം">Estimated Worldwide</div>
         <div id="popHeroTotal" class="pop-headline-num" aria-live="off">1,582,647</div>
-        <div class="font-serif italic text-sm sm:text-base text-body/60 dark:text-ivory/50 mt-4" data-en="members of the Malankara Orthodox Syrian Church" data-ml="മലങ്കര ഓർത്തഡോക്സ് സുറിയാനി സഭാംഗങ്ങൾ">members of the Malankara Orthodox Syrian Church</div>
+        <div class="font-serif italic text-sm sm:text-base text-body/60 dark:text-ivory/50 mt-4 pop-tag" data-en="members of the Malankara Orthodox Syrian Church" data-ml="മലങ്കര ഓർത്തഡോക്സ് സുറിയാനി സഭാംഗങ്ങൾ">members of the Malankara Orthodox Syrian Church</div>
         <div class="flex flex-col sm:flex-row gap-6 sm:gap-10 mt-8 justify-center lg:justify-start" style="margin-top:3.25rem;">
           <div>
             <div id="popHeroKerala" class="font-serif text-2xl sm:text-3xl text-sage-dark dark:text-sage" aria-live="off">1,221,211</div>
