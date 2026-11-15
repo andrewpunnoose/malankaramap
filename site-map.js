@@ -422,6 +422,7 @@
       stg.setAttribute("aria-label", ISML() ? "ഭൂപടത്തിൽ തിരയുക" : "Search the map"); stg.title = ISML() ? "തിരയുക" : "Search";
       stg.innerHTML = '<svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="M20 20l-3.5-3.5"></path></svg>';
       ctl.appendChild(stg);
+      form.classList.add("has-toggle");
       var setSearch = function (open) {
         form.classList.toggle("is-open", open); stg.setAttribute("aria-expanded", String(open));
         if (open) { panel.hidden = true; layersBtn.setAttribute("aria-expanded", "false"); setTimeout(function () { input.focus(); }, 60); } else input.blur();
