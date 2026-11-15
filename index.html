@@ -6717,6 +6717,9 @@ html[lang="ml"] .mapsearch__meta{font-family:Marcellus,"Noto Serif Malayalam",se
 html[lang="ml"] .mapsearch__go{letter-spacing:normal;text-transform:none}
 @media(max-width:480px){.mapsearch__go{padding:13px 16px}}
 
+/* no +/- zoom buttons on this map (pinch, scroll and double-tap already zoom) */
+#mapWrap .leaflet-control-zoom{display:none!important}
+
 /* Search: a round magnifier button sits with the other map buttons; pressing it drops the search bar down under them */
 #mapWrap .mapsearch{position:absolute;top:62px;right:12px;left:auto;bottom:auto;transform:none;z-index:790;width:min(24rem,calc(100% - 24px));max-width:none;margin:0;flex-direction:column;align-items:flex-end;gap:8px;pointer-events:none}
 #mapWrap .mapsearch>*{pointer-events:auto}
@@ -6739,7 +6742,6 @@ html[lang="ml"] .mapsearch__go{letter-spacing:normal;text-transform:none}
 #mapWrap .mm-seg button{padding:6px 7px;font-size:11px}
 #mapWrap .mm-btn{padding:8px 9px;font-size:11px}
 #mapWrap .mm-search-toggle{width:33px;height:33px;padding:0}
-#mapWrap .leaflet-top.leaflet-left{top:50px}
 #mapWrap .mapsearch{top:54px;right:8px;width:calc(100% - 62px)}
 #mapWrap .mapsearch__input{font-size:14px}
 }
