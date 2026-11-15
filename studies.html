@@ -67,36 +67,11 @@
   width: 100%;
 }
 @media (min-width:640px){ .studies-container{ padding-left: 32px; padding-right: 32px; } }
-.studies-hero{
-  position: relative;
-  overflow: hidden;
-  border-radius: 28px;
-  padding: 32px 24px 28px;
-  background: var(--glass-fill);
-  -webkit-backdrop-filter: blur(28px) saturate(170%);
-  backdrop-filter: blur(28px) saturate(170%);
-  border: 1px solid var(--glass-border);
-  box-shadow: 0 30px 60px -30px rgba(17,24,39,.35), 0 1px 1px rgba(255,255,255,.5) inset;
-  margin-bottom: 44px;
-  box-sizing: border-box;
-}
-.dark .studies-hero{ box-shadow: 0 30px 60px -30px rgba(0,0,0,.7), 0 1px 0 rgba(255,255,255,.05) inset; }
-@media (min-width:640px){ .studies-hero{ padding: 52px 48px 40px; } }
-.studies-eyebrow{font-family:Poppins,Inter,sans-serif;font-size:10.5px;letter-spacing:.2em;text-transform:uppercase;color:#6b8259;font-weight:600;margin-bottom:16px;display:flex;align-items:center;gap:8px}
-.dark .studies-eyebrow{color:#9db98a}
-.studies-title{
-  font-family: Marcellus, Georgia, serif;
-  font-style: normal;
-  font-weight: 400;
-  font-size: 32px;
-  line-height: 1.15;
-  color: #10140d;
-  margin: 0 0 20px;
-}
+.studies-hero{ margin-bottom: 52px; }
+.studies-title{ font-family: Marcellus, Georgia, serif; font-style: normal; font-weight: 400; font-size: clamp(38px, 8.5vw, 54px); line-height: 1.08; letter-spacing: -.01em; color: #10140d; margin: 0; }
 .dark .studies-title{ color:#f7f5ee; }
-@media (min-width:640px){ .studies-title{ font-size: 48px; } }
-.studies-lede{font-family:Marcellus,Georgia,serif;font-style:italic;font-size:16px;line-height:1.75;color:rgba(46,42,36,.75);margin:0;max-width:640px}
-.dark .studies-lede{color:rgba(247,245,238,.65)}
+.studies-lede{ font-family: Marcellus, Georgia, serif; font-style: italic; font-size: 18px; line-height: 1.7; color: rgba(46,42,36,.74); margin: 18px 0 0; max-width: 38rem; text-wrap: balance; }
+.dark .studies-lede{ color: rgba(247,245,238,.64); }
 .studies-grid{display:grid;grid-template-columns:1fr;gap:16px;width:100%;box-sizing:border-box}
 @media (min-width:700px){.studies-grid{grid-template-columns:1fr 1fr}}
 .study-card{
@@ -123,9 +98,8 @@
 </style>
 <div class="studies-container">
   <div class="studies-hero">
-    <div class="studies-eyebrow"><span class="live-dot"></span><span data-en="Studies" data-ml="പഠനങ്ങൾ">Studies</span></div>
     <h1 class="studies-title" data-en="Studies" data-ml="പഠനങ്ങൾ">Studies</h1>
-    <p class="studies-lede" data-en="Articles on the history, institutions, and material culture of the Malankara Orthodox Syrian Church — a deeper layer alongside the directory, the map, and the timeline." data-ml="മലങ്കര ഓർത്തഡോക്സ് സുറിയാനി സഭയുടെ ചരിത്രം, സ്ഥാപനങ്ങൾ, ഭൗതിക സംസ്കാരം എന്നിവയെക്കുറിച്ചുള്ള ലേഖനങ്ങൾ — ഡയറക്ടറിക്കും ഭൂപടത്തിനും സമയരേഖയ്ക്കും ഒപ്പമുള്ള കൂടുതൽ ആഴമേറിയ ഒരു തലം.">Articles on the history, institutions, and material culture of the Malankara Orthodox Syrian Church — a deeper layer alongside the directory, the map, and the timeline.</p>
+    <p class="studies-lede" data-en="Articles on the history, institutions and material culture of the Malankara Orthodox Syrian Church. They go deeper than the directory, the map and the timeline." data-ml="മലങ്കര ഓർത്തഡോക്സ് സുറിയാനി സഭയുടെ ചരിത്രം, സ്ഥാപനങ്ങൾ, ഭൗതിക സംസ്കാരം എന്നിവയെക്കുറിച്ചുള്ള ലേഖനങ്ങൾ. ഡയറക്ടറിയെക്കാളും ഭൂപടത്തെക്കാളും സമയരേഖയെക്കാളും ആഴത്തിൽ ഇവ വിഷയങ്ങളിലേക്കു കടക്കുന്നു.">Articles on the history, institutions and material culture of the Malankara Orthodox Syrian Church. They go deeper than the directory, the map and the timeline.</p>
   </div>
 
   <div class="studies-grid">
