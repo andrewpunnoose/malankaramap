@@ -340,6 +340,12 @@
     /* views */
     var all = L.latLngBounds(entries.map(function (e) { return [e.lat, e.lon]; }));
     function fitAll() { map.fitBounds(all.pad(0.06), { animate: true }); }
+    /* opening view: if the page gives a "home" area (India and the Gulf on the index map) use it, else fit every pin */
+    function homeView(animate) {
+      var H = cfg.home; if (!H) { fitAll(); return; }
+      var w = root.clientWidth || 1000, h = root.clientHeight || 500, b = (w / h >= 1.4 && H.wide) ? H.wide : (H.tall || H.wide);
+      map.fitBounds(b, { animate: animate !== false });
+    }
     function reveal(e, zoom, cb) {
       map.closePopup();
       var go = function () { e.m.openPopup(); cb && cb(); };
@@ -380,7 +386,7 @@
       if (!meta) return; meta.textContent = msg;
       (buttons || []).forEach(function (b) { var x = document.createElement("button"); x.type = "button"; x.className = "mapsearch__reset"; x.textContent = b[0]; x.addEventListener("click", b[1]); meta.appendChild(x); });
     }
-    function resetView() { hl.clearLayers(); if (youMarker) { map.removeLayer(youMarker); youMarker = null; } map.closePopup(); fitAll(); setMeta(t("whole")); }
+    function resetView() { hl.clearLayers(); if (youMarker) { map.removeLayer(youMarker); youMarker = null; } map.closePopup(); homeView(); setMeta(""); }
     var matches = [], mi = 0;
     function showMatch() {
       var e = matches[mi]; reveal(e, 16);
@@ -408,6 +414,23 @@
           var m = document.getElementById("map"); if (m && m.getBoundingClientRect().top < -60) m.scrollIntoView({ behavior: "smooth", block: "start" });
         }).catch(function () { setMeta(t("err")); }).then(function () { btn.disabled = false; });
       });
+    }
+    /* search lives behind a round magnifier button with the other map buttons */
+    if (form) {
+      var stg = document.createElement("button"); stg.type = "button"; stg.className = "mm-btn mm-search-toggle";
+      stg.setAttribute("aria-expanded", "false"); stg.setAttribute("aria-controls", "mapSearchForm");
+      stg.setAttribute("aria-label", ISML() ? "ഭൂപടത്തിൽ തിരയുക" : "Search the map"); stg.title = ISML() ? "തിരയുക" : "Search";
+      stg.innerHTML = '<svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="M20 20l-3.5-3.5"></path></svg>';
+      ctl.appendChild(stg);
+      var setSearch = function (open) {
+        form.classList.toggle("is-open", open); stg.setAttribute("aria-expanded", String(open));
+        if (open) { panel.hidden = true; layersBtn.setAttribute("aria-expanded", "false"); setTimeout(function () { input.focus(); }, 60); } else input.blur();
+      };
+      stg.addEventListener("click", function () { setSearch(!form.classList.contains("is-open")); });
+      layersBtn.addEventListener("click", function () { if (!panel.hidden) setSearch(false); });
+      input.addEventListener("keydown", function (ev) { if (ev.key === "Escape") setSearch(false); });
+      form.addEventListener("submit", function () { if (input.value.trim()) setTimeout(function () { setSearch(false); }, 0); });
+      document.addEventListener("mousedown", function (ev) { if (form.classList.contains("is-open") && !form.contains(ev.target) && !stg.contains(ev.target) && !input.value.trim()) setSearch(false); });
     }
     if (cfg.nearest !== false) {
       var nbtn = document.createElement("button"); nbtn.type = "button"; nbtn.className = "mm-btn"; nearBtn = nbtn; nbtn.textContent = t("near"); ctl.insertBefore(nbtn, layersBtn);
@@ -437,7 +460,7 @@
     new MutationObserver(function () { renderUI(); }).observe(document.documentElement, { attributes: true, attributeFilter: ["lang"] });
     var lastDark = isDarkSite();
     new MutationObserver(function () { var d = isDarkSite(); if (d !== lastDark) { lastDark = d; setMode(d ? "dark" : "light", false); } }).observe(document.documentElement, { attributes: true, attributeFilter: ["class"] });
-    setMode(mode, false); renderUI(); fitAll(); setMeta(t("whole"));
+    setMode(mode, false); renderUI(); homeView(false); setMeta("");
     map.once("load", hideLoader); setTimeout(hideLoader, 1200); hideLoader();
     window.addEventListener("resize", function () { map.invalidateSize(); });
     var api = { map: map, entries: entries, focus: focusEntry, fitAll: fitAll };
