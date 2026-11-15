@@ -5986,6 +5986,74 @@ html[lang="ml"] .tracking-wider.uppercase{text-transform:none;overflow-wrap:anyw
   #hero .glass-hero-panel p,.dark #hero .glass-hero-panel p{color:rgba(255,255,255,.92)!important;text-shadow:0 1px 10px rgba(0,0,0,.35);font-size:15px!important;line-height:1.55!important;margin-left:0!important;margin-right:0!important;max-width:30rem!important}
 }
 </style>
+<style id="hero-liquid-glass">
+/* ===== Hero: clean liquid glass (tablet / desktop; phones keep the editorial hero) ===== */
+@media(min-width:640px){
+  #hero .glass-hero-panel{
+    background:
+      radial-gradient(120% 90% at 12% 0%,rgba(255,255,255,.34) 0%,rgba(255,255,255,0) 55%),
+      linear-gradient(160deg,rgba(255,255,255,.22) 0%,rgba(255,255,255,.07) 48%,rgba(255,255,255,.14) 100%)!important;
+    -webkit-backdrop-filter:blur(12px) saturate(210%) brightness(1.1) contrast(1.04)!important;
+    backdrop-filter:blur(12px) saturate(210%) brightness(1.1) contrast(1.04)!important;
+    border:0!important;
+    box-shadow:
+      0 30px 70px -28px rgba(17,24,39,.42),
+      0 8px 22px -10px rgba(17,24,39,.18),
+      inset 0 1.5px 1px rgba(255,255,255,.85),
+      inset 0 -1.5px 1px rgba(255,255,255,.28),
+      inset 0 0 36px rgba(255,255,255,.16)!important;
+  }
+  /* refractive glass rim: bright where light enters, fading around the edge */
+  #hero .glass-hero-panel::after{
+    display:block!important;
+    content:"";
+    position:absolute;inset:0;z-index:2;
+    border-radius:inherit;padding:1.25px;
+    background:linear-gradient(145deg,rgba(255,255,255,.95) 0%,rgba(255,255,255,.18) 26%,rgba(255,255,255,.06) 62%,rgba(255,255,255,.7) 100%);
+    -webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);
+    -webkit-mask-composite:xor;
+    mask:linear-gradient(#000 0 0) content-box exclude,linear-gradient(#000 0 0);
+    box-shadow:none;mix-blend-mode:normal;pointer-events:none;
+  }
+  /* soft specular sheen across the top-left of the pane */
+  #hero .glass-hero-panel::before{
+    display:block!important;
+    content:"";
+    position:absolute;inset:0;z-index:1;
+    border-radius:inherit;
+    background:linear-gradient(118deg,rgba(255,255,255,.30) 0%,rgba(255,255,255,.07) 22%,rgba(255,255,255,0) 40%);
+    opacity:1!important;mix-blend-mode:normal;pointer-events:none;
+  }
+  #hero h1{text-shadow:0 1px 18px rgba(255,255,255,.65),0 0 2px rgba(255,255,255,.35)}
+  #hero p{color:rgba(16,20,13,.94)!important;text-shadow:0 1px 12px rgba(255,255,255,.55)}
+
+  .dark #hero .glass-hero-panel{
+    background:
+      radial-gradient(120% 90% at 12% 0%,rgba(255,255,255,.14) 0%,rgba(255,255,255,0) 55%),
+      linear-gradient(160deg,rgba(17,24,39,.34) 0%,rgba(17,24,39,.14) 48%,rgba(17,24,39,.26) 100%)!important;
+    -webkit-backdrop-filter:blur(12px) saturate(170%) brightness(1.05)!important;
+    backdrop-filter:blur(12px) saturate(170%) brightness(1.05)!important;
+    border:0!important;
+    box-shadow:
+      0 34px 70px -28px rgba(0,0,0,.75),
+      inset 0 1.5px 1px rgba(255,255,255,.28),
+      inset 0 -1.5px 1px rgba(255,255,255,.08),
+      inset 0 0 36px rgba(255,255,255,.05)!important;
+  }
+  .dark #hero .glass-hero-panel::after{
+    background:linear-gradient(145deg,rgba(255,255,255,.55) 0%,rgba(255,255,255,.08) 26%,rgba(255,255,255,.03) 62%,rgba(255,255,255,.32) 100%);
+  }
+  .dark #hero .glass-hero-panel::before{
+    background:linear-gradient(118deg,rgba(255,255,255,.14) 0%,rgba(255,255,255,.03) 22%,rgba(255,255,255,0) 40%);
+  }
+  .dark #hero h1{text-shadow:0 1px 18px rgba(0,0,0,.55)}
+  .dark #hero p{color:rgba(247,245,238,.92)!important;text-shadow:0 1px 12px rgba(0,0,0,.45)}
+}
+@supports not ((backdrop-filter:blur(1px)) or (-webkit-backdrop-filter:blur(1px))){
+  #hero .glass-hero-panel{background:rgba(247,245,238,.88)!important}
+  .dark #hero .glass-hero-panel{background:rgba(17,24,39,.85)!important}
+}
+</style>
 </head>
 <body class="bg-ivory dark:bg-midnight text-body dark:text-ivory/85 font-sans transition-colors duration-300">
   <a href="#hero" class="skip-link" data-en="Skip to content" data-ml="ഉള്ളടക്കത്തിലേക്ക് പോകുക">Skip to content</a>
