@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<link rel="preload" as="image" href="hero-day.jpg" fetchpriority="high">
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <script>
@@ -5889,6 +5890,22 @@ html[lang="ml"] .tracking-wider{letter-spacing:.01em}
 html[lang="ml"] a[href^="type-"].group,html[lang="ml"] a[href^="type-"].group>span{min-width:0}
 html[lang="ml"] a[href^="type-"].group>span[data-ml]{text-transform:none;line-height:1.4;overflow-wrap:anywhere;hyphens:manual;max-width:100%}
 html[lang="ml"] .tracking-wider.uppercase{text-transform:none;overflow-wrap:anywhere;hyphens:manual;line-height:1.4}
+</style>
+<style id="hero-first-screen">
+/* First screen = the photo. The hero fills the space under the header on every screen size,
+   so the page never opens on empty cream and you don't have to scroll to see the image. */
+#hero.hero-section{
+  min-height:calc(100vh - 81px)!important;
+  min-height:calc(100svh - 81px)!important;
+  background-image:url(data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAA0JCgsKCA0LCgsODg0PEyAVExISEyccHhcgLikxMC4pLSwzOko+MzZGNywtQFdBRkxOUlNSMj5aYVpQYEpRUk//2wBDAQ4ODhMREyYVFSZPNS01T09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT0//wAARCAAWACgDASIAAhEBAxEB/8QAGQAAAwEBAQAAAAAAAAAAAAAAAAMEAQUG/8QAIxAAAgICAQQCAwAAAAAAAAAAAQIDEQAEEhMhMUEFIhRRcf/EABcBAQEBAQAAAAAAAAAAAAAAAAIDBAX/xAAeEQACAgICAwAAAAAAAAAAAAAAAQIRAyESMRNB4f/aAAwDAQACEQMRAD8AZoSajQrGLV1FBQKGMmeFDZlplPb91nnZZ9hJnGpE3FTRYnwcch33jLyrVnuCLzmeB92buaOxN8jK1LzYg+PtV5NLsGiW4EDyS/vIOq6SguikjtQbMSSJ4+EqsByLH3mrHjSojJlc21IrgN0wz2QL83hnP3nWeaIRqrrQWyPGGXhC19Jyqx3yEjwRvKCpXqVVe8mOzMkkQncsGam49u3kYYYI7Q5FSoIoLlPNmZqau9ZLsX0eon1HU4X7/uGGB+xx26Zu5qjVk/H5ci1FWrDDDFB2gS7P/9k=);
+  background-size:cover;background-position:center 38%;background-repeat:no-repeat;
+}
+@media(max-width:639px){
+  #hero.hero-section{min-height:calc(100vh - 65px)!important;min-height:calc(100svh - 65px)!important}
+}
+.dark #hero.hero-section{background-image:none}
+/* the cream loading screen is what made the site open blank, so it is switched off */
+#loadVeil,.load-veil{display:none!important}
 </style>
 </head>
 <body class="bg-ivory dark:bg-midnight text-body dark:text-ivory/85 font-sans transition-colors duration-300">
