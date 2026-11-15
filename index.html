@@ -5907,6 +5907,72 @@ html[lang="ml"] .tracking-wider.uppercase{text-transform:none;overflow-wrap:anyw
 /* the cream loading screen is what made the site open blank, so it is switched off */
 #loadVeil,.load-veil{display:none!important}
 </style>
+<style id="hero-mobile-glass">
+/* ===== Hero: compact on phones + real frosted glass ===== */
+
+/* 1. Phones: the hero is no longer a full-screen, zoomed-in crop. It is only as tall as the
+      box inside it, so far more of the photo is visible and it takes much less space. */
+@media(max-width:639px){
+  #hero.hero-section{
+    min-height:0!important;
+    padding:22px 16px!important;
+    justify-content:center;
+    background-position:center 30%!important;
+  }
+  #hero .hero-photo,
+  #hero .hero-photo--day,
+  #hero .hero-photo--night{
+    background-position:center 30%!important;
+  }
+  #hero .hero-photo--day{background-position:center 30%,center 30%,center 30%!important}
+  #hero .hero-photo--night{background-position:0 0,center 30%,center 30%,center 30%!important}
+  #hero .glass-hero-panel{
+    padding:1.6rem 1.25rem 1.7rem!important;
+    border-radius:22px!important;
+  }
+  #hero h1{font-size:clamp(34px,10.5vw,44px)!important;margin-bottom:.75rem!important}
+  #hero p{font-size:14.5px!important;line-height:1.55!important}
+}
+
+/* 2. The old "blur" was a second copy of the photo sized to the box, so it never lined up with
+      the photo behind it. It is switched off; the box now blurs whatever is really behind it. */
+#hero .glass-hero-panel__blur{display:none!important}
+#hero .glass-hero-panel__caustic{opacity:.28!important}
+.dark #hero .glass-hero-panel__caustic{opacity:.18!important}
+
+#hero .glass-hero-panel{
+  background:linear-gradient(145deg,rgba(255,255,255,.64) 0%,rgba(255,255,255,.42) 55%,rgba(255,255,255,.54) 100%)!important;
+  -webkit-backdrop-filter:blur(18px) saturate(160%) brightness(1.04)!important;
+  backdrop-filter:blur(18px) saturate(160%) brightness(1.04)!important;
+  border:1px solid rgba(255,255,255,.55)!important;
+  box-shadow:
+    0 24px 60px -22px rgba(17,24,39,.45),
+    0 2px 10px rgba(17,24,39,.10),
+    inset 0 1px 0 rgba(255,255,255,.85),
+    inset 0 -1px 0 rgba(255,255,255,.25)!important;
+}
+#hero .glass-hero-panel__tint{background:none!important}
+.dark #hero .glass-hero-panel{
+  background:linear-gradient(145deg,rgba(17,24,39,.60) 0%,rgba(17,24,39,.42) 55%,rgba(17,24,39,.54) 100%)!important;
+  -webkit-backdrop-filter:blur(18px) saturate(130%)!important;
+  backdrop-filter:blur(18px) saturate(130%)!important;
+  border:1px solid rgba(255,255,255,.16)!important;
+  box-shadow:
+    0 28px 60px -22px rgba(0,0,0,.7),
+    inset 0 1px 0 rgba(255,255,255,.18),
+    inset 0 -1px 0 rgba(255,255,255,.05)!important;
+}
+/* keep the text readable on the lighter glass */
+#hero h1{text-shadow:0 1px 14px rgba(255,255,255,.45)}
+#hero p{color:rgba(16,20,13,.9)!important}
+.dark #hero h1{text-shadow:0 1px 14px rgba(0,0,0,.45)}
+.dark #hero p{color:rgba(247,245,238,.86)!important}
+/* browsers without backdrop-filter get a solid, clean card instead */
+@supports not ((backdrop-filter:blur(1px)) or (-webkit-backdrop-filter:blur(1px))){
+  #hero .glass-hero-panel{background:rgba(247,245,238,.88)!important}
+  .dark #hero .glass-hero-panel{background:rgba(17,24,39,.85)!important}
+}
+</style>
 </head>
 <body class="bg-ivory dark:bg-midnight text-body dark:text-ivory/85 font-sans transition-colors duration-300">
   <a href="#hero" class="skip-link" data-en="Skip to content" data-ml="ഉള്ളടക്കത്തിലേക്ക് പോകുക">Skip to content</a>
