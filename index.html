@@ -5972,6 +5972,19 @@ html[lang="ml"] .tracking-wider.uppercase{text-transform:none;overflow-wrap:anyw
   #hero .glass-hero-panel{background:rgba(247,245,238,.88)!important}
   .dark #hero .glass-hero-panel{background:rgba(17,24,39,.85)!important}
 }
+
+/* ===== Phones: clean editorial hero — full photo, dark fade, plain text (no glass box, no gold blotches) ===== */
+#hero .glass-hero-panel__caustic{display:none!important}
+@media(max-width:639px){
+  #hero.hero-section{min-height:380px!important;padding:0 22px 30px!important;justify-content:flex-end;text-align:left!important}
+  #hero .hero-scrim,.dark #hero .hero-scrim{background:linear-gradient(180deg,rgba(8,12,20,.10) 0%,rgba(8,12,20,.30) 38%,rgba(8,12,20,.86) 100%)!important}
+  #hero .glass-hero-panel{background:none!important;border:0!important;box-shadow:none!important;-webkit-backdrop-filter:none!important;backdrop-filter:none!important;padding:0!important;border-radius:0!important;overflow:visible!important;margin-left:0!important;margin-right:0!important;max-width:none!important}
+  #hero .glass-hero-panel::before,#hero .glass-hero-panel::after{display:none!important}
+  #hero .glass-hero-panel__tint{display:none!important}
+  #hero .glass-hero-panel h1,.dark #hero .glass-hero-panel h1{color:#fff!important;text-shadow:0 2px 18px rgba(0,0,0,.35)!important;font-size:clamp(38px,11.5vw,46px)!important;margin-bottom:.7rem!important}
+  #hero .glass-hero-panel h1 em{color:#fff!important}
+  #hero .glass-hero-panel p,.dark #hero .glass-hero-panel p{color:rgba(255,255,255,.92)!important;text-shadow:0 1px 10px rgba(0,0,0,.35);font-size:15px!important;line-height:1.55!important;margin-left:0!important;margin-right:0!important;max-width:30rem!important}
+}
 </style>
 </head>
 <body class="bg-ivory dark:bg-midnight text-body dark:text-ivory/85 font-sans transition-colors duration-300">
