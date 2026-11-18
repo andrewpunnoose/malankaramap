@@ -141,6 +141,11 @@
     '.mm-hl{display:flex;align-items:center;justify-content:center;width:30px;height:30px;border-radius:50%;background:#ba9450;color:#10140d;font:700 14px Inter,system-ui,sans-serif;border:3px solid #fff;box-shadow:0 4px 14px rgba(0,0,0,.5)}' +
     '.mm-you{width:18px;height:18px;border-radius:50%;background:#2563eb;border:3px solid #fff;box-shadow:0 0 0 8px rgba(37,99,235,.28)}' +
     '.mm-ctl{position:absolute;top:12px;right:12px;z-index:800;display:flex;gap:8px;align-items:flex-start;pointer-events:none}.mm-ctl>*{pointer-events:auto}' +
+    '@media(max-width:560px){.mm-ctl{left:52px;right:8px;flex-wrap:wrap;justify-content:flex-end;gap:6px}.mm-seg button,.mm-btn{padding:6px 9px;font-size:11px}.mm-btn{padding:7px 10px}}' +
+    'html[lang=ml] .mm-seg button,html[lang=ml] .mm-btn{font-size:11px;padding:6px 8px;font-family:"Noto Sans Malayalam",Inter,system-ui,sans-serif}' +
+    '.mm-lbl{white-space:nowrap;transform:translate(-50%,-50%);font:500 11px/1 "Noto Sans Malayalam",Inter,system-ui,sans-serif;color:#4b5563;text-shadow:0 0 3px #f7f5ee,0 0 3px #f7f5ee,0 0 2px #f7f5ee;pointer-events:none}' +
+    '.mm-lbl.mm-kc{font-weight:700;font-size:11.5px;color:#6b7280}.mm-lbl.mm-ks{font-weight:600;font-size:12px;color:#6b7280}.mm-lbl.mm-kt{font-weight:600;color:#374151}' +
+    '.dark .mm-lbl{color:#cbd5e1;text-shadow:0 0 3px #111827,0 0 3px #111827}.dark .mm-lbl.mm-kc,.dark .mm-lbl.mm-ks{color:#9ca3af}.mm[data-mode=sat] .mm-lbl{color:#fff;text-shadow:0 0 3px #000,0 0 3px #000}' +
     '.mm-seg{display:flex;padding:3px;border-radius:999px;background:rgba(247,245,238,.9);backdrop-filter:blur(12px);box-shadow:0 6px 18px -6px rgba(16,20,13,.5);border:1px solid rgba(255,255,255,.6)}' +
     '.mm-seg button,.mm-btn{font:600 12px Inter,system-ui,sans-serif;color:#3a4333;background:transparent;border:0;border-radius:999px;padding:7px 12px;cursor:pointer;white-space:nowrap;transition:background .2s,color .2s}' +
     '.mm-seg button[aria-pressed=true]{background:#4a5d3d;color:#fff}.mm-seg button:not([aria-pressed=true]):hover{background:rgba(74,93,61,.12)}' +
@@ -210,7 +215,7 @@
 
     root.classList.add("mm");
     var map = L.map(root, { zoomControl: false, minZoom: 2, maxZoom: 19, worldCopyJump: true, zoomSnap: 0.5, attributionControl: false, preferCanvas: false });
-    L.control.zoom({ position: "topleft" }).addTo(map);
+    if (cfg.zoomControl !== false) L.control.zoom({ position: "topleft" }).addTo(map);
     map.createPane("mmLabels").style.zIndex = 250; map.getPane("mmLabels").style.pointerEvents = "none";
 
     /* base layers */
@@ -225,9 +230,33 @@
     };
     var isDarkSite = function () { return document.documentElement.classList.contains("dark"); };
     var mode = isDarkSite() ? "dark" : "light", layers = [];
+    /* Malayalam place labels: in Malayalam the English Esri reference labels are dropped and these are drawn instead */
+    var lblGroup = L.layerGroup(), lblData = null, lblLoading = false, lblT = null;
+    function drawLabels() {
+      lblGroup.clearLayers();
+      if (!ISML()) { if (map.hasLayer(lblGroup)) map.removeLayer(lblGroup); return; }
+      if (!lblData) {
+        if (!lblLoading) { lblLoading = true; fetch("map-labels.json?v=1").then(function (r) { return r.json(); }).then(function (d) { lblData = d; drawLabels(); }).catch(function () { lblData = []; }); }
+        return;
+      }
+      if (!map.hasLayer(lblGroup)) lblGroup.addTo(map);
+      var z = map.getZoom(), bd = map.getBounds().pad(0.15), boxes = [], shown = 0;
+      for (var i = 0; i < lblData.length && shown < 320; i++) {
+        var d = lblData[i];
+        if (d[4] > z || !bd.contains([d[0], d[1]])) continue;
+        var p = map.latLngToContainerPoint([d[0], d[1]]), w = Math.max(20, d[3].length * (d[5] === "c" ? 9 : 7)), x1 = p.x - w / 2 - 4, x2 = p.x + w / 2 + 4, y1 = p.y - 9, y2 = p.y + 9, hit = false;
+        for (var k = 0; k < boxes.length; k++) { var q = boxes[k]; if (x1 < q[2] && x2 > q[0] && y1 < q[3] && y2 > q[1]) { hit = true; break; } }
+        if (hit) continue;
+        boxes.push([x1, y1, x2, y2]); shown++;
+        L.marker([d[0], d[1]], { pane: "mmLabels", interactive: false, keyboard: false, icon: L.divIcon({ className: "mm-lbl mm-k" + d[5], html: esc(d[3]), iconSize: [0, 0] }) }).addTo(lblGroup);
+      }
+    }
+    map.on("moveend zoomend", function () { clearTimeout(lblT); lblT = setTimeout(drawLabels, 90); });
+    new MutationObserver(function () { setMode(mode); }).observe(document.documentElement, { attributes: true, attributeFilter: ["lang"] });
     function setMode(m, persist) {
       layers.forEach(function (l) { map.removeLayer(l); });
-      layers = BASES[m](); layers.forEach(function (l) { l.addTo(map); });
+      layers = BASES[m](); if (ISML()) layers = layers.slice(0, 1); layers.forEach(function (l) { l.addTo(map); });
+      root.setAttribute("data-mode", m); drawLabels();
       mode = m; segBtns.forEach(function (b) { b.setAttribute("aria-pressed", b.getAttribute("data-s") === m ? "true" : "false"); });
     }
 

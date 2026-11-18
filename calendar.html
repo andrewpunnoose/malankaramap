@@ -412,7 +412,7 @@ html[lang="ml"] .cal-seas-h,html[lang="ml"] .cal-sc h3{font-family:Marcellus,"No
    ==================================================================== */
 (function(){
   'use strict';
-  var YEARS = [2026, 2027], DATA_URLS = YEARS.map(function(y){ return 'calendar-' + y + '.json?v=3'; });
+  var YEARS = [2026, 2027], DATA_URLS = YEARS.map(function(y){ return 'calendar-' + y + '.json?v=4'; });
   var app = document.getElementById('calApp');
 
   var MONTHS = {
@@ -458,7 +458,7 @@ html[lang="ml"] .cal-seas-h,html[lang="ml"] .cal-sc h3{font-family:Marcellus,"No
     s_proto:['A Malankara Proto-Synaxarium (D. P. George, unofficial)','ഒരു മലങ്കര കരടു-പഞ്ചാംഗം (ഡേവിഡ് പി. ജോർജ്, അനൗദ്യോഗികം)'],
     s_both:['Official Calendar and Proto-Synaxarium','ഔദ്യോഗിക പഞ്ചാംഗവും കരടു-പഞ്ചാംഗവും'],
     src:['Source','സ്രോതസ്സ്'],
-    synK:['From the Synaxarium','സിനാക്സാരിയം'], synR:['Read the Synaxarium entry','സിനാക്സാരിയം വായിക്കുക'], synEn:['Currently in English only','ഇപ്പോൾ ഇംഗ്ലീഷിൽ മാത്രം'],
+    synK:['From the Synaxarium','പഞ്ചാംഗം'], synR:['Read the Synaxarium entry','പഞ്ചാംഗം വായിക്കുക'], synEn:['Currently in English only','ഇപ്പോൾ ഇംഗ്ലീഷിൽ മാത്രം'],
     clear:['Clear search','തിരച്ചിൽ മായ്ക്കുക'],
     nomatch:['No matches. Try a saint’s name, a place, or a feast.','ഫലങ്ങളൊന്നുമില്ല. ഒരു വിശുദ്ധന്റെ പേരോ സ്ഥലമോ പെരുന്നാളോ തിരയുക.']
   };
@@ -930,7 +930,7 @@ html[lang="ml"] .cal-seas-h,html[lang="ml"] .cal-sc h3{font-family:Marcellus,"No
   var rz; window.addEventListener('resize', function(){ clearTimeout(rz); rz = setTimeout(renderTabs, 150); });
 
   /* ---------- boot ---------- */
-  var synLoad = fetch('calendar-synaxarium.json?v=2').then(function(r){ return r.ok ? r.json() : null; }).catch(function(){ return null; });
+  var synLoad = fetch('calendar-synaxarium.json?v=3').then(function(r){ return r.ok ? r.json() : null; }).catch(function(){ return null; });
   Promise.all(DATA_URLS.map(function(u){ return fetch(u).then(function(r){ if (!r.ok) throw new Error(r.status); return r.json(); }); }).concat([synLoad])).then(function(list){
     var sx = list.pop(); if (sx && sx.entries){ SYN.x = sx.entries; SYN.m = sx.map || {}; SYN.ml = sx.entries_ml || null; }
     prepare(list);
