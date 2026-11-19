@@ -143,7 +143,7 @@
     '.mm-ctl{position:absolute;top:12px;right:12px;z-index:800;display:flex;gap:8px;align-items:flex-start;pointer-events:none}.mm-ctl>*{pointer-events:auto}' +
     '@media(max-width:560px){.mm-ctl{left:52px;right:8px;flex-wrap:wrap;justify-content:flex-end;gap:6px}.mm-seg button,.mm-btn{padding:6px 9px;font-size:11px}.mm-btn{padding:7px 10px}}' +
     'html[lang=ml] .mm-seg button,html[lang=ml] .mm-btn{font-size:11px;padding:6px 8px;font-family:"Noto Sans Malayalam",Inter,system-ui,sans-serif}' +
-    '.mm .mm-inv{filter:invert(1) hue-rotate(180deg) brightness(.82) contrast(.92)}.mm .mm-tl{filter:grayscale(1) brightness(1.7) contrast(.5)}.mm .mm-td{filter:grayscale(1) brightness(.5) contrast(1.05)}' +
+    '.mm .mm-inv{filter:invert(1) hue-rotate(180deg) brightness(.82) contrast(.92)}.mm .mm-tl{filter:url(#mmf-light)}.mm .mm-td{filter:url(#mmf-dark)}' +
     '.mm-lbl{position:relative;white-space:nowrap;transform:translate(-50%,-50%);font-family:"Noto Serif Malayalam",Manjari,serif;font-weight:500;font-size:12px;line-height:1.15;letter-spacing:0;pointer-events:none;color:var(--lc);text-shadow:-1px 0 var(--lh),1px 0 var(--lh),0 -1px var(--lh),0 1px var(--lh),-1px -1px var(--lh),1px 1px var(--lh),-1px 1px var(--lh),1px -1px var(--lh),0 0 4px var(--lh)}' +
     '.mm[data-mode=light]{--lc:#37412f;--lh:rgba(255,255,255,.92)}.mm[data-mode=dark]{--lc:#d9dee5;--lh:rgba(17,24,39,.92)}.mm[data-mode=sat]{--lc:#fff;--lh:rgba(0,0,0,.78)}' +
     '.mm-lbl.mm-kc{font-size:13.5px;font-weight:600;opacity:.8}.mm-lbl.mm-ks{font-size:12.5px;font-weight:500;opacity:.85}.mm-lbl.mm-kt{font-weight:600}.mm-lbl.mm-kv{font-size:11px;font-weight:400;opacity:.9}' +
@@ -228,14 +228,32 @@
       light: function () { return hybrid(false); },
       dark: function () { return hybrid(true); }
     };
-    /* Light / Dark: Esri Terrain (the soft layered-blue ocean, no text of its own) at every zoom, stretched past its own detail
-       limit so the colours never change as you zoom in. The last layer in each list is the English place-name layer, which Malayalam mode drops. */
+    /* Light / Dark: Esri Terrain (the soft layered-blue ocean, no text of its own) for the overview. Past its detail limit, sharp Esri imagery fades in but is recoloured by an SVG filter (water -> ocean
+       colour, land -> near-white / near-black with a faint texture) so the colours match the Terrain map. The last layer in each list is the English place-name layer, which Malayalam mode drops. */
     function hybrid(dk) {
       var terr = L.tileLayer(ESRI + "World_Terrain_Base/MapServer/tile/{z}/{y}/{x}", { maxZoom: 19, maxNativeZoom: 8, className: dk ? "mm-inv" : "", attribution: "Terrain © Esri, USGS, NOAA" });
+      var deep = L.tileLayer(ESRI + "World_Imagery/MapServer/tile/{z}/{y}/{x}", { maxZoom: 19, maxNativeZoom: 18, className: dk ? "mm-td" : "mm-tl", opacity: 0, attribution: "Imagery © Esri, Maxar, Earthstar Geographics" });
+      deep._mmDeep = true;
       var ref = L.tileLayer(ESRI + "Canvas/World_" + (dk ? "Dark" : "Light") + "_Gray_Reference/MapServer/tile/{z}/{y}/{x}", { maxZoom: 19, maxNativeZoom: 16, pane: "mmLabels" });
-      return [terr, ref];
+      return [terr, deep, ref];
     }
-    function fadeDeep() { var o = Math.max(0, Math.min(1, (map.getZoom() - 8.5) / 1.5)); layers.forEach(function (l) { if (l._mmDeep) l.setOpacity(o); }); }
+    function fadeDeep() { var o = Math.max(0, Math.min(1, (map.getZoom() - 8.5) / 1)); layers.forEach(function (l) { if (l._mmDeep) l.setOpacity(o); }); }
+    /* Recolours satellite tiles to match the Terrain base: pixels that are bluer than they are red are water (flat ocean colour),
+       everything else is land (a faint grayscale texture on near-white in Light, near-black in Dark). */
+    if (!document.getElementById("mm-filters")) {
+      var fx = document.createElement("div"); fx.id = "mm-filters"; fx.setAttribute("aria-hidden", "true"); fx.style.cssText = "position:absolute;width:0;height:0;overflow:hidden";
+      function mf(id, land, ocean) {
+        return '<filter id="' + id + '" color-interpolation-filters="sRGB" x="0" y="0" width="100%" height="100%">' +
+          '<feColorMatrix in="SourceGraphic" type="matrix" values="' + land + '" result="land"/>' +
+          '<feColorMatrix in="SourceGraphic" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 -14 0 14 0 -0.45" result="mask"/>' +
+          '<feFlood flood-color="' + ocean + '" result="oc"/><feComposite in="oc" in2="mask" operator="in" result="water"/>' +
+          '<feMerge><feMergeNode in="land"/><feMergeNode in="water"/></feMerge></filter>';
+      }
+      fx.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" width="0" height="0"><defs>' +
+        mf("mmf-light", "0.164 0.323 0.063 0 0.74 0.164 0.323 0.063 0 0.74 0.164 0.323 0.063 0 0.74 0 0 0 1 0", "#cfe2f3") +
+        mf("mmf-dark", "0.06 0.118 0.023 0 0.1 0.06 0.118 0.023 0 0.1 0.06 0.118 0.023 0 0.1 0 0 0 1 0", "#14202c") + "</defs></svg>";
+      document.body.appendChild(fx);
+    }
     var isDarkSite = function () { return document.documentElement.classList.contains("dark"); };
     var mode = isDarkSite() ? "dark" : "light", layers = [];
     /* Malayalam place labels: in Malayalam the English Esri reference labels are dropped and these are drawn instead */
