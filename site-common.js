@@ -435,3 +435,34 @@
     initAll: function () { run(initAll); },
   };
 })();
+
+/* "-ാം" ordinals: wrap the ending in a span that uses a tiny font with a blank dotted-circle glyph */
+(function(){
+  var SKIP={SCRIPT:1,STYLE:1,TEXTAREA:1,INPUT:1,NOSCRIPT:1,TITLE:1,OPTION:1};
+  function mFont(el){try{var f=(getComputedStyle(el).fontFamily||"").replace(/^\s*["']?MMNum["']?,?\s*/,"");return /^\s*["']?Manjari/i.test(f);}catch(e){return false;}}
+  function wrap(tn){
+    var p=tn.parentNode;if(!p||SKIP[p.nodeName]||(p.classList&&p.classList.contains("mo")))return;
+    var t=tn.nodeValue;if(!t||t.indexOf("\u0d3e\u0d02")<0||!/\d-\u0d3e\u0d02/.test(t))return;
+    var re=/(\d-)\u0d3e\u0d02/g,last=0,m,frag=document.createDocumentFragment(),mf=mFont(p);
+    while((m=re.exec(t))){
+      frag.appendChild(document.createTextNode(t.slice(last,m.index)+m[1]));
+      var sp=document.createElement("span");sp.className="mo"+(mf?" mo-m":"");sp.textContent="\u0d3e\u0d02";frag.appendChild(sp);
+      last=m.index+m[0].length;
+    }
+    frag.appendChild(document.createTextNode(t.slice(last)));p.replaceChild(frag,tn);
+  }
+  function scan(r){
+    if(!r)return;if(r.nodeType===3){wrap(r);return;}if(r.nodeType!==1||SKIP[r.nodeName])return;
+    var w=document.createTreeWalker(r,NodeFilter.SHOW_TEXT,null),l=[],n;
+    while((n=w.nextNode()))if(n.nodeValue.indexOf("\u0d3e\u0d02")>-1)l.push(n);
+    l.forEach(wrap);
+  }
+  var q=[],sch=false;
+  function flush(){sch=false;var l=q;q=[];l.forEach(scan);}
+  new MutationObserver(function(ms){
+    ms.forEach(function(m){if(m.type==="characterData")q.push(m.target);else for(var i=0;i<m.addedNodes.length;i++)q.push(m.addedNodes[i]);});
+    if(!sch){sch=true;(window.requestAnimationFrame||setTimeout)(flush);}
+  }).observe(document.documentElement,{childList:true,subtree:true,characterData:true});
+  function first(){scan(document.body);}
+  if(document.readyState==="loading")document.addEventListener("DOMContentLoaded",first);else first();
+})();
