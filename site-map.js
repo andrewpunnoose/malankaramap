@@ -143,9 +143,10 @@
     '.mm-ctl{position:absolute;top:12px;right:12px;z-index:800;display:flex;gap:8px;align-items:flex-start;pointer-events:none}.mm-ctl>*{pointer-events:auto}' +
     '@media(max-width:560px){.mm-ctl{left:52px;right:8px;flex-wrap:wrap;justify-content:flex-end;gap:6px}.mm-seg button,.mm-btn{padding:6px 9px;font-size:11px}.mm-btn{padding:7px 10px}}' +
     'html[lang=ml] .mm-seg button,html[lang=ml] .mm-btn{font-size:11px;padding:6px 8px;font-family:"Noto Sans Malayalam",Inter,system-ui,sans-serif}' +
-    '.mm-lbl{white-space:nowrap;transform:translate(-50%,-50%);font:500 11px/1 "Noto Sans Malayalam",Inter,system-ui,sans-serif;color:#4b5563;text-shadow:0 0 3px #f7f5ee,0 0 3px #f7f5ee,0 0 2px #f7f5ee;pointer-events:none}' +
-    '.mm-lbl.mm-kc{font-weight:700;font-size:11.5px;color:#6b7280}.mm-lbl.mm-ks{font-weight:600;font-size:12px;color:#6b7280}.mm-lbl.mm-kt{font-weight:600;color:#374151}' +
-    '.dark .mm-lbl{color:#cbd5e1;text-shadow:0 0 3px #111827,0 0 3px #111827}.dark .mm-lbl.mm-kc,.dark .mm-lbl.mm-ks{color:#9ca3af}.mm[data-mode=sat] .mm-lbl{color:#fff;text-shadow:0 0 3px #000,0 0 3px #000}' +
+    '.mm-lbl{position:relative;white-space:nowrap;transform:translate(-50%,-50%);font-family:"Noto Serif Malayalam",Manjari,serif;font-weight:500;font-size:12px;line-height:1.15;letter-spacing:0;pointer-events:none;color:var(--lc);text-shadow:-1px 0 var(--lh),1px 0 var(--lh),0 -1px var(--lh),0 1px var(--lh),-1px -1px var(--lh),1px 1px var(--lh),-1px 1px var(--lh),1px -1px var(--lh),0 0 4px var(--lh)}' +
+    '.mm[data-mode=light]{--lc:#37412f;--lh:rgba(255,255,255,.92)}.mm[data-mode=dark]{--lc:#d9dee5;--lh:rgba(17,24,39,.92)}.mm[data-mode=sat]{--lc:#fff;--lh:rgba(0,0,0,.78)}' +
+    '.mm-lbl.mm-kc{font-size:13.5px;font-weight:600;opacity:.8}.mm-lbl.mm-ks{font-size:12.5px;font-weight:500;opacity:.85}.mm-lbl.mm-kt{font-weight:600}.mm-lbl.mm-kv{font-size:11px;font-weight:400;opacity:.9}' +
+    '.mm-lbl.mm-kt,.mm-lbl.mm-kp,.mm-lbl.mm-kv{transform:translate(-50%,5px)}.mm-lbl.mm-kt::before,.mm-lbl.mm-kp::before,.mm-lbl.mm-kv::before{content:"";position:absolute;left:50%;top:-8px;width:4px;height:4px;margin-left:-2px;border-radius:50%;background:var(--lc);box-shadow:0 0 0 1px var(--lh)}' +
     '.mm-seg{display:flex;padding:3px;border-radius:999px;background:rgba(247,245,238,.9);backdrop-filter:blur(12px);box-shadow:0 6px 18px -6px rgba(16,20,13,.5);border:1px solid rgba(255,255,255,.6)}' +
     '.mm-seg button,.mm-btn{font:600 12px Inter,system-ui,sans-serif;color:#3a4333;background:transparent;border:0;border-radius:999px;padding:7px 12px;cursor:pointer;white-space:nowrap;transition:background .2s,color .2s}' +
     '.mm-seg button[aria-pressed=true]{background:#4a5d3d;color:#fff}.mm-seg button:not([aria-pressed=true]):hover{background:rgba(74,93,61,.12)}' +
@@ -228,34 +229,45 @@
       dark: function () { return [L.tileLayer(ESRI + "Canvas/World_Dark_Gray_Base/MapServer/tile/{z}/{y}/{x}", { maxZoom: 19, maxNativeZoom: 16, attribution: "© Esri" }),
         L.tileLayer(ESRI + "Canvas/World_Dark_Gray_Reference/MapServer/tile/{z}/{y}/{x}", { maxZoom: 19, maxNativeZoom: 16, pane: "mmLabels" })]; }
     };
+    /* Malayalam mode: a base map with NO built-in place names at all (the Esri gray bases can carry English text),
+       so the only labels on the map are our own Malayalam ones. Satellite imagery has no text of its own. */
+    function MLBASE(m) { return L.tileLayer("https://{s}.basemaps.cartocdn.com/" + (m === "dark" ? "dark_nolabels" : "light_nolabels") + "/{z}/{x}/{y}{r}.png", { subdomains: "abcd", maxZoom: 19, attribution: "© OpenStreetMap contributors © CARTO" }); }
     var isDarkSite = function () { return document.documentElement.classList.contains("dark"); };
     var mode = isDarkSite() ? "dark" : "light", layers = [];
     /* Malayalam place labels: in Malayalam the English Esri reference labels are dropped and these are drawn instead */
     var lblGroup = L.layerGroup(), lblData = null, lblLoading = false, lblT = null;
+    var LFONT = { c: "600 13.5px", s: "500 12.5px", t: "600 12px", p: "500 12px", v: "400 11px" }, LFAM = ' "Noto Serif Malayalam", Manjari, serif', lblCtx = document.createElement("canvas").getContext("2d"), lblW = {};
+    function textW(txt, ty) { var k = ty + txt, w = lblW[k]; if (w == null) { lblCtx.font = (LFONT[ty] || LFONT.p) + LFAM; w = lblW[k] = lblCtx.measureText(txt).width; } return w; }
     function drawLabels() {
       lblGroup.clearLayers();
       if (!ISML()) { if (map.hasLayer(lblGroup)) map.removeLayer(lblGroup); return; }
       if (!lblData) {
-        if (!lblLoading) { lblLoading = true; fetch("map-labels.json?v=1").then(function (r) { return r.json(); }).then(function (d) { lblData = d; drawLabels(); }).catch(function () { lblData = []; }); }
+        if (!lblLoading) { lblLoading = true; fetch("map-labels.json?v=3").then(function (r) { return r.json(); }).then(function (d) { lblData = d; drawLabels(); }).catch(function () { lblData = []; }); }
         return;
       }
       if (!map.hasLayer(lblGroup)) lblGroup.addTo(map);
+      /* Labels come from map-labels.json, already ordered by importance (country, state, city, town, village).
+         The first label to claim a spot wins; anything that would overlap an earlier one is skipped, so
+         zooming in reveals smaller places and the map never turns into a pile of text. */
       var z = map.getZoom(), bd = map.getBounds().pad(0.15), boxes = [], shown = 0;
-      for (var i = 0; i < lblData.length && shown < 320; i++) {
-        var d = lblData[i];
+      for (var i = 0; i < lblData.length && shown < 260; i++) {
+        var d = lblData[i], ty = d[5];
         if (d[4] > z || !bd.contains([d[0], d[1]])) continue;
-        var p = map.latLngToContainerPoint([d[0], d[1]]), w = Math.max(20, d[3].length * (d[5] === "c" ? 9 : 7)), x1 = p.x - w / 2 - 4, x2 = p.x + w / 2 + 4, y1 = p.y - 9, y2 = p.y + 9, hit = false;
+        if ((ty === "c" && z > 6.5) || (ty === "s" && z > 9)) continue;
+        var p = map.latLngToContainerPoint([d[0], d[1]]), w = textW(d[3], ty), below = ty !== "c" && ty !== "s",
+          x1 = p.x - w / 2 - 6, x2 = p.x + w / 2 + 6, y1 = below ? p.y - 8 : p.y - 10, y2 = below ? p.y + 22 : p.y + 10, hit = false;
         for (var k = 0; k < boxes.length; k++) { var q = boxes[k]; if (x1 < q[2] && x2 > q[0] && y1 < q[3] && y2 > q[1]) { hit = true; break; } }
         if (hit) continue;
         boxes.push([x1, y1, x2, y2]); shown++;
-        L.marker([d[0], d[1]], { pane: "mmLabels", interactive: false, keyboard: false, icon: L.divIcon({ className: "mm-lbl mm-k" + d[5], html: esc(d[3]), iconSize: [0, 0] }) }).addTo(lblGroup);
+        L.marker([d[0], d[1]], { pane: "mmLabels", interactive: false, keyboard: false, icon: L.divIcon({ className: "mm-lbl mm-k" + ty, html: esc(d[3]), iconSize: [0, 0] }) }).addTo(lblGroup);
       }
     }
+    if (document.fonts && document.fonts.ready) document.fonts.ready.then(function () { lblW = {}; drawLabels(); });
     map.on("moveend zoomend", function () { clearTimeout(lblT); lblT = setTimeout(drawLabels, 90); });
     new MutationObserver(function () { setMode(mode); }).observe(document.documentElement, { attributes: true, attributeFilter: ["lang"] });
     function setMode(m, persist) {
       layers.forEach(function (l) { map.removeLayer(l); });
-      layers = BASES[m](); if (ISML()) layers = layers.slice(0, 1); layers.forEach(function (l) { l.addTo(map); });
+      layers = BASES[m](); if (ISML()) layers = [m === "sat" ? layers[0] : MLBASE(m)]; layers.forEach(function (l) { l.addTo(map); });
       root.setAttribute("data-mode", m); drawLabels();
       mode = m; segBtns.forEach(function (b) { b.setAttribute("aria-pressed", b.getAttribute("data-s") === m ? "true" : "false"); });
     }
