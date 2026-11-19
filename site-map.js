@@ -143,7 +143,6 @@
     '.mm-ctl{position:absolute;top:12px;right:12px;z-index:800;display:flex;gap:8px;align-items:flex-start;pointer-events:none}.mm-ctl>*{pointer-events:auto}' +
     '@media(max-width:560px){.mm-ctl{left:52px;right:8px;flex-wrap:wrap;justify-content:flex-end;gap:6px}.mm-seg button,.mm-btn{padding:6px 9px;font-size:11px}.mm-btn{padding:7px 10px}}' +
     'html[lang=ml] .mm-seg button,html[lang=ml] .mm-btn{font-size:11px;padding:6px 8px;font-family:"Noto Sans Malayalam",Inter,system-ui,sans-serif}' +
-    '.mm .mm-tl{filter:grayscale(1) brightness(1.2) contrast(.72)}.mm .mm-td{filter:grayscale(1) brightness(.5) contrast(1.05)}' +
     '.mm-lbl{position:relative;white-space:nowrap;transform:translate(-50%,-50%);font-family:"Noto Serif Malayalam",Manjari,serif;font-weight:500;font-size:12px;line-height:1.15;letter-spacing:0;pointer-events:none;color:var(--lc);text-shadow:-1px 0 var(--lh),1px 0 var(--lh),0 -1px var(--lh),0 1px var(--lh),-1px -1px var(--lh),1px 1px var(--lh),-1px 1px var(--lh),1px -1px var(--lh),0 0 4px var(--lh)}' +
     '.mm[data-mode=light]{--lc:#37412f;--lh:rgba(255,255,255,.92)}.mm[data-mode=dark]{--lc:#d9dee5;--lh:rgba(17,24,39,.92)}.mm[data-mode=sat]{--lc:#fff;--lh:rgba(0,0,0,.78)}' +
     '.mm-lbl.mm-kc{font-size:13.5px;font-weight:600;opacity:.8}.mm-lbl.mm-ks{font-size:12.5px;font-weight:500;opacity:.85}.mm-lbl.mm-kt{font-weight:600}.mm-lbl.mm-kv{font-size:11px;font-weight:400;opacity:.9}' +
@@ -230,9 +229,6 @@
       dark: function () { return [L.tileLayer(ESRI + "Canvas/World_Dark_Gray_Base/MapServer/tile/{z}/{y}/{x}", { maxZoom: 19, maxNativeZoom: 16, attribution: "© Esri" }),
         L.tileLayer(ESRI + "Canvas/World_Dark_Gray_Reference/MapServer/tile/{z}/{y}/{x}", { maxZoom: 19, maxNativeZoom: 16, pane: "mmLabels" })]; }
     };
-    /* Malayalam mode: Esri satellite imagery (zooms to street level, no text of its own), tinted gray for light and dark (the Esri gray bases can carry English text),
-       so the only labels on the map are our own Malayalam ones. Satellite imagery has no text of its own. */
-    function MLBASE(m) { return L.tileLayer(ESRI + "World_Imagery/MapServer/tile/{z}/{y}/{x}", { maxZoom: 19, maxNativeZoom: 18, className: m === "dark" ? "mm-td" : "mm-tl", attribution: "Imagery © Esri, Maxar, Earthstar Geographics" }); }
     var isDarkSite = function () { return document.documentElement.classList.contains("dark"); };
     var mode = isDarkSite() ? "dark" : "light", layers = [];
     /* Malayalam place labels: in Malayalam the English Esri reference labels are dropped and these are drawn instead */
@@ -268,7 +264,7 @@
     new MutationObserver(function () { setMode(mode); }).observe(document.documentElement, { attributes: true, attributeFilter: ["lang"] });
     function setMode(m, persist) {
       layers.forEach(function (l) { map.removeLayer(l); });
-      layers = BASES[m](); if (ISML()) layers = [m === "sat" ? layers[0] : MLBASE(m)]; layers.forEach(function (l) { l.addTo(map); });
+      layers = BASES[m](); if (ISML()) layers = layers.slice(0, 1); layers.forEach(function (l) { l.addTo(map); });
       root.setAttribute("data-mode", m); drawLabels();
       mode = m; segBtns.forEach(function (b) { b.setAttribute("aria-pressed", b.getAttribute("data-s") === m ? "true" : "false"); });
     }
