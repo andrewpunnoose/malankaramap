@@ -228,15 +228,12 @@
       light: function () { return hybrid(false); },
       dark: function () { return hybrid(true); }
     };
-    /* Light / Dark: Esri Terrain (the soft layered-blue ocean, no text of its own) for the overview, with Esri imagery
-       tinted to match fading in once you zoom past about 9, so you can still zoom to street level. The last layer in each
-       list is the English place-name layer, which Malayalam mode drops. */
+    /* Light / Dark: Esri Terrain (the soft layered-blue ocean, no text of its own) at every zoom, stretched past its own detail
+       limit so the colours never change as you zoom in. The last layer in each list is the English place-name layer, which Malayalam mode drops. */
     function hybrid(dk) {
-      var terr = L.tileLayer(ESRI + "World_Terrain_Base/MapServer/tile/{z}/{y}/{x}", { maxZoom: 19, maxNativeZoom: 9, className: dk ? "mm-inv" : "", attribution: "Terrain © Esri, USGS, NOAA" });
-      var deep = L.tileLayer(ESRI + "World_Imagery/MapServer/tile/{z}/{y}/{x}", { maxZoom: 19, maxNativeZoom: 18, className: dk ? "mm-td" : "mm-tl", opacity: 0, attribution: "Imagery © Esri, Maxar, Earthstar Geographics" });
-      deep._mmDeep = true;
+      var terr = L.tileLayer(ESRI + "World_Terrain_Base/MapServer/tile/{z}/{y}/{x}", { maxZoom: 19, maxNativeZoom: 8, className: dk ? "mm-inv" : "", attribution: "Terrain © Esri, USGS, NOAA" });
       var ref = L.tileLayer(ESRI + "Canvas/World_" + (dk ? "Dark" : "Light") + "_Gray_Reference/MapServer/tile/{z}/{y}/{x}", { maxZoom: 19, maxNativeZoom: 16, pane: "mmLabels" });
-      return [terr, deep, ref];
+      return [terr, ref];
     }
     function fadeDeep() { var o = Math.max(0, Math.min(1, (map.getZoom() - 8.5) / 1.5)); layers.forEach(function (l) { if (l._mmDeep) l.setOpacity(o); }); }
     var isDarkSite = function () { return document.documentElement.classList.contains("dark"); };
