@@ -143,6 +143,7 @@
     '.mm-ctl{position:absolute;top:12px;right:12px;z-index:800;display:flex;gap:8px;align-items:flex-start;pointer-events:none}.mm-ctl>*{pointer-events:auto}' +
     '@media(max-width:560px){.mm-ctl{left:52px;right:8px;flex-wrap:wrap;justify-content:flex-end;gap:6px}.mm-seg button,.mm-btn{padding:6px 9px;font-size:11px}.mm-btn{padding:7px 10px}}' +
     'html[lang=ml] .mm-seg button,html[lang=ml] .mm-btn{font-size:11px;padding:6px 8px;font-family:"Noto Sans Malayalam",Inter,system-ui,sans-serif}' +
+    '.mm .mm-inv{filter:invert(1) hue-rotate(180deg) brightness(.82) contrast(.92)}' +
     '.mm-lbl{position:relative;white-space:nowrap;transform:translate(-50%,-50%);font-family:"Noto Serif Malayalam",Manjari,serif;font-weight:500;font-size:12px;line-height:1.15;letter-spacing:0;pointer-events:none;color:var(--lc);text-shadow:-1px 0 var(--lh),1px 0 var(--lh),0 -1px var(--lh),0 1px var(--lh),-1px -1px var(--lh),1px 1px var(--lh),-1px 1px var(--lh),1px -1px var(--lh),0 0 4px var(--lh)}' +
     '.mm[data-mode=light]{--lc:#37412f;--lh:rgba(255,255,255,.92)}.mm[data-mode=dark]{--lc:#d9dee5;--lh:rgba(17,24,39,.92)}.mm[data-mode=sat]{--lc:#fff;--lh:rgba(0,0,0,.78)}' +
     '.mm-lbl.mm-kc{font-size:13.5px;font-weight:600;opacity:.8}.mm-lbl.mm-ks{font-size:12.5px;font-weight:500;opacity:.85}.mm-lbl.mm-kt{font-weight:600}.mm-lbl.mm-kv{font-size:11px;font-weight:400;opacity:.9}' +
@@ -229,9 +230,9 @@
       dark: function () { return [L.tileLayer(ESRI + "Canvas/World_Dark_Gray_Base/MapServer/tile/{z}/{y}/{x}", { maxZoom: 19, maxNativeZoom: 16, attribution: "© Esri" }),
         L.tileLayer(ESRI + "Canvas/World_Dark_Gray_Reference/MapServer/tile/{z}/{y}/{x}", { maxZoom: 19, maxNativeZoom: 16, pane: "mmLabels" })]; }
     };
-    /* Malayalam mode: a base map with NO built-in place names at all (the Esri gray bases can carry English text),
+    /* Malayalam mode: Esri Terrain, a keyless base map with NO built-in place names (the Esri gray bases can carry English text),
        so the only labels on the map are our own Malayalam ones. Satellite imagery has no text of its own. */
-    function MLBASE(m) { return L.tileLayer("https://{s}.basemaps.cartocdn.com/" + (m === "dark" ? "dark_nolabels" : "light_nolabels") + "/{z}/{x}/{y}{r}.png", { subdomains: "abcd", maxZoom: 19, attribution: "© OpenStreetMap contributors © CARTO" }); }
+    function MLBASE(m) { return L.tileLayer(ESRI + "World_Terrain_Base/MapServer/tile/{z}/{y}/{x}", { maxZoom: 19, maxNativeZoom: 13, className: m === "dark" ? "mm-inv" : "", attribution: "Terrain © Esri, USGS, NOAA" }); }
     var isDarkSite = function () { return document.documentElement.classList.contains("dark"); };
     var mode = isDarkSite() ? "dark" : "light", layers = [];
     /* Malayalam place labels: in Malayalam the English Esri reference labels are dropped and these are drawn instead */
