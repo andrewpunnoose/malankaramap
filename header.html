@@ -2,7 +2,10 @@
      Shared site header. Every page loads this file at runtime, so edit it here and
      every page picks it up.
 
-     index.html is the reference design. The <style> below is index.html's own header
+     index.html is the reference design. The <style>
+/* Malayalam pages: digits use Marcellus (the numeral face used by the English stats) */
+@font-face{font-family:"MMNum";src:url(data:font/woff2;base64,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) format("woff2");unicode-range:U+0030-0039;font-display:swap}
+ below is index.html's own header
      CSS, copied out and scoped to <header>, so the header renders the same on every page
      regardless of which stylesheet (Tailwind CDN, styles.css, or a page's inline build)
      that page happens to use. It replaces the older per-page "compat patch" blocks.
@@ -29,7 +32,7 @@ header .font-sans, header.font-sans {
   font-family: "Epica Pro Sans Regular", Inter, system-ui, sans-serif
 }
 [lang=ml] header .font-sans, [lang=ml] header.font-sans, html.dark header [lang=ml] .font-sans {
-  font-family: Manjari, "Epica Pro Sans Regular", sans-serif
+  font-family: MMNum,Manjari, "Epica Pro Sans Regular", sans-serif
 }
 header .absolute, header.absolute {
   position: absolute
@@ -723,10 +726,10 @@ header #mobileMenu .mobile-nav-panel a {
 html[lang=ml] header, html[lang=ml] header .font-serif, html[lang=ml] header nav a, html[lang=ml] header #mobileMenu,
 html[lang=ml] header #mobileMenu .mobile-nav-accordion summary, html[lang=ml] header #mobileMenu .mobile-nav-panel,
 html[lang=ml] header #mobileMenu .mobile-nav-panel a, html[lang=ml] header #mobileMenu .mobile-nav-panel a span {
-  font-family: "Noto Serif Malayalam", Manjari, serif
+  font-family: MMNum,"Noto Serif Malayalam", Manjari, serif
 }
 html[lang=ml] header .font-sans, html[lang=ml] header .megapanel, html[lang=ml] header .megapanel a, html[lang=ml] header .megapanel span {
-  font-family: Manjari, "Noto Serif Malayalam", sans-serif
+  font-family: MMNum,Manjari, "Noto Serif Malayalam", sans-serif
 }
 /* 2. Malayalam glyphs are taller: give the logo lines equal room above and below so nothing is clipped and the text stays centred like the English */
 html[lang=ml] header .truncate { line-height: 1.5; padding-top: .1em; padding-bottom: .1em }

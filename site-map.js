@@ -142,7 +142,7 @@
     '.mm-you{width:18px;height:18px;border-radius:50%;background:#2563eb;border:3px solid #fff;box-shadow:0 0 0 8px rgba(37,99,235,.28)}' +
     '.mm-ctl{position:absolute;top:12px;right:12px;z-index:800;display:flex;gap:8px;align-items:flex-start;pointer-events:none}.mm-ctl>*{pointer-events:auto}' +
     '@media(max-width:560px){.mm-ctl{left:52px;right:8px;flex-wrap:wrap;justify-content:flex-end;gap:6px}.mm-seg button,.mm-btn{padding:6px 9px;font-size:11px}.mm-btn{padding:7px 10px}}' +
-    'html[lang=ml] .mm-seg button,html[lang=ml] .mm-btn{font-size:11px;padding:6px 8px;font-family:"Noto Sans Malayalam",Inter,system-ui,sans-serif}' +
+    'html[lang=ml] .mm-seg button,html[lang=ml] .mm-btn{font-size:12.5px;font-weight:600;padding:6px 9px;letter-spacing:0;line-height:1.35;font-family:MMNum,Manjari,"Noto Serif Malayalam",serif}' +
     '.mm .mm-inv{filter:invert(1) hue-rotate(180deg) brightness(.82) contrast(.92)}.mm .mm-tl{filter:url(#mmf-light)}.mm .mm-td{filter:url(#mmf-dark)}' +
     '.mm-lbl{position:relative;white-space:nowrap;transform:translate(-50%,-50%);font-family:"Noto Serif Malayalam",Manjari,serif;font-weight:500;font-size:12px;line-height:1.15;letter-spacing:0;pointer-events:none;color:var(--lc);text-shadow:-1px 0 var(--lh),1px 0 var(--lh),0 -1px var(--lh),0 1px var(--lh),-1px -1px var(--lh),1px 1px var(--lh),-1px 1px var(--lh),1px -1px var(--lh),0 0 4px var(--lh)}' +
     '.mm[data-mode=light]{--lc:#37412f;--lh:rgba(255,255,255,.92)}.mm[data-mode=dark]{--lc:#d9dee5;--lh:rgba(17,24,39,.92)}.mm[data-mode=sat]{--lc:#fff;--lh:rgba(0,0,0,.78)}' +
@@ -166,7 +166,7 @@
     '.mm-none{font-style:italic;opacity:.65}.mm-note{font-size:11.5px;opacity:.6;font-style:italic;margin:6px 0 0}' +
     '.mm-pf{display:flex;flex-wrap:wrap;gap:8px;padding:10px 16px 14px}.mm .mm-pf a,.mm .mm-pf button{font:600 12px Inter,system-ui,sans-serif;text-decoration:none;color:#fff;background:#4a5d3d;border:0;border-radius:999px;padding:7px 14px;cursor:pointer}.mm .mm-pf a.o{background:transparent;color:#4a5d3d;border:1px solid #4a5d3d}.dark .mm .mm-pf a.o{color:#a5bd92;border-color:#a5bd92;background:transparent}.dark .mm .mm-pf a:not(.o),.dark .mm .mm-pf button{background:#6b8259;color:#fff}' +
     '.mm-nl{margin:0;padding:6px 8px 12px;list-style:none;max-width:300px}.mm-nl li{display:flex;gap:10px;align-items:baseline;padding:8px;border-radius:10px;cursor:pointer}.mm-nl li:hover{background:rgba(74,93,61,.1)}.mm-nl b{flex:none;width:20px;height:20px;border-radius:50%;background:#ba9450;color:#10140d;font:700 11px/20px Inter,sans-serif;text-align:center}.mm-nl span{flex:1;min-width:0}.mm-nl em{display:block;font:italic 12px Marcellus,Georgia,serif;opacity:.65}.mm-nl small{flex:none;font:12px Inter,sans-serif;opacity:.7}' +
-    'html[lang=ml] .mm-popup,html[lang=ml] .mm-panel,html[lang=ml] .mm-ctl{font-family:"Noto Serif Malayalam",serif}html[lang=ml] .mm-ph h3,html[lang=ml] .mm-sub{font-family:"Noto Serif Malayalam",serif}html[lang=ml] .mm-popup *,html[lang=ml] .mm-panel *,html[lang=ml] .mm-ctl *{font-family:Inter,"Noto Serif Malayalam",serif;letter-spacing:normal}html[lang=ml] .mm-ph h3,html[lang=ml] .mm-sub,html[lang=ml] .mm-nl em{font-family:Marcellus,"Noto Serif Malayalam",serif}' +
+    'html[lang=ml] .mm-popup,html[lang=ml] .mm-panel,html[lang=ml] .mm-ctl{font-family:MMNum,"Noto Serif Malayalam",serif}html[lang=ml] .mm-ph h3,html[lang=ml] .mm-sub{font-family:MMNum,"Noto Serif Malayalam",serif}html[lang=ml] .mm-popup *,html[lang=ml] .mm-panel *,html[lang=ml] .mm-ctl *{font-family:MMNum,Inter,"Noto Serif Malayalam",serif;letter-spacing:normal}html[lang=ml] .mm-ph h3,html[lang=ml] .mm-sub,html[lang=ml] .mm-nl em{font-family:MMNum,Marcellus,"Noto Serif Malayalam",serif}' +
     '@media(max-width:640px){.mm-ctl{top:8px;right:8px;gap:6px}.mm-seg button{padding:6px 9px;font-size:11.5px}.mm-btn{padding:8px 11px;font-size:11.5px}.mm-panel{top:50px;right:8px;width:min(268px,calc(100% - 16px))}.mm-body{max-height:170px}}';
 
   /* ---------- sanitise a My Maps description ---------- */
@@ -271,7 +271,26 @@
       /* Labels come from map-labels.json, already ordered by importance (country, state, city, town, village).
          The first label to claim a spot wins; anything that would overlap an earlier one is skipped, so
          zooming in reveals smaller places and the map never turns into a pile of text. */
-      var z = map.getZoom(), bd = map.getBounds().pad(0.15), boxes = [], shown = 0;
+      var z = map.getZoom(), bd = map.getBounds().pad(0.15), boxes = [], shown = 0, pinCells = {}, PC = 48;
+      /* Pins currently on the map (whatever the layer filters leave visible, so pins added or removed later are picked up automatically).
+         A place name is only drawn where it has clear space: if it would sit on a pin, it waits until the visitor zooms in far enough to clear it. */
+      try {
+        var sz = map.getSize();
+        entries.forEach(function (e) {
+          if (!visible(e)) return;
+          var q = map.latLngToContainerPoint([e.lat, e.lon]);
+          if (q.x < -60 || q.y < -80 || q.x > sz.x + 60 || q.y > sz.y + 80) return;
+          var pw = pinWidth(e), pb = [q.x - pw / 2 - 3, q.y - Math.round(pw * 1.31) - 3, q.x + pw / 2 + 3, q.y + 3], cx, cy;
+          for (cx = Math.floor(pb[0] / PC); cx <= Math.floor(pb[2] / PC); cx++) for (cy = Math.floor(pb[1] / PC); cy <= Math.floor(pb[3] / PC); cy++) { var ck = cx + "," + cy; (pinCells[ck] = pinCells[ck] || []).push(pb); }
+        });
+      } catch (err) { pinCells = {}; }
+      function pinHit(x1, y1, x2, y2) {
+        for (var cx = Math.floor(x1 / PC); cx <= Math.floor(x2 / PC); cx++) for (var cy = Math.floor(y1 / PC); cy <= Math.floor(y2 / PC); cy++) {
+          var l = pinCells[cx + "," + cy]; if (!l) continue;
+          for (var k = 0; k < l.length; k++) { var q = l[k]; if (x1 < q[2] && x2 > q[0] && y1 < q[3] && y2 > q[1]) return true; }
+        }
+        return false;
+      }
       for (var i = 0; i < lblData.length && shown < 260; i++) {
         var d = lblData[i], ty = d[5];
         if (d[4] > z || !bd.contains([d[0], d[1]])) continue;
@@ -280,6 +299,7 @@
           x1 = p.x - w / 2 - 6, x2 = p.x + w / 2 + 6, y1 = below ? p.y - 8 : p.y - 10, y2 = below ? p.y + 22 : p.y + 10, hit = false;
         for (var k = 0; k < boxes.length; k++) { var q = boxes[k]; if (x1 < q[2] && x2 > q[0] && y1 < q[3] && y2 > q[1]) { hit = true; break; } }
         if (hit) continue;
+        if (ty !== "c" && ty !== "s" && pinHit(p.x - w / 2 - 3, below ? p.y - 6 : p.y - 9, p.x + w / 2 + 3, below ? p.y + 21 : p.y + 9)) continue;
         boxes.push([x1, y1, x2, y2]); shown++;
         L.marker([d[0], d[1]], { pane: "mmLabels", interactive: false, keyboard: false, icon: L.divIcon({ className: "mm-lbl mm-k" + ty, html: esc(d[3]), iconSize: [0, 0] }) }).addTo(lblGroup);
       }
@@ -362,7 +382,7 @@
     Object.keys(usedDio).forEach(function (k) { onDio[k] = true; }); Object.keys(usedIcon).forEach(function (k) { onIcon[k] = true; });
     onIcon.c = false; onIcon.x = false; onIcon.k = false;
     var applyT = null;
-    function applyFilters() { clearTimeout(applyT); applyT = setTimeout(function () { cg.clearLayers(); cg.addLayers(entries.filter(visible).map(function (e) { return e.m; })); }, 30); }
+    function applyFilters() { clearTimeout(applyT); applyT = setTimeout(function () { cg.clearLayers(); cg.addLayers(entries.filter(visible).map(function (e) { return e.m; })); clearTimeout(lblT); lblT = setTimeout(drawLabels, 60); }, 30); }
     function visible(e) { return onDio[e.slug] !== false && onIcon[e.fi] !== false && (!e.g || onIcon[e.g] !== false) && (shrinesOn || !e.shr); }
     cg.addLayers(entries.filter(visible).map(function (e) { return e.m; }));
 

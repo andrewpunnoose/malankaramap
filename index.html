@@ -44,7 +44,7 @@
 
   [lang=ml] .font-sans,
   html.dark [lang=ml] .font-sans {
-  font-family: Manjari, "Epica Pro Sans Regular", sans-serif
+  font-family: MMNum,Manjari, "Epica Pro Sans Regular", sans-serif
   }
   </style>
   <style>
@@ -6060,6 +6060,19 @@ p,li,figcaption,blockquote{text-wrap:pretty}h1,h2,h3{text-wrap:balance}
 html[lang="ml"] h1[data-ml-html^="<em"]{font-size:clamp(30px,8.2vw,52px);line-height:1.25}
 html[lang="ml"] h1[data-ml-html^="<em"] em{display:block;font-size:1.35em;line-height:1.05;margin-bottom:.15em}
 </style>
+<style id="mm-fixes-20261119">
+/* Malayalam pages: digits use Marcellus, the same numeral face as the English stats (digits only, so Malayalam text and the -ാം ordinal ending are untouched) */
+@font-face{font-family:"MMNum";src:url(data:font/woff2;base64,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) format("woff2");unicode-range:U+0030-0039;font-display:swap}
+html[lang=ml] .tls-seg button{font-family:MMNum,Manjari,"Noto Serif Malayalam",serif;font-size:12.5px;font-weight:600;letter-spacing:0;line-height:1.35}
+html[lang=ml] .count-num,html[lang=ml] [data-count]{font-family:Marcellus,Georgia,serif}
+/* Phones, dark mode: same clean hero as light mode - plain text over the photo, no glass box or halo behind the title */
+@media(max-width:639px){
+  html.dark #hero .glass-hero-panel,html.dark #hero.hero-section .glass-hero-panel{background:none!important;background-image:none!important;border:0!important;box-shadow:none!important;-webkit-backdrop-filter:none!important;backdrop-filter:none!important;padding:0!important;border-radius:0!important;overflow:visible!important;margin-left:0!important;margin-right:0!important;max-width:none!important;outline:0!important}
+  html.dark #hero .glass-hero-panel::before,html.dark #hero .glass-hero-panel::after,
+  html.dark #hero .glass-hero-panel__blur,html.dark #hero .glass-hero-panel__tint,html.dark #hero .glass-hero-panel__caustic{display:none!important;content:none!important;background:none!important;box-shadow:none!important;border:0!important}
+  html.dark #hero .glass-hero-panel h1,html.dark #hero .glass-hero-panel h1 em{background:none!important;box-shadow:none!important;border:0!important;border-radius:0!important;-webkit-backdrop-filter:none!important;backdrop-filter:none!important}
+}
+</style>
 </head>
 <body class="bg-ivory dark:bg-midnight text-body dark:text-ivory/85 font-sans transition-colors duration-300">
   <a href="#hero" class="skip-link" data-en="Skip to content" data-ml="ഉള്ളടക്കത്തിലേക്ക് പോകുക">Skip to content</a>
@@ -6116,10 +6129,10 @@ html[lang="ml"] h1[data-ml-html^="<em"] em{display:block;font-size:1.35em;line-h
 html[lang=ml] header, html[lang=ml] header .font-serif, html[lang=ml] header nav a, html[lang=ml] header #mobileMenu,
 html[lang=ml] header #mobileMenu .mobile-nav-accordion summary, html[lang=ml] header #mobileMenu .mobile-nav-panel,
 html[lang=ml] header #mobileMenu .mobile-nav-panel a, html[lang=ml] header #mobileMenu .mobile-nav-panel a span {
-  font-family: "Noto Serif Malayalam", Manjari, serif
+  font-family: MMNum,"Noto Serif Malayalam", Manjari, serif
 }
 html[lang=ml] header .font-sans, html[lang=ml] header .megapanel, html[lang=ml] header .megapanel a, html[lang=ml] header .megapanel span {
-  font-family: Manjari, "Noto Serif Malayalam", sans-serif
+  font-family: MMNum,Manjari, "Noto Serif Malayalam", sans-serif
 }
 /* 2. Malayalam glyphs are taller: give the logo lines equal room above and below so nothing is clipped and the text stays centred like the English */
 html[lang=ml] header .truncate { line-height: 1.5; padding-top: .1em; padding-bottom: .1em }
@@ -6799,8 +6812,8 @@ html[lang=ml] #mainContent section [class*="tracking-["] { letter-spacing: norma
 .dark .mapsearch__meta{color:rgba(247,245,238,.5)}
 .mapsearch__reset{background:none;border:0;padding:0;margin-left:10px;font:inherit;font-style:normal;color:#7c6a4a;text-decoration:underline;text-underline-offset:3px;cursor:pointer}
 .mapsearch__reset[hidden]{display:none}
-html[lang="ml"] .mapsearch__input,html[lang="ml"] .mapsearch__go,html[lang="ml"] .mapsearch__reset,html[lang="ml"] #mapLoader p{font-family:Inter,"Noto Serif Malayalam",serif}
-html[lang="ml"] .mapsearch__meta{font-family:Marcellus,"Noto Serif Malayalam",serif}
+html[lang="ml"] .mapsearch__input,html[lang="ml"] .mapsearch__go,html[lang="ml"] .mapsearch__reset,html[lang="ml"] #mapLoader p{font-family:MMNum,Inter,"Noto Serif Malayalam",serif}
+html[lang="ml"] .mapsearch__meta{font-family:MMNum,Marcellus,"Noto Serif Malayalam",serif}
 html[lang="ml"] .mapsearch__go{letter-spacing:normal;text-transform:none}
 @media(max-width:480px){.mapsearch__go{padding:13px 16px}}
 
@@ -6854,7 +6867,7 @@ html[lang="ml"] .mapsearch__go{letter-spacing:normal;text-transform:none}
   <p id="mapSearchMeta" class="mapsearch__meta" aria-live="polite"></p>
 </form>
 </div>
-<script src="site-map.js?v=20261115" defer></script>
+<script src="site-map.js?v=20261119" defer></script>
 <script>document.addEventListener("DOMContentLoaded",function(){if(window.MalankaraMap)MalankaraMap.init({el:"#malankaraMap",data:"malankara.json",extra:"map-extra.json",loader:"#mapLoader",cluster:false,home:{wide:[[3,43],[38,112]],tall:[[6,69.5],[36,89.5]]}})});</script>
       <p class="text-center mt-3 font-sans text-[11px] tracking-wide text-muted" data-en="Satellite imagery © Esri, Maxar, Earthstar Geographics." data-ml="ഉപഗ്രഹ ചിത്രങ്ങൾ © Esri, Maxar, Earthstar Geographics.">Satellite imagery © Esri, Maxar, Earthstar Geographics.</p>
     </section>
@@ -6898,8 +6911,8 @@ html[lang="ml"] .mapsearch__go{letter-spacing:normal;text-transform:none}
 .tdc-go{display:inline-block;margin-top:1rem;font-size:12.5px;font-weight:600;color:var(--t-sage);text-decoration:none;border-bottom:1px solid transparent;transition:border-color .2s}
 .tdc-go:hover,.tdc-more:hover{border-bottom-color:currentColor}
 html[lang="ml"] .tdc .tdc-eyebrow,html[lang="ml"] .tdc .tdc-cat,html[lang="ml"] .tdc .tdc-sh{letter-spacing:normal;text-transform:none}
-html[lang="ml"] .tdc,html[lang="ml"] .tdc a{font-family:Inter,"Noto Serif Malayalam",serif}
-html[lang="ml"] .tdc .tdc-h,html[lang="ml"] .tdc .tdc-t,html[lang="ml"] .tdc .tdc-day,html[lang="ml"] .tdc .tdc-mon{font-family:Marcellus,"Noto Serif Malayalam",serif}
+html[lang="ml"] .tdc,html[lang="ml"] .tdc a{font-family:MMNum,Inter,"Noto Serif Malayalam",serif}
+html[lang="ml"] .tdc .tdc-h,html[lang="ml"] .tdc .tdc-t,html[lang="ml"] .tdc .tdc-day,html[lang="ml"] .tdc .tdc-mon{font-family:MMNum,Marcellus,"Noto Serif Malayalam",serif}
 html[lang="ml"] .tdc .tdc-t{line-height:1.65}
 html[lang="ml"] .tdc .tdc-mon,html[lang="ml"] .tdc .tdc-wd{line-height:1.55}
 html[lang="ml"] .tdc .tdc-up a{grid-template-columns:5.6rem minmax(0,1fr)}
@@ -7755,7 +7768,7 @@ html[lang="ml"] .tdc .tdc-up a{grid-template-columns:5.6rem minmax(0,1fr)}
       [1964, "1964 CE", "In a historic act of reconciliation, Patriarch Ignatius Yakub III travels to Kerala to consecrate Augen Mar Timotheos as Catholicos Baselios Augen I, marking a brief reunion with the Patriarchate of Antioch that ultimately fails to prevent the coming schism.", 0, [9.5916,76.5222,"Kottayam","കോട്ടയം"], "അനുരഞ്ജനത്തിന്റെ ചരിത്രപ്രധാനമായ ഒരു പ്രവൃത്തിയായി, പാത്രിയർക്കീസ് ഇഗ്നാത്തിയോസ് യാക്കൂബ് മൂന്നാമൻ കേരളത്തിലെത്തി ഔഗേൻ മാർ തിമോത്തിയോസിനെ കാതോലിക്കോസ് ബസേലിയോസ് ഔഗേൻ ഒന്നാമനായി വാഴിച്ചു; അന്ത്യോഖ്യൻ പാത്രിയർക്കേറ്റുമായുള്ള ഈ ഹ്രസ്വകാല പുനരൈക്യം, വരാനിരുന്ന ഭിന്നത തടയാൻ ഒടുവിൽ പര്യാപ്തമായില്ല."],
       [1966, "1966 CE", "On August 24, four metropolitans are consecrated at Kolenchery by Catholicos Baselios Augen I.", 0, [9.992,76.4,"Kolenchery","കോലഞ്ചേരി"], "ഓഗസ്റ്റ് 24-ന് കോലഞ്ചേരിയിൽ വച്ച് കാതോലിക്കോസ് ബസേലിയോസ് ഔഗേൻ ഒന്നാമൻ നാല് മെത്രാപ്പോലീത്തന്മാരെ വാഴിച്ചു."],
       [1967, "1967 CE", "Catholicos Baselios Augen I consecrates Holy Myron at Kottayam St. Thomas Orthodox Chapel, Chungam.", 0, [null,null,null,"കോട്ടയം"], "കാതോലിക്കോസ് ബസേലിയോസ് ഔഗേൻ ഒന്നാമൻ ചുങ്കം കോട്ടയം മാർ തോമ ഓർത്തഡോക്സ് ചാപ്പലിൽ വിശുദ്ധ മൂറോൻ കൂദാശ ചെയ്തു."],
-      [1970, "1970 CE", "Patriarch Ignatius Yakub III issues Kalpana No. 203/70, arguing that St. Thomas the Apostle was never a priest or high priest and therefore could not have founded a \"Throne of St. Thomas the Apostle.\"", 0, [33.5138,36.2765,"Damascus","ഡമാസ്കസ്"], "പാത്രിയർക്കീസ് ഇഗ്നാത്തിയോസ് യാക്കൂബ് മൂന്നാമൻ 203/70-ാം നമ്പർ കല്പന പുറപ്പെടുവിച്ചു; തോമാശ്ലീഹാ ഒരിക്കലും പുരോഹിതനോ മഹാപുരോഹിതനോ ആയിരുന്നില്ലെന്നും അതിനാൽ \"തോമാശ്ലീഹായുടെ സിംഹാസനം\" സ്ഥാപിക്കാൻ അദ്ദേഹത്തിനു കഴിയുമായിരുന്നില്ലെന്നും അതിൽ വാദിച്ചു."],
+      [1970, "1970 CE", "Patriarch Ignatius Yakub III issues Kalpana No. 203/70, arguing that St. Thomas the Apostle was never a priest or high priest and therefore could not have founded a \"Throne of St. Thomas the Apostle.\"", 0, [33.5138,36.2765,"Damascus","ഡമാസ്കസ്"], "പാത്രിയർക്കീസ് ഇഗ്നാത്തിയോസ് യാക്കൂബ് മൂന്നാമൻ 203/70-⁠ാം നമ്പർ കല്പന പുറപ്പെടുവിച്ചു; തോമാശ്ലീഹാ ഒരിക്കലും പുരോഹിതനോ മഹാപുരോഹിതനോ ആയിരുന്നില്ലെന്നും അതിനാൽ \"തോമാശ്ലീഹായുടെ സിംഹാസനം\" സ്ഥാപിക്കാൻ അദ്ദേഹത്തിനു കഴിയുമായിരുന്നില്ലെന്നും അതിൽ വാദിച്ചു."],
       [1970, "1970 CE", "On December 31, the Malankara Syrian Christian Association assembles at Kottayam.", 0, [9.5916,76.5222,"Kottayam","കോട്ടയം"], "ഡിസംബർ 31-ന് മലങ്കര സുറിയാനി ക്രിസ്ത്യാനി അസോസിയേഷൻ കോട്ടയത്ത് സമ്മേളിച്ചു."],
       [1974, "1974 CE", "Two priests are secretly consecrated bishops abroad, opening the Church's Second Schism.", 0, [33.5138,36.2765,"Damascus","ഡമാസ്കസ്"], "രണ്ടു വൈദികർ വിദേശത്തുവച്ച് രഹസ്യമായി മെത്രാന്മാരായി വാഴിക്കപ്പെട്ടു; ഇത് സഭയിലെ രണ്ടാം ഭിന്നതയ്ക്കു തുടക്കമിട്ടു."],
       [1974, "1974 CE", "The Malankara Syrian Christian Association assembles at Niranam, condemns the Patriarch's unauthorised interference, and elects five priests as bishops, according to a church-history account.", 0, [9.368,76.533,"Niranam","നിരണം"], "മലങ്കര സുറിയാനി ക്രിസ്ത്യാനി അസോസിയേഷൻ നിരണത്ത് സമ്മേളിച്ച് പാത്രിയർക്കീസിന്റെ അനധികൃത ഇടപെടലിനെ അപലപിക്കുകയും അഞ്ചു വൈദികരെ മെത്രാന്മാരായി തിരഞ്ഞെടുക്കുകയും ചെയ്തു എന്ന് ഒരു സഭാചരിത്ര വിവരണം പറയുന്നു."],
@@ -7810,7 +7823,7 @@ html[lang="ml"] .tdc .tdc-up a{grid-template-columns:5.6rem minmax(0,1fr)}
       [2022, "2022 CE", "On July 28, seven metropolitans are consecrated at Pazhanji by Catholicos Baselios Marthoma Mathews III.", 0, [10.67,76.08,"Pazhanji","പഴഞ്ഞി"], "ജൂലൈ 28-ന് പഴഞ്ഞിയിൽ വച്ച് കാതോലിക്കോസ് ബസേലിയോസ് മാർത്തോമ്മാ മാത്യൂസ് മൂന്നാമൻ ഏഴ് മെത്രാപ്പോലീത്തന്മാരെ വാഴിച്ചു."],
       [2024, "2024 CE", "The Dioceses of Asia–Pacific and Canada are established.", 0, [[-35.2809,149.13,"Canberra","കാൻബെറ"],[43.6532,-79.3832,"Toronto","ടൊറന്റോ"]], "ഏഷ്യ–പസഫിക്, കാനഡ ഭദ്രാസനങ്ങൾ സ്ഥാപിതമായി."],
       [2026, "2026 CE", "Catholicos Baselios Marthoma Mathews III consecrates Holy Myron at Devalokam Catholicate Chapel.", 0, [null,null,null,"ദേവലോകം"], "കാതോലിക്കോസ് ബസേലിയോസ് മാർത്തോമ്മാ മാത്യൂസ് മൂന്നാമൻ ദേവലോകം കാതോലിക്കേറ്റ് ചാപ്പലിൽ വിശുദ്ധ മൂറോൻ കൂദാശ ചെയ്തു."],
-      [2026, "2026 CE", "On August 27, the Malankara Syrian Christian Association convenes at Mulanthuruthy under Catholicos Baselios Marthoma Mathews III to elect four new metropolitans, on the 150th anniversary of the Synod of Mulanthuruthy.", 0, [9.896,76.383,"Mulanthuruthy","മുളന്തുരുത്തി"], "ഓഗസ്റ്റ് 27-ന് മുളന്തുരുത്തി സുന്നഹദോസിന്റെ 150-ാം വാർഷികത്തിൽ, കാതോലിക്കോസ് ബസേലിയോസ് മാർത്തോമ്മാ മാത്യൂസ് മൂന്നാമന്റെ അധ്യക്ഷതയിൽ മലങ്കര സുറിയാനി ക്രിസ്ത്യാനി അസോസിയേഷൻ മുളന്തുരുത്തിയിൽ സമ്മേളിച്ച് നാല് പുതിയ മെത്രാപ്പോലീത്തന്മാരെ തിരഞ്ഞെടുത്തു."],
+      [2026, "2026 CE", "On August 27, the Malankara Syrian Christian Association convenes at Mulanthuruthy under Catholicos Baselios Marthoma Mathews III to elect four new metropolitans, on the 150th anniversary of the Synod of Mulanthuruthy.", 0, [9.896,76.383,"Mulanthuruthy","മുളന്തുരുത്തി"], "ഓഗസ്റ്റ് 27-ന് മുളന്തുരുത്തി സുന്നഹദോസിന്റെ 150-⁠ാം വാർഷികത്തിൽ, കാതോലിക്കോസ് ബസേലിയോസ് മാർത്തോമ്മാ മാത്യൂസ് മൂന്നാമന്റെ അധ്യക്ഷതയിൽ മലങ്കര സുറിയാനി ക്രിസ്ത്യാനി അസോസിയേഷൻ മുളന്തുരുത്തിയിൽ സമ്മേളിച്ച് നാല് പുതിയ മെത്രാപ്പോലീത്തന്മാരെ തിരഞ്ഞെടുത്തു."],
       [2027, "2027 CE", "On February 4, four metropolitans are scheduled to be consecrated by Catholicos Baselios Marthoma Mathews III at the chapel of Mount Horeb Monastery, Sasthamcotta.", 0, [9.0383,76.6203,"Sasthamcotta","ശാസ്താംകോട്ട"], "ഫെബ്രുവരി 4-ന് ശാസ്താംകോട്ടയിലെ മൗണ്ട് ഹോറേബ് ദയറായുടെ ചാപ്പലിൽ വച്ച് കാതോലിക്കോസ് ബസേലിയോസ് മാർത്തോമ്മാ മാത്യൂസ് മൂന്നാമൻ നാല് മെത്രാപ്പോലീത്തന്മാരെ വാഴിക്കുവാൻ നിശ്ചയിച്ചിരിക്കുന്നു."]
     ].forEach(function(a, e) {(window.__tlData = window.__tlData || []).push(a);
       var o = a[0],
@@ -8568,11 +8581,52 @@ html[lang="ml"] .tdc .tdc-up a{grid-template-columns:5.6rem minmax(0,1fr)}
   var MODES = ['sat', 'light', 'dark'];
   var TILE = {
     sat: { base: SAT, lab: LAB, bz: 19, lz: 12, op: .92, at: 'Imagery &copy; Esri, Maxar, Earthstar Geographics' },
-    light: { base: ESRI + 'Canvas/World_Light_Gray_Base/MapServer/tile/{z}/{y}/{x}', lab: ESRI + 'Canvas/World_Light_Gray_Reference/MapServer/tile/{z}/{y}/{x}', bz: 16, lz: 16, op: 1, at: '&copy; Esri' },
-    dark: { base: ESRI + 'Canvas/World_Dark_Gray_Base/MapServer/tile/{z}/{y}/{x}', lab: ESRI + 'Canvas/World_Dark_Gray_Reference/MapServer/tile/{z}/{y}/{x}', bz: 16, lz: 16, op: 1, at: '&copy; Esri' }
+    light: { lab: ESRI + 'Canvas/World_Light_Gray_Reference/MapServer/tile/{z}/{y}/{x}', lz: 16, op: 1, at: 'Terrain &copy; Esri, USGS, NOAA &middot; Imagery &copy; Esri, Maxar, Earthstar Geographics' },
+    dark: { lab: ESRI + 'Canvas/World_Dark_Gray_Reference/MapServer/tile/{z}/{y}/{x}', lz: 16, op: 1, at: 'Terrain &copy; Esri, USGS, NOAA &middot; Imagery &copy; Esri, Maxar, Earthstar Geographics' }
   };
+  /* Light / Dark are built exactly like the main map: Esri Terrain (soft layered-blue ocean) for the overview, and past zoom 8.5 sharp Esri imagery
+     fades in, recoloured so water becomes the ocean colour and land becomes near-white (Light) or near-black (Dark). Dark Terrain is the Light Terrain inverted. */
+  var RECOLOR = {
+    light: { k: [.164, .323, .063, .74], oc: [207, 226, 243] },
+    dark: { k: [.06, .118, .023, .1], oc: [20, 32, 44] }
+  };
+  function recolorTile(url, kind, dk, signal) {
+    return fetch(url, { signal: signal }).then(function (r) { if (!r.ok) throw new Error('tile ' + r.status); return r.blob(); })
+      .then(function (bl) { return createImageBitmap(bl); })
+      .then(function (bmp) {
+        var c = document.createElement('canvas'); c.width = bmp.width; c.height = bmp.height;
+        var x = c.getContext('2d', { willReadFrequently: true }); x.drawImage(bmp, 0, 0);
+        var id = x.getImageData(0, 0, c.width, c.height), d = id.data, i, r, g, b, v, m, cl = function (n) { return n < 0 ? 0 : n > 1 ? 1 : n; };
+        if (kind === 'terr') {
+          for (i = 0; i < d.length; i += 4) {
+            r = 1 - d[i] / 255; g = 1 - d[i + 1] / 255; b = 1 - d[i + 2] / 255;
+            var r2 = cl(-.574 * r + 1.43 * g + .144 * b), g2 = cl(.426 * r + .43 * g + .144 * b), b2 = cl(.426 * r + 1.43 * g - .856 * b);
+            d[i] = cl((r2 * .82 - .5) * .92 + .5) * 255; d[i + 1] = cl((g2 * .82 - .5) * .92 + .5) * 255; d[i + 2] = cl((b2 * .82 - .5) * .92 + .5) * 255;
+          }
+        } else {
+          var P = RECOLOR[dk ? 'dark' : 'light'], k = P.k, oc = P.oc;
+          for (i = 0; i < d.length; i += 4) {
+            r = d[i] / 255; g = d[i + 1] / 255; b = d[i + 2] / 255;
+            v = cl(k[0] * r + k[1] * g + k[2] * b + k[3]) * 255; m = cl(14 * b - 14 * r - .45);
+            d[i] = v * (1 - m) + oc[0] * m; d[i + 1] = v * (1 - m) + oc[1] * m; d[i + 2] = v * (1 - m) + oc[2] * m;
+          }
+        }
+        x.putImageData(id, 0, 0);
+        return new Promise(function (res, rej) { c.toBlob(function (out) { if (!out) return rej(new Error('encode')); out.arrayBuffer().then(function (ab) { res({ data: ab }); }, rej); }, 'image/png'); });
+      });
+  }
+  function registerTiles(ml) {
+    if (ml.__mmtl) return; ml.__mmtl = true;
+    ml.addProtocol('mmtl', function (p, ac) {
+      var q = /^mmtl:\/\/(light|dark)-(terr|deep)\/(\d+)\/(\d+)\/(\d+)/.exec(p.url);
+      if (!q) return Promise.reject(new Error('bad tile url'));
+      var src = ESRI + (q[2] === 'terr' ? 'World_Terrain_Base' : 'World_Imagery') + '/MapServer/tile/' + q[3] + '/' + q[4] + '/' + q[5];
+      return recolorTile(src, q[2], q[1] === 'dark', ac && ac.signal);
+    });
+  }
+  var LAYERS = { sat: ['sat', 'sat-lab'], light: ['light', 'light-deep', 'light-lab'], dark: ['dark', 'dark-deep', 'dark-lab'] };
   var MODE_TX = { sat: ['Satellite', '\u0d09\u0d2a\u0d17\u0d4d\u0d30\u0d39\u0d02'], light: ['Light', '\u0d32\u0d48\u0d31\u0d4d\u0d31\u0d4d'], dark: ['Dark', '\u0d21\u0d3e\u0d7c\u0d15\u0d4d\u0d15\u0d4d'] };
-  var BG = { sat: '#0b1220', light: '#e6e8e1', dark: '#1a2230' };
+  var BG = { sat: '#0b1220', light: '#cfe2f3', dark: '#14202c' };
   var DOTS = { sat: { c: '#ffffff', o: [.35, .65], s: 'rgba(0,0,0,.4)' }, light: { c: '#5f7a4e', o: [.5, .8], s: 'rgba(255,255,255,.85)' }, dark: { c: '#ffffff', o: [.35, .65], s: 'rgba(0,0,0,.4)' } };
   var SKYC = {
     sat: { 'sky-color': '#88C6FC', 'horizon-color': '#ffffff', 'fog-color': '#ffffff' },
@@ -8666,7 +8720,7 @@ html[lang="ml"] .tdc .tdc-up a{grid-template-columns:5.6rem minmax(0,1fr)}
     var yr = document.createElement('span'); yr.className = 'yr tl-year'; yr.setAttribute('data-tl-year', e.y); yr.textContent = label(e.y);
     var tx = document.createElement('span'); tx.className = 'tx';
     tx.setAttribute('data-en-html', e.t); tx.setAttribute('data-ml-html', e.ml);
-    tx.innerHTML = lang() === 'ml' ? e.ml : e.t; if (lang() === 'ml') tx.style.fontFamily = "'Noto Serif Malayalam', serif";
+    tx.innerHTML = lang() === 'ml' ? e.ml : e.t; if (lang() === 'ml') tx.style.fontFamily = "MMNum,'Noto Serif Malayalam', serif";
     li.appendChild(yr); li.appendChild(tx); frag.appendChild(li); items.push(li);
   });
   ledger.appendChild(frag);
@@ -8703,9 +8757,19 @@ html[lang="ml"] .tdc .tdc-up a{grid-template-columns:5.6rem minmax(0,1fr)}
     var src = {}, lyr = [{ id: 'bg', type: 'background', paint: { 'background-color': BG[mode] } }];
     MODES.forEach(function (m) {
       var T = TILE[m], vis = m === mode ? 'visible' : 'none';
-      src[m] = { type: 'raster', tiles: [T.base], tileSize: 256, maxzoom: T.bz, attribution: T.at };
+      if (m === 'sat') {
+        src[m] = { type: 'raster', tiles: [T.base], tileSize: 256, maxzoom: T.bz, attribution: T.at };
+        src[m + '-lab'] = { type: 'raster', tiles: [T.lab], tileSize: 256, maxzoom: T.lz };
+        lyr.push({ id: m, type: 'raster', source: m, layout: { visibility: vis } });
+        lyr.push({ id: m + '-lab', type: 'raster', source: m + '-lab', layout: { visibility: vis }, paint: { 'raster-opacity': T.op } });
+        return;
+      }
+      var dk = m === 'dark';
+      src[m] = { type: 'raster', tiles: [dk ? 'mmtl://dark-terr/{z}/{y}/{x}' : ESRI + 'World_Terrain_Base/MapServer/tile/{z}/{y}/{x}'], tileSize: 256, maxzoom: 8, attribution: T.at };
+      src[m + '-deep'] = { type: 'raster', tiles: ['mmtl://' + m + '-deep/{z}/{y}/{x}'], tileSize: 256, minzoom: 8, maxzoom: 18 };
       src[m + '-lab'] = { type: 'raster', tiles: [T.lab], tileSize: 256, maxzoom: T.lz };
       lyr.push({ id: m, type: 'raster', source: m, layout: { visibility: vis } });
+      lyr.push({ id: m + '-deep', type: 'raster', source: m + '-deep', layout: { visibility: vis }, paint: { 'raster-opacity': ['interpolate', ['linear'], ['zoom'], 8.5, 0, 9.5, 1], 'raster-fade-duration': 0 } });
       lyr.push({ id: m + '-lab', type: 'raster', source: m + '-lab', layout: { visibility: vis }, paint: { 'raster-opacity': T.op } });
     });
     return { version: 8, projection: { type: 'globe' }, sources: src, layers: lyr };
@@ -8718,7 +8782,7 @@ html[lang="ml"] .tdc .tdc-up a{grid-template-columns:5.6rem minmax(0,1fr)}
   /* show the chosen base map (the style has all three; only the chosen one is visible) */
   function paintMode() {
     if (!ready) return;
-    MODES.forEach(function (m) { var v = m === mode ? 'visible' : 'none'; map.setLayoutProperty(m, 'visibility', v); map.setLayoutProperty(m + '-lab', 'visibility', v); });
+    MODES.forEach(function (m) { var v = m === mode ? 'visible' : 'none'; LAYERS[m].forEach(function (id) { map.setLayoutProperty(id, 'visibility', v); }); });
     map.setPaintProperty('bg', 'background-color', BG[mode]);
     var d = DOTS[mode];
     map.setPaintProperty('all-dots', 'circle-color', d.c);
@@ -8744,6 +8808,7 @@ html[lang="ml"] .tdc .tdc-up a{grid-template-columns:5.6rem minmax(0,1fr)}
   function initMap() {
     var ml = window.maplibregl, host = document.getElementById('tlMap'); if (!ml || !host) return nomap();
     try {
+      registerTiles(ml);
       map = new ml.Map({
         container: host, center: [76.4, 10.2], zoom: 1.6, minZoom: 1, maxZoom: 17, attributionControl: false, cooperativeGestures: true,
         style: styleDef()
