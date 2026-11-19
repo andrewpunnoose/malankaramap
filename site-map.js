@@ -196,7 +196,7 @@
   function init(cfg) {
     var root = typeof cfg.el === "string" ? document.querySelector(cfg.el) : cfg.el;
     if (!root) return Promise.resolve(null);
-    var style = document.createElement("style"); style.textContent = CSS; document.head.appendChild(style);
+    var style = document.createElement("style"); style.textContent = CSS + "html[lang=ml] .mm-ctl{align-items:center!important}html[lang=ml] .mm-ctl>.mm-seg,html[lang=ml] .mm-ctl>.mm-btn{height:38px!important;box-sizing:border-box!important;margin:0!important;display:inline-flex!important;align-items:center!important;justify-content:center!important}html[lang=ml] .mm-ctl>.mm-seg{padding:3px!important}html[lang=ml] .mm-ctl .mm-seg button{height:100%!important;display:inline-flex!important;align-items:center!important;justify-content:center!important;padding:0 11px!important;margin:0!important;font-family:MMNum,'Noto Serif Malayalam',serif!important;font-size:12.5px!important;font-weight:600!important;line-height:1!important;letter-spacing:0!important}html[lang=ml] .mm-ctl>.mm-btn{padding:0 15px!important;font-family:MMNum,'Noto Serif Malayalam',serif!important;font-size:12.5px!important;font-weight:600!important;line-height:1!important;letter-spacing:0!important}html[lang=ml] .mm-ctl>.mm-search-toggle{width:38px!important;padding:0!important;border-radius:50%!important}@media(max-width:640px){html[lang=ml] .mm-ctl{gap:4px!important}html[lang=ml] .mm-ctl>.mm-seg,html[lang=ml] .mm-ctl>.mm-btn{height:34px!important}html[lang=ml] .mm-ctl>.mm-seg{padding:2px!important}html[lang=ml] .mm-ctl .mm-seg button{padding:0 8px!important;font-size:11.5px!important}html[lang=ml] .mm-ctl>.mm-btn{padding:0 10px!important;font-size:11.5px!important}html[lang=ml] .mm-ctl>.mm-search-toggle{width:34px!important;padding:0!important}}"; document.head.appendChild(style);
     var loader = cfg.loader ? document.querySelector(cfg.loader) : null;
     function hideLoader() { if (!loader) return; loader.style.opacity = "0"; setTimeout(function () { loader.style.display = "none"; }, 700); }
     var req = [fetch(cfg.data).then(function (r) { return r.json(); }), cfg.extra ? fetch(cfg.extra).then(function (r) { return r.ok ? r.json() : {}; }).catch(function () { return {}; }) : Promise.resolve({})];
@@ -507,8 +507,10 @@
       stg.innerHTML = '<svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="M20 20l-3.5-3.5"></path></svg>';
       ctl.appendChild(stg);
       form.classList.add("has-toggle");
+      var placeSearch = function () { try { var op = form.offsetParent || form.parentNode, a = ctl.getBoundingClientRect(), b = op.getBoundingClientRect(); form.style.top = Math.round(a.bottom - b.top + 8) + "px"; } catch (e) {} };
+      window.addEventListener("resize", placeSearch); if (window.MutationObserver) new MutationObserver(function () { setTimeout(placeSearch, 60); }).observe(document.documentElement, { attributes: true, attributeFilter: ["lang"] });
       var setSearch = function (open) {
-        form.classList.toggle("is-open", open); stg.setAttribute("aria-expanded", String(open));
+        placeSearch(); form.classList.toggle("is-open", open); stg.setAttribute("aria-expanded", String(open));
         if (open) { panel.hidden = true; layersBtn.setAttribute("aria-expanded", "false"); setTimeout(function () { input.focus(); }, 60); } else input.blur();
       };
       stg.addEventListener("click", function () { setSearch(!form.classList.contains("is-open")); });
