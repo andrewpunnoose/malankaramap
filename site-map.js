@@ -316,8 +316,8 @@
     }
 
     /* cluster + markers */
-    var cg, pinRenderer = null, PIN_PAD = 4;
-    if (cfg.cluster === false) {
+    var canvasPins = cfg.cluster === false && !cfg.domPins, cg, pinRenderer = null, PIN_PAD = 4;
+    if (canvasPins) {
       /* No clustering: every place is its own pin, but all pins are painted on ONE canvas instead of
          thousands of separate page elements, which keeps the map fast. Pins are drawn from north to
          south, so a pin further south always sits on top of the pins to its north, and a click lands
@@ -333,6 +333,14 @@
         addLayers: function (ms) {
           ms.slice().sort(function (p, q) { return q.getLatLng().lat - p.getLatLng().lat; }).forEach(function (m) { pinLayer.addLayer(m); });
         },
+        zoomToShowLayer: function (m, cb) { cb && cb(); }
+      };
+    } else if (cfg.cluster === false) {
+      /* Few pins (e.g. the 1906 map): plain page markers, no clustering. Leaflet stacks them by screen position, so southern pins sit above northern ones, and they stay sharp while zooming. */
+      var domLayer = L.layerGroup().addTo(map);
+      cg = {
+        clearLayers: function () { domLayer.clearLayers(); },
+        addLayers: function (ms) { ms.slice().sort(function (p, q) { return q.getLatLng().lat - p.getLatLng().lat; }).forEach(function (m) { domLayer.addLayer(m); }); },
         zoomToShowLayer: function (m, cb) { cb && cb(); }
       };
     } else {
@@ -356,13 +364,13 @@
         '<div class="mm-body">' + body + note + '</div><div class="mm-pf">' + acts + "</div>";
     }
     entries.forEach(function (e) {
-      if (cfg.cluster === false) {
+      if (canvasPins) {
         var pb = pinBitmap(e);
         e.m = new PinMarker([e.lat, e.lon], { renderer: pinRenderer, pane: "mmPins", radius: pb.h + 2, stroke: false, fill: false, interactive: true, bubblingMouseEvents: false, pin: pb });
         e.m.bindTooltip(function () { return entryName(e); }, { direction: "top", offset: [0, -pb.h], opacity: 0.95 });
       } else e.m = L.marker([e.lat, e.lon], { icon: iconFor(e), title: e.n, riseOnHover: true });
-      e.m.bindPopup(function () { return popupHTML(e); }, { maxWidth: 340, minWidth: 230, className: "mm-popup", autoPanPaddingTopLeft: [20, 70], autoPanPaddingBottomRight: [20, 120], offset: cfg.cluster === false ? [0, -(e.m.options.pin.h - 6)] : [0, 7] });
-      if (cfg.cluster === false) { e.m.off("click", e.m._openPopup, e.m); e.m.on("click", function () { e.m.openPopup(e.m.getLatLng()); }); }
+      e.m.bindPopup(function () { return popupHTML(e); }, { maxWidth: 340, minWidth: 230, className: "mm-popup", autoPanPaddingTopLeft: [20, 70], autoPanPaddingBottomRight: [20, 120], offset: canvasPins ? [0, -(e.m.options.pin.h - 6)] : [0, 7] });
+      if (canvasPins) { e.m.off("click", e.m._openPopup, e.m); e.m.on("click", function () { e.m.openPopup(e.m.getLatLng()); }); }
       e.m.on("popupopen", function () { openEntry = e; }); e.m.on("popupclose", function () { if (openEntry === e) openEntry = null; });
     });
 

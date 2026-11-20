@@ -6059,6 +6059,16 @@ html[lang="ml"] .tracking-wider.uppercase{text-transform:none;overflow-wrap:anyw
 p,li,figcaption,blockquote{text-wrap:pretty}h1,h2,h3{text-wrap:balance}
 html[lang="ml"] h1[data-ml-html^="<em"]{font-size:clamp(30px,8.2vw,52px);line-height:1.25}
 html[lang="ml"] h1[data-ml-html^="<em"] em{display:block;font-size:1.35em;line-height:1.05;margin-bottom:.15em}
+/* Today-in-the-Church list: the title was a line-clamped flex box, which split "15-" / "ാം" / "ഓർമ്മ" into separate lines in Malayalam; make it a normal block so the text flows as one paragraph */
+html[lang="ml"] .tdc-up span,html[lang="ml"] .tdc .tdc-t,html[lang="ml"] .tdc span.mo{display:block;-webkit-line-clamp:unset;-webkit-box-orient:unset;overflow:visible}
+html[lang="ml"] .tdc span.mo{display:inline}
+/* Timeline map: frosted-glass blur on top of a constantly moving WebGL map is re-computed every frame, which made the map lag and smear while it flew. Solid translucent backgrounds look the same and cost nothing. */
+.tls-mapwrap .tls-seg,.tls-mapwrap .glass-pill,.tls-mapwrap [class*="tls-"],.tls-seg,.tls-mapwrap .glass-pill *{-webkit-backdrop-filter:none!important;backdrop-filter:none!important}
+.tls-seg{background:rgba(247,245,238,.96)}
+html.dark .tls-seg{background:rgba(31,41,55,.96)}
+.tls-mapwrap .glass-pill{background:rgba(11,18,32,.8)!important}
+.tls-map{transform:translateZ(0)}
+.tls-map .maplibregl-canvas{will-change:transform}
 </style>
 <style id="mm-fixes-20261119">
 /* Malayalam pages: digits use Marcellus, the same numeral face as the English stats (digits only, so Malayalam text and the -ാം ordinal ending are untouched) */
@@ -6900,7 +6910,7 @@ html[lang="ml"] .mapsearch__go{letter-spacing:normal;text-transform:none}
   <p id="mapSearchMeta" class="mapsearch__meta" aria-live="polite"></p>
 </form>
 </div>
-<script src="site-map.js?v=20261119c" defer></script>
+<script src="site-map.js?v=20261119d" defer></script>
 <script>document.addEventListener("DOMContentLoaded",function(){if(window.MalankaraMap)MalankaraMap.init({el:"#malankaraMap",data:"malankara.json",extra:"map-extra.json",loader:"#mapLoader",cluster:false,home:{wide:[[3,43],[38,112]],tall:[[6,69.5],[36,89.5]]}})});</script>
       <p class="text-center mt-3 font-sans text-[11px] tracking-wide text-muted" data-en="Satellite imagery © Esri, Maxar, Earthstar Geographics." data-ml="ഉപഗ്രഹ ചിത്രങ്ങൾ © Esri, Maxar, Earthstar Geographics.">Satellite imagery © Esri, Maxar, Earthstar Geographics.</p>
     </section>
@@ -8843,7 +8853,7 @@ html[lang="ml"] .tdc .tdc-up a{grid-template-columns:5.6rem minmax(0,1fr)}
     try {
       registerTiles(ml);
       map = new ml.Map({
-        container: host, center: [76.4, 10.2], zoom: 1.6, minZoom: 1, maxZoom: 17, attributionControl: false, cooperativeGestures: true,
+        container: host, center: [76.4, 10.2], zoom: 1.6, minZoom: 1, maxZoom: 17, attributionControl: false, cooperativeGestures: true, pixelRatio: Math.min(window.devicePixelRatio || 1, 2),
         style: styleDef()
       });
     } catch (err) { return nomap(); }
