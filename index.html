@@ -6093,6 +6093,18 @@ html[lang=ml] .count-num,html[lang=ml] [data-count]{font-family:Marcellus,Georgi
   html.dark #hero .glass-hero-panel__blur,html.dark #hero .glass-hero-panel__tint,html.dark #hero .glass-hero-panel__caustic{display:none!important;content:none!important;background:none!important;box-shadow:none!important;border:0!important}
   html.dark #hero .glass-hero-panel h1,html.dark #hero .glass-hero-panel h1 em{background:none!important;box-shadow:none!important;border:0!important;border-radius:0!important;-webkit-backdrop-filter:none!important;backdrop-filter:none!important}
 }
+/* Desktop / tablet, dark mode: remove the whitish veil on the hero box (grain, white sheen, inner glow, caustic wash) so it keeps the deep dark feel */
+@media(min-width:640px){
+  html.dark #hero .glass-hero-panel{
+    background:linear-gradient(160deg,rgba(8,12,22,.52) 0%,rgba(8,12,22,.40) 50%,rgba(8,12,22,.50) 100%)!important;
+    background-image:linear-gradient(160deg,rgba(8,12,22,.52) 0%,rgba(8,12,22,.40) 50%,rgba(8,12,22,.50) 100%)!important;
+    -webkit-backdrop-filter:blur(10px) saturate(100%)!important;backdrop-filter:blur(10px) saturate(100%)!important;
+    box-shadow:0 34px 70px -28px rgba(0,0,0,.8),inset 0 0 0 1px rgba(255,255,255,.07)!important;
+  }
+  html.dark #hero .glass-hero-panel::before{display:none!important;content:none!important}
+  html.dark #hero .glass-hero-panel::after{background:linear-gradient(145deg,rgba(255,255,255,.14) 0%,rgba(255,255,255,.03) 30%,rgba(255,255,255,.02) 65%,rgba(255,255,255,.10) 100%)!important}
+  html.dark #hero .glass-hero-panel__caustic,html.dark #hero .glass-hero-panel__tint{display:none!important}
+}
 </style>
 <script id="mm-ord-js">(function(){
   var SKIP={SCRIPT:1,STYLE:1,TEXTAREA:1,INPUT:1,NOSCRIPT:1,TITLE:1,OPTION:1};

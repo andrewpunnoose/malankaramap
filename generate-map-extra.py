@@ -71,7 +71,11 @@ def kmz_icons(path):
 
 def main():
     places = json.load(open("malankara.json", encoding="utf-8"))
-    names = {p["n"] for p in places}
+    names = {norm(p["n"]) for p in places}   # matched ignoring non-breaking spaces / case, so no name is skipped
+    try:   # keep what is already in map-extra.json (e.g. Malayalam names of merged entries like "A & B")
+        prev = json.load(open("map-extra.json", encoding="utf-8"))
+    except (OSError, ValueError):
+        prev = {}
     typ = {}
     for fname, code in PAGES:
         try:
@@ -79,7 +83,7 @@ def main():
         except OSError:
             continue
         for en, ml in re.findall(r'data-en="([^"]+)"\s+data-ml="([^"]*)"', s):
-            en, ml = html.unescape(en), html.unescape(ml).strip()
+            en, ml = norm(en), html.unescape(ml).strip()
             if en in names and en not in typ:
                 typ[en] = (code, ml if ml and ml != en else "")
     kmz = []
@@ -94,7 +98,10 @@ def main():
         n = p["n"]
         if n in out:
             continue
-        code, ml = typ.get(n, ("", ""))
+        code, ml = typ.get(norm(n), ("", ""))
+        if n in prev:   # never lose a Malayalam name or type that is already filed
+            ml = ml or prev[n][1]
+            code = code or prev[n][2]
         icon = None
         cands = byname.get(norm(n)) or [k for k in kmz if abs(k[1] - p["lat"]) + abs(k[2] - p["lon"]) < 2e-4]
         if cands:
