@@ -6062,6 +6062,13 @@ html[lang="ml"] h1[data-ml-html^="<em"] em{display:block;font-size:1.35em;line-h
 /* Today-in-the-Church list: the title was a line-clamped flex box, which split "15-" / "ാം" / "ഓർമ്മ" into separate lines in Malayalam; make it a normal block so the text flows as one paragraph */
 html[lang="ml"] .tdc-up span,html[lang="ml"] .tdc .tdc-t,html[lang="ml"] .tdc span.mo{display:block;-webkit-line-clamp:unset;-webkit-box-orient:unset;overflow:visible}
 html[lang="ml"] .tdc span.mo{display:inline}
+/* Malayalam place names on the timeline globe */
+.tl-lbl{white-space:nowrap;font-family:"Noto Serif Malayalam",Manjari,serif;font-weight:500;font-size:12px;line-height:1.15;letter-spacing:0!important;pointer-events:none;color:#fff;text-shadow:0 0 3px rgba(0,0,0,.9),0 0 6px rgba(0,0,0,.6),-1px 0 rgba(0,0,0,.55),1px 0 rgba(0,0,0,.55),0 1px rgba(0,0,0,.55);transition:opacity .25s}
+.tl-lbl.tl-kc{font-size:13.5px;font-weight:600}.tl-lbl.tl-ks{font-size:12.5px}.tl-lbl.tl-kt{font-weight:600}.tl-lbl.tl-kv{font-size:11px;font-weight:400}
+.tls-mapwrap[data-style="light"] .tl-lbl{color:#1f2a1a;text-shadow:0 0 3px rgba(255,255,255,.95),0 0 6px rgba(255,255,255,.8),-1px 0 rgba(255,255,255,.8),1px 0 rgba(255,255,255,.8),0 1px rgba(255,255,255,.8)}
+.tl-lbl-moving .tl-lbl{opacity:0}
+/* stat captions under the Kerala / diaspora numbers: one line in Malayalam */
+html[lang="ml"] .pop-foot .grid>div>div[data-ml]{white-space:nowrap;overflow-wrap:normal;font-size:11.5px;line-height:1.5;text-align:center}
 /* Timeline map: frosted-glass blur on top of a constantly moving WebGL map is re-computed every frame, which made the map lag and smear while it flew. Solid translucent backgrounds look the same and cost nothing. */
 .tls-mapwrap .tls-seg,.tls-mapwrap .glass-pill,.tls-mapwrap [class*="tls-"],.tls-seg,.tls-mapwrap .glass-pill *{-webkit-backdrop-filter:none!important;backdrop-filter:none!important}
 .tls-seg{background:rgba(247,245,238,.96)}
@@ -6911,7 +6918,7 @@ html[lang="ml"] .mapsearch__go{letter-spacing:normal;text-transform:none}
 </form>
 </div>
 <script src="site-map.js?v=20261119d" defer></script>
-<script>document.addEventListener("DOMContentLoaded",function(){if(window.MalankaraMap)MalankaraMap.init({el:"#malankaraMap",data:"malankara.json",extra:"map-extra.json",loader:"#mapLoader",cluster:false,home:{wide:[[3,43],[38,112]],tall:[[6,69.5],[36,89.5]]}})});</script>
+<script>document.addEventListener("DOMContentLoaded",function(){if(window.MalankaraMap)MalankaraMap.init({el:"#malankaraMap",data:"malankara.json",extra:"map-extra.json",loader:"#mapLoader",cluster:false,home:{wide:[[3,43],[38,112]],tall:[[6,71],[36,91]]}})});</script>
       <p class="text-center mt-3 font-sans text-[11px] tracking-wide text-muted" data-en="Satellite imagery © Esri, Maxar, Earthstar Geographics." data-ml="ഉപഗ്രഹ ചിത്രങ്ങൾ © Esri, Maxar, Earthstar Geographics.">Satellite imagery © Esri, Maxar, Earthstar Geographics.</p>
     </section>
     <div class="section-divider is-tight" aria-hidden="true">
@@ -8825,13 +8832,15 @@ html[lang="ml"] .tdc .tdc-up a{grid-template-columns:5.6rem minmax(0,1fr)}
   /* show the chosen base map (the style has all three; only the chosen one is visible) */
   function paintMode() {
     if (!ready) return;
-    MODES.forEach(function (m) { var v = m === mode ? 'visible' : 'none'; LAYERS[m].forEach(function (id) { map.setLayoutProperty(id, 'visibility', v); }); });
+    var isML = lang() === 'ml';
+    MODES.forEach(function (m) { var v = m === mode ? 'visible' : 'none'; LAYERS[m].forEach(function (id) { map.setLayoutProperty(id, 'visibility', (isML && /-lab$/.test(id)) ? 'none' : v); }); });
     map.setPaintProperty('bg', 'background-color', BG[mode]);
     var d = DOTS[mode];
     map.setPaintProperty('all-dots', 'circle-color', d.c);
     map.setPaintProperty('all-dots', 'circle-stroke-color', d.s);
     map.setPaintProperty('all-dots', 'circle-opacity', ['interpolate', ['linear'], ['zoom'], 1, d.o[0], 8, d.o[1]]);
     try { map.setSky(skyFor(mode)); } catch (e) {}
+    tlLabels();
   }
   function paintSeg() {
     var ml = lang() === 'ml';
@@ -8902,8 +8911,41 @@ html[lang="ml"] .tdc .tdc-up a{grid-template-columns:5.6rem minmax(0,1fr)}
         'circle-stroke-width': 1, 'circle-stroke-color': '#ffffff' } });
       var el = document.createElement('div'); el.className = 'tls-pin'; el.style.display = 'none';
       pin = new ml.Marker({ element: el, anchor: 'center' }).setLngLat([76.4, 10.2]).addTo(map);
+      map.on('movestart', function () { map.getContainer().classList.add('tl-lbl-moving'); });
+      map.on('moveend', function () { clearTimeout(tlLbl.t); tlLbl.t = setTimeout(function () { tlLabels(); map.getContainer().classList.remove('tl-lbl-moving'); }, 90); });
       ready = true; paintMode(); litShown = -1; paintLit(); if (cur >= 0) aim(ev[cur], { intro: true });
     });
+  }
+  /* Malayalam place names on the globe: in Malayalam the English reference labels are hidden and these names (from map-labels.json, the same list the other maps use) are drawn instead */
+  var tlLbl = { data: null, loading: false, ms: [], t: null, ctx: null, w: {} };
+  var TLF = { c: '600 13.5px', s: '500 12.5px', t: '600 12px', p: '500 12px', v: '400 11px' }, TLFAM = ' "Noto Serif Malayalam", Manjari, serif';
+  function tlLblClear() { tlLbl.ms.forEach(function (m) { m.remove(); }); tlLbl.ms = []; }
+  function tlLabels() {
+    if (!map || !ready) return;
+    tlLblClear();
+    if (lang() !== 'ml') return;
+    if (!tlLbl.data) {
+      if (!tlLbl.loading) { tlLbl.loading = true; fetch('map-labels.json?v=3').then(function (r) { return r.json(); }).then(function (d) { tlLbl.data = d; tlLabels(); }).catch(function () { tlLbl.data = []; }); }
+      return;
+    }
+    var mlg = window.maplibregl, host = map.getContainer(), W = host.clientWidth, H = host.clientHeight, z = map.getZoom() + 1, c = map.getCenter(), boxes = [], shown = 0;
+    var maxKm = z < 3 ? 8000 : z < 4.5 ? 5200 : 20000, ctx = tlLbl.ctx || (tlLbl.ctx = document.createElement('canvas').getContext('2d')), D = tlLbl.data;
+    for (var i = 0; i < D.length && shown < 220; i++) {
+      var d = D[i], ty = d[5];
+      if (d[4] > z) continue;
+      if ((ty === 'c' && z > 6.5) || (ty === 's' && z > 9)) continue;
+      if (dist([c.lng, c.lat], [d[1], d[0]]) > maxKm) continue;
+      var p = map.project([d[1], d[0]]);
+      if (p.x < -40 || p.y < -30 || p.x > W + 40 || p.y > H + 30) continue;
+      var key = ty + d[3], w = tlLbl.w[key];
+      if (w == null) { ctx.font = (TLF[ty] || TLF.p) + TLFAM; w = tlLbl.w[key] = ctx.measureText(d[3]).width; }
+      var x1 = p.x - w / 2 - 6, x2 = p.x + w / 2 + 6, y1 = p.y - 10, y2 = p.y + 10, hit = false;
+      for (var k = 0; k < boxes.length; k++) { var q = boxes[k]; if (x1 < q[2] && x2 > q[0] && y1 < q[3] && y2 > q[1]) { hit = true; break; } }
+      if (hit) continue;
+      boxes.push([x1, y1, x2, y2]); shown++;
+      var el = document.createElement('div'); el.className = 'tl-lbl tl-k' + ty; el.textContent = d[3];
+      tlLbl.ms.push(new mlg.Marker({ element: el, anchor: 'center' }).setLngLat([d[1], d[0]]).addTo(map));
+    }
   }
   function paintLit() {
     if (!ready || litQueued) return; litQueued = true;
@@ -8979,7 +9021,7 @@ html[lang="ml"] .tdc .tdc-up a{grid-template-columns:5.6rem minmax(0,1fr)}
     var g = sec.querySelector('.tls-eras'); if (g) g.setAttribute('aria-label', ml ? 'ഒരു കാലഘട്ടത്തിലേക്കു പോകുക' : 'Jump to an era');
     vp.setAttribute('aria-label', ml ? 'ടൈംലൈൻ ഉൾപ്പെടുത്തലുകൾ. ബ്രൗസ് ചെയ്യാൻ സ്ക്രോൾ ചെയ്യുക അല്ലെങ്കിൽ ആരോ കീകൾ ഉപയോഗിക്കുക.' : 'Timeline entries. Scroll or use the arrow keys to browse.');
     var mp = document.getElementById('tlMap'); if (mp) mp.setAttribute('aria-label', ml ? 'ടൈംലൈനിലെ ഓരോ സ്ഥലത്തേക്കും പറന്നെത്തുന്ന ഗോളം' : 'Globe that flies to each place in the timeline');
-    paintSeg();
+    paintSeg(); if (ready) paintMode();
     items.forEach(function (li, i) { var tx = li.querySelector('.tx'); if (tx) { tx.innerHTML = ml ? ev[i].ml : ev[i].t; tx.style.fontFamily = f; } });
     if (cur >= 0) { paintPlace(ev[cur], stopIdx); sr.textContent = ''; setTimeout(function () { measure(); }, 0); }
   }
