@@ -28,7 +28,7 @@
   <meta name="twitter:image" content="https://malankaramap.com/og-image.png?v=3">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
-  <link href="https://fonts.googleapis.com/css2?family=Marcellus&amp;family=Inter:wght@400;500;600;700&amp;family=Poppins:ital,wght@0,300;0,400;0,500;0,600;1,400&amp;family=Noto+Serif+Malayalam:wght@400;500;600&amp;family=Manjari:wght@400;700&amp;display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Marcellus&amp;family=Inter:wght@400;500;600;700&amp;family=Poppins:ital,wght@0,300;0,400;0,500;0,600;1,400&amp;display=swap" rel="stylesheet">
   <style>
   @font-face {
   font-family: "Epica Pro Sans Regular";
@@ -44,7 +44,7 @@
 
   [lang=ml] .font-sans,
   html.dark [lang=ml] .font-sans {
-  font-family: MMNum,Manjari, "Epica Pro Sans Regular", sans-serif
+  font-family: MMNum,Arima, "Epica Pro Sans Regular", sans-serif
   }
   </style>
   <style>
@@ -6063,7 +6063,7 @@ html[lang="ml"] h1[data-ml-html^="<em"] em{display:block;font-size:1.35em;line-h
 html[lang="ml"] .tdc-up span,html[lang="ml"] .tdc .tdc-t,html[lang="ml"] .tdc span.mo{display:block;-webkit-line-clamp:unset;-webkit-box-orient:unset;overflow:visible}
 html[lang="ml"] .tdc span.mo{display:inline}
 /* Malayalam place names on the timeline globe */
-.tl-lbl{white-space:nowrap;font-family:"Noto Serif Malayalam",Manjari,serif;font-weight:500;font-size:12px;line-height:1.15;letter-spacing:0!important;pointer-events:none;color:#fff;text-shadow:0 0 3px rgba(0,0,0,.9),0 0 6px rgba(0,0,0,.6),-1px 0 rgba(0,0,0,.55),1px 0 rgba(0,0,0,.55),0 1px rgba(0,0,0,.55);transition:opacity .25s}
+.tl-lbl{white-space:nowrap;font-family:Arima,serif;font-weight:500;font-size:12px;line-height:1.15;letter-spacing:0!important;pointer-events:none;color:#fff;text-shadow:0 0 3px rgba(0,0,0,.9),0 0 6px rgba(0,0,0,.6),-1px 0 rgba(0,0,0,.55),1px 0 rgba(0,0,0,.55),0 1px rgba(0,0,0,.55);transition:opacity .25s}
 .tl-lbl.tl-kc{font-size:13.5px;font-weight:600}.tl-lbl.tl-ks{font-size:12.5px}.tl-lbl.tl-kt{font-weight:600}.tl-lbl.tl-kv{font-size:11px;font-weight:400}
 .tls-mapwrap[data-style="light"] .tl-lbl{color:#1f2a1a;text-shadow:0 0 3px rgba(255,255,255,.95),0 0 6px rgba(255,255,255,.8),-1px 0 rgba(255,255,255,.8),1px 0 rgba(255,255,255,.8),0 1px rgba(255,255,255,.8)}
 .tl-lbl-moving .tl-lbl{opacity:0}
@@ -6080,11 +6080,11 @@ html.dark .tls-seg{background:rgba(31,41,55,.96)}
 <style id="mm-fixes-20261119">
 /* Malayalam pages: digits use Marcellus, the same numeral face as the English stats (digits only, so Malayalam text and the -ാം ordinal ending are untouched) */
 @font-face{font-family:"MMNum";src:url(data:font/woff2;base64,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) format("woff2");unicode-range:U+0030-0039;font-display:swap}
-@font-face{font-family:"MMOrdS";src:url(data:font/woff2;base64,d09GMgABAAAAAASUABEAAAAACAwAAAQzAAIaoAAAAAAAAAAAAAAAAAAAAAAAAAAAP0hWQVJdBmA/U1RBVIEeJy4ARC9sEQgKgVSBYjCCdAE2AiQDEAsKAAQgBYMeByAMBxvlBlFUcPYE+HkYg7O1tE0xV4KCQmgc6XgitBM/9EH/pPP9OXdleU0QZm6pzFMQu3D9GdFgyLaOUTojZEJyeWuISYxfGgwG1zDKBI86mCz87nTcv/t1KSUljxGyldIaTv///eT/W2tl2WBXcZlgA63ABp7YwDItGv/xhwObzbWDzfowRwIkxqNfQwCUwSIAAASUOaAj6AUGEPYIjwAwFgsCBGUCwAAD9M6w78cAAYHFCOw7nSHBjtlSwIw5SqthYibTsQHQ1nqmzJwpPBnr9IJbW4sQ1LQXIADrbs8BbcUQwiOgLAG0ZHu2bN0pgKLWuhtsMl+gcSAAJDYCtsJ45lOnnoADDNMZ2ANAAIrpDyhCWzoYz1N411aecAeuRyQe4RHeXPTi+e+u/+xbgPSLyVHNLjRJdt7cqc0AlXi7qeVggGv/ZwgoC+gLPB6DjGVGd3qh/ljR37Tjk+8NRrBNQJ4hyhL4fiBABjoDdwAglAQ2glLAM6A0qCcoAzoDZUF/gHJgS4Hy10IVwLUFFeELP1W9Tg6AAAAPOGAasBmiYfmG8tkeS4699Zait99OHX/zTRreeGPx8bcVvZU89sIt7K0vLsoY89ptiq5PXX7zxRT7R+6tl+6WN1oeu07R7a+/Ghhj3/jSj1oyuNfyQYN6L1ufM3LIst6DlowZNWDpsr6Thg+aMHbazKe0g3ocfrhjh4cPc7H+09uWjjTLh/ldncZ/03PImHHNNw/ump3dbuzubj2/6TR+Vz7MNTtamt62/8jFfQfNa7Zh4EB4yWtHOssiSYDWAgDaA5hK9R/rocFIMw7BOCCxzY9/KQxD/fXzrkGpYX1fUPv//v3th8nnP96Johb//IAtOoxL+Gp89JF8A4xz5CequWgrBbV9zYJ8iwGjh0E9sneFz9SnEhabmGfFsKhVXSUXi4+t/O3iQb1QaOqqf6L8f3OWLOw/E7Z0zEro+c+ff1eN3Cu///J7LUw06zqmfbNsMsXf/5mHRzyg8tcPNNchq++j/Z2q//71E88CsOhCstzUs1kp9NX///3rz/x/GGZd5UDPQiZWr5B7mMnE//1peFNgI92K9/lCdcQLTVt1HzaBPYZ1a8aYqHtN6cJshs2XzFMuTCX0H1upayphMptDoknrZtl/f3q1/RBgza/d9rF/NcyN/NM79w2AD+/V7SiArzsN2gH1/+lZ6wuEGACCf0bWlmawOgxB8OWBLSWIV+gA0O8oAgJ67NKGDpX9hURBAtEVtt7I0tVBkGawQXjGG4yy6QZHktWGGGm2GkLydhrieA4YPEUnDAmSXBlM1oApmB7MnG8wWw/mYB4WiOKrbbQZ0RbILWoF2iyxTuxet/Z8udLu4Ra/T2qlyuatUhtILptFzIxHrJksuUxt11fD+lreqJNJZJeIN8HX/FuqRQJA/RJFFd+j+sFbgpM=) format("woff2");unicode-range:U+0D3E,U+0D02,U+25CC;font-weight:100 900;font-display:swap}@font-face{font-family:"MMOrdM";src:url(data:font/woff2;base64,d09GMgABAAAAAAIQAAwAAAAAA1AAAAHDAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAABmAARBEICoFcgWIBNgIkAxALCgAEIAU6ByAMBxt4AgguB7IhE4evpCOL5Gyd1yjhxHf9sb2xxgPf/vjuzLz5VILTXzqRcSOUyWSVJp0Oh7zn15XexZj7SRJPC2khiksSkSqi17XtFhLjOsSJRSqERJKZAaYILHF2BS4m4WFxoWqb7XQYYB5HkNpfNLDGYRZHgYZaSZHFWSjZzujRScrJNs7svQVFZXs4C5k8MV9DtITuHv2vTDdFClFO2j3kO2uWSQCe1yOHXuT3vxaqOnNGgELeAvSqQERCmySgTWEcqlSJ1Mf6OUPfZVn4nPanClA4tCw1ggJUIWEBsBmAAhAFmuqGt524XPzhXNO7XkP1dtvQFdM7wx+x/Zv/2y1Urwc59159PP1JrGsv8bnmDxrixahz6mRxjWe26M7sjqnD6ZjMHUTR4mRU7ToR0Wiuhq8dWmnl0e2TH5pJN2PdnBneubTtXR0/bRs3rvdud+u0Cv7qpv6+UPdtPL5NgHqnTbM2r91bAoCAyIo3edxE7reqVAXe3C6pAPg0NDnOWI6kJhoqRBD4BacRSTE0IKC8iL9IdCtFAxAKw48KNou6JaGoFjSwowjYXcYrJcYrJ8osKKwogWco4B/rUXo/lMdDnwIA) format("woff2");unicode-range:U+0D3E,U+0D02,U+25CC;font-weight:100 900;font-display:swap}
+@font-face{font-family:"Arima";src:url(arima.woff2) format("woff2");font-weight:100 700;font-style:normal;font-display:swap}@font-face{font-family:"MMOrdA";src:url(data:font/woff2;base64,d09GMgABAAAAAASwABUAAAAACOgAAARDAAEZ2wAAAAAAAAAAAAAAAAAAAAAAAAAAGhgbIBxSP0hWQVI+P01WQVI8BmA/U1RBVIECJyoARC9cEQgKgUiBSzCBQgE2AiQDEAsKAAQgBYRaB0IMBxtxByguB2xjGNaHOGlWyjbOxWGvdfBJqQ31YygRDz9XVe8n3ZPJIoMjBUdMwp1jCSjRETsEudc+/X7fzprpV5W78/59a+ANIiEzXbSJJUInxKUztMiIyjWf/tT3MybnQrHo2qQRDlhA2+KatrQFWUsLGOtYRJM7xiAPAm5L9AuqOP85C+e5n+myKSLRJxLR9N8saThtHE9sYJ3UINtFErTAgcCZZybdtK8SJipOnYjpZ5/nnoVgICCiEpVK0JpoXdfO3c4gBtXQAwhaO3n1Qa03L87RNsSXNFt8HE+tmxbEV+daTdu2j6eEsPzBrB6D3GGMBKuB4O8zUDBal7CVFmoEjg+61FIqAY1i4lWUIQDXf4UCwoKVnQaO1Ftux9n6KA9Sx8EB1ywn8HPK0LcjTPWOD7ctgC+DyqwPmWWnd9TLChcE8m95A0w1IKIRjDSAibqvO69KuyoMNt4+Pj23uC4wTLEBHe8uXN1KrSoUJY9Djg0Amvx7ifrLcahpwYNF8453QPscf+ao0JRiE2sPNrYMjghen8ZlUCtc2CMYqddS0GgUBpVBm2f9/uP3/sffvwx0AQiG6hYjDWhejEbRc3bt+5EqNc6GdPAu6ZKFkD7yOKQh/5J+ynFIO594egwBNWhQYTs4CqAGUGTYoN0jz1+btMgd16380PqM2z9epQ9N7pgspAdPuP2T7Omnq+SO+nR5lR9CqNKDl0teraKczjLsuNz/R3/A7P8bz6jOpvnDbL2wYRRKts2vJhoim2Lr8AUOzyZVifSw7cyPeTvo0iN3Jqva7LN7i/ypK7Zn+aKYcuD7RwrHZSO54tMbri/ey4eKcQCCCCbrBVMBzOYrPI7GdjBl7s5s3z+T+g9hhTvFi+iH/Ud9kXbwiKGimfT9Ph7c2FFrh9J6c256afz/wIF1d/CQgZIbPnRs9C4i+GBq1vjl8R6VHjJl3s4sx07jLIz1aQ0eN3655+773Qq3sjOeJ7drv9f9oS7h7CwIebTvtPbziVJXMiI52H0XxhUFGfdVOuqPcXJi439CVf0I34+b1QP8MPvmzxb1/s1vZSLoKiB8Hn95FEE5ayAsXedfy3W5HHdWlp3pQm0mp4jNG+qXSup+PMtCFCO9FBWDvQJU5m/V1qCoY72/oq6RORYOM5jNSqkMzO761KGoY2T8oq4259b0pQfSEOCXi/oNzf3DWk0exg7EhRuMmooqahMf95HYFFyDSy4dlGjJ9e5eDKKupID2iSyqimB0bDrEmkhd6JDj4KiowX6flXeugGjhcDOyCTDwCDPx46QNPWNGtFFHIkuty2ra/EoqWE05DJ5zPFw8CnqtYht5BgqbyjavIdo2p17B5Y9KEE0dCVznZM7xCaSYNgdElI44zOQaxchxBjY/hktJUQ2rJTDALZc+11d0oW6ms7flJtekpErdd82lNb7IYFAm18jlFwpMn9LrZeYR) format("woff2");unicode-range:U+0D3E,U+0D02,U+25CC;font-weight:100 700;font-display:swap}
 /* "-ാം" ordinal ending: drawn from a tiny font whose dotted-circle glyph is blank, so the lone vowel sign never shows a stray circle */
-span.mo{font-family:MMOrdS,"Noto Serif Malayalam",serif!important;font-style:inherit;white-space:nowrap}span.mo.mo-m{font-family:MMOrdM,Manjari,sans-serif!important}
+span.mo,span.mo.mo-m{font-family:MMOrdA,Arima,serif!important;font-style:inherit;white-space:nowrap}
 /* Satellite / Light / Dark, Layers and Near me: one Malayalam font on every map */
-html[lang=ml] .mm-seg button,html[lang=ml] .mm-btn,html[lang=ml] .tls-seg button{font-family:MMNum,"Noto Serif Malayalam",Manjari,serif!important;font-size:12.5px!important;font-weight:600!important;letter-spacing:0!important;line-height:1.35!important}
+html[lang=ml] .mm-seg button,html[lang=ml] .mm-btn,html[lang=ml] .tls-seg button{font-family:MMNum,Arima,serif!important;font-size:12.5px!important;font-weight:600!important;letter-spacing:0!important;line-height:1.35!important}
 html[lang=ml] .count-num,html[lang=ml] [data-count]{font-family:Marcellus,Georgia,serif}
 /* Phones, dark mode: same clean hero as light mode - plain text over the photo, no glass box or halo behind the title */
 @media(max-width:639px){
@@ -6108,7 +6108,7 @@ html[lang=ml] .count-num,html[lang=ml] [data-count]{font-family:Marcellus,Georgi
 </style>
 <script id="mm-ord-js">(function(){
   var SKIP={SCRIPT:1,STYLE:1,TEXTAREA:1,INPUT:1,NOSCRIPT:1,TITLE:1,OPTION:1};
-  function mFont(el){try{var f=(getComputedStyle(el).fontFamily||"").replace(/^\s*["']?MMNum["']?,?\s*/,"");return /^\s*["']?Manjari/i.test(f);}catch(e){return false;}}
+  function mFont(el){try{var f=(getComputedStyle(el).fontFamily||"").replace(/^\s*["']?MMNum["']?,?\s*/,"");return /^\s*["']?Arima/i.test(f);}catch(e){return false;}}
   function wrap(tn){
     var p=tn.parentNode;if(!p||SKIP[p.nodeName]||(p.classList&&p.classList.contains("mo")))return;
     var t=tn.nodeValue;if(!t||t.indexOf("\u0d3e\u0d02")<0||!/\d-\u0d3e\u0d02/.test(t))return;
@@ -6191,10 +6191,10 @@ html[lang=ml] .count-num,html[lang=ml] [data-count]{font-family:Marcellus,Georgi
 html[lang=ml] header, html[lang=ml] header .font-serif, html[lang=ml] header nav a, html[lang=ml] header #mobileMenu,
 html[lang=ml] header #mobileMenu .mobile-nav-accordion summary, html[lang=ml] header #mobileMenu .mobile-nav-panel,
 html[lang=ml] header #mobileMenu .mobile-nav-panel a, html[lang=ml] header #mobileMenu .mobile-nav-panel a span {
-  font-family: MMNum,"Noto Serif Malayalam", Manjari, serif
+  font-family: MMNum,Arima, serif
 }
 html[lang=ml] header .font-sans, html[lang=ml] header .megapanel, html[lang=ml] header .megapanel a, html[lang=ml] header .megapanel span {
-  font-family: MMNum,Manjari, "Noto Serif Malayalam", sans-serif
+  font-family: MMNum,Arima, sans-serif
 }
 /* 2. Malayalam glyphs are taller: give the logo lines equal room above and below so nothing is clipped and the text stays centred like the English */
 html[lang=ml] header .truncate { line-height: 1.5; padding-top: .1em; padding-bottom: .1em }
@@ -6585,17 +6585,17 @@ html[lang=ml] #mainContent section [class*="tracking-["] { letter-spacing: norma
 
   function o(t) {
     document.documentElement.setAttribute("lang", "ml" === t ? "ml" : "en"), document.querySelectorAll("[data-en][data-ml]").forEach(function(e) {
-      e.textContent = "ml" === t ? e.getAttribute("data-ml") : e.getAttribute("data-en"), e.style.fontFamily = "ml" === t ? "'Noto Serif Malayalam', serif" : ""
+      e.textContent = "ml" === t ? e.getAttribute("data-ml") : e.getAttribute("data-en"), e.style.fontFamily = "ml" === t ? "Arima, serif" : ""
     }), document.querySelectorAll("[data-en-html][data-ml-html]").forEach(function(e) {
-      e.innerHTML = "ml" === t ? e.getAttribute("data-ml-html") : e.getAttribute("data-en-html"), e.style.fontFamily = "ml" === t ? "'Noto Serif Malayalam', serif" : ""
+      e.innerHTML = "ml" === t ? e.getAttribute("data-ml-html") : e.getAttribute("data-en-html"), e.style.fontFamily = "ml" === t ? "Arima, serif" : ""
     }), document.querySelectorAll("[data-en-placeholder][data-ml-placeholder]").forEach(function(e) {
       e.setAttribute("placeholder", "ml" === t ? e.getAttribute("data-ml-placeholder") : e.getAttribute("data-en-placeholder"))
     }), document.querySelectorAll(".tl-year[data-tl-year]").forEach(function(e) {
       e.textContent = window.formatEraLabel(e.getAttribute("data-tl-year"), t)
-    }), "ml" === t ? (a.textContent = "മ", a.style.fontFamily = "'Noto Serif Malayalam', serif", a.className = "text-[15px]", e.setAttribute("aria-label", "Switch to English"), e.setAttribute("title", "Switch to English")) : (a.textContent = "Aa", a.style.fontFamily = "", a.className = "font-serif text-[15px] font-normal", e.setAttribute("aria-label", "Switch to Malayalam"), e.setAttribute("title", "Switch to Malayalam"));
+    }), "ml" === t ? (a.textContent = "മ", a.style.fontFamily = "Arima, serif", a.className = "text-[15px]", e.setAttribute("aria-label", "Switch to English"), e.setAttribute("title", "Switch to English")) : (a.textContent = "Aa", a.style.fontFamily = "", a.className = "font-serif text-[15px] font-normal", e.setAttribute("aria-label", "Switch to Malayalam"), e.setAttribute("title", "Switch to Malayalam"));
     var mi = document.getElementById("langToggleMenuIcon"),
       mb = document.getElementById("langToggleMenuItem");
-    mi && (mi.textContent = "ml" === t ? "മ" : "Aa", mi.style.fontFamily = "ml" === t ? "'Noto Serif Malayalam', serif" : ""), mb && (mb.setAttribute("aria-label", "ml" === t ? "Switch to English" : "Switch to Malayalam"), mb.setAttribute("title", "ml" === t ? "Switch to English" : "Switch to Malayalam"))
+    mi && (mi.textContent = "ml" === t ? "മ" : "Aa", mi.style.fontFamily = "ml" === t ? "Arima, serif" : ""), mb && (mb.setAttribute("aria-label", "ml" === t ? "Switch to English" : "Switch to Malayalam"), mb.setAttribute("title", "ml" === t ? "Switch to English" : "Switch to Malayalam"))
   }
   }()
   </script>
@@ -6874,8 +6874,8 @@ html[lang=ml] #mainContent section [class*="tracking-["] { letter-spacing: norma
 .dark .mapsearch__meta{color:rgba(247,245,238,.5)}
 .mapsearch__reset{background:none;border:0;padding:0;margin-left:10px;font:inherit;font-style:normal;color:#7c6a4a;text-decoration:underline;text-underline-offset:3px;cursor:pointer}
 .mapsearch__reset[hidden]{display:none}
-html[lang="ml"] .mapsearch__input,html[lang="ml"] .mapsearch__go,html[lang="ml"] .mapsearch__reset,html[lang="ml"] #mapLoader p{font-family:MMNum,Inter,"Noto Serif Malayalam",serif}
-html[lang="ml"] .mapsearch__meta{font-family:MMNum,Marcellus,"Noto Serif Malayalam",serif}
+html[lang="ml"] .mapsearch__input,html[lang="ml"] .mapsearch__go,html[lang="ml"] .mapsearch__reset,html[lang="ml"] #mapLoader p{font-family:MMNum,Inter,Arima,serif}
+html[lang="ml"] .mapsearch__meta{font-family:MMNum,Marcellus,Arima,serif}
 html[lang="ml"] .mapsearch__go{letter-spacing:normal;text-transform:none}
 @media(max-width:480px){.mapsearch__go{padding:13px 16px}}
 
@@ -6973,8 +6973,8 @@ html[lang="ml"] .mapsearch__go{letter-spacing:normal;text-transform:none}
 .tdc-go{display:inline-block;margin-top:1rem;font-size:12.5px;font-weight:600;color:var(--t-sage);text-decoration:none;border-bottom:1px solid transparent;transition:border-color .2s}
 .tdc-go:hover,.tdc-more:hover{border-bottom-color:currentColor}
 html[lang="ml"] .tdc .tdc-eyebrow,html[lang="ml"] .tdc .tdc-cat,html[lang="ml"] .tdc .tdc-sh{letter-spacing:normal;text-transform:none}
-html[lang="ml"] .tdc,html[lang="ml"] .tdc a{font-family:MMNum,Inter,"Noto Serif Malayalam",serif}
-html[lang="ml"] .tdc .tdc-h,html[lang="ml"] .tdc .tdc-t,html[lang="ml"] .tdc .tdc-day,html[lang="ml"] .tdc .tdc-mon{font-family:MMNum,Marcellus,"Noto Serif Malayalam",serif}
+html[lang="ml"] .tdc,html[lang="ml"] .tdc a{font-family:MMNum,Inter,Arima,serif}
+html[lang="ml"] .tdc .tdc-h,html[lang="ml"] .tdc .tdc-t,html[lang="ml"] .tdc .tdc-day,html[lang="ml"] .tdc .tdc-mon{font-family:MMNum,Marcellus,Arima,serif}
 html[lang="ml"] .tdc .tdc-t{line-height:1.65}
 html[lang="ml"] .tdc .tdc-mon,html[lang="ml"] .tdc .tdc-wd{line-height:1.55}
 html[lang="ml"] .tdc .tdc-up a{grid-template-columns:5.6rem minmax(0,1fr)}
@@ -8782,7 +8782,7 @@ html[lang="ml"] .tdc .tdc-up a{grid-template-columns:5.6rem minmax(0,1fr)}
     var yr = document.createElement('span'); yr.className = 'yr tl-year'; yr.setAttribute('data-tl-year', e.y); yr.textContent = label(e.y);
     var tx = document.createElement('span'); tx.className = 'tx';
     tx.setAttribute('data-en-html', e.t); tx.setAttribute('data-ml-html', e.ml);
-    tx.innerHTML = lang() === 'ml' ? e.ml : e.t; if (lang() === 'ml') tx.style.fontFamily = "MMNum,'Noto Serif Malayalam', serif";
+    tx.innerHTML = lang() === 'ml' ? e.ml : e.t; if (lang() === 'ml') tx.style.fontFamily = "MMNum,Arima, serif";
     li.appendChild(yr); li.appendChild(tx); frag.appendChild(li); items.push(li);
   });
   ledger.appendChild(frag);
@@ -8930,7 +8930,7 @@ html[lang="ml"] .tdc .tdc-up a{grid-template-columns:5.6rem minmax(0,1fr)}
   }
   /* Malayalam place names on the globe: in Malayalam the English reference labels are hidden and these names (from map-labels.json, the same list the other maps use) are drawn instead */
   var tlLbl = { data: null, loading: false, ms: [], t: null, ctx: null, w: {} };
-  var TLF = { c: '600 13.5px', s: '500 12.5px', t: '600 12px', p: '500 12px', v: '400 11px' }, TLFAM = ' "Noto Serif Malayalam", Manjari, serif';
+  var TLF = { c: '600 13.5px', s: '500 12.5px', t: '600 12px', p: '500 12px', v: '400 11px' }, TLFAM = ' Arima, serif';
   function tlLblClear() { tlLbl.ms.forEach(function (m) { m.remove(); }); tlLbl.ms = []; }
   function tlLabels() {
     if (!map || !ready) return;
@@ -8988,7 +8988,7 @@ html[lang="ml"] .tdc .tdc-up a{grid-template-columns:5.6rem minmax(0,1fr)}
     if (s.place) {
       var ml = lang() === 'ml';
       placeTx.textContent = ml ? (s.mlLabel || s.label) : s.label;
-      placeTx.style.fontFamily = ml ? "'Noto Serif Malayalam', serif" : '';
+      placeTx.style.fontFamily = ml ? "Arima, serif" : '';
       placeEl.classList.add('is-on');
     } else placeEl.classList.remove('is-on');
   }
@@ -9028,7 +9028,7 @@ html[lang="ml"] .tdc .tdc-up a{grid-template-columns:5.6rem minmax(0,1fr)}
   });
   /* re-label everything that isn't a data-en/data-ml node whenever the site language flips */
   function relang() {
-    var ml = lang() === 'ml', f = ml ? "'Noto Serif Malayalam', serif" : '';
+    var ml = lang() === 'ml', f = ml ? "Arima, serif" : '';
     eras.forEach(function (x) { x.btn.textContent = ml ? x.ml : x.en; x.btn.style.fontFamily = f; x.btn.setAttribute('aria-label', (ml ? 'ഇതിലേക്കു പോകുക: ' : 'Jump to ') + (ml ? x.ml : x.en)); });
     var g = sec.querySelector('.tls-eras'); if (g) g.setAttribute('aria-label', ml ? 'ഒരു കാലഘട്ടത്തിലേക്കു പോകുക' : 'Jump to an era');
     vp.setAttribute('aria-label', ml ? 'ടൈംലൈൻ ഉൾപ്പെടുത്തലുകൾ. ബ്രൗസ് ചെയ്യാൻ സ്ക്രോൾ ചെയ്യുക അല്ലെങ്കിൽ ആരോ കീകൾ ഉപയോഗിക്കുക.' : 'Timeline entries. Scroll or use the arrow keys to browse.');

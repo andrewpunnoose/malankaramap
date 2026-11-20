@@ -189,11 +189,11 @@
       document.documentElement.setAttribute("lang", lang === "ml" ? "ml" : "en");
       document.querySelectorAll("[data-en][data-ml]").forEach(function (el) {
         el.textContent = lang === "ml" ? el.getAttribute("data-ml") : el.getAttribute("data-en");
-        el.style.fontFamily = lang === "ml" ? "'Noto Serif Malayalam', serif" : "";
+        el.style.fontFamily = lang === "ml" ? "Arima, serif" : "";
       });
       document.querySelectorAll("[data-en-html][data-ml-html]").forEach(function (el) {
         el.innerHTML = lang === "ml" ? el.getAttribute("data-ml-html") : el.getAttribute("data-en-html");
-        el.style.fontFamily = lang === "ml" ? "'Noto Serif Malayalam', serif" : "";
+        el.style.fontFamily = lang === "ml" ? "Arima, serif" : "";
       });
       document.querySelectorAll("a.skip-link:not([data-en])").forEach(function (el) {
         el.textContent = lang === "ml" ? "ഉള്ളടക്കത്തിലേക്ക് പോകുക" : "Skip to content";
@@ -207,7 +207,7 @@
 
       if (lang === "ml") {
         label.textContent = "മ";
-        label.style.fontFamily = "'Noto Serif Malayalam', serif";
+        label.style.fontFamily = "Arima, serif";
         label.className = "text-[15px]";
         btn.setAttribute("aria-label", "Switch to English");
         btn.setAttribute("title", "Switch to English");
@@ -222,7 +222,7 @@
       var mb = document.getElementById("langToggleMenuItem");
       if (mi) {
         mi.textContent = lang === "ml" ? "മ" : "Aa";
-        mi.style.fontFamily = lang === "ml" ? "'Noto Serif Malayalam', serif" : "";
+        mi.style.fontFamily = lang === "ml" ? "Arima, serif" : "";
       }
       if (mb) {
         mb.setAttribute("aria-label", lang === "ml" ? "Switch to English" : "Switch to Malayalam");
@@ -373,7 +373,7 @@
       var go = overlay.querySelector(".ssrch-go");
       go.setAttribute("aria-label", ml ? "എല്ലാ ഫലങ്ങളും കാണുക" : "View all results");
       go.setAttribute("title", ml ? "എല്ലാ ഫലങ്ങളും കാണുക (Enter)" : "View all results (Enter)");
-      overlay.style.fontFamily = ml ? "'Noto Serif Malayalam', serif" : "";
+      overlay.style.fontFamily = ml ? "Arima, serif" : "";
     }
 
     function open() {
@@ -439,7 +439,7 @@
 /* "-ാം" ordinals: wrap the ending in a span that uses a tiny font with a blank dotted-circle glyph */
 (function(){
   var SKIP={SCRIPT:1,STYLE:1,TEXTAREA:1,INPUT:1,NOSCRIPT:1,TITLE:1,OPTION:1};
-  function mFont(el){try{var f=(getComputedStyle(el).fontFamily||"").replace(/^\s*["']?MMNum["']?,?\s*/,"");return /^\s*["']?Manjari/i.test(f);}catch(e){return false;}}
+  function mFont(el){try{var f=(getComputedStyle(el).fontFamily||"").replace(/^\s*["']?MMNum["']?,?\s*/,"");return /^\s*["']?Arima/i.test(f);}catch(e){return false;}}
   function wrap(tn){
     var p=tn.parentNode;if(!p||SKIP[p.nodeName]||(p.classList&&p.classList.contains("mo")))return;
     var t=tn.nodeValue;if(!t||t.indexOf("\u0d3e\u0d02")<0||!/\d-\u0d3e\u0d02/.test(t))return;
