@@ -402,7 +402,7 @@
     segBtns.forEach(function (b) { b.addEventListener("click", function () { setMode(b.getAttribute("data-s"), true); }); });
     var panel = document.createElement("div"); panel.className = "mm-panel"; panel.hidden = true; root.appendChild(panel);
     ["mousedown", "dblclick", "wheel", "touchstart"].forEach(function (ev) { L.DomEvent.on(panel, ev, L.DomEvent.stopPropagation); L.DomEvent.on(ctl, ev, L.DomEvent.stopPropagation); });
-    layersBtn.addEventListener("click", function () { panel.hidden = !panel.hidden; layersBtn.setAttribute("aria-expanded", String(!panel.hidden)); });
+    layersBtn.addEventListener("click", function () { panel.hidden = !panel.hidden; layersBtn.setAttribute("aria-expanded", String(!panel.hidden)); if (!panel.hidden && typeof setMeta === "function") setMeta(""); });
     function glyphSVG(ic) { return '<svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="#6b7a5c" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">' + GLYPH[ic].replace(/fill="F"/g, 'fill="#6b7a5c"') + "</svg>"; }
     function renderPanel() {
       var h = '<h4>' + esc(t("dioceses")) + '</h4><div class="mm-acts"><button type="button" data-a="all">' + esc(t("all")) + '</button><button type="button" data-a="none">' + esc(t("none")) + "</button></div>";
@@ -476,6 +476,8 @@
     var form = cfg.search !== false && document.getElementById("mapSearchForm"), input = document.getElementById("mapSearchInput"), btn = document.getElementById("mapSearchBtn"), meta = document.getElementById("mapSearchMeta"), nearBtn = null;
     function setMeta(msg, buttons) {
       if (!meta) return; meta.textContent = msg;
+      /* only one thing open at a time: a message (found / not found / locating...) closes the Layers panel */
+      if (msg && panel && !panel.hidden) { panel.hidden = true; layersBtn.setAttribute("aria-expanded", "false"); }
       (buttons || []).forEach(function (b) { var x = document.createElement("button"); x.type = "button"; x.className = "mapsearch__reset"; x.textContent = b[0]; x.addEventListener("click", b[1]); meta.appendChild(x); });
     }
     function resetView() { hl.clearLayers(); if (youMarker) { map.removeLayer(youMarker); youMarker = null; } map.closePopup(); homeView(); setMeta(""); }
