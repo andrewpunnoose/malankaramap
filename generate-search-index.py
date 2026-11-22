@@ -17,6 +17,7 @@ stored as "image" so the search can show it as a thumbnail.
 
 Pages excluded on purpose:
   - header.html / footer.html (not real pages, just includes)
+  - studio-*.html (the private Directory Studio, must never appear in search)
   - 404.html (not a real content page)
   - diocese-*.html (a legacy, unlinked set of pages superseded by
     the current per-diocese pages, e.g. malabar.html)
@@ -28,8 +29,9 @@ any page, just re-run this script — it always reflects whatever
 import re
 import os
 import json
+import html
 
-EXCLUDE_PREFIXES = ("diocese-",)
+EXCLUDE_PREFIXES = ("diocese-", "studio-")
 EXCLUDE_FILES = {"header.html", "footer.html", "404.html"}
 
 
@@ -43,17 +45,27 @@ def main():
         slug = fname[:-5]
         try:
             with open(fname, encoding="utf-8", errors="ignore") as fh:
-                content = fh.read(6000)
+                content = fh.read()
         except OSError:
             continue
-        m = re.search(r"<title>(.*?)</title>", content, re.S)
-        title = m.group(1).strip() if m else slug
+        # <title> carries data-en / data-ml attributes on most pages, so match the
+        # tag with attributes and read the Malayalam title from data-ml.
+        m = re.search(r"<title([^>]*)>(.*?)</title>", content, re.S)
+        title = html.unescape(m.group(2)).strip() if m else slug
+        title_ml = ""
+        if m:
+            mm = re.search(r'data-ml="(.*?)"', m.group(1), re.S)
+            if mm:
+                title_ml = html.unescape(mm.group(1)).strip()
         title = re.sub(r"\s+—\s*Malankara Map\s*$", "", title).strip()
+        title_ml = re.sub(r"\s+—\s*മലങ്കര സഭാഭൂപടം\s*$", "", title_ml).strip()
         md = re.search(r'<meta name="description" content="(.*?)">', content, re.S)
-        desc = md.group(1).strip() if md else ""
+        desc = html.unescape(md.group(1)).strip() if md else ""
         url = "" if slug == "index" else slug
         display_title = "Malankara Map — Home" if slug == "index" else title
         entry = {"title": display_title, "url": url, "description": desc[:160]}
+        if title_ml:
+            entry["titleMl"] = "മലങ്കര സഭാഭൂപടം — ഹോം" if slug == "index" else title_ml
         # A page that sets its own og:image (the Studies articles do) gets that
         # picture shown as a thumbnail next to its search result. Pages that
         # just use the shared site image (og-image.png) get no thumbnail.
