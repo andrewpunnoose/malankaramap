@@ -496,3 +496,33 @@
   if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", go); else go();
   window.addEventListener("load", go);
 })();
+/* Arrows (← →) stay in the English (Inter) font inside Malayalam text, not Arima */
+(function () {
+  var AR = /[\u2190-\u21ff]+/g, SK = { SCRIPT: 1, STYLE: 1, TEXTAREA: 1, SVG: 1, NOSCRIPT: 1 };
+  var CSS = "font-family:Inter,Arial,Helvetica,sans-serif!important;font-style:normal";
+  function wrap(n) {
+    var t = n.nodeValue, last = 0, m, f = document.createDocumentFragment();
+    AR.lastIndex = 0;
+    while ((m = AR.exec(t))) {
+      if (m.index > last) f.appendChild(document.createTextNode(t.slice(last, m.index)));
+      var s = document.createElement("span"); s.className = "mm-arw"; s.setAttribute("style", CSS); s.textContent = m[0]; f.appendChild(s);
+      last = m.index + m[0].length;
+    }
+    if (last < t.length) f.appendChild(document.createTextNode(t.slice(last)));
+    n.parentNode.replaceChild(f, n);
+  }
+  function scan() {
+    if (document.documentElement.getAttribute("lang") !== "ml" || !document.body) return;
+    var w = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT, null, false), n, l = [];
+    while ((n = w.nextNode())) {
+      var p = n.parentNode;
+      if (!p || SK[(p.nodeName || "").toUpperCase()] || (p.classList && p.classList.contains("mm-arw")) || (p.closest && p.closest("svg"))) continue;
+      AR.lastIndex = 0; if (AR.test(n.nodeValue)) l.push(n);
+    }
+    l.forEach(wrap);
+  }
+  var sch = false;
+  function later() { if (!sch) { sch = true; (window.requestAnimationFrame || setTimeout)(function () { sch = false; scan(); }); } }
+  new MutationObserver(later).observe(document.documentElement, { childList: true, subtree: true, characterData: true, attributes: true, attributeFilter: ["lang"] });
+  if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", later); else later();
+})();

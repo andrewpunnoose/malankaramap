@@ -5,6 +5,8 @@ html.dark body.bg-ivory,html.dark body{background-color:#111827!important}
 .bg-herobg{background-color:#F7F5EE!important}
 html.dark .bg-herobg{background-color:#111827!important}
 .grain-overlay,#heroCanvas,#popCanvas,.pop-hero-canvas-wrap canvas{display:none!important}
+/* Malayalam is always Arima (digits stay Marcellus via MMNum) */
+html[lang=ml] body :is(p,span,div,a,li,h1,h2,h3,h4,h5,h6,button,label,summary,td,th,em,strong,b,i,small,figcaption,blockquote):not(.mo):not(.mm-arw){font-family:MMNum,Arima,serif!important}
 </style>
 <style id="mm-titles">
 /* Page titles are never italic (a trailing <em> in an h1 reads as odd) */
@@ -777,7 +779,7 @@ html[lang=ml] header .megapanel .truncate, html[lang=ml] header .megapanel a.tru
 }
 /* 6. Language button "മ": drawn as a shape instead of text, so it sits dead-centre in the circle on every device whatever Malayalam font loads */
 html[lang=ml] header #langToggleLabel, html[lang=ml] header #langToggleMenuIcon {
-  display: block !important; flex: none; width: 15px; height: 15px; padding: 0; margin: 0; transform: none;
+  display: block !important; flex: none; width: 12px; height: 12px; padding: 0; margin: 0; transform: none;
   font-size: 0 !important; line-height: 0 !important;
   background-color: currentColor; -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='60 -552 528 564'%3E%3Cpath stroke='black' stroke-width='24' stroke-linejoin='round' d='M72 -12V-308Q72 -420 137.5 -480Q203 -540 324 -540Q446 -540 511 -480Q576 -420 576 -308V-15H546V-308Q546 -409 489.5 -460.5Q433 -512 324 -512Q215 -512 158.5 -460.5Q102 -409 102 -308V-12ZM72 0V-26H576V0ZM125 -16Q160 -26 197 -50Q234 -74 265.5 -108.5Q297 -143 316.5 -185Q336 -227 336 -273Q336 -319 319 -346Q302 -373 276.5 -384.5Q251 -396 226 -396Q189 -396 161 -377.5Q133 -359 117.5 -330.5Q102 -302 102 -271L88 -294Q89 -328 107 -357Q125 -386 156 -404.5Q187 -423 227 -423Q266 -423 298 -406.5Q330 -390 348.5 -356.5Q367 -323 367 -273Q367 -226 348 -181Q329 -136 298 -99Q267 -62 230 -37.5Q193 -13 157 -6Z'/%3E%3C/svg%3E") center / contain no-repeat; mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='60 -552 528 564'%3E%3Cpath stroke='black' stroke-width='24' stroke-linejoin='round' d='M72 -12V-308Q72 -420 137.5 -480Q203 -540 324 -540Q446 -540 511 -480Q576 -420 576 -308V-15H546V-308Q546 -409 489.5 -460.5Q433 -512 324 -512Q215 -512 158.5 -460.5Q102 -409 102 -308V-12ZM72 0V-26H576V0ZM125 -16Q160 -26 197 -50Q234 -74 265.5 -108.5Q297 -143 316.5 -185Q336 -227 336 -273Q336 -319 319 -346Q302 -373 276.5 -384.5Q251 -396 226 -396Q189 -396 161 -377.5Q133 -359 117.5 -330.5Q102 -302 102 -271L88 -294Q89 -328 107 -357Q125 -386 156 -404.5Q187 -423 227 -423Q266 -423 298 -406.5Q330 -390 348.5 -356.5Q367 -323 367 -273Q367 -226 348 -181Q329 -136 298 -99Q267 -62 230 -37.5Q193 -13 157 -6Z'/%3E%3C/svg%3E") center / contain no-repeat
 }

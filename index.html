@@ -6156,12 +6156,15 @@ html[lang=ml] .count-num,html[lang=ml] [data-count]{font-family:Marcellus,Georgi
 h1,h1 em,h1 i,h1 .italic{font-style:normal!important}
 </style>
 <style id="mm-site-bg">
+@media(min-width:640px){html[lang=ml] #numbers > div:first-child{flex-direction:column;align-items:flex-start}html[lang=ml] #numbers > div:first-child > p{white-space:nowrap}}
 /* One calm page background on every page (light #F7F5EE, dark #111827), no texture, no constellation */
 html body.bg-ivory,html body{background-color:#F7F5EE!important}
 html.dark body.bg-ivory,html.dark body{background-color:#111827!important}
 .bg-herobg{background-color:#F7F5EE!important}
 html.dark .bg-herobg{background-color:#111827!important}
 .grain-overlay,#heroCanvas,#popCanvas,.pop-hero-canvas-wrap canvas{display:none!important}
+/* Malayalam is always Arima (digits stay Marcellus via MMNum) */
+html[lang=ml] body :is(p,span,div,a,li,h1,h2,h3,h4,h5,h6,button,label,summary,td,th,em,strong,b,i,small,figcaption,blockquote):not(.mo):not(.mm-arw){font-family:MMNum,Arima,serif!important}
 </style>
 </head>
 <body class="bg-ivory dark:bg-midnight text-body dark:text-ivory/85 font-sans transition-colors duration-300">
@@ -6245,7 +6248,7 @@ html[lang=ml] header .megapanel .truncate, html[lang=ml] header .megapanel a.tru
 }
 /* 6. Language button "മ": drawn as a shape instead of text, so it sits dead-centre in the circle on every device whatever Malayalam font loads */
 html[lang=ml] header #langToggleLabel, html[lang=ml] header #langToggleMenuIcon {
-  display: block !important; flex: none; width: 15px; height: 15px; padding: 0; margin: 0; transform: none;
+  display: block !important; flex: none; width: 12px; height: 12px; padding: 0; margin: 0; transform: none;
   font-size: 0 !important; line-height: 0 !important;
   background-color: currentColor; -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='60 -552 528 564'%3E%3Cpath stroke='black' stroke-width='24' stroke-linejoin='round' d='M72 -12V-308Q72 -420 137.5 -480Q203 -540 324 -540Q446 -540 511 -480Q576 -420 576 -308V-15H546V-308Q546 -409 489.5 -460.5Q433 -512 324 -512Q215 -512 158.5 -460.5Q102 -409 102 -308V-12ZM72 0V-26H576V0ZM125 -16Q160 -26 197 -50Q234 -74 265.5 -108.5Q297 -143 316.5 -185Q336 -227 336 -273Q336 -319 319 -346Q302 -373 276.5 -384.5Q251 -396 226 -396Q189 -396 161 -377.5Q133 -359 117.5 -330.5Q102 -302 102 -271L88 -294Q89 -328 107 -357Q125 -386 156 -404.5Q187 -423 227 -423Q266 -423 298 -406.5Q330 -390 348.5 -356.5Q367 -323 367 -273Q367 -226 348 -181Q329 -136 298 -99Q267 -62 230 -37.5Q193 -13 157 -6Z'/%3E%3C/svg%3E") center / contain no-repeat; mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='60 -552 528 564'%3E%3Cpath stroke='black' stroke-width='24' stroke-linejoin='round' d='M72 -12V-308Q72 -420 137.5 -480Q203 -540 324 -540Q446 -540 511 -480Q576 -420 576 -308V-15H546V-308Q546 -409 489.5 -460.5Q433 -512 324 -512Q215 -512 158.5 -460.5Q102 -409 102 -308V-12ZM72 0V-26H576V0ZM125 -16Q160 -26 197 -50Q234 -74 265.5 -108.5Q297 -143 316.5 -185Q336 -227 336 -273Q336 -319 319 -346Q302 -373 276.5 -384.5Q251 -396 226 -396Q189 -396 161 -377.5Q133 -359 117.5 -330.5Q102 -302 102 -271L88 -294Q89 -328 107 -357Q125 -386 156 -404.5Q187 -423 227 -423Q266 -423 298 -406.5Q330 -390 348.5 -356.5Q367 -323 367 -273Q367 -226 348 -181Q329 -136 298 -99Q267 -62 230 -37.5Q193 -13 157 -6Z'/%3E%3C/svg%3E") center / contain no-repeat
 }
@@ -7050,7 +7053,7 @@ html[lang="ml"] .mapsearch__go{letter-spacing:normal;text-transform:none}
 .tdc-wd{font-size:11.5px;line-height:1.25;opacity:.78;margin-top:.3rem}
 .tdc-main{padding:1.5rem 1.7rem;min-width:0}
 .tdc-h{font-family:Marcellus,Georgia,serif;font-weight:400;font-size:1.35rem;line-height:1.25;color:var(--t-ink);margin:0 0 .85rem}
-.tdc-h em{font-style:italic;color:var(--t-sage)}
+.tdc-h em{font-style:normal;color:var(--t-sage)}
 .tdc-list{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:.7rem}
 .tdc-list li{position:relative;padding-left:.95rem;min-width:0}
 .tdc-list li::before{content:"";position:absolute;left:0;top:.2rem;bottom:.2rem;width:3px;border-radius:3px;background:var(--c)}
@@ -7183,7 +7186,7 @@ html[lang="ml"] .tdc .tdc-up a{grid-template-columns:5.6rem minmax(0,1fr)}
     <section class="px-5 sm:px-8 sec-tight max-w-6xl mx-auto" id="numbers">
       <div class="reveal flex flex-col sm:flex-row sm:items-end sm:justify-between gap-3 mb-8 sm:mb-10">
         <h2 class="font-serif italic font-normal text-[28px] sm:text-4xl text-ink dark:text-ivory" data-en="A Communion, in Numbers" data-ml="ഒരു സഭാ കൂട്ടായ്മ, സംഖ്യകളിൽ">A Communion, in Numbers</h2>
-        <p class="font-serif italic text-sm text-body/55 dark:text-ivory/45" data-en="All accounted for. Presently Orthodox-administered institutions only." data-ml="എല്ലാം കണക്കാക്കിയിരിക്കുന്നു. നിലവിൽ ഓർത്തഡോക്സ് സഭയുടെ കീഴിലുള്ള സ്ഥാപനങ്ങൾ മാത്രം.">All accounted for. Presently Orthodox-administered institutions only.</p>
+        <p class="font-serif text-sm text-body/55 dark:text-ivory/45" data-en="All accounted for. Presently Orthodox-administered institutions only." data-ml="എല്ലാം കണക്കാക്കിയിരിക്കുന്നു. നിലവിൽ ഓർത്തഡോക്സ് സഭയുടെ കീഴിലുള്ള സ്ഥാപനങ്ങൾ മാത്രം.">All accounted for. Presently Orthodox-administered institutions only.</p>
       </div>
       <div class="reveal reveal-stagger grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-7 border-t border-l border-line dark:border-white/10 rounded-xl overflow-hidden shadow-soft">
         <a href="type-parish-churches" class="group border-b border-r border-line dark:border-white/10 p-5 sm:p-6 flex flex-col gap-2 hover:bg-featured dark:hover:bg-white/5 transition"><span class="count-num font-serif text-3xl sm:text-4xl text-ink dark:text-ivory group-hover:text-sage-dark dark:group-hover:text-sage transition" data-count="1438">1,438</span> <span class="font-sans text-[10px] sm:text-[11px] tracking-wider uppercase text-body/60 dark:text-ivory/50 font-medium" data-en="Churches" data-ml="പള്ളികൾ">Churches</span></a> <a href="type-chapels" class="group border-b border-r border-line dark:border-white/10 p-5 sm:p-6 flex flex-col gap-2 hover:bg-featured dark:hover:bg-white/5 transition"><span class="count-num font-serif text-3xl sm:text-4xl text-ink dark:text-ivory group-hover:text-sage-dark dark:group-hover:text-sage transition" data-count="459">459</span> <span class="font-sans text-[10px] sm:text-[11px] tracking-wider uppercase text-body/60 dark:text-ivory/50 font-medium" data-en="Chapels" data-ml="ചാപ്പലുകൾ">Chapels</span></a> <a href="type-congregations" class="group border-b border-r border-line dark:border-white/10 p-5 sm:p-6 flex flex-col gap-2 hover:bg-featured dark:hover:bg-white/5 transition"><span class="count-num font-serif text-3xl sm:text-4xl text-ink dark:text-ivory group-hover:text-sage-dark dark:group-hover:text-sage transition" data-count="152">152</span> <span class="font-sans text-[10px] sm:text-[11px] tracking-wider uppercase text-body/60 dark:text-ivory/50 font-medium" data-en="Congregations" data-ml="കോൺഗ്രി­ഗേഷ­നുകൾ">Congregations</span></a> <a href="type-qurbana-centres" class="group border-b border-r border-line dark:border-white/10 p-5 sm:p-6 flex flex-col gap-2 hover:bg-featured dark:hover:bg-white/5 transition"><span class="count-num font-serif text-3xl sm:text-4xl text-ink dark:text-ivory group-hover:text-sage-dark dark:group-hover:text-sage transition" data-count="59">59</span> <span class="font-sans text-[10px] sm:text-[11px] tracking-wider uppercase text-body/60 dark:text-ivory/50 font-medium" data-en="Qurbana Centres" data-ml="പ്രാർത്ഥനാ­ലയങ്ങൾ">Qurbana Centres</span></a> <a href="type-cathedrals" class="group border-b border-r border-line dark:border-white/10 p-5 sm:p-6 flex flex-col gap-2 hover:bg-featured dark:hover:bg-white/5 transition"><span class="count-num font-serif text-3xl sm:text-4xl text-ink dark:text-ivory group-hover:text-sage-dark dark:group-hover:text-sage transition" data-count="55">55</span> <span class="font-sans text-[10px] sm:text-[11px] tracking-wider uppercase text-body/60 dark:text-ivory/50 font-medium" data-en="Cathedrals" data-ml="ഭദ്രാസന­പള്ളികൾ">Cathedrals</span></a> <a href="type-monasteries" class="group border-b border-r border-line dark:border-white/10 p-5 sm:p-6 flex flex-col gap-2 hover:bg-featured dark:hover:bg-white/5 transition"><span class="count-num font-serif text-3xl sm:text-4xl text-ink dark:text-ivory group-hover:text-sage-dark dark:group-hover:text-sage transition" data-count="55">55</span> <span class="font-sans text-[10px] sm:text-[11px] tracking-wider uppercase text-body/60 dark:text-ivory/50 font-medium" data-en="Monasteries" data-ml="ദയറാകൾ">Monasteries</span></a> <a href="type-palaces" class="group border-b border-r border-line dark:border-white/10 p-5 sm:p-6 flex flex-col gap-2 hover:bg-featured dark:hover:bg-white/5 transition"><span class="count-num font-serif text-3xl sm:text-4xl text-ink dark:text-ivory group-hover:text-sage-dark dark:group-hover:text-sage transition" data-count="34">34</span> <span class="font-sans text-[10px] sm:text-[11px] tracking-wider uppercase text-body/60 dark:text-ivory/50 font-medium" data-en="Palaces" data-ml="അരമനകൾ">Palaces</span></a> <a href="type-convents" class="group border-b border-r border-line dark:border-white/10 p-5 sm:p-6 flex flex-col gap-2 hover:bg-featured dark:hover:bg-white/5 transition"><span class="count-num font-serif text-3xl sm:text-4xl text-ink dark:text-ivory group-hover:text-sage-dark dark:group-hover:text-sage transition" data-count="29">29</span> <span class="font-sans text-[10px] sm:text-[11px] tracking-wider uppercase text-body/60 dark:text-ivory/50 font-medium" data-en="Convents" data-ml="കന്യാസ്ത്രീ മഠങ്ങൾ">Convents</span></a> <a href="type-catholicate-centres" class="group border-b border-r border-line dark:border-white/10 p-5 sm:p-6 flex flex-col gap-2 hover:bg-featured dark:hover:bg-white/5 transition"><span class="count-num font-serif text-3xl sm:text-4xl text-ink dark:text-ivory group-hover:text-sage-dark dark:group-hover:text-sage transition" data-count="28">28</span> <span class="font-sans text-[10px] sm:text-[11px] tracking-wider uppercase text-body/60 dark:text-ivory/50 font-medium" data-en="Catholicate Centres" data-ml="കാതോലിക്കേറ്റ് കേന്ദ്രങ്ങൾ">Catholicate Centres</span></a> <a href="type-communities" class="group border-b border-r border-line dark:border-white/10 p-5 sm:p-6 flex flex-col gap-2 hover:bg-featured dark:hover:bg-white/5 transition"><span class="count-num font-serif text-3xl sm:text-4xl text-ink dark:text-ivory group-hover:text-sage-dark dark:group-hover:text-sage transition" data-count="23">23</span> <span class="font-sans text-[10px] sm:text-[11px] tracking-wider uppercase text-body/60 dark:text-ivory/50 font-medium" data-en="Communities" data-ml="കമ്മ്യൂ­ണിറ്റി­കൾ">Communities</span></a> <a href="type-prayer-groups" class="group border-b border-r border-line dark:border-white/10 p-5 sm:p-6 flex flex-col gap-2 hover:bg-featured dark:hover:bg-white/5 transition"><span class="count-num font-serif text-3xl sm:text-4xl text-ink dark:text-ivory group-hover:text-sage-dark dark:group-hover:text-sage transition" data-count="18">18</span> <span class="font-sans text-[10px] sm:text-[11px] tracking-wider uppercase text-body/60 dark:text-ivory/50 font-medium" data-en="Independent Prayer Groups" data-ml="സ്വതന്ത്ര പ്രാർത്ഥന യോഗങ്ങൾ">Independent Prayer Groups</span></a> <a href="type-sunday-schools" class="group border-b border-r border-line dark:border-white/10 p-5 sm:p-6 flex flex-col gap-2 hover:bg-featured dark:hover:bg-white/5 transition"><span class="count-num font-serif text-3xl sm:text-4xl text-ink dark:text-ivory group-hover:text-sage-dark dark:group-hover:text-sage transition" data-count="20">20</span> <span class="font-sans text-[10px] sm:text-[11px] tracking-wider uppercase text-body/60 dark:text-ivory/50 font-medium" data-en="Independent Sunday Schools" data-ml="സ്വതന്ത്ര ഞായർ പള്ളിക്കൂടങ്ങൾ">Independent Sunday Schools</span></a> <a href="type-seminaries" class="group border-b border-r border-line dark:border-white/10 p-5 sm:p-6 flex flex-col gap-2 hover:bg-featured dark:hover:bg-white/5 transition"><span class="count-num font-serif text-3xl sm:text-4xl text-ink dark:text-ivory group-hover:text-sage-dark dark:group-hover:text-sage transition" data-count="12">12</span> <span class="font-sans text-[10px] sm:text-[11px] tracking-wider uppercase text-body/60 dark:text-ivory/50 font-medium" data-en="Seminaries" data-ml="സെമിനാരികൾ">Seminaries</span></a> <a href="type-student-centres" class="group border-b border-r border-line dark:border-white/10 p-5 sm:p-6 flex flex-col gap-2 hover:bg-featured dark:hover:bg-white/5 transition"><span class="count-num font-serif text-3xl sm:text-4xl text-ink dark:text-ivory group-hover:text-sage-dark dark:group-hover:text-sage transition" data-count="11">11</span> <span class="font-sans text-[10px] sm:text-[11px] tracking-wider uppercase text-body/60 dark:text-ivory/50 font-medium" data-en="Student Centres" data-ml="വിദ്യാർത്ഥി കേന്ദ്രങ്ങൾ">Student Centres</span></a>
@@ -9227,6 +9230,66 @@ html[lang="ml"] .tdc .tdc-up a{grid-template-columns:5.6rem minmax(0,1fr)}
   function go() { fix(); setTimeout(fix, 400); }
   if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", go); else go();
   window.addEventListener("load", go);
+})();
+</script>
+<script>
+/* Arrows (← →) stay in the English (Inter) font inside Malayalam text, not Arima */
+(function () {
+  var AR = /[\u2190-\u21ff]+/g, SK = { SCRIPT: 1, STYLE: 1, TEXTAREA: 1, SVG: 1, NOSCRIPT: 1 };
+  var CSS = "font-family:Inter,Arial,Helvetica,sans-serif!important;font-style:normal";
+  function wrap(n) {
+    var t = n.nodeValue, last = 0, m, f = document.createDocumentFragment();
+    AR.lastIndex = 0;
+    while ((m = AR.exec(t))) {
+      if (m.index > last) f.appendChild(document.createTextNode(t.slice(last, m.index)));
+      var s = document.createElement("span"); s.className = "mm-arw"; s.setAttribute("style", CSS); s.textContent = m[0]; f.appendChild(s);
+      last = m.index + m[0].length;
+    }
+    if (last < t.length) f.appendChild(document.createTextNode(t.slice(last)));
+    n.parentNode.replaceChild(f, n);
+  }
+  function scan() {
+    if (document.documentElement.getAttribute("lang") !== "ml" || !document.body) return;
+    var w = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT, null, false), n, l = [];
+    while ((n = w.nextNode())) {
+      var p = n.parentNode;
+      if (!p || SK[(p.nodeName || "").toUpperCase()] || (p.classList && p.classList.contains("mm-arw")) || (p.closest && p.closest("svg"))) continue;
+      AR.lastIndex = 0; if (AR.test(n.nodeValue)) l.push(n);
+    }
+    l.forEach(wrap);
+  }
+  var sch = false;
+  function later() { if (!sch) { sch = true; (window.requestAnimationFrame || setTimeout)(function () { sch = false; scan(); }); } }
+  new MutationObserver(later).observe(document.documentElement, { childList: true, subtree: true, characterData: true, attributes: true, attributeFilter: ["lang"] });
+  if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", later); else later();
+})();
+</script>
+<script>
+/* Institution boxes: always ordered from most locations to fewest, whatever the Studio last wrote. */
+(function () {
+  function cnt(a) { var c = a.querySelector("[data-count]"); return c ? parseInt(c.getAttribute("data-count"), 10) : NaN; }
+  function sortAll() {
+    var first = document.querySelector('a[href="type-prayer-groups"] .count-num');
+    if (!first) return;
+    var grid = first.closest("a").parentNode;
+    var tiles = [].slice.call(grid.children).filter(function (a) { return a.tagName === "A" && !isNaN(cnt(a)); });
+    var order = {};
+    tiles.map(function (t, i) { return { t: t, i: i, n: cnt(t) }; })
+      .sort(function (a, b) { return b.n - a.n || a.i - b.i; })
+      .forEach(function (x, rank) { grid.appendChild(x.t); order[x.t.getAttribute("href")] = rank; });
+    // the Institutions menus (desktop and mobile) follow the same order
+    document.querySelectorAll(".relative.group, details.mobile-nav-accordion").forEach(function (g) {
+      var links = [].slice.call(g.querySelectorAll('a[href^="type-"]'));
+      if (links.length < 4) return;
+      var host = links[0].parentNode;
+      if (!links.every(function (a) { return a.parentNode === host; })) return;
+      var known = links.filter(function (a) { return a.getAttribute("href") in order; }),
+        rest = links.filter(function (a) { return !(a.getAttribute("href") in order); });
+      known.sort(function (a, b) { return order[a.getAttribute("href")] - order[b.getAttribute("href")]; });
+      known.concat(rest).forEach(function (a) { host.appendChild(a); });
+    });
+  }
+  if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", sortAll); else sortAll();
 })();
 </script>
 </body>
