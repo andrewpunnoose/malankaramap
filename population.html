@@ -1475,6 +1475,16 @@ html[lang=ml] .mm-head h1,html[lang=ml] .mm-head .mm-lede,html[lang=ml] .mm-head
 html[lang=ml] .mm-head h1{line-height:1.3}
 html[lang=ml] .mm-head .mm-lede{line-height:1.9}
 </style>
+<style id="pop-layout">
+/* Same calm rhythm as the calendar page: tighter sections, centred section titles, nothing sliding in */
+.reveal,.reveal-stagger>*{opacity:1!important;transform:none!important}
+.pop-section{padding-top:3rem!important;padding-bottom:3rem!important}
+.pop-divider{margin:0!important}
+#pop-history>div:first-child,#pop-kerala>div:first-child,#pop-transfers>div:first-child{align-items:center;text-align:center;margin-bottom:1.5rem}
+#pop-marriage>h2,#pop-marriage>p:first-of-type{text-align:center;margin-left:auto;margin-right:auto}
+#pop-history>p,#pop-transfers>p,#pop-marriage>p{margin-left:auto;margin-right:auto}
+#pop-hero .pop-ring-arc,#pop-hero .pop-ring-track{stroke-width:14}
+</style>
 </head>
 <body class="bg-ivory dark:bg-midnight text-body dark:text-ivory/85 font-sans transition-colors duration-300">
 <div id="chartTooltip" class="chart-tooltip" role="tooltip"></div>
@@ -1857,28 +1867,31 @@ html.dark .chart-legend-swatch.is-dot{ border-color:rgb(247,245,238); background
 </style>
 
 <!-- ==================== POPULATION: HERO ==================== -->
-<section class="px-5 sm:px-8 pop-section text-center" id="pop-intro" style="padding-top:0;padding-bottom:0"><header class="mm-head"><span class="mm-eyebrow" data-en="Communion in Numbers" data-ml="സംഖ്യകളിൽ കൂട്ടായ്മ">Communion in Numbers</span><h1 data-en="The Church in Numbers" data-ml="സഭ, സംഖ്യകളിൽ">The Church in Numbers</h1><p class="mm-lede" data-en="A demographic reckoning of the Church’s worldwide communion: its population, its distribution across Kerala’s fourteen districts, and its diaspora." data-ml="സഭയുടെ ആഗോള കൂട്ടായ്മയുടെ ജനസംഖ്യാ കണക്ക്: ലോകമെമ്പാടുമുള്ള ജനസംഖ്യ, കേരളത്തിലെ പതിനാല് ജില്ലകളിലെ വിതരണം, പ്രവാസി സമൂഹം.">A demographic reckoning of the Church’s worldwide communion: its population, its distribution across Kerala’s fourteen districts, and its diaspora.</p><div class="pop-eyebrow-pill mt-6" data-en="Live Estimates" data-ml="തത്സമയ കണക്കുകൾ">Live Estimates</div><div class="mm-rule" aria-hidden="true"></div></header></section>
+<section class="px-5 sm:px-8 pop-section text-center" id="pop-intro" style="padding-top:0;padding-bottom:0"><div class="mm-head"><span class="mm-eyebrow" data-en="Communion in Numbers" data-ml="സംഖ്യകളിൽ കൂട്ടായ്മ">Communion in Numbers</span><h1 data-en="The Church in Numbers" data-ml="സഭ, സംഖ്യകളിൽ">The Church in Numbers</h1><p class="mm-lede" data-en="A demographic reckoning of the Church’s worldwide communion: its population, its distribution across Kerala’s fourteen districts, and its diaspora." data-ml="സഭയുടെ ആഗോള കൂട്ടായ്മയുടെ ജനസംഖ്യാ കണക്ക്: ലോകമെമ്പാടുമുള്ള ജനസംഖ്യ, കേരളത്തിലെ പതിനാല് ജില്ലകളിലെ വിതരണം, പ്രവാസി സമൂഹം.">A demographic reckoning of the Church’s worldwide communion: its population, its distribution across Kerala’s fourteen districts, and its diaspora.</p><div class="pop-eyebrow-pill mt-6" data-en="Live Estimates" data-ml="തത്സമയ കണക്കുകൾ">Live Estimates</div><div class="mm-rule" aria-hidden="true"></div></div></section>
 
 <div class="pop-divider" aria-hidden="true"></div>
 
 <!-- ==================== POPULATION: HEADLINE + RING ==================== -->
-<section class="px-5 sm:px-8 max-w-3xl mx-auto text-center" id="pop-hero" style="padding-top:0;padding-bottom:3.5rem">
+<section class="px-5 sm:px-8 max-w-3xl mx-auto text-center" id="pop-hero" style="padding-top:0;padding-bottom:3rem">
   <div class="pop-hero-canvas-wrap" style="overflow:visible;border-radius:0">
     <div class="font-sans text-[10.5px] tracking-[0.18em] uppercase text-taupe font-semibold mb-3" data-en="Estimated Worldwide" data-ml="ലോകമെമ്പാടും ഏകദേശം">Estimated Worldwide</div>
     <div id="popHeroTotal" class="pop-headline-num" aria-live="off" style="font-size:clamp(2.5rem,7vw,3.75rem);text-shadow:none">1,582,647</div>
     <div class="font-sans text-[13px] text-body/60 dark:text-ivory/50 mt-3 pop-tag" data-en="members of the Malankara Orthodox Syrian Church" data-ml="മലങ്കര ഓർത്തഡോക്സ് സുറിയാനി സഭാംഗങ്ങൾ">members of the Malankara Orthodox Syrian Church</div>
-    <div class="grid grid-cols-[1fr_auto_1fr] items-center gap-4 sm:gap-8 mt-8 max-w-lg mx-auto">
-      <div class="text-center sm:text-right">
-        <div id="popHeroKerala" class="font-serif text-2xl text-sage-dark dark:text-sage" aria-live="off">1,221,211</div>
-        <div class="font-sans text-[10.5px] tracking-wider uppercase text-body/60 dark:text-ivory/50 mt-1" data-en="Within Kerala" data-ml="നാട്ടിൽ">Within Kerala</div>
+    <div class="grid grid-cols-3 border border-line dark:border-white/10 rounded-xl overflow-hidden mt-8 text-center">
+      <div class="p-4 sm:p-5 border-r border-line dark:border-white/10">
+        <div id="popHeroKerala" class="font-serif text-xl sm:text-2xl text-sage-dark dark:text-sage" aria-live="off">1,221,211</div>
+        <div class="font-sans text-[10.5px] tracking-wider uppercase text-body/60 dark:text-ivory/50 mt-1.5" data-en="Within Kerala" data-ml="നാട്ടിൽ">Within Kerala</div>
       </div>
-      <div class="pop-ring-wrap" id="popRingWrap" style="width:108px;height:108px">
-        <svg viewBox="0 0 220 220"><circle class="pop-ring-track" cx="110" cy="110" r="95"></circle><circle class="pop-ring-arc" id="popRingArc" cx="110" cy="110" r="95" style="--pop-offset:136.3;"></circle></svg>
-        <div class="pop-ring-center"><span class="font-serif text-xl text-ink dark:text-ivory" id="popRingPct">77%</span></div>
+      <div class="p-4 sm:p-5 border-r border-line dark:border-white/10">
+        <div id="popHeroDiaspora" class="font-serif text-xl sm:text-2xl text-taupe" aria-live="off">361,436</div>
+        <div class="font-sans text-[10.5px] tracking-wider uppercase text-body/60 dark:text-ivory/50 mt-1.5" data-en="In the Diaspora" data-ml="പ്രവാസത്തിൽ">In the Diaspora</div>
       </div>
-      <div class="text-center sm:text-left">
-        <div id="popHeroDiaspora" class="font-serif text-2xl text-taupe" aria-live="off">361,436</div>
-        <div class="font-sans text-[10.5px] tracking-wider uppercase text-body/60 dark:text-ivory/50 mt-1" data-en="In the Diaspora" data-ml="പ്രവാസത്തിൽ">In the Diaspora</div>
+      <div class="p-4 sm:p-5 flex flex-col items-center justify-center">
+        <div class="pop-ring-wrap" id="popRingWrap" style="width:52px;height:52px;margin:0 auto">
+          <svg viewBox="0 0 220 220"><circle class="pop-ring-track" cx="110" cy="110" r="95"></circle><circle class="pop-ring-arc" id="popRingArc" cx="110" cy="110" r="95" style="--pop-offset:136.3;"></circle></svg>
+          <div class="pop-ring-center"><span class="font-serif text-[13px] text-ink dark:text-ivory" id="popRingPct">77%</span></div>
+        </div>
+        <div class="font-sans text-[10.5px] tracking-wider uppercase text-body/60 dark:text-ivory/50 mt-1.5" data-en="Share in Kerala" data-ml="നാട്ടിലെ അനുപാതം">Share in Kerala</div>
       </div>
     </div>
   </div>
