@@ -1476,6 +1476,25 @@ html[lang=ml] .mm-head h1{line-height:1.3}
 html[lang=ml] .mm-head .mm-lede{line-height:1.9}
 </style>
 <style id="pop-layout">
+.url-wrap h2{text-align:center}
+
+.pop-section{max-width:72rem;margin-left:auto;margin-right:auto}
+.pop-section .chart-card{margin-bottom:0!important}
+@media(min-width:900px){
+ #pop-history,#pop-transfers{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));column-gap:1.5rem;row-gap:1.5rem;align-content:start}
+ #pop-history>*,#pop-transfers>*{margin-top:0!important;margin-bottom:0!important}
+ #pop-history>div:first-child,#pop-transfers>div:first-child{grid-column:1/-1;order:-3}
+ #pop-history>p,#pop-transfers>p{grid-column:1/-1;order:-2;max-width:42rem;justify-self:center}
+ #pop-history>.chart-card:last-child{grid-column:1/-1;max-width:50rem;width:100%;justify-self:center}
+ #pop-transfers>.reveal-stagger{grid-column:1/-1;order:-1}
+ .pop-section .chart-svg text{font-size:15px}
+ #pop-kerala>div:last-child>.mt-6{column-count:2;column-gap:3rem}
+ #pop-kerala .pop-bar-row{break-inside:avoid}
+ #pop-marriage>.reveal-stagger{column-count:2;column-gap:3rem}
+ #pop-marriage>.reveal-stagger>*{break-inside:avoid}
+ #pop-marriage>p,#pop-marriage>h2{margin-left:auto;margin-right:auto}
+}
+
 .pop-section *{font-style:normal!important}
 #pop-history>p,#pop-transfers>p,#pop-marriage>p{max-width:42rem;text-align:left;font-size:13.5px;line-height:1.75}
 #pop-kerala>.max-w-3xl{max-width:42rem;margin-left:auto;margin-right:auto}
