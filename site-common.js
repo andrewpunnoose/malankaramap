@@ -466,3 +466,33 @@
   function first(){scan(document.body);}
   if(document.readyState==="loading")document.addEventListener("DOMContentLoaded",first);else first();
 })();
+/* One stays singular: a stat box that says 1 reads "Deacon", not "Deacons" (0 and 2+ stay plural).
+   Runs on the finished page, so it holds for anything the Studio publishes. */
+(function () {
+  var S = {
+    "Cathedrals": ["Cathedral", "ഭദ്രാസനപള്ളി"], "Catholicate Centres": ["Catholicate Centre", "കാതോലിക്കേറ്റ് കേന്ദ്രം"],
+    "Chapels": ["Chapel", "ചാപ്പൽ"], "Churches": ["Church", "പള്ളി"], "Communities": ["Community", "കമ്മ്യൂണിറ്റി"],
+    "Congregations": ["Congregation", "കോൺഗ്രിഗേഷൻ"], "Convents": ["Convent", "കന്യാസ്ത്രീ മഠം"],
+    "Cor-Episcopi": ["Cor-Episcopa", "കോറെപ്പിസ്കോപ്പ"], "Deacons": ["Deacon", "ശെമ്മാശൻ"],
+    "Independent Prayer Groups": ["Independent Prayer Group", "സ്വതന്ത്ര പ്രാർത്ഥന യോഗം"],
+    "Independent Sunday Schools": ["Independent Sunday School", "സ്വതന്ത്ര ഞായർ പള്ളിക്കൂടം"],
+    "Institutions": ["Institution", "സ്ഥാപനം"], "Monasteries": ["Monastery", "ദയറാ"], "Monks": ["Monk", "റമ്പാൻ"],
+    "Other Institutions": ["Other Institution", "മറ്റ് സ്ഥാപനം"], "Palaces": ["Palace", "അരമന"], "Priests": ["Priest", "വൈദികൻ"],
+    "Qurbana Centres": ["Qurbana Centre", "പ്രാർത്ഥനാലയം"], "Seminaries": ["Seminary", "സെമിനാരി"],
+    "Student Centres": ["Student Centre", "വിദ്യാർത്ഥി കേന്ദ്രം"], "Metropolitans": ["Metropolitan", "മെത്രാപ്പോലീത്ത"]
+  };
+  function fix() {
+    var ml = document.documentElement.getAttribute("lang") === "ml";
+    document.querySelectorAll("span[data-en][data-ml]").forEach(function (l) {
+      var s = S[l.getAttribute("data-en")], p = l.previousElementSibling;
+      if (!s || !p) return;
+      var n = parseInt(String(p.getAttribute("data-count") || p.textContent).replace(/[^0-9]/g, ""), 10);
+      if (n !== 1) return;
+      l.setAttribute("data-en", s[0]); l.setAttribute("data-ml", s[1]);
+      l.textContent = ml ? s[1] : s[0];
+    });
+  }
+  function go() { fix(); setTimeout(fix, 400); }
+  if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", go); else go();
+  window.addEventListener("load", go);
+})();

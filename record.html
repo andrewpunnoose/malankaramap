@@ -1378,6 +1378,24 @@ button:focus-visible, a:focus-visible{ outline-color: rgb(var(--accent-a)); }
 .page-hero h1{ margin-top:.35rem; }
 @media (min-width:640px){ .page-hero{ padding: 4.5rem 3.5rem 4rem; } }
 </style>
+<style id="mm-head-css">
+.mm-head{text-align:center;max-width:42rem;margin:0 auto;padding:3.5rem 0 2.5rem}
+@media(min-width:640px){.mm-head{padding-top:5rem;padding-bottom:3rem}}
+.mm-head .mm-eyebrow{font-family:Inter,system-ui,sans-serif;font-size:11px;letter-spacing:.22em;text-transform:uppercase;font-weight:600;color:#8a7a5c;margin:0 0 20px;display:block}
+.dark .mm-head .mm-eyebrow{color:#a89877}
+.mm-head h1{font-family:Marcellus,Georgia,serif;font-weight:400;font-style:normal;font-size:clamp(36px,8vw,60px);line-height:1.1;letter-spacing:-.005em;margin:0 0 24px;color:#10140d}
+.mm-head h1.mm-long{font-size:clamp(30px,6vw,46px);line-height:1.18}
+.dark .mm-head h1{color:#f7f5ee}
+.mm-head .mm-lede{font-family:Inter,system-ui,sans-serif;font-size:15px;line-height:1.7;max-width:32rem;margin:0 auto;color:rgba(46,42,36,.8);font-style:normal}
+.dark .mm-head .mm-lede{color:rgba(247,245,238,.65)}
+.mm-head .mm-meta{font-family:Inter,system-ui,sans-serif;font-size:12.5px;line-height:1.6;margin:14px auto 0;color:rgba(46,42,36,.55);font-style:normal}
+.dark .mm-head .mm-meta{color:rgba(247,245,238,.45)}
+.mm-head .mm-rule{width:1px;height:40px;background:rgba(186,148,80,.7);margin:32px auto 0}
+html[lang=ml] .mm-head .mm-eyebrow{letter-spacing:normal;text-transform:none;font-family:MMNum,Arima,serif;font-size:13px}
+html[lang=ml] .mm-head h1,html[lang=ml] .mm-head .mm-lede,html[lang=ml] .mm-head .mm-meta{font-family:MMNum,Arima,serif}
+html[lang=ml] .mm-head h1{line-height:1.3}
+html[lang=ml] .mm-head .mm-lede{line-height:1.9}
+</style>
 </head>
 
 <body class="bg-ivory dark:bg-midnight text-body dark:text-ivory/85 font-sans transition-colors duration-300">
@@ -1480,10 +1498,7 @@ button:focus-visible, a:focus-visible{ outline-color: rgb(var(--accent-a)); }
 
 <main id="main">
 <div class="record-wrap">
-<section class="max-w-xl mx-auto text-center">
-  <h1 class="font-serif font-normal text-[32px] leading-[1.15] sm:text-5xl tracking-tight text-ink dark:text-ivory mb-3 sm:mb-4" data-en="Help Us Keep This Record Accurate" data-ml="ഈ രേഖ കൃത്യമായി സൂക്ഷിക്കാൻ ഞങ്ങളെ സഹായിക്കുക">Help Us Keep This Record Accurate</h1>
-  <p class="text-[14.5px] sm:text-[15px] text-body/75 dark:text-ivory/60 leading-[1.7] max-w-md mx-auto" data-en="Report a missing or incorrect location, or share parish history not yet on file." data-ml="കാണാതായതോ തെറ്റായതോ ആയ ഒരു സ്ഥലം അറിയിക്കുക, അല്ലെങ്കിൽ ഇതുവരെ രേഖപ്പെടുത്തിയിട്ടില്ലാത്ത ഇടവക ചരിത്രം പങ്കുവയ്ക്കുക.">Report a missing or incorrect location, or share parish history not yet on file.</p>
-</section>
+<section class="max-w-xl mx-auto"><header class="mm-head"><span class="mm-eyebrow" data-en="Corrections" data-ml="തിരുത്തലുകൾ">Corrections</span><h1 class="mm-long" data-en="Help Us Keep This Record Accurate" data-ml="ഈ രേഖ കൃത്യമായി സൂക്ഷിക്കാൻ ഞങ്ങളെ സഹായിക്കുക">Help Us Keep This Record Accurate</h1><p class="mm-lede" data-en="Report a missing or incorrect location, or share parish history not yet on file." data-ml="കാണാതായതോ തെറ്റായതോ ആയ ഒരു സ്ഥലം അറിയിക്കുക, അല്ലെങ്കിൽ ഇതുവരെ രേഖപ്പെടുത്തിയിട്ടില്ലാത്ത ഇടവക ചരിത്രം പങ്കുവയ്ക്കുക.">Report a missing or incorrect location, or share parish history not yet on file.</p><div class="mm-rule" aria-hidden="true"></div></header></section>
 <section class="max-w-xl mx-auto pt-12 sm:pt-14">
   <div class="report-card reveal">
     <form id="reportForm" class="grid gap-6" novalidate>
