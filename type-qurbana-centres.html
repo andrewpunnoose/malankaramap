@@ -9,7 +9,33 @@
     if(saved === 'dark'){ document.documentElement.classList.add('dark'); }
   })();
 </script>
-<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Marcellus&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+  tailwind.config = {
+    darkMode: 'class',
+    theme: {
+      extend: {
+        colors: {
+          ivory: '#F7F5EE', cream: '#F2F0EB', charcoal: '#1F2937', midnight: '#111827',
+          sage: { DEFAULT: '#6B8259', dark: '#4A5D3D' }, taupe: '#7C6A4A',
+          gold: { DEFAULT: '#BA9450', dark: '#A5813F' }, ink: '#10140D', body: '#333A2D',
+          secondary: '#5F6857', muted: '#969E8C', line: '#DBE1D2', 'line-light': '#EDF0E6',
+          divider: '#D6D3C8', herobg: '#EEF0E6', featured: '#F0EDE5'
+        },
+        fontFamily: { serif: ['Marcellus','Georgia','serif'], sans: ['Inter','system-ui','sans-serif'] },
+        boxShadow: {
+          soft: '0 2px 12px rgba(17,24,39,0.06)', medium: '0 8px 30px rgba(17,24,39,0.10)',
+          large: '0 20px 60px rgba(17,24,39,0.16)'
+        }
+      }
+    }
+  }
+</script>
+<style>html{scroll-behavior:smooth;} ::selection{background:#6B8259;color:#fff;}</style>
 <title data-en="Qurbana Centres — Malankara Map" data-ml="പ്രാർത്ഥനാലയങ്ങൾ — മലങ്കര സഭാഭൂപടം">Qurbana Centres — Malankara Map</title>
 <meta name="description" content="Every qurbana centre of the Malankara Orthodox Syrian Church, mapped — 58 locations across 10 nations.">
 <link rel="canonical" href="https://malankaramap.com/type-qurbana-centres">
@@ -19,435 +45,637 @@
 <meta property="og:description" content="Every qurbana centre of the Malankara Orthodox Syrian Church, mapped — 58 locations across 10 nations.">
 <meta property="og:image" content="https://malankaramap.com/og-image.png">
 <meta property="og:url" content="https://malankaramap.com/type-qurbana-centres">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Marcellus&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-
-<style>*,:after,:before{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-gradient-from-position: ;--tw-gradient-via-position: ;--tw-gradient-to-position: ;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgba(59,130,246,.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: ;--tw-contain-size: ;--tw-contain-layout: ;--tw-contain-paint: ;--tw-contain-style: }::backdrop{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-gradient-from-position: ;--tw-gradient-via-position: ;--tw-gradient-to-position: ;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgba(59,130,246,.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: ;--tw-contain-size: ;--tw-contain-layout: ;--tw-contain-paint: ;--tw-contain-style: }/*! tailwindcss v3.4.19 | MIT License | https://tailwindcss.com*/*,:after,:before{box-sizing:border-box;border:0 solid #e5e7eb}:after,:before{--tw-content:""}:host,html{line-height:1.5;-webkit-text-size-adjust:100%;-moz-tab-size:4;-o-tab-size:4;tab-size:4;font-family:Inter,system-ui,sans-serif;font-feature-settings:normal;font-variation-settings:normal;-webkit-tap-highlight-color:transparent}body{margin:0;line-height:inherit}hr{height:0;color:inherit;border-top-width:1px}abbr:where([title]){-webkit-text-decoration:underline dotted;text-decoration:underline dotted}h1,h2,h3,h4,h5,h6{font-size:inherit;font-weight:inherit}a{color:inherit;text-decoration:inherit}b,strong{font-weight:bolder}code,kbd,pre,samp{font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,Liberation Mono,Courier New,monospace;font-feature-settings:normal;font-variation-settings:normal;font-size:1em}small{font-size:80%}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}sub{bottom:-.25em}sup{top:-.5em}table{text-indent:0;border-color:inherit;border-collapse:collapse}button,input,optgroup,select,textarea{font-family:inherit;font-feature-settings:inherit;font-variation-settings:inherit;font-size:100%;font-weight:inherit;line-height:inherit;letter-spacing:inherit;color:inherit;margin:0;padding:0}button,select{text-transform:none}button,input:where([type=button]),input:where([type=reset]),input:where([type=submit]){-webkit-appearance:button;background-color:transparent;background-image:none}:-moz-focusring{outline:auto}:-moz-ui-invalid{box-shadow:none}progress{vertical-align:baseline}::-webkit-inner-spin-button,::-webkit-outer-spin-button{height:auto}[type=search]{-webkit-appearance:textfield;outline-offset:-2px}::-webkit-search-decoration{-webkit-appearance:none}::-webkit-file-upload-button{-webkit-appearance:button;font:inherit}summary{display:list-item}blockquote,dd,dl,figure,h1,h2,h3,h4,h5,h6,hr,p,pre{margin:0}fieldset{margin:0}fieldset,legend{padding:0}menu,ol,ul{list-style:none;margin:0;padding:0}dialog{padding:0}textarea{resize:vertical}input::-moz-placeholder,textarea::-moz-placeholder{opacity:1;color:#9ca3af}input::placeholder,textarea::placeholder{opacity:1;color:#9ca3af}[role=button],button{cursor:pointer}:disabled{cursor:default}audio,canvas,embed,iframe,img,object,svg,video{display:block;vertical-align:middle}img,video{max-width:100%;height:auto}[hidden]:where(:not([hidden=until-found])){display:none}html{scroll-behavior:smooth}body{-webkit-font-smoothing:antialiased}::-moz-selection{background:#6B8259;color:#fff}::selection{background:#6B8259;color:#fff}.absolute{position:absolute}.relative{position:relative}.sticky{position:sticky}.inset-0{inset:0}.left-0{left:0}.left-1{left:.25rem}.left-1\/2{left:50%}.right-4{right:1rem}.top-0{top:0}.top-4{top:1rem}.top-full{top:100%}.z-10{z-index:10}.z-20{z-index:20}.z-50{z-index:50}.mx-auto{margin-left:auto;margin-right:auto}.-mt-2{margin-top:-.5rem}.mb-1{margin-bottom:.25rem}.mb-1\.5{margin-bottom:.375rem}.mb-10{margin-bottom:2.5rem}.mb-2{margin-bottom:.5rem}.mb-2\.5{margin-bottom:.625rem}.mb-3{margin-bottom:.75rem}.mb-4{margin-bottom:1rem}.mb-5{margin-bottom:1.25rem}.mb-6{margin-bottom:1.5rem}.mb-7{margin-bottom:1.75rem}.mb-8{margin-bottom:2rem}.mt-0{margin-top:0}.mt-0\.5{margin-top:.125rem}.mt-1{margin-top:.25rem}.mt-11{margin-top:2.75rem}.mt-16{margin-top:4rem}.mt-2{margin-top:.5rem}.mt-3{margin-top:.75rem}.mt-4{margin-top:1rem}.mt-6{margin-top:1.5rem}.mt-7{margin-top:1.75rem}.mt-8{margin-top:2rem}.block{display:block}.flex{display:flex}.inline-flex{display:inline-flex}.table{display:table}.grid{display:grid}.hidden{display:none}.h-10{height:2.5rem}.h-11{height:2.75rem}.h-16{height:4rem}.h-2{height:.5rem}.h-2\.5{height:.625rem}.h-3{height:.75rem}.h-3\.5{height:.875rem}.h-4{height:1rem}.h-5{height:1.25rem}.h-7{height:1.75rem}.h-8{height:2rem}.h-9{height:2.25rem}.h-\[360px\]{height:360px}.h-auto{height:auto}.max-h-64{max-height:16rem}.min-h-\[20px\]{min-height:20px}.w-11{width:2.75rem}.w-2{width:.5rem}.w-2\.5{width:.625rem}.w-3{width:.75rem}.w-3\.5{width:.875rem}.w-4{width:1rem}.w-5{width:1.25rem}.w-56{width:14rem}.w-6{width:1.5rem}.w-7{width:1.75rem}.w-9{width:2.25rem}.w-\[150px\]{width:150px}.w-fit{width:-moz-fit-content;width:fit-content}.w-full{width:100%}.w-px{width:1px}.min-w-0{min-width:0}.max-w-2xl{max-width:42rem}.max-w-3xl{max-width:48rem}.max-w-4xl{max-width:56rem}.max-w-6xl{max-width:72rem}.max-w-7xl{max-width:80rem}.max-w-lg{max-width:32rem}.max-w-md{max-width:28rem}.max-w-xl{max-width:36rem}.flex-1{flex:1 1 0%}.shrink-0{flex-shrink:0}.-translate-x-1{--tw-translate-x:-0.25rem}.-translate-x-1,.-translate-x-1\/2{transform:translate(var(--tw-translate-x),var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}.-translate-x-1\/2{--tw-translate-x:-50%}@keyframes ping{75%,to{transform:scale(2);opacity:0}}.animate-ping{animation:ping 1s cubic-bezier(0,0,.2,1) infinite}@keyframes pulse{50%{opacity:.5}}.animate-pulse{animation:pulse 2s cubic-bezier(.4,0,.6,1) infinite}.resize-y{resize:vertical}.grid-cols-1{grid-template-columns:repeat(1,minmax(0,1fr))}.grid-cols-2{grid-template-columns:repeat(2,minmax(0,1fr))}.flex-col{flex-direction:column}.items-start{align-items:flex-start}.items-end{align-items:flex-end}.items-center{align-items:center}.items-baseline{align-items:baseline}.justify-center{justify-content:center}.justify-between{justify-content:space-between}.gap-0{gap:0}.gap-0\.5{gap:.125rem}.gap-1{gap:.25rem}.gap-1\.5{gap:.375rem}.gap-10{gap:2.5rem}.gap-2{gap:.5rem}.gap-2\.5{gap:.625rem}.gap-3{gap:.75rem}.gap-3\.5{gap:.875rem}.gap-4{gap:1rem}.gap-5{gap:1.25rem}.gap-6{gap:1.5rem}.gap-7{gap:1.75rem}.gap-8{gap:2rem}.gap-px{gap:1px}.space-y-4>:not([hidden])~:not([hidden]){--tw-space-y-reverse:0;margin-top:calc(1rem*(1 - var(--tw-space-y-reverse)));margin-bottom:calc(1rem*var(--tw-space-y-reverse))}.self-center{align-self:center}.overflow-hidden{overflow:hidden}.overflow-y-auto{overflow-y:auto}.truncate{overflow:hidden;text-overflow:ellipsis}.truncate,.whitespace-nowrap{white-space:nowrap}.rounded{border-radius:.25rem}.rounded-2xl{border-radius:1rem}.rounded-full{border-radius:9999px}.rounded-lg{border-radius:.5rem}.rounded-xl{border-radius:.75rem}.border{border-width:1px}.border-0{border-width:0}.border-b{border-bottom-width:1px}.border-l{border-left-width:1px}.border-r{border-right-width:1px}.border-t{border-top-width:1px}.border-gold\/25{border-color:rgba(186,148,80,.25)}.border-gold\/50{border-color:rgba(186,148,80,.5)}.border-ink{--tw-border-opacity:1;border-color:rgb(16 20 13/var(--tw-border-opacity,1))}.border-ink\/10{border-color:rgba(16,20,13,.1)}.border-ivory{--tw-border-opacity:1;border-color:rgb(247 245 238/var(--tw-border-opacity,1))}.border-line{--tw-border-opacity:1;border-color:rgb(219 225 210/var(--tw-border-opacity,1))}.border-sage{--tw-border-opacity:1;border-color:rgb(107 130 89/var(--tw-border-opacity,1))}.border-transparent{border-color:transparent}.border-white{--tw-border-opacity:1;border-color:rgb(255 255 255/var(--tw-border-opacity,1))}.bg-charcoal{--tw-bg-opacity:1;background-color:rgb(31 41 55/var(--tw-bg-opacity,1))}.bg-gold{--tw-bg-opacity:1;background-color:rgb(186 148 80/var(--tw-bg-opacity,1))}.bg-gold\/70{background-color:rgba(186,148,80,.7)}.bg-herobg{--tw-bg-opacity:1;background-color:rgb(238 240 230/var(--tw-bg-opacity,1))}.bg-ivory{--tw-bg-opacity:1;background-color:rgb(247 245 238/var(--tw-bg-opacity,1))}.bg-ivory\/90{background-color:rgba(247,245,238,.9)}.bg-ivory\/95{background-color:rgba(247,245,238,.95)}.bg-line{--tw-bg-opacity:1;background-color:rgb(219 225 210/var(--tw-bg-opacity,1))}.bg-midnight{--tw-bg-opacity:1;background-color:rgb(17 24 39/var(--tw-bg-opacity,1))}.bg-sage{--tw-bg-opacity:1;background-color:rgb(107 130 89/var(--tw-bg-opacity,1))}.bg-transparent{background-color:transparent}.bg-white{--tw-bg-opacity:1;background-color:rgb(255 255 255/var(--tw-bg-opacity,1))}.p-3{padding:.75rem}.p-3\.5{padding:.875rem}.p-4{padding:1rem}.p-5{padding:1.25rem}.p-6{padding:1.5rem}.px-2{padding-left:.5rem;padding-right:.5rem}.px-3{padding-left:.75rem;padding-right:.75rem}.px-4{padding-left:1rem;padding-right:1rem}.px-5{padding-left:1.25rem;padding-right:1.25rem}.px-6{padding-left:1.5rem;padding-right:1.5rem}.px-8{padding-left:2rem;padding-right:2rem}.px-9{padding-left:2.25rem;padding-right:2.25rem}.py-1{padding-top:.25rem;padding-bottom:.25rem}.py-1\.5{padding-top:.375rem;padding-bottom:.375rem}.py-10{padding-top:2.5rem;padding-bottom:2.5rem}.py-12{padding-top:3rem;padding-bottom:3rem}.py-14{padding-top:3.5rem;padding-bottom:3.5rem}.py-16{padding-top:4rem;padding-bottom:4rem}.py-2{padding-top:.5rem;padding-bottom:.5rem}.py-2\.5{padding-top:.625rem;padding-bottom:.625rem}.py-3{padding-top:.75rem;padding-bottom:.75rem}.py-3\.5{padding-top:.875rem;padding-bottom:.875rem}.py-4{padding-top:1rem;padding-bottom:1rem}.py-5{padding-top:1.25rem;padding-bottom:1.25rem}.pb-10{padding-bottom:2.5rem}.pb-12{padding-bottom:3rem}.pb-16{padding-bottom:4rem}.pb-8{padding-bottom:2rem}.pb-px{padding-bottom:1px}.pl-3{padding-left:.75rem}.pl-4{padding-left:1rem}.pl-6{padding-left:1.5rem}.pr-3{padding-right:.75rem}.pr-3\.5{padding-right:.875rem}.pt-0{padding-top:0}.pt-0\.5{padding-top:.125rem}.pt-1{padding-top:.25rem}.pt-10{padding-top:2.5rem}.pt-12{padding-top:3rem}.pt-14{padding-top:3.5rem}.pt-16{padding-top:4rem}.pt-3{padding-top:.75rem}.text-left{text-align:left}.text-center{text-align:center}.text-right{text-align:right}.-indent-6{text-indent:-1.5rem}.font-sans{font-family:Inter,system-ui,sans-serif}.font-serif{font-family:Marcellus,Georgia,serif}.text-2xl{font-size:1.5rem;line-height:2rem}.text-3xl{font-size:1.875rem;line-height:2.25rem}.text-4xl{font-size:2.25rem;line-height:2.5rem}.text-\[10\.5px\]{font-size:10.5px}.text-\[10px\]{font-size:10px}.text-\[11px\]{font-size:11px}.text-\[12px\]{font-size:12px}.text-\[13px\]{font-size:13px}.text-\[14\.5px\]{font-size:14.5px}.text-\[15px\]{font-size:15px}.text-\[28px\]{font-size:28px}.text-\[36px\]{font-size:36px}.text-\[42px\]{font-size:42px}.text-base{font-size:1rem;line-height:1.5rem}.text-sm{font-size:.875rem;line-height:1.25rem}.text-xl{font-size:1.25rem;line-height:1.75rem}.text-xs{font-size:.75rem;line-height:1rem}.font-medium{font-weight:500}.font-normal{font-weight:400}.font-semibold{font-weight:600}.uppercase{text-transform:uppercase}.italic{font-style:italic}.not-italic{font-style:normal}.leading-\[1\.08\]{line-height:1.08}.leading-\[1\.1\]{line-height:1.1}.leading-\[1\.25\]{line-height:1.25}.leading-\[1\.6\]{line-height:1.6}.leading-\[1\.75\]{line-height:1.75}.leading-\[1\.7\]{line-height:1.7}.leading-\[1\.8\]{line-height:1.8}.leading-relaxed{line-height:1.625}.leading-snug{line-height:1.375}.leading-tight{line-height:1.25}.tracking-\[0\.06em\]{letter-spacing:.06em}.tracking-\[0\.08em\]{letter-spacing:.08em}.tracking-\[0\.14em\]{letter-spacing:.14em}.tracking-\[0\.16em\]{letter-spacing:.16em}.tracking-\[0\.1em\]{letter-spacing:.1em}.tracking-\[0\.22em\]{letter-spacing:.22em}.tracking-\[0\.2em\]{letter-spacing:.2em}.tracking-tight{letter-spacing:-.025em}.tracking-wide{letter-spacing:.025em}.tracking-wider{letter-spacing:.05em}.text-body{--tw-text-opacity:1;color:rgb(51 58 45/var(--tw-text-opacity,1))}.text-body\/50{color:rgba(51,58,45,.5)}.text-body\/55{color:rgba(51,58,45,.55)}.text-body\/60{color:rgba(51,58,45,.6)}.text-body\/70{color:rgba(51,58,45,.7)}.text-body\/75{color:rgba(51,58,45,.75)}.text-body\/80{color:rgba(51,58,45,.8)}.text-body\/85{color:rgba(51,58,45,.85)}.text-body\/90{color:rgba(51,58,45,.9)}.text-gold{--tw-text-opacity:1;color:rgb(186 148 80/var(--tw-text-opacity,1))}.text-ink{--tw-text-opacity:1;color:rgb(16 20 13/var(--tw-text-opacity,1))}.text-ivory{--tw-text-opacity:1;color:rgb(247 245 238/var(--tw-text-opacity,1))}.text-ivory\/45{color:rgba(247,245,238,.45)}.text-ivory\/70{color:rgba(247,245,238,.7)}.text-ivory\/85{color:rgba(247,245,238,.85)}.text-muted{--tw-text-opacity:1;color:rgb(150 158 140/var(--tw-text-opacity,1))}.text-sage-dark{--tw-text-opacity:1;color:rgb(74 93 61/var(--tw-text-opacity,1))}.text-taupe{--tw-text-opacity:1;color:rgb(124 106 74/var(--tw-text-opacity,1))}.text-white{--tw-text-opacity:1;color:rgb(255 255 255/var(--tw-text-opacity,1))}.underline{text-decoration-line:underline}.decoration-sage{text-decoration-color:#6B8259}.decoration-sage\/40{text-decoration-color:rgba(107,130,89,.4)}.underline-offset-2{text-underline-offset:2px}.underline-offset-4{text-underline-offset:4px}.opacity-60{opacity:.6}.shadow-large{--tw-shadow:0 20px 60px rgba(17,24,39,.16);--tw-shadow-colored:0 20px 60px var(--tw-shadow-color)}.shadow-large,.shadow-medium{box-shadow:var(--tw-ring-offset-shadow,0 0 #0000),var(--tw-ring-shadow,0 0 #0000),var(--tw-shadow)}.shadow-medium{--tw-shadow:0 8px 30px rgba(17,24,39,.1);--tw-shadow-colored:0 8px 30px var(--tw-shadow-color)}.shadow-soft{--tw-shadow:0 2px 12px rgba(17,24,39,.06);--tw-shadow-colored:0 2px 12px var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow,0 0 #0000),var(--tw-ring-shadow,0 0 #0000),var(--tw-shadow)}.outline-none{outline:2px solid transparent;outline-offset:2px}.filter{filter:var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow)}.backdrop-blur-md{--tw-backdrop-blur:blur(12px)}.backdrop-blur-md,.backdrop-blur-sm{-webkit-backdrop-filter:var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia);backdrop-filter:var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia)}.backdrop-blur-sm{--tw-backdrop-blur:blur(4px)}.transition{transition-property:color,background-color,border-color,text-decoration-color,fill,stroke,opacity,box-shadow,transform,filter,-webkit-backdrop-filter;transition-property:color,background-color,border-color,text-decoration-color,fill,stroke,opacity,box-shadow,transform,filter,backdrop-filter;transition-property:color,background-color,border-color,text-decoration-color,fill,stroke,opacity,box-shadow,transform,filter,backdrop-filter,-webkit-backdrop-filter;transition-timing-function:cubic-bezier(.4,0,.2,1);transition-duration:.15s}.transition-colors{transition-property:color,background-color,border-color,text-decoration-color,fill,stroke;transition-timing-function:cubic-bezier(.4,0,.2,1);transition-duration:.15s}.transition-opacity{transition-property:opacity;transition-timing-function:cubic-bezier(.4,0,.2,1);transition-duration:.15s}.duration-300{transition-duration:.3s}.duration-700{transition-duration:.7s}.placeholder\:text-muted::-moz-placeholder{--tw-text-opacity:1;color:rgb(150 158 140/var(--tw-text-opacity,1))}.placeholder\:text-muted::placeholder{--tw-text-opacity:1;color:rgb(150 158 140/var(--tw-text-opacity,1))}.last\:border-b-0:last-child{border-bottom-width:0}.hover\:border-ink:hover{--tw-border-opacity:1;border-color:rgb(16 20 13/var(--tw-border-opacity,1))}.hover\:border-sage-dark:hover{--tw-border-opacity:1;border-color:rgb(74 93 61/var(--tw-border-opacity,1))}.hover\:bg-featured:hover{--tw-bg-opacity:1;background-color:rgb(240 237 229/var(--tw-bg-opacity,1))}.hover\:bg-ink:hover{--tw-bg-opacity:1;background-color:rgb(16 20 13/var(--tw-bg-opacity,1))}.hover\:bg-sage-dark:hover{--tw-bg-opacity:1;background-color:rgb(74 93 61/var(--tw-bg-opacity,1))}.hover\:bg-white:hover{--tw-bg-opacity:1;background-color:rgb(255 255 255/var(--tw-bg-opacity,1))}.hover\:text-ink:hover{--tw-text-opacity:1;color:rgb(16 20 13/var(--tw-text-opacity,1))}.hover\:text-ivory:hover{--tw-text-opacity:1;color:rgb(247 245 238/var(--tw-text-opacity,1))}.hover\:text-sage:hover{--tw-text-opacity:1;color:rgb(107 130 89/var(--tw-text-opacity,1))}.hover\:text-sage-dark:hover{--tw-text-opacity:1;color:rgb(74 93 61/var(--tw-text-opacity,1))}.hover\:underline:hover{text-decoration-line:underline}.hover\:opacity-70:hover{opacity:.7}.focus\:border-sage:focus{--tw-border-opacity:1;border-color:rgb(107 130 89/var(--tw-border-opacity,1))}.focus\:outline-none:focus{outline:2px solid transparent;outline-offset:2px}.disabled\:cursor-default:disabled{cursor:default}.disabled\:opacity-50:disabled{opacity:.5}.group:hover .group-hover\:block{display:block}.group:hover .group-hover\:text-sage-dark{--tw-text-opacity:1;color:rgb(74 93 61/var(--tw-text-opacity,1))}.dark\:border-ivory\/20:is(.dark *){border-color:rgba(247,245,238,.2)}.dark\:border-ivory\/40:is(.dark *){border-color:rgba(247,245,238,.4)}.dark\:border-white\/10:is(.dark *){border-color:hsla(0,0%,100%,.1)}.dark\:border-white\/15:is(.dark *){border-color:hsla(0,0%,100%,.15)}.dark\:bg-charcoal:is(.dark *){--tw-bg-opacity:1;background-color:rgb(31 41 55/var(--tw-bg-opacity,1))}.dark\:bg-midnight:is(.dark *){--tw-bg-opacity:1;background-color:rgb(17 24 39/var(--tw-bg-opacity,1))}.dark\:bg-midnight\/90:is(.dark *){background-color:rgba(17,24,39,.9)}.dark\:bg-midnight\/95:is(.dark *){background-color:rgba(17,24,39,.95)}.dark\:bg-white\/10:is(.dark *){background-color:hsla(0,0%,100%,.1)}.dark\:text-ivory:is(.dark *){--tw-text-opacity:1;color:rgb(247 245 238/var(--tw-text-opacity,1))}.dark\:text-ivory\/40:is(.dark *){color:rgba(247,245,238,.4)}.dark\:text-ivory\/45:is(.dark *){color:rgba(247,245,238,.45)}.dark\:text-ivory\/50:is(.dark *){color:rgba(247,245,238,.5)}.dark\:text-ivory\/55:is(.dark *){color:rgba(247,245,238,.55)}.dark\:text-ivory\/60:is(.dark *){color:rgba(247,245,238,.6)}.dark\:text-ivory\/65:is(.dark *){color:rgba(247,245,238,.65)}.dark\:text-ivory\/70:is(.dark *){color:rgba(247,245,238,.7)}.dark\:text-ivory\/80:is(.dark *){color:rgba(247,245,238,.8)}.dark\:text-ivory\/85:is(.dark *){color:rgba(247,245,238,.85)}.dark\:text-sage:is(.dark *){--tw-text-opacity:1;color:rgb(107 130 89/var(--tw-text-opacity,1))}.dark\:hover\:border-ivory:hover:is(.dark *){--tw-border-opacity:1;border-color:rgb(247 245 238/var(--tw-border-opacity,1))}.dark\:hover\:border-sage:hover:is(.dark *){--tw-border-opacity:1;border-color:rgb(107 130 89/var(--tw-border-opacity,1))}.dark\:hover\:bg-charcoal:hover:is(.dark *){--tw-bg-opacity:1;background-color:rgb(31 41 55/var(--tw-bg-opacity,1))}.dark\:hover\:bg-ivory:hover:is(.dark *){--tw-bg-opacity:1;background-color:rgb(247 245 238/var(--tw-bg-opacity,1))}.dark\:hover\:bg-white\/10:hover:is(.dark *){background-color:hsla(0,0%,100%,.1)}.dark\:hover\:bg-white\/5:hover:is(.dark *){background-color:hsla(0,0%,100%,.05)}.dark\:hover\:text-ivory:hover:is(.dark *){--tw-text-opacity:1;color:rgb(247 245 238/var(--tw-text-opacity,1))}.dark\:hover\:text-midnight:hover:is(.dark *){--tw-text-opacity:1;color:rgb(17 24 39/var(--tw-text-opacity,1))}.dark\:hover\:text-sage:hover:is(.dark *){--tw-text-opacity:1;color:rgb(107 130 89/var(--tw-text-opacity,1))}.group:hover .dark\:group-hover\:text-sage:is(.dark *){--tw-text-opacity:1;color:rgb(107 130 89/var(--tw-text-opacity,1))}@media (min-width:640px){.sm\:mb-10{margin-bottom:2.5rem}.sm\:mb-11{margin-bottom:2.75rem}.sm\:mb-12{margin-bottom:3rem}.sm\:mb-4{margin-bottom:1rem}.sm\:mb-5{margin-bottom:1.25rem}.sm\:mb-6{margin-bottom:1.5rem}.sm\:mb-7{margin-bottom:1.75rem}.sm\:mt-10{margin-top:2.5rem}.sm\:mt-20{margin-top:5rem}.sm\:mt-9{margin-top:2.25rem}.sm\:h-10{height:2.5rem}.sm\:h-12{height:3rem}.sm\:h-20{height:5rem}.sm\:h-8{height:2rem}.sm\:h-\[480px\]{height:480px}.sm\:w-10{width:2.5rem}.sm\:w-8{width:2rem}.sm\:grid-cols-2{grid-template-columns:repeat(2,minmax(0,1fr))}.sm\:grid-cols-3{grid-template-columns:repeat(3,minmax(0,1fr))}.sm\:flex-row{flex-direction:row}.sm\:items-end{align-items:flex-end}.sm\:items-center{align-items:center}.sm\:justify-between{justify-content:space-between}.sm\:gap-16{gap:4rem}.sm\:p-4{padding:1rem}.sm\:p-5{padding:1.25rem}.sm\:p-6{padding:1.5rem}.sm\:p-8{padding:2rem}.sm\:px-14{padding-left:3.5rem;padding-right:3.5rem}.sm\:px-8{padding-left:2rem;padding-right:2rem}.sm\:px-9{padding-left:2.25rem;padding-right:2.25rem}.sm\:py-11{padding-top:2.75rem;padding-bottom:2.75rem}.sm\:py-14{padding-top:3.5rem;padding-bottom:3.5rem}.sm\:py-16{padding-top:4rem;padding-bottom:4rem}.sm\:py-20{padding-top:5rem;padding-bottom:5rem}.sm\:py-24{padding-top:6rem;padding-bottom:6rem}.sm\:pb-10{padding-bottom:2.5rem}.sm\:pb-14{padding-bottom:3.5rem}.sm\:pb-16{padding-bottom:4rem}.sm\:pb-24{padding-bottom:6rem}.sm\:pl-8{padding-left:2rem}.sm\:pt-16{padding-top:4rem}.sm\:pt-20{padding-top:5rem}.sm\:pt-24{padding-top:6rem}.sm\:text-2xl{font-size:1.5rem;line-height:2rem}.sm\:text-4xl{font-size:2.25rem;line-height:2.5rem}.sm\:text-5xl{font-size:3rem;line-height:1}.sm\:text-6xl{font-size:3.75rem;line-height:1}.sm\:text-\[11px\]{font-size:11px}.sm\:text-\[13px\]{font-size:13px}.sm\:text-\[14\.5px\]{font-size:14.5px}.sm\:text-\[15px\]{font-size:15px}.sm\:text-\[17px\]{font-size:17px}.sm\:text-\[26px\]{font-size:26px}.sm\:text-\[28px\]{font-size:28px}.sm\:text-\[32px\]{font-size:32px}.sm\:text-\[34px\]{font-size:34px}.sm\:text-base{font-size:1rem;line-height:1.5rem}.sm\:text-lg{font-size:1.125rem;line-height:1.75rem}.sm\:text-sm{font-size:.875rem;line-height:1.25rem}.sm\:text-xs{font-size:.75rem;line-height:1rem}}@media (min-width:768px){.md\:flex{display:flex}.md\:hidden{display:none}.md\:h-\[560px\]{height:560px}.md\:grid-cols-2{grid-template-columns:repeat(2,minmax(0,1fr))}.md\:grid-cols-3{grid-template-columns:repeat(3,minmax(0,1fr))}.md\:grid-cols-4{grid-template-columns:repeat(4,minmax(0,1fr))}.md\:text-6xl{font-size:3.75rem;line-height:1}.md\:text-7xl{font-size:4.5rem;line-height:1}.md\:text-\[17px\]{font-size:17px}}@media (min-width:1024px){.lg\:h-\[640px\]{height:640px}.lg\:grid-cols-2{grid-template-columns:repeat(2,minmax(0,1fr))}.lg\:grid-cols-4{grid-template-columns:repeat(4,minmax(0,1fr))}.lg\:grid-cols-5{grid-template-columns:repeat(5,minmax(0,1fr))}.lg\:gap-16{gap:4rem}.lg\:text-\[80px\]{font-size:80px}}@media (min-width:1280px){.xl\:grid-cols-7{grid-template-columns:repeat(7,minmax(0,1fr))}}.url-wrap,.url-wrap *{overflow-wrap:anywhere;word-break:break-word;}</style>
-<style>html[lang="ml"] [class*="tracking-"]{letter-spacing:normal!important}</style>
+<style>html[lang="ml"] [class*="tracking-"]{letter-spacing:normal!important}</style><style>
+.tdio>summary::-webkit-details-marker{display:none}
+.tdio>summary{list-style:none}
+.tcell[hidden],.tdio[hidden],.tsec[hidden]{display:none!important}
+@media (min-width:640px){.tgrid .tcell.tspan{grid-column:1/-1}}
+.tdio>summary:focus-visible,.tbtn:focus-visible{outline:2px solid #6B8259;outline-offset:2px}
+html[lang="ml"] .tq::placeholder{font-family:Arima,serif}
+</style>
 </head>
-<body class="bg-ivory dark:bg-midnight text-body dark:text-ivory/85">
-<div id="site-header-mount"></div>
-<script src="/site-common.js"></script>
+<body class="bg-ivory dark:bg-midnight text-body dark:text-ivory/85 font-sans transition-colors duration-300">
+<div id="site-header"></div>
+
+<section class="px-5 sm:px-8 pt-14 sm:pt-20 pb-10 sm:pb-12 max-w-4xl mx-auto text-center">
+  <a href="index.html#numbers" class="inline-flex items-center font-serif text-[13px] sm:text-sm text-sage-dark dark:text-sage hover:underline underline-offset-4 decoration-sage/40 mb-6" data-en="← All Institution Types" data-ml="← എല്ലാ സ്ഥാപന തരങ്ങളും">← All Institution Types</a>
+  <h1 class="font-serif font-normal text-3xl sm:text-5xl text-ink dark:text-ivory mb-5 leading-[1.1]" data-en="Qurbana Centres" data-ml="പ്രാർത്ഥനാലയങ്ങൾ">Qurbana Centres</h1>
+  <p class="text-[15px] text-body/80 dark:text-ivory/65 max-w-xl mx-auto leading-relaxed" data-en-html="&lt;strong class=&quot;text-sage-dark dark:text-sage font-semibold&quot;&gt;59&lt;/strong&gt; qurbana centres across &lt;strong class=&quot;text-sage-dark dark:text-sage font-semibold&quot;&gt;10&lt;/strong&gt; nations and &lt;strong class=&quot;text-sage-dark dark:text-sage font-semibold&quot;&gt;9&lt;/strong&gt; dioceses." data-ml-html="&lt;strong class=&quot;text-sage-dark dark:text-sage font-semibold&quot;&gt;10&lt;/strong&gt; രാജ്യങ്ങളിലും &lt;strong class=&quot;text-sage-dark dark:text-sage font-semibold&quot;&gt;9&lt;/strong&gt; ഭദ്രാസനങ്ങളിലുമായി &lt;strong class=&quot;text-sage-dark dark:text-sage font-semibold&quot;&gt;59&lt;/strong&gt; പ്രാർത്ഥനാലയങ്ങൾ."><strong class="text-sage-dark dark:text-sage font-semibold">59</strong> qurbana centres across
+    <strong class="text-sage-dark dark:text-sage font-semibold">10</strong> nations and
+    <strong class="text-sage-dark dark:text-sage font-semibold">9</strong> dioceses.</p>
+  <p class="font-serif text-[12.5px] sm:text-[13px] text-body/55 dark:text-ivory/45 max-w-2xl mx-auto leading-relaxed mt-4" data-en="Totals cover Orthodox-administered institutions only. Those under schismatic occupation, and the semi-autonomous Knanaya institutions, are listed separately below." data-ml="ആകെ എണ്ണം ഓർത്തഡോക്സ് സഭയുടെ കീഴിലുള്ള സ്ഥാപനങ്ങളുടേത് മാത്രമാണ്; വിഘടിത അധിനിവേശത്തിലുള്ളവയും അർധ സ്വയംഭരണാവകാശമുള്ള ക്നാനായ സ്ഥാപനങ്ങളും താഴെ പ്രത്യേകം പട്ടികപ്പെടുത്തിയിരിക്കുന്നു.">Totals cover Orthodox-administered institutions only. Those under schismatic occupation, and the semi-autonomous Knanaya institutions, are listed separately below.</p>
+</section>
+
+<section class="px-5 sm:px-8 pb-14 sm:pb-16 max-w-4xl mx-auto">
+  <div class="grid grid-cols-3 gap-px bg-line dark:bg-white/10 border-l border-t border-line dark:border-white/10">
+      <div class="border-b border-r border-line dark:border-white/10 p-4 sm:p-5 flex flex-col gap-1.5">
+        <span class="font-serif text-2xl sm:text-3xl text-ink dark:text-ivory">59</span>
+        <span class="text-[10px] sm:text-[11px] tracking-wider uppercase text-body/60 dark:text-ivory/50 font-medium" data-en="Qurbana Centres" data-ml="പ്രാർത്ഥനാലയങ്ങൾ">Qurbana Centres</span>
+      </div>
+      <div class="border-b border-r border-line dark:border-white/10 p-4 sm:p-5 flex flex-col gap-1.5">
+        <span class="font-serif text-2xl sm:text-3xl text-ink dark:text-ivory">10</span>
+        <span class="text-[10px] sm:text-[11px] tracking-wider uppercase text-body/60 dark:text-ivory/50 font-medium" data-en="Nations" data-ml="രാജ്യങ്ങൾ">Nations</span>
+      </div>
+      <div class="border-b border-r border-line dark:border-white/10 p-4 sm:p-5 flex flex-col gap-1.5">
+        <span class="font-serif text-2xl sm:text-3xl text-ink dark:text-ivory">9</span>
+        <span class="text-[10px] sm:text-[11px] tracking-wider uppercase text-body/60 dark:text-ivory/50 font-medium" data-en="Dioceses" data-ml="ഭദ്രാസനങ്ങൾ">Dioceses</span>
+      </div>
+  </div>
+</section>
+
+<section class="px-5 sm:px-8 pb-6 sm:pb-8 max-w-4xl mx-auto border-t border-line dark:border-white/10 pt-10 sm:pt-12">
+  <div class="flex flex-col sm:flex-row sm:items-center gap-4 sm:gap-6">
+    <label class="flex-1 flex items-center gap-3 border-b border-line dark:border-white/15 focus-within:border-sage pb-2.5 transition-colors">
+      <svg class="w-4 h-4 shrink-0 text-muted" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><circle cx="9" cy="9" r="5.5"/><path d="M13.5 13.5 17 17"/></svg>
+      <input id="tq" type="search" autocomplete="off" spellcheck="false" class="tq flex-1 min-w-0 bg-transparent text-base sm:text-[15px] text-ink dark:text-ivory placeholder:text-muted focus:outline-none" data-en-placeholder="Search this list by name or diocese" data-ml-placeholder="പേരോ ഭദ്രാസനമോ ഉപയോഗിച്ച് തിരയുക" placeholder="Search this list by name or diocese" aria-label="Search this list">
+    </label>
+    <div class="flex items-center gap-5 font-serif text-[13px] sm:text-sm text-sage-dark dark:text-sage shrink-0">
+      <button type="button" id="texp" class="tbtn hover:underline underline-offset-4 decoration-sage/40" data-en="Expand all" data-ml="എല്ലാം തുറക്കുക">Expand all</button>
+      <button type="button" id="tcol" class="tbtn hover:underline underline-offset-4 decoration-sage/40" data-en="Collapse all" data-ml="എല്ലാം അടയ്ക്കുക">Collapse all</button>
+    </div>
+  </div>
+  <p id="tstat" class="font-sans text-xs text-muted mt-3 min-h-[1.25rem]" aria-live="polite"></p>
+</section>
+
+<section class="tsec px-5 sm:px-8 pb-12 sm:pb-14 max-w-4xl mx-auto" data-kind="main">
+  <h2 class="font-serif font-normal text-xl sm:text-2xl text-ink dark:text-ivory mb-2" data-en="Every Qurbana Centre" data-ml="ഓരോ പ്രാർത്ഥനാലയവും">Every Qurbana Centre</h2>
+  <p class="font-sans text-xs text-muted mb-6" data-en="Grouped by diocese — the nation of each location is noted alongside it." data-ml="ഭദ്രാസനം അനുസരിച്ച് തരംതിരിച്ചിരിക്കുന്നു — ഓരോ സ്ഥലത്തിന്റെയും രാജ്യം അതോടൊപ്പം കുറിച്ചിരിക്കുന്നു.">Grouped by diocese — the nation of each location is noted alongside it.</p>
+  <div class="border-t border-line dark:border-white/10">
+    <details class="tdio group border-b border-line dark:border-white/10" id="d-main-asia-pacific">
+      <summary class="flex items-center gap-3 px-1 sm:px-2 py-3.5 sm:py-4 cursor-pointer select-none hover:bg-featured/70 dark:hover:bg-white/[0.03] transition-colors">
+        <span class="w-2.5 h-2.5 rounded-full shrink-0 border border-ink/10 dark:border-ivory/20" style="background:#3f72be"></span>
+        <span class="min-w-0 flex-1">
+          <span class="block font-serif text-base sm:text-lg text-ink dark:text-ivory leading-snug" data-en="Asia-Pacific" data-ml="ഏഷ്യ-പസഫിക്">Asia-Pacific</span>
+          <span class="block text-[11.5px] text-muted mt-0.5" data-en="Sri Lanka" data-ml="ശ്രീലങ്ക">Sri Lanka</span>
+        </span>
+        <span class="tcount font-serif text-sm text-taupe tabular-nums" data-n="4">4</span>
+        <svg class="w-4 h-4 shrink-0 text-muted transition-transform duration-200 group-open:rotate-180" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="m5 8 5 5 5-5"/></svg>
+      </summary>
+      <div class="pb-5 sm:pb-6">
+        <div class="px-1 sm:px-2 pb-3"><a href="/asia-pacific" class="font-serif text-[13px] text-sage-dark dark:text-sage hover:underline underline-offset-4 decoration-sage/40" data-en="View diocese" data-ml="ഭദ്രാസനം കാണുക">View diocese</a></div>
+        <div class="tgrid grid grid-cols-1 sm:grid-cols-2 border-l border-t border-line dark:border-white/10">
+          <div class="tcell border-b border-r border-line dark:border-white/10 px-3.5 py-3 sm:px-4 flex items-baseline gap-3">
+            <span class="font-serif text-taupe text-sm w-6 shrink-0">01</span>
+            <span class="min-w-0 flex-1"><span class="block text-[13.5px] sm:text-sm leading-snug text-ink dark:text-ivory" data-en="Colombo St. Paul&#x27;s Tamil-Sinhalese Orthodox Qurbana Centre" data-ml="കൊളംബോ മാർ പൗലോസ് ഓർത്തഡോക്സ് പ്രാർത്ഥനാലയം">Colombo St. Paul&#x27;s Tamil-Sinhalese Orthodox Qurbana Centre</span></span>
+          </div>
+          <div class="tcell border-b border-r border-line dark:border-white/10 px-3.5 py-3 sm:px-4 flex items-baseline gap-3">
+            <span class="font-serif text-taupe text-sm w-6 shrink-0">02</span>
+            <span class="min-w-0 flex-1"><span class="block text-[13.5px] sm:text-sm leading-snug text-ink dark:text-ivory" data-en="Colombo-Ginthupitiya St. Thomas Tamil-Sinhalese Orthodox Qurbana Centre" data-ml="കൊളംബോ-ഗിന്തുപിടിയ മാർ തോമ ഓർത്തഡോക്സ് പ്രാർത്ഥനാലയം">Colombo-Ginthupitiya St. Thomas Tamil-Sinhalese Orthodox Qurbana Centre</span></span>
+          </div>
+          <div class="tcell border-b border-r border-line dark:border-white/10 px-3.5 py-3 sm:px-4 flex items-baseline gap-3">
+            <span class="font-serif text-taupe text-sm w-6 shrink-0">03</span>
+            <span class="min-w-0 flex-1"><span class="block text-[13.5px] sm:text-sm leading-snug text-ink dark:text-ivory" data-en="Mannar St. Mary&#x27;s Tamil Orthodox Qurbana Centre" data-ml="മാന്നാർ മർത്തമറിയം തമിഴ് ഓർത്തഡോക്സ് പ്രാർത്ഥനാലയം">Mannar St. Mary&#x27;s Tamil Orthodox Qurbana Centre</span></span>
+          </div>
+          <div class="tcell border-b border-r border-line dark:border-white/10 px-3.5 py-3 sm:px-4 flex items-baseline gap-3">
+            <span class="font-serif text-taupe text-sm w-6 shrink-0">04</span>
+            <span class="min-w-0 flex-1"><span class="block text-[13.5px] sm:text-sm leading-snug text-ink dark:text-ivory" data-en="Pallimunai St. Lucy&#x27;s Tamil Orthodox Qurbana Centre" data-ml="പള്ളിമുനൈ മർത്ത് ലൂസി തമിഴ് ഓർത്തഡോക്സ് പ്രാർത്ഥനാലയം">Pallimunai St. Lucy&#x27;s Tamil Orthodox Qurbana Centre</span></span>
+          </div>
+        </div>
+      </div>
+    </details>
+    <details class="tdio group border-b border-line dark:border-white/10" id="d-main-bombay">
+      <summary class="flex items-center gap-3 px-1 sm:px-2 py-3.5 sm:py-4 cursor-pointer select-none hover:bg-featured/70 dark:hover:bg-white/[0.03] transition-colors">
+        <span class="w-2.5 h-2.5 rounded-full shrink-0 border border-ink/10 dark:border-ivory/20" style="background:#764561"></span>
+        <span class="min-w-0 flex-1">
+          <span class="block font-serif text-base sm:text-lg text-ink dark:text-ivory leading-snug" data-en="Bombay" data-ml="മുംബൈ">Bombay</span>
+          <span class="block text-[11.5px] text-muted mt-0.5" data-en="India" data-ml="ഭാരതം">India</span>
+        </span>
+        <span class="tcount font-serif text-sm text-taupe tabular-nums" data-n="1">1</span>
+        <svg class="w-4 h-4 shrink-0 text-muted transition-transform duration-200 group-open:rotate-180" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="m5 8 5 5 5-5"/></svg>
+      </summary>
+      <div class="pb-5 sm:pb-6">
+        <div class="px-1 sm:px-2 pb-3"><a href="/bombay" class="font-serif text-[13px] text-sage-dark dark:text-sage hover:underline underline-offset-4 decoration-sage/40" data-en="View diocese" data-ml="ഭദ്രാസനം കാണുക">View diocese</a></div>
+        <div class="tgrid grid grid-cols-1 sm:grid-cols-2 border-l border-t border-line dark:border-white/10">
+          <div class="tcell border-b border-r border-line dark:border-white/10 px-3.5 py-3 sm:px-4 flex items-baseline gap-3">
+            <span class="font-serif text-taupe text-sm w-6 shrink-0">01</span>
+            <span class="min-w-0 flex-1"><span class="block text-[13.5px] sm:text-sm leading-snug text-ink dark:text-ivory" data-en="Dhanori Malankara Orthodox Qurbana Centre" data-ml="ധനോരി മലങ്കര ഓർത്തഡോക്സ് പ്രാർത്ഥനാലയം">Dhanori Malankara Orthodox Qurbana Centre</span></span>
+          </div>
+        </div>
+      </div>
+    </details>
+    <details class="tdio group border-b border-line dark:border-white/10" id="d-main-chengannur">
+      <summary class="flex items-center gap-3 px-1 sm:px-2 py-3.5 sm:py-4 cursor-pointer select-none hover:bg-featured/70 dark:hover:bg-white/[0.03] transition-colors">
+        <span class="w-2.5 h-2.5 rounded-full shrink-0 border border-ink/10 dark:border-ivory/20" style="background:#82ad5d"></span>
+        <span class="min-w-0 flex-1">
+          <span class="block font-serif text-base sm:text-lg text-ink dark:text-ivory leading-snug" data-en="Chengannur" data-ml="ചെങ്ങന്നൂർ">Chengannur</span>
+          <span class="block text-[11.5px] text-muted mt-0.5" data-en="India" data-ml="ഭാരതം">India</span>
+        </span>
+        <span class="tcount font-serif text-sm text-taupe tabular-nums" data-n="1">1</span>
+        <svg class="w-4 h-4 shrink-0 text-muted transition-transform duration-200 group-open:rotate-180" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="m5 8 5 5 5-5"/></svg>
+      </summary>
+      <div class="pb-5 sm:pb-6">
+        <div class="px-1 sm:px-2 pb-3"><a href="/chengannur" class="font-serif text-[13px] text-sage-dark dark:text-sage hover:underline underline-offset-4 decoration-sage/40" data-en="View diocese" data-ml="ഭദ്രാസനം കാണുക">View diocese</a></div>
+        <div class="tgrid grid grid-cols-1 sm:grid-cols-2 border-l border-t border-line dark:border-white/10">
+          <div class="tcell border-b border-r border-line dark:border-white/10 px-3.5 py-3 sm:px-4 flex items-baseline gap-3">
+            <span class="font-serif text-taupe text-sm w-6 shrink-0">01</span>
+            <span class="min-w-0 flex-1"><span class="block text-[13.5px] sm:text-sm leading-snug text-ink dark:text-ivory" data-en="Kurampala North St. George Orthodox Qurbana Centre" data-ml="വടക്കൻ കുരമ്പാല മാർ ഗീവറുഗീസ് സഹദാ ഓർത്തഡോക്സ് പ്രാർത്ഥനാലയം">Kurampala North St. George Orthodox Qurbana Centre</span></span>
+          </div>
+        </div>
+      </div>
+    </details>
+    <details class="tdio group border-b border-line dark:border-white/10" id="d-main-kunnamkulam">
+      <summary class="flex items-center gap-3 px-1 sm:px-2 py-3.5 sm:py-4 cursor-pointer select-none hover:bg-featured/70 dark:hover:bg-white/[0.03] transition-colors">
+        <span class="w-2.5 h-2.5 rounded-full shrink-0 border border-ink/10 dark:border-ivory/20" style="background:#975124"></span>
+        <span class="min-w-0 flex-1">
+          <span class="block font-serif text-base sm:text-lg text-ink dark:text-ivory leading-snug" data-en="Kunnamkulam" data-ml="കുന്നംകുളം">Kunnamkulam</span>
+          <span class="block text-[11.5px] text-muted mt-0.5" data-en="India" data-ml="ഭാരതം">India</span>
+        </span>
+        <span class="tcount font-serif text-sm text-taupe tabular-nums" data-n="1">1</span>
+        <svg class="w-4 h-4 shrink-0 text-muted transition-transform duration-200 group-open:rotate-180" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="m5 8 5 5 5-5"/></svg>
+      </summary>
+      <div class="pb-5 sm:pb-6">
+        <div class="px-1 sm:px-2 pb-3"><a href="/kunnamkulam" class="font-serif text-[13px] text-sage-dark dark:text-sage hover:underline underline-offset-4 decoration-sage/40" data-en="View diocese" data-ml="ഭദ്രാസനം കാണുക">View diocese</a></div>
+        <div class="tgrid grid grid-cols-1 sm:grid-cols-2 border-l border-t border-line dark:border-white/10">
+          <div class="tcell border-b border-r border-line dark:border-white/10 px-3.5 py-3 sm:px-4 flex items-baseline gap-3">
+            <span class="font-serif text-taupe text-sm w-6 shrink-0">01</span>
+            <span class="min-w-0 flex-1"><span class="block text-[13.5px] sm:text-sm leading-snug text-ink dark:text-ivory" data-en="Kattakampal Orthodox Qurbana Centre" data-ml="കാട്ടകാമ്പാൽ ഓർത്തഡോക്സ് പ്രാർത്ഥനാലയം">Kattakampal Orthodox Qurbana Centre</span></span>
+          </div>
+        </div>
+      </div>
+    </details>
+    <details class="tdio group border-b border-line dark:border-white/10" id="d-main-madras">
+      <summary class="flex items-center gap-3 px-1 sm:px-2 py-3.5 sm:py-4 cursor-pointer select-none hover:bg-featured/70 dark:hover:bg-white/[0.03] transition-colors">
+        <span class="w-2.5 h-2.5 rounded-full shrink-0 border border-ink/10 dark:border-ivory/20" style="background:#a6a273"></span>
+        <span class="min-w-0 flex-1">
+          <span class="block font-serif text-base sm:text-lg text-ink dark:text-ivory leading-snug" data-en="Madras" data-ml="ചെന്നൈ">Madras</span>
+          <span class="block text-[11.5px] text-muted mt-0.5" data-en="United Arab Emirates" data-ml="യുണൈറ്റഡ് അറബ് എമിറേറ്റ്സ്">United Arab Emirates</span>
+        </span>
+        <span class="tcount font-serif text-sm text-taupe tabular-nums" data-n="2">2</span>
+        <svg class="w-4 h-4 shrink-0 text-muted transition-transform duration-200 group-open:rotate-180" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="m5 8 5 5 5-5"/></svg>
+      </summary>
+      <div class="pb-5 sm:pb-6">
+        <div class="px-1 sm:px-2 pb-3"><a href="/madras" class="font-serif text-[13px] text-sage-dark dark:text-sage hover:underline underline-offset-4 decoration-sage/40" data-en="View diocese" data-ml="ഭദ്രാസനം കാണുക">View diocese</a></div>
+        <div class="tgrid grid grid-cols-1 sm:grid-cols-2 border-l border-t border-line dark:border-white/10">
+          <div class="tcell border-b border-r border-line dark:border-white/10 px-3.5 py-3 sm:px-4 flex items-baseline gap-3">
+            <span class="font-serif text-taupe text-sm w-6 shrink-0">01</span>
+            <span class="min-w-0 flex-1"><span class="block text-[13.5px] sm:text-sm leading-snug text-ink dark:text-ivory" data-en="Ajman St. Gregorios Indian Orthodox Qurbana Centre" data-ml="അജ്മാൻ മാർ ഗ്രീഗോറിയോസ് ഭാരതീയ ഓർത്തഡോക്സ് പ്രാർത്ഥനാലയം">Ajman St. Gregorios Indian Orthodox Qurbana Centre</span></span>
+          </div>
+          <div class="tcell border-b border-r border-line dark:border-white/10 px-3.5 py-3 sm:px-4 flex items-baseline gap-3">
+            <span class="font-serif text-taupe text-sm w-6 shrink-0">02</span>
+            <span class="min-w-0 flex-1"><span class="block text-[13.5px] sm:text-sm leading-snug text-ink dark:text-ivory" data-en="Umm Al Quwain St. Mark&#x27;s Indian Orthodox Prayer Hall" data-ml="ഉമ്മുൽ അൽ ഖുവൈൻ മാർ മർക്കോസ് ഭാരതീയ ഓർത്തഡോക്സ് പ്രാർത്ഥനാ ഹാൾ">Umm Al Quwain St. Mark&#x27;s Indian Orthodox Prayer Hall</span></span>
+          </div>
+        </div>
+      </div>
+    </details>
+    <details class="tdio group border-b border-line dark:border-white/10" id="d-main-mavelikara">
+      <summary class="flex items-center gap-3 px-1 sm:px-2 py-3.5 sm:py-4 cursor-pointer select-none hover:bg-featured/70 dark:hover:bg-white/[0.03] transition-colors">
+        <span class="w-2.5 h-2.5 rounded-full shrink-0 border border-ink/10 dark:border-ivory/20" style="background:#53507a"></span>
+        <span class="min-w-0 flex-1">
+          <span class="block font-serif text-base sm:text-lg text-ink dark:text-ivory leading-snug" data-en="Mavelikara" data-ml="മാവേലിക്കര">Mavelikara</span>
+          <span class="block text-[11.5px] text-muted mt-0.5" data-en="India" data-ml="ഭാരതം">India</span>
+        </span>
+        <span class="tcount font-serif text-sm text-taupe tabular-nums" data-n="2">2</span>
+        <svg class="w-4 h-4 shrink-0 text-muted transition-transform duration-200 group-open:rotate-180" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="m5 8 5 5 5-5"/></svg>
+      </summary>
+      <div class="pb-5 sm:pb-6">
+        <div class="px-1 sm:px-2 pb-3"><a href="/mavelikara" class="font-serif text-[13px] text-sage-dark dark:text-sage hover:underline underline-offset-4 decoration-sage/40" data-en="View diocese" data-ml="ഭദ്രാസനം കാണുക">View diocese</a></div>
+        <div class="tgrid grid grid-cols-1 sm:grid-cols-2 border-l border-t border-line dark:border-white/10">
+          <div class="tcell border-b border-r border-line dark:border-white/10 px-3.5 py-3 sm:px-4 flex items-baseline gap-3">
+            <span class="font-serif text-taupe text-sm w-6 shrink-0">01</span>
+            <span class="min-w-0 flex-1"><span class="block text-[13.5px] sm:text-sm leading-snug text-ink dark:text-ivory" data-en="Cheruthana St. Mary&#x27;s Orthodox Prayer Hall" data-ml="ചെറുതന മർത്തമറിയം ഓർത്തഡോക്സ് പ്രാർത്ഥനാ ഹാൾ">Cheruthana St. Mary&#x27;s Orthodox Prayer Hall</span></span>
+          </div>
+          <div class="tcell border-b border-r border-line dark:border-white/10 px-3.5 py-3 sm:px-4 flex items-baseline gap-3">
+            <span class="font-serif text-taupe text-sm w-6 shrink-0">02</span>
+            <span class="min-w-0 flex-1"><span class="block text-[13.5px] sm:text-sm leading-snug text-ink dark:text-ivory" data-en="Enakulangara St. Gregorios Orthodox Prayer Hall" data-ml="എണകുളങ്ങര മാർ ഗ്രീഗോറിയോസ് ഓർത്തഡോക്സ് പ്രാർത്ഥനാ ഹാൾ">Enakulangara St. Gregorios Orthodox Prayer Hall</span></span>
+          </div>
+        </div>
+      </div>
+    </details>
+    <details class="tdio group border-b border-line dark:border-white/10" id="d-main-niranam">
+      <summary class="flex items-center gap-3 px-1 sm:px-2 py-3.5 sm:py-4 cursor-pointer select-none hover:bg-featured/70 dark:hover:bg-white/[0.03] transition-colors">
+        <span class="w-2.5 h-2.5 rounded-full shrink-0 border border-ink/10 dark:border-ivory/20" style="background:#21b2b5"></span>
+        <span class="min-w-0 flex-1">
+          <span class="block font-serif text-base sm:text-lg text-ink dark:text-ivory leading-snug" data-en="Niranam" data-ml="നിരണം">Niranam</span>
+          <span class="block text-[11.5px] text-muted mt-0.5" data-en="India" data-ml="ഭാരതം">India</span>
+        </span>
+        <span class="tcount font-serif text-sm text-taupe tabular-nums" data-n="3">3</span>
+        <svg class="w-4 h-4 shrink-0 text-muted transition-transform duration-200 group-open:rotate-180" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="m5 8 5 5 5-5"/></svg>
+      </summary>
+      <div class="pb-5 sm:pb-6">
+        <div class="px-1 sm:px-2 pb-3"><a href="/niranam" class="font-serif text-[13px] text-sage-dark dark:text-sage hover:underline underline-offset-4 decoration-sage/40" data-en="View diocese" data-ml="ഭദ്രാസനം കാണുക">View diocese</a></div>
+        <div class="tgrid grid grid-cols-1 sm:grid-cols-2 border-l border-t border-line dark:border-white/10">
+          <div class="tcell border-b border-r border-line dark:border-white/10 px-3.5 py-3 sm:px-4 flex items-baseline gap-3">
+            <span class="font-serif text-taupe text-sm w-6 shrink-0">01</span>
+            <span class="min-w-0 flex-1"><span class="block text-[13.5px] sm:text-sm leading-snug text-ink dark:text-ivory" data-en="Ambattubhagom P.A. Philipose Memorial Orthodox Qurbana Centre" data-ml="അമ്പാട്ടുഭാഗം പി.എ. ഫിലിപ്പോസ് മെമ്മോറിയൽ ഓർത്തഡോക്സ് പ്രാർത്ഥനാലയം">Ambattubhagom P.A. Philipose Memorial Orthodox Qurbana Centre</span></span>
+          </div>
+          <div class="tcell border-b border-r border-line dark:border-white/10 px-3.5 py-3 sm:px-4 flex items-baseline gap-3">
+            <span class="font-serif text-taupe text-sm w-6 shrink-0">02</span>
+            <span class="min-w-0 flex-1"><span class="block text-[13.5px] sm:text-sm leading-snug text-ink dark:text-ivory" data-en="Anjilithanam St. Gregorios Orthodox Qurbana Centre" data-ml="ആഞ്ഞിലിത്താനം മാർ ഗ്രീഗോറിയോസ് ഓർത്തഡോക്സ് പ്രാർത്ഥനാലയം">Anjilithanam St. Gregorios Orthodox Qurbana Centre</span></span>
+          </div>
+          <div class="tcell border-b border-r border-line dark:border-white/10 px-3.5 py-3 sm:px-4 flex items-baseline gap-3">
+            <span class="font-serif text-taupe text-sm w-6 shrink-0">03</span>
+            <span class="min-w-0 flex-1"><span class="block text-[13.5px] sm:text-sm leading-snug text-ink dark:text-ivory" data-en="Block Junction St. Gregorios Orthodox Qurbana Centre" data-ml="ബ്ലോക്ക് ജംഗ്ഷൻ മാർ ഗ്രീഗോറിയോസ് ഓർത്തഡോക്സ് പ്രാർത്ഥനാലയം">Block Junction St. Gregorios Orthodox Qurbana Centre</span></span>
+          </div>
+        </div>
+      </div>
+    </details>
+    <details class="tdio group border-b border-line dark:border-white/10" id="d-main-thiruvananthapuram">
+      <summary class="flex items-center gap-3 px-1 sm:px-2 py-3.5 sm:py-4 cursor-pointer select-none hover:bg-featured/70 dark:hover:bg-white/[0.03] transition-colors">
+        <span class="w-2.5 h-2.5 rounded-full shrink-0 border border-ink/10 dark:border-ivory/20" style="background:#006140"></span>
+        <span class="min-w-0 flex-1">
+          <span class="block font-serif text-base sm:text-lg text-ink dark:text-ivory leading-snug" data-en="Thiruvananthapuram" data-ml="തിരുവനന്തപുരം">Thiruvananthapuram</span>
+          <span class="block text-[11.5px] text-muted mt-0.5" data-en="India" data-ml="ഭാരതം">India</span>
+        </span>
+        <span class="tcount font-serif text-sm text-taupe tabular-nums" data-n="2">2</span>
+        <svg class="w-4 h-4 shrink-0 text-muted transition-transform duration-200 group-open:rotate-180" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="m5 8 5 5 5-5"/></svg>
+      </summary>
+      <div class="pb-5 sm:pb-6">
+        <div class="px-1 sm:px-2 pb-3"><a href="/thiruvananthapuram" class="font-serif text-[13px] text-sage-dark dark:text-sage hover:underline underline-offset-4 decoration-sage/40" data-en="View diocese" data-ml="ഭദ്രാസനം കാണുക">View diocese</a></div>
+        <div class="tgrid grid grid-cols-1 sm:grid-cols-2 border-l border-t border-line dark:border-white/10">
+          <div class="tcell border-b border-r border-line dark:border-white/10 px-3.5 py-3 sm:px-4 flex items-baseline gap-3">
+            <span class="font-serif text-taupe text-sm w-6 shrink-0">01</span>
+            <span class="min-w-0 flex-1"><span class="block text-[13.5px] sm:text-sm leading-snug text-ink dark:text-ivory" data-en="Cheruvakkal St. Gregorios Orthodox Qurbana Centre" data-ml="ചെറുവക്കൽ മാർ ഗ്രീഗോറിയോസ് ഓർത്തഡോക്സ് പ്രാർത്ഥനാലയം">Cheruvakkal St. Gregorios Orthodox Qurbana Centre</span></span>
+          </div>
+          <div class="tcell border-b border-r border-line dark:border-white/10 px-3.5 py-3 sm:px-4 flex items-baseline gap-3">
+            <span class="font-serif text-taupe text-sm w-6 shrink-0">02</span>
+            <span class="min-w-0 flex-1"><span class="block text-[13.5px] sm:text-sm leading-snug text-ink dark:text-ivory" data-en="Uliyanad St. Mary&#x27;s Orthodox Qurbana Centre" data-ml="ഉളിയനാട് മർത്തമറിയം ഓർത്തഡോക്സ് പ്രാർത്ഥനാലയം">Uliyanad St. Mary&#x27;s Orthodox Qurbana Centre</span></span>
+          </div>
+        </div>
+      </div>
+    </details>
+    <details class="tdio group border-b border-line dark:border-white/10" id="d-main-uk-europe-africa">
+      <summary class="flex items-center gap-3 px-1 sm:px-2 py-3.5 sm:py-4 cursor-pointer select-none hover:bg-featured/70 dark:hover:bg-white/[0.03] transition-colors">
+        <span class="w-2.5 h-2.5 rounded-full shrink-0 border border-ink/10 dark:border-ivory/20" style="background:#80721e"></span>
+        <span class="min-w-0 flex-1">
+          <span class="block font-serif text-base sm:text-lg text-ink dark:text-ivory leading-snug" data-en="UK-Europe-Africa" data-ml="യു.കെ-യൂറോപ്പ്">UK-Europe-Africa</span>
+          <span class="block text-[11.5px] text-muted mt-0.5" data-en="United Kingdom, Germany, South Africa, Ireland, Botswana, Netherlands, Lesotho" data-ml="യുണൈറ്റഡ് കിംഗ്ഡം, ജർമ്മനി, ദക്ഷിണാഫ്രിക്ക, അയർലൻഡ്, ബോട്സ്വാന, നെതർലാൻഡ്സ്, ലെസോത്തോ">United Kingdom, Germany, South Africa, Ireland, Botswana, Netherlands, Lesotho</span>
+        </span>
+        <span class="tcount font-serif text-sm text-taupe tabular-nums" data-n="43">43</span>
+        <svg class="w-4 h-4 shrink-0 text-muted transition-transform duration-200 group-open:rotate-180" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="m5 8 5 5 5-5"/></svg>
+      </summary>
+      <div class="pb-5 sm:pb-6">
+        <div class="px-1 sm:px-2 pb-3"><a href="/uk-europe-africa" class="font-serif text-[13px] text-sage-dark dark:text-sage hover:underline underline-offset-4 decoration-sage/40" data-en="View diocese" data-ml="ഭദ്രാസനം കാണുക">View diocese</a></div>
+        <div class="tgrid grid grid-cols-1 sm:grid-cols-2 border-l border-t border-line dark:border-white/10">
+          <div class="tcell border-b border-r border-line dark:border-white/10 px-3.5 py-3 sm:px-4 flex items-baseline gap-3">
+            <span class="font-serif text-taupe text-sm w-6 shrink-0">01</span>
+            <span class="min-w-0 flex-1"><span class="block text-[13.5px] sm:text-sm leading-snug text-ink dark:text-ivory" data-en="Basingstoke St. Basil and St. Gregory Indian Orthodox Qurbana Centre" data-ml="ബേസിങ്‌സ്റ്റോക്ക് മാർ ബസേലിയോസ് ഗ്രീഗോറിയോസ് ഭാരതീയ ഓർത്തഡോക്സ് പ്രാർത്ഥനാലയം">Basingstoke St. Basil and St. Gregory Indian Orthodox Qurbana Centre</span><span class="block text-[11px] text-muted mt-0.5" data-en="United Kingdom" data-ml="യുണൈറ്റഡ് കിംഗ്ഡം">United Kingdom</span></span>
+          </div>
+          <div class="tcell border-b border-r border-line dark:border-white/10 px-3.5 py-3 sm:px-4 flex items-baseline gap-3">
+            <span class="font-serif text-taupe text-sm w-6 shrink-0">02</span>
+            <span class="min-w-0 flex-1"><span class="block text-[13.5px] sm:text-sm leading-snug text-ink dark:text-ivory" data-en="Berlin St. Thomas Indian Orthodox Qurbana Centre" data-ml="ബെർലിൻ മാർ തോമ ഭാരതീയ ഓർത്തഡോക്സ് പ്രാർത്ഥനാലയം">Berlin St. Thomas Indian Orthodox Qurbana Centre</span><span class="block text-[11px] text-muted mt-0.5" data-en="Germany" data-ml="ജർമ്മനി">Germany</span></span>
+          </div>
+          <div class="tcell border-b border-r border-line dark:border-white/10 px-3.5 py-3 sm:px-4 flex items-baseline gap-3">
+            <span class="font-serif text-taupe text-sm w-6 shrink-0">03</span>
+            <span class="min-w-0 flex-1"><span class="block text-[13.5px] sm:text-sm leading-snug text-ink dark:text-ivory" data-en="Burgersfort St. Thomas Indian Orthodox Qurbana Centre" data-ml="ബർഗേഴ്‌സ്‌ഫോർട്ട് മാർ തോമ ഭാരതീയ ഓർത്തഡോക്സ് പ്രാർത്ഥനാലയം">Burgersfort St. Thomas Indian Orthodox Qurbana Centre</span><span class="block text-[11px] text-muted mt-0.5" data-en="South Africa" data-ml="ദക്ഷിണാഫ്രിക്ക">South Africa</span></span>
+          </div>
+          <div class="tcell border-b border-r border-line dark:border-white/10 px-3.5 py-3 sm:px-4 flex items-baseline gap-3">
+            <span class="font-serif text-taupe text-sm w-6 shrink-0">04</span>
+            <span class="min-w-0 flex-1"><span class="block text-[13.5px] sm:text-sm leading-snug text-ink dark:text-ivory" data-en="Cape Town St. Thomas Indian Orthodox Qurbana Centre" data-ml="കേപ് ടൗൺ മാർ തോമ ഭാരതീയ ഓർത്തഡോക്സ് പ്രാർത്ഥനാലയം">Cape Town St. Thomas Indian Orthodox Qurbana Centre</span><span class="block text-[11px] text-muted mt-0.5" data-en="South Africa" data-ml="ദക്ഷിണാഫ്രിക്ക">South Africa</span></span>
+          </div>
+          <div class="tcell border-b border-r border-line dark:border-white/10 px-3.5 py-3 sm:px-4 flex items-baseline gap-3">
+            <span class="font-serif text-taupe text-sm w-6 shrink-0">05</span>
+            <span class="min-w-0 flex-1"><span class="block text-[13.5px] sm:text-sm leading-snug text-ink dark:text-ivory" data-en="Dresden St. Thomas Indian Orthodox Qurbana Centre" data-ml="ഡ്രെസ്ഡൻ മാർ തോമ ഭാരതീയ ഓർത്തഡോക്സ് പ്രാർത്ഥനാലയം">Dresden St. Thomas Indian Orthodox Qurbana Centre</span><span class="block text-[11px] text-muted mt-0.5" data-en="Germany" data-ml="ജർമ്മനി">Germany</span></span>
+          </div>
+          <div class="tcell border-b border-r border-line dark:border-white/10 px-3.5 py-3 sm:px-4 flex items-baseline gap-3">
+            <span class="font-serif text-taupe text-sm w-6 shrink-0">06</span>
+            <span class="min-w-0 flex-1"><span class="block text-[13.5px] sm:text-sm leading-snug text-ink dark:text-ivory" data-en="Dublin City St. Thomas Indian Orthodox Qurbana Centre" data-ml="ഡബ്ലിൻ സിറ്റി മാർ തോമ ഭാരതീയ ഓർത്തഡോക്സ് പ്രാർത്ഥനാലയം">Dublin City St. Thomas Indian Orthodox Qurbana Centre</span><span class="block text-[11px] text-muted mt-0.5" data-en="Ireland" data-ml="അയർലൻഡ്">Ireland</span></span>
+          </div>
+          <div class="tcell border-b border-r border-line dark:border-white/10 px-3.5 py-3 sm:px-4 flex items-baseline gap-3">
+            <span class="font-serif text-taupe text-sm w-6 shrink-0">07</span>
+            <span class="min-w-0 flex-1"><span class="block text-[13.5px] sm:text-sm leading-snug text-ink dark:text-ivory" data-en="Durban St. Thomas Indian Orthodox Qurbana Centre" data-ml="ഡർബൻ മാർ തോമ ഭാരതീയ ഓർത്തഡോക്സ് പ്രാർത്ഥനാലയം">Durban St. Thomas Indian Orthodox Qurbana Centre</span><span class="block text-[11px] text-muted mt-0.5" data-en="South Africa" data-ml="ദക്ഷിണാഫ്രിക്ക">South Africa</span></span>
+          </div>
+          <div class="tcell border-b border-r border-line dark:border-white/10 px-3.5 py-3 sm:px-4 flex items-baseline gap-3">
+            <span class="font-serif text-taupe text-sm w-6 shrink-0">08</span>
+            <span class="min-w-0 flex-1"><span class="block text-[13.5px] sm:text-sm leading-snug text-ink dark:text-ivory" data-en="Düsseldorf St. Thomas Indian Orthodox Qurbana Centre" data-ml="ഡസൽഡോർഫ് മാർ തോമ ഭാരതീയ ഓർത്തഡോക്സ് പ്രാർത്ഥനാലയം">Düsseldorf St. Thomas Indian Orthodox Qurbana Centre</span><span class="block text-[11px] text-muted mt-0.5" data-en="Germany" data-ml="ജർമ്മനി">Germany</span></span>
+          </div>
+          <div class="tcell border-b border-r border-line dark:border-white/10 px-3.5 py-3 sm:px-4 flex items-baseline gap-3">
+            <span class="font-serif text-taupe text-sm w-6 shrink-0">09</span>
+            <span class="min-w-0 flex-1"><span class="block text-[13.5px] sm:text-sm leading-snug text-ink dark:text-ivory" data-en="East London St. Thomas Indian Orthodox Qurbana Centre" data-ml="കിഴക്കൻ ലണ്ടൻ മാർ തോമ ഭാരതീയ ഓർത്തഡോക്സ് പ്രാർത്ഥനാലയം">East London St. Thomas Indian Orthodox Qurbana Centre</span><span class="block text-[11px] text-muted mt-0.5" data-en="South Africa" data-ml="ദക്ഷിണാഫ്രിക്ക">South Africa</span></span>
+          </div>
+          <div class="tcell border-b border-r border-line dark:border-white/10 px-3.5 py-3 sm:px-4 flex items-baseline gap-3">
+            <span class="font-serif text-taupe text-sm w-6 shrink-0">10</span>
+            <span class="min-w-0 flex-1"><span class="block text-[13.5px] sm:text-sm leading-snug text-ink dark:text-ivory" data-en="Erfurt St. Thomas Indian Orthodox Qurbana Centre" data-ml="എർഫർട്ട് മാർ തോമ ഭാരതീയ ഓർത്തഡോക്സ് പ്രാർത്ഥനാലയം">Erfurt St. Thomas Indian Orthodox Qurbana Centre</span><span class="block text-[11px] text-muted mt-0.5" data-en="Germany" data-ml="ജർമ്മനി">Germany</span></span>
+          </div>
+          <div class="tcell border-b border-r border-line dark:border-white/10 px-3.5 py-3 sm:px-4 flex items-baseline gap-3">
+            <span class="font-serif text-taupe text-sm w-6 shrink-0">11</span>
+            <span class="min-w-0 flex-1"><span class="block text-[13.5px] sm:text-sm leading-snug text-ink dark:text-ivory" data-en="Essen St. Thomas Indian Orthodox Qurbana Centre" data-ml="എസ്സെൻ മാർ തോമ ഭാരതീയ ഓർത്തഡോക്സ് പ്രാർത്ഥനാലയം">Essen St. Thomas Indian Orthodox Qurbana Centre</span><span class="block text-[11px] text-muted mt-0.5" data-en="Germany" data-ml="ജർമ്മനി">Germany</span></span>
+          </div>
+          <div class="tcell border-b border-r border-line dark:border-white/10 px-3.5 py-3 sm:px-4 flex items-baseline gap-3">
+            <span class="font-serif text-taupe text-sm w-6 shrink-0">12</span>
+            <span class="min-w-0 flex-1"><span class="block text-[13.5px] sm:text-sm leading-snug text-ink dark:text-ivory" data-en="Frankfurt am Main St. Thomas Indian Orthodox Qurbana Centre" data-ml="ഫ്രാങ്ക്ഫർട്ട് ആം മെയിൻ മാർ തോമ ഭാരതീയ ഓർത്തഡോക്സ് പ്രാർത്ഥനാലയം">Frankfurt am Main St. Thomas Indian Orthodox Qurbana Centre</span><span class="block text-[11px] text-muted mt-0.5" data-en="Germany" data-ml="ജർമ്മനി">Germany</span></span>
+          </div>
+          <div class="tcell border-b border-r border-line dark:border-white/10 px-3.5 py-3 sm:px-4 flex items-baseline gap-3">
+            <span class="font-serif text-taupe text-sm w-6 shrink-0">13</span>
+            <span class="min-w-0 flex-1"><span class="block text-[13.5px] sm:text-sm leading-snug text-ink dark:text-ivory" data-en="Gaborone St. Thomas Indian Orthodox Qurbana Centre" data-ml="ഗാബറോണ്‍ മാർ തോമ ഭാരതീയ ഓർത്തഡോക്സ് പ്രാർത്ഥനാലയം">Gaborone St. Thomas Indian Orthodox Qurbana Centre</span><span class="block text-[11px] text-muted mt-0.5" data-en="Botswana" data-ml="ബോട്സ്വാന">Botswana</span></span>
+          </div>
+          <div class="tcell border-b border-r border-line dark:border-white/10 px-3.5 py-3 sm:px-4 flex items-baseline gap-3">
+            <span class="font-serif text-taupe text-sm w-6 shrink-0">14</span>
+            <span class="min-w-0 flex-1"><span class="block text-[13.5px] sm:text-sm leading-snug text-ink dark:text-ivory" data-en="Gottingen St. Thomas Indian Orthodox Qurbana Centre" data-ml="ഗോട്ടിങ്ങൻ മാർ തോമ ഭാരതീയ ഓർത്തഡോക്സ് പ്രാർത്ഥനാലയം">Gottingen St. Thomas Indian Orthodox Qurbana Centre</span><span class="block text-[11px] text-muted mt-0.5" data-en="Germany" data-ml="ജർമ്മനി">Germany</span></span>
+          </div>
+          <div class="tcell border-b border-r border-line dark:border-white/10 px-3.5 py-3 sm:px-4 flex items-baseline gap-3">
+            <span class="font-serif text-taupe text-sm w-6 shrink-0">15</span>
+            <span class="min-w-0 flex-1"><span class="block text-[13.5px] sm:text-sm leading-snug text-ink dark:text-ivory" data-en="Grahamstown St. Thomas Indian Orthodox Qurbana Centre" data-ml="ഗ്രഹാംസ്ടൗൺ മാർ തോമ ഭാരതീയ ഓർത്തഡോക്സ് പ്രാർത്ഥനാലയം">Grahamstown St. Thomas Indian Orthodox Qurbana Centre</span><span class="block text-[11px] text-muted mt-0.5" data-en="South Africa" data-ml="ദക്ഷിണാഫ്രിക്ക">South Africa</span></span>
+          </div>
+          <div class="tcell border-b border-r border-line dark:border-white/10 px-3.5 py-3 sm:px-4 flex items-baseline gap-3">
+            <span class="font-serif text-taupe text-sm w-6 shrink-0">16</span>
+            <span class="min-w-0 flex-1"><span class="block text-[13.5px] sm:text-sm leading-snug text-ink dark:text-ivory" data-en="Hamburg St. Thomas Indian Orthodox Qurbana Centre" data-ml="ഹാംബർഗ് മാർ തോമ ഭാരതീയ ഓർത്തഡോക്സ് പ്രാർത്ഥനാലയം">Hamburg St. Thomas Indian Orthodox Qurbana Centre</span><span class="block text-[11px] text-muted mt-0.5" data-en="Germany" data-ml="ജർമ്മനി">Germany</span></span>
+          </div>
+          <div class="tcell border-b border-r border-line dark:border-white/10 px-3.5 py-3 sm:px-4 flex items-baseline gap-3">
+            <span class="font-serif text-taupe text-sm w-6 shrink-0">17</span>
+            <span class="min-w-0 flex-1"><span class="block text-[13.5px] sm:text-sm leading-snug text-ink dark:text-ivory" data-en="Hanover St. Thomas Indian Orthodox Qurbana Centre" data-ml="ഹാനോവർ മാർ തോമ ഭാരതീയ ഓർത്തഡോക്സ് പ്രാർത്ഥനാലയം">Hanover St. Thomas Indian Orthodox Qurbana Centre</span><span class="block text-[11px] text-muted mt-0.5" data-en="Germany" data-ml="ജർമ്മനി">Germany</span></span>
+          </div>
+          <div class="tcell border-b border-r border-line dark:border-white/10 px-3.5 py-3 sm:px-4 flex items-baseline gap-3">
+            <span class="font-serif text-taupe text-sm w-6 shrink-0">18</span>
+            <span class="min-w-0 flex-1"><span class="block text-[13.5px] sm:text-sm leading-snug text-ink dark:text-ivory" data-en="King William&#x27;s Town St. Thomas Indian Orthodox Qurbana Centre" data-ml="കിംഗ് വില്യംസ് ടൗൺ മാർ തോമ ഭാരതീയ ഓർത്തഡോക്സ് പ്രാർത്ഥനാലയം">King William&#x27;s Town St. Thomas Indian Orthodox Qurbana Centre</span><span class="block text-[11px] text-muted mt-0.5" data-en="South Africa" data-ml="ദക്ഷിണാഫ്രിക്ക">South Africa</span></span>
+          </div>
+          <div class="tcell border-b border-r border-line dark:border-white/10 px-3.5 py-3 sm:px-4 flex items-baseline gap-3">
+            <span class="font-serif text-taupe text-sm w-6 shrink-0">19</span>
+            <span class="min-w-0 flex-1"><span class="block text-[13.5px] sm:text-sm leading-snug text-ink dark:text-ivory" data-en="Klerksdorp St. Thomas Indian Orthodox Qurbana Centre" data-ml="ക്ലെർക്സ്ഡോർപ്പ് മാർ തോമ ഭാരതീയ ഓർത്തഡോക്സ് പ്രാർത്ഥനാലയം">Klerksdorp St. Thomas Indian Orthodox Qurbana Centre</span><span class="block text-[11px] text-muted mt-0.5" data-en="South Africa" data-ml="ദക്ഷിണാഫ്രിക്ക">South Africa</span></span>
+          </div>
+          <div class="tcell border-b border-r border-line dark:border-white/10 px-3.5 py-3 sm:px-4 flex items-baseline gap-3">
+            <span class="font-serif text-taupe text-sm w-6 shrink-0">20</span>
+            <span class="min-w-0 flex-1"><span class="block text-[13.5px] sm:text-sm leading-snug text-ink dark:text-ivory" data-en="Knock Holy Trinity Indian Orthodox Qurbana Centre" data-ml="നോക്ക് ഹോളി ട്രിനിറ്റി ഭാരതീയ ഓർത്തഡോക്സ് പ്രാർത്ഥനാലയം">Knock Holy Trinity Indian Orthodox Qurbana Centre</span><span class="block text-[11px] text-muted mt-0.5" data-en="Ireland" data-ml="അയർലൻഡ്">Ireland</span></span>
+          </div>
+          <div class="tcell border-b border-r border-line dark:border-white/10 px-3.5 py-3 sm:px-4 flex items-baseline gap-3">
+            <span class="font-serif text-taupe text-sm w-6 shrink-0">21</span>
+            <span class="min-w-0 flex-1"><span class="block text-[13.5px] sm:text-sm leading-snug text-ink dark:text-ivory" data-en="Ladybrand St. Thomas Indian Orthodox Qurbana Centre" data-ml="ലേഡിബ്രാൻഡ് മാർ തോമ ഭാരതീയ ഓർത്തഡോക്സ് പ്രാർത്ഥനാലയം">Ladybrand St. Thomas Indian Orthodox Qurbana Centre</span><span class="block text-[11px] text-muted mt-0.5" data-en="South Africa" data-ml="ദക്ഷിണാഫ്രിക്ക">South Africa</span></span>
+          </div>
+          <div class="tcell border-b border-r border-line dark:border-white/10 px-3.5 py-3 sm:px-4 flex items-baseline gap-3">
+            <span class="font-serif text-taupe text-sm w-6 shrink-0">22</span>
+            <span class="min-w-0 flex-1"><span class="block text-[13.5px] sm:text-sm leading-snug text-ink dark:text-ivory" data-en="Leiden St. Philip and St. Bartholomew Indian Orthodox Qurbana Centre" data-ml="ലൈഡൻ മാർ ഫിലിപ്പോസ് ബർത്തുൽമായി ഭാരതീയ ഓർത്തഡോക്സ് പ്രാർത്ഥനാലയം">Leiden St. Philip and St. Bartholomew Indian Orthodox Qurbana Centre</span><span class="block text-[11px] text-muted mt-0.5" data-en="Netherlands" data-ml="നെതർലാൻഡ്സ്">Netherlands</span></span>
+          </div>
+          <div class="tcell border-b border-r border-line dark:border-white/10 px-3.5 py-3 sm:px-4 flex items-baseline gap-3">
+            <span class="font-serif text-taupe text-sm w-6 shrink-0">23</span>
+            <span class="min-w-0 flex-1"><span class="block text-[13.5px] sm:text-sm leading-snug text-ink dark:text-ivory" data-en="Mafeteng St. Thomas Indian Orthodox Qurbana Centre" data-ml="മാഫെറ്റെങ് മാർ തോമ ഭാരതീയ ഓർത്തഡോക്സ് പ്രാർത്ഥനാലയം">Mafeteng St. Thomas Indian Orthodox Qurbana Centre</span><span class="block text-[11px] text-muted mt-0.5" data-en="Lesotho" data-ml="ലെസോത്തോ">Lesotho</span></span>
+          </div>
+          <div class="tcell border-b border-r border-line dark:border-white/10 px-3.5 py-3 sm:px-4 flex items-baseline gap-3">
+            <span class="font-serif text-taupe text-sm w-6 shrink-0">24</span>
+            <span class="min-w-0 flex-1"><span class="block text-[13.5px] sm:text-sm leading-snug text-ink dark:text-ivory" data-en="Maynooth Indian Orthodox Qurbana Centre" data-ml="മെയ്നൂത്ത് ഭാരതീയ ഓർത്തഡോക്സ് പ്രാർത്ഥനാലയം">Maynooth Indian Orthodox Qurbana Centre</span><span class="block text-[11px] text-muted mt-0.5" data-en="Ireland" data-ml="അയർലൻഡ്">Ireland</span></span>
+          </div>
+          <div class="tcell border-b border-r border-line dark:border-white/10 px-3.5 py-3 sm:px-4 flex items-baseline gap-3">
+            <span class="font-serif text-taupe text-sm w-6 shrink-0">25</span>
+            <span class="min-w-0 flex-1"><span class="block text-[13.5px] sm:text-sm leading-snug text-ink dark:text-ivory" data-en="Mmabatho St. Thomas Indian Orthodox Qurbana Centre" data-ml="മ്മബാത്തോ മാർ തോമ ഭാരതീയ ഓർത്തഡോക്സ് പ്രാർത്ഥനാലയം">Mmabatho St. Thomas Indian Orthodox Qurbana Centre</span><span class="block text-[11px] text-muted mt-0.5" data-en="South Africa" data-ml="ദക്ഷിണാഫ്രിക്ക">South Africa</span></span>
+          </div>
+          <div class="tcell border-b border-r border-line dark:border-white/10 px-3.5 py-3 sm:px-4 flex items-baseline gap-3">
+            <span class="font-serif text-taupe text-sm w-6 shrink-0">26</span>
+            <span class="min-w-0 flex-1"><span class="block text-[13.5px] sm:text-sm leading-snug text-ink dark:text-ivory" data-en="Mokopane St. Thomas Indian Orthodox Qurbana Centre" data-ml="മൊകോപാനെ മാർ തോമ ഭാരതീയ ഓർത്തഡോക്സ് പ്രാർത്ഥനാലയം">Mokopane St. Thomas Indian Orthodox Qurbana Centre</span><span class="block text-[11px] text-muted mt-0.5" data-en="South Africa" data-ml="ദക്ഷിണാഫ്രിക്ക">South Africa</span></span>
+          </div>
+          <div class="tcell border-b border-r border-line dark:border-white/10 px-3.5 py-3 sm:px-4 flex items-baseline gap-3">
+            <span class="font-serif text-taupe text-sm w-6 shrink-0">27</span>
+            <span class="min-w-0 flex-1"><span class="block text-[13.5px] sm:text-sm leading-snug text-ink dark:text-ivory" data-en="Munich St. Thomas Indian Orthodox Qurbana Centre" data-ml="മ്യൂണിക്ക് മാർ തോമ ഭാരതീയ ഓർത്തഡോക്സ് പ്രാർത്ഥനാലയം">Munich St. Thomas Indian Orthodox Qurbana Centre</span><span class="block text-[11px] text-muted mt-0.5" data-en="Germany" data-ml="ജർമ്മനി">Germany</span></span>
+          </div>
+          <div class="tcell border-b border-r border-line dark:border-white/10 px-3.5 py-3 sm:px-4 flex items-baseline gap-3">
+            <span class="font-serif text-taupe text-sm w-6 shrink-0">28</span>
+            <span class="min-w-0 flex-1"><span class="block text-[13.5px] sm:text-sm leading-snug text-ink dark:text-ivory" data-en="Nelspruit St. Thomas Indian Orthodox Qurbana Centre" data-ml="നെൽസ്പ്രൂട്ട് മാർ തോമ ഭാരതീയ ഓർത്തഡോക്സ് പ്രാർത്ഥനാലയം">Nelspruit St. Thomas Indian Orthodox Qurbana Centre</span><span class="block text-[11px] text-muted mt-0.5" data-en="South Africa" data-ml="ദക്ഷിണാഫ്രിക്ക">South Africa</span></span>
+          </div>
+          <div class="tcell border-b border-r border-line dark:border-white/10 px-3.5 py-3 sm:px-4 flex items-baseline gap-3">
+            <span class="font-serif text-taupe text-sm w-6 shrink-0">29</span>
+            <span class="min-w-0 flex-1"><span class="block text-[13.5px] sm:text-sm leading-snug text-ink dark:text-ivory" data-en="Nürnberg St. Thomas Indian Orthodox Qurbana Centre" data-ml="നൂർൻബർഗ് മാർ തോമ ഭാരതീയ ഓർത്തഡോക്സ് പ്രാർത്ഥനാലയം">Nürnberg St. Thomas Indian Orthodox Qurbana Centre</span><span class="block text-[11px] text-muted mt-0.5" data-en="Germany" data-ml="ജർമ്മനി">Germany</span></span>
+          </div>
+          <div class="tcell border-b border-r border-line dark:border-white/10 px-3.5 py-3 sm:px-4 flex items-baseline gap-3">
+            <span class="font-serif text-taupe text-sm w-6 shrink-0">30</span>
+            <span class="min-w-0 flex-1"><span class="block text-[13.5px] sm:text-sm leading-snug text-ink dark:text-ivory" data-en="Phalaborwa St. Thomas Indian Orthodox Qurbana Centre" data-ml="ഫലബോർവ മാർ തോമ ഭാരതീയ ഓർത്തഡോക്സ് പ്രാർത്ഥനാലയം">Phalaborwa St. Thomas Indian Orthodox Qurbana Centre</span><span class="block text-[11px] text-muted mt-0.5" data-en="South Africa" data-ml="ദക്ഷിണാഫ്രിക്ക">South Africa</span></span>
+          </div>
+          <div class="tcell border-b border-r border-line dark:border-white/10 px-3.5 py-3 sm:px-4 flex items-baseline gap-3">
+            <span class="font-serif text-taupe text-sm w-6 shrink-0">31</span>
+            <span class="min-w-0 flex-1"><span class="block text-[13.5px] sm:text-sm leading-snug text-ink dark:text-ivory" data-en="Pietermaritzburg St. Thomas Indian Orthodox Qurbana Centre" data-ml="പീറ്റർമാരിറ്റ്‌സ്‌ബർഗ് മാർ തോമ ഭാരതീയ ഓർത്തഡോക്സ് പ്രാർത്ഥനാലയം">Pietermaritzburg St. Thomas Indian Orthodox Qurbana Centre</span><span class="block text-[11px] text-muted mt-0.5" data-en="South Africa" data-ml="ദക്ഷിണാഫ്രിക്ക">South Africa</span></span>
+          </div>
+          <div class="tcell border-b border-r border-line dark:border-white/10 px-3.5 py-3 sm:px-4 flex items-baseline gap-3">
+            <span class="font-serif text-taupe text-sm w-6 shrink-0">32</span>
+            <span class="min-w-0 flex-1"><span class="block text-[13.5px] sm:text-sm leading-snug text-ink dark:text-ivory" data-en="Polokwane St. Thomas Indian Orthodox Qurbana Centre" data-ml="പോളോക്വെയ്ൻ മാർ തോമ ഭാരതീയ ഓർത്തഡോക്സ് പ്രാർത്ഥനാലയം">Polokwane St. Thomas Indian Orthodox Qurbana Centre</span><span class="block text-[11px] text-muted mt-0.5" data-en="South Africa" data-ml="ദക്ഷിണാഫ്രിക്ക">South Africa</span></span>
+          </div>
+          <div class="tcell border-b border-r border-line dark:border-white/10 px-3.5 py-3 sm:px-4 flex items-baseline gap-3">
+            <span class="font-serif text-taupe text-sm w-6 shrink-0">33</span>
+            <span class="min-w-0 flex-1"><span class="block text-[13.5px] sm:text-sm leading-snug text-ink dark:text-ivory" data-en="Port Edward St. Thomas Indian Orthodox Qurbana Centre" data-ml="പോർട്ട് എഡ്വേർഡ് മാർ തോമ ഭാരതീയ ഓർത്തഡോക്സ് പ്രാർത്ഥനാലയം">Port Edward St. Thomas Indian Orthodox Qurbana Centre</span><span class="block text-[11px] text-muted mt-0.5" data-en="South Africa" data-ml="ദക്ഷിണാഫ്രിക്ക">South Africa</span></span>
+          </div>
+          <div class="tcell border-b border-r border-line dark:border-white/10 px-3.5 py-3 sm:px-4 flex items-baseline gap-3">
+            <span class="font-serif text-taupe text-sm w-6 shrink-0">34</span>
+            <span class="min-w-0 flex-1"><span class="block text-[13.5px] sm:text-sm leading-snug text-ink dark:text-ivory" data-en="Queenstown St. Thomas Indian Orthodox Qurbana Centre" data-ml="ക്വീൻസ്‌ടൗൺ മാർ തോമ ഭാരതീയ ഓർത്തഡോക്സ് പ്രാർത്ഥനാലയം">Queenstown St. Thomas Indian Orthodox Qurbana Centre</span><span class="block text-[11px] text-muted mt-0.5" data-en="South Africa" data-ml="ദക്ഷിണാഫ്രിക്ക">South Africa</span></span>
+          </div>
+          <div class="tcell border-b border-r border-line dark:border-white/10 px-3.5 py-3 sm:px-4 flex items-baseline gap-3">
+            <span class="font-serif text-taupe text-sm w-6 shrink-0">35</span>
+            <span class="min-w-0 flex-1"><span class="block text-[13.5px] sm:text-sm leading-snug text-ink dark:text-ivory" data-en="Salisbury St. Basil and St. Gregory Indian Orthodox Qurbana Centre" data-ml="സാലിസ്ബറി മാർ ബസേലിയോസ് ഗ്രീഗോറിയോസ് ഭാരതീയ ഓർത്തഡോക്സ് പ്രാർത്ഥനാലയം">Salisbury St. Basil and St. Gregory Indian Orthodox Qurbana Centre</span><span class="block text-[11px] text-muted mt-0.5" data-en="United Kingdom" data-ml="യുണൈറ്റഡ് കിംഗ്ഡം">United Kingdom</span></span>
+          </div>
+          <div class="tcell border-b border-r border-line dark:border-white/10 px-3.5 py-3 sm:px-4 flex items-baseline gap-3">
+            <span class="font-serif text-taupe text-sm w-6 shrink-0">36</span>
+            <span class="min-w-0 flex-1"><span class="block text-[13.5px] sm:text-sm leading-snug text-ink dark:text-ivory" data-en="Scarborough St. Luke&#x27;s Indian Orthodox Qurbana Centre" data-ml="സ്കാർബറോ മാർ ലൂക്കോസ് ഭാരതീയ ഓർത്തഡോക്സ് പ്രാർത്ഥനാലയം">Scarborough St. Luke&#x27;s Indian Orthodox Qurbana Centre</span><span class="block text-[11px] text-muted mt-0.5" data-en="United Kingdom" data-ml="യുണൈറ്റഡ് കിംഗ്ഡം">United Kingdom</span></span>
+          </div>
+          <div class="tcell border-b border-r border-line dark:border-white/10 px-3.5 py-3 sm:px-4 flex items-baseline gap-3">
+            <span class="font-serif text-taupe text-sm w-6 shrink-0">37</span>
+            <span class="min-w-0 flex-1"><span class="block text-[13.5px] sm:text-sm leading-snug text-ink dark:text-ivory" data-en="Stuttgart St. Thomas Indian Orthodox Qurbana Centre" data-ml="സ്റ്റുട്ട്ഗാർട്ട് മാർ തോമ ഭാരതീയ ഓർത്തഡോക്സ് പ്രാർത്ഥനാലയം">Stuttgart St. Thomas Indian Orthodox Qurbana Centre</span><span class="block text-[11px] text-muted mt-0.5" data-en="Germany" data-ml="ജർമ്മനി">Germany</span></span>
+          </div>
+          <div class="tcell border-b border-r border-line dark:border-white/10 px-3.5 py-3 sm:px-4 flex items-baseline gap-3">
+            <span class="font-serif text-taupe text-sm w-6 shrink-0">38</span>
+            <span class="min-w-0 flex-1"><span class="block text-[13.5px] sm:text-sm leading-snug text-ink dark:text-ivory" data-en="Tzaneen St. Thomas Indian Orthodox Qurbana Centre" data-ml="സാനീൻ മാർ തോമ ഭാരതീയ ഓർത്തഡോക്സ് പ്രാർത്ഥനാലയം">Tzaneen St. Thomas Indian Orthodox Qurbana Centre</span><span class="block text-[11px] text-muted mt-0.5" data-en="South Africa" data-ml="ദക്ഷിണാഫ്രിക്ക">South Africa</span></span>
+          </div>
+          <div class="tcell border-b border-r border-line dark:border-white/10 px-3.5 py-3 sm:px-4 flex items-baseline gap-3">
+            <span class="font-serif text-taupe text-sm w-6 shrink-0">39</span>
+            <span class="min-w-0 flex-1"><span class="block text-[13.5px] sm:text-sm leading-snug text-ink dark:text-ivory" data-en="Umtata St. Thomas Indian Orthodox Qurbana Centre" data-ml="ഉംറ്റാറ്റ മാർ തോമ ഭാരതീയ ഓർത്തഡോക്സ് പ്രാർത്ഥനാലയം">Umtata St. Thomas Indian Orthodox Qurbana Centre</span><span class="block text-[11px] text-muted mt-0.5" data-en="South Africa" data-ml="ദക്ഷിണാഫ്രിക്ക">South Africa</span></span>
+          </div>
+          <div class="tcell border-b border-r border-line dark:border-white/10 px-3.5 py-3 sm:px-4 flex items-baseline gap-3">
+            <span class="font-serif text-taupe text-sm w-6 shrink-0">40</span>
+            <span class="min-w-0 flex-1"><span class="block text-[13.5px] sm:text-sm leading-snug text-ink dark:text-ivory" data-en="White River St. Thomas Indian Orthodox Qurbana Centre" data-ml="വൈറ്റ് റിവർ മാർ തോമ ഭാരതീയ ഓർത്തഡോക്സ് പ്രാർത്ഥനാലയം">White River St. Thomas Indian Orthodox Qurbana Centre</span><span class="block text-[11px] text-muted mt-0.5" data-en="South Africa" data-ml="ദക്ഷിണാഫ്രിക്ക">South Africa</span></span>
+          </div>
+          <div class="tcell border-b border-r border-line dark:border-white/10 px-3.5 py-3 sm:px-4 flex items-baseline gap-3">
+            <span class="font-serif text-taupe text-sm w-6 shrink-0">41</span>
+            <span class="min-w-0 flex-1"><span class="block text-[13.5px] sm:text-sm leading-snug text-ink dark:text-ivory" data-en="York St. Luke&#x27;s Indian Orthodox Qurbana Centre" data-ml="യോർക്ക് മാർ ലൂക്കോസ് ഭാരതീയ ഓർത്തഡോക്സ് പ്രാർത്ഥനാലയം">York St. Luke&#x27;s Indian Orthodox Qurbana Centre</span><span class="block text-[11px] text-muted mt-0.5" data-en="United Kingdom" data-ml="യുണൈറ്റഡ് കിംഗ്ഡം">United Kingdom</span></span>
+          </div>
+          <div class="tcell border-b border-r border-line dark:border-white/10 px-3.5 py-3 sm:px-4 flex items-baseline gap-3">
+            <span class="font-serif text-taupe text-sm w-6 shrink-0">42</span>
+            <span class="min-w-0 flex-1"><span class="block text-[13.5px] sm:text-sm leading-snug text-ink dark:text-ivory" data-en="Zastron St. Thomas Indian Orthodox Qurbana Centre" data-ml="സാസ്ട്രോൺ മാർ തോമ ഭാരതീയ ഓർത്തഡോക്സ് പ്രാർത്ഥനാലയം">Zastron St. Thomas Indian Orthodox Qurbana Centre</span><span class="block text-[11px] text-muted mt-0.5" data-en="South Africa" data-ml="ദക്ഷിണാഫ്രിക്ക">South Africa</span></span>
+          </div>
+          <div class="tcell border-b border-r border-line dark:border-white/10 px-3.5 py-3 sm:px-4 flex items-baseline gap-3">
+            <span class="font-serif text-taupe text-sm w-6 shrink-0">43</span>
+            <span class="min-w-0 flex-1"><span class="block text-[13.5px] sm:text-sm leading-snug text-ink dark:text-ivory" data-en="Zeerust St. Thomas Indian Orthodox Qurbana Centre" data-ml="സീറസ്റ്റ് മാർ തോമ ഭാരതീയ ഓർത്തഡോക്സ് പ്രാർത്ഥനാലയം">Zeerust St. Thomas Indian Orthodox Qurbana Centre</span><span class="block text-[11px] text-muted mt-0.5" data-en="South Africa" data-ml="ദക്ഷിണാഫ്രിക്ക">South Africa</span></span>
+          </div>
+        </div>
+      </div>
+    </details>
+  </div>
+</section>
+
+<section class="tsec px-5 sm:px-8 pb-12 sm:pb-14 max-w-4xl mx-auto" data-kind="schismatic">
+  <h2 class="font-serif font-normal text-lg sm:text-xl text-ink dark:text-ivory mb-2" data-en="Schismatic-Occupied Qurbana Centres" data-ml="വിഘടിത അധിനിവേശ പ്രാർത്ഥനാലയങ്ങൾ">Schismatic-Occupied Qurbana Centres</h2>
+  <p class="font-sans text-xs text-muted mb-6" data-en="Grouped by diocese — not included in the totals above." data-ml="ഭദ്രാസനം അനുസരിച്ച് തരംതിരിച്ചിരിക്കുന്നു — മുകളിലുള്ള ആകെത്തുകകളിൽ ഉൾപ്പെടുത്തിയിട്ടില്ല.">Grouped by diocese — not included in the totals above.</p>
+  <div class="border-t border-line dark:border-white/10">
+    <details class="tdio group border-b border-line dark:border-white/10" id="d-schismatic-nilackal" open>
+      <summary class="flex items-center gap-3 px-1 sm:px-2 py-3.5 sm:py-4 cursor-pointer select-none hover:bg-featured/70 dark:hover:bg-white/[0.03] transition-colors">
+        <span class="w-2.5 h-2.5 rounded-full shrink-0 border border-ink/10 dark:border-ivory/20" style="background:#63532a"></span>
+        <span class="min-w-0 flex-1">
+          <span class="block font-serif text-base sm:text-lg text-ink dark:text-ivory leading-snug" data-en="Nilackal" data-ml="നിലയ്ക്കൽ">Nilackal</span>
+          <span class="block text-[11.5px] text-muted mt-0.5" data-en="India" data-ml="ഭാരതം">India</span>
+        </span>
+        <span class="tcount font-serif text-sm text-taupe tabular-nums" data-n="1">1</span>
+        <svg class="w-4 h-4 shrink-0 text-muted transition-transform duration-200 group-open:rotate-180" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="m5 8 5 5 5-5"/></svg>
+      </summary>
+      <div class="pb-5 sm:pb-6">
+        <div class="px-1 sm:px-2 pb-3"><a href="/nilackal" class="font-serif text-[13px] text-sage-dark dark:text-sage hover:underline underline-offset-4 decoration-sage/40" data-en="View diocese" data-ml="ഭദ്രാസനം കാണുക">View diocese</a></div>
+        <div class="tgrid grid grid-cols-1 sm:grid-cols-2 border-l border-t border-line dark:border-white/10">
+          <div class="tcell border-b border-r border-line dark:border-white/10 px-3.5 py-3 sm:px-4 flex items-baseline gap-3">
+            <span class="font-serif text-taupe text-sm w-6 shrink-0">01</span>
+            <span class="min-w-0 flex-1"><span class="block text-[13.5px] sm:text-sm leading-snug text-ink dark:text-ivory" data-en="Kadayar St. Ignatius Orthodox Prayer Hall" data-ml="കടയാർ മാർ ഇഗ്നാത്തിയോസ് ഓർത്തഡോക്സ് പ്രാർത്ഥനാ ഹാൾ">Kadayar St. Ignatius Orthodox Prayer Hall</span></span>
+          </div>
+        </div>
+      </div>
+    </details>
+  </div>
+</section>
+
+<section class="tsec px-5 sm:px-8 pb-12 sm:pb-14 max-w-4xl mx-auto" data-kind="knanaya">
+  <h2 class="font-serif font-normal text-lg sm:text-xl text-ink dark:text-ivory mb-2" data-en="Semi-Autonomous (Knanaya) Qurbana Centres" data-ml="അർധ സ്വയംഭരണ (ക്നാനായ) പ്രാർത്ഥനാലയങ്ങൾ">Semi-Autonomous (Knanaya) Qurbana Centres</h2>
+  <p class="font-sans text-xs text-muted mb-6" data-en="Not included in the totals above." data-ml="മുകളിലുള്ള ആകെത്തുകകളിൽ ഉൾപ്പെടുത്തിയിട്ടില്ല.">Not included in the totals above.</p>
+  <div class="border-t border-line dark:border-white/10">
+    <details class="tdio group border-b border-line dark:border-white/10" id="d-knanaya-knanaya" open>
+      <summary class="flex items-center gap-3 px-1 sm:px-2 py-3.5 sm:py-4 cursor-pointer select-none hover:bg-featured/70 dark:hover:bg-white/[0.03] transition-colors">
+        <span class="w-2.5 h-2.5 rounded-full shrink-0 border border-ink/10 dark:border-ivory/20" style="background:#7a483b"></span>
+        <span class="min-w-0 flex-1">
+          <span class="block font-serif text-base sm:text-lg text-ink dark:text-ivory leading-snug" data-en="Knanaya" data-ml="ക്നാനായ">Knanaya</span>
+          <span class="block text-[11.5px] text-muted mt-0.5" data-en="Ireland, United Arab Emirates" data-ml="അയർലൻഡ്, യുണൈറ്റഡ് അറബ് എമിറേറ്റ്സ്">Ireland, United Arab Emirates</span>
+        </span>
+        <span class="tcount font-serif text-sm text-taupe tabular-nums" data-n="3">3</span>
+        <svg class="w-4 h-4 shrink-0 text-muted transition-transform duration-200 group-open:rotate-180" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="m5 8 5 5 5-5"/></svg>
+      </summary>
+      <div class="pb-5 sm:pb-6">
+        <div class="px-1 sm:px-2 pb-3"><a href="/knanaya" class="font-serif text-[13px] text-sage-dark dark:text-sage hover:underline underline-offset-4 decoration-sage/40" data-en="View diocese" data-ml="ഭദ്രാസനം കാണുക">View diocese</a></div>
+        <div class="tgrid grid grid-cols-1 sm:grid-cols-2 border-l border-t border-line dark:border-white/10">
+          <div class="tcell border-b border-r border-line dark:border-white/10 px-3.5 py-3 sm:px-4 flex items-baseline gap-3">
+            <span class="font-serif text-taupe text-sm w-6 shrink-0">01</span>
+            <span class="min-w-0 flex-1"><span class="block text-[13.5px] sm:text-sm leading-snug text-ink dark:text-ivory" data-en="Drogheda St. Peter&#x27;s Knanaya Syrian Qurbana Centre" data-ml="ദ്രോഗെഡ മാർ പത്രോസ് ക്നാനായ സുറിയാനി പ്രാർത്ഥനാലയം">Drogheda St. Peter&#x27;s Knanaya Syrian Qurbana Centre</span><span class="block text-[11px] text-muted mt-0.5" data-en="Ireland" data-ml="അയർലൻഡ്">Ireland</span></span>
+          </div>
+          <div class="tcell border-b border-r border-line dark:border-white/10 px-3.5 py-3 sm:px-4 flex items-baseline gap-3">
+            <span class="font-serif text-taupe text-sm w-6 shrink-0">02</span>
+            <span class="min-w-0 flex-1"><span class="block text-[13.5px] sm:text-sm leading-snug text-ink dark:text-ivory" data-en="Fujairah St. Ephrem Knanaya Syrian Qurbana Centre" data-ml="ഫുജൈറ മാർ അപ്രേം ക്നാനായ സുറിയാനി പ്രാർത്ഥനാലയം">Fujairah St. Ephrem Knanaya Syrian Qurbana Centre</span><span class="block text-[11px] text-muted mt-0.5" data-en="United Arab Emirates" data-ml="യുണൈറ്റഡ് അറബ് എമിറേറ്റ്സ്">United Arab Emirates</span></span>
+          </div>
+          <div class="tcell border-b border-r border-line dark:border-white/10 px-3.5 py-3 sm:px-4 flex items-baseline gap-3">
+            <span class="font-serif text-taupe text-sm w-6 shrink-0">03</span>
+            <span class="min-w-0 flex-1"><span class="block text-[13.5px] sm:text-sm leading-snug text-ink dark:text-ivory" data-en="Ras Al Khaimah St. Stephen&#x27;s Knanaya Syrian Qurbana Centre" data-ml="റാസൽ അൽ ഖൈമ മാർ സ്തേഫാനോസ് സഹദാ ക്നാനായ സുറിയാനി പ്രാർത്ഥനാലയം">Ras Al Khaimah St. Stephen&#x27;s Knanaya Syrian Qurbana Centre</span><span class="block text-[11px] text-muted mt-0.5" data-en="United Arab Emirates" data-ml="യുണൈറ്റഡ് അറബ് എമിറേറ്റ്സ്">United Arab Emirates</span></span>
+          </div>
+        </div>
+      </div>
+    </details>
+  </div>
+</section>
+
+<section class="tsec px-5 sm:px-8 pb-12 sm:pb-14 max-w-4xl mx-auto" data-kind="closed">
+  <h2 class="font-serif font-normal text-lg sm:text-xl text-ink dark:text-ivory mb-2" data-en="Closed Qurbana Centres" data-ml="അടച്ചുപൂട്ടിയ പ്രാർത്ഥനാലയങ്ങൾ">Closed Qurbana Centres</h2>
+  <p class="font-sans text-xs text-muted mb-6" data-en="Grouped by diocese — not included in the totals above." data-ml="ഭദ്രാസനം അനുസരിച്ച് തരംതിരിച്ചിരിക്കുന്നു — മുകളിലുള്ള ആകെത്തുകകളിൽ ഉൾപ്പെടുത്തിയിട്ടില്ല.">Grouped by diocese — not included in the totals above.</p>
+  <div class="border-t border-line dark:border-white/10">
+    <details class="tdio group border-b border-line dark:border-white/10" id="d-closed-southwest-america" open>
+      <summary class="flex items-center gap-3 px-1 sm:px-2 py-3.5 sm:py-4 cursor-pointer select-none hover:bg-featured/70 dark:hover:bg-white/[0.03] transition-colors">
+        <span class="w-2.5 h-2.5 rounded-full shrink-0 border border-ink/10 dark:border-ivory/20" style="background:#908cba"></span>
+        <span class="min-w-0 flex-1">
+          <span class="block font-serif text-base sm:text-lg text-ink dark:text-ivory leading-snug" data-en="Southwest America" data-ml="സൗത്ത്-വെസ്റ്റ് അമേരിക്ക">Southwest America</span>
+          <span class="block text-[11.5px] text-muted mt-0.5" data-en="United States" data-ml="അമേരിക്കൻ ഐക്യനാടുകൾ">United States</span>
+        </span>
+        <span class="tcount font-serif text-sm text-taupe tabular-nums" data-n="1">1</span>
+        <svg class="w-4 h-4 shrink-0 text-muted transition-transform duration-200 group-open:rotate-180" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="m5 8 5 5 5-5"/></svg>
+      </summary>
+      <div class="pb-5 sm:pb-6">
+        <div class="px-1 sm:px-2 pb-3"><a href="/southwest-america" class="font-serif text-[13px] text-sage-dark dark:text-sage hover:underline underline-offset-4 decoration-sage/40" data-en="View diocese" data-ml="ഭദ്രാസനം കാണുക">View diocese</a></div>
+        <div class="tgrid grid grid-cols-1 sm:grid-cols-2 border-l border-t border-line dark:border-white/10">
+          <div class="tcell border-b border-r border-line dark:border-white/10 px-3.5 py-3 sm:px-4 flex items-baseline gap-3">
+            <span class="font-serif text-taupe text-sm w-6 shrink-0">01</span>
+            <span class="min-w-0 flex-1"><span class="block text-[13.5px] sm:text-sm leading-snug text-ink dark:text-ivory" data-en="Elgin St. Gregorios Indian Orthodox Qurbana Centre" data-ml="എൽജിൻ മാർ ഗ്രീഗോറിയോസ് ഭാരതീയ ഓർത്തഡോക്സ് പ്രാർത്ഥനാലയം">Elgin St. Gregorios Indian Orthodox Qurbana Centre</span></span>
+          </div>
+        </div>
+      </div>
+    </details>
+  </div>
+</section>
+
+<p id="tempty" class="px-5 sm:px-8 pb-16 max-w-4xl mx-auto text-sm text-muted" hidden></p>
+
+<div id="site-footer"></div>
+
+<script src="site-common.js"></script>
 <script>
 (function(){
-  fetch('/header.html').then(function(r){ return r.text(); }).then(function(htmlStr){
-    document.getElementById('site-header-mount').outerHTML = htmlStr;
-    initHeaderScripts();
-  });
-  function initHeaderScripts(){
-    if(window.SiteCommon){ SiteCommon.initAll(); }
+  function runScripts(container){
+    var scripts = container.querySelectorAll('script');
+    scripts.forEach(function(old){
+      var s = document.createElement('script');
+      if (old.src) { s.src = old.src; }
+      else { s.textContent = old.textContent; }
+      old.parentNode.replaceChild(s, old);
+    });
   }
+  function include(url, target, cb){
+    fetch(url).then(function(r){ return r.text(); }).then(function(html){
+      target.innerHTML = html;
+      runScripts(target);
+      if (cb) cb();
+    });
+  }
+  include('header.html', document.getElementById('site-header'), function(){
+    if(window.SiteCommon){ SiteCommon.initAll(); }
+  });
+  include('footer.html', document.getElementById('site-footer'));
 })();
 </script>
-
-<section class="px-5 sm:px-8 pt-10 sm:pt-16 pb-8 sm:pb-10 max-w-5xl mx-auto text-center">
-  <a href="index.html#numbers" class="inline-flex items-center gap-1.5 font-serif text-[13px] sm:text-sm text-sage-dark dark:text-sage hover:underline underline-offset-4 decoration-sage/40 mb-6" data-en="← All Institution Types" data-ml="← എല്ലാ സ്ഥാപന തരങ്ങളും">&larr; All Institution Types</a>
-  <div class="text-[11px] tracking-[0.2em] uppercase text-taupe font-semibold mb-4" data-en="Discover the Church, By Type" data-ml="തരം അനുസരിച്ച് സഭയെ കണ്ടെത്തുക">Discover the Church, By Type</div>
-  <h1 class="font-serif font-normal text-[36px] sm:text-6xl md:text-7xl text-ink dark:text-ivory leading-[1.05] mb-5" data-en="Qurbana Centres" data-ml="പ്രാർത്ഥനാലയങ്ങൾ">Qurbana Centres</h1>
-  <p class="font-sans text-sm sm:text-[15px] text-body/75 dark:text-ivory/60 max-w-2xl mx-auto leading-relaxed" data-en-html="&lt;strong class=&quot;text-sage-dark dark:text-sage font-semibold&quot;&gt;59&lt;/strong&gt; qurbana centres across &lt;strong class=&quot;text-sage-dark dark:text-sage font-semibold&quot;&gt;10&lt;/strong&gt; nations and &lt;strong class=&quot;text-sage-dark dark:text-sage font-semibold&quot;&gt;9&lt;/strong&gt; dioceses." data-ml-html="&lt;strong class=&quot;text-sage-dark dark:text-sage font-semibold&quot;&gt;10&lt;/strong&gt; രാജ്യങ്ങളിലും &lt;strong class=&quot;text-sage-dark dark:text-sage font-semibold&quot;&gt;9&lt;/strong&gt; ഭദ്രാസനങ്ങളിലുമായി &lt;strong class=&quot;text-sage-dark dark:text-sage font-semibold&quot;&gt;59&lt;/strong&gt; പ്രാർത്ഥനാലയങ്ങൾ.">
-    <strong class="text-sage-dark dark:text-sage font-semibold">59</strong> qurbana centres across
-    <strong class="text-sage-dark dark:text-sage font-semibold">10</strong> nations and
-    <strong class="text-sage-dark dark:text-sage font-semibold">9</strong> dioceses.
-  </p>
-  <p class="font-serif text-sm text-body/55 dark:text-ivory/45 max-w-2xl mx-auto mt-3" data-en="Totals cover Orthodox-administered institutions only. Those under schismatic occupation, and the semi-autonomous Knanaya institutions, are listed separately below." data-ml="ആകെ എണ്ണം ഓർത്തഡോക്സ് സഭയുടെ കീഴിലുള്ള സ്ഥാപനങ്ങളുടേത് മാത്രമാണ്; വിഘടിത അധിനിവേശത്തിലുള്ളവയും അർധ സ്വയംഭരണാവകാശമുള്ള ക്നാനായ സ്ഥാപനങ്ങളും താഴെ പ്രത്യേകം പട്ടികപ്പെടുത്തിയിരിക്കുന്നു.">Totals cover Orthodox-administered institutions only. Those under schismatic occupation, and the semi-autonomous Knanaya institutions, are listed separately below.</p>
-</section>
-
-<section class="px-5 sm:px-8 pb-16 sm:pb-24 max-w-4xl mx-auto">
-  <h2 class="font-serif font-normal text-2xl sm:text-[32px] text-ink dark:text-ivory mb-2" data-en="Every Qurbana Centre" data-ml="ഓരോ പ്രാർത്ഥനാലയവും">Every Qurbana Centre</h2>
-  <p class="text-[15px] text-body/75 dark:text-ivory/60 leading-[1.8] mb-8 sm:mb-10" data-en="Grouped by diocese — the nation of each location is noted alongside it." data-ml="ഭദ്രാസനം അനുസരിച്ച് തരംതിരിച്ചിരിക്കുന്നു — ഓരോ സ്ഥലത്തിന്റെയും രാജ്യം അതോടൊപ്പം കുറിച്ചിരിക്കുന്നു.">Grouped by diocese &mdash; the nation of each location is noted alongside it.</p>
-  
-  <div class="mb-10 sm:mb-12">
-    <a href="/asia-pacific" class="flex items-center gap-2.5 mb-3 group">
-      <span class="w-2.5 h-2.5 rounded-full shrink-0" style="background:#3f72be"></span>
-      <h3 class="font-serif text-lg sm:text-xl text-ink dark:text-ivory group-hover:text-sage-dark dark:group-hover:text-sage transition-colors" data-en="Asia-Pacific" data-ml="ഏഷ്യ-പസഫിക്">Asia-Pacific</h3>
-      <span class="font-sans text-[12px] text-muted">(4)</span>
-    </a>
-    <div class="flex flex-col">
-      <div class="flex items-baseline gap-3 py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
-          <span class="flex-1 min-w-0 text-[14.5px] text-body/90 dark:text-ivory/80" data-en="Colombo St. Paul&#x27;s Tamil-Sinhalese Orthodox Qurbana Centre" data-ml="കൊളംബോ മാർ പൗലോസ് ഓർത്തഡോക്സ് പ്രാർത്ഥനാലയം">Colombo St. Paul&#x27;s Tamil-Sinhalese Orthodox Qurbana Centre</span>
-          <span class="font-serif text-taupe text-[12px] shrink-0" data-en="Sri Lanka" data-ml="ശ്രീലങ്ക">Sri Lanka</span>
-        </div>
-      <div class="flex items-baseline gap-3 py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
-          <span class="flex-1 min-w-0 text-[14.5px] text-body/90 dark:text-ivory/80" data-en="Colombo-Ginthupitiya St. Thomas Tamil-Sinhalese Orthodox Qurbana Centre" data-ml="കൊളംബോ-ഗിന്തുപിടിയ മാർ തോമ ഓർത്തഡോക്സ് പ്രാർത്ഥനാലയം">Colombo-Ginthupitiya St. Thomas Tamil-Sinhalese Orthodox Qurbana Centre</span>
-          <span class="font-serif text-taupe text-[12px] shrink-0" data-en="Sri Lanka" data-ml="ശ്രീലങ്ക">Sri Lanka</span>
-        </div>
-      <div class="flex items-baseline gap-3 py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
-          <span class="flex-1 min-w-0 text-[14.5px] text-body/90 dark:text-ivory/80" data-en="Mannar St. Mary&#x27;s Tamil Orthodox Qurbana Centre" data-ml="മാന്നാർ മർത്തമറിയം തമിഴ് ഓർത്തഡോക്സ് പ്രാർത്ഥനാലയം">Mannar St. Mary&#x27;s Tamil Orthodox Qurbana Centre</span>
-          <span class="font-serif text-taupe text-[12px] shrink-0" data-en="Sri Lanka" data-ml="ശ്രീലങ്ക">Sri Lanka</span>
-        </div>
-      <div class="flex items-baseline gap-3 py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
-          <span class="flex-1 min-w-0 text-[14.5px] text-body/90 dark:text-ivory/80" data-en="Pallimunai St. Lucy&#x27;s Tamil Orthodox Qurbana Centre" data-ml="പള്ളിമുനൈ മർത്ത് ലൂസി തമിഴ് ഓർത്തഡോക്സ് പ്രാർത്ഥനാലയം">Pallimunai St. Lucy&#x27;s Tamil Orthodox Qurbana Centre</span>
-          <span class="font-serif text-taupe text-[12px] shrink-0" data-en="Sri Lanka" data-ml="ശ്രീലങ്ക">Sri Lanka</span>
-        </div>
-    </div>
-  </div>
-  <div class="mb-10 sm:mb-12">
-    <a href="/bombay" class="flex items-center gap-2.5 mb-3 group">
-      <span class="w-2.5 h-2.5 rounded-full shrink-0" style="background:#764561"></span>
-      <h3 class="font-serif text-lg sm:text-xl text-ink dark:text-ivory group-hover:text-sage-dark dark:group-hover:text-sage transition-colors" data-en="Bombay" data-ml="മുംബൈ">Bombay</h3>
-      <span class="font-sans text-[12px] text-muted">(1)</span>
-    </a>
-    <div class="flex flex-col">
-      <div class="flex items-baseline gap-3 py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
-          <span class="flex-1 min-w-0 text-[14.5px] text-body/90 dark:text-ivory/80" data-en="Dhanori Malankara Orthodox Qurbana Centre" data-ml="ധനോരി മലങ്കര ഓർത്തഡോക്സ് പ്രാർത്ഥനാലയം">Dhanori Malankara Orthodox Qurbana Centre</span>
-          <span class="font-serif text-taupe text-[12px] shrink-0" data-en="India" data-ml="ഭാരതം">India</span>
-        </div>
-    </div>
-  </div>
-  <div class="mb-10 sm:mb-12">
-    <a href="/chengannur" class="flex items-center gap-2.5 mb-3 group">
-      <span class="w-2.5 h-2.5 rounded-full shrink-0" style="background:#82ad5d"></span>
-      <h3 class="font-serif text-lg sm:text-xl text-ink dark:text-ivory group-hover:text-sage-dark dark:group-hover:text-sage transition-colors" data-en="Chengannur" data-ml="ചെങ്ങന്നൂർ">Chengannur</h3>
-      <span class="font-sans text-[12px] text-muted">(1)</span>
-    </a>
-    <div class="flex flex-col">
-      <div class="flex items-baseline gap-3 py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
-          <span class="flex-1 min-w-0 text-[14.5px] text-body/90 dark:text-ivory/80" data-en="Kurampala North St. George Orthodox Qurbana Centre" data-ml="വടക്കൻ കുരമ്പാല മാർ ഗീവറുഗീസ് സഹദാ ഓർത്തഡോക്സ് പ്രാർത്ഥനാലയം">Kurampala North St. George Orthodox Qurbana Centre</span>
-          <span class="font-serif text-taupe text-[12px] shrink-0" data-en="India" data-ml="ഭാരതം">India</span>
-        </div>
-    </div>
-  </div>
-  <div class="mb-10 sm:mb-12">
-    <a href="/kunnamkulam" class="flex items-center gap-2.5 mb-3 group">
-      <span class="w-2.5 h-2.5 rounded-full shrink-0" style="background:#975124"></span>
-      <h3 class="font-serif text-lg sm:text-xl text-ink dark:text-ivory group-hover:text-sage-dark dark:group-hover:text-sage transition-colors" data-en="Kunnamkulam" data-ml="കുന്നംകുളം">Kunnamkulam</h3>
-      <span class="font-sans text-[12px] text-muted">(1)</span>
-    </a>
-    <div class="flex flex-col">
-      <div class="flex items-baseline gap-3 py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
-          <span class="flex-1 min-w-0 text-[14.5px] text-body/90 dark:text-ivory/80" data-en="Kattakampal Orthodox Qurbana Centre" data-ml="കാട്ടകാമ്പാൽ ഓർത്തഡോക്സ് പ്രാർത്ഥനാലയം">Kattakampal Orthodox Qurbana Centre</span>
-          <span class="font-serif text-taupe text-[12px] shrink-0" data-en="India" data-ml="ഭാരതം">India</span>
-        </div>
-    </div>
-  </div>
-  <div class="mb-10 sm:mb-12">
-    <a href="/madras" class="flex items-center gap-2.5 mb-3 group">
-      <span class="w-2.5 h-2.5 rounded-full shrink-0" style="background:#a6a273"></span>
-      <h3 class="font-serif text-lg sm:text-xl text-ink dark:text-ivory group-hover:text-sage-dark dark:group-hover:text-sage transition-colors" data-en="Madras" data-ml="ചെന്നൈ">Madras</h3>
-      <span class="font-sans text-[12px] text-muted">(2)</span>
-    </a>
-    <div class="flex flex-col">
-      <div class="flex items-baseline gap-3 py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
-          <span class="flex-1 min-w-0 text-[14.5px] text-body/90 dark:text-ivory/80" data-en="Ajman St. Gregorios Indian Orthodox Qurbana Centre" data-ml="അജ്മാൻ മാർ ഗ്രീഗോറിയോസ് ഭാരതീയ ഓർത്തഡോക്സ് പ്രാർത്ഥനാലയം">Ajman St. Gregorios Indian Orthodox Qurbana Centre</span>
-          <span class="font-serif text-taupe text-[12px] shrink-0" data-en="United Arab Emirates" data-ml="യുണൈറ്റഡ് അറബ് എമിറേറ്റ്സ്">United Arab Emirates</span>
-        </div>
-      <div class="flex items-baseline gap-3 py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
-          <span class="flex-1 min-w-0 text-[14.5px] text-body/90 dark:text-ivory/80" data-en="Umm Al Quwain St. Mark&#x27;s Indian Orthodox Prayer Hall" data-ml="ഉമ്മുൽ അൽ ഖുവൈൻ മാർ മർക്കോസ് ഭാരതീയ ഓർത്തഡോക്സ് പ്രാർത്ഥനാ ഹാൾ">Umm Al Quwain St. Mark&#x27;s Indian Orthodox Prayer Hall</span>
-          <span class="font-serif text-taupe text-[12px] shrink-0" data-en="United Arab Emirates" data-ml="യുണൈറ്റഡ് അറബ് എമിറേറ്റ്സ്">United Arab Emirates</span>
-        </div>
-    </div>
-  </div>
-  <div class="mb-10 sm:mb-12">
-    <a href="/mavelikara" class="flex items-center gap-2.5 mb-3 group">
-      <span class="w-2.5 h-2.5 rounded-full shrink-0" style="background:#53507a"></span>
-      <h3 class="font-serif text-lg sm:text-xl text-ink dark:text-ivory group-hover:text-sage-dark dark:group-hover:text-sage transition-colors" data-en="Mavelikara" data-ml="മാവേലിക്കര">Mavelikara</h3>
-      <span class="font-sans text-[12px] text-muted">(2)</span>
-    </a>
-    <div class="flex flex-col">
-      <div class="flex items-baseline gap-3 py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
-          <span class="flex-1 min-w-0 text-[14.5px] text-body/90 dark:text-ivory/80" data-en="Cheruthana St. Mary&#x27;s Orthodox Prayer Hall" data-ml="ചെറുതന മർത്തമറിയം ഓർത്തഡോക്സ് പ്രാർത്ഥനാ ഹാൾ">Cheruthana St. Mary&#x27;s Orthodox Prayer Hall</span>
-          <span class="font-serif text-taupe text-[12px] shrink-0" data-en="India" data-ml="ഭാരതം">India</span>
-        </div>
-      <div class="flex items-baseline gap-3 py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
-          <span class="flex-1 min-w-0 text-[14.5px] text-body/90 dark:text-ivory/80" data-en="Enakulangara St. Gregorios Orthodox Prayer Hall" data-ml="എണകുളങ്ങര മാർ ഗ്രീഗോറിയോസ് ഓർത്തഡോക്സ് പ്രാർത്ഥനാ ഹാൾ">Enakulangara St. Gregorios Orthodox Prayer Hall</span>
-          <span class="font-serif text-taupe text-[12px] shrink-0" data-en="India" data-ml="ഭാരതം">India</span>
-        </div>
-    </div>
-  </div>
-  <div class="mb-10 sm:mb-12">
-    <a href="/niranam" class="flex items-center gap-2.5 mb-3 group">
-      <span class="w-2.5 h-2.5 rounded-full shrink-0" style="background:#21b2b5"></span>
-      <h3 class="font-serif text-lg sm:text-xl text-ink dark:text-ivory group-hover:text-sage-dark dark:group-hover:text-sage transition-colors" data-en="Niranam" data-ml="നിരണം">Niranam</h3>
-      <span class="font-sans text-[12px] text-muted">(3)</span>
-    </a>
-    <div class="flex flex-col">
-      <div class="flex items-baseline gap-3 py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
-          <span class="flex-1 min-w-0 text-[14.5px] text-body/90 dark:text-ivory/80" data-en="Ambattubhagom P.A. Philipose Memorial Orthodox Qurbana Centre" data-ml="അമ്പാട്ടുഭാഗം പി.എ. ഫിലിപ്പോസ് മെമ്മോറിയൽ ഓർത്തഡോക്സ് പ്രാർത്ഥനാലയം">Ambattubhagom P.A. Philipose Memorial Orthodox Qurbana Centre</span>
-          <span class="font-serif text-taupe text-[12px] shrink-0" data-en="India" data-ml="ഭാരതം">India</span>
-        </div>
-      <div class="flex items-baseline gap-3 py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
-          <span class="flex-1 min-w-0 text-[14.5px] text-body/90 dark:text-ivory/80" data-en="Anjilithanam St. Gregorios Orthodox Qurbana Centre" data-ml="ആഞ്ഞിലിത്താനം മാർ ഗ്രീഗോറിയോസ് ഓർത്തഡോക്സ് പ്രാർത്ഥനാലയം">Anjilithanam St. Gregorios Orthodox Qurbana Centre</span>
-          <span class="font-serif text-taupe text-[12px] shrink-0" data-en="India" data-ml="ഭാരതം">India</span>
-        </div>
-      <div class="flex items-baseline gap-3 py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
-          <span class="flex-1 min-w-0 text-[14.5px] text-body/90 dark:text-ivory/80" data-en="Block Junction St. Gregorios Orthodox Qurbana Centre" data-ml="ബ്ലോക്ക് ജംഗ്ഷൻ മാർ ഗ്രീഗോറിയോസ് ഓർത്തഡോക്സ് പ്രാർത്ഥനാലയം">Block Junction St. Gregorios Orthodox Qurbana Centre</span>
-          <span class="font-serif text-taupe text-[12px] shrink-0" data-en="India" data-ml="ഭാരതം">India</span>
-        </div>
-    </div>
-  </div>
-  <div class="mb-10 sm:mb-12">
-    <a href="/thiruvananthapuram" class="flex items-center gap-2.5 mb-3 group">
-      <span class="w-2.5 h-2.5 rounded-full shrink-0" style="background:#006140"></span>
-      <h3 class="font-serif text-lg sm:text-xl text-ink dark:text-ivory group-hover:text-sage-dark dark:group-hover:text-sage transition-colors" data-en="Thiruvananthapuram" data-ml="തിരുവനന്തപുരം">Thiruvananthapuram</h3>
-      <span class="font-sans text-[12px] text-muted">(2)</span>
-    </a>
-    <div class="flex flex-col">
-      <div class="flex items-baseline gap-3 py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
-          <span class="flex-1 min-w-0 text-[14.5px] text-body/90 dark:text-ivory/80" data-en="Cheruvakkal St. Gregorios Orthodox Qurbana Centre" data-ml="ചെറുവക്കൽ മാർ ഗ്രീഗോറിയോസ് ഓർത്തഡോക്സ് പ്രാർത്ഥനാലയം">Cheruvakkal St. Gregorios Orthodox Qurbana Centre</span>
-          <span class="font-serif text-taupe text-[12px] shrink-0" data-en="India" data-ml="ഭാരതം">India</span>
-        </div>
-      <div class="flex items-baseline gap-3 py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
-          <span class="flex-1 min-w-0 text-[14.5px] text-body/90 dark:text-ivory/80" data-en="Uliyanad St. Mary&#x27;s Orthodox Qurbana Centre" data-ml="ഉളിയനാട് മർത്തമറിയം ഓർത്തഡോക്സ് പ്രാർത്ഥനാലയം">Uliyanad St. Mary&#x27;s Orthodox Qurbana Centre</span>
-          <span class="font-serif text-taupe text-[12px] shrink-0" data-en="India" data-ml="ഭാരതം">India</span>
-        </div>
-    </div>
-  </div>
-  <div class="mb-10 sm:mb-12">
-    <a href="/uk-europe-africa" class="flex items-center gap-2.5 mb-3 group">
-      <span class="w-2.5 h-2.5 rounded-full shrink-0" style="background:#80721e"></span>
-      <h3 class="font-serif text-lg sm:text-xl text-ink dark:text-ivory group-hover:text-sage-dark dark:group-hover:text-sage transition-colors" data-en="UK-Europe-Africa" data-ml="യു.കെ-യൂറോപ്പ്">UK-Europe-Africa</h3>
-      <span class="font-sans text-[12px] text-muted">(43)</span>
-    </a>
-    <div class="flex flex-col">
-      <div class="flex items-baseline gap-3 py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
-          <span class="flex-1 min-w-0 text-[14.5px] text-body/90 dark:text-ivory/80" data-en="Basingstoke St. Basil and St. Gregory Indian Orthodox Qurbana Centre" data-ml="ബേസിങ്‌സ്റ്റോക്ക് മാർ ബസേലിയോസ് ഗ്രീഗോറിയോസ് ഭാരതീയ ഓർത്തഡോക്സ് പ്രാർത്ഥനാലയം">Basingstoke St. Basil and St. Gregory Indian Orthodox Qurbana Centre</span>
-          <span class="font-serif text-taupe text-[12px] shrink-0" data-en="United Kingdom" data-ml="യുണൈറ്റഡ് കിംഗ്ഡം">United Kingdom</span>
-        </div>
-      <div class="flex items-baseline gap-3 py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
-          <span class="flex-1 min-w-0 text-[14.5px] text-body/90 dark:text-ivory/80" data-en="Berlin St. Thomas Indian Orthodox Qurbana Centre" data-ml="ബെർലിൻ മാർ തോമ ഭാരതീയ ഓർത്തഡോക്സ് പ്രാർത്ഥനാലയം">Berlin St. Thomas Indian Orthodox Qurbana Centre</span>
-          <span class="font-serif text-taupe text-[12px] shrink-0" data-en="Germany" data-ml="ജർമ്മനി">Germany</span>
-        </div>
-      <div class="flex items-baseline gap-3 py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
-          <span class="flex-1 min-w-0 text-[14.5px] text-body/90 dark:text-ivory/80" data-en="Burgersfort St. Thomas Indian Orthodox Qurbana Centre" data-ml="ബർഗേഴ്‌സ്‌ഫോർട്ട് മാർ തോമ ഭാരതീയ ഓർത്തഡോക്സ് പ്രാർത്ഥനാലയം">Burgersfort St. Thomas Indian Orthodox Qurbana Centre</span>
-          <span class="font-serif text-taupe text-[12px] shrink-0" data-en="South Africa" data-ml="ദക്ഷിണാഫ്രിക്ക">South Africa</span>
-        </div>
-      <div class="flex items-baseline gap-3 py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
-          <span class="flex-1 min-w-0 text-[14.5px] text-body/90 dark:text-ivory/80" data-en="Cape Town St. Thomas Indian Orthodox Qurbana Centre" data-ml="കേപ് ടൗൺ മാർ തോമ ഭാരതീയ ഓർത്തഡോക്സ് പ്രാർത്ഥനാലയം">Cape Town St. Thomas Indian Orthodox Qurbana Centre</span>
-          <span class="font-serif text-taupe text-[12px] shrink-0" data-en="South Africa" data-ml="ദക്ഷിണാഫ്രിക്ക">South Africa</span>
-        </div>
-      <div class="flex items-baseline gap-3 py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
-          <span class="flex-1 min-w-0 text-[14.5px] text-body/90 dark:text-ivory/80" data-en="Dresden St. Thomas Indian Orthodox Qurbana Centre" data-ml="ഡ്രെസ്ഡൻ മാർ തോമ ഭാരതീയ ഓർത്തഡോക്സ് പ്രാർത്ഥനാലയം">Dresden St. Thomas Indian Orthodox Qurbana Centre</span>
-          <span class="font-serif text-taupe text-[12px] shrink-0" data-en="Germany" data-ml="ജർമ്മനി">Germany</span>
-        </div>
-      <div class="flex items-baseline gap-3 py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
-          <span class="flex-1 min-w-0 text-[14.5px] text-body/90 dark:text-ivory/80" data-en="Dublin City St. Thomas Indian Orthodox Qurbana Centre" data-ml="ഡബ്ലിൻ സിറ്റി മാർ തോമ ഭാരതീയ ഓർത്തഡോക്സ് പ്രാർത്ഥനാലയം">Dublin City St. Thomas Indian Orthodox Qurbana Centre</span>
-          <span class="font-serif text-taupe text-[12px] shrink-0" data-en="Ireland" data-ml="അയർലൻഡ്">Ireland</span>
-        </div>
-      <div class="flex items-baseline gap-3 py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
-          <span class="flex-1 min-w-0 text-[14.5px] text-body/90 dark:text-ivory/80" data-en="Durban St. Thomas Indian Orthodox Qurbana Centre" data-ml="ഡർബൻ മാർ തോമ ഭാരതീയ ഓർത്തഡോക്സ് പ്രാർത്ഥനാലയം">Durban St. Thomas Indian Orthodox Qurbana Centre</span>
-          <span class="font-serif text-taupe text-[12px] shrink-0" data-en="South Africa" data-ml="ദക്ഷിണാഫ്രിക്ക">South Africa</span>
-        </div>
-      <div class="flex items-baseline gap-3 py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
-          <span class="flex-1 min-w-0 text-[14.5px] text-body/90 dark:text-ivory/80" data-en="Düsseldorf St. Thomas Indian Orthodox Qurbana Centre" data-ml="ഡസൽഡോർഫ് മാർ തോമ ഭാരതീയ ഓർത്തഡോക്സ് പ്രാർത്ഥനാലയം">Düsseldorf St. Thomas Indian Orthodox Qurbana Centre</span>
-          <span class="font-serif text-taupe text-[12px] shrink-0" data-en="Germany" data-ml="ജർമ്മനി">Germany</span>
-        </div>
-      <div class="flex items-baseline gap-3 py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
-          <span class="flex-1 min-w-0 text-[14.5px] text-body/90 dark:text-ivory/80" data-en="East London St. Thomas Indian Orthodox Qurbana Centre" data-ml="കിഴക്കൻ ലണ്ടൻ മാർ തോമ ഭാരതീയ ഓർത്തഡോക്സ് പ്രാർത്ഥനാലയം">East London St. Thomas Indian Orthodox Qurbana Centre</span>
-          <span class="font-serif text-taupe text-[12px] shrink-0" data-en="South Africa" data-ml="ദക്ഷിണാഫ്രിക്ക">South Africa</span>
-        </div>
-      <div class="flex items-baseline gap-3 py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
-          <span class="flex-1 min-w-0 text-[14.5px] text-body/90 dark:text-ivory/80" data-en="Erfurt St. Thomas Indian Orthodox Qurbana Centre" data-ml="എർഫർട്ട് മാർ തോമ ഭാരതീയ ഓർത്തഡോക്സ് പ്രാർത്ഥനാലയം">Erfurt St. Thomas Indian Orthodox Qurbana Centre</span>
-          <span class="font-serif text-taupe text-[12px] shrink-0" data-en="Germany" data-ml="ജർമ്മനി">Germany</span>
-        </div>
-      <div class="flex items-baseline gap-3 py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
-          <span class="flex-1 min-w-0 text-[14.5px] text-body/90 dark:text-ivory/80" data-en="Essen St. Thomas Indian Orthodox Qurbana Centre" data-ml="എസ്സെൻ മാർ തോമ ഭാരതീയ ഓർത്തഡോക്സ് പ്രാർത്ഥനാലയം">Essen St. Thomas Indian Orthodox Qurbana Centre</span>
-          <span class="font-serif text-taupe text-[12px] shrink-0" data-en="Germany" data-ml="ജർമ്മനി">Germany</span>
-        </div>
-      <div class="flex items-baseline gap-3 py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
-          <span class="flex-1 min-w-0 text-[14.5px] text-body/90 dark:text-ivory/80" data-en="Frankfurt am Main St. Thomas Indian Orthodox Qurbana Centre" data-ml="ഫ്രാങ്ക്ഫർട്ട് ആം മെയിൻ മാർ തോമ ഭാരതീയ ഓർത്തഡോക്സ് പ്രാർത്ഥനാലയം">Frankfurt am Main St. Thomas Indian Orthodox Qurbana Centre</span>
-          <span class="font-serif text-taupe text-[12px] shrink-0" data-en="Germany" data-ml="ജർമ്മനി">Germany</span>
-        </div>
-      <div class="flex items-baseline gap-3 py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
-          <span class="flex-1 min-w-0 text-[14.5px] text-body/90 dark:text-ivory/80" data-en="Gaborone St. Thomas Indian Orthodox Qurbana Centre" data-ml="ഗാബറോണ്‍ മാർ തോമ ഭാരതീയ ഓർത്തഡോക്സ് പ്രാർത്ഥനാലയം">Gaborone St. Thomas Indian Orthodox Qurbana Centre</span>
-          <span class="font-serif text-taupe text-[12px] shrink-0" data-en="Botswana" data-ml="ബോട്സ്വാന">Botswana</span>
-        </div>
-      <div class="flex items-baseline gap-3 py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
-          <span class="flex-1 min-w-0 text-[14.5px] text-body/90 dark:text-ivory/80" data-en="Gottingen St. Thomas Indian Orthodox Qurbana Centre" data-ml="ഗോട്ടിങ്ങൻ മാർ തോമ ഭാരതീയ ഓർത്തഡോക്സ് പ്രാർത്ഥനാലയം">Gottingen St. Thomas Indian Orthodox Qurbana Centre</span>
-          <span class="font-serif text-taupe text-[12px] shrink-0" data-en="Germany" data-ml="ജർമ്മനി">Germany</span>
-        </div>
-      <div class="flex items-baseline gap-3 py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
-          <span class="flex-1 min-w-0 text-[14.5px] text-body/90 dark:text-ivory/80" data-en="Grahamstown St. Thomas Indian Orthodox Qurbana Centre" data-ml="ഗ്രഹാംസ്ടൗൺ മാർ തോമ ഭാരതീയ ഓർത്തഡോക്സ് പ്രാർത്ഥനാലയം">Grahamstown St. Thomas Indian Orthodox Qurbana Centre</span>
-          <span class="font-serif text-taupe text-[12px] shrink-0" data-en="South Africa" data-ml="ദക്ഷിണാഫ്രിക്ക">South Africa</span>
-        </div>
-      <div class="flex items-baseline gap-3 py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
-          <span class="flex-1 min-w-0 text-[14.5px] text-body/90 dark:text-ivory/80" data-en="Hamburg St. Thomas Indian Orthodox Qurbana Centre" data-ml="ഹാംബർഗ് മാർ തോമ ഭാരതീയ ഓർത്തഡോക്സ് പ്രാർത്ഥനാലയം">Hamburg St. Thomas Indian Orthodox Qurbana Centre</span>
-          <span class="font-serif text-taupe text-[12px] shrink-0" data-en="Germany" data-ml="ജർമ്മനി">Germany</span>
-        </div>
-      <div class="flex items-baseline gap-3 py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
-          <span class="flex-1 min-w-0 text-[14.5px] text-body/90 dark:text-ivory/80" data-en="Hanover St. Thomas Indian Orthodox Qurbana Centre" data-ml="ഹാനോവർ മാർ തോമ ഭാരതീയ ഓർത്തഡോക്സ് പ്രാർത്ഥനാലയം">Hanover St. Thomas Indian Orthodox Qurbana Centre</span>
-          <span class="font-serif text-taupe text-[12px] shrink-0" data-en="Germany" data-ml="ജർമ്മനി">Germany</span>
-        </div>
-      <div class="flex items-baseline gap-3 py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
-          <span class="flex-1 min-w-0 text-[14.5px] text-body/90 dark:text-ivory/80" data-en="King William&#x27;s Town St. Thomas Indian Orthodox Qurbana Centre" data-ml="കിംഗ് വില്യംസ് ടൗൺ മാർ തോമ ഭാരതീയ ഓർത്തഡോക്സ് പ്രാർത്ഥനാലയം">King William&#x27;s Town St. Thomas Indian Orthodox Qurbana Centre</span>
-          <span class="font-serif text-taupe text-[12px] shrink-0" data-en="South Africa" data-ml="ദക്ഷിണാഫ്രിക്ക">South Africa</span>
-        </div>
-      <div class="flex items-baseline gap-3 py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
-          <span class="flex-1 min-w-0 text-[14.5px] text-body/90 dark:text-ivory/80" data-en="Klerksdorp St. Thomas Indian Orthodox Qurbana Centre" data-ml="ക്ലെർക്സ്ഡോർപ്പ് മാർ തോമ ഭാരതീയ ഓർത്തഡോക്സ് പ്രാർത്ഥനാലയം">Klerksdorp St. Thomas Indian Orthodox Qurbana Centre</span>
-          <span class="font-serif text-taupe text-[12px] shrink-0" data-en="South Africa" data-ml="ദക്ഷിണാഫ്രിക്ക">South Africa</span>
-        </div>
-      <div class="flex items-baseline gap-3 py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
-          <span class="flex-1 min-w-0 text-[14.5px] text-body/90 dark:text-ivory/80" data-en="Knock Holy Trinity Indian Orthodox Qurbana Centre" data-ml="നോക്ക് ഹോളി ട്രിനിറ്റി ഭാരതീയ ഓർത്തഡോക്സ് പ്രാർത്ഥനാലയം">Knock Holy Trinity Indian Orthodox Qurbana Centre</span>
-          <span class="font-serif text-taupe text-[12px] shrink-0" data-en="Ireland" data-ml="അയർലൻഡ്">Ireland</span>
-        </div>
-      <div class="flex items-baseline gap-3 py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
-          <span class="flex-1 min-w-0 text-[14.5px] text-body/90 dark:text-ivory/80" data-en="Ladybrand St. Thomas Indian Orthodox Qurbana Centre" data-ml="ലേഡിബ്രാൻഡ് മാർ തോമ ഭാരതീയ ഓർത്തഡോക്സ് പ്രാർത്ഥനാലയം">Ladybrand St. Thomas Indian Orthodox Qurbana Centre</span>
-          <span class="font-serif text-taupe text-[12px] shrink-0" data-en="South Africa" data-ml="ദക്ഷിണാഫ്രിക്ക">South Africa</span>
-        </div>
-      <div class="flex items-baseline gap-3 py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
-          <span class="flex-1 min-w-0 text-[14.5px] text-body/90 dark:text-ivory/80" data-en="Leiden St. Philip and St. Bartholomew Indian Orthodox Qurbana Centre" data-ml="ലൈഡൻ മാർ ഫിലിപ്പോസ് ബർത്തുൽമായി ഭാരതീയ ഓർത്തഡോക്സ് പ്രാർത്ഥനാലയം">Leiden St. Philip and St. Bartholomew Indian Orthodox Qurbana Centre</span>
-          <span class="font-serif text-taupe text-[12px] shrink-0" data-en="Netherlands" data-ml="നെതർലാൻഡ്സ്">Netherlands</span>
-        </div>
-      <div class="flex items-baseline gap-3 py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
-          <span class="flex-1 min-w-0 text-[14.5px] text-body/90 dark:text-ivory/80" data-en="Mafeteng St. Thomas Indian Orthodox Qurbana Centre" data-ml="മാഫെറ്റെങ് മാർ തോമ ഭാരതീയ ഓർത്തഡോക്സ് പ്രാർത്ഥനാലയം">Mafeteng St. Thomas Indian Orthodox Qurbana Centre</span>
-          <span class="font-serif text-taupe text-[12px] shrink-0" data-en="Lesotho" data-ml="ലെസോത്തോ">Lesotho</span>
-        </div>
-      <div class="flex items-baseline gap-3 py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
-          <span class="flex-1 min-w-0 text-[14.5px] text-body/90 dark:text-ivory/80" data-en="Maynooth Indian Orthodox Qurbana Centre" data-ml="മെയ്നൂത്ത് ഭാരതീയ ഓർത്തഡോക്സ് പ്രാർത്ഥനാലയം">Maynooth Indian Orthodox Qurbana Centre</span>
-          <span class="font-serif text-taupe text-[12px] shrink-0" data-en="Ireland" data-ml="അയർലൻഡ്">Ireland</span>
-        </div>
-      <div class="flex items-baseline gap-3 py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
-          <span class="flex-1 min-w-0 text-[14.5px] text-body/90 dark:text-ivory/80" data-en="Mmabatho St. Thomas Indian Orthodox Qurbana Centre" data-ml="മ്മബാത്തോ മാർ തോമ ഭാരതീയ ഓർത്തഡോക്സ് പ്രാർത്ഥനാലയം">Mmabatho St. Thomas Indian Orthodox Qurbana Centre</span>
-          <span class="font-serif text-taupe text-[12px] shrink-0" data-en="South Africa" data-ml="ദക്ഷിണാഫ്രിക്ക">South Africa</span>
-        </div>
-      <div class="flex items-baseline gap-3 py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
-          <span class="flex-1 min-w-0 text-[14.5px] text-body/90 dark:text-ivory/80" data-en="Mokopane St. Thomas Indian Orthodox Qurbana Centre" data-ml="മൊകോപാനെ മാർ തോമ ഭാരതീയ ഓർത്തഡോക്സ് പ്രാർത്ഥനാലയം">Mokopane St. Thomas Indian Orthodox Qurbana Centre</span>
-          <span class="font-serif text-taupe text-[12px] shrink-0" data-en="South Africa" data-ml="ദക്ഷിണാഫ്രിക്ക">South Africa</span>
-        </div>
-      <div class="flex items-baseline gap-3 py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
-          <span class="flex-1 min-w-0 text-[14.5px] text-body/90 dark:text-ivory/80" data-en="Munich St. Thomas Indian Orthodox Qurbana Centre" data-ml="മ്യൂണിക്ക് മാർ തോമ ഭാരതീയ ഓർത്തഡോക്സ് പ്രാർത്ഥനാലയം">Munich St. Thomas Indian Orthodox Qurbana Centre</span>
-          <span class="font-serif text-taupe text-[12px] shrink-0" data-en="Germany" data-ml="ജർമ്മനി">Germany</span>
-        </div>
-      <div class="flex items-baseline gap-3 py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
-          <span class="flex-1 min-w-0 text-[14.5px] text-body/90 dark:text-ivory/80" data-en="Nelspruit St. Thomas Indian Orthodox Qurbana Centre" data-ml="നെൽസ്പ്രൂട്ട് മാർ തോമ ഭാരതീയ ഓർത്തഡോക്സ് പ്രാർത്ഥനാലയം">Nelspruit St. Thomas Indian Orthodox Qurbana Centre</span>
-          <span class="font-serif text-taupe text-[12px] shrink-0" data-en="South Africa" data-ml="ദക്ഷിണാഫ്രിക്ക">South Africa</span>
-        </div>
-      <div class="flex items-baseline gap-3 py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
-          <span class="flex-1 min-w-0 text-[14.5px] text-body/90 dark:text-ivory/80" data-en="Nürnberg St. Thomas Indian Orthodox Qurbana Centre" data-ml="നൂർൻബർഗ് മാർ തോമ ഭാരതീയ ഓർത്തഡോക്സ് പ്രാർത്ഥനാലയം">Nürnberg St. Thomas Indian Orthodox Qurbana Centre</span>
-          <span class="font-serif text-taupe text-[12px] shrink-0" data-en="Germany" data-ml="ജർമ്മനി">Germany</span>
-        </div>
-      <div class="flex items-baseline gap-3 py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
-          <span class="flex-1 min-w-0 text-[14.5px] text-body/90 dark:text-ivory/80" data-en="Phalaborwa St. Thomas Indian Orthodox Qurbana Centre" data-ml="ഫലബോർവ മാർ തോമ ഭാരതീയ ഓർത്തഡോക്സ് പ്രാർത്ഥനാലയം">Phalaborwa St. Thomas Indian Orthodox Qurbana Centre</span>
-          <span class="font-serif text-taupe text-[12px] shrink-0" data-en="South Africa" data-ml="ദക്ഷിണാഫ്രിക്ക">South Africa</span>
-        </div>
-      <div class="flex items-baseline gap-3 py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
-          <span class="flex-1 min-w-0 text-[14.5px] text-body/90 dark:text-ivory/80" data-en="Pietermaritzburg St. Thomas Indian Orthodox Qurbana Centre" data-ml="പീറ്റർമാരിറ്റ്‌സ്‌ബർഗ് മാർ തോമ ഭാരതീയ ഓർത്തഡോക്സ് പ്രാർത്ഥനാലയം">Pietermaritzburg St. Thomas Indian Orthodox Qurbana Centre</span>
-          <span class="font-serif text-taupe text-[12px] shrink-0" data-en="South Africa" data-ml="ദക്ഷിണാഫ്രിക്ക">South Africa</span>
-        </div>
-      <div class="flex items-baseline gap-3 py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
-          <span class="flex-1 min-w-0 text-[14.5px] text-body/90 dark:text-ivory/80" data-en="Polokwane St. Thomas Indian Orthodox Qurbana Centre" data-ml="പോളോക്വെയ്ൻ മാർ തോമ ഭാരതീയ ഓർത്തഡോക്സ് പ്രാർത്ഥനാലയം">Polokwane St. Thomas Indian Orthodox Qurbana Centre</span>
-          <span class="font-serif text-taupe text-[12px] shrink-0" data-en="South Africa" data-ml="ദക്ഷിണാഫ്രിക്ക">South Africa</span>
-        </div>
-      <div class="flex items-baseline gap-3 py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
-          <span class="flex-1 min-w-0 text-[14.5px] text-body/90 dark:text-ivory/80" data-en="Port Edward St. Thomas Indian Orthodox Qurbana Centre" data-ml="പോർട്ട് എഡ്വേർഡ് മാർ തോമ ഭാരതീയ ഓർത്തഡോക്സ് പ്രാർത്ഥനാലയം">Port Edward St. Thomas Indian Orthodox Qurbana Centre</span>
-          <span class="font-serif text-taupe text-[12px] shrink-0" data-en="South Africa" data-ml="ദക്ഷിണാഫ്രിക്ക">South Africa</span>
-        </div>
-      <div class="flex items-baseline gap-3 py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
-          <span class="flex-1 min-w-0 text-[14.5px] text-body/90 dark:text-ivory/80" data-en="Queenstown St. Thomas Indian Orthodox Qurbana Centre" data-ml="ക്വീൻസ്‌ടൗൺ മാർ തോമ ഭാരതീയ ഓർത്തഡോക്സ് പ്രാർത്ഥനാലയം">Queenstown St. Thomas Indian Orthodox Qurbana Centre</span>
-          <span class="font-serif text-taupe text-[12px] shrink-0" data-en="South Africa" data-ml="ദക്ഷിണാഫ്രിക്ക">South Africa</span>
-        </div>
-      <div class="flex items-baseline gap-3 py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
-          <span class="flex-1 min-w-0 text-[14.5px] text-body/90 dark:text-ivory/80" data-en="Salisbury St. Basil and St. Gregory Indian Orthodox Qurbana Centre" data-ml="സാലിസ്ബറി മാർ ബസേലിയോസ് ഗ്രീഗോറിയോസ് ഭാരതീയ ഓർത്തഡോക്സ് പ്രാർത്ഥനാലയം">Salisbury St. Basil and St. Gregory Indian Orthodox Qurbana Centre</span>
-          <span class="font-serif text-taupe text-[12px] shrink-0" data-en="United Kingdom" data-ml="യുണൈറ്റഡ് കിംഗ്ഡം">United Kingdom</span>
-        </div>
-      <div class="flex items-baseline gap-3 py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
-          <span class="flex-1 min-w-0 text-[14.5px] text-body/90 dark:text-ivory/80" data-en="Scarborough St. Luke&#x27;s Indian Orthodox Qurbana Centre" data-ml="സ്കാർബറോ മാർ ലൂക്കോസ് ഭാരതീയ ഓർത്തഡോക്സ് പ്രാർത്ഥനാലയം">Scarborough St. Luke&#x27;s Indian Orthodox Qurbana Centre</span>
-          <span class="font-serif text-taupe text-[12px] shrink-0" data-en="United Kingdom" data-ml="യുണൈറ്റഡ് കിംഗ്ഡം">United Kingdom</span>
-        </div>
-      <div class="flex items-baseline gap-3 py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
-          <span class="flex-1 min-w-0 text-[14.5px] text-body/90 dark:text-ivory/80" data-en="Stuttgart St. Thomas Indian Orthodox Qurbana Centre" data-ml="സ്റ്റുട്ട്ഗാർട്ട് മാർ തോമ ഭാരതീയ ഓർത്തഡോക്സ് പ്രാർത്ഥനാലയം">Stuttgart St. Thomas Indian Orthodox Qurbana Centre</span>
-          <span class="font-serif text-taupe text-[12px] shrink-0" data-en="Germany" data-ml="ജർമ്മനി">Germany</span>
-        </div>
-      <div class="flex items-baseline gap-3 py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
-          <span class="flex-1 min-w-0 text-[14.5px] text-body/90 dark:text-ivory/80" data-en="Tzaneen St. Thomas Indian Orthodox Qurbana Centre" data-ml="സാനീൻ മാർ തോമ ഭാരതീയ ഓർത്തഡോക്സ് പ്രാർത്ഥനാലയം">Tzaneen St. Thomas Indian Orthodox Qurbana Centre</span>
-          <span class="font-serif text-taupe text-[12px] shrink-0" data-en="South Africa" data-ml="ദക്ഷിണാഫ്രിക്ക">South Africa</span>
-        </div>
-      <div class="flex items-baseline gap-3 py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
-          <span class="flex-1 min-w-0 text-[14.5px] text-body/90 dark:text-ivory/80" data-en="Umtata St. Thomas Indian Orthodox Qurbana Centre" data-ml="ഉംറ്റാറ്റ മാർ തോമ ഭാരതീയ ഓർത്തഡോക്സ് പ്രാർത്ഥനാലയം">Umtata St. Thomas Indian Orthodox Qurbana Centre</span>
-          <span class="font-serif text-taupe text-[12px] shrink-0" data-en="South Africa" data-ml="ദക്ഷിണാഫ്രിക്ക">South Africa</span>
-        </div>
-      <div class="flex items-baseline gap-3 py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
-          <span class="flex-1 min-w-0 text-[14.5px] text-body/90 dark:text-ivory/80" data-en="White River St. Thomas Indian Orthodox Qurbana Centre" data-ml="വൈറ്റ് റിവർ മാർ തോമ ഭാരതീയ ഓർത്തഡോക്സ് പ്രാർത്ഥനാലയം">White River St. Thomas Indian Orthodox Qurbana Centre</span>
-          <span class="font-serif text-taupe text-[12px] shrink-0" data-en="South Africa" data-ml="ദക്ഷിണാഫ്രിക്ക">South Africa</span>
-        </div>
-      <div class="flex items-baseline gap-3 py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
-          <span class="flex-1 min-w-0 text-[14.5px] text-body/90 dark:text-ivory/80" data-en="York St. Luke&#x27;s Indian Orthodox Qurbana Centre" data-ml="യോർക്ക് മാർ ലൂക്കോസ് ഭാരതീയ ഓർത്തഡോക്സ് പ്രാർത്ഥനാലയം">York St. Luke&#x27;s Indian Orthodox Qurbana Centre</span>
-          <span class="font-serif text-taupe text-[12px] shrink-0" data-en="United Kingdom" data-ml="യുണൈറ്റഡ് കിംഗ്ഡം">United Kingdom</span>
-        </div>
-      <div class="flex items-baseline gap-3 py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
-          <span class="flex-1 min-w-0 text-[14.5px] text-body/90 dark:text-ivory/80" data-en="Zastron St. Thomas Indian Orthodox Qurbana Centre" data-ml="സാസ്ട്രോൺ മാർ തോമ ഭാരതീയ ഓർത്തഡോക്സ് പ്രാർത്ഥനാലയം">Zastron St. Thomas Indian Orthodox Qurbana Centre</span>
-          <span class="font-serif text-taupe text-[12px] shrink-0" data-en="South Africa" data-ml="ദക്ഷിണാഫ്രിക്ക">South Africa</span>
-        </div>
-      <div class="flex items-baseline gap-3 py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
-          <span class="flex-1 min-w-0 text-[14.5px] text-body/90 dark:text-ivory/80" data-en="Zeerust St. Thomas Indian Orthodox Qurbana Centre" data-ml="സീറസ്റ്റ് മാർ തോമ ഭാരതീയ ഓർത്തഡോക്സ് പ്രാർത്ഥനാലയം">Zeerust St. Thomas Indian Orthodox Qurbana Centre</span>
-          <span class="font-serif text-taupe text-[12px] shrink-0" data-en="South Africa" data-ml="ദക്ഷിണാഫ്രിക്ക">South Africa</span>
-        </div>
-    </div>
-  </div>
-</section>
-
-<section class="px-5 sm:px-8 pb-16 sm:pb-24 max-w-4xl mx-auto">
-  <h2 class="font-serif font-normal text-2xl sm:text-[32px] text-ink dark:text-ivory mb-2" data-en="Schismatic-Occupied Qurbana Centres" data-ml="വിഘടിത അധിനിവേശ പ്രാർത്ഥനാലയങ്ങൾ">Schismatic-Occupied Qurbana Centres</h2>
-  <p class="text-[15px] text-body/75 dark:text-ivory/60 leading-[1.8] mb-8 sm:mb-10" data-en="Grouped by diocese — not included in the totals above." data-ml="ഭദ്രാസനം അനുസരിച്ച് തരംതിരിച്ചിരിക്കുന്നു — മുകളിലുള്ള ആകെത്തുകകളിൽ ഉൾപ്പെടുത്തിയിട്ടില്ല.">Grouped by diocese &mdash; not included in the totals above.</p>
-
-  <div class="mb-10 sm:mb-12">
-    <a href="/nilackal" class="flex items-center gap-2.5 mb-3 group">
-      <span class="w-2.5 h-2.5 rounded-full shrink-0" style="background:#63532a"></span>
-      <h3 class="font-serif text-lg sm:text-xl text-ink dark:text-ivory group-hover:text-sage-dark dark:group-hover:text-sage transition-colors" data-en="Nilackal" data-ml="നിലയ്ക്കൽ">Nilackal</h3>
-      <span class="font-sans text-[12px] text-muted">(1)</span>
-    </a>
-    <div class="flex flex-col">
-      <div class="flex items-baseline gap-3 py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
-          <span class="flex-1 min-w-0 text-[14.5px] text-body/90 dark:text-ivory/80" data-en="Kadayar St. Ignatius Orthodox Prayer Hall" data-ml="കടയാർ മാർ ഇഗ്നാത്തിയോസ് ഓർത്തഡോക്സ് പ്രാർത്ഥനാ ഹാൾ">Kadayar St. Ignatius Orthodox Prayer Hall</span>
-          <span class="font-serif text-taupe text-[12px] shrink-0" data-en="India" data-ml="ഭാരതം">India</span>
-        </div>
-    </div>
-  </div>
-
-</section>
-
-<section class="px-5 sm:px-8 pb-16 sm:pb-24 max-w-4xl mx-auto">
-  <h2 class="font-serif font-normal text-2xl sm:text-[32px] text-ink dark:text-ivory mb-2" data-en="Semi-Autonomous (Knanaya) Qurbana Centres" data-ml="അർധ സ്വയംഭരണ (ക്നാനായ) പ്രാർത്ഥനാലയങ്ങൾ">Semi-Autonomous (Knanaya) Qurbana Centres</h2>
-  <p class="text-[15px] text-body/75 dark:text-ivory/60 leading-[1.8] mb-8 sm:mb-10" data-en="Not included in the totals above." data-ml="മുകളിലുള്ള ആകെത്തുകകളിൽ ഉൾപ്പെടുത്തിയിട്ടില്ല.">Not included in the totals above.</p>
-
-  <div class="mb-10 sm:mb-12">
-    <a href="/knanaya" class="flex items-center gap-2.5 mb-3 group">
-      <span class="w-2.5 h-2.5 rounded-full shrink-0" style="background:#7a483b"></span>
-      <h3 class="font-serif text-lg sm:text-xl text-ink dark:text-ivory group-hover:text-sage-dark dark:group-hover:text-sage transition-colors" data-en="Knanaya" data-ml="ക്നാനായ">Knanaya</h3>
-      <span class="font-sans text-[12px] text-muted">(3)</span>
-    </a>
-    <div class="flex flex-col">
-      <div class="flex items-baseline gap-3 py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
-          <span class="flex-1 min-w-0 text-[14.5px] text-body/90 dark:text-ivory/80" data-en="Drogheda St. Peter&#x27;s Knanaya Syrian Qurbana Centre" data-ml="ദ്രോഗെഡ മാർ പത്രോസ് ക്നാനായ സുറിയാനി പ്രാർത്ഥനാലയം">Drogheda St. Peter&#x27;s Knanaya Syrian Qurbana Centre</span>
-          <span class="font-serif text-taupe text-[12px] shrink-0" data-en="Ireland" data-ml="അയർലൻഡ്">Ireland</span>
-        </div>
-      <div class="flex items-baseline gap-3 py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
-          <span class="flex-1 min-w-0 text-[14.5px] text-body/90 dark:text-ivory/80" data-en="Fujairah St. Ephrem Knanaya Syrian Qurbana Centre" data-ml="ഫുജൈറ മാർ അപ്രേം ക്നാനായ സുറിയാനി പ്രാർത്ഥനാലയം">Fujairah St. Ephrem Knanaya Syrian Qurbana Centre</span>
-          <span class="font-serif text-taupe text-[12px] shrink-0" data-en="United Arab Emirates" data-ml="യുണൈറ്റഡ് അറബ് എമിറേറ്റ്സ്">United Arab Emirates</span>
-        </div>
-      <div class="flex items-baseline gap-3 py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
-          <span class="flex-1 min-w-0 text-[14.5px] text-body/90 dark:text-ivory/80" data-en="Ras Al Khaimah St. Stephen&#x27;s Knanaya Syrian Qurbana Centre" data-ml="റാസൽ അൽ ഖൈമ മാർ സ്തേഫാനോസ് സഹദാ ക്നാനായ സുറിയാനി പ്രാർത്ഥനാലയം">Ras Al Khaimah St. Stephen&#x27;s Knanaya Syrian Qurbana Centre</span>
-          <span class="font-serif text-taupe text-[12px] shrink-0" data-en="United Arab Emirates" data-ml="യുണൈറ്റഡ് അറബ് എമിറേറ്റ്സ്">United Arab Emirates</span>
-        </div>
-    </div>
-  </div>
-</section>
-
-<section class="px-5 sm:px-8 pb-16 sm:pb-24 max-w-4xl mx-auto">
-  <h2 class="font-serif font-normal text-2xl sm:text-[32px] text-ink dark:text-ivory mb-2" data-en="Closed Qurbana Centres" data-ml="അടച്ചുപൂട്ടിയ പ്രാർത്ഥനാലയങ്ങൾ">Closed Qurbana Centres</h2>
-  <p class="text-[15px] text-body/75 dark:text-ivory/60 leading-[1.8] mb-8 sm:mb-10" data-en="Grouped by diocese — not included in the totals above." data-ml="ഭദ്രാസനം അനുസരിച്ച് തരംതിരിച്ചിരിക്കുന്നു — മുകളിലുള്ള ആകെത്തുകകളിൽ ഉൾപ്പെടുത്തിയിട്ടില്ല.">Grouped by diocese &mdash; not included in the totals above.</p>
-
-  <div class="mb-10 sm:mb-12">
-    <a href="/southwest-america" class="flex items-center gap-2.5 mb-3 group">
-      <span class="w-2.5 h-2.5 rounded-full shrink-0" style="background:#908cba"></span>
-      <h3 class="font-serif text-lg sm:text-xl text-ink dark:text-ivory group-hover:text-sage-dark dark:group-hover:text-sage transition-colors" data-en="Southwest America" data-ml="സൗത്ത്-വെസ്റ്റ് അമേരിക്ക">Southwest America</h3>
-      <span class="font-sans text-[12px] text-muted">(1)</span>
-    </a>
-    <div class="flex flex-col">
-      <div class="flex items-baseline gap-3 py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
-          <span class="flex-1 min-w-0 text-[14.5px] text-body/90 dark:text-ivory/80" data-en="Elgin St. Gregorios Indian Orthodox Qurbana Centre" data-ml="എൽജിൻ മാർ ഗ്രീഗോറിയോസ് ഭാരതീയ ഓർത്തഡോക്സ് പ്രാർത്ഥനാലയം">Elgin St. Gregorios Indian Orthodox Qurbana Centre</span>
-          <span class="font-serif text-taupe text-[12px] shrink-0" data-en="United States" data-ml="അമേരിക്കൻ ഐക്യനാടുകൾ">United States</span>
-        </div>
-    </div>
-  </div>
-</section>
-
-<div id="site-footer-mount"></div>
 <script>
 (function(){
-  fetch('/footer.html').then(function(r){ return r.text(); }).then(function(htmlStr){
-    document.getElementById('site-footer-mount').outerHTML = htmlStr;
+  var q = document.getElementById('tq'), stat = document.getElementById('tstat'), empty = document.getElementById('tempty');
+  var dios = [].slice.call(document.querySelectorAll('.tdio'));
+  var secs = [].slice.call(document.querySelectorAll('.tsec'));
+  function norm(s){ return (s || '').toLowerCase().normalize('NFKD').replace(/[\u0300-\u036f]/g, ''); }
+  dios.forEach(function(d){
+    var n = d.querySelector('summary [data-en]');
+    d._name = norm(n.getAttribute('data-en') + ' ' + n.getAttribute('data-ml'));
+    d._cells = [].slice.call(d.querySelectorAll('.tcell'));
+    d._cells.forEach(function(c){
+      var s = c.querySelector('[data-en]');
+      c._s = norm(s.getAttribute('data-en') + ' ' + s.getAttribute('data-ml'));
+    });
+    d._count = d.querySelector('.tcount');
   });
+  function lang(){ return document.documentElement.getAttribute('lang') === 'ml' ? 'ml' : 'en'; }
+  function span(d, list){
+    d._cells.forEach(function(c){ c.classList.remove('tspan'); });
+    if (list.length % 2 === 1) list[list.length - 1].classList.add('tspan');
+  }
+  var saved = null, shown = 0, active = false;
+  function render(){
+    if (!active){ stat.textContent = ''; empty.hidden = true; return; }
+    if (shown === 0){
+      stat.textContent = '';
+      empty.hidden = false;
+      empty.textContent = lang() === 'ml' ? 'ഫലങ്ങളൊന്നും കണ്ടെത്തിയില്ല.' : 'Nothing matches that search.';
+    } else {
+      empty.hidden = true;
+      stat.textContent = lang() === 'ml' ? shown + ' ഫലങ്ങൾ' : (shown === 1 ? '1 result' : shown + ' results');
+    }
+  }
+  function filter(){
+    var t = norm(q.value.trim());
+    if (t && !active){ saved = dios.map(function(d){ return d.open; }); }
+    active = !!t; shown = 0;
+    dios.forEach(function(d){
+      if (!t){
+        d.hidden = false;
+        d._cells.forEach(function(c){ c.hidden = false; });
+        d._count.textContent = d._count.getAttribute('data-n');
+        span(d, d._cells);
+        return;
+      }
+      var whole = d._name.indexOf(t) > -1;
+      var vis = [];
+      d._cells.forEach(function(c){
+        var ok = whole || c._s.indexOf(t) > -1;
+        c.hidden = !ok;
+        if (ok) vis.push(c);
+      });
+      d.hidden = vis.length === 0;
+      if (vis.length){ d.open = true; d._count.textContent = vis.length; shown += vis.length; }
+      span(d, vis);
+    });
+    secs.forEach(function(s){
+      s.hidden = active && !s.querySelector('.tdio:not([hidden])');
+    });
+    if (!active && saved){ dios.forEach(function(d, i){ d.open = saved[i]; }); saved = null; }
+    render();
+  }
+  q.addEventListener('input', filter);
+  document.getElementById('texp').addEventListener('click', function(){ dios.forEach(function(d){ if (!d.hidden) d.open = true; }); });
+  document.getElementById('tcol').addEventListener('click', function(){ dios.forEach(function(d){ if (!d.hidden) d.open = false; }); });
+  filter();
+  function openHash(){
+    var id = decodeURIComponent(location.hash.slice(1));
+    if (!id) return;
+    var el = document.getElementById(id);
+    if (el && el.classList.contains('tdio')){ el.open = true; setTimeout(function(){ el.scrollIntoView(); }, 50); }
+  }
+  openHash(); window.addEventListener('hashchange', openHash);
+  new MutationObserver(render).observe(document.documentElement, { attributes: true, attributeFilter: ['lang'] });
 })();
 </script>
 
