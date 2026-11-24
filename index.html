@@ -7174,8 +7174,8 @@ html[lang="ml"] .tdc .tdc-up a{grid-template-columns:5.6rem minmax(0,1fr)}
     document.getElementById('tdcSide').innerHTML=side;
     card.hidden=false;
   }
-  var synP=fetch('calendar-synaxarium.json?v=3').then(function(r){return r.ok?r.json():null;}).catch(function(){return null;});
-  Promise.all(['calendar-2026.json?v=4','calendar-2027.json?v=4'].map(function(u){return fetch(u).then(function(r){if(!r.ok)throw 0;return r.json();});}).concat([synP])).then(function(list){
+  var synP=fetch('calendar-synaxarium.json?v=4').then(function(r){return r.ok?r.json():null;}).catch(function(){return null;});
+  Promise.all(['calendar-2026.json?v=5','calendar-2027.json?v=5'].map(function(u){return fetch(u).then(function(r){if(!r.ok)throw 0;return r.json();});}).concat([synP])).then(function(list){
     var sx=list.pop();if(sx&&sx.entries){SYN.x=sx.entries;SYN.m=sx.map||{};SYN.ml=sx.entries_ml||null;}
     var d=list[0],gi={},ci={},cat={},by={};
     d.taxonomy.groups.forEach(function(g,i){gi[g.code]=i;});
