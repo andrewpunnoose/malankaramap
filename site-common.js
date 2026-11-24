@@ -471,7 +471,7 @@
 (function () {
   var S = {
     "Cathedrals": ["Cathedral", "ഭദ്രാസനപള്ളി"], "Catholicate Centres": ["Catholicate Centre", "കാതോലിക്കേറ്റ് കേന്ദ്രം"],
-    "Chapels": ["Chapel", "ചാപ്പൽ"], "Churches": ["Church", "പള്ളി"], "Communities": ["Community", "കമ്മ്യൂണിറ്റി"],
+    "Chapels": ["Chapel", "കുരിശുപള്ളി"], "Churches": ["Church", "പള്ളി"], "Communities": ["Community", "കമ്മ്യൂണിറ്റി"],
     "Congregations": ["Congregation", "കോൺഗ്രിഗേഷൻ"], "Convents": ["Convent", "കന്യാസ്ത്രീ മഠം"],
     "Cor-Episcopi": ["Cor-Episcopa", "കോറെപ്പിസ്കോപ്പ"], "Deacons": ["Deacon", "ശെമ്മാശൻ"],
     "Independent Prayer Groups": ["Independent Prayer Group", "സ്വതന്ത്ര പ്രാർത്ഥന യോഗം"],
