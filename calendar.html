@@ -931,7 +931,7 @@ html[lang="ml"] .cal-seas-h,html[lang="ml"] .cal-sc h3{font-family:MMNum,Arima,M
   var rz; window.addEventListener('resize', function(){ clearTimeout(rz); rz = setTimeout(renderTabs, 150); });
 
   /* ---------- boot ---------- */
-  var synLoad = fetch('calendar-synaxarium.json?v=4').then(function(r){ return r.ok ? r.json() : null; }).catch(function(){ return null; });
+  var synLoad = fetch('calendar-synaxarium.json?v=5').then(function(r){ return r.ok ? r.json() : null; }).catch(function(){ return null; });
   Promise.all(DATA_URLS.map(function(u){ return fetch(u).then(function(r){ if (!r.ok) throw new Error(r.status); return r.json(); }); }).concat([synLoad])).then(function(list){
     var sx = list.pop(); if (sx && sx.entries){ SYN.x = sx.entries; SYN.m = sx.map || {}; SYN.ml = sx.entries_ml || null; }
     prepare(list);
