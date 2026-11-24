@@ -55,877 +55,712 @@ html[lang="ml"] .tq::placeholder{font-family:Arima,serif}
 </style>
 </head>
 <body class="bg-ivory dark:bg-midnight text-body dark:text-ivory/85 font-sans transition-colors duration-300">
-<div id="site-header"></div>
+<div id="site-header-mount"></div>
+<script src="/site-common.js"></script>
+<script>
+(function(){
+  fetch('/header.html').then(function(r){ return r.text(); }).then(function(htmlStr){
+    document.getElementById('site-header-mount').outerHTML = htmlStr;
+    initHeaderScripts();
+  });
+  function initHeaderScripts(){
+    if(window.SiteCommon){ SiteCommon.initAll(); }
+  }
+})();
+</script>
 
 <section class="px-5 sm:px-8 pt-14 sm:pt-20 pb-10 sm:pb-12 max-w-4xl mx-auto text-center">
-  <a href="index.html#numbers" class="inline-flex items-center font-serif text-[13px] sm:text-sm text-sage-dark dark:text-sage hover:underline underline-offset-4 decoration-sage/40 mb-6" data-en="← All Institution Types" data-ml="← എല്ലാ സ്ഥാപന തരങ്ങളും">← All Institution Types</a>
+  <a href="index.html#numbers" class="inline-flex items-center font-serif text-[13px] sm:text-sm text-sage-dark dark:text-sage hover:underline underline-offset-4 decoration-sage/40 mb-6" data-en="← All Institution Types" data-ml="← എല്ലാ സ്ഥാപന തരങ്ങളും">&larr; All Institution Types</a>
   <h1 class="font-serif font-normal text-3xl sm:text-5xl text-ink dark:text-ivory mb-5 leading-[1.1]" data-en="Cathedrals" data-ml="ഭദ്രാസനപള്ളികൾ">Cathedrals</h1>
-  <p class="text-[15px] text-body/80 dark:text-ivory/65 max-w-xl mx-auto leading-relaxed" data-en-html="&lt;strong class=&quot;text-sage-dark dark:text-sage font-semibold&quot;&gt;55&lt;/strong&gt; cathedrals across &lt;strong class=&quot;text-sage-dark dark:text-sage font-semibold&quot;&gt;8&lt;/strong&gt; nations and &lt;strong class=&quot;text-sage-dark dark:text-sage font-semibold&quot;&gt;27&lt;/strong&gt; dioceses." data-ml-html="&lt;strong class=&quot;text-sage-dark dark:text-sage font-semibold&quot;&gt;8&lt;/strong&gt; രാജ്യങ്ങളിലും &lt;strong class=&quot;text-sage-dark dark:text-sage font-semibold&quot;&gt;27&lt;/strong&gt; ഭദ്രാസനങ്ങളിലുമായി &lt;strong class=&quot;text-sage-dark dark:text-sage font-semibold&quot;&gt;55&lt;/strong&gt; ഭദ്രാസനപള്ളികൾ."><strong class="text-sage-dark dark:text-sage font-semibold">55</strong> cathedrals across
+  <p class="text-[15px] text-body/80 dark:text-ivory/65 max-w-xl mx-auto leading-relaxed" data-en-html="&lt;strong class=&quot;text-sage-dark dark:text-sage font-semibold&quot;&gt;55&lt;/strong&gt; cathedrals across &lt;strong class=&quot;text-sage-dark dark:text-sage font-semibold&quot;&gt;8&lt;/strong&gt; nations and &lt;strong class=&quot;text-sage-dark dark:text-sage font-semibold&quot;&gt;27&lt;/strong&gt; dioceses." data-ml-html="&lt;strong class=&quot;text-sage-dark dark:text-sage font-semibold&quot;&gt;8&lt;/strong&gt; രാജ്യങ്ങളിലും &lt;strong class=&quot;text-sage-dark dark:text-sage font-semibold&quot;&gt;27&lt;/strong&gt; ഭദ്രാസനങ്ങളിലുമായി &lt;strong class=&quot;text-sage-dark dark:text-sage font-semibold&quot;&gt;55&lt;/strong&gt; ഭദ്രാസനപള്ളികൾ.">
+    <strong class="text-sage-dark dark:text-sage font-semibold">55</strong> cathedrals across
     <strong class="text-sage-dark dark:text-sage font-semibold">8</strong> nations and
-    <strong class="text-sage-dark dark:text-sage font-semibold">27</strong> dioceses.</p>
+    <strong class="text-sage-dark dark:text-sage font-semibold">27</strong> dioceses.
+  </p>
   <p class="font-serif text-[12.5px] sm:text-[13px] text-body/55 dark:text-ivory/45 max-w-2xl mx-auto leading-relaxed mt-4" data-en="Totals cover Orthodox-administered institutions only. Those under schismatic occupation, and the semi-autonomous Knanaya institutions, are listed separately below." data-ml="ആകെ എണ്ണം ഓർത്തഡോക്സ് സഭയുടെ കീഴിലുള്ള സ്ഥാപനങ്ങളുടേത് മാത്രമാണ്; വിഘടിത അധിനിവേശത്തിലുള്ളവയും അർധ സ്വയംഭരണാവകാശമുള്ള ക്നാനായ സ്ഥാപനങ്ങളും താഴെ പ്രത്യേകം പട്ടികപ്പെടുത്തിയിരിക്കുന്നു.">Totals cover Orthodox-administered institutions only. Those under schismatic occupation, and the semi-autonomous Knanaya institutions, are listed separately below.</p>
 </section>
 
-<section class="px-5 sm:px-8 pb-14 sm:pb-16 max-w-4xl mx-auto">
-  <div class="grid grid-cols-3 gap-px bg-line dark:bg-white/10 border-l border-t border-line dark:border-white/10">
-      <div class="border-b border-r border-line dark:border-white/10 p-4 sm:p-5 flex flex-col gap-1.5">
-        <span class="font-serif text-2xl sm:text-3xl text-ink dark:text-ivory">55</span>
-        <span class="text-[10px] sm:text-[11px] tracking-wider uppercase text-body/60 dark:text-ivory/50 font-medium" data-en="Cathedrals" data-ml="ഭദ്രാസനപള്ളികൾ">Cathedrals</span>
-      </div>
-      <div class="border-b border-r border-line dark:border-white/10 p-4 sm:p-5 flex flex-col gap-1.5">
-        <span class="font-serif text-2xl sm:text-3xl text-ink dark:text-ivory">8</span>
-        <span class="text-[10px] sm:text-[11px] tracking-wider uppercase text-body/60 dark:text-ivory/50 font-medium" data-en="Nations" data-ml="രാജ്യങ്ങൾ">Nations</span>
-      </div>
-      <div class="border-b border-r border-line dark:border-white/10 p-4 sm:p-5 flex flex-col gap-1.5">
-        <span class="font-serif text-2xl sm:text-3xl text-ink dark:text-ivory">27</span>
-        <span class="text-[10px] sm:text-[11px] tracking-wider uppercase text-body/60 dark:text-ivory/50 font-medium" data-en="Dioceses" data-ml="ഭദ്രാസനങ്ങൾ">Dioceses</span>
-      </div>
-  </div>
-</section>
-
-<section class="px-5 sm:px-8 pb-6 sm:pb-8 max-w-4xl mx-auto border-t border-line dark:border-white/10 pt-10 sm:pt-12">
-  <div class="flex flex-col sm:flex-row sm:items-center gap-4 sm:gap-6">
-    <label class="flex-1 flex items-center gap-3 border-b border-line dark:border-white/15 focus-within:border-sage pb-2.5 transition-colors">
-      <svg class="w-4 h-4 shrink-0 text-muted" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><circle cx="9" cy="9" r="5.5"/><path d="M13.5 13.5 17 17"/></svg>
-      <input id="tq" type="search" autocomplete="off" spellcheck="false" class="tq flex-1 min-w-0 bg-transparent text-base sm:text-[15px] text-ink dark:text-ivory placeholder:text-muted focus:outline-none" data-en-placeholder="Search this list by name or diocese" data-ml-placeholder="പേരോ ഭദ്രാസനമോ ഉപയോഗിച്ച് തിരയുക" placeholder="Search this list by name or diocese" aria-label="Search this list">
-    </label>
-    <div class="flex items-center gap-5 font-serif text-[13px] sm:text-sm text-sage-dark dark:text-sage shrink-0">
-      <button type="button" id="texp" class="tbtn hover:underline underline-offset-4 decoration-sage/40" data-en="Expand all" data-ml="എല്ലാം തുറക്കുക">Expand all</button>
-      <button type="button" id="tcol" class="tbtn hover:underline underline-offset-4 decoration-sage/40" data-en="Collapse all" data-ml="എല്ലാം അടയ്ക്കുക">Collapse all</button>
+<section class="px-5 sm:px-8 pb-16 sm:pb-24 max-w-4xl mx-auto">
+  <h2 class="font-serif font-normal text-2xl sm:text-[32px] text-ink dark:text-ivory mb-2" data-en="Every Cathedral" data-ml="ഓരോ ഭദ്രാസനപള്ളിയും">Every Cathedral</h2>
+  <p class="text-[15px] text-body/75 dark:text-ivory/60 leading-[1.8] mb-8 sm:mb-10" data-en="Grouped by diocese — the nation of each location is noted alongside it." data-ml="ഭദ്രാസനം അനുസരിച്ച് തരംതിരിച്ചിരിക്കുന്നു — ഓരോ സ്ഥലത്തിന്റെയും രാജ്യം അതോടൊപ്പം കുറിച്ചിരിക്കുന്നു.">Grouped by diocese &mdash; the nation of each location is noted alongside it.</p>
+  
+  <div class="mb-10 sm:mb-12">
+    <a href="/adoor-kadampanad" class="flex items-center gap-2.5 mb-3 group">
+      <span class="w-2.5 h-2.5 rounded-full shrink-0" style="background:#17aaf0"></span>
+      <h3 class="font-serif text-lg sm:text-xl text-ink dark:text-ivory group-hover:text-sage-dark dark:group-hover:text-sage transition-colors" data-en="Adoor-Kadampanad" data-ml="അടൂർ-കടമ്പനാട്">Adoor-Kadampanad</h3>
+      <span class="font-sans text-[12px] text-muted">(2)</span>
+    </a>
+    <div class="flex flex-col">
+      <div class="flex items-baseline gap-3 py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
+          <span class="flex-1 min-w-0 text-[14.5px] text-body/90 dark:text-ivory/80" data-en="Adoor-Kannamkode St. Thomas Orthodox Cathedral" data-ml="അടൂർ-കണ്ണംകോട് മാർ തോമ ഓർത്തഡോക്സ് ഭദ്രാസനപള്ളി">Adoor-Kannamkode St. Thomas Orthodox Cathedral</span>
+          <span class="font-serif text-taupe text-[12px] shrink-0" data-en="India" data-ml="ഭാരതം">India</span>
+        </div>
+      <div class="flex items-baseline gap-3 py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
+          <span class="flex-1 min-w-0 text-[14.5px] text-body/90 dark:text-ivory/80" data-en="Kadampanad St. Thomas Orthodox Cathedral &amp; Historic Thomasine Pilgrim Centre" data-ml="കടമ്പനാട് മാർ തോമ ഓർത്തഡോക്സ് ഭദ്രാസനപള്ളി &amp; ചരിത്രപ്രസിദ്ധ തോമാശ്ലീഹാ തീർഥാടന കേന്ദ്രം">Kadampanad St. Thomas Orthodox Cathedral &amp; Historic Thomasine Pilgrim Centre</span>
+          <span class="font-serif text-taupe text-[12px] shrink-0" data-en="India" data-ml="ഭാരതം">India</span>
+        </div>
     </div>
   </div>
-  <p id="tstat" class="font-sans text-xs text-muted mt-3 min-h-[1.25rem]" aria-live="polite"></p>
+
+  <div class="mb-10 sm:mb-12">
+    <a href="/ahmedabad" class="flex items-center gap-2.5 mb-3 group">
+      <span class="w-2.5 h-2.5 rounded-full shrink-0" style="background:#0a6e71"></span>
+      <h3 class="font-serif text-lg sm:text-xl text-ink dark:text-ivory group-hover:text-sage-dark dark:group-hover:text-sage transition-colors" data-en="Ahmedabad" data-ml="അഹമ്മദാബാദ്">Ahmedabad</h3>
+      <span class="font-sans text-[12px] text-muted">(1)</span>
+    </a>
+    <div class="flex flex-col">
+            <div class="flex items-baseline gap-3 py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
+          <span class="flex-1 min-w-0 text-[14.5px] text-body/90 dark:text-ivory/80" data-en="Ahmedabad St. Mary&#x27;s Malankara Orthodox Cathedral (Behrampura)" data-ml="അഹമ്മദാബാദ് മർത്തമറിയം മലങ്കര ഓർത്തഡോക്സ് ഭദ്രാസനപള്ളി (ബെഹ്രാംപുര)">Ahmedabad St. Mary&#x27;s Malankara Orthodox Cathedral (Behrampura)</span>
+          <span class="font-serif text-taupe text-[12px] shrink-0" data-en="India" data-ml="ഭാരതം">India</span>
+        </div>
+    </div>
+  </div>
+
+  <div class="mb-10 sm:mb-12">
+    <a href="/angamaly" class="flex items-center gap-2.5 mb-3 group">
+      <span class="w-2.5 h-2.5 rounded-full shrink-0" style="background:#31a373"></span>
+      <h3 class="font-serif text-lg sm:text-xl text-ink dark:text-ivory group-hover:text-sage-dark dark:group-hover:text-sage transition-colors" data-en="Angamaly" data-ml="അങ്കമാലി">Angamaly</h3>
+      <span class="font-sans text-[12px] text-muted">(2)</span>
+    </a>
+    <div class="flex flex-col">
+            <div class="flex items-baseline gap-3 py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
+          <span class="flex-1 min-w-0 text-[14.5px] text-body/90 dark:text-ivory/80" data-en="Kunnakkurudy St. George Orthodox Cathedral" data-ml="കുന്നക്കുരുടി മാർ ഗീവറുഗീസ് സഹദാ ഓർത്തഡോക്സ് ഭദ്രാസനപള്ളി">Kunnakkurudy St. George Orthodox Cathedral</span>
+          <span class="font-serif text-taupe text-[12px] shrink-0" data-en="India" data-ml="ഭാരതം">India</span>
+        </div>
+      <div class="flex items-baseline gap-3 py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
+          <span class="flex-1 min-w-0 text-[14.5px] text-body/90 dark:text-ivory/80" data-en="Perumbavoor Bethel Suloqo Orthodox Cathedral" data-ml="പെരുമ്പാവൂർ ബഥേൽ സൂലോക്കോ ഓർത്തഡോക്സ് ഭദ്രാസനപള്ളി">Perumbavoor Bethel Suloqo Orthodox Cathedral</span>
+          <span class="font-serif text-taupe text-[12px] shrink-0" data-en="India" data-ml="ഭാരതം">India</span>
+        </div>
+    </div>
+  </div>
+
+  <div class="mb-10 sm:mb-12">
+    <a href="/asia-pacific" class="flex items-center gap-2.5 mb-3 group">
+      <span class="w-2.5 h-2.5 rounded-full shrink-0" style="background:#3f72be"></span>
+      <h3 class="font-serif text-lg sm:text-xl text-ink dark:text-ivory group-hover:text-sage-dark dark:group-hover:text-sage transition-colors" data-en="Asia-Pacific" data-ml="ഏഷ്യ-പസഫിക്">Asia-Pacific</h3>
+      <span class="font-sans text-[12px] text-muted">(4)</span>
+    </a>
+    <div class="flex flex-col">
+            <div class="flex items-baseline gap-3 py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
+          <span class="flex-1 min-w-0 text-[14.5px] text-body/90 dark:text-ivory/80" data-en="Kuala Lumpur St. Mary&#x27;s Indian Orthodox Cathedral (Brickfields)" data-ml="ക്വാലാലംപൂർ മർത്തമറിയം ഭാരതീയ ഓർത്തഡോക്സ് ഭദ്രാസനപള്ളി (ബ്രിക്ക്ഫീൽഡ്സ്)">Kuala Lumpur St. Mary&#x27;s Indian Orthodox Cathedral (Brickfields)</span>
+          <span class="font-serif text-taupe text-[12px] shrink-0" data-en="Malaysia" data-ml="മലേഷ്യ">Malaysia</span>
+        </div>
+      <div class="flex items-baseline gap-3 py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
+          <span class="flex-1 min-w-0 text-[14.5px] text-body/90 dark:text-ivory/80" data-en="Melbourne St. Mary&#x27;s Indian Orthodox Cathedral" data-ml="മെൽബൺ മർത്തമറിയം ഭാരതീയ ഓർത്തഡോക്സ് ഭദ്രാസനപള്ളി">Melbourne St. Mary&#x27;s Indian Orthodox Cathedral</span>
+          <span class="font-serif text-taupe text-[12px] shrink-0" data-en="Australia" data-ml="ഓസ്ട്രേലിയ">Australia</span>
+        </div>
+      <div class="flex items-baseline gap-3 py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
+          <span class="flex-1 min-w-0 text-[14.5px] text-body/90 dark:text-ivory/80" data-en="Singapore St. Thomas Indian Orthodox Cathedral" data-ml="സിംഗപ്പൂർ മാർ തോമ ഭാരതീയ ഓർത്തഡോക്സ് ഭദ്രാസനപള്ളി">Singapore St. Thomas Indian Orthodox Cathedral</span>
+          <span class="font-serif text-taupe text-[12px] shrink-0" data-en="Singapore" data-ml="സിംഗപ്പൂർ">Singapore</span>
+        </div>
+      <div class="flex items-baseline gap-3 py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
+          <span class="flex-1 min-w-0 text-[14.5px] text-body/90 dark:text-ivory/80" data-en="Sydney St. Thomas Indian Orthodox Cathedral" data-ml="സിഡ്‌നി മാർ തോമ ഭാരതീയ ഓർത്തഡോക്സ് ഭദ്രാസനപള്ളി">Sydney St. Thomas Indian Orthodox Cathedral</span>
+          <span class="font-serif text-taupe text-[12px] shrink-0" data-en="Australia" data-ml="ഓസ്ട്രേലിയ">Australia</span>
+        </div>
+    </div>
+  </div>
+
+  <div class="mb-10 sm:mb-12">
+    <a href="/bangalore" class="flex items-center gap-2.5 mb-3 group">
+      <span class="w-2.5 h-2.5 rounded-full shrink-0" style="background:#415d09"></span>
+      <h3 class="font-serif text-lg sm:text-xl text-ink dark:text-ivory group-hover:text-sage-dark dark:group-hover:text-sage transition-colors" data-en="Bangalore" data-ml="ബാംഗ്ലൂർ">Bangalore</h3>
+      <span class="font-sans text-[12px] text-muted">(2)</span>
+    </a>
+    <div class="flex flex-col">
+            <div class="flex items-baseline gap-3 py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
+          <span class="flex-1 min-w-0 text-[14.5px] text-body/90 dark:text-ivory/80" data-en="Bangalore St. Gregorios Malankara Orthodox Cathedral" data-ml="ബാംഗ്ലൂർ മാർ ഗ്രീഗോറിയോസ് മലങ്കര ഓർത്തഡോക്സ് ഭദ്രാസനപള്ളി">Bangalore St. Gregorios Malankara Orthodox Cathedral</span>
+          <span class="font-serif text-taupe text-[12px] shrink-0" data-en="India" data-ml="ഭാരതം">India</span>
+        </div>
+      <div class="flex items-baseline gap-3 py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
+          <span class="flex-1 min-w-0 text-[14.5px] text-body/90 dark:text-ivory/80" data-en="Hyderabad St. Gregorios Malankara Orthodox Cathedral" data-ml="ഹൈദരാബാദ് മാർ ഗ്രീഗോറിയോസ് മലങ്കര ഓർത്തഡോക്സ് ഭദ്രാസനപള്ളി">Hyderabad St. Gregorios Malankara Orthodox Cathedral</span>
+          <span class="font-serif text-taupe text-[12px] shrink-0" data-en="India" data-ml="ഭാരതം">India</span>
+        </div>
+    </div>
+  </div>
+
+  <div class="mb-10 sm:mb-12">
+    <a href="/bombay" class="flex items-center gap-2.5 mb-3 group">
+      <span class="w-2.5 h-2.5 rounded-full shrink-0" style="background:#764561"></span>
+      <h3 class="font-serif text-lg sm:text-xl text-ink dark:text-ivory group-hover:text-sage-dark dark:group-hover:text-sage transition-colors" data-en="Bombay" data-ml="മുംബൈ">Bombay</h3>
+      <span class="font-sans text-[12px] text-muted">(2)</span>
+    </a>
+    <div class="flex flex-col">
+            <div class="flex items-baseline gap-3 py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
+          <span class="flex-1 min-w-0 text-[14.5px] text-body/90 dark:text-ivory/80" data-en="Bahrain-Manama St. Mary&#x27;s Indian Orthodox Cathedral" data-ml="ബഹ്‌റൈൻ-മനാമ മർത്തമറിയം ഭാരതീയ ഓർത്തഡോക്സ് ഭദ്രാസനപള്ളി">Bahrain-Manama St. Mary&#x27;s Indian Orthodox Cathedral</span>
+          <span class="font-serif text-taupe text-[12px] shrink-0" data-en="Bahrain" data-ml="ബഹ്‌റൈൻ">Bahrain</span>
+        </div>
+      <div class="flex items-baseline gap-3 py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
+          <span class="flex-1 min-w-0 text-[14.5px] text-body/90 dark:text-ivory/80" data-en="Mumbai-Dadar St. Mary&#x27;s Malankara Orthodox Cathedral" data-ml="മുംബൈ-ദാദർ മർത്തമറിയം മലങ്കര ഓർത്തഡോക്സ് ഭദ്രാസനപള്ളി">Mumbai-Dadar St. Mary&#x27;s Malankara Orthodox Cathedral</span>
+          <span class="font-serif text-taupe text-[12px] shrink-0" data-en="India" data-ml="ഭാരതം">India</span>
+        </div>
+    </div>
+  </div>
+
+  <div class="mb-10 sm:mb-12">
+    <a href="/brahmavar" class="flex items-center gap-2.5 mb-3 group">
+      <span class="w-2.5 h-2.5 rounded-full shrink-0" style="background:#5b4992"></span>
+      <h3 class="font-serif text-lg sm:text-xl text-ink dark:text-ivory group-hover:text-sage-dark dark:group-hover:text-sage transition-colors" data-en="Brahmavar" data-ml="ബ്രഹ്മവാർ">Brahmavar</h3>
+      <span class="font-sans text-[12px] text-muted">(2)</span>
+    </a>
+    <div class="flex flex-col">
+            <div class="flex items-baseline gap-3 py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
+          <span class="flex-1 min-w-0 text-[14.5px] text-body/90 dark:text-ivory/80" data-en="Abu Dhabi St. George Indian Orthodox Cathedral" data-ml="അബുദാബി മാർ ഗീവറുഗീസ് സഹദാ ഭാരതീയ ഓർത്തഡോക്സ് ഭദ്രാസനപള്ളി">Abu Dhabi St. George Indian Orthodox Cathedral</span>
+          <span class="font-serif text-taupe text-[12px] shrink-0" data-en="United Arab Emirates" data-ml="യുണൈറ്റഡ് അറബ് എമിറേറ്റ്സ്">United Arab Emirates</span>
+        </div>
+      <div class="flex items-baseline gap-3 py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
+          <span class="flex-1 min-w-0 text-[14.5px] text-body/90 dark:text-ivory/80" data-en="Brahmavar St. Mary&#x27;s Konkani Orthodox Cathedral" data-ml="ബ്രഹ്മവാർ മർത്തമറിയം കൊങ്കണി ഓർത്തഡോക്സ് ഭദ്രാസനപള്ളി">Brahmavar St. Mary&#x27;s Konkani Orthodox Cathedral</span>
+          <span class="font-serif text-taupe text-[12px] shrink-0" data-en="India" data-ml="ഭാരതം">India</span>
+        </div>
+    </div>
+  </div>
+
+  <div class="mb-10 sm:mb-12">
+    <a href="/calcutta" class="flex items-center gap-2.5 mb-3 group">
+      <span class="w-2.5 h-2.5 rounded-full shrink-0" style="background:#714f00"></span>
+      <h3 class="font-serif text-lg sm:text-xl text-ink dark:text-ivory group-hover:text-sage-dark dark:group-hover:text-sage transition-colors" data-en="Calcutta" data-ml="കൽക്കട്ട">Calcutta</h3>
+      <span class="font-sans text-[12px] text-muted">(4)</span>
+    </a>
+    <div class="flex flex-col">
+            <div class="flex items-baseline gap-3 py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
+          <span class="flex-1 min-w-0 text-[14.5px] text-body/90 dark:text-ivory/80" data-en="Bhilai St. Gregorios Malankara Orthodox Cathedral" data-ml="ഭിലായ് മാർ ഗ്രീഗോറിയോസ് മലങ്കര ഓർത്തഡോക്സ് ഭദ്രാസനപള്ളി">Bhilai St. Gregorios Malankara Orthodox Cathedral</span>
+          <span class="font-serif text-taupe text-[12px] shrink-0" data-en="India" data-ml="ഭാരതം">India</span>
+        </div>
+      <div class="flex items-baseline gap-3 py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
+          <span class="flex-1 min-w-0 text-[14.5px] text-body/90 dark:text-ivory/80" data-en="Bhopal St. Thomas Malankara Orthodox Cathedral" data-ml="ഭോപ്പാൽ മാർ തോമ മലങ്കര ഓർത്തഡോക്സ് ഭദ്രാസനപള്ളി">Bhopal St. Thomas Malankara Orthodox Cathedral</span>
+          <span class="font-serif text-taupe text-[12px] shrink-0" data-en="India" data-ml="ഭാരതം">India</span>
+        </div>
+      <div class="flex items-baseline gap-3 py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
+          <span class="flex-1 min-w-0 text-[14.5px] text-body/90 dark:text-ivory/80" data-en="Kolkata St. Thomas Malankara Orthodox Cathedral" data-ml="കൊൽക്കത്ത മാർ തോമ മലങ്കര ഓർത്തഡോക്സ് ഭദ്രാസനപള്ളി">Kolkata St. Thomas Malankara Orthodox Cathedral</span>
+          <span class="font-serif text-taupe text-[12px] shrink-0" data-en="India" data-ml="ഭാരതം">India</span>
+        </div>
+      <div class="flex items-baseline gap-3 py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
+          <span class="flex-1 min-w-0 text-[14.5px] text-body/90 dark:text-ivory/80" data-en="Nagpur St. George Malankara Orthodox Cathedral" data-ml="നാഗ്പൂർ മാർ ഗീവറുഗീസ് സഹദാ മലങ്കര ഓർത്തഡോക്സ് ഭദ്രാസനപള്ളി">Nagpur St. George Malankara Orthodox Cathedral</span>
+          <span class="font-serif text-taupe text-[12px] shrink-0" data-en="India" data-ml="ഭാരതം">India</span>
+        </div>
+    </div>
+  </div>
+
+  <div class="mb-10 sm:mb-12">
+    <a href="/chengannur" class="flex items-center gap-2.5 mb-3 group">
+      <span class="w-2.5 h-2.5 rounded-full shrink-0" style="background:#82ad5d"></span>
+      <h3 class="font-serif text-lg sm:text-xl text-ink dark:text-ivory group-hover:text-sage-dark dark:group-hover:text-sage transition-colors" data-en="Chengannur" data-ml="ചെങ്ങന്നൂർ">Chengannur</h3>
+      <span class="font-sans text-[12px] text-muted">(3)</span>
+    </a>
+    <div class="flex flex-col">
+            <div class="flex items-baseline gap-3 py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
+          <span class="flex-1 min-w-0 text-[14.5px] text-body/90 dark:text-ivory/80" data-en="Chengannur St. Ignatius Orthodox Cathedral" data-ml="ചെങ്ങന്നൂർ മാർ ഇഗ്നാത്തിയോസ് ഓർത്തഡോക്സ് ഭദ്രാസനപള്ളി">Chengannur St. Ignatius Orthodox Cathedral</span>
+          <span class="font-serif text-taupe text-[12px] shrink-0" data-en="India" data-ml="ഭാരതം">India</span>
+        </div>
+      <div class="flex items-baseline gap-3 py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
+          <span class="flex-1 min-w-0 text-[14.5px] text-body/90 dark:text-ivory/80" data-en="Kudassanad St. Stephen&#x27;s Orthodox Cathedral" data-ml="കുടശ്ശനാട് മാർ സ്തേഫാനോസ് സഹദാ ഓർത്തഡോക്സ് ഭദ്രാസനപള്ളി">Kudassanad St. Stephen&#x27;s Orthodox Cathedral</span>
+          <span class="font-serif text-taupe text-[12px] shrink-0" data-en="India" data-ml="ഭാരതം">India</span>
+        </div>
+      <div class="flex items-baseline gap-3 py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
+          <span class="flex-1 min-w-0 text-[14.5px] text-body/90 dark:text-ivory/80" data-en="Puthencavu St. Mary&#x27;s Orthodox Cathedral" data-ml="പുത്തൻകാവ് മർത്തമറിയം ഓർത്തഡോക്സ് ഭദ്രാസനപള്ളി">Puthencavu St. Mary&#x27;s Orthodox Cathedral</span>
+          <span class="font-serif text-taupe text-[12px] shrink-0" data-en="India" data-ml="ഭാരതം">India</span>
+        </div>
+    </div>
+  </div>
+
+  <div class="mb-10 sm:mb-12">
+    <a href="/delhi" class="flex items-center gap-2.5 mb-3 group">
+      <span class="w-2.5 h-2.5 rounded-full shrink-0" style="background:#be817f"></span>
+      <h3 class="font-serif text-lg sm:text-xl text-ink dark:text-ivory group-hover:text-sage-dark dark:group-hover:text-sage transition-colors" data-en="Delhi" data-ml="ഡൽഹി">Delhi</h3>
+      <span class="font-sans text-[12px] text-muted">(2)</span>
+    </a>
+    <div class="flex flex-col">
+            <div class="flex items-baseline gap-3 py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
+          <span class="flex-1 min-w-0 text-[14.5px] text-body/90 dark:text-ivory/80" data-en="Dubai St. Thomas Malankara Orthodox Cathedral (Oud Metha)" data-ml="ദുബായ് മാർ തോമ മലങ്കര ഓർത്തഡോക്സ് ഭദ്രാസനപള്ളി (ഊദ് മേത്ത)">Dubai St. Thomas Malankara Orthodox Cathedral (Oud Metha)</span>
+          <span class="font-serif text-taupe text-[12px] shrink-0" data-en="United Arab Emirates" data-ml="യുണൈറ്റഡ് അറബ് എമിറേറ്റ്സ്">United Arab Emirates</span>
+        </div>
+      <div class="flex items-baseline gap-3 py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
+          <span class="flex-1 min-w-0 text-[14.5px] text-body/90 dark:text-ivory/80" data-en="New Delhi-Hauz Khas St. Mary&#x27;s Malankara Orthodox Cathedral" data-ml="ന്യൂ ഡൽഹി-ഹൗസ് ഖാസ് മർത്തമറിയം മലങ്കര ഓർത്തഡോക്സ് ഭദ്രാസനപള്ളി">New Delhi-Hauz Khas St. Mary&#x27;s Malankara Orthodox Cathedral</span>
+          <span class="font-serif text-taupe text-[12px] shrink-0" data-en="India" data-ml="ഭാരതം">India</span>
+        </div>
+    </div>
+  </div>
+
+  <div class="mb-10 sm:mb-12">
+    <a href="/idukki" class="flex items-center gap-2.5 mb-3 group">
+      <span class="w-2.5 h-2.5 rounded-full shrink-0" style="background:#913060"></span>
+      <h3 class="font-serif text-lg sm:text-xl text-ink dark:text-ivory group-hover:text-sage-dark dark:group-hover:text-sage transition-colors" data-en="Idukki" data-ml="ഇടുക്കി">Idukki</h3>
+      <span class="font-sans text-[12px] text-muted">(1)</span>
+    </a>
+    <div class="flex flex-col">
+            <div class="flex items-baseline gap-3 py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
+          <span class="flex-1 min-w-0 text-[14.5px] text-body/90 dark:text-ivory/80" data-en="Kungiripetty St. Thomas Orthodox Cathedral" data-ml="കുങ്കിരിപ്പെട്ടി മാർ തോമ ഓർത്തഡോക്സ് ഭദ്രാസനപള്ളി">Kungiripetty St. Thomas Orthodox Cathedral</span>
+          <span class="font-serif text-taupe text-[12px] shrink-0" data-en="India" data-ml="ഭാരതം">India</span>
+        </div>
+    </div>
+  </div>
+
+  <div class="mb-10 sm:mb-12">
+    <a href="/kandanad-east" class="flex items-center gap-2.5 mb-3 group">
+      <span class="w-2.5 h-2.5 rounded-full shrink-0" style="background:#0e5b7b"></span>
+      <h3 class="font-serif text-lg sm:text-xl text-ink dark:text-ivory group-hover:text-sage-dark dark:group-hover:text-sage transition-colors" data-en="Kandanad East" data-ml="കണ്ടനാട്-ഈസ്റ്റ്">Kandanad East</h3>
+      <span class="font-sans text-[12px] text-muted">(2)</span>
+    </a>
+    <div class="flex flex-col">
+            <div class="flex items-baseline gap-3 py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
+          <span class="flex-1 min-w-0 text-[14.5px] text-body/90 dark:text-ivory/80" data-en="Muvattupuzha St. Thomas Palatial Cathedral" data-ml="മൂവാറ്റുപുഴ മാർ തോമ അരമന ഭദ്രാസനപള്ളി">Muvattupuzha St. Thomas Palatial Cathedral</span>
+          <span class="font-serif text-taupe text-[12px] shrink-0" data-en="India" data-ml="ഭാരതം">India</span>
+        </div>
+      <div class="flex items-baseline gap-3 py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
+          <span class="flex-1 min-w-0 text-[14.5px] text-body/90 dark:text-ivory/80" data-en="Piravom St. Mary&#x27;s Orthodox Cathedral" data-ml="പിറവം മർത്തമറിയം ഓർത്തഡോക്സ് ഭദ്രാസനപള്ളി">Piravom St. Mary&#x27;s Orthodox Cathedral</span>
+          <span class="font-serif text-taupe text-[12px] shrink-0" data-en="India" data-ml="ഭാരതം">India</span>
+        </div>
+    </div>
+  </div>
+
+  <div class="mb-10 sm:mb-12">
+    <a href="/kandanad-west" class="flex items-center gap-2.5 mb-3 group">
+      <span class="w-2.5 h-2.5 rounded-full shrink-0" style="background:#a7a44e"></span>
+      <h3 class="font-serif text-lg sm:text-xl text-ink dark:text-ivory group-hover:text-sage-dark dark:group-hover:text-sage transition-colors" data-en="Kandanad West" data-ml="കണ്ടനാട്-വെസ്റ്റ്">Kandanad West</h3>
+      <span class="font-sans text-[12px] text-muted">(2)</span>
+    </a>
+    <div class="flex flex-col">
+            <div class="flex items-baseline gap-3 py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
+          <span class="flex-1 min-w-0 text-[14.5px] text-body/90 dark:text-ivory/80" data-en="Kandanad St. Mary&#x27;s Orthodox Cathedral" data-ml="കണ്ടനാട് മർത്തമറിയം ഓർത്തഡോക്സ് ഭദ്രാസനപള്ളി">Kandanad St. Mary&#x27;s Orthodox Cathedral</span>
+          <span class="font-serif text-taupe text-[12px] shrink-0" data-en="India" data-ml="ഭാരതം">India</span>
+        </div>
+      <div class="flex items-baseline gap-3 py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
+          <span class="flex-1 min-w-0 text-[14.5px] text-body/90 dark:text-ivory/80" data-en="Mulakulam-Mannookkunnu St. Mary&#x27;s Orthodox Cathedral" data-ml="മുളക്കുളം-മണ്ണൂക്കുന്ന് മർത്തമറിയം ഓർത്തഡോക്സ് ഭദ്രാസനപള്ളി">Mulakulam-Mannookkunnu St. Mary&#x27;s Orthodox Cathedral</span>
+          <span class="font-serif text-taupe text-[12px] shrink-0" data-en="India" data-ml="ഭാരതം">India</span>
+        </div>
+    </div>
+  </div>
+
+  <div class="mb-10 sm:mb-12">
+    <a href="/kochi" class="flex items-center gap-2.5 mb-3 group">
+      <span class="w-2.5 h-2.5 rounded-full shrink-0" style="background:#465b33"></span>
+      <h3 class="font-serif text-lg sm:text-xl text-ink dark:text-ivory group-hover:text-sage-dark dark:group-hover:text-sage transition-colors" data-en="Kochi" data-ml="കൊച്ചി">Kochi</h3>
+      <span class="font-sans text-[12px] text-muted">(3)</span>
+    </a>
+    <div class="flex flex-col">
+            <div class="flex items-baseline gap-3 py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
+          <span class="flex-1 min-w-0 text-[14.5px] text-body/90 dark:text-ivory/80" data-en="Ernakulam St. Mary&#x27;s Orthodox Cathedral (Marine Drive)" data-ml="എറണാകുളം മർത്തമറിയം ഓർത്തഡോക്സ് ഭദ്രാസനപള്ളി (മറൈൻ ഡ്രൈവ്)">Ernakulam St. Mary&#x27;s Orthodox Cathedral (Marine Drive)</span>
+          <span class="font-serif text-taupe text-[12px] shrink-0" data-en="India" data-ml="ഭാരതം">India</span>
+        </div>
+      <div class="flex items-baseline gap-3 py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
+          <span class="flex-1 min-w-0 text-[14.5px] text-body/90 dark:text-ivory/80" data-en="Mulanthuruthy St. Thomas Orthodox Cathedral" data-ml="മുളന്തുരുത്തി മാർ തോമ ഓർത്തഡോക്സ് ഭദ്രാസനപള്ളി">Mulanthuruthy St. Thomas Orthodox Cathedral</span>
+          <span class="font-serif text-taupe text-[12px] shrink-0" data-en="India" data-ml="ഭാരതം">India</span>
+        </div>
+      <div class="flex items-baseline gap-3 py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
+          <span class="flex-1 min-w-0 text-[14.5px] text-body/90 dark:text-ivory/80" data-en="Thrissur St. Ignatius Orthodox Cathedral" data-ml="തൃശൂർ മാർ ഇഗ്നാത്തിയോസ് ഓർത്തഡോക്സ് ഭദ്രാസനപള്ളി">Thrissur St. Ignatius Orthodox Cathedral</span>
+          <span class="font-serif text-taupe text-[12px] shrink-0" data-en="India" data-ml="ഭാരതം">India</span>
+        </div>
+    </div>
+  </div>
+
+  <div class="mb-10 sm:mb-12">
+    <a href="/kollam" class="flex items-center gap-2.5 mb-3 group">
+      <span class="w-2.5 h-2.5 rounded-full shrink-0" style="background:#e281b8"></span>
+      <h3 class="font-serif text-lg sm:text-xl text-ink dark:text-ivory group-hover:text-sage-dark dark:group-hover:text-sage transition-colors" data-en="Kollam" data-ml="കൊല്ലം">Kollam</h3>
+      <span class="font-sans text-[12px] text-muted">(1)</span>
+    </a>
+    <div class="flex flex-col">
+            <div class="flex items-baseline gap-3 py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
+          <span class="flex-1 min-w-0 text-[14.5px] text-body/90 dark:text-ivory/80" data-en="Kollam St. Thomas Orthodox Cathedral (Kadapakkada)" data-ml="കൊല്ലം മാർ തോമ ഓർത്തഡോക്സ് ഭദ്രാസനപള്ളി (കടപ്പാക്കട)">Kollam St. Thomas Orthodox Cathedral (Kadapakkada)</span>
+          <span class="font-serif text-taupe text-[12px] shrink-0" data-en="India" data-ml="ഭാരതം">India</span>
+        </div>
+    </div>
+  </div>
+
+  <div class="mb-10 sm:mb-12">
+    <a href="/kottayam" class="flex items-center gap-2.5 mb-3 group">
+      <span class="w-2.5 h-2.5 rounded-full shrink-0" style="background:#b98fde"></span>
+      <h3 class="font-serif text-lg sm:text-xl text-ink dark:text-ivory group-hover:text-sage-dark dark:group-hover:text-sage transition-colors" data-en="Kottayam" data-ml="കോട്ടയം">Kottayam</h3>
+      <span class="font-sans text-[12px] text-muted">(1)</span>
+    </a>
+    <div class="flex flex-col">
+            <div class="flex items-baseline gap-3 py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
+          <span class="flex-1 min-w-0 text-[14.5px] text-body/90 dark:text-ivory/80" data-en="Pampady St. John&#x27;s Orthodox Cathedral" data-ml="പാമ്പാടി മാർ യൂഹാനോൻ ഓർത്തഡോക്സ് ഭദ്രാസനപള്ളി">Pampady St. John&#x27;s Orthodox Cathedral</span>
+          <span class="font-serif text-taupe text-[12px] shrink-0" data-en="India" data-ml="ഭാരതം">India</span>
+        </div>
+    </div>
+  </div>
+
+  <div class="mb-10 sm:mb-12">
+    <a href="/kottayam-central" class="flex items-center gap-2.5 mb-3 group">
+      <span class="w-2.5 h-2.5 rounded-full shrink-0" style="background:#e8866d"></span>
+      <h3 class="font-serif text-lg sm:text-xl text-ink dark:text-ivory group-hover:text-sage-dark dark:group-hover:text-sage transition-colors" data-en="Kottayam Central" data-ml="കോട്ടയം-സെൻട്രൽ">Kottayam Central</h3>
+      <span class="font-sans text-[12px] text-muted">(1)</span>
+    </a>
+    <div class="flex flex-col">
+            <div class="flex items-baseline gap-3 py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
+          <span class="flex-1 min-w-0 text-[14.5px] text-body/90 dark:text-ivory/80" data-en="Kottayam St. Elias Orthodox Cathedral" data-ml="കോട്ടയം മാർ ഏലിയാസ് ഓർത്തഡോക്സ് ഭദ്രാസനപള്ളി">Kottayam St. Elias Orthodox Cathedral</span>
+          <span class="font-serif text-taupe text-[12px] shrink-0" data-en="India" data-ml="ഭാരതം">India</span>
+        </div>
+    </div>
+  </div>
+
+  <div class="mb-10 sm:mb-12">
+    <a href="/kunnamkulam" class="flex items-center gap-2.5 mb-3 group">
+      <span class="w-2.5 h-2.5 rounded-full shrink-0" style="background:#975124"></span>
+      <h3 class="font-serif text-lg sm:text-xl text-ink dark:text-ivory group-hover:text-sage-dark dark:group-hover:text-sage transition-colors" data-en="Kunnamkulam" data-ml="കുന്നംകുളം">Kunnamkulam</h3>
+      <span class="font-sans text-[12px] text-muted">(3)</span>
+    </a>
+    <div class="flex flex-col">
+            <div class="flex items-baseline gap-3 py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
+          <span class="flex-1 min-w-0 text-[14.5px] text-body/90 dark:text-ivory/80" data-en="Arthat St. Mary&#x27;s Orthodox Cathedral" data-ml="ആർത്താറ്റ് മർത്തമറിയം ഓർത്തഡോക്സ് ഭദ്രാസനപള്ളി">Arthat St. Mary&#x27;s Orthodox Cathedral</span>
+          <span class="font-serif text-taupe text-[12px] shrink-0" data-en="India" data-ml="ഭാരതം">India</span>
+        </div>
+      <div class="flex items-baseline gap-3 py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
+          <span class="flex-1 min-w-0 text-[14.5px] text-body/90 dark:text-ivory/80" data-en="Pazhanji St. Mary&#x27;s Orthodox Cathedral" data-ml="പഴഞ്ഞി മർത്തമറിയം ഓർത്തഡോക്സ് ഭദ്രാസനപള്ളി">Pazhanji St. Mary&#x27;s Orthodox Cathedral</span>
+          <span class="font-serif text-taupe text-[12px] shrink-0" data-en="India" data-ml="ഭാരതം">India</span>
+        </div>
+      <div class="flex items-baseline gap-3 py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
+          <span class="flex-1 min-w-0 text-[14.5px] text-body/90 dark:text-ivory/80" data-en="Pazhanji St. Mary&#x27;s Orthodox Old Cathedral" data-ml="പഴഞ്ഞി മർത്തമറിയം ഓർത്തഡോക്സ് പഴയ ഭദ്രാസനപള്ളി">Pazhanji St. Mary&#x27;s Orthodox Old Cathedral</span>
+          <span class="font-serif text-taupe text-[12px] shrink-0" data-en="India" data-ml="ഭാരതം">India</span>
+        </div>
+    </div>
+  </div>
+
+  <div class="mb-10 sm:mb-12">
+    <a href="/madras" class="flex items-center gap-2.5 mb-3 group">
+      <span class="w-2.5 h-2.5 rounded-full shrink-0" style="background:#a6a273"></span>
+      <h3 class="font-serif text-lg sm:text-xl text-ink dark:text-ivory group-hover:text-sage-dark dark:group-hover:text-sage transition-colors" data-en="Madras" data-ml="ചെന്നൈ">Madras</h3>
+      <span class="font-sans text-[12px] text-muted">(3)</span>
+    </a>
+    <div class="flex flex-col">
+            <div class="flex items-baseline gap-3 py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
+          <span class="flex-1 min-w-0 text-[14.5px] text-body/90 dark:text-ivory/80" data-en="Chennai-Broadway St. Thomas Malankara Orthodox Cathedral" data-ml="ചെന്നൈ-ബ്രോഡ്‌വേ മാർ തോമ മലങ്കര ഓർത്തഡോക്സ് ഭദ്രാസനപള്ളി">Chennai-Broadway St. Thomas Malankara Orthodox Cathedral</span>
+          <span class="font-serif text-taupe text-[12px] shrink-0" data-en="India" data-ml="ഭാരതം">India</span>
+        </div>
+      <div class="flex items-baseline gap-3 py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
+          <span class="flex-1 min-w-0 text-[14.5px] text-body/90 dark:text-ivory/80" data-en="Coimbatore St. Mary&#x27;s Malankara Orthodox Cathedral" data-ml="കോയമ്പത്തൂർ മർത്തമറിയം മലങ്കര ഓർത്തഡോക്സ് ഭദ്രാസനപള്ളി">Coimbatore St. Mary&#x27;s Malankara Orthodox Cathedral</span>
+          <span class="font-serif text-taupe text-[12px] shrink-0" data-en="India" data-ml="ഭാരതം">India</span>
+        </div>
+      <div class="flex items-baseline gap-3 py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
+          <span class="flex-1 min-w-0 text-[14.5px] text-body/90 dark:text-ivory/80" data-en="Port Blair St. Mary&#x27;s Malankara Orthodox Cathedral" data-ml="പോർട്ട് ബ്ലെയർ മർത്തമറിയം മലങ്കര ഓർത്തഡോക്സ് ഭദ്രാസനപള്ളി">Port Blair St. Mary&#x27;s Malankara Orthodox Cathedral</span>
+          <span class="font-serif text-taupe text-[12px] shrink-0" data-en="India" data-ml="ഭാരതം">India</span>
+        </div>
+    </div>
+  </div>
+
+  <div class="mb-10 sm:mb-12">
+    <a href="/malabar" class="flex items-center gap-2.5 mb-3 group">
+      <span class="w-2.5 h-2.5 rounded-full shrink-0" style="background:#ca5e78"></span>
+      <h3 class="font-serif text-lg sm:text-xl text-ink dark:text-ivory group-hover:text-sage-dark dark:group-hover:text-sage transition-colors" data-en="Malabar" data-ml="മലബാർ">Malabar</h3>
+      <span class="font-sans text-[12px] text-muted">(1)</span>
+    </a>
+    <div class="flex flex-col">
+            <div class="flex items-baseline gap-3 py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
+          <span class="flex-1 min-w-0 text-[14.5px] text-body/90 dark:text-ivory/80" data-en="Kozhikode St. George Orthodox Cathedral (Bilathikulam)" data-ml="കോഴിക്കോട് മാർ ഗീവറുഗീസ് സഹദാ ഓർത്തഡോക്സ് ഭദ്രാസനപള്ളി (ബിലാത്തിക്കുളം)">Kozhikode St. George Orthodox Cathedral (Bilathikulam)</span>
+          <span class="font-serif text-taupe text-[12px] shrink-0" data-en="India" data-ml="ഭാരതം">India</span>
+        </div>
+    </div>
+  </div>
+
+  <div class="mb-10 sm:mb-12">
+    <a href="/mavelikara" class="flex items-center gap-2.5 mb-3 group">
+      <span class="w-2.5 h-2.5 rounded-full shrink-0" style="background:#53507a"></span>
+      <h3 class="font-serif text-lg sm:text-xl text-ink dark:text-ivory group-hover:text-sage-dark dark:group-hover:text-sage transition-colors" data-en="Mavelikara" data-ml="മാവേലിക്കര">Mavelikara</h3>
+      <span class="font-sans text-[12px] text-muted">(3)</span>
+    </a>
+    <div class="flex flex-col">
+      <div class="flex items-baseline gap-3 py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
+          <span class="flex-1 min-w-0 text-[14.5px] text-body/90 dark:text-ivory/80" data-en="Karthikapally St. Thomas Orthodox Cathedral" data-ml="കാർത്തികപ്പള്ളി മാർ തോമ ഓർത്തഡോക്സ് ഭദ്രാസനപള്ളി">Karthikapally St. Thomas Orthodox Cathedral</span>
+          <span class="font-serif text-taupe text-[12px] shrink-0" data-en="India" data-ml="ഭാരതം">India</span>
+        </div>
+      <div class="flex items-baseline gap-3 py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
+          <span class="flex-1 min-w-0 text-[14.5px] text-body/90 dark:text-ivory/80" data-en="Kayamkulam All Saints Orthodox Cathedral" data-ml="കായംകുളം കാദീശാ ഓർത്തഡോക്സ് ഭദ്രാസനപള്ളി">Kayamkulam All Saints Orthodox Cathedral</span>
+          <span class="font-serif text-taupe text-[12px] shrink-0" data-en="India" data-ml="ഭാരതം">India</span>
+        </div>
+      <div class="flex items-baseline gap-3 py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
+          <span class="flex-1 min-w-0 text-[14.5px] text-body/90 dark:text-ivory/80" data-en="Mavelikara-Puthiyacavu St. Mary&#x27;s Orthodox Cathedral" data-ml="മാവേലിക്കര-പുതിയകാവ് മർത്തമറിയം ഓർത്തഡോക്സ് ഭദ്രാസനപള്ളി">Mavelikara-Puthiyacavu St. Mary&#x27;s Orthodox Cathedral</span>
+          <span class="font-serif text-taupe text-[12px] shrink-0" data-en="India" data-ml="ഭാരതം">India</span>
+        </div>
+    </div>
+  </div>
+
+  <div class="mb-10 sm:mb-12">
+    <a href="/nilackal" class="flex items-center gap-2.5 mb-3 group">
+      <span class="w-2.5 h-2.5 rounded-full shrink-0" style="background:#63532a"></span>
+      <h3 class="font-serif text-lg sm:text-xl text-ink dark:text-ivory group-hover:text-sage-dark dark:group-hover:text-sage transition-colors" data-en="Nilackal" data-ml="നിലയ്ക്കൽ">Nilackal</h3>
+      <span class="font-sans text-[12px] text-muted">(1)</span>
+    </a>
+    <div class="flex flex-col">
+            <div class="flex items-baseline gap-3 py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
+          <span class="flex-1 min-w-0 text-[14.5px] text-body/90 dark:text-ivory/80" data-en="Thottamon St. Thomas Orthodox Cathedral" data-ml="തോട്ടമൺ മാർ തോമ ഓർത്തഡോക്സ് ഭദ്രാസനപള്ളി">Thottamon St. Thomas Orthodox Cathedral</span>
+          <span class="font-serif text-taupe text-[12px] shrink-0" data-en="India" data-ml="ഭാരതം">India</span>
+        </div>
+    </div>
+  </div>
+  <div class="mb-10 sm:mb-12">
+    <a href="/southwest-america" class="flex items-center gap-2.5 mb-3 group">
+      <span class="w-2.5 h-2.5 rounded-full shrink-0" style="background:#908cba"></span>
+      <h3 class="font-serif text-lg sm:text-xl text-ink dark:text-ivory group-hover:text-sage-dark dark:group-hover:text-sage transition-colors" data-en="Southwest America" data-ml="സൗത്ത്-വെസ്റ്റ് അമേരിക്ക">Southwest America</h3>
+      <span class="font-sans text-[12px] text-muted">(2)</span>
+    </a>
+    <div class="flex flex-col">
+            <div class="flex items-baseline gap-3 py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
+          <span class="flex-1 min-w-0 text-[14.5px] text-body/90 dark:text-ivory/80" data-en="Bellwood St. Gregorios Indian Orthodox Cathedral" data-ml="ബെൽവുഡ് മാർ ഗ്രീഗോറിയോസ് ഭാരതീയ ഓർത്തഡോക്സ് ഭദ്രാസനപള്ളി">Bellwood St. Gregorios Indian Orthodox Cathedral</span>
+          <span class="font-serif text-taupe text-[12px] shrink-0" data-en="United States" data-ml="അമേരിക്കൻ ഐക്യനാടുകൾ">United States</span>
+        </div>
+      <div class="flex items-baseline gap-3 py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
+          <span class="flex-1 min-w-0 text-[14.5px] text-body/90 dark:text-ivory/80" data-en="Houston-Stafford St. Thomas Indian Orthodox Cathedral" data-ml="ഹ്യൂസ്റ്റൺ-സ്റ്റാഫോർഡ് മാർ തോമ ഭാരതീയ ഓർത്തഡോക്സ് ഭദ്രാസനപള്ളി">Houston-Stafford St. Thomas Indian Orthodox Cathedral</span>
+          <span class="font-serif text-taupe text-[12px] shrink-0" data-en="United States" data-ml="അമേരിക്കൻ ഐക്യനാടുകൾ">United States</span>
+        </div>
+    </div>
+  </div>
+
+
+
+  <div class="mb-10 sm:mb-12">
+    <a href="/sulthan-bathery" class="flex items-center gap-2.5 mb-3 group">
+      <span class="w-2.5 h-2.5 rounded-full shrink-0" style="background:#5499b8"></span>
+      <h3 class="font-serif text-lg sm:text-xl text-ink dark:text-ivory group-hover:text-sage-dark dark:group-hover:text-sage transition-colors" data-en="Sulthan Bathery" data-ml="സുൽത്താൻ ബത്തേരി">Sulthan Bathery</h3>
+      <span class="font-sans text-[12px] text-muted">(1)</span>
+    </a>
+    <div class="flex flex-col">
+      <div class="flex items-baseline gap-3 py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
+          <span class="flex-1 min-w-0 text-[14.5px] text-body/90 dark:text-ivory/80" data-en="Sulthan Bathery St. Mary&#x27;s Orthodox Cathedral &amp; St. Mary&#x27;s Pilgrim Centre" data-ml="സുൽത്താൻ ബത്തേരി മർത്തമറിയം ഓർത്തഡോക്സ് ഭദ്രാസനപള്ളി &amp; മർത്തമറിയം തീർഥാടന കേന്ദ്രം">Sulthan Bathery St. Mary&#x27;s Orthodox Cathedral &amp; St. Mary&#x27;s Pilgrim Centre</span>
+          <span class="font-serif text-taupe text-[12px] shrink-0" data-en="India" data-ml="ഭാരതം">India</span>
+        </div>
+    </div>
+  </div>
+  <div class="mb-10 sm:mb-12">
+    <a href="/thiruvananthapuram" class="flex items-center gap-2.5 mb-3 group">
+      <span class="w-2.5 h-2.5 rounded-full shrink-0" style="background:#006140"></span>
+      <h3 class="font-serif text-lg sm:text-xl text-ink dark:text-ivory group-hover:text-sage-dark dark:group-hover:text-sage transition-colors" data-en="Thiruvananthapuram" data-ml="തിരുവനന്തപുരം">Thiruvananthapuram</h3>
+      <span class="font-sans text-[12px] text-muted">(1)</span>
+    </a>
+    <div class="flex flex-col">
+            <div class="flex items-baseline gap-3 py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
+          <span class="flex-1 min-w-0 text-[14.5px] text-body/90 dark:text-ivory/80" data-en="Palayam St. George Orthodox Cathedral" data-ml="പാളയം മാർ ഗീവറുഗീസ് സഹദാ ഓർത്തഡോക്സ് ഭദ്രാസനപള്ളി">Palayam St. George Orthodox Cathedral</span>
+          <span class="font-serif text-taupe text-[12px] shrink-0" data-en="India" data-ml="ഭാരതം">India</span>
+        </div>
+    </div>
+  </div>
+
+  <div class="mb-10 sm:mb-12">
+    <a href="/thumpamon" class="flex items-center gap-2.5 mb-3 group">
+      <span class="w-2.5 h-2.5 rounded-full shrink-0" style="background:#953239"></span>
+      <h3 class="font-serif text-lg sm:text-xl text-ink dark:text-ivory group-hover:text-sage-dark dark:group-hover:text-sage transition-colors" data-en="Thumpamon" data-ml="തുമ്പമൺ">Thumpamon</h3>
+      <span class="font-sans text-[12px] text-muted">(4)</span>
+    </a>
+    <div class="flex flex-col">
+            <div class="flex items-baseline gap-3 py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
+          <span class="flex-1 min-w-0 text-[14.5px] text-body/90 dark:text-ivory/80" data-en="Kumbazha St. Mary&#x27;s Orthodox Archcathedral" data-ml="കുമ്പഴ മർത്തമറിയം ഓർത്തഡോക്സ് മുഖ്യ ഭദ്രാസനപള്ളി">Kumbazha St. Mary&#x27;s Orthodox Archcathedral</span>
+          <span class="font-serif text-taupe text-[12px] shrink-0" data-en="India" data-ml="ഭാരതം">India</span>
+        </div>
+      <div class="flex items-baseline gap-3 py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
+          <span class="flex-1 min-w-0 text-[14.5px] text-body/90 dark:text-ivory/80" data-en="Kumbazha St. Simeon the Stylite&#x27;s Orthodox Cathedral" data-ml="കുമ്പഴ മാർ ശെമവൂൻ ദെസ്തുനി ഓർത്തഡോക്സ് ഭദ്രാസനപള്ളി">Kumbazha St. Simeon the Stylite&#x27;s Orthodox Cathedral</span>
+          <span class="font-serif text-taupe text-[12px] shrink-0" data-en="India" data-ml="ഭാരതം">India</span>
+        </div>
+      <div class="flex items-baseline gap-3 py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
+          <span class="flex-1 min-w-0 text-[14.5px] text-body/90 dark:text-ivory/80" data-en="Makkamkunnu St. Stephen&#x27;s Orthodox Cathedral (Pathanamthitta)" data-ml="മാക്കാംകുന്ന് മാർ സ്തേഫാനോസ് സഹദാ ഓർത്തഡോക്സ് ഭദ്രാസനപള്ളി (പത്തനംതിട്ട)">Makkamkunnu St. Stephen&#x27;s Orthodox Cathedral (Pathanamthitta)</span>
+          <span class="font-serif text-taupe text-[12px] shrink-0" data-en="India" data-ml="ഭാരതം">India</span>
+        </div>
+      <div class="flex items-baseline gap-3 py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
+          <span class="flex-1 min-w-0 text-[14.5px] text-body/90 dark:text-ivory/80" data-en="Thumpamon St. Mary&#x27;s Orthodox Cathedral" data-ml="തുമ്പമൺ മർത്തമറിയം ഓർത്തഡോക്സ് ഭദ്രാസനപള്ളി">Thumpamon St. Mary&#x27;s Orthodox Cathedral</span>
+          <span class="font-serif text-taupe text-[12px] shrink-0" data-en="India" data-ml="ഭാരതം">India</span>
+        </div>
+    </div>
+  </div>
+  <div class="mb-10 sm:mb-12">
+    <a href="/uk-europe-africa" class="flex items-center gap-2.5 mb-3 group">
+      <span class="w-2.5 h-2.5 rounded-full shrink-0" style="background:#80721e"></span>
+      <h3 class="font-serif text-lg sm:text-xl text-ink dark:text-ivory group-hover:text-sage-dark dark:group-hover:text-sage transition-colors" data-en="UK-Europe-Africa" data-ml="യു.കെ-യൂറോപ്പ്">UK-Europe-Africa</h3>
+      <span class="font-sans text-[12px] text-muted">(1)</span>
+    </a>
+    <div class="flex flex-col">
+      <div class="flex items-baseline gap-3 py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
+          <span class="flex-1 min-w-0 text-[14.5px] text-body/90 dark:text-ivory/80" data-en="Brockley St. Gregorios Indian Orthodox Cathedral (South London)" data-ml="ബ്രോക്ലി മാർ ഗ്രീഗോറിയോസ് ഭാരതീയ ഓർത്തഡോക്സ് ഭദ്രാസനപള്ളി (സൗത്ത് ലണ്ടൻ)">Brockley St. Gregorios Indian Orthodox Cathedral (South London)</span>
+          <span class="font-serif text-taupe text-[12px] shrink-0" data-en="United Kingdom" data-ml="യുണൈറ്റഡ് കിംഗ്ഡം">United Kingdom</span>
+        </div>
+    </div>
+  </div>
+
+
 </section>
 
-<section class="tsec px-5 sm:px-8 pb-12 sm:pb-14 max-w-4xl mx-auto" data-kind="main">
-  <h2 class="font-serif font-normal text-xl sm:text-2xl text-ink dark:text-ivory mb-2" data-en="Every Cathedral" data-ml="ഓരോ ഭദ്രാസനപള്ളിയും">Every Cathedral</h2>
-  <p class="font-sans text-xs text-muted mb-6" data-en="Grouped by diocese — the nation of each location is noted alongside it." data-ml="ഭദ്രാസനം അനുസരിച്ച് തരംതിരിച്ചിരിക്കുന്നു — ഓരോ സ്ഥലത്തിന്റെയും രാജ്യം അതോടൊപ്പം കുറിച്ചിരിക്കുന്നു.">Grouped by diocese — the nation of each location is noted alongside it.</p>
-  <div class="border-t border-line dark:border-white/10">
-    <details class="tdio group border-b border-line dark:border-white/10" id="d-main-adoor-kadampanad">
-      <summary class="flex items-center gap-3 px-1 sm:px-2 py-3.5 sm:py-4 cursor-pointer select-none hover:bg-featured/70 dark:hover:bg-white/[0.03] transition-colors">
-        <span class="w-2.5 h-2.5 rounded-full shrink-0 border border-ink/10 dark:border-ivory/20" style="background:#17aaf0"></span>
-        <span class="min-w-0 flex-1">
-          <span class="block font-serif text-base sm:text-lg text-ink dark:text-ivory leading-snug" data-en="Adoor-Kadampanad" data-ml="അടൂർ-കടമ്പനാട്">Adoor-Kadampanad</span>
-          <span class="block text-[11.5px] text-muted mt-0.5" data-en="India" data-ml="ഭാരതം">India</span>
-        </span>
-        <span class="tcount font-serif text-sm text-taupe tabular-nums" data-n="2">2</span>
-        <svg class="w-4 h-4 shrink-0 text-muted transition-transform duration-200 group-open:rotate-180" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="m5 8 5 5 5-5"/></svg>
-      </summary>
-      <div class="pb-5 sm:pb-6">
-        <div class="px-1 sm:px-2 pb-3"><a href="/adoor-kadampanad" class="font-serif text-[13px] text-sage-dark dark:text-sage hover:underline underline-offset-4 decoration-sage/40" data-en="View diocese" data-ml="ഭദ്രാസനം കാണുക">View diocese</a></div>
-        <div class="tgrid grid grid-cols-1 sm:grid-cols-2 border-l border-t border-line dark:border-white/10">
-          <div class="tcell border-b border-r border-line dark:border-white/10 px-3.5 py-3 sm:px-4 flex items-baseline gap-3">
-            <span class="font-serif text-taupe text-sm w-6 shrink-0">01</span>
-            <span class="min-w-0 flex-1"><span class="block text-[13.5px] sm:text-sm leading-snug text-ink dark:text-ivory" data-en="Adoor-Kannamkode St. Thomas Orthodox Cathedral" data-ml="അടൂർ-കണ്ണംകോട് മാർ തോമ ഓർത്തഡോക്സ് ഭദ്രാസനപള്ളി">Adoor-Kannamkode St. Thomas Orthodox Cathedral</span></span>
-          </div>
-          <div class="tcell border-b border-r border-line dark:border-white/10 px-3.5 py-3 sm:px-4 flex items-baseline gap-3">
-            <span class="font-serif text-taupe text-sm w-6 shrink-0">02</span>
-            <span class="min-w-0 flex-1"><span class="block text-[13.5px] sm:text-sm leading-snug text-ink dark:text-ivory" data-en="Kadampanad St. Thomas Orthodox Cathedral &amp; Historic Thomasine Pilgrim Centre" data-ml="കടമ്പനാട് മാർ തോമ ഓർത്തഡോക്സ് ഭദ്രാസനപള്ളി &amp; ചരിത്രപ്രസിദ്ധ തോമാശ്ലീഹാ തീർഥാടന കേന്ദ്രം">Kadampanad St. Thomas Orthodox Cathedral &amp; Historic Thomasine Pilgrim Centre</span></span>
-          </div>
+<section class="px-5 sm:px-8 pb-16 sm:pb-24 max-w-4xl mx-auto">
+  <h2 class="font-serif font-normal text-2xl sm:text-[32px] text-ink dark:text-ivory mb-2" data-en="Schismatic-Occupied Cathedrals" data-ml="വിഘടിത അധിനിവേശ ഭദ്രാസനപള്ളികൾ">Schismatic-Occupied Cathedrals</h2>
+  <p class="text-[15px] text-body/75 dark:text-ivory/60 leading-[1.8] mb-8 sm:mb-10" data-en="Grouped by diocese — not included in the totals above." data-ml="ഭദ്രാസനം അനുസരിച്ച് തരംതിരിച്ചിരിക്കുന്നു — മുകളിലുള്ള ആകെത്തുകകളിൽ ഉൾപ്പെടുത്തിയിട്ടില്ല.">Grouped by diocese &mdash; not included in the totals above.</p>
+
+  <div class="mb-10 sm:mb-12">
+    <a href="/angamaly" class="flex items-center gap-2.5 mb-3 group">
+      <span class="w-2.5 h-2.5 rounded-full shrink-0" style="background:#31a373"></span>
+      <h3 class="font-serif text-lg sm:text-xl text-ink dark:text-ivory group-hover:text-sage-dark dark:group-hover:text-sage transition-colors" data-en="Angamaly" data-ml="അങ്കമാലി">Angamaly</h3>
+      <span class="font-sans text-[12px] text-muted">(2)</span>
+    </a>
+    <div class="flex flex-col">
+            <div class="flex items-baseline gap-3 py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
+          <span class="flex-1 min-w-0 text-[14.5px] text-body/90 dark:text-ivory/80" data-en="Kothamangalam St. Mary&#x27;s Orthodox Cathedral" data-ml="കോതമംഗലം മർത്തമറിയം ഓർത്തഡോക്സ് ഭദ്രാസനപള്ളി">Kothamangalam St. Mary&#x27;s Orthodox Cathedral</span>
+          <span class="font-serif text-taupe text-[12px] shrink-0" data-en="India" data-ml="ഭാരതം">India</span>
         </div>
-      </div>
-    </details>
-    <details class="tdio group border-b border-line dark:border-white/10" id="d-main-ahmedabad">
-      <summary class="flex items-center gap-3 px-1 sm:px-2 py-3.5 sm:py-4 cursor-pointer select-none hover:bg-featured/70 dark:hover:bg-white/[0.03] transition-colors">
-        <span class="w-2.5 h-2.5 rounded-full shrink-0 border border-ink/10 dark:border-ivory/20" style="background:#0a6e71"></span>
-        <span class="min-w-0 flex-1">
-          <span class="block font-serif text-base sm:text-lg text-ink dark:text-ivory leading-snug" data-en="Ahmedabad" data-ml="അഹമ്മദാബാദ്">Ahmedabad</span>
-          <span class="block text-[11.5px] text-muted mt-0.5" data-en="India" data-ml="ഭാരതം">India</span>
-        </span>
-        <span class="tcount font-serif text-sm text-taupe tabular-nums" data-n="1">1</span>
-        <svg class="w-4 h-4 shrink-0 text-muted transition-transform duration-200 group-open:rotate-180" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="m5 8 5 5 5-5"/></svg>
-      </summary>
-      <div class="pb-5 sm:pb-6">
-        <div class="px-1 sm:px-2 pb-3"><a href="/ahmedabad" class="font-serif text-[13px] text-sage-dark dark:text-sage hover:underline underline-offset-4 decoration-sage/40" data-en="View diocese" data-ml="ഭദ്രാസനം കാണുക">View diocese</a></div>
-        <div class="tgrid grid grid-cols-1 sm:grid-cols-2 border-l border-t border-line dark:border-white/10">
-          <div class="tcell border-b border-r border-line dark:border-white/10 px-3.5 py-3 sm:px-4 flex items-baseline gap-3">
-            <span class="font-serif text-taupe text-sm w-6 shrink-0">01</span>
-            <span class="min-w-0 flex-1"><span class="block text-[13.5px] sm:text-sm leading-snug text-ink dark:text-ivory" data-en="Ahmedabad St. Mary&#x27;s Malankara Orthodox Cathedral (Behrampura)" data-ml="അഹമ്മദാബാദ് മർത്തമറിയം മലങ്കര ഓർത്തഡോക്സ് ഭദ്രാസനപള്ളി (ബെഹ്രാംപുര)">Ahmedabad St. Mary&#x27;s Malankara Orthodox Cathedral (Behrampura)</span></span>
-          </div>
+      <div class="flex items-baseline gap-3 py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
+          <span class="flex-1 min-w-0 text-[14.5px] text-body/90 dark:text-ivory/80" data-en="Kuruppampady St. Mary&#x27;s Orthodox Cathedral" data-ml="കുറുപ്പംപടി മർത്തമറിയം ഓർത്തഡോക്സ് ഭദ്രാസനപള്ളി">Kuruppampady St. Mary&#x27;s Orthodox Cathedral</span>
+          <span class="font-serif text-taupe text-[12px] shrink-0" data-en="India" data-ml="ഭാരതം">India</span>
         </div>
-      </div>
-    </details>
-    <details class="tdio group border-b border-line dark:border-white/10" id="d-main-angamaly">
-      <summary class="flex items-center gap-3 px-1 sm:px-2 py-3.5 sm:py-4 cursor-pointer select-none hover:bg-featured/70 dark:hover:bg-white/[0.03] transition-colors">
-        <span class="w-2.5 h-2.5 rounded-full shrink-0 border border-ink/10 dark:border-ivory/20" style="background:#31a373"></span>
-        <span class="min-w-0 flex-1">
-          <span class="block font-serif text-base sm:text-lg text-ink dark:text-ivory leading-snug" data-en="Angamaly" data-ml="അങ്കമാലി">Angamaly</span>
-          <span class="block text-[11.5px] text-muted mt-0.5" data-en="India" data-ml="ഭാരതം">India</span>
-        </span>
-        <span class="tcount font-serif text-sm text-taupe tabular-nums" data-n="2">2</span>
-        <svg class="w-4 h-4 shrink-0 text-muted transition-transform duration-200 group-open:rotate-180" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="m5 8 5 5 5-5"/></svg>
-      </summary>
-      <div class="pb-5 sm:pb-6">
-        <div class="px-1 sm:px-2 pb-3"><a href="/angamaly" class="font-serif text-[13px] text-sage-dark dark:text-sage hover:underline underline-offset-4 decoration-sage/40" data-en="View diocese" data-ml="ഭദ്രാസനം കാണുക">View diocese</a></div>
-        <div class="tgrid grid grid-cols-1 sm:grid-cols-2 border-l border-t border-line dark:border-white/10">
-          <div class="tcell border-b border-r border-line dark:border-white/10 px-3.5 py-3 sm:px-4 flex items-baseline gap-3">
-            <span class="font-serif text-taupe text-sm w-6 shrink-0">01</span>
-            <span class="min-w-0 flex-1"><span class="block text-[13.5px] sm:text-sm leading-snug text-ink dark:text-ivory" data-en="Kunnakkurudy St. George Orthodox Cathedral" data-ml="കുന്നക്കുരുടി മാർ ഗീവറുഗീസ് സഹദാ ഓർത്തഡോക്സ് ഭദ്രാസനപള്ളി">Kunnakkurudy St. George Orthodox Cathedral</span></span>
-          </div>
-          <div class="tcell border-b border-r border-line dark:border-white/10 px-3.5 py-3 sm:px-4 flex items-baseline gap-3">
-            <span class="font-serif text-taupe text-sm w-6 shrink-0">02</span>
-            <span class="min-w-0 flex-1"><span class="block text-[13.5px] sm:text-sm leading-snug text-ink dark:text-ivory" data-en="Perumbavoor Bethel Suloqo Orthodox Cathedral" data-ml="പെരുമ്പാവൂർ ബഥേൽ സൂലോക്കോ ഓർത്തഡോക്സ് ഭദ്രാസനപള്ളി">Perumbavoor Bethel Suloqo Orthodox Cathedral</span></span>
-          </div>
+    </div>
+  </div>
+
+  <div class="mb-10 sm:mb-12">
+    <a href="/kottayam" class="flex items-center gap-2.5 mb-3 group">
+      <span class="w-2.5 h-2.5 rounded-full shrink-0" style="background:#b98fde"></span>
+      <h3 class="font-serif text-lg sm:text-xl text-ink dark:text-ivory group-hover:text-sage-dark dark:group-hover:text-sage transition-colors" data-en="Kottayam" data-ml="കോട്ടയം">Kottayam</h3>
+      <span class="font-sans text-[12px] text-muted">(2)</span>
+    </a>
+    <div class="flex flex-col">
+            <div class="flex items-baseline gap-3 py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
+          <span class="flex-1 min-w-0 text-[14.5px] text-body/90 dark:text-ivory/80" data-en="Kottayam St. Joseph Orthodox Cathedral" data-ml="കോട്ടയം മാർ യൗസേപ്പ് ഓർത്തഡോക്സ് ഭദ്രാസനപള്ളി">Kottayam St. Joseph Orthodox Cathedral</span>
+          <span class="font-serif text-taupe text-[12px] shrink-0" data-en="India" data-ml="ഭാരതം">India</span>
         </div>
-      </div>
-    </details>
-    <details class="tdio group border-b border-line dark:border-white/10" id="d-main-asia-pacific">
-      <summary class="flex items-center gap-3 px-1 sm:px-2 py-3.5 sm:py-4 cursor-pointer select-none hover:bg-featured/70 dark:hover:bg-white/[0.03] transition-colors">
-        <span class="w-2.5 h-2.5 rounded-full shrink-0 border border-ink/10 dark:border-ivory/20" style="background:#3f72be"></span>
-        <span class="min-w-0 flex-1">
-          <span class="block font-serif text-base sm:text-lg text-ink dark:text-ivory leading-snug" data-en="Asia-Pacific" data-ml="ഏഷ്യ-പസഫിക്">Asia-Pacific</span>
-          <span class="block text-[11.5px] text-muted mt-0.5" data-en="Malaysia, Australia, Singapore" data-ml="മലേഷ്യ, ഓസ്ട്രേലിയ, സിംഗപ്പൂർ">Malaysia, Australia, Singapore</span>
-        </span>
-        <span class="tcount font-serif text-sm text-taupe tabular-nums" data-n="4">4</span>
-        <svg class="w-4 h-4 shrink-0 text-muted transition-transform duration-200 group-open:rotate-180" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="m5 8 5 5 5-5"/></svg>
-      </summary>
-      <div class="pb-5 sm:pb-6">
-        <div class="px-1 sm:px-2 pb-3"><a href="/asia-pacific" class="font-serif text-[13px] text-sage-dark dark:text-sage hover:underline underline-offset-4 decoration-sage/40" data-en="View diocese" data-ml="ഭദ്രാസനം കാണുക">View diocese</a></div>
-        <div class="tgrid grid grid-cols-1 sm:grid-cols-2 border-l border-t border-line dark:border-white/10">
-          <div class="tcell border-b border-r border-line dark:border-white/10 px-3.5 py-3 sm:px-4 flex items-baseline gap-3">
-            <span class="font-serif text-taupe text-sm w-6 shrink-0">01</span>
-            <span class="min-w-0 flex-1"><span class="block text-[13.5px] sm:text-sm leading-snug text-ink dark:text-ivory" data-en="Kuala Lumpur St. Mary&#x27;s Indian Orthodox Cathedral (Brickfields)" data-ml="ക്വാലാലംപൂർ മർത്തമറിയം ഭാരതീയ ഓർത്തഡോക്സ് ഭദ്രാസനപള്ളി (ബ്രിക്ക്ഫീൽഡ്സ്)">Kuala Lumpur St. Mary&#x27;s Indian Orthodox Cathedral (Brickfields)</span><span class="block text-[11px] text-muted mt-0.5" data-en="Malaysia" data-ml="മലേഷ്യ">Malaysia</span></span>
-          </div>
-          <div class="tcell border-b border-r border-line dark:border-white/10 px-3.5 py-3 sm:px-4 flex items-baseline gap-3">
-            <span class="font-serif text-taupe text-sm w-6 shrink-0">02</span>
-            <span class="min-w-0 flex-1"><span class="block text-[13.5px] sm:text-sm leading-snug text-ink dark:text-ivory" data-en="Melbourne St. Mary&#x27;s Indian Orthodox Cathedral" data-ml="മെൽബൺ മർത്തമറിയം ഭാരതീയ ഓർത്തഡോക്സ് ഭദ്രാസനപള്ളി">Melbourne St. Mary&#x27;s Indian Orthodox Cathedral</span><span class="block text-[11px] text-muted mt-0.5" data-en="Australia" data-ml="ഓസ്ട്രേലിയ">Australia</span></span>
-          </div>
-          <div class="tcell border-b border-r border-line dark:border-white/10 px-3.5 py-3 sm:px-4 flex items-baseline gap-3">
-            <span class="font-serif text-taupe text-sm w-6 shrink-0">03</span>
-            <span class="min-w-0 flex-1"><span class="block text-[13.5px] sm:text-sm leading-snug text-ink dark:text-ivory" data-en="Singapore St. Thomas Indian Orthodox Cathedral" data-ml="സിംഗപ്പൂർ മാർ തോമ ഭാരതീയ ഓർത്തഡോക്സ് ഭദ്രാസനപള്ളി">Singapore St. Thomas Indian Orthodox Cathedral</span><span class="block text-[11px] text-muted mt-0.5" data-en="Singapore" data-ml="സിംഗപ്പൂർ">Singapore</span></span>
-          </div>
-          <div class="tcell border-b border-r border-line dark:border-white/10 px-3.5 py-3 sm:px-4 flex items-baseline gap-3">
-            <span class="font-serif text-taupe text-sm w-6 shrink-0">04</span>
-            <span class="min-w-0 flex-1"><span class="block text-[13.5px] sm:text-sm leading-snug text-ink dark:text-ivory" data-en="Sydney St. Thomas Indian Orthodox Cathedral" data-ml="സിഡ്‌നി മാർ തോമ ഭാരതീയ ഓർത്തഡോക്സ് ഭദ്രാസനപള്ളി">Sydney St. Thomas Indian Orthodox Cathedral</span><span class="block text-[11px] text-muted mt-0.5" data-en="Australia" data-ml="ഓസ്ട്രേലിയ">Australia</span></span>
-          </div>
+      <div class="flex items-baseline gap-3 py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
+          <span class="flex-1 min-w-0 text-[14.5px] text-body/90 dark:text-ivory/80" data-en="Manarcad St. Mary&#x27;s Orthodox Cathedral" data-ml="മണർകാട് മർത്തമറിയം ഓർത്തഡോക്സ് ഭദ്രാസനപള്ളി">Manarcad St. Mary&#x27;s Orthodox Cathedral</span>
+          <span class="font-serif text-taupe text-[12px] shrink-0" data-en="India" data-ml="ഭാരതം">India</span>
         </div>
-      </div>
-    </details>
-    <details class="tdio group border-b border-line dark:border-white/10" id="d-main-bangalore">
-      <summary class="flex items-center gap-3 px-1 sm:px-2 py-3.5 sm:py-4 cursor-pointer select-none hover:bg-featured/70 dark:hover:bg-white/[0.03] transition-colors">
-        <span class="w-2.5 h-2.5 rounded-full shrink-0 border border-ink/10 dark:border-ivory/20" style="background:#415d09"></span>
-        <span class="min-w-0 flex-1">
-          <span class="block font-serif text-base sm:text-lg text-ink dark:text-ivory leading-snug" data-en="Bangalore" data-ml="ബാംഗ്ലൂർ">Bangalore</span>
-          <span class="block text-[11.5px] text-muted mt-0.5" data-en="India" data-ml="ഭാരതം">India</span>
-        </span>
-        <span class="tcount font-serif text-sm text-taupe tabular-nums" data-n="2">2</span>
-        <svg class="w-4 h-4 shrink-0 text-muted transition-transform duration-200 group-open:rotate-180" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="m5 8 5 5 5-5"/></svg>
-      </summary>
-      <div class="pb-5 sm:pb-6">
-        <div class="px-1 sm:px-2 pb-3"><a href="/bangalore" class="font-serif text-[13px] text-sage-dark dark:text-sage hover:underline underline-offset-4 decoration-sage/40" data-en="View diocese" data-ml="ഭദ്രാസനം കാണുക">View diocese</a></div>
-        <div class="tgrid grid grid-cols-1 sm:grid-cols-2 border-l border-t border-line dark:border-white/10">
-          <div class="tcell border-b border-r border-line dark:border-white/10 px-3.5 py-3 sm:px-4 flex items-baseline gap-3">
-            <span class="font-serif text-taupe text-sm w-6 shrink-0">01</span>
-            <span class="min-w-0 flex-1"><span class="block text-[13.5px] sm:text-sm leading-snug text-ink dark:text-ivory" data-en="Bangalore St. Gregorios Malankara Orthodox Cathedral" data-ml="ബാംഗ്ലൂർ മാർ ഗ്രീഗോറിയോസ് മലങ്കര ഓർത്തഡോക്സ് ഭദ്രാസനപള്ളി">Bangalore St. Gregorios Malankara Orthodox Cathedral</span></span>
-          </div>
-          <div class="tcell border-b border-r border-line dark:border-white/10 px-3.5 py-3 sm:px-4 flex items-baseline gap-3">
-            <span class="font-serif text-taupe text-sm w-6 shrink-0">02</span>
-            <span class="min-w-0 flex-1"><span class="block text-[13.5px] sm:text-sm leading-snug text-ink dark:text-ivory" data-en="Hyderabad St. Gregorios Malankara Orthodox Cathedral" data-ml="ഹൈദരാബാദ് മാർ ഗ്രീഗോറിയോസ് മലങ്കര ഓർത്തഡോക്സ് ഭദ്രാസനപള്ളി">Hyderabad St. Gregorios Malankara Orthodox Cathedral</span></span>
-          </div>
-        </div>
-      </div>
-    </details>
-    <details class="tdio group border-b border-line dark:border-white/10" id="d-main-bombay">
-      <summary class="flex items-center gap-3 px-1 sm:px-2 py-3.5 sm:py-4 cursor-pointer select-none hover:bg-featured/70 dark:hover:bg-white/[0.03] transition-colors">
-        <span class="w-2.5 h-2.5 rounded-full shrink-0 border border-ink/10 dark:border-ivory/20" style="background:#764561"></span>
-        <span class="min-w-0 flex-1">
-          <span class="block font-serif text-base sm:text-lg text-ink dark:text-ivory leading-snug" data-en="Bombay" data-ml="മുംബൈ">Bombay</span>
-          <span class="block text-[11.5px] text-muted mt-0.5" data-en="Bahrain, India" data-ml="ബഹ്‌റൈൻ, ഭാരതം">Bahrain, India</span>
-        </span>
-        <span class="tcount font-serif text-sm text-taupe tabular-nums" data-n="2">2</span>
-        <svg class="w-4 h-4 shrink-0 text-muted transition-transform duration-200 group-open:rotate-180" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="m5 8 5 5 5-5"/></svg>
-      </summary>
-      <div class="pb-5 sm:pb-6">
-        <div class="px-1 sm:px-2 pb-3"><a href="/bombay" class="font-serif text-[13px] text-sage-dark dark:text-sage hover:underline underline-offset-4 decoration-sage/40" data-en="View diocese" data-ml="ഭദ്രാസനം കാണുക">View diocese</a></div>
-        <div class="tgrid grid grid-cols-1 sm:grid-cols-2 border-l border-t border-line dark:border-white/10">
-          <div class="tcell border-b border-r border-line dark:border-white/10 px-3.5 py-3 sm:px-4 flex items-baseline gap-3">
-            <span class="font-serif text-taupe text-sm w-6 shrink-0">01</span>
-            <span class="min-w-0 flex-1"><span class="block text-[13.5px] sm:text-sm leading-snug text-ink dark:text-ivory" data-en="Bahrain-Manama St. Mary&#x27;s Indian Orthodox Cathedral" data-ml="ബഹ്‌റൈൻ-മനാമ മർത്തമറിയം ഭാരതീയ ഓർത്തഡോക്സ് ഭദ്രാസനപള്ളി">Bahrain-Manama St. Mary&#x27;s Indian Orthodox Cathedral</span><span class="block text-[11px] text-muted mt-0.5" data-en="Bahrain" data-ml="ബഹ്‌റൈൻ">Bahrain</span></span>
-          </div>
-          <div class="tcell border-b border-r border-line dark:border-white/10 px-3.5 py-3 sm:px-4 flex items-baseline gap-3">
-            <span class="font-serif text-taupe text-sm w-6 shrink-0">02</span>
-            <span class="min-w-0 flex-1"><span class="block text-[13.5px] sm:text-sm leading-snug text-ink dark:text-ivory" data-en="Mumbai-Dadar St. Mary&#x27;s Malankara Orthodox Cathedral" data-ml="മുംബൈ-ദാദർ മർത്തമറിയം മലങ്കര ഓർത്തഡോക്സ് ഭദ്രാസനപള്ളി">Mumbai-Dadar St. Mary&#x27;s Malankara Orthodox Cathedral</span><span class="block text-[11px] text-muted mt-0.5" data-en="India" data-ml="ഭാരതം">India</span></span>
-          </div>
-        </div>
-      </div>
-    </details>
-    <details class="tdio group border-b border-line dark:border-white/10" id="d-main-brahmavar">
-      <summary class="flex items-center gap-3 px-1 sm:px-2 py-3.5 sm:py-4 cursor-pointer select-none hover:bg-featured/70 dark:hover:bg-white/[0.03] transition-colors">
-        <span class="w-2.5 h-2.5 rounded-full shrink-0 border border-ink/10 dark:border-ivory/20" style="background:#5b4992"></span>
-        <span class="min-w-0 flex-1">
-          <span class="block font-serif text-base sm:text-lg text-ink dark:text-ivory leading-snug" data-en="Brahmavar" data-ml="ബ്രഹ്മവാർ">Brahmavar</span>
-          <span class="block text-[11.5px] text-muted mt-0.5" data-en="United Arab Emirates, India" data-ml="യുണൈറ്റഡ് അറബ് എമിറേറ്റ്സ്, ഭാരതം">United Arab Emirates, India</span>
-        </span>
-        <span class="tcount font-serif text-sm text-taupe tabular-nums" data-n="2">2</span>
-        <svg class="w-4 h-4 shrink-0 text-muted transition-transform duration-200 group-open:rotate-180" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="m5 8 5 5 5-5"/></svg>
-      </summary>
-      <div class="pb-5 sm:pb-6">
-        <div class="px-1 sm:px-2 pb-3"><a href="/brahmavar" class="font-serif text-[13px] text-sage-dark dark:text-sage hover:underline underline-offset-4 decoration-sage/40" data-en="View diocese" data-ml="ഭദ്രാസനം കാണുക">View diocese</a></div>
-        <div class="tgrid grid grid-cols-1 sm:grid-cols-2 border-l border-t border-line dark:border-white/10">
-          <div class="tcell border-b border-r border-line dark:border-white/10 px-3.5 py-3 sm:px-4 flex items-baseline gap-3">
-            <span class="font-serif text-taupe text-sm w-6 shrink-0">01</span>
-            <span class="min-w-0 flex-1"><span class="block text-[13.5px] sm:text-sm leading-snug text-ink dark:text-ivory" data-en="Abu Dhabi St. George Indian Orthodox Cathedral" data-ml="അബുദാബി മാർ ഗീവറുഗീസ് സഹദാ ഭാരതീയ ഓർത്തഡോക്സ് ഭദ്രാസനപള്ളി">Abu Dhabi St. George Indian Orthodox Cathedral</span><span class="block text-[11px] text-muted mt-0.5" data-en="United Arab Emirates" data-ml="യുണൈറ്റഡ് അറബ് എമിറേറ്റ്സ്">United Arab Emirates</span></span>
-          </div>
-          <div class="tcell border-b border-r border-line dark:border-white/10 px-3.5 py-3 sm:px-4 flex items-baseline gap-3">
-            <span class="font-serif text-taupe text-sm w-6 shrink-0">02</span>
-            <span class="min-w-0 flex-1"><span class="block text-[13.5px] sm:text-sm leading-snug text-ink dark:text-ivory" data-en="Brahmavar St. Mary&#x27;s Konkani Orthodox Cathedral" data-ml="ബ്രഹ്മവാർ മർത്തമറിയം കൊങ്കണി ഓർത്തഡോക്സ് ഭദ്രാസനപള്ളി">Brahmavar St. Mary&#x27;s Konkani Orthodox Cathedral</span><span class="block text-[11px] text-muted mt-0.5" data-en="India" data-ml="ഭാരതം">India</span></span>
-          </div>
-        </div>
-      </div>
-    </details>
-    <details class="tdio group border-b border-line dark:border-white/10" id="d-main-calcutta">
-      <summary class="flex items-center gap-3 px-1 sm:px-2 py-3.5 sm:py-4 cursor-pointer select-none hover:bg-featured/70 dark:hover:bg-white/[0.03] transition-colors">
-        <span class="w-2.5 h-2.5 rounded-full shrink-0 border border-ink/10 dark:border-ivory/20" style="background:#714f00"></span>
-        <span class="min-w-0 flex-1">
-          <span class="block font-serif text-base sm:text-lg text-ink dark:text-ivory leading-snug" data-en="Calcutta" data-ml="കൽക്കട്ട">Calcutta</span>
-          <span class="block text-[11.5px] text-muted mt-0.5" data-en="India" data-ml="ഭാരതം">India</span>
-        </span>
-        <span class="tcount font-serif text-sm text-taupe tabular-nums" data-n="4">4</span>
-        <svg class="w-4 h-4 shrink-0 text-muted transition-transform duration-200 group-open:rotate-180" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="m5 8 5 5 5-5"/></svg>
-      </summary>
-      <div class="pb-5 sm:pb-6">
-        <div class="px-1 sm:px-2 pb-3"><a href="/calcutta" class="font-serif text-[13px] text-sage-dark dark:text-sage hover:underline underline-offset-4 decoration-sage/40" data-en="View diocese" data-ml="ഭദ്രാസനം കാണുക">View diocese</a></div>
-        <div class="tgrid grid grid-cols-1 sm:grid-cols-2 border-l border-t border-line dark:border-white/10">
-          <div class="tcell border-b border-r border-line dark:border-white/10 px-3.5 py-3 sm:px-4 flex items-baseline gap-3">
-            <span class="font-serif text-taupe text-sm w-6 shrink-0">01</span>
-            <span class="min-w-0 flex-1"><span class="block text-[13.5px] sm:text-sm leading-snug text-ink dark:text-ivory" data-en="Bhilai St. Gregorios Malankara Orthodox Cathedral" data-ml="ഭിലായ് മാർ ഗ്രീഗോറിയോസ് മലങ്കര ഓർത്തഡോക്സ് ഭദ്രാസനപള്ളി">Bhilai St. Gregorios Malankara Orthodox Cathedral</span></span>
-          </div>
-          <div class="tcell border-b border-r border-line dark:border-white/10 px-3.5 py-3 sm:px-4 flex items-baseline gap-3">
-            <span class="font-serif text-taupe text-sm w-6 shrink-0">02</span>
-            <span class="min-w-0 flex-1"><span class="block text-[13.5px] sm:text-sm leading-snug text-ink dark:text-ivory" data-en="Bhopal St. Thomas Malankara Orthodox Cathedral" data-ml="ഭോപ്പാൽ മാർ തോമ മലങ്കര ഓർത്തഡോക്സ് ഭദ്രാസനപള്ളി">Bhopal St. Thomas Malankara Orthodox Cathedral</span></span>
-          </div>
-          <div class="tcell border-b border-r border-line dark:border-white/10 px-3.5 py-3 sm:px-4 flex items-baseline gap-3">
-            <span class="font-serif text-taupe text-sm w-6 shrink-0">03</span>
-            <span class="min-w-0 flex-1"><span class="block text-[13.5px] sm:text-sm leading-snug text-ink dark:text-ivory" data-en="Kolkata St. Thomas Malankara Orthodox Cathedral" data-ml="കൊൽക്കത്ത മാർ തോമ മലങ്കര ഓർത്തഡോക്സ് ഭദ്രാസനപള്ളി">Kolkata St. Thomas Malankara Orthodox Cathedral</span></span>
-          </div>
-          <div class="tcell border-b border-r border-line dark:border-white/10 px-3.5 py-3 sm:px-4 flex items-baseline gap-3">
-            <span class="font-serif text-taupe text-sm w-6 shrink-0">04</span>
-            <span class="min-w-0 flex-1"><span class="block text-[13.5px] sm:text-sm leading-snug text-ink dark:text-ivory" data-en="Nagpur St. George Malankara Orthodox Cathedral" data-ml="നാഗ്പൂർ മാർ ഗീവറുഗീസ് സഹദാ മലങ്കര ഓർത്തഡോക്സ് ഭദ്രാസനപള്ളി">Nagpur St. George Malankara Orthodox Cathedral</span></span>
-          </div>
-        </div>
-      </div>
-    </details>
-    <details class="tdio group border-b border-line dark:border-white/10" id="d-main-chengannur">
-      <summary class="flex items-center gap-3 px-1 sm:px-2 py-3.5 sm:py-4 cursor-pointer select-none hover:bg-featured/70 dark:hover:bg-white/[0.03] transition-colors">
-        <span class="w-2.5 h-2.5 rounded-full shrink-0 border border-ink/10 dark:border-ivory/20" style="background:#82ad5d"></span>
-        <span class="min-w-0 flex-1">
-          <span class="block font-serif text-base sm:text-lg text-ink dark:text-ivory leading-snug" data-en="Chengannur" data-ml="ചെങ്ങന്നൂർ">Chengannur</span>
-          <span class="block text-[11.5px] text-muted mt-0.5" data-en="India" data-ml="ഭാരതം">India</span>
-        </span>
-        <span class="tcount font-serif text-sm text-taupe tabular-nums" data-n="3">3</span>
-        <svg class="w-4 h-4 shrink-0 text-muted transition-transform duration-200 group-open:rotate-180" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="m5 8 5 5 5-5"/></svg>
-      </summary>
-      <div class="pb-5 sm:pb-6">
-        <div class="px-1 sm:px-2 pb-3"><a href="/chengannur" class="font-serif text-[13px] text-sage-dark dark:text-sage hover:underline underline-offset-4 decoration-sage/40" data-en="View diocese" data-ml="ഭദ്രാസനം കാണുക">View diocese</a></div>
-        <div class="tgrid grid grid-cols-1 sm:grid-cols-2 border-l border-t border-line dark:border-white/10">
-          <div class="tcell border-b border-r border-line dark:border-white/10 px-3.5 py-3 sm:px-4 flex items-baseline gap-3">
-            <span class="font-serif text-taupe text-sm w-6 shrink-0">01</span>
-            <span class="min-w-0 flex-1"><span class="block text-[13.5px] sm:text-sm leading-snug text-ink dark:text-ivory" data-en="Chengannur St. Ignatius Orthodox Cathedral" data-ml="ചെങ്ങന്നൂർ മാർ ഇഗ്നാത്തിയോസ് ഓർത്തഡോക്സ് ഭദ്രാസനപള്ളി">Chengannur St. Ignatius Orthodox Cathedral</span></span>
-          </div>
-          <div class="tcell border-b border-r border-line dark:border-white/10 px-3.5 py-3 sm:px-4 flex items-baseline gap-3">
-            <span class="font-serif text-taupe text-sm w-6 shrink-0">02</span>
-            <span class="min-w-0 flex-1"><span class="block text-[13.5px] sm:text-sm leading-snug text-ink dark:text-ivory" data-en="Kudassanad St. Stephen&#x27;s Orthodox Cathedral" data-ml="കുടശ്ശനാട് മാർ സ്തേഫാനോസ് സഹദാ ഓർത്തഡോക്സ് ഭദ്രാസനപള്ളി">Kudassanad St. Stephen&#x27;s Orthodox Cathedral</span></span>
-          </div>
-          <div class="tcell border-b border-r border-line dark:border-white/10 px-3.5 py-3 sm:px-4 flex items-baseline gap-3">
-            <span class="font-serif text-taupe text-sm w-6 shrink-0">03</span>
-            <span class="min-w-0 flex-1"><span class="block text-[13.5px] sm:text-sm leading-snug text-ink dark:text-ivory" data-en="Puthencavu St. Mary&#x27;s Orthodox Cathedral" data-ml="പുത്തൻകാവ് മർത്തമറിയം ഓർത്തഡോക്സ് ഭദ്രാസനപള്ളി">Puthencavu St. Mary&#x27;s Orthodox Cathedral</span></span>
-          </div>
-        </div>
-      </div>
-    </details>
-    <details class="tdio group border-b border-line dark:border-white/10" id="d-main-delhi">
-      <summary class="flex items-center gap-3 px-1 sm:px-2 py-3.5 sm:py-4 cursor-pointer select-none hover:bg-featured/70 dark:hover:bg-white/[0.03] transition-colors">
-        <span class="w-2.5 h-2.5 rounded-full shrink-0 border border-ink/10 dark:border-ivory/20" style="background:#be817f"></span>
-        <span class="min-w-0 flex-1">
-          <span class="block font-serif text-base sm:text-lg text-ink dark:text-ivory leading-snug" data-en="Delhi" data-ml="ഡൽഹി">Delhi</span>
-          <span class="block text-[11.5px] text-muted mt-0.5" data-en="United Arab Emirates, India" data-ml="യുണൈറ്റഡ് അറബ് എമിറേറ്റ്സ്, ഭാരതം">United Arab Emirates, India</span>
-        </span>
-        <span class="tcount font-serif text-sm text-taupe tabular-nums" data-n="2">2</span>
-        <svg class="w-4 h-4 shrink-0 text-muted transition-transform duration-200 group-open:rotate-180" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="m5 8 5 5 5-5"/></svg>
-      </summary>
-      <div class="pb-5 sm:pb-6">
-        <div class="px-1 sm:px-2 pb-3"><a href="/delhi" class="font-serif text-[13px] text-sage-dark dark:text-sage hover:underline underline-offset-4 decoration-sage/40" data-en="View diocese" data-ml="ഭദ്രാസനം കാണുക">View diocese</a></div>
-        <div class="tgrid grid grid-cols-1 sm:grid-cols-2 border-l border-t border-line dark:border-white/10">
-          <div class="tcell border-b border-r border-line dark:border-white/10 px-3.5 py-3 sm:px-4 flex items-baseline gap-3">
-            <span class="font-serif text-taupe text-sm w-6 shrink-0">01</span>
-            <span class="min-w-0 flex-1"><span class="block text-[13.5px] sm:text-sm leading-snug text-ink dark:text-ivory" data-en="Dubai St. Thomas Malankara Orthodox Cathedral (Oud Metha)" data-ml="ദുബായ് മാർ തോമ മലങ്കര ഓർത്തഡോക്സ് ഭദ്രാസനപള്ളി (ഊദ് മേത്ത)">Dubai St. Thomas Malankara Orthodox Cathedral (Oud Metha)</span><span class="block text-[11px] text-muted mt-0.5" data-en="United Arab Emirates" data-ml="യുണൈറ്റഡ് അറബ് എമിറേറ്റ്സ്">United Arab Emirates</span></span>
-          </div>
-          <div class="tcell border-b border-r border-line dark:border-white/10 px-3.5 py-3 sm:px-4 flex items-baseline gap-3">
-            <span class="font-serif text-taupe text-sm w-6 shrink-0">02</span>
-            <span class="min-w-0 flex-1"><span class="block text-[13.5px] sm:text-sm leading-snug text-ink dark:text-ivory" data-en="New Delhi-Hauz Khas St. Mary&#x27;s Malankara Orthodox Cathedral" data-ml="ന്യൂ ഡൽഹി-ഹൗസ് ഖാസ് മർത്തമറിയം മലങ്കര ഓർത്തഡോക്സ് ഭദ്രാസനപള്ളി">New Delhi-Hauz Khas St. Mary&#x27;s Malankara Orthodox Cathedral</span><span class="block text-[11px] text-muted mt-0.5" data-en="India" data-ml="ഭാരതം">India</span></span>
-          </div>
-        </div>
-      </div>
-    </details>
-    <details class="tdio group border-b border-line dark:border-white/10" id="d-main-idukki">
-      <summary class="flex items-center gap-3 px-1 sm:px-2 py-3.5 sm:py-4 cursor-pointer select-none hover:bg-featured/70 dark:hover:bg-white/[0.03] transition-colors">
-        <span class="w-2.5 h-2.5 rounded-full shrink-0 border border-ink/10 dark:border-ivory/20" style="background:#913060"></span>
-        <span class="min-w-0 flex-1">
-          <span class="block font-serif text-base sm:text-lg text-ink dark:text-ivory leading-snug" data-en="Idukki" data-ml="ഇടുക്കി">Idukki</span>
-          <span class="block text-[11.5px] text-muted mt-0.5" data-en="India" data-ml="ഭാരതം">India</span>
-        </span>
-        <span class="tcount font-serif text-sm text-taupe tabular-nums" data-n="1">1</span>
-        <svg class="w-4 h-4 shrink-0 text-muted transition-transform duration-200 group-open:rotate-180" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="m5 8 5 5 5-5"/></svg>
-      </summary>
-      <div class="pb-5 sm:pb-6">
-        <div class="px-1 sm:px-2 pb-3"><a href="/idukki" class="font-serif text-[13px] text-sage-dark dark:text-sage hover:underline underline-offset-4 decoration-sage/40" data-en="View diocese" data-ml="ഭദ്രാസനം കാണുക">View diocese</a></div>
-        <div class="tgrid grid grid-cols-1 sm:grid-cols-2 border-l border-t border-line dark:border-white/10">
-          <div class="tcell border-b border-r border-line dark:border-white/10 px-3.5 py-3 sm:px-4 flex items-baseline gap-3">
-            <span class="font-serif text-taupe text-sm w-6 shrink-0">01</span>
-            <span class="min-w-0 flex-1"><span class="block text-[13.5px] sm:text-sm leading-snug text-ink dark:text-ivory" data-en="Kungiripetty St. Thomas Orthodox Cathedral" data-ml="കുങ്കിരിപ്പെട്ടി മാർ തോമ ഓർത്തഡോക്സ് ഭദ്രാസനപള്ളി">Kungiripetty St. Thomas Orthodox Cathedral</span></span>
-          </div>
-        </div>
-      </div>
-    </details>
-    <details class="tdio group border-b border-line dark:border-white/10" id="d-main-kandanad-east">
-      <summary class="flex items-center gap-3 px-1 sm:px-2 py-3.5 sm:py-4 cursor-pointer select-none hover:bg-featured/70 dark:hover:bg-white/[0.03] transition-colors">
-        <span class="w-2.5 h-2.5 rounded-full shrink-0 border border-ink/10 dark:border-ivory/20" style="background:#0e5b7b"></span>
-        <span class="min-w-0 flex-1">
-          <span class="block font-serif text-base sm:text-lg text-ink dark:text-ivory leading-snug" data-en="Kandanad East" data-ml="കണ്ടനാട്-ഈസ്റ്റ്">Kandanad East</span>
-          <span class="block text-[11.5px] text-muted mt-0.5" data-en="India" data-ml="ഭാരതം">India</span>
-        </span>
-        <span class="tcount font-serif text-sm text-taupe tabular-nums" data-n="2">2</span>
-        <svg class="w-4 h-4 shrink-0 text-muted transition-transform duration-200 group-open:rotate-180" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="m5 8 5 5 5-5"/></svg>
-      </summary>
-      <div class="pb-5 sm:pb-6">
-        <div class="px-1 sm:px-2 pb-3"><a href="/kandanad-east" class="font-serif text-[13px] text-sage-dark dark:text-sage hover:underline underline-offset-4 decoration-sage/40" data-en="View diocese" data-ml="ഭദ്രാസനം കാണുക">View diocese</a></div>
-        <div class="tgrid grid grid-cols-1 sm:grid-cols-2 border-l border-t border-line dark:border-white/10">
-          <div class="tcell border-b border-r border-line dark:border-white/10 px-3.5 py-3 sm:px-4 flex items-baseline gap-3">
-            <span class="font-serif text-taupe text-sm w-6 shrink-0">01</span>
-            <span class="min-w-0 flex-1"><span class="block text-[13.5px] sm:text-sm leading-snug text-ink dark:text-ivory" data-en="Muvattupuzha St. Thomas Palatial Cathedral" data-ml="മൂവാറ്റുപുഴ മാർ തോമ അരമന ഭദ്രാസനപള്ളി">Muvattupuzha St. Thomas Palatial Cathedral</span></span>
-          </div>
-          <div class="tcell border-b border-r border-line dark:border-white/10 px-3.5 py-3 sm:px-4 flex items-baseline gap-3">
-            <span class="font-serif text-taupe text-sm w-6 shrink-0">02</span>
-            <span class="min-w-0 flex-1"><span class="block text-[13.5px] sm:text-sm leading-snug text-ink dark:text-ivory" data-en="Piravom St. Mary&#x27;s Orthodox Cathedral" data-ml="പിറവം മർത്തമറിയം ഓർത്തഡോക്സ് ഭദ്രാസനപള്ളി">Piravom St. Mary&#x27;s Orthodox Cathedral</span></span>
-          </div>
-        </div>
-      </div>
-    </details>
-    <details class="tdio group border-b border-line dark:border-white/10" id="d-main-kandanad-west">
-      <summary class="flex items-center gap-3 px-1 sm:px-2 py-3.5 sm:py-4 cursor-pointer select-none hover:bg-featured/70 dark:hover:bg-white/[0.03] transition-colors">
-        <span class="w-2.5 h-2.5 rounded-full shrink-0 border border-ink/10 dark:border-ivory/20" style="background:#a7a44e"></span>
-        <span class="min-w-0 flex-1">
-          <span class="block font-serif text-base sm:text-lg text-ink dark:text-ivory leading-snug" data-en="Kandanad West" data-ml="കണ്ടനാട്-വെസ്റ്റ്">Kandanad West</span>
-          <span class="block text-[11.5px] text-muted mt-0.5" data-en="India" data-ml="ഭാരതം">India</span>
-        </span>
-        <span class="tcount font-serif text-sm text-taupe tabular-nums" data-n="2">2</span>
-        <svg class="w-4 h-4 shrink-0 text-muted transition-transform duration-200 group-open:rotate-180" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="m5 8 5 5 5-5"/></svg>
-      </summary>
-      <div class="pb-5 sm:pb-6">
-        <div class="px-1 sm:px-2 pb-3"><a href="/kandanad-west" class="font-serif text-[13px] text-sage-dark dark:text-sage hover:underline underline-offset-4 decoration-sage/40" data-en="View diocese" data-ml="ഭദ്രാസനം കാണുക">View diocese</a></div>
-        <div class="tgrid grid grid-cols-1 sm:grid-cols-2 border-l border-t border-line dark:border-white/10">
-          <div class="tcell border-b border-r border-line dark:border-white/10 px-3.5 py-3 sm:px-4 flex items-baseline gap-3">
-            <span class="font-serif text-taupe text-sm w-6 shrink-0">01</span>
-            <span class="min-w-0 flex-1"><span class="block text-[13.5px] sm:text-sm leading-snug text-ink dark:text-ivory" data-en="Kandanad St. Mary&#x27;s Orthodox Cathedral" data-ml="കണ്ടനാട് മർത്തമറിയം ഓർത്തഡോക്സ് ഭദ്രാസനപള്ളി">Kandanad St. Mary&#x27;s Orthodox Cathedral</span></span>
-          </div>
-          <div class="tcell border-b border-r border-line dark:border-white/10 px-3.5 py-3 sm:px-4 flex items-baseline gap-3">
-            <span class="font-serif text-taupe text-sm w-6 shrink-0">02</span>
-            <span class="min-w-0 flex-1"><span class="block text-[13.5px] sm:text-sm leading-snug text-ink dark:text-ivory" data-en="Mulakulam-Mannookkunnu St. Mary&#x27;s Orthodox Cathedral" data-ml="മുളക്കുളം-മണ്ണൂക്കുന്ന് മർത്തമറിയം ഓർത്തഡോക്സ് ഭദ്രാസനപള്ളി">Mulakulam-Mannookkunnu St. Mary&#x27;s Orthodox Cathedral</span></span>
-          </div>
-        </div>
-      </div>
-    </details>
-    <details class="tdio group border-b border-line dark:border-white/10" id="d-main-kochi">
-      <summary class="flex items-center gap-3 px-1 sm:px-2 py-3.5 sm:py-4 cursor-pointer select-none hover:bg-featured/70 dark:hover:bg-white/[0.03] transition-colors">
-        <span class="w-2.5 h-2.5 rounded-full shrink-0 border border-ink/10 dark:border-ivory/20" style="background:#465b33"></span>
-        <span class="min-w-0 flex-1">
-          <span class="block font-serif text-base sm:text-lg text-ink dark:text-ivory leading-snug" data-en="Kochi" data-ml="കൊച്ചി">Kochi</span>
-          <span class="block text-[11.5px] text-muted mt-0.5" data-en="India" data-ml="ഭാരതം">India</span>
-        </span>
-        <span class="tcount font-serif text-sm text-taupe tabular-nums" data-n="3">3</span>
-        <svg class="w-4 h-4 shrink-0 text-muted transition-transform duration-200 group-open:rotate-180" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="m5 8 5 5 5-5"/></svg>
-      </summary>
-      <div class="pb-5 sm:pb-6">
-        <div class="px-1 sm:px-2 pb-3"><a href="/kochi" class="font-serif text-[13px] text-sage-dark dark:text-sage hover:underline underline-offset-4 decoration-sage/40" data-en="View diocese" data-ml="ഭദ്രാസനം കാണുക">View diocese</a></div>
-        <div class="tgrid grid grid-cols-1 sm:grid-cols-2 border-l border-t border-line dark:border-white/10">
-          <div class="tcell border-b border-r border-line dark:border-white/10 px-3.5 py-3 sm:px-4 flex items-baseline gap-3">
-            <span class="font-serif text-taupe text-sm w-6 shrink-0">01</span>
-            <span class="min-w-0 flex-1"><span class="block text-[13.5px] sm:text-sm leading-snug text-ink dark:text-ivory" data-en="Ernakulam St. Mary&#x27;s Orthodox Cathedral (Marine Drive)" data-ml="എറണാകുളം മർത്തമറിയം ഓർത്തഡോക്സ് ഭദ്രാസനപള്ളി (മറൈൻ ഡ്രൈവ്)">Ernakulam St. Mary&#x27;s Orthodox Cathedral (Marine Drive)</span></span>
-          </div>
-          <div class="tcell border-b border-r border-line dark:border-white/10 px-3.5 py-3 sm:px-4 flex items-baseline gap-3">
-            <span class="font-serif text-taupe text-sm w-6 shrink-0">02</span>
-            <span class="min-w-0 flex-1"><span class="block text-[13.5px] sm:text-sm leading-snug text-ink dark:text-ivory" data-en="Mulanthuruthy St. Thomas Orthodox Cathedral" data-ml="മുളന്തുരുത്തി മാർ തോമ ഓർത്തഡോക്സ് ഭദ്രാസനപള്ളി">Mulanthuruthy St. Thomas Orthodox Cathedral</span></span>
-          </div>
-          <div class="tcell border-b border-r border-line dark:border-white/10 px-3.5 py-3 sm:px-4 flex items-baseline gap-3">
-            <span class="font-serif text-taupe text-sm w-6 shrink-0">03</span>
-            <span class="min-w-0 flex-1"><span class="block text-[13.5px] sm:text-sm leading-snug text-ink dark:text-ivory" data-en="Thrissur St. Ignatius Orthodox Cathedral" data-ml="തൃശൂർ മാർ ഇഗ്നാത്തിയോസ് ഓർത്തഡോക്സ് ഭദ്രാസനപള്ളി">Thrissur St. Ignatius Orthodox Cathedral</span></span>
-          </div>
-        </div>
-      </div>
-    </details>
-    <details class="tdio group border-b border-line dark:border-white/10" id="d-main-kollam">
-      <summary class="flex items-center gap-3 px-1 sm:px-2 py-3.5 sm:py-4 cursor-pointer select-none hover:bg-featured/70 dark:hover:bg-white/[0.03] transition-colors">
-        <span class="w-2.5 h-2.5 rounded-full shrink-0 border border-ink/10 dark:border-ivory/20" style="background:#e281b8"></span>
-        <span class="min-w-0 flex-1">
-          <span class="block font-serif text-base sm:text-lg text-ink dark:text-ivory leading-snug" data-en="Kollam" data-ml="കൊല്ലം">Kollam</span>
-          <span class="block text-[11.5px] text-muted mt-0.5" data-en="India" data-ml="ഭാരതം">India</span>
-        </span>
-        <span class="tcount font-serif text-sm text-taupe tabular-nums" data-n="1">1</span>
-        <svg class="w-4 h-4 shrink-0 text-muted transition-transform duration-200 group-open:rotate-180" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="m5 8 5 5 5-5"/></svg>
-      </summary>
-      <div class="pb-5 sm:pb-6">
-        <div class="px-1 sm:px-2 pb-3"><a href="/kollam" class="font-serif text-[13px] text-sage-dark dark:text-sage hover:underline underline-offset-4 decoration-sage/40" data-en="View diocese" data-ml="ഭദ്രാസനം കാണുക">View diocese</a></div>
-        <div class="tgrid grid grid-cols-1 sm:grid-cols-2 border-l border-t border-line dark:border-white/10">
-          <div class="tcell border-b border-r border-line dark:border-white/10 px-3.5 py-3 sm:px-4 flex items-baseline gap-3">
-            <span class="font-serif text-taupe text-sm w-6 shrink-0">01</span>
-            <span class="min-w-0 flex-1"><span class="block text-[13.5px] sm:text-sm leading-snug text-ink dark:text-ivory" data-en="Kollam St. Thomas Orthodox Cathedral (Kadapakkada)" data-ml="കൊല്ലം മാർ തോമ ഓർത്തഡോക്സ് ഭദ്രാസനപള്ളി (കടപ്പാക്കട)">Kollam St. Thomas Orthodox Cathedral (Kadapakkada)</span></span>
-          </div>
-        </div>
-      </div>
-    </details>
-    <details class="tdio group border-b border-line dark:border-white/10" id="d-main-kottayam">
-      <summary class="flex items-center gap-3 px-1 sm:px-2 py-3.5 sm:py-4 cursor-pointer select-none hover:bg-featured/70 dark:hover:bg-white/[0.03] transition-colors">
-        <span class="w-2.5 h-2.5 rounded-full shrink-0 border border-ink/10 dark:border-ivory/20" style="background:#b98fde"></span>
-        <span class="min-w-0 flex-1">
-          <span class="block font-serif text-base sm:text-lg text-ink dark:text-ivory leading-snug" data-en="Kottayam" data-ml="കോട്ടയം">Kottayam</span>
-          <span class="block text-[11.5px] text-muted mt-0.5" data-en="India" data-ml="ഭാരതം">India</span>
-        </span>
-        <span class="tcount font-serif text-sm text-taupe tabular-nums" data-n="1">1</span>
-        <svg class="w-4 h-4 shrink-0 text-muted transition-transform duration-200 group-open:rotate-180" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="m5 8 5 5 5-5"/></svg>
-      </summary>
-      <div class="pb-5 sm:pb-6">
-        <div class="px-1 sm:px-2 pb-3"><a href="/kottayam" class="font-serif text-[13px] text-sage-dark dark:text-sage hover:underline underline-offset-4 decoration-sage/40" data-en="View diocese" data-ml="ഭദ്രാസനം കാണുക">View diocese</a></div>
-        <div class="tgrid grid grid-cols-1 sm:grid-cols-2 border-l border-t border-line dark:border-white/10">
-          <div class="tcell border-b border-r border-line dark:border-white/10 px-3.5 py-3 sm:px-4 flex items-baseline gap-3">
-            <span class="font-serif text-taupe text-sm w-6 shrink-0">01</span>
-            <span class="min-w-0 flex-1"><span class="block text-[13.5px] sm:text-sm leading-snug text-ink dark:text-ivory" data-en="Pampady St. John&#x27;s Orthodox Cathedral" data-ml="പാമ്പാടി മാർ യൂഹാനോൻ ഓർത്തഡോക്സ് ഭദ്രാസനപള്ളി">Pampady St. John&#x27;s Orthodox Cathedral</span></span>
-          </div>
-        </div>
-      </div>
-    </details>
-    <details class="tdio group border-b border-line dark:border-white/10" id="d-main-kottayam-central">
-      <summary class="flex items-center gap-3 px-1 sm:px-2 py-3.5 sm:py-4 cursor-pointer select-none hover:bg-featured/70 dark:hover:bg-white/[0.03] transition-colors">
-        <span class="w-2.5 h-2.5 rounded-full shrink-0 border border-ink/10 dark:border-ivory/20" style="background:#e8866d"></span>
-        <span class="min-w-0 flex-1">
-          <span class="block font-serif text-base sm:text-lg text-ink dark:text-ivory leading-snug" data-en="Kottayam Central" data-ml="കോട്ടയം-സെൻട്രൽ">Kottayam Central</span>
-          <span class="block text-[11.5px] text-muted mt-0.5" data-en="India" data-ml="ഭാരതം">India</span>
-        </span>
-        <span class="tcount font-serif text-sm text-taupe tabular-nums" data-n="1">1</span>
-        <svg class="w-4 h-4 shrink-0 text-muted transition-transform duration-200 group-open:rotate-180" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="m5 8 5 5 5-5"/></svg>
-      </summary>
-      <div class="pb-5 sm:pb-6">
-        <div class="px-1 sm:px-2 pb-3"><a href="/kottayam-central" class="font-serif text-[13px] text-sage-dark dark:text-sage hover:underline underline-offset-4 decoration-sage/40" data-en="View diocese" data-ml="ഭദ്രാസനം കാണുക">View diocese</a></div>
-        <div class="tgrid grid grid-cols-1 sm:grid-cols-2 border-l border-t border-line dark:border-white/10">
-          <div class="tcell border-b border-r border-line dark:border-white/10 px-3.5 py-3 sm:px-4 flex items-baseline gap-3">
-            <span class="font-serif text-taupe text-sm w-6 shrink-0">01</span>
-            <span class="min-w-0 flex-1"><span class="block text-[13.5px] sm:text-sm leading-snug text-ink dark:text-ivory" data-en="Kottayam St. Elias Orthodox Cathedral" data-ml="കോട്ടയം മാർ ഏലിയാസ് ഓർത്തഡോക്സ് ഭദ്രാസനപള്ളി">Kottayam St. Elias Orthodox Cathedral</span></span>
-          </div>
-        </div>
-      </div>
-    </details>
-    <details class="tdio group border-b border-line dark:border-white/10" id="d-main-kunnamkulam">
-      <summary class="flex items-center gap-3 px-1 sm:px-2 py-3.5 sm:py-4 cursor-pointer select-none hover:bg-featured/70 dark:hover:bg-white/[0.03] transition-colors">
-        <span class="w-2.5 h-2.5 rounded-full shrink-0 border border-ink/10 dark:border-ivory/20" style="background:#975124"></span>
-        <span class="min-w-0 flex-1">
-          <span class="block font-serif text-base sm:text-lg text-ink dark:text-ivory leading-snug" data-en="Kunnamkulam" data-ml="കുന്നംകുളം">Kunnamkulam</span>
-          <span class="block text-[11.5px] text-muted mt-0.5" data-en="India" data-ml="ഭാരതം">India</span>
-        </span>
-        <span class="tcount font-serif text-sm text-taupe tabular-nums" data-n="3">3</span>
-        <svg class="w-4 h-4 shrink-0 text-muted transition-transform duration-200 group-open:rotate-180" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="m5 8 5 5 5-5"/></svg>
-      </summary>
-      <div class="pb-5 sm:pb-6">
-        <div class="px-1 sm:px-2 pb-3"><a href="/kunnamkulam" class="font-serif text-[13px] text-sage-dark dark:text-sage hover:underline underline-offset-4 decoration-sage/40" data-en="View diocese" data-ml="ഭദ്രാസനം കാണുക">View diocese</a></div>
-        <div class="tgrid grid grid-cols-1 sm:grid-cols-2 border-l border-t border-line dark:border-white/10">
-          <div class="tcell border-b border-r border-line dark:border-white/10 px-3.5 py-3 sm:px-4 flex items-baseline gap-3">
-            <span class="font-serif text-taupe text-sm w-6 shrink-0">01</span>
-            <span class="min-w-0 flex-1"><span class="block text-[13.5px] sm:text-sm leading-snug text-ink dark:text-ivory" data-en="Arthat St. Mary&#x27;s Orthodox Cathedral" data-ml="ആർത്താറ്റ് മർത്തമറിയം ഓർത്തഡോക്സ് ഭദ്രാസനപള്ളി">Arthat St. Mary&#x27;s Orthodox Cathedral</span></span>
-          </div>
-          <div class="tcell border-b border-r border-line dark:border-white/10 px-3.5 py-3 sm:px-4 flex items-baseline gap-3">
-            <span class="font-serif text-taupe text-sm w-6 shrink-0">02</span>
-            <span class="min-w-0 flex-1"><span class="block text-[13.5px] sm:text-sm leading-snug text-ink dark:text-ivory" data-en="Pazhanji St. Mary&#x27;s Orthodox Cathedral" data-ml="പഴഞ്ഞി മർത്തമറിയം ഓർത്തഡോക്സ് ഭദ്രാസനപള്ളി">Pazhanji St. Mary&#x27;s Orthodox Cathedral</span></span>
-          </div>
-          <div class="tcell border-b border-r border-line dark:border-white/10 px-3.5 py-3 sm:px-4 flex items-baseline gap-3">
-            <span class="font-serif text-taupe text-sm w-6 shrink-0">03</span>
-            <span class="min-w-0 flex-1"><span class="block text-[13.5px] sm:text-sm leading-snug text-ink dark:text-ivory" data-en="Pazhanji St. Mary&#x27;s Orthodox Old Cathedral" data-ml="പഴഞ്ഞി മർത്തമറിയം ഓർത്തഡോക്സ് പഴയ ഭദ്രാസനപള്ളി">Pazhanji St. Mary&#x27;s Orthodox Old Cathedral</span></span>
-          </div>
-        </div>
-      </div>
-    </details>
-    <details class="tdio group border-b border-line dark:border-white/10" id="d-main-madras">
-      <summary class="flex items-center gap-3 px-1 sm:px-2 py-3.5 sm:py-4 cursor-pointer select-none hover:bg-featured/70 dark:hover:bg-white/[0.03] transition-colors">
-        <span class="w-2.5 h-2.5 rounded-full shrink-0 border border-ink/10 dark:border-ivory/20" style="background:#a6a273"></span>
-        <span class="min-w-0 flex-1">
-          <span class="block font-serif text-base sm:text-lg text-ink dark:text-ivory leading-snug" data-en="Madras" data-ml="ചെന്നൈ">Madras</span>
-          <span class="block text-[11.5px] text-muted mt-0.5" data-en="India" data-ml="ഭാരതം">India</span>
-        </span>
-        <span class="tcount font-serif text-sm text-taupe tabular-nums" data-n="3">3</span>
-        <svg class="w-4 h-4 shrink-0 text-muted transition-transform duration-200 group-open:rotate-180" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="m5 8 5 5 5-5"/></svg>
-      </summary>
-      <div class="pb-5 sm:pb-6">
-        <div class="px-1 sm:px-2 pb-3"><a href="/madras" class="font-serif text-[13px] text-sage-dark dark:text-sage hover:underline underline-offset-4 decoration-sage/40" data-en="View diocese" data-ml="ഭദ്രാസനം കാണുക">View diocese</a></div>
-        <div class="tgrid grid grid-cols-1 sm:grid-cols-2 border-l border-t border-line dark:border-white/10">
-          <div class="tcell border-b border-r border-line dark:border-white/10 px-3.5 py-3 sm:px-4 flex items-baseline gap-3">
-            <span class="font-serif text-taupe text-sm w-6 shrink-0">01</span>
-            <span class="min-w-0 flex-1"><span class="block text-[13.5px] sm:text-sm leading-snug text-ink dark:text-ivory" data-en="Chennai-Broadway St. Thomas Malankara Orthodox Cathedral" data-ml="ചെന്നൈ-ബ്രോഡ്‌വേ മാർ തോമ മലങ്കര ഓർത്തഡോക്സ് ഭദ്രാസനപള്ളി">Chennai-Broadway St. Thomas Malankara Orthodox Cathedral</span></span>
-          </div>
-          <div class="tcell border-b border-r border-line dark:border-white/10 px-3.5 py-3 sm:px-4 flex items-baseline gap-3">
-            <span class="font-serif text-taupe text-sm w-6 shrink-0">02</span>
-            <span class="min-w-0 flex-1"><span class="block text-[13.5px] sm:text-sm leading-snug text-ink dark:text-ivory" data-en="Coimbatore St. Mary&#x27;s Malankara Orthodox Cathedral" data-ml="കോയമ്പത്തൂർ മർത്തമറിയം മലങ്കര ഓർത്തഡോക്സ് ഭദ്രാസനപള്ളി">Coimbatore St. Mary&#x27;s Malankara Orthodox Cathedral</span></span>
-          </div>
-          <div class="tcell border-b border-r border-line dark:border-white/10 px-3.5 py-3 sm:px-4 flex items-baseline gap-3">
-            <span class="font-serif text-taupe text-sm w-6 shrink-0">03</span>
-            <span class="min-w-0 flex-1"><span class="block text-[13.5px] sm:text-sm leading-snug text-ink dark:text-ivory" data-en="Port Blair St. Mary&#x27;s Malankara Orthodox Cathedral" data-ml="പോർട്ട് ബ്ലെയർ മർത്തമറിയം മലങ്കര ഓർത്തഡോക്സ് ഭദ്രാസനപള്ളി">Port Blair St. Mary&#x27;s Malankara Orthodox Cathedral</span></span>
-          </div>
-        </div>
-      </div>
-    </details>
-    <details class="tdio group border-b border-line dark:border-white/10" id="d-main-malabar">
-      <summary class="flex items-center gap-3 px-1 sm:px-2 py-3.5 sm:py-4 cursor-pointer select-none hover:bg-featured/70 dark:hover:bg-white/[0.03] transition-colors">
-        <span class="w-2.5 h-2.5 rounded-full shrink-0 border border-ink/10 dark:border-ivory/20" style="background:#ca5e78"></span>
-        <span class="min-w-0 flex-1">
-          <span class="block font-serif text-base sm:text-lg text-ink dark:text-ivory leading-snug" data-en="Malabar" data-ml="മലബാർ">Malabar</span>
-          <span class="block text-[11.5px] text-muted mt-0.5" data-en="India" data-ml="ഭാരതം">India</span>
-        </span>
-        <span class="tcount font-serif text-sm text-taupe tabular-nums" data-n="1">1</span>
-        <svg class="w-4 h-4 shrink-0 text-muted transition-transform duration-200 group-open:rotate-180" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="m5 8 5 5 5-5"/></svg>
-      </summary>
-      <div class="pb-5 sm:pb-6">
-        <div class="px-1 sm:px-2 pb-3"><a href="/malabar" class="font-serif text-[13px] text-sage-dark dark:text-sage hover:underline underline-offset-4 decoration-sage/40" data-en="View diocese" data-ml="ഭദ്രാസനം കാണുക">View diocese</a></div>
-        <div class="tgrid grid grid-cols-1 sm:grid-cols-2 border-l border-t border-line dark:border-white/10">
-          <div class="tcell border-b border-r border-line dark:border-white/10 px-3.5 py-3 sm:px-4 flex items-baseline gap-3">
-            <span class="font-serif text-taupe text-sm w-6 shrink-0">01</span>
-            <span class="min-w-0 flex-1"><span class="block text-[13.5px] sm:text-sm leading-snug text-ink dark:text-ivory" data-en="Kozhikode St. George Orthodox Cathedral (Bilathikulam)" data-ml="കോഴിക്കോട് മാർ ഗീവറുഗീസ് സഹദാ ഓർത്തഡോക്സ് ഭദ്രാസനപള്ളി (ബിലാത്തിക്കുളം)">Kozhikode St. George Orthodox Cathedral (Bilathikulam)</span></span>
-          </div>
-        </div>
-      </div>
-    </details>
-    <details class="tdio group border-b border-line dark:border-white/10" id="d-main-mavelikara">
-      <summary class="flex items-center gap-3 px-1 sm:px-2 py-3.5 sm:py-4 cursor-pointer select-none hover:bg-featured/70 dark:hover:bg-white/[0.03] transition-colors">
-        <span class="w-2.5 h-2.5 rounded-full shrink-0 border border-ink/10 dark:border-ivory/20" style="background:#53507a"></span>
-        <span class="min-w-0 flex-1">
-          <span class="block font-serif text-base sm:text-lg text-ink dark:text-ivory leading-snug" data-en="Mavelikara" data-ml="മാവേലിക്കര">Mavelikara</span>
-          <span class="block text-[11.5px] text-muted mt-0.5" data-en="India" data-ml="ഭാരതം">India</span>
-        </span>
-        <span class="tcount font-serif text-sm text-taupe tabular-nums" data-n="3">3</span>
-        <svg class="w-4 h-4 shrink-0 text-muted transition-transform duration-200 group-open:rotate-180" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="m5 8 5 5 5-5"/></svg>
-      </summary>
-      <div class="pb-5 sm:pb-6">
-        <div class="px-1 sm:px-2 pb-3"><a href="/mavelikara" class="font-serif text-[13px] text-sage-dark dark:text-sage hover:underline underline-offset-4 decoration-sage/40" data-en="View diocese" data-ml="ഭദ്രാസനം കാണുക">View diocese</a></div>
-        <div class="tgrid grid grid-cols-1 sm:grid-cols-2 border-l border-t border-line dark:border-white/10">
-          <div class="tcell border-b border-r border-line dark:border-white/10 px-3.5 py-3 sm:px-4 flex items-baseline gap-3">
-            <span class="font-serif text-taupe text-sm w-6 shrink-0">01</span>
-            <span class="min-w-0 flex-1"><span class="block text-[13.5px] sm:text-sm leading-snug text-ink dark:text-ivory" data-en="Karthikapally St. Thomas Orthodox Cathedral" data-ml="കാർത്തികപ്പള്ളി മാർ തോമ ഓർത്തഡോക്സ് ഭദ്രാസനപള്ളി">Karthikapally St. Thomas Orthodox Cathedral</span></span>
-          </div>
-          <div class="tcell border-b border-r border-line dark:border-white/10 px-3.5 py-3 sm:px-4 flex items-baseline gap-3">
-            <span class="font-serif text-taupe text-sm w-6 shrink-0">02</span>
-            <span class="min-w-0 flex-1"><span class="block text-[13.5px] sm:text-sm leading-snug text-ink dark:text-ivory" data-en="Kayamkulam All Saints Orthodox Cathedral" data-ml="കായംകുളം കാദീശാ ഓർത്തഡോക്സ് ഭദ്രാസനപള്ളി">Kayamkulam All Saints Orthodox Cathedral</span></span>
-          </div>
-          <div class="tcell border-b border-r border-line dark:border-white/10 px-3.5 py-3 sm:px-4 flex items-baseline gap-3">
-            <span class="font-serif text-taupe text-sm w-6 shrink-0">03</span>
-            <span class="min-w-0 flex-1"><span class="block text-[13.5px] sm:text-sm leading-snug text-ink dark:text-ivory" data-en="Mavelikara-Puthiyacavu St. Mary&#x27;s Orthodox Cathedral" data-ml="മാവേലിക്കര-പുതിയകാവ് മർത്തമറിയം ഓർത്തഡോക്സ് ഭദ്രാസനപള്ളി">Mavelikara-Puthiyacavu St. Mary&#x27;s Orthodox Cathedral</span></span>
-          </div>
-        </div>
-      </div>
-    </details>
-    <details class="tdio group border-b border-line dark:border-white/10" id="d-main-nilackal">
-      <summary class="flex items-center gap-3 px-1 sm:px-2 py-3.5 sm:py-4 cursor-pointer select-none hover:bg-featured/70 dark:hover:bg-white/[0.03] transition-colors">
-        <span class="w-2.5 h-2.5 rounded-full shrink-0 border border-ink/10 dark:border-ivory/20" style="background:#63532a"></span>
-        <span class="min-w-0 flex-1">
-          <span class="block font-serif text-base sm:text-lg text-ink dark:text-ivory leading-snug" data-en="Nilackal" data-ml="നിലയ്ക്കൽ">Nilackal</span>
-          <span class="block text-[11.5px] text-muted mt-0.5" data-en="India" data-ml="ഭാരതം">India</span>
-        </span>
-        <span class="tcount font-serif text-sm text-taupe tabular-nums" data-n="1">1</span>
-        <svg class="w-4 h-4 shrink-0 text-muted transition-transform duration-200 group-open:rotate-180" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="m5 8 5 5 5-5"/></svg>
-      </summary>
-      <div class="pb-5 sm:pb-6">
-        <div class="px-1 sm:px-2 pb-3"><a href="/nilackal" class="font-serif text-[13px] text-sage-dark dark:text-sage hover:underline underline-offset-4 decoration-sage/40" data-en="View diocese" data-ml="ഭദ്രാസനം കാണുക">View diocese</a></div>
-        <div class="tgrid grid grid-cols-1 sm:grid-cols-2 border-l border-t border-line dark:border-white/10">
-          <div class="tcell border-b border-r border-line dark:border-white/10 px-3.5 py-3 sm:px-4 flex items-baseline gap-3">
-            <span class="font-serif text-taupe text-sm w-6 shrink-0">01</span>
-            <span class="min-w-0 flex-1"><span class="block text-[13.5px] sm:text-sm leading-snug text-ink dark:text-ivory" data-en="Thottamon St. Thomas Orthodox Cathedral" data-ml="തോട്ടമൺ മാർ തോമ ഓർത്തഡോക്സ് ഭദ്രാസനപള്ളി">Thottamon St. Thomas Orthodox Cathedral</span></span>
-          </div>
-        </div>
-      </div>
-    </details>
-    <details class="tdio group border-b border-line dark:border-white/10" id="d-main-southwest-america">
-      <summary class="flex items-center gap-3 px-1 sm:px-2 py-3.5 sm:py-4 cursor-pointer select-none hover:bg-featured/70 dark:hover:bg-white/[0.03] transition-colors">
-        <span class="w-2.5 h-2.5 rounded-full shrink-0 border border-ink/10 dark:border-ivory/20" style="background:#908cba"></span>
-        <span class="min-w-0 flex-1">
-          <span class="block font-serif text-base sm:text-lg text-ink dark:text-ivory leading-snug" data-en="Southwest America" data-ml="സൗത്ത്-വെസ്റ്റ് അമേരിക്ക">Southwest America</span>
-          <span class="block text-[11.5px] text-muted mt-0.5" data-en="United States" data-ml="അമേരിക്കൻ ഐക്യനാടുകൾ">United States</span>
-        </span>
-        <span class="tcount font-serif text-sm text-taupe tabular-nums" data-n="2">2</span>
-        <svg class="w-4 h-4 shrink-0 text-muted transition-transform duration-200 group-open:rotate-180" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="m5 8 5 5 5-5"/></svg>
-      </summary>
-      <div class="pb-5 sm:pb-6">
-        <div class="px-1 sm:px-2 pb-3"><a href="/southwest-america" class="font-serif text-[13px] text-sage-dark dark:text-sage hover:underline underline-offset-4 decoration-sage/40" data-en="View diocese" data-ml="ഭദ്രാസനം കാണുക">View diocese</a></div>
-        <div class="tgrid grid grid-cols-1 sm:grid-cols-2 border-l border-t border-line dark:border-white/10">
-          <div class="tcell border-b border-r border-line dark:border-white/10 px-3.5 py-3 sm:px-4 flex items-baseline gap-3">
-            <span class="font-serif text-taupe text-sm w-6 shrink-0">01</span>
-            <span class="min-w-0 flex-1"><span class="block text-[13.5px] sm:text-sm leading-snug text-ink dark:text-ivory" data-en="Bellwood St. Gregorios Indian Orthodox Cathedral" data-ml="ബെൽവുഡ് മാർ ഗ്രീഗോറിയോസ് ഭാരതീയ ഓർത്തഡോക്സ് ഭദ്രാസനപള്ളി">Bellwood St. Gregorios Indian Orthodox Cathedral</span></span>
-          </div>
-          <div class="tcell border-b border-r border-line dark:border-white/10 px-3.5 py-3 sm:px-4 flex items-baseline gap-3">
-            <span class="font-serif text-taupe text-sm w-6 shrink-0">02</span>
-            <span class="min-w-0 flex-1"><span class="block text-[13.5px] sm:text-sm leading-snug text-ink dark:text-ivory" data-en="Houston-Stafford St. Thomas Indian Orthodox Cathedral" data-ml="ഹ്യൂസ്റ്റൺ-സ്റ്റാഫോർഡ് മാർ തോമ ഭാരതീയ ഓർത്തഡോക്സ് ഭദ്രാസനപള്ളി">Houston-Stafford St. Thomas Indian Orthodox Cathedral</span></span>
-          </div>
-        </div>
-      </div>
-    </details>
-    <details class="tdio group border-b border-line dark:border-white/10" id="d-main-sulthan-bathery">
-      <summary class="flex items-center gap-3 px-1 sm:px-2 py-3.5 sm:py-4 cursor-pointer select-none hover:bg-featured/70 dark:hover:bg-white/[0.03] transition-colors">
-        <span class="w-2.5 h-2.5 rounded-full shrink-0 border border-ink/10 dark:border-ivory/20" style="background:#5499b8"></span>
-        <span class="min-w-0 flex-1">
-          <span class="block font-serif text-base sm:text-lg text-ink dark:text-ivory leading-snug" data-en="Sulthan Bathery" data-ml="സുൽത്താൻ ബത്തേരി">Sulthan Bathery</span>
-          <span class="block text-[11.5px] text-muted mt-0.5" data-en="India" data-ml="ഭാരതം">India</span>
-        </span>
-        <span class="tcount font-serif text-sm text-taupe tabular-nums" data-n="1">1</span>
-        <svg class="w-4 h-4 shrink-0 text-muted transition-transform duration-200 group-open:rotate-180" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="m5 8 5 5 5-5"/></svg>
-      </summary>
-      <div class="pb-5 sm:pb-6">
-        <div class="px-1 sm:px-2 pb-3"><a href="/sulthan-bathery" class="font-serif text-[13px] text-sage-dark dark:text-sage hover:underline underline-offset-4 decoration-sage/40" data-en="View diocese" data-ml="ഭദ്രാസനം കാണുക">View diocese</a></div>
-        <div class="tgrid grid grid-cols-1 sm:grid-cols-2 border-l border-t border-line dark:border-white/10">
-          <div class="tcell border-b border-r border-line dark:border-white/10 px-3.5 py-3 sm:px-4 flex items-baseline gap-3">
-            <span class="font-serif text-taupe text-sm w-6 shrink-0">01</span>
-            <span class="min-w-0 flex-1"><span class="block text-[13.5px] sm:text-sm leading-snug text-ink dark:text-ivory" data-en="Sulthan Bathery St. Mary&#x27;s Orthodox Cathedral &amp; St. Mary&#x27;s Pilgrim Centre" data-ml="സുൽത്താൻ ബത്തേരി മർത്തമറിയം ഓർത്തഡോക്സ് ഭദ്രാസനപള്ളി &amp; മർത്തമറിയം തീർഥാടന കേന്ദ്രം">Sulthan Bathery St. Mary&#x27;s Orthodox Cathedral &amp; St. Mary&#x27;s Pilgrim Centre</span></span>
-          </div>
-        </div>
-      </div>
-    </details>
-    <details class="tdio group border-b border-line dark:border-white/10" id="d-main-thiruvananthapuram">
-      <summary class="flex items-center gap-3 px-1 sm:px-2 py-3.5 sm:py-4 cursor-pointer select-none hover:bg-featured/70 dark:hover:bg-white/[0.03] transition-colors">
-        <span class="w-2.5 h-2.5 rounded-full shrink-0 border border-ink/10 dark:border-ivory/20" style="background:#006140"></span>
-        <span class="min-w-0 flex-1">
-          <span class="block font-serif text-base sm:text-lg text-ink dark:text-ivory leading-snug" data-en="Thiruvananthapuram" data-ml="തിരുവനന്തപുരം">Thiruvananthapuram</span>
-          <span class="block text-[11.5px] text-muted mt-0.5" data-en="India" data-ml="ഭാരതം">India</span>
-        </span>
-        <span class="tcount font-serif text-sm text-taupe tabular-nums" data-n="1">1</span>
-        <svg class="w-4 h-4 shrink-0 text-muted transition-transform duration-200 group-open:rotate-180" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="m5 8 5 5 5-5"/></svg>
-      </summary>
-      <div class="pb-5 sm:pb-6">
-        <div class="px-1 sm:px-2 pb-3"><a href="/thiruvananthapuram" class="font-serif text-[13px] text-sage-dark dark:text-sage hover:underline underline-offset-4 decoration-sage/40" data-en="View diocese" data-ml="ഭദ്രാസനം കാണുക">View diocese</a></div>
-        <div class="tgrid grid grid-cols-1 sm:grid-cols-2 border-l border-t border-line dark:border-white/10">
-          <div class="tcell border-b border-r border-line dark:border-white/10 px-3.5 py-3 sm:px-4 flex items-baseline gap-3">
-            <span class="font-serif text-taupe text-sm w-6 shrink-0">01</span>
-            <span class="min-w-0 flex-1"><span class="block text-[13.5px] sm:text-sm leading-snug text-ink dark:text-ivory" data-en="Palayam St. George Orthodox Cathedral" data-ml="പാളയം മാർ ഗീവറുഗീസ് സഹദാ ഓർത്തഡോക്സ് ഭദ്രാസനപള്ളി">Palayam St. George Orthodox Cathedral</span></span>
-          </div>
-        </div>
-      </div>
-    </details>
-    <details class="tdio group border-b border-line dark:border-white/10" id="d-main-thumpamon">
-      <summary class="flex items-center gap-3 px-1 sm:px-2 py-3.5 sm:py-4 cursor-pointer select-none hover:bg-featured/70 dark:hover:bg-white/[0.03] transition-colors">
-        <span class="w-2.5 h-2.5 rounded-full shrink-0 border border-ink/10 dark:border-ivory/20" style="background:#953239"></span>
-        <span class="min-w-0 flex-1">
-          <span class="block font-serif text-base sm:text-lg text-ink dark:text-ivory leading-snug" data-en="Thumpamon" data-ml="തുമ്പമൺ">Thumpamon</span>
-          <span class="block text-[11.5px] text-muted mt-0.5" data-en="India" data-ml="ഭാരതം">India</span>
-        </span>
-        <span class="tcount font-serif text-sm text-taupe tabular-nums" data-n="4">4</span>
-        <svg class="w-4 h-4 shrink-0 text-muted transition-transform duration-200 group-open:rotate-180" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="m5 8 5 5 5-5"/></svg>
-      </summary>
-      <div class="pb-5 sm:pb-6">
-        <div class="px-1 sm:px-2 pb-3"><a href="/thumpamon" class="font-serif text-[13px] text-sage-dark dark:text-sage hover:underline underline-offset-4 decoration-sage/40" data-en="View diocese" data-ml="ഭദ്രാസനം കാണുക">View diocese</a></div>
-        <div class="tgrid grid grid-cols-1 sm:grid-cols-2 border-l border-t border-line dark:border-white/10">
-          <div class="tcell border-b border-r border-line dark:border-white/10 px-3.5 py-3 sm:px-4 flex items-baseline gap-3">
-            <span class="font-serif text-taupe text-sm w-6 shrink-0">01</span>
-            <span class="min-w-0 flex-1"><span class="block text-[13.5px] sm:text-sm leading-snug text-ink dark:text-ivory" data-en="Kumbazha St. Mary&#x27;s Orthodox Archcathedral" data-ml="കുമ്പഴ മർത്തമറിയം ഓർത്തഡോക്സ് മുഖ്യ ഭദ്രാസനപള്ളി">Kumbazha St. Mary&#x27;s Orthodox Archcathedral</span></span>
-          </div>
-          <div class="tcell border-b border-r border-line dark:border-white/10 px-3.5 py-3 sm:px-4 flex items-baseline gap-3">
-            <span class="font-serif text-taupe text-sm w-6 shrink-0">02</span>
-            <span class="min-w-0 flex-1"><span class="block text-[13.5px] sm:text-sm leading-snug text-ink dark:text-ivory" data-en="Kumbazha St. Simeon the Stylite&#x27;s Orthodox Cathedral" data-ml="കുമ്പഴ മാർ ശെമവൂൻ ദെസ്തുനി ഓർത്തഡോക്സ് ഭദ്രാസനപള്ളി">Kumbazha St. Simeon the Stylite&#x27;s Orthodox Cathedral</span></span>
-          </div>
-          <div class="tcell border-b border-r border-line dark:border-white/10 px-3.5 py-3 sm:px-4 flex items-baseline gap-3">
-            <span class="font-serif text-taupe text-sm w-6 shrink-0">03</span>
-            <span class="min-w-0 flex-1"><span class="block text-[13.5px] sm:text-sm leading-snug text-ink dark:text-ivory" data-en="Makkamkunnu St. Stephen&#x27;s Orthodox Cathedral (Pathanamthitta)" data-ml="മാക്കാംകുന്ന് മാർ സ്തേഫാനോസ് സഹദാ ഓർത്തഡോക്സ് ഭദ്രാസനപള്ളി (പത്തനംതിട്ട)">Makkamkunnu St. Stephen&#x27;s Orthodox Cathedral (Pathanamthitta)</span></span>
-          </div>
-          <div class="tcell border-b border-r border-line dark:border-white/10 px-3.5 py-3 sm:px-4 flex items-baseline gap-3">
-            <span class="font-serif text-taupe text-sm w-6 shrink-0">04</span>
-            <span class="min-w-0 flex-1"><span class="block text-[13.5px] sm:text-sm leading-snug text-ink dark:text-ivory" data-en="Thumpamon St. Mary&#x27;s Orthodox Cathedral" data-ml="തുമ്പമൺ മർത്തമറിയം ഓർത്തഡോക്സ് ഭദ്രാസനപള്ളി">Thumpamon St. Mary&#x27;s Orthodox Cathedral</span></span>
-          </div>
-        </div>
-      </div>
-    </details>
-    <details class="tdio group border-b border-line dark:border-white/10" id="d-main-uk-europe-africa">
-      <summary class="flex items-center gap-3 px-1 sm:px-2 py-3.5 sm:py-4 cursor-pointer select-none hover:bg-featured/70 dark:hover:bg-white/[0.03] transition-colors">
-        <span class="w-2.5 h-2.5 rounded-full shrink-0 border border-ink/10 dark:border-ivory/20" style="background:#80721e"></span>
-        <span class="min-w-0 flex-1">
-          <span class="block font-serif text-base sm:text-lg text-ink dark:text-ivory leading-snug" data-en="UK-Europe-Africa" data-ml="യു.കെ-യൂറോപ്പ്">UK-Europe-Africa</span>
-          <span class="block text-[11.5px] text-muted mt-0.5" data-en="United Kingdom" data-ml="യുണൈറ്റഡ് കിംഗ്ഡം">United Kingdom</span>
-        </span>
-        <span class="tcount font-serif text-sm text-taupe tabular-nums" data-n="1">1</span>
-        <svg class="w-4 h-4 shrink-0 text-muted transition-transform duration-200 group-open:rotate-180" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="m5 8 5 5 5-5"/></svg>
-      </summary>
-      <div class="pb-5 sm:pb-6">
-        <div class="px-1 sm:px-2 pb-3"><a href="/uk-europe-africa" class="font-serif text-[13px] text-sage-dark dark:text-sage hover:underline underline-offset-4 decoration-sage/40" data-en="View diocese" data-ml="ഭദ്രാസനം കാണുക">View diocese</a></div>
-        <div class="tgrid grid grid-cols-1 sm:grid-cols-2 border-l border-t border-line dark:border-white/10">
-          <div class="tcell border-b border-r border-line dark:border-white/10 px-3.5 py-3 sm:px-4 flex items-baseline gap-3">
-            <span class="font-serif text-taupe text-sm w-6 shrink-0">01</span>
-            <span class="min-w-0 flex-1"><span class="block text-[13.5px] sm:text-sm leading-snug text-ink dark:text-ivory" data-en="Brockley St. Gregorios Indian Orthodox Cathedral (South London)" data-ml="ബ്രോക്ലി മാർ ഗ്രീഗോറിയോസ് ഭാരതീയ ഓർത്തഡോക്സ് ഭദ്രാസനപള്ളി (സൗത്ത് ലണ്ടൻ)">Brockley St. Gregorios Indian Orthodox Cathedral (South London)</span></span>
-          </div>
-        </div>
-      </div>
-    </details>
+    </div>
   </div>
 </section>
 
-<section class="tsec px-5 sm:px-8 pb-12 sm:pb-14 max-w-4xl mx-auto" data-kind="schismatic">
-  <h2 class="font-serif font-normal text-lg sm:text-xl text-ink dark:text-ivory mb-2" data-en="Schismatic-Occupied Cathedrals" data-ml="വിഘടിത അധിനിവേശ ഭദ്രാസനപള്ളികൾ">Schismatic-Occupied Cathedrals</h2>
-  <p class="font-sans text-xs text-muted mb-6" data-en="Grouped by diocese — not included in the totals above." data-ml="ഭദ്രാസനം അനുസരിച്ച് തരംതിരിച്ചിരിക്കുന്നു — മുകളിലുള്ള ആകെത്തുകകളിൽ ഉൾപ്പെടുത്തിയിട്ടില്ല.">Grouped by diocese — not included in the totals above.</p>
-  <div class="border-t border-line dark:border-white/10">
-    <details class="tdio group border-b border-line dark:border-white/10" id="d-schismatic-angamaly" open>
-      <summary class="flex items-center gap-3 px-1 sm:px-2 py-3.5 sm:py-4 cursor-pointer select-none hover:bg-featured/70 dark:hover:bg-white/[0.03] transition-colors">
-        <span class="w-2.5 h-2.5 rounded-full shrink-0 border border-ink/10 dark:border-ivory/20" style="background:#31a373"></span>
-        <span class="min-w-0 flex-1">
-          <span class="block font-serif text-base sm:text-lg text-ink dark:text-ivory leading-snug" data-en="Angamaly" data-ml="അങ്കമാലി">Angamaly</span>
-          <span class="block text-[11.5px] text-muted mt-0.5" data-en="India" data-ml="ഭാരതം">India</span>
-        </span>
-        <span class="tcount font-serif text-sm text-taupe tabular-nums" data-n="2">2</span>
-        <svg class="w-4 h-4 shrink-0 text-muted transition-transform duration-200 group-open:rotate-180" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="m5 8 5 5 5-5"/></svg>
-      </summary>
-      <div class="pb-5 sm:pb-6">
-        <div class="px-1 sm:px-2 pb-3"><a href="/angamaly" class="font-serif text-[13px] text-sage-dark dark:text-sage hover:underline underline-offset-4 decoration-sage/40" data-en="View diocese" data-ml="ഭദ്രാസനം കാണുക">View diocese</a></div>
-        <div class="tgrid grid grid-cols-1 sm:grid-cols-2 border-l border-t border-line dark:border-white/10">
-          <div class="tcell border-b border-r border-line dark:border-white/10 px-3.5 py-3 sm:px-4 flex items-baseline gap-3">
-            <span class="font-serif text-taupe text-sm w-6 shrink-0">01</span>
-            <span class="min-w-0 flex-1"><span class="block text-[13.5px] sm:text-sm leading-snug text-ink dark:text-ivory" data-en="Kothamangalam St. Mary&#x27;s Orthodox Cathedral" data-ml="കോതമംഗലം മർത്തമറിയം ഓർത്തഡോക്സ് ഭദ്രാസനപള്ളി">Kothamangalam St. Mary&#x27;s Orthodox Cathedral</span></span>
-          </div>
-          <div class="tcell border-b border-r border-line dark:border-white/10 px-3.5 py-3 sm:px-4 flex items-baseline gap-3">
-            <span class="font-serif text-taupe text-sm w-6 shrink-0">02</span>
-            <span class="min-w-0 flex-1"><span class="block text-[13.5px] sm:text-sm leading-snug text-ink dark:text-ivory" data-en="Kuruppampady St. Mary&#x27;s Orthodox Cathedral" data-ml="കുറുപ്പംപടി മർത്തമറിയം ഓർത്തഡോക്സ് ഭദ്രാസനപള്ളി">Kuruppampady St. Mary&#x27;s Orthodox Cathedral</span></span>
-          </div>
+<section class="px-5 sm:px-8 pb-16 sm:pb-24 max-w-4xl mx-auto">
+  <h2 class="font-serif font-normal text-2xl sm:text-[32px] text-ink dark:text-ivory mb-2" data-en="Semi-Autonomous (Knanaya) Cathedrals" data-ml="അർധ സ്വയംഭരണ (ക്നാനായ) ഭദ്രാസനപള്ളികൾ">Semi-Autonomous (Knanaya) Cathedrals</h2>
+  <p class="text-[15px] text-body/75 dark:text-ivory/60 leading-[1.8] mb-8 sm:mb-10" data-en="Not included in the totals above." data-ml="മുകളിലുള്ള ആകെത്തുകകളിൽ ഉൾപ്പെടുത്തിയിട്ടില്ല.">Not included in the totals above.</p>
+
+  <div class="mb-10 sm:mb-12">
+    <a href="/knanaya" class="flex items-center gap-2.5 mb-3 group">
+      <span class="w-2.5 h-2.5 rounded-full shrink-0" style="background:#7a483b"></span>
+      <h3 class="font-serif text-lg sm:text-xl text-ink dark:text-ivory group-hover:text-sage-dark dark:group-hover:text-sage transition-colors" data-en="Knanaya" data-ml="ക്നാനായ">Knanaya</h3>
+      <span class="font-sans text-[12px] text-muted">(1)</span>
+    </a>
+    <div class="flex flex-col">
+            <div class="flex items-baseline gap-3 py-2.5 border-b border-line dark:border-white/10 last:border-b-0">
+          <span class="flex-1 min-w-0 text-[14.5px] text-body/90 dark:text-ivory/80" data-en="Kottayam St. Mary&#x27;s Knanaya Syrian Pro-Cathedral" data-ml="കോട്ടയം മർത്തമറിയം ക്നാനായ സുറിയാനി പ്രോ-ഭദ്രാസനപള്ളി">Kottayam St. Mary&#x27;s Knanaya Syrian Pro-Cathedral</span>
+          <span class="font-serif text-taupe text-[12px] shrink-0" data-en="India" data-ml="ഭാരതം">India</span>
         </div>
-      </div>
-    </details>
-    <details class="tdio group border-b border-line dark:border-white/10" id="d-schismatic-kottayam" open>
-      <summary class="flex items-center gap-3 px-1 sm:px-2 py-3.5 sm:py-4 cursor-pointer select-none hover:bg-featured/70 dark:hover:bg-white/[0.03] transition-colors">
-        <span class="w-2.5 h-2.5 rounded-full shrink-0 border border-ink/10 dark:border-ivory/20" style="background:#b98fde"></span>
-        <span class="min-w-0 flex-1">
-          <span class="block font-serif text-base sm:text-lg text-ink dark:text-ivory leading-snug" data-en="Kottayam" data-ml="കോട്ടയം">Kottayam</span>
-          <span class="block text-[11.5px] text-muted mt-0.5" data-en="India" data-ml="ഭാരതം">India</span>
-        </span>
-        <span class="tcount font-serif text-sm text-taupe tabular-nums" data-n="2">2</span>
-        <svg class="w-4 h-4 shrink-0 text-muted transition-transform duration-200 group-open:rotate-180" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="m5 8 5 5 5-5"/></svg>
-      </summary>
-      <div class="pb-5 sm:pb-6">
-        <div class="px-1 sm:px-2 pb-3"><a href="/kottayam" class="font-serif text-[13px] text-sage-dark dark:text-sage hover:underline underline-offset-4 decoration-sage/40" data-en="View diocese" data-ml="ഭദ്രാസനം കാണുക">View diocese</a></div>
-        <div class="tgrid grid grid-cols-1 sm:grid-cols-2 border-l border-t border-line dark:border-white/10">
-          <div class="tcell border-b border-r border-line dark:border-white/10 px-3.5 py-3 sm:px-4 flex items-baseline gap-3">
-            <span class="font-serif text-taupe text-sm w-6 shrink-0">01</span>
-            <span class="min-w-0 flex-1"><span class="block text-[13.5px] sm:text-sm leading-snug text-ink dark:text-ivory" data-en="Kottayam St. Joseph Orthodox Cathedral" data-ml="കോട്ടയം മാർ യൗസേപ്പ് ഓർത്തഡോക്സ് ഭദ്രാസനപള്ളി">Kottayam St. Joseph Orthodox Cathedral</span></span>
-          </div>
-          <div class="tcell border-b border-r border-line dark:border-white/10 px-3.5 py-3 sm:px-4 flex items-baseline gap-3">
-            <span class="font-serif text-taupe text-sm w-6 shrink-0">02</span>
-            <span class="min-w-0 flex-1"><span class="block text-[13.5px] sm:text-sm leading-snug text-ink dark:text-ivory" data-en="Manarcad St. Mary&#x27;s Orthodox Cathedral" data-ml="മണർകാട് മർത്തമറിയം ഓർത്തഡോക്സ് ഭദ്രാസനപള്ളി">Manarcad St. Mary&#x27;s Orthodox Cathedral</span></span>
-          </div>
-        </div>
-      </div>
-    </details>
+    </div>
   </div>
+
 </section>
 
-<section class="tsec px-5 sm:px-8 pb-12 sm:pb-14 max-w-4xl mx-auto" data-kind="knanaya">
-  <h2 class="font-serif font-normal text-lg sm:text-xl text-ink dark:text-ivory mb-2" data-en="Semi-Autonomous (Knanaya) Cathedrals" data-ml="അർധ സ്വയംഭരണ (ക്നാനായ) ഭദ്രാസനപള്ളികൾ">Semi-Autonomous (Knanaya) Cathedrals</h2>
-  <p class="font-sans text-xs text-muted mb-6" data-en="Not included in the totals above." data-ml="മുകളിലുള്ള ആകെത്തുകകളിൽ ഉൾപ്പെടുത്തിയിട്ടില്ല.">Not included in the totals above.</p>
-  <div class="border-t border-line dark:border-white/10">
-    <details class="tdio group border-b border-line dark:border-white/10" id="d-knanaya-knanaya" open>
-      <summary class="flex items-center gap-3 px-1 sm:px-2 py-3.5 sm:py-4 cursor-pointer select-none hover:bg-featured/70 dark:hover:bg-white/[0.03] transition-colors">
-        <span class="w-2.5 h-2.5 rounded-full shrink-0 border border-ink/10 dark:border-ivory/20" style="background:#7a483b"></span>
-        <span class="min-w-0 flex-1">
-          <span class="block font-serif text-base sm:text-lg text-ink dark:text-ivory leading-snug" data-en="Knanaya" data-ml="ക്നാനായ">Knanaya</span>
-          <span class="block text-[11.5px] text-muted mt-0.5" data-en="India" data-ml="ഭാരതം">India</span>
-        </span>
-        <span class="tcount font-serif text-sm text-taupe tabular-nums" data-n="1">1</span>
-        <svg class="w-4 h-4 shrink-0 text-muted transition-transform duration-200 group-open:rotate-180" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="m5 8 5 5 5-5"/></svg>
-      </summary>
-      <div class="pb-5 sm:pb-6">
-        <div class="px-1 sm:px-2 pb-3"><a href="/knanaya" class="font-serif text-[13px] text-sage-dark dark:text-sage hover:underline underline-offset-4 decoration-sage/40" data-en="View diocese" data-ml="ഭദ്രാസനം കാണുക">View diocese</a></div>
-        <div class="tgrid grid grid-cols-1 sm:grid-cols-2 border-l border-t border-line dark:border-white/10">
-          <div class="tcell border-b border-r border-line dark:border-white/10 px-3.5 py-3 sm:px-4 flex items-baseline gap-3">
-            <span class="font-serif text-taupe text-sm w-6 shrink-0">01</span>
-            <span class="min-w-0 flex-1"><span class="block text-[13.5px] sm:text-sm leading-snug text-ink dark:text-ivory" data-en="Kottayam St. Mary&#x27;s Knanaya Syrian Pro-Cathedral" data-ml="കോട്ടയം മർത്തമറിയം ക്നാനായ സുറിയാനി പ്രോ-ഭദ്രാസനപള്ളി">Kottayam St. Mary&#x27;s Knanaya Syrian Pro-Cathedral</span></span>
-          </div>
-        </div>
-      </div>
-    </details>
-  </div>
-</section>
-
-<p id="tempty" class="px-5 sm:px-8 pb-16 max-w-4xl mx-auto text-sm text-muted" hidden></p>
-
-<div id="site-footer"></div>
-
-<script src="site-common.js"></script>
+<div id="site-footer-mount"></div>
 <script>
 (function(){
-  function runScripts(container){
-    var scripts = container.querySelectorAll('script');
-    scripts.forEach(function(old){
-      var s = document.createElement('script');
-      if (old.src) { s.src = old.src; }
-      else { s.textContent = old.textContent; }
-      old.parentNode.replaceChild(s, old);
-    });
-  }
-  function include(url, target, cb){
-    fetch(url).then(function(r){ return r.text(); }).then(function(html){
-      target.innerHTML = html;
-      runScripts(target);
-      if (cb) cb();
-    });
-  }
-  include('header.html', document.getElementById('site-header'), function(){
-    if(window.SiteCommon){ SiteCommon.initAll(); }
+  fetch('/footer.html').then(function(r){ return r.text(); }).then(function(htmlStr){
+    document.getElementById('site-footer-mount').outerHTML = htmlStr;
   });
-  include('footer.html', document.getElementById('site-footer'));
 })();
 </script>
+
 <script>
+/* Restyles the institution list on load. The list markup in this file is what the
+   studio reads and edits, so it is left exactly as it is; this script only draws it. */
 (function(){
-  var q = document.getElementById('tq'), stat = document.getElementById('tstat'), empty = document.getElementById('tempty');
-  var dios = [].slice.call(document.querySelectorAll('.tdio'));
-  var secs = [].slice.call(document.querySelectorAll('.tsec'));
+  function esc(s){ return String(s == null ? '' : s).replace(/&/g,'&amp;').replace(/"/g,'&quot;').replace(/</g,'&lt;').replace(/>/g,'&gt;'); }
+  function unesc(s){ var t = document.createElement('textarea'); t.innerHTML = s; return t.value; }
+  var hero = document.querySelector('body > section');
+  if (!hero) return;
+  var h1 = hero.querySelector('h1'), lede = hero.querySelector('p[data-en-html]');
+  var CHEV = '<svg class="w-4 h-4 shrink-0 text-muted transition-transform duration-200 group-open:rotate-180" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="m5 8 5 5 5-5"/></svg>';
+  var SRCH = '<svg class="w-4 h-4 shrink-0 text-muted" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><circle cx="9" cy="9" r="5.5"/><path d="M13.5 13.5 17 17"/></svg>';
+
+  /* ---- number tiles, read from the headline sentence the studio keeps up to date */
+  var nums = lede ? (lede.getAttribute('data-en-html').match(/(?:&gt;|>)(\d[\d,]*)(?:&lt;\/strong&gt;|<\/strong>)/g) || []).map(function(x){ return x.replace(/[^\d,]/g,''); }) : [];
+  function fmt(x){ var n = parseInt(String(x).replace(/,/g,''),10); return isNaN(n) ? x : n.toLocaleString('en-US'); }
+  var anchor = hero;
+  if (nums.length >= 3 && h1){
+    var tiles = [[nums[0], h1.getAttribute('data-en'), h1.getAttribute('data-ml')], [nums[1], 'Nations', 'രാജ്യങ്ങൾ'], [nums[2], 'Dioceses', 'ഭദ്രാസനങ്ങൾ']];
+    var st = document.createElement('section');
+    st.className = 'px-5 sm:px-8 pb-14 sm:pb-16 max-w-4xl mx-auto';
+    st.innerHTML = '<div class="grid grid-cols-3 gap-px bg-line dark:bg-white/10 border-l border-t border-line dark:border-white/10">' + tiles.map(function(t){
+      return '<div class="border-b border-r border-line dark:border-white/10 p-4 sm:p-5 flex flex-col gap-1.5"><span class="font-serif text-2xl sm:text-3xl text-ink dark:text-ivory">' + esc(fmt(t[0])) + '</span><span class="text-[10px] sm:text-[11px] tracking-wider uppercase text-body/60 dark:text-ivory/50 font-medium" data-en="' + esc(t[1]) + '" data-ml="' + esc(t[2]) + '">' + esc(t[1]) + '</span></div>';
+    }).join('') + '</div>';
+    hero.parentNode.insertBefore(st, hero.nextSibling); anchor = st;
+  }
+
+  /* ---- find bar */
+  var bar = document.createElement('section');
+  bar.className = 'px-5 sm:px-8 pb-6 sm:pb-8 pt-10 sm:pt-12 max-w-4xl mx-auto border-t border-line dark:border-white/10';
+  bar.innerHTML = '<div class="flex flex-col sm:flex-row sm:items-center gap-4 sm:gap-6"><label class="flex-1 flex items-center gap-3 border-b border-line dark:border-white/15 focus-within:border-sage pb-2.5 transition-colors">' + SRCH +
+    '<input id="tq" type="search" autocomplete="off" spellcheck="false" class="tq flex-1 min-w-0 bg-transparent text-base sm:text-[15px] text-ink dark:text-ivory placeholder:text-muted focus:outline-none" data-en-placeholder="Search this list by name or diocese" data-ml-placeholder="പേരോ ഭദ്രാസനമോ ഉപയോഗിച്ച് തിരയുക" placeholder="Search this list by name or diocese" aria-label="Search this list"></label>' +
+    '<div class="flex items-center gap-5 font-serif text-[13px] sm:text-sm text-sage-dark dark:text-sage shrink-0"><button type="button" id="texp" class="tbtn hover:underline underline-offset-4 decoration-sage/40" data-en="Expand all" data-ml="എല്ലാം തുറക്കുക">Expand all</button><button type="button" id="tcol" class="tbtn hover:underline underline-offset-4 decoration-sage/40" data-en="Collapse all" data-ml="എല്ലാം അടയ്ക്കുക">Collapse all</button></div></div>' +
+    '<p id="tstat" class="font-sans text-xs text-muted mt-3 min-h-[1.25rem]" aria-live="polite"></p>';
+  anchor.parentNode.insertBefore(bar, anchor.nextSibling);
+
+  /* ---- listing sections */
+  var secs = [].slice.call(document.querySelectorAll('body > section')).filter(function(s){ return s !== hero && s !== st && s !== bar && s.querySelector('h2') && s.querySelector('.mb-10'); });
+  secs.forEach(function(sec, si){
+    var h2 = sec.querySelector('h2'), intro = sec.querySelector(':scope > p');
+    var every = /^Every /.test(h2.getAttribute('data-en') || '');
+    var kind = every ? 'main' : /Schismatic/.test(h2.getAttribute('data-en')) ? 'schismatic' : /Knanaya/.test(h2.getAttribute('data-en')) ? 'knanaya' : 'closed';
+    sec.className = 'tsec px-5 sm:px-8 pb-12 sm:pb-14 max-w-4xl mx-auto';
+    h2.className = (every ? 'font-serif font-normal text-xl sm:text-2xl' : 'font-serif font-normal text-lg sm:text-xl') + ' text-ink dark:text-ivory mb-2';
+    if (intro) intro.className = 'font-sans text-xs text-muted mb-6';
+    var groups = [].slice.call(sec.querySelectorAll(':scope > div.mb-10')).filter(function(g){ return g.querySelector('a.group'); });
+    var total = 0, parsed = groups.map(function(g){
+      var a = g.querySelector('a'), h3 = g.querySelector('h3'), dot = a.querySelector('span');
+      var rows = [].slice.call(g.querySelectorAll('div.items-baseline')).map(function(r){
+        var sp = r.querySelectorAll(':scope > span');
+        return { n: [sp[0].getAttribute('data-en'), sp[0].getAttribute('data-ml')], c: [sp[1].getAttribute('data-en'), sp[1].getAttribute('data-ml')] };
+      });
+      total += rows.length;
+      return { href: a.getAttribute('href'), color: ((dot.getAttribute('style') || '').match(/background:\s*([^;]+)/) || [,'#4A5D3D'])[1], name: [h3.getAttribute('data-en'), h3.getAttribute('data-ml')], rows: rows };
+    });
+    var openAll = total <= 24, wrap = document.createElement('div');
+    wrap.className = 'border-t border-line dark:border-white/10';
+    wrap.innerHTML = parsed.map(function(g){
+      var nat = [], seen = {};
+      g.rows.forEach(function(r){ if (!seen[r.c[0]]){ seen[r.c[0]] = 1; nat.push(r.c); } });
+      var mixed = nat.length > 1, ne = nat.map(function(n){ return n[0]; }).join(', '), nm = nat.map(function(n){ return n[1]; }).join(', ');
+      var slug = (g.href || '').replace(/^\/|\.html$/g, '') || g.name[0].toLowerCase().replace(/\W+/g, '-');
+      return '<details class="tdio group border-b border-line dark:border-white/10" id="d-' + kind + '-' + esc(slug) + '"' + (openAll ? ' open' : '') + '>' +
+        '<summary class="flex items-center gap-3 px-1 sm:px-2 py-3.5 sm:py-4 cursor-pointer select-none hover:bg-featured/70 dark:hover:bg-white/[0.03] transition-colors">' +
+        '<span class="w-2.5 h-2.5 rounded-full shrink-0 border border-ink/10 dark:border-ivory/20" style="background:' + esc(g.color) + '"></span>' +
+        '<span class="min-w-0 flex-1"><span class="block font-serif text-base sm:text-lg text-ink dark:text-ivory leading-snug" data-en="' + esc(g.name[0]) + '" data-ml="' + esc(g.name[1]) + '">' + esc(g.name[0]) + '</span>' +
+        '<span class="block text-[11.5px] text-muted mt-0.5" data-en="' + esc(ne) + '" data-ml="' + esc(nm) + '">' + esc(ne) + '</span></span>' +
+        '<span class="tcount font-serif text-sm text-taupe tabular-nums" data-n="' + g.rows.length + '">' + g.rows.length + '</span>' + CHEV + '</summary>' +
+        '<div class="pb-5 sm:pb-6">' +
+        (g.href ? '<div class="px-1 sm:px-2 pb-3"><a href="' + esc(g.href) + '" class="font-serif text-[13px] text-sage-dark dark:text-sage hover:underline underline-offset-4 decoration-sage/40" data-en="View diocese" data-ml="ഭദ്രാസനം കാണുക">View diocese</a></div>' : '') +
+        '<div class="tgrid grid grid-cols-1 sm:grid-cols-2 border-l border-t border-line dark:border-white/10">' +
+        g.rows.map(function(r, i){
+          return '<div class="tcell border-b border-r border-line dark:border-white/10 px-3.5 py-3 sm:px-4 flex items-baseline gap-3"><span class="font-serif text-taupe text-sm w-6 shrink-0">' + (i < 9 ? '0' : '') + (i + 1) + '</span>' +
+            '<span class="min-w-0 flex-1"><span class="block text-[13.5px] sm:text-sm leading-snug text-ink dark:text-ivory" data-en="' + esc(r.n[0]) + '" data-ml="' + esc(r.n[1]) + '">' + esc(r.n[0]) + '</span>' +
+            (mixed ? '<span class="block text-[11px] text-muted mt-0.5" data-en="' + esc(r.c[0]) + '" data-ml="' + esc(r.c[1]) + '">' + esc(r.c[0]) + '</span>' : '') + '</span></div>';
+        }).join('') + '</div></div></details>';
+    }).join('');
+    groups.forEach(function(g){ g.parentNode.removeChild(g); });
+    sec.appendChild(wrap);
+  });
+
+  /* ---- search, expand/collapse */
+  var q = document.getElementById('tq'), stat = document.getElementById('tstat');
+  var empty = document.createElement('p');
+  empty.className = 'px-5 sm:px-8 pb-16 max-w-4xl mx-auto text-sm text-muted'; empty.hidden = true;
+  var dios = [].slice.call(document.querySelectorAll('.tdio')), tsecs = [].slice.call(document.querySelectorAll('.tsec'));
+  if (tsecs.length) tsecs[tsecs.length - 1].parentNode.insertBefore(empty, tsecs[tsecs.length - 1].nextSibling);
   function norm(s){ return (s || '').toLowerCase().normalize('NFKD').replace(/[\u0300-\u036f]/g, ''); }
   dios.forEach(function(d){
     var n = d.querySelector('summary [data-en]');
     d._name = norm(n.getAttribute('data-en') + ' ' + n.getAttribute('data-ml'));
     d._cells = [].slice.call(d.querySelectorAll('.tcell'));
-    d._cells.forEach(function(c){
-      var s = c.querySelector('[data-en]');
-      c._s = norm(s.getAttribute('data-en') + ' ' + s.getAttribute('data-ml'));
-    });
+    d._cells.forEach(function(c){ var s = c.querySelector('[data-en]'); c._s = norm(s.getAttribute('data-en') + ' ' + s.getAttribute('data-ml')); });
     d._count = d.querySelector('.tcount');
   });
   function lang(){ return document.documentElement.getAttribute('lang') === 'ml' ? 'ml' : 'en'; }
-  function span(d, list){
-    d._cells.forEach(function(c){ c.classList.remove('tspan'); });
-    if (list.length % 2 === 1) list[list.length - 1].classList.add('tspan');
-  }
+  function span(d, list){ d._cells.forEach(function(c){ c.classList.remove('tspan'); }); if (list.length % 2 === 1) list[list.length - 1].classList.add('tspan'); }
   var saved = null, shown = 0, active = false;
   function render(){
     if (!active){ stat.textContent = ''; empty.hidden = true; return; }
-    if (shown === 0){
-      stat.textContent = '';
-      empty.hidden = false;
-      empty.textContent = lang() === 'ml' ? 'ഫലങ്ങളൊന്നും കണ്ടെത്തിയില്ല.' : 'Nothing matches that search.';
-    } else {
-      empty.hidden = true;
-      stat.textContent = lang() === 'ml' ? shown + ' ഫലങ്ങൾ' : (shown === 1 ? '1 result' : shown + ' results');
-    }
+    if (shown === 0){ stat.textContent = ''; empty.hidden = false; empty.textContent = lang() === 'ml' ? 'ഫലങ്ങളൊന്നും കണ്ടെത്തിയില്ല.' : 'Nothing matches that search.'; }
+    else { empty.hidden = true; stat.textContent = lang() === 'ml' ? shown + ' ഫലങ്ങൾ' : (shown === 1 ? '1 result' : shown + ' results'); }
   }
   function filter(){
     var t = norm(q.value.trim());
-    if (t && !active){ saved = dios.map(function(d){ return d.open; }); }
+    if (t && !active) saved = dios.map(function(d){ return d.open; });
     active = !!t; shown = 0;
     dios.forEach(function(d){
-      if (!t){
-        d.hidden = false;
-        d._cells.forEach(function(c){ c.hidden = false; });
-        d._count.textContent = d._count.getAttribute('data-n');
-        span(d, d._cells);
-        return;
-      }
-      var whole = d._name.indexOf(t) > -1;
-      var vis = [];
-      d._cells.forEach(function(c){
-        var ok = whole || c._s.indexOf(t) > -1;
-        c.hidden = !ok;
-        if (ok) vis.push(c);
-      });
+      if (!t){ d.hidden = false; d._cells.forEach(function(c){ c.hidden = false; }); d._count.textContent = d._count.getAttribute('data-n'); span(d, d._cells); return; }
+      var whole = d._name.indexOf(t) > -1, vis = [];
+      d._cells.forEach(function(c){ var ok = whole || c._s.indexOf(t) > -1; c.hidden = !ok; if (ok) vis.push(c); });
       d.hidden = vis.length === 0;
       if (vis.length){ d.open = true; d._count.textContent = vis.length; shown += vis.length; }
       span(d, vis);
     });
-    secs.forEach(function(s){
-      s.hidden = active && !s.querySelector('.tdio:not([hidden])');
-    });
+    tsecs.forEach(function(s){ s.hidden = active && !s.querySelector('.tdio:not([hidden])'); });
     if (!active && saved){ dios.forEach(function(d, i){ d.open = saved[i]; }); saved = null; }
     render();
   }
@@ -934,15 +769,14 @@ html[lang="ml"] .tq::placeholder{font-family:Arima,serif}
   document.getElementById('tcol').addEventListener('click', function(){ dios.forEach(function(d){ if (!d.hidden) d.open = false; }); });
   filter();
   function openHash(){
-    var id = decodeURIComponent(location.hash.slice(1));
-    if (!id) return;
+    var id = decodeURIComponent(location.hash.slice(1)); if (!id) return;
     var el = document.getElementById(id);
     if (el && el.classList.contains('tdio')){ el.open = true; setTimeout(function(){ el.scrollIntoView(); }, 50); }
   }
   openHash(); window.addEventListener('hashchange', openHash);
   new MutationObserver(render).observe(document.documentElement, { attributes: true, attributeFilter: ['lang'] });
 })();
-</script>
 
+</script>
 </body>
 </html>
