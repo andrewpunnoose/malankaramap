@@ -476,7 +476,7 @@
     "Cor-Episcopi": ["Cor-Episcopa", "കോറെപ്പിസ്കോപ്പ"], "Deacons": ["Deacon", "ശെമ്മാശൻ"],
     "Independent Prayer Groups": ["Independent Prayer Group", "സ്വതന്ത്ര പ്രാർത്ഥന യോഗം"],
     "Independent Sunday Schools": ["Independent Sunday School", "സ്വതന്ത്ര ഞായർ പള്ളിക്കൂടം"],
-    "Institutions": ["Institution", "സ്ഥാപനം"], "Monasteries": ["Monastery", "ദയറാ"], "Monks": ["Monk", "റമ്പാൻ"],
+    "Institutions": ["Institution", "സ്ഥാപനം"], "Monasteries": ["Monastery", "ദയറാ"], "Rambans": ["Ramban", "റമ്പാൻ"], "Monks": ["Monk", "സന്യാസി"], "Nuns": ["Nun", "കന്യാസ്ത്രീ"],
     "Other Institutions": ["Other Institution", "മറ്റ് സ്ഥാപനം"], "Palaces": ["Palace", "അരമന"], "Priests": ["Priest", "വൈദികൻ"],
     "Qurbana Centres": ["Qurbana Centre", "പ്രാർത്ഥനാലയം"], "Seminaries": ["Seminary", "സെമിനാരി"],
     "Student Centres": ["Student Centre", "വിദ്യാർത്ഥി കേന്ദ്രം"], "Metropolitans": ["Metropolitan", "മെത്രാപ്പോലീത്ത"]

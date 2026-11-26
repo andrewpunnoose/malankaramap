@@ -191,6 +191,16 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://malankaramap.com/sanyasimar</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://malankaramap.com/nuns</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://malankaramap.com/cor-episcopa</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
