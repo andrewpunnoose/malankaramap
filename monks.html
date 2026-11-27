@@ -54,6 +54,22 @@
 .cl-ph.cl-lg.cl-none{background-size:100% 100%;background-position:0 0}
 </style>
 <style id="ml-tracking">html[lang="ml"] [class*="tracking-"],html[lang="ml"] .clergy-nav{letter-spacing:normal!important}</style>
+<style>
+.pgnote{max-width:42rem;margin:1rem auto 0;text-align:center}
+.pgnote>summary{list-style:none;display:inline-flex;align-items:center;gap:.4rem;cursor:pointer;font-family:Inter,system-ui,sans-serif;font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;font-weight:600;color:#7C6A4A;padding:.3rem .75rem;border:1px solid rgba(186,148,80,.35);border-radius:999px;transition:background .2s,border-color .2s}
+.pgnote>summary::-webkit-details-marker{display:none}
+.pgnote>summary:hover{background:rgba(186,148,80,.08);border-color:rgba(186,148,80,.6)}
+.pgnote>summary:focus-visible{outline:2px solid #6B8259;outline-offset:2px}
+.pgnote>summary svg{width:11px;height:11px;transition:transform .2s}
+.pgnote[open]>summary svg{transform:rotate(180deg)}
+.pgnote .pgnote-body{margin-top:.75rem;padding:.9rem 1.15rem;border-radius:12px;background:rgba(186,148,80,.07);border:1px solid rgba(186,148,80,.2);text-align:left}
+.pgnote .pgnote-body p{font-family:Marcellus,Georgia,serif;font-size:13px;line-height:1.7;color:rgba(51,58,45,.8);margin:0}
+.pgnote .pgnote-body p+p{margin-top:.6rem}
+html.dark .pgnote>summary{color:#BA9450}
+html.dark .pgnote .pgnote-body{background:rgba(255,255,255,.04);border-color:rgba(255,255,255,.1)}
+html.dark .pgnote .pgnote-body p{color:rgba(247,245,238,.7)}
+html[lang="ml"] .pgnote>summary{letter-spacing:normal;text-transform:none;font-size:12px}
+</style>
 </head>
 <body class="bg-ivory dark:bg-midnight text-body dark:text-ivory/85 font-sans transition-colors duration-300">
 <audio id="bgMusic" loop>
@@ -77,7 +93,9 @@
     <nav class="clergy-nav font-sans text-[11px] tracking-[0.06em] uppercase text-body/60 dark:text-ivory/50"><a href="metropolitans" class="hover:text-sage-dark dark:hover:text-sage transition-colors" data-en="Metropolitans" data-ml="മെത്രാപ്പോലീത്തന്മാർ">Metropolitans</a> <span class="text-muted">&middot;</span> <span class="text-ink dark:text-ivory font-semibold" data-en="Rambans" data-ml="റമ്പാന്മാർ">Rambans</span> <span class="text-muted">&middot;</span> <a href="cor-episcopa" class="hover:text-sage-dark dark:hover:text-sage transition-colors" data-en="Cor-Episcopi" data-ml="കോറെപ്പിസ്കോപ്പമാർ">Cor-Episcopi</a> <span class="text-muted">&middot;</span> <a href="priests" class="hover:text-sage-dark dark:hover:text-sage transition-colors" data-en="Priests" data-ml="വൈദികർ">Priests</a> <span class="text-muted">&middot;</span> <a href="deacons" class="hover:text-sage-dark dark:hover:text-sage transition-colors" data-en="Deacons" data-ml="ശെമ്മാശന്മാർ">Deacons</a> <span class="text-muted">&middot;</span> <a href="sanyasimar" class="hover:text-sage-dark dark:hover:text-sage transition-colors" data-en="Monks" data-ml="സന്യാസിമാർ">Monks</a> <span class="text-muted">&middot;</span> <a href="nuns" class="hover:text-sage-dark dark:hover:text-sage transition-colors" data-en="Nuns" data-ml="കന്യാസ്ത്രീകൾ">Nuns</a></nav>
     <p class="text-[11px] sm:text-xs tracking-[0.22em] uppercase text-taupe font-semibold mt-6 mb-4 sm:mb-5" data-en="Ramban — The Monastic Order" data-ml="റമ്പാൻ — സന്യാസ പദവി">Ramban — The Monastic Order</p>
     <h1 class="mm-clergy-h1 font-serif font-normal text-[36px] leading-[1.1] sm:text-5xl md:text-6xl tracking-tight text-ink dark:text-ivory mb-4 sm:mb-5" data-en-html="&lt;em class=&quot;not-italic text-sage-dark dark:text-sage&quot;&gt;79&lt;/em&gt; Rambans" data-ml-html="&lt;em class=&quot;not-italic text-sage-dark dark:text-sage&quot;&gt;79&lt;/em&gt; റമ്പാന്മാർ"><em class="not-italic text-sage-dark dark:text-sage">79</em> Rambans</h1>
-    <p class="text-[15px] sm:text-base text-body/80 dark:text-ivory/65 max-w-lg mx-auto leading-relaxed" data-en="Celibate monastics of the Church, many belonging to its religious orders and monasteries, listed by the diocese under which they serve." data-ml="സഭയിലെ ബ്രഹ്മചാരികളായ സന്യാസികൾ; അവരിൽ പലരും സഭയുടെ സന്യാസ സമൂഹങ്ങളിലും ദയറാകളിലും അംഗങ്ങളാണ്. അവർ ശുശ്രൂഷ ചെയ്യുന്ന ഭദ്രാസനം അനുസരിച്ച് ക്രമീകരിച്ചിരിക്കുന്നു.">Celibate monastics of the Church, many belonging to its religious orders and monasteries, listed by the diocese under which they serve.</p> <p class="font-serif text-[13px] text-body/55 dark:text-ivory/45 max-w-xl mx-auto leading-relaxed mt-4" data-en="This count includes 49 rambans and 30 bishops who are also rambans; only the 49 are listed below." data-ml="ഈ എണ്ണത്തിൽ 49 റമ്പാന്മാരും റമ്പാൻ കൂടിയായ 30 മെത്രാപ്പോലീത്തന്മാരും ഉൾപ്പെടുന്നു; താഴെ 49 പേരെ മാത്രം പട്ടികപ്പെടുത്തിയിരിക്കുന്നു.">This count includes 49 rambans and 30 bishops who are also rambans; only the 49 are listed below.</p>
+    <p class="text-[15px] sm:text-base text-body/80 dark:text-ivory/65 max-w-lg mx-auto leading-relaxed" data-en="Celibate monastics of the Church, many belonging to its religious orders and monasteries, listed by the diocese under which they serve." data-ml="സഭയിലെ ബ്രഹ്മചാരികളായ സന്യാസികൾ; അവരിൽ പലരും സഭയുടെ സന്യാസ സമൂഹങ്ങളിലും ദയറാകളിലും അംഗങ്ങളാണ്. അവർ ശുശ്രൂഷ ചെയ്യുന്ന ഭദ്രാസനം അനുസരിച്ച് ക്രമീകരിച്ചിരിക്കുന്നു.">Celibate monastics of the Church, many belonging to its religious orders and monasteries, listed by the diocese under which they serve.</p> <details class="pgnote"><summary><span data-en="About these figures" data-ml="ഈ കണക്കുകളെക്കുറിച്ച്">About these figures</span><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 8 5 5 5-5"/></svg></summary><div class="pgnote-body">
+<p data-en="This count includes 49 rambans and 30 bishops who are also rambans; only the 49 are listed below." data-ml="ഈ എണ്ണത്തിൽ 49 റമ്പാന്മാരും റമ്പാൻ കൂടിയായ 30 മെത്രാപ്പോലീത്തന്മാരും ഉൾപ്പെടുന്നു; താഴെ 49 പേരെ മാത്രം പട്ടികപ്പെടുത്തിയിരിക്കുന്നു.">This count includes 49 rambans and 30 bishops who are also rambans; only the 49 are listed below.</p>
+</div></details>
     <div class="w-px h-8 sm:h-10 bg-gold/70 mx-auto mt-7 sm:mt-9"></div>
   </div>
 </section>

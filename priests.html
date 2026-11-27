@@ -54,6 +54,22 @@
 .cl-ph.cl-lg.cl-none{background-size:100% 100%;background-position:0 0}
 </style>
 <style id="ml-tracking">html[lang="ml"] [class*="tracking-"],html[lang="ml"] .clergy-nav{letter-spacing:normal!important}</style>
+<style>
+.pgnote{max-width:42rem;margin:1rem auto 0;text-align:center}
+.pgnote>summary{list-style:none;display:inline-flex;align-items:center;gap:.4rem;cursor:pointer;font-family:Inter,system-ui,sans-serif;font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;font-weight:600;color:#7C6A4A;padding:.3rem .75rem;border:1px solid rgba(186,148,80,.35);border-radius:999px;transition:background .2s,border-color .2s}
+.pgnote>summary::-webkit-details-marker{display:none}
+.pgnote>summary:hover{background:rgba(186,148,80,.08);border-color:rgba(186,148,80,.6)}
+.pgnote>summary:focus-visible{outline:2px solid #6B8259;outline-offset:2px}
+.pgnote>summary svg{width:11px;height:11px;transition:transform .2s}
+.pgnote[open]>summary svg{transform:rotate(180deg)}
+.pgnote .pgnote-body{margin-top:.75rem;padding:.9rem 1.15rem;border-radius:12px;background:rgba(186,148,80,.07);border:1px solid rgba(186,148,80,.2);text-align:left}
+.pgnote .pgnote-body p{font-family:Marcellus,Georgia,serif;font-size:13px;line-height:1.7;color:rgba(51,58,45,.8);margin:0}
+.pgnote .pgnote-body p+p{margin-top:.6rem}
+html.dark .pgnote>summary{color:#BA9450}
+html.dark .pgnote .pgnote-body{background:rgba(255,255,255,.04);border-color:rgba(255,255,255,.1)}
+html.dark .pgnote .pgnote-body p{color:rgba(247,245,238,.7)}
+html[lang="ml"] .pgnote>summary{letter-spacing:normal;text-transform:none;font-size:12px}
+</style>
 </head>
 <body class="bg-ivory dark:bg-midnight text-body dark:text-ivory/85 font-sans transition-colors duration-300">
 <audio id="bgMusic" loop>
@@ -78,7 +94,9 @@
     <p class="text-[11px] sm:text-xs tracking-[0.22em] uppercase text-taupe font-semibold mt-6 mb-4 sm:mb-5" data-en="Rev. Fr. — Parish Clergy" data-ml="ബഹു. — ഇടവക വൈദികർ">Rev. Fr. — Parish Clergy</p>
     <h1 class="mm-clergy-h1 font-serif font-normal text-[36px] leading-[1.1] sm:text-5xl md:text-6xl tracking-tight text-ink dark:text-ivory mb-4 sm:mb-5" data-en-html="&lt;em class=&quot;not-italic text-sage-dark dark:text-sage&quot;&gt;2,000&lt;/em&gt; Priests" data-ml-html="&lt;em class=&quot;not-italic text-sage-dark dark:text-sage&quot;&gt;2,000&lt;/em&gt; വൈദികർ"><em class="not-italic text-sage-dark dark:text-sage">2,000</em> Priests</h1>
     <p class="text-[15px] sm:text-base text-body/80 dark:text-ivory/65 max-w-lg mx-auto leading-relaxed" data-en="Ordained priests serving parishes, congregations, and institutions across every diocese of the Church, organized here by diocese." data-ml="സഭയുടെ എല്ലാ ഭദ്രാസനങ്ങളിലുമുള്ള ഇടവകകളിലും സമൂഹങ്ങളിലും സ്ഥാപനങ്ങളിലും ശുശ്രൂഷ ചെയ്യുന്ന പട്ടക്കാർ; ഭദ്രാസനം അനുസരിച്ച് ഇവിടെ ക്രമീകരിച്ചിരിക്കുന്നു.">Ordained priests serving parishes, congregations, and institutions across every diocese of the Church, organized here by diocese.</p>
-    <p class="font-serif text-[13px] text-body/55 dark:text-ivory/45 max-w-xl mx-auto leading-relaxed mt-4" data-en="This count includes 1,809 priests, 49 rambans, 112 cor-episcopas and 30 bishops; only the 1,809 priests of no further rank are listed below." data-ml="ഈ എണ്ണത്തിൽ 1,809 വൈദികരും 49 റമ്പാന്മാരും 112 കോറെപ്പിസ്കോപ്പമാരും 30 മെത്രാപ്പോലീത്തന്മാരും ഉൾപ്പെടുന്നു; താഴെ കൂടുതൽ പദവികളില്ലാത്ത 1,809 പേരെ മാത്രം പട്ടികപ്പെടുത്തിയിരിക്കുന്നു.">This count includes 1,809 priests, 49 rambans, 112 cor-episcopas and 30 bishops; only the 1,809 priests of no further rank are listed below.</p>
+    <details class="pgnote"><summary><span data-en="About these figures" data-ml="ഈ കണക്കുകളെക്കുറിച്ച്">About these figures</span><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 8 5 5 5-5"/></svg></summary><div class="pgnote-body">
+<p data-en="This count includes 1,809 priests, 49 rambans, 112 cor-episcopas and 30 bishops; only the 1,809 priests of no further rank are listed below." data-ml="ഈ എണ്ണത്തിൽ 1,809 വൈദികരും 49 റമ്പാന്മാരും 112 കോറെപ്പിസ്കോപ്പമാരും 30 മെത്രാപ്പോലീത്തന്മാരും ഉൾപ്പെടുന്നു; താഴെ കൂടുതൽ പദവികളില്ലാത്ത 1,809 പേരെ മാത്രം പട്ടികപ്പെടുത്തിയിരിക്കുന്നു.">This count includes 1,809 priests, 49 rambans, 112 cor-episcopas and 30 bishops; only the 1,809 priests of no further rank are listed below.</p>
+</div></details>
     <div class="w-px h-8 sm:h-10 bg-gold/70 mx-auto mt-7 sm:mt-9"></div>
   </div>
 </section>

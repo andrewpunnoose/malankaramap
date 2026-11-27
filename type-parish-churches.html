@@ -53,6 +53,22 @@
 .tdio>summary:focus-visible,.tbtn:focus-visible{outline:2px solid #6B8259;outline-offset:2px}
 html[lang="ml"] .tq::placeholder{font-family:Arima,serif}
 </style>
+<style>
+.pgnote{max-width:42rem;margin:1rem auto 0;text-align:center}
+.pgnote>summary{list-style:none;display:inline-flex;align-items:center;gap:.4rem;cursor:pointer;font-family:Inter,system-ui,sans-serif;font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;font-weight:600;color:#7C6A4A;padding:.3rem .75rem;border:1px solid rgba(186,148,80,.35);border-radius:999px;transition:background .2s,border-color .2s}
+.pgnote>summary::-webkit-details-marker{display:none}
+.pgnote>summary:hover{background:rgba(186,148,80,.08);border-color:rgba(186,148,80,.6)}
+.pgnote>summary:focus-visible{outline:2px solid #6B8259;outline-offset:2px}
+.pgnote>summary svg{width:11px;height:11px;transition:transform .2s}
+.pgnote[open]>summary svg{transform:rotate(180deg)}
+.pgnote .pgnote-body{margin-top:.75rem;padding:.9rem 1.15rem;border-radius:12px;background:rgba(186,148,80,.07);border:1px solid rgba(186,148,80,.2);text-align:left}
+.pgnote .pgnote-body p{font-family:Marcellus,Georgia,serif;font-size:13px;line-height:1.7;color:rgba(51,58,45,.8);margin:0}
+.pgnote .pgnote-body p+p{margin-top:.6rem}
+html.dark .pgnote>summary{color:#BA9450}
+html.dark .pgnote .pgnote-body{background:rgba(255,255,255,.04);border-color:rgba(255,255,255,.1)}
+html.dark .pgnote .pgnote-body p{color:rgba(247,245,238,.7)}
+html[lang="ml"] .pgnote>summary{letter-spacing:normal;text-transform:none;font-size:12px}
+</style>
 </head>
 <body class="bg-ivory dark:bg-midnight text-body dark:text-ivory/85 font-sans transition-colors duration-300">
 <div id="site-header-mount"></div>
@@ -77,22 +93,12 @@ html[lang="ml"] .tq::placeholder{font-family:Arima,serif}
     <strong class="text-sage-dark dark:text-sage font-semibold">16</strong> nations and
     <strong class="text-sage-dark dark:text-sage font-semibold">33</strong> dioceses.
   </p>
-  <p class="font-serif text-[12.5px] sm:text-[13px] text-body/55 dark:text-ivory/45 max-w-2xl mx-auto leading-relaxed mt-4" data-en="This count includes 1,356 churches, 55 cathedrals and 28 Catholicate centres; only the 1,356 are listed on this page, the rest on their own." data-ml="ഈ എണ്ണത്തിൽ 1,356 പള്ളികളും 55 ഭദ്രാസനപള്ളികളും 28 കാതോലിക്കേറ്റ് കേന്ദ്രങ്ങളും ഉൾപ്പെടുന്നു; ഈ പേജിൽ 1,356 എണ്ണം മാത്രം, ബാക്കിയുള്ളവ അവയുടെ സ്വന്തം പേജുകളിൽ.">This count includes 1,356 churches, 55 cathedrals and 28 Catholicate centres; only the 1,356 are listed on this page, the rest on their own.</p>
-  <p class="font-serif text-[12.5px] sm:text-[13px] text-body/55 dark:text-ivory/45 max-w-2xl mx-auto leading-relaxed mt-4" data-en="Totals cover Orthodox-administered institutions only. Those under schismatic occupation, and the semi-autonomous Knanaya institutions, are listed separately below." data-ml="ആകെ എണ്ണം ഓർത്തഡോക്സ് സഭയുടെ കീഴിലുള്ള സ്ഥാപനങ്ങളുടേത് മാത്രമാണ്; വിഘടിത അധിനിവേശത്തിലുള്ളവയും അർധ സ്വയംഭരണാവകാശമുള്ള ക്നാനായ സ്ഥാപനങ്ങളും താഴെ പ്രത്യേകം പട്ടികപ്പെടുത്തിയിരിക്കുന്നു.">Totals cover Orthodox-administered institutions only. Those under schismatic occupation, and the semi-autonomous Knanaya institutions, are listed separately below.</p>
-  <p class="font-serif text-[12.5px] sm:text-[13px] text-body/55 dark:text-ivory/45 max-w-2xl mx-auto leading-relaxed mt-4" data-en="The churches listed here are not only parishes; they also include non-parochial churches, such as Kottayam St. Lazarus Orthodox Church (Collectorate) and Kottoor St. George Orthodox Church." data-ml="ഇവിടെ പട്ടികപ്പെടുത്തിയിരിക്കുന്നത് ഇടവകകൾ മാത്രമല്ല; ഇടവകയല്ലാത്ത പള്ളികളും ഇതിൽ ഉൾപ്പെടുന്നു — ഉദാഹരണത്തിന് കോട്ടയം മാർ ലാസർ ഓർത്തഡോക്സ് പള്ളി (കളക്ടറേറ്റ്), കോട്ടൂർ മാർ ഗീവറുഗീസ് സഹദാ ഓർത്തഡോക്സ് പള്ളി.">The churches listed here are not only parishes; they also include non-parochial churches, such as Kottayam St. Lazarus Orthodox Church (Collectorate) and Kottoor St. George Orthodox Church.</p>
+  <details class="pgnote"><summary><span data-en="About these figures" data-ml="ഈ കണക്കുകളെക്കുറിച്ച്">About these figures</span><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 8 5 5 5-5"/></svg></summary><div class="pgnote-body">
+<p data-en="This count includes 1,356 churches, 55 cathedrals and 28 Catholicate centres; only the 1,356 are listed on this page, the rest on their own." data-ml="ഈ എണ്ണത്തിൽ 1,356 പള്ളികളും 55 ഭദ്രാസനപള്ളികളും 28 കാതോലിക്കേറ്റ് കേന്ദ്രങ്ങളും ഉൾപ്പെടുന്നു; ഈ പേജിൽ 1,356 എണ്ണം മാത്രം, ബാക്കിയുള്ളവ അവയുടെ സ്വന്തം പേജുകളിൽ.">This count includes 1,356 churches, 55 cathedrals and 28 Catholicate centres; only the 1,356 are listed on this page, the rest on their own.</p>
+<p data-en="Totals cover Orthodox-administered institutions only. Those under schismatic occupation, and the semi-autonomous Knanaya institutions, are listed separately below." data-ml="ആകെ എണ്ണം ഓർത്തഡോക്സ് സഭയുടെ കീഴിലുള്ള സ്ഥാപനങ്ങളുടേത് മാത്രമാണ്; വിഘടിത അധിനിവേശത്തിലുള്ളവയും അർധ സ്വയംഭരണാവകാശമുള്ള ക്നാനായ സ്ഥാപനങ്ങളും താഴെ പ്രത്യേകം പട്ടികപ്പെടുത്തിയിരിക്കുന്നു.">Totals cover Orthodox-administered institutions only. Those under schismatic occupation, and the semi-autonomous Knanaya institutions, are listed separately below.</p>
+<p data-en="The churches listed here are not only parishes; they also include non-parochial churches, such as Kottayam St. Lazarus Orthodox Church (Collectorate) and Kottoor St. George Orthodox Church." data-ml="ഇവിടെ പട്ടികപ്പെടുത്തിയിരിക്കുന്നത് ഇടവകകൾ മാത്രമല്ല; ഇടവകയല്ലാത്ത പള്ളികളും ഇതിൽ ഉൾപ്പെടുന്നു — ഉദാഹരണത്തിന് കോട്ടയം മാർ ലാസർ ഓർത്തഡോക്സ് പള്ളി (കളക്ടറേറ്റ്), കോട്ടൂർ മാർ ഗീവറുഗീസ് സഹദാ ഓർത്തഡോക്സ് പള്ളി.">The churches listed here are not only parishes; they also include non-parochial churches, such as Kottayam St. Lazarus Orthodox Church (Collectorate) and Kottoor St. George Orthodox Church.</p>
+</div></details>
 </section>
-
-<style>
-  .devart-wrap{display:flex;flex-direction:column;align-items:center;padding:.25rem 1.25rem 2.5rem}
-  .devart-frame{max-width:340px;width:100%;border-radius:14px;overflow:hidden;box-shadow:0 14px 34px -16px rgba(20,20,15,.35);border:1px solid rgba(150,140,100,.18)}
-  .devart-frame img{display:block;width:100%;height:auto}
-  .devart-cap{text-align:center;font-family:"Marcellus",Georgia,serif;font-style:italic;font-size:13.5px;line-height:1.65;max-width:24rem;margin:1rem auto 0;color:#57534e}
-  html.dark .devart-cap{color:rgba(247,245,238,.6)}
-</style>
-<div class="devart-wrap">
-  <div class="devart-frame"><img src="/liturgy-banner.jpg" alt="" aria-hidden="true" loading="lazy"></div>
-  <p class="devart-cap" data-en="At every altar, the Church on earth stands within sight of the Church triumphant — one offering, joined across time." data-ml="ഓരോ അൾത്താരയിലും ഭൂമിയിലെ സഭ വിജയസഭയുടെ ദൃഷ്ടിക്കുള്ളിൽ നിലകൊള്ളുന്നു — കാലത്തിലൂടെ ഒന്നുചേരുന്ന ഒരേയൊരു ബലി.">At every altar, the Church on earth stands within sight of the Church triumphant — one offering, joined across time.</p>
-</div>
 
 <section class="px-5 sm:px-8 pb-16 sm:pb-24 max-w-4xl mx-auto">
   <h2 class="font-serif font-normal text-2xl sm:text-[32px] text-ink dark:text-ivory mb-2" data-en="Every Church" data-ml="ഓരോ ഇടവകയും">Every Church</h2>
@@ -7909,7 +7915,7 @@ html[lang="ml"] .tq::placeholder{font-family:Arima,serif}
       total += rows.length;
       return { href: a.getAttribute('href'), color: ((dot.getAttribute('style') || '').match(/background:\s*([^;]+)/) || [,'#4A5D3D'])[1], name: [h3.getAttribute('data-en'), h3.getAttribute('data-ml')], rows: rows };
     });
-    var openAll = total <= 24, wrap = document.createElement('div');
+    var openAll = false, wrap = document.createElement('div');
     wrap.className = 'border-t border-line dark:border-white/10';
     wrap.innerHTML = parsed.map(function(g){
       var nat = [], seen = {};
