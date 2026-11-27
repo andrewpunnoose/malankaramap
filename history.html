@@ -78,7 +78,7 @@ footer a{color:inherit}
 .hp .short li{margin-bottom:.5rem;font-size:.97rem;line-height:1.7}
 .hp .short li::marker{color:var(--gold)}
 .hp .short li:last-child{margin:0}
-.hp .bar{position:sticky;top:0;z-index:40;display:flex;align-items:stretch;background:#F7F5EE;border-bottom:1px solid var(--line);margin:0 0 1.5rem}
+.hp .bar{display:flex;align-items:stretch;background:#F7F5EE;border-bottom:1px solid var(--line);margin:0 0 1.5rem}
 html.dark .hp .bar{background:#111827}
 .hp .tl{display:flex;flex:1;min-width:0;gap:.25rem;overflow-x:auto;scrollbar-width:none}
 .hp .tl::-webkit-scrollbar{display:none}
@@ -89,11 +89,11 @@ html.dark .hp .bar{background:#111827}
 .hp .tl a.on::after{content:"";position:absolute;left:.6rem;right:.6rem;bottom:-1px;height:2px;border-radius:2px;background:var(--gold)}
 .hp #tog{flex:none;align-self:center;margin:0 0 0 .6rem;padding:.42rem 1rem;font:inherit;font-size:12.5px;font-weight:500;line-height:1.4;color:var(--sage);background:var(--card);border:1px solid var(--line);border-radius:999px;cursor:pointer;transition:border-color .2s,background .2s}
 .hp #tog:hover{border-color:var(--gold);background:var(--gold-soft)}
-.hp .ch,.hp #numbers{scroll-margin-top:4.5rem}
+.hp .ch,.hp #numbers{scroll-margin-top:1.5rem}
 .hp .ch{display:grid;grid-template-columns:7.5rem 1fr;gap:1rem 2rem;padding:2.5rem 0;border-top:1px solid var(--line)}
 .hp .ch>div:last-child{min-width:0}
 .hp main>section:not(.ch),.hp .hp-wrap>section:not(.ch):not(.today){padding:2.5rem 0;border-top:1px solid var(--line)}
-.hp .yr{font:400 2.1rem/1.1 Marcellus,Georgia,serif;color:var(--taupe);position:sticky;top:5rem;align-self:start}
+.hp .yr{font:400 2.1rem/1.1 Marcellus,Georgia,serif;color:var(--taupe);position:sticky;top:1.5rem;align-self:start}
 .hp .verdict,.hp .mart{position:relative;background:var(--card);border:1px solid var(--line);border-radius:16px;padding:1.1rem 1.3rem 1.1rem 1.5rem;margin:1.3rem 0;box-shadow:0 2px 12px rgba(17,24,39,.05)}
 .hp .verdict::before,.hp .mart::before{content:"";position:absolute;left:0;top:.9rem;bottom:.9rem;width:3px;border-radius:0 3px 3px 0;background:var(--sage)}
 .hp .mart::before{background:var(--clay)}
@@ -125,7 +125,7 @@ html.dark .hp .bar{background:#111827}
 .hp .today .btn{background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.3);color:#F7F5EE;margin:.4rem 0 1rem}
 .hp .today .btn:hover{background:rgba(255,255,255,.24);color:#F7F5EE;filter:none}
 @media(max-width:900px){.hp .ppl.c3{grid-template-columns:1fr}}
-@media(max-width:640px){.hp .ch{grid-template-columns:1fr;gap:.2rem}.hp .yr{position:static}.hp .glance{grid-template-columns:1fr}.hp .bar{position:static}.hp .today{padding:1.6rem 1.4rem}}
+@media(max-width:640px){.hp .ch{grid-template-columns:1fr;gap:.2rem}.hp .yr{position:static}.hp .glance{grid-template-columns:1fr}.hp .today{padding:1.6rem 1.4rem}}
 </style>
 <title>The Road to 2017 — Malankara Map</title>
 <meta name="description" content="How the Patriarchal faction split from the one Malankara Church, and what the courts and the records say about every claim it made.">
