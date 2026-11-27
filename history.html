@@ -74,8 +74,8 @@ footer a{color:inherit}
 .hp .glance b{display:block;font:400 2rem/1.1 Marcellus,Georgia,serif;color:var(--taupe);margin-bottom:.25rem}
 .hp .short{background:var(--card);border:1px solid var(--line);border-top:3px solid var(--gold);border-radius:16px;padding:1.4rem 1.6rem;margin:0 0 1.5rem}
 .hp .short h2{font-size:1.35rem;margin:0 0 .7rem}
-.hp .short ul{margin:0;padding-left:1.2rem}
-.hp .short li{margin-bottom:.5rem;font-size:.97rem;line-height:1.7}
+.hp .short ul{list-style:disc outside;margin:0;padding-left:1.3rem}
+.hp .short li{display:list-item;margin-bottom:.5rem;font-size:.97rem;line-height:1.7}
 .hp .short li::marker{color:var(--gold)}
 .hp .short li:last-child{margin:0}
 .hp .bar{display:flex;align-items:stretch;background:#F7F5EE;border-bottom:1px solid var(--line);margin:0 0 1.5rem}
@@ -104,19 +104,31 @@ html.dark .hp .bar{background:#111827}
 .hp .ppl.c3{grid-template-columns:repeat(3,1fr)}
 .hp .ppl .wide{grid-column:1/-1}
 .hp .ppl div{background:var(--card);border:1px solid var(--line);border-top:3px solid var(--gold);border-radius:14px;padding:1rem 1.2rem}
-.hp details.ev{border:1px solid var(--line);background:var(--card);border-radius:14px;margin:1rem 0}
-.hp details.ev>summary{list-style:none;display:flex;align-items:center;gap:.5rem;cursor:pointer;user-select:none;padding:.85rem 1.1rem;font-size:11px;letter-spacing:.14em;text-transform:uppercase;font-weight:600;line-height:1.5;color:var(--taupe);transition:color .2s}
+.hp details.ev{border:1px solid var(--line);background:var(--card);border-radius:14px;margin:1.2rem 0;overflow:hidden}
+.hp details.ev>summary{list-style:none;display:flex;align-items:center;gap:.75rem;cursor:pointer;user-select:none;padding:.9rem 1.25rem;font-size:11px;letter-spacing:.14em;text-transform:uppercase;font-weight:600;line-height:1.6;color:var(--taupe);transition:color .2s,background .2s}
 .hp details.ev>summary::-webkit-details-marker{display:none}
-.hp details.ev>summary:hover{color:var(--ink)}
-.hp details.ev>summary::after{content:"";flex:none;margin-left:auto;width:6px;height:6px;border-right:1.5px solid currentColor;border-bottom:1.5px solid currentColor;transform:rotate(45deg) translateY(-2px);opacity:.7;transition:transform .2s}
+.hp details.ev>summary::marker{content:"";display:none}
+.hp details.ev>summary:hover{color:var(--ink);background:var(--gold-soft)}
+.hp details.ev>summary::after{content:"";flex:none;margin-left:auto;width:7px;height:7px;border-right:1.5px solid currentColor;border-bottom:1.5px solid currentColor;transform:rotate(45deg) translateY(-2px);opacity:.75;transition:transform .2s}
 .hp details.ev[open]>summary::after{transform:rotate(-135deg) translate(-1px,-1px)}
-.hp details.ev[open]>summary{border-bottom:1px solid var(--line-soft);margin-bottom:.9rem}
-.hp details.ev>div{padding:0 1.1rem .6rem;font-size:.95rem}
+.hp details.ev[open]>summary{border-bottom:1px solid var(--line-soft)}
+.hp details.ev>div{padding:1.1rem 1.25rem .4rem;font-size:.95rem;line-height:1.75}
+.hp .ev-item{padding:0 0 1rem;margin:0 0 1rem;border-bottom:1px solid var(--line-soft)}
+.hp .ev-item:last-child{border-bottom:0;margin-bottom:.2rem}
+.hp .ev-item h4{font:600 11px/1.5 Inter,system-ui,sans-serif;letter-spacing:.12em;text-transform:uppercase;color:var(--taupe);margin:0 0 .4rem}
+.hp .ev-item p{margin:0 0 .6rem;font-size:.95rem}
+.hp .ev-item p:last-child{margin-bottom:0}
+.hp .ev-item ul{list-style:disc outside;margin:.5rem 0 0;padding-left:1.3rem}
+.hp .ev-item li{display:list-item;margin:0 0 .45rem;padding-left:.15rem;font-size:.95rem;line-height:1.7}
+.hp .ev-item li:last-child{margin-bottom:0}
+.hp .ev-item li::marker{color:var(--gold)}
 .hp .roll{list-style:none;padding:0;margin:1rem 0;columns:2 320px;column-gap:2.5rem}
 .hp .roll li{border-top:1px solid var(--line-soft);padding:.55rem 0;break-inside:avoid}
+.hp .roll.tally li{display:flex;justify-content:space-between;align-items:baseline;gap:1rem}
+.hp .roll.tally li b{font:400 1.05rem Marcellus,Georgia,serif;color:var(--taupe);flex:none}
 .hp .roll b{font:400 1.05rem Marcellus,Georgia,serif;color:var(--ink)}
-.hp .take{margin:.8rem 0 0;padding-left:1.1rem;font-size:.95rem}
-.hp .take li{margin-bottom:.4rem}
+.hp .take{list-style:disc outside;margin:.8rem 0 0;padding-left:1.3rem;font-size:.95rem}
+.hp .take li{display:list-item;margin-bottom:.4rem}
 .hp .take li::marker{color:var(--gold)}
 .hp .sep{border:0;border-top:1px solid var(--line);margin:0 0 2.5rem}
 .hp .sep+.today{margin-top:0}
@@ -185,10 +197,13 @@ html.dark .hp .bar{background:#111827}
 <h2>A spiritual bond, never a surrender</h2>
 <p>Mor Gregorios Abdul Jaleel, the Syriac Orthodox Patriarch of Jerusalem, reached Malankara in 1665 after Mar Thoma I wrote to Alexandria, Antioch and Persia for help, and he regularised Mar Thoma’s consecration. Antiochene bishops then ordained Malankara’s Metropolitans, and the Patriarch came to be honoured as spiritual head, the <i>vedathalavan</i>. But the Church continued to govern itself, and the Patriarch’s place was always spiritual and conditional.</p>
 <details class="ev"><summary>Read the evidence</summary><div>
-<p><span class="n">Consent came first.</span> In his 1754 covenant, Maphrian Shukrallah promised Mar Thoma V, “I will not ordain anyone in Malabar without your consent.” A manuscript colophon likewise records a priest ordained by Patriarch Gregorios with “the consent of Mar Thoma, the bishop of entire India.”</p>
-<p><span class="n">Arthat Padiyola, 1806.</span> Thirteen leading men of Arthat parish, with their vicar Thekkekara Kuriathu Kathanar, pledged before Mar Dionysius I never to follow any bishop “from Rome, or Babylon, or Antioch, or any other foreign land,” only the ancient faith of St. Thomas. It answered Latin, Anglican, East Syriac and Antiochene pressure alike. The plate was rediscovered and first published in 1968.</p>
-<p><span class="n">Mavelikara Padiyola, 1836.</span> The assembly refused the Anglican proposals, vowed to follow only the Orthodox faith, and placed the Church under the Patriarch’s <i>meladhikaram</i>, a spiritual authority. Later assemblies under Mar Dionysius V and St. Gregorios of Parumala made plain that it was conditional.</p>
-<p><span class="n">Mar Dionysius IV in his own words.</span> His 1843 encyclical says the Malankara episcopate descends from the laying-on of hands of Mar Thoma, that a foreign bishop completed it but never ruled it, and that once Mor Athanasius arrived in 1825 the verdict was that foreigners have no authority over this Church. The See of St. Thomas, he held, is as complete as any other.</p>
+<div class="ev-item"><h4>Consent came first</h4><p>In his 1754 covenant, Maphrian Shukrallah promised Mar Thoma V, “I will not ordain anyone in Malabar without your consent.” A manuscript colophon likewise records a priest ordained by Patriarch Gregorios with “the consent of Mar Thoma, the bishop of entire India.”</p></div>
+
+<div class="ev-item"><h4>Arthat Padiyola, 1806</h4><p>Thirteen leading men of Arthat parish, with their vicar Thekkekara Kuriathu Kathanar, pledged before Mar Dionysius I never to follow any bishop “from Rome, or Babylon, or Antioch, or any other foreign land,” only the ancient faith of St. Thomas. It answered Latin, Anglican, East Syriac and Antiochene pressure alike. The plate was rediscovered and first published in 1968.</p></div>
+
+<div class="ev-item"><h4>Mavelikara Padiyola, 1836</h4><p>The assembly refused the Anglican proposals, vowed to follow only the Orthodox faith, and placed the Church under the Patriarch’s <i>meladhikaram</i>, a spiritual authority. Later assemblies under Mar Dionysius V and St. Gregorios of Parumala made plain that it was conditional.</p></div>
+
+<div class="ev-item"><h4>Mar Dionysius IV in his own words</h4><p>His 1843 encyclical says the Malankara episcopate descends from the laying-on of hands of Mar Thoma, that a foreign bishop completed it but never ruled it, and that once Mor Athanasius arrived in 1825 the verdict was that foreigners have no authority over this Church. The See of St. Thomas, he held, is as complete as any other.</p></div>
 </div></details>
 </div>
 </section>
@@ -199,8 +214,8 @@ html.dark .hp .bar{background:#111827}
 <h2>The Reformation, and the verdict of 1889</h2>
 <p>In 1842 Patriarch Elias II consecrated Deacon Mathen, nephew of the reformer Palakkunnath Abraham Malpan, as Mathews Mar Athanasius. Mar Dionysius IV had warned that accepting a prelate who owed his rank to Antioch would invite foreign interference. The Church sent Pulikkottil Joseph Kathanar to Antioch, and in 1865 he returned as Mar Dionysius V. The Parumala Synod of 1873 founded the Malankara Association, and the Mulanthuruthy Synod of 1876, presided over by Patriarch Peter IV himself, confirmed Mar Dionysius V and rejected Mar Athanasius.</p>
 <details class="ev"><summary>Read the evidence</summary><div>
-<p><span class="n">Three Patriarchs excommunicated Athanasius.</span> Elias II, Yakub II and Peter IV each condemned him. Yakub II’s 1847 kalpana calls him an impostor who gained office by fraud. Peter IV’s kalpana of 1873 says earlier Patriarchs had excommunicated him, excommunicates him again along with Thomas Athanasius and Mar Koorilos of Thozhiyur, and his general kalpana from Cochin names him “Belial.” Peter IV and Mar Dionysius V even re-ordained priests and deacons Athanasius had ordained. Anyone who says he was never excommunicated is contradicting the Patriarchs’ own letters.</p>
-<p><span class="n">Mulanthuruthy, 1876.</span> The assembly resolved that Malankara and Antioch would have equal rights and that “all decisions made on behalf of our Church and community, with the sanction of the Committee, shall be valid.”</p>
+<div class="ev-item"><h4>Three Patriarchs excommunicated Athanasius</h4><p>Elias II, Yakub II and Peter IV each condemned him.</p><ul><li>Yakub II’s 1847 kalpana calls him an impostor who gained office by fraud.</li><li>Peter IV’s kalpana of 1873 says earlier Patriarchs had excommunicated him, and excommunicates him again along with Thomas Athanasius and Mar Koorilos of Thozhiyur.</li><li>Peter IV’s general kalpana from Cochin names him “Belial.”</li><li>Peter IV and Mar Dionysius V even re-ordained priests and deacons Athanasius had ordained.</li></ul><p>Anyone who says he was never excommunicated is contradicting the Patriarchs’ own letters.</p></div>
+<div class="ev-item"><h4>Mulanthuruthy, 1876</h4><p>The assembly resolved that Malankara and Antioch would have equal rights and that “all decisions made on behalf of our Church and community, with the sanction of the Committee, shall be valid.”</p></div>
 </div></details>
 <div class="verdict"><h3>12 July 1889 · Royal Court of Final Appeal, Travancore</h3>
 <p>Mar Dionysius V is the true Malankara Metropolitan. The Patriarch’s authority is spiritual only and has never reached the temporal government of the Church, which has always been independent. A Metropolitan must be a native of Malabar, consecrated by the Patriarch or his delegates and accepted by the people. The Reformed side surrendered the common assets and almost every parish, and became the Mar Thoma Syrian Church.</p></div>
@@ -217,18 +232,11 @@ html.dark .hp .bar{background:#111827}
 <p>In June 1911 Alvares Mar Julius, whom Malankara’s bishops had consecrated in 1889 as Metropolitan of Goa, Ceylon and the rest of India, co-signed a letter with Murimattathil Mar Ivanios (later Catholicos Baselios Paulose I) to St. Dionysius of Vattasseril. They rejected Abdulla II’s excommunication and pledged him their solidarity. When the Patriarch demanded a deed surrendering the Church’s property and administration to him, and excommunicated Vattasseril Thirumeni for refusing, these two were the only diocesan Metropolitans who openly stood beside him.</p>
 <p>The whole Brahmavar Konkani Orthodox community followed Mar Julius, stayed in the Malankara Church after the schism, and stands with it to this day as the <a href="https://malankaramap.com/brahmavar">Diocese of Brahmavar</a>.</p></div></div>
 <details class="ev"><summary>Read the evidence: 1909 to 1912</summary><div>
-<p><span class="n">The Association refused.</span> At the Kottayam assembly of 25–27 November 1909, E. J. John told the Patriarch that the Royal Court verdict had ended any temporal authority. M. P. Varkey told the house that foreigners had never held it in Malankara, and the assembly applauded. The Patriarch’s 1910 kalpana replied that spiritual and temporal authority “cannot be separated.”</p>
-<p><span class="n">Abded Mshiho II voided it.</span> On 17 August 1911 he wrote that “the thief Abdallah has no authority to depose Mar Geevarghese Dionysius or anyone among you.” His kalpana of 17 September 1912 states he had consecrated Mar Ivanios as “Maphrian, that is, Catholicos, on the Throne of St. Thomas in the East.”</p>
-<p><span class="n">Why Abded Mshiho remained the valid Patriarch.</span> The Patriarchal faction says a synod deposed him in 1903. The contemporary sources say the Ottoman government removed him:</p>
-<ul>
-<li>The Church’s own magazine, the Malankara Edavaka Pathrika, reported in 1905–06 that the Sultan had dismissed him.</li>
-<li>The British Vice-Consul at Diyarbakır wrote in December 1905 that he had been “dismissed by Iradé” and refused to step down.</li>
-<li>Two deacons from Malankara visited him as Patriarch in 1906 and found him ready for a Catholicate, while Abded Aloho was “not willing.”</li>
-<li>Konat Mathen Malpan, later on the Patriarchal side, wrote in 1908 that Abded Mshiho was “the rightful Patriarch,” and in 1910 denied he was “a deposed or a false Patriarch.”</li>
-<li>No source mentions a deposing synod before 1911. Later Patriarchal accounts give 1903 or 1905 and name different presidents. The Za‘farān Monastery’s own list of its twenty-one councils has no 1903 synod, and the court set the “Acts” aside. Fr. V. C. Samuel reported watching Mor Yulios forge them.</li>
-</ul>
-<p><span class="n">Abded Aloho’s record.</span> The scholar Khalid Dinno notes that Syriac Orthodox sources “brush over” his patriarchate. In 1912–13 his own bishops and the Mardin Board wrote that the community was collapsing, while he stayed in Jerusalem until his death in 1915.</p>
-<p><span class="n">The Catholicate is a re-establishment.</span> The Maphrian of Tagrit was himself called Catholicos, as John of Ephesus and Michael the Syrian show. Denha I called his office “the Apostolic and Patriarchal Throne.” The East elected its own Maphrian for centuries, and Wolfgang Hage describes that Maphrian’s jurisdiction as “unrestricted.” Article 99 of the Constitution therefore speaks of re-establishment: a revival of the See of St. Thomas.</p>
+<div class="ev-item"><h4>The Association refused</h4><p>At the Kottayam assembly of 25–27 November 1909:</p><ul><li>E. J. John told the Patriarch that the Royal Court verdict had ended any temporal authority.</li><li>M. P. Varkey told the house that foreigners had never held it in Malankara, and the assembly applauded.</li><li>The Patriarch’s 1910 kalpana replied that spiritual and temporal authority “cannot be separated.”</li></ul></div>
+<div class="ev-item"><h4>Abded Mshiho II voided it</h4><p>On 17 August 1911 he wrote that “the thief Abdallah has no authority to depose Mar Geevarghese Dionysius or anyone among you.”</p><p>His kalpana of 17 September 1912 states he had consecrated Mar Ivanios as “Maphrian, that is, Catholicos, on the Throne of St. Thomas in the East.”</p></div>
+<div class="ev-item"><h4>Why Abded Mshiho remained the valid Patriarch</h4><p>The Patriarchal faction says a synod deposed him in 1903. The contemporary sources say the Ottoman government removed him:</p><ul><li>The Church’s own magazine, the Malankara Edavaka Pathrika, reported in 1905–06 that the Sultan had dismissed him.</li><li>The British Vice-Consul at Diyarbakır wrote in December 1905 that he had been “dismissed by Iradé” and refused to step down.</li><li>Two deacons from Malankara visited him as Patriarch in 1906 and found him ready for a Catholicate, while Abded Aloho was “not willing.”</li><li>Konat Mathen Malpan, later on the Patriarchal side, wrote in 1908 that Abded Mshiho was “the rightful Patriarch,” and in 1910 denied he was “a deposed or a false Patriarch.”</li><li>No source mentions a deposing synod before 1911. Later Patriarchal accounts give 1903 or 1905 and name different presidents.</li><li>The Za‘farān Monastery’s own list of its twenty-one councils has no 1903 synod, and the court set the “Acts” aside. Fr. V. C. Samuel reported watching Mor Yulios forge them.</li></ul></div>
+<div class="ev-item"><h4>Abded Aloho’s record</h4><p>The scholar Khalid Dinno notes that Syriac Orthodox sources “brush over” his patriarchate. In 1912–13 his own bishops and the Mardin Board wrote that the community was collapsing, while he stayed in Jerusalem until his death in 1915.</p></div>
+<div class="ev-item"><h4>The Catholicate is a re-establishment</h4><p>The Maphrian of Tagrit was himself called Catholicos, as John of Ephesus and Michael the Syrian show. Denha I called his office “the Apostolic and Patriarchal Throne.” The East elected its own Maphrian for centuries, and Wolfgang Hage describes that Maphrian’s jurisdiction as “unrestricted.” Article 99 of the Constitution therefore speaks of re-establishment: a revival of the See of St. Thomas.</p></div>
 </div></details>
 <aside class="mart"><h3>The first martyr: Varkey Aashan (Aanapappy), 31 March 1912</h3>
 <p>As the fight for the Old Seminary at Kottayam turned violent, Thiruvalla leaders sent Varkey Varghese, a teacher and giant of a wrestler, to guard St. Dionysius of Vattasseril. The Patriarchal partisans reasoned that the Metropolitan could not be removed while he lived. On the evening of 31 March 1912, seventeen accused men with sticks, sword-sticks and clubs ambushed him on the Meenachil sandbank beside the seminary. The post-mortem found his heel tendon severed and his skull broken into eleven pieces. He was thirty-five.</p>
@@ -261,15 +269,16 @@ html.dark .hp .bar{background:#111827}
 <p><span class="n">Thottappattu Kuriakose, 1993.</span> At Perumbavoor Suloko, the Patriarchal vicar had issued a notice excommunicating seven Orthodox families. When the Orthodox protested peacefully at the church door, men waiting nearby attacked with stones and cudgels, and a blow to the head felled Kuriakose, a driver and father of five. He died twelve days later, on 31 August 1993, aged fifty-five.</p>
 <p><a href="https://malankaramap.com/martyrs">Read the full stories on our martyrs page</a>.</p></aside>
 <details class="ev"><summary>Read the evidence: St. Thomas and his Throne</summary><div>
-<p><span class="n">He was a priest.</span> The Didascalia Apostolorum says India “received the apostles’ ordination to the priesthood from Judas Thomas.” St. Cyril of Alexandria answers the very objection drawn from John 20: the Spirit given to the apostles reached Thomas too, since the gift went to the disciples as a whole. Bar Hebraeus calls him “the first chief priest of the East.”</p>
-<p><span class="n">The title is old and ours.</span> Maphrian Denha I of Tagrit called his office a Throne in the seventh century. In 1581 Maphrian Basil Pilate styled himself “Servant of the Throne of St. Thomas the Apostle.” Abded Mshiho II’s 1912 kalpana places the Catholicos “on the Throne of St. Thomas.” A thirteenth-century Kodungallur manuscript names a Metropolitan head of “the Holy See of the Apostle Mar Thoma,” and Mar Philoxenos II and Mar Dionysius IV used the title too. Even Yakub III’s own history records a Patriarchal delegate’s seal reading “On the See of St. Thomas.”</p>
-<p><span class="n">Antioch’s claim over “the East.”</span> Nicaea (canon 6) and Constantinople (canon 2) mean the East within the Roman Empire, and Constantinople lets churches among the “barbarian nations” follow their own custom. The 1043 text of Neilos Doxapatres, cited for Antioch’s rule over India, describes the Greek Melkite Patriarch’s Catholicos in Central Asia. Bar Salibi lists the Indians apart from the Syrians, and the Severus manuscript says “all Syria as far as India,” treating India as a neighbour.</p>
+<div class="ev-item"><h4>He was a priest</h4><ul><li>The Didascalia Apostolorum says India “received the apostles’ ordination to the priesthood from Judas Thomas.”</li><li>St. Cyril of Alexandria answers the very objection drawn from John 20: the Spirit given to the apostles reached Thomas too, since the gift went to the disciples as a whole.</li><li>Bar Hebraeus calls him “the first chief priest of the East.”</li></ul></div>
+<div class="ev-item"><h4>The title is old and ours</h4><ul><li>Maphrian Denha I of Tagrit called his office a Throne in the seventh century.</li><li>In 1581 Maphrian Basil Pilate styled himself “Servant of the Throne of St. Thomas the Apostle.”</li><li>Abded Mshiho II’s 1912 kalpana places the Catholicos “on the Throne of St. Thomas.”</li><li>A thirteenth-century Kodungallur manuscript names a Metropolitan head of “the Holy See of the Apostle Mar Thoma,” and Mar Philoxenos II and Mar Dionysius IV used the title too.</li><li>Even Yakub III’s own history records a Patriarchal delegate’s seal reading “On the See of St. Thomas.”</li></ul></div>
+<div class="ev-item"><h4>Antioch’s claim over “the East”</h4><ul><li>Nicaea (canon 6) and Constantinople (canon 2) mean the East within the Roman Empire, and Constantinople lets churches among the “barbarian nations” follow their own custom.</li><li>The 1043 text of Neilos Doxapatres, cited for Antioch’s rule over India, describes the Greek Melkite Patriarch’s Catholicos in Central Asia.</li><li>Bar Salibi lists the Indians apart from the Syrians, and the Severus manuscript says “all Syria as far as India,” treating India as a neighbour.</li></ul></div>
 </div></details>
 <div class="verdict"><h3>1995 · Supreme Court of India</h3>
 <p>The Malankara Orthodox Church is the legally valid institution. After the 1990 High Court ruling, Patriarch Zakka I told his own bishops that they were adamant in refusing peace. The 2002 mediation under Justice Malimath collapsed when the pro-Patriarch metropolitans and trustees walked out.</p></div>
 <details class="ev"><summary>Read the evidence: who walked away from peace?</summary><div>
-<p><span class="n">Who refused to talk?</span> In 1998 Patriarch Zakka I himself rebuked the metropolitans of the Patriarchal faction for their adamant attitude and for withdrawing from the conciliation talks even when “the other group was ready to make peace” (No. F30/99).</p>
-<p><span class="n">Did the Church give up?</span> No. It forgave again and agreed to the extra-judicial mediated talks of 2002, and the Patriarchal side deceitfully backed off a second time.</p>
+<div class="ev-item"><h4>Who refused to talk?</h4><p>In 1998 Patriarch Zakka I himself rebuked the metropolitans of the Patriarchal faction for their adamant attitude and for withdrawing from the conciliation talks even when “the other group was ready to make peace” (No. F30/99).</p></div>
+
+<div class="ev-item"><h4>Did the Church give up?</h4><p>No. It forgave again and agreed to the extra-judicial mediated talks of 2002, and the Patriarchal side deceitfully backed off a second time.</p></div>
 </div></details>
 <aside class="mart"><h3>Malankara Varghese, 5 December 2002</h3>
 <p>In the year the Patriarchal faction registered its trust, T. M. Varghese, a Perumbavoor timber merchant and Managing Committee member who had won an injunction keeping an unrecognised office-holder out of Suloko church, was hacked down with a sword in broad daylight at Karottappady Junction. FIR No. 701 and press reports say the hired attackers were paid Rs 60,000. The CBI took up the case.</p>
@@ -283,8 +292,9 @@ html.dark .hp .bar{background:#111827}
 </ul>
 <p style="margin-top:.8rem">The Church holds that the verdict excludes no believer. It invites every parishioner, Jacobite faction members included, to worship together as one community under the 1934 Constitution and each parish’s canonical priests.</p></div>
 <details class="ev"><summary>Read the evidence: a verdict they asked for</summary><div>
-<p><span class="n">Whose idea were the courts?</span> The Patriarchal faction’s own. Its sole demand was to settle the matter through the courts.</p>
-<p><span class="n">What changed in July 2017?</span> The ruling. The faction was perfectly happy to attach in a legal filing the list that included Malankara’s own parishes. It objects only now that the Supreme Court has ruled for the Malankara Church and the verdict is being carried out. Is a verdict acceptable only when it is expected to favour you?</p>
+<div class="ev-item"><h4>Whose idea were the courts?</h4><p>The Patriarchal faction’s own. Its sole demand was to settle the matter through the courts.</p></div>
+
+<div class="ev-item"><h4>What changed in July 2017?</h4><p>The ruling. The faction was perfectly happy to attach in a legal filing the list that included Malankara’s own parishes. It objects only now that the Supreme Court has ruled for the Malankara Church and the verdict is being carried out. Is a verdict acceptable only when it is expected to favour you?</p></div>
 </div></details>
 </div>
 </section>
@@ -302,9 +312,9 @@ html.dark .hp .bar{background:#111827}
 </div>
 <p>Through the entire dispute, no Patriarchal member has been murdered or attacked by a Malankara Orthodox believer. The Malankara Church has chosen patience over provocation, and it has not indoctrinated its members and youth against the other side as the Patriarchal group has.</p>
 <details class="ev"><summary>Read more: children and blood, Kothamangalam, 2019</summary><div>
-<p>On 27 October 2019, more than 700 Sunday school students gathered at Kothamangalam St. Thomas Church for an event organised by the “Jacobite Syrian Christian Church.” It was staged as a show of strength a day before Malankara Orthodox priests were due to enter the church under a Supreme Court order.</p>
-<p>A group of the children pricked their index fingers, some reportedly using rubber bands to speed the bleeding, and wrote the Malayalam word “Sathyam” (truth) in their blood on white paper, as a pledge of loyalty to the Patriarch of Antioch.</p>
-<p>The Kerala State Commission for Protection of Child Rights opened a case on its own initiative. Its chairman said that using minors as tools in adult disputes, and having them draw blood, broke child-protection law. Because no parent filed a formal abuse complaint, there was no criminal prosecution.</p>
+<div class="ev-item"><h4>The gathering</h4><p>On 27 October 2019, more than 700 Sunday school students gathered at Kothamangalam St. Thomas Church for an event organised by the “Jacobite Syrian Christian Church.” It was staged as a show of strength a day before Malankara Orthodox priests were due to enter the church under a Supreme Court order.</p></div>
+<div class="ev-item"><h4>The pledge</h4><p>A group of the children pricked their index fingers, some reportedly using rubber bands to speed the bleeding, and wrote the Malayalam word “Sathyam” (truth) in their blood on white paper, as a pledge of loyalty to the Patriarch of Antioch.</p></div>
+<div class="ev-item"><h4>The official response</h4><p>The Kerala State Commission for Protection of Child Rights opened a case on its own initiative. Its chairman said that using minors as tools in adult disputes, and having them draw blood, broke child-protection law. Because no parent filed a formal abuse complaint, there was no criminal prosecution.</p></div>
 </div></details>
 <p>That restraint has had a cost. The disputes have centred on Ernakulam, while most Malankara members live in other regions, far from the trouble. Many do not know what is happening, and some have drifted away as a result. This page is here so that every believer can see the record.</p>
 </section>
@@ -332,21 +342,22 @@ html.dark .hp .bar{background:#111827}
 <p>What is not permitted is for Jacobite priests to lead the prayers and rites there. These parishes belong to the jurisdiction of the canonical Malankara Metropolitan, and clergy serving a parallel hierarchy and administration cannot officiate in them.</p>
 <p>A government report found that by 2019, funerals of 32 Jacobites had been held in Orthodox churches after the Supreme Court order.</p>
 <details class="ev"><summary>See the 32 funerals, church by church</summary><div>
-<ul class="roll" style="margin:0 0 .6rem">
-<li>Perumbavoor Cathedral · 6</li>
-<li>Kolenchery Church · 5</li>
-<li>Kadamattom Church · 3</li>
-<li>Mulakulam Church · 3</li>
-<li>Kandanad Cathedral · 3</li>
-<li>Mepral Church · 3</li>
-<li>Mannathoor Church · 2</li>
-<li>Varikoly Church · 2</li>
-<li>Kanniattunirappu Church · 1</li>
-<li>Njarakkad Church · 1</li>
-<li>Chathamattom Church · 1</li>
-<li>Pazhamthottam Church · 1</li>
-<li>Kattachira Church · 1</li>
-</ul></div></details>
+<ul class="roll tally" style="margin:0 0 .6rem">
+<li><span>Perumbavoor Cathedral</span><b>6</b></li>
+<li><span>Kolenchery Church</span><b>5</b></li>
+<li><span>Kadamattom Church</span><b>3</b></li>
+<li><span>Mulakulam Church</span><b>3</b></li>
+<li><span>Kandanad Cathedral</span><b>3</b></li>
+<li><span>Mepral Church</span><b>3</b></li>
+<li><span>Mannathoor Church</span><b>2</b></li>
+<li><span>Varikoly Church</span><b>2</b></li>
+<li><span>Kanniattunirappu Church</span><b>1</b></li>
+<li><span>Njarakkad Church</span><b>1</b></li>
+<li><span>Chathamattom Church</span><b>1</b></li>
+<li><span>Pazhamthottam Church</span><b>1</b></li>
+<li><span>Kattachira Church</span><b>1</b></li>
+</ul>
+</div></details>
 <blockquote>“Baseless allegations are being levelled to tarnish the image of the Orthodox church.”<small>Fr. Johns Abraham Konat, then Church spokesperson, now Malankara Malpan</small></blockquote>
 <p>Fr. Johns explained that the church cemeteries are for the members of the diocese, not the general public, and that when a family approaches the person in charge, the funeral rites are held. The diocese-members-only principle was one the Patriarchal side had long followed itself. He recalled that the Jacobite faction had refused permission for the funeral of a renowned film actor’s grandmother at its church in Kumarakom, and for the last rites of Fr. Joseph Vendrappilly at Vadavucode church. Rites held without the consent and presence of the parish priest are illegal, he said, and there is no objection when the priest consents and takes part.</p>
 </section>
