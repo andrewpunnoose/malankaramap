@@ -532,6 +532,46 @@
       form.addEventListener("submit", function () { if (input.value.trim()) setTimeout(function () { setSearch(false); }, 0); });
       document.addEventListener("mousedown", function (ev) { if (form.classList.contains("is-open") && !form.contains(ev.target) && !stg.contains(ev.target) && !input.value.trim()) setSearch(false); });
     }
+    /* full-screen: a round button with the other map buttons expands the map to fill the whole screen, in place (no page change) */
+    (function () {
+      var wrap = root.closest ? (root.closest("#mapWrap") || root.parentNode) : root.parentNode;
+      if (!wrap || wrap.__mmFull) return; wrap.__mmFull = true;
+      var fs = document.createElement("style");
+      fs.textContent = "#mapWrap.mm-full{position:fixed!important;top:0!important;left:0!important;right:0!important;bottom:0!important;width:100%!important;max-width:none!important;height:100vh!important;height:100dvh!important;margin:0!important;border:0!important;border-radius:0!important;box-shadow:none!important;z-index:100000!important}" +
+        "#mapWrap.mm-full #malankaraMap{height:100%!important}" +
+        "#mapWrap.mm-full .mm-ctl{top:calc(12px + env(safe-area-inset-top,0px));right:calc(12px + env(safe-area-inset-right,0px))}" +
+        "#mapWrap.mm-full .mapsearch{margin-top:0}" +
+        "html.mm-noscroll,html.mm-noscroll body{overflow:hidden!important}" +
+        ".mm-full-toggle .mm-ico-out{display:none}#mapWrap.mm-full .mm-full-toggle .mm-ico-in{display:none}#mapWrap.mm-full .mm-full-toggle .mm-ico-out{display:block}";
+      document.head.appendChild(fs);
+      var fb = document.createElement("button"); fb.type = "button"; fb.className = "mm-btn mm-search-toggle mm-full-toggle";
+      var svgA = '<svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"';
+      fb.innerHTML = svgA + ' class="mm-ico-in"><path d="M4 9V4h5M20 9V4h-5M4 15v5h5M20 15v5h-5"></path></svg>' + svgA + ' class="mm-ico-out"><path d="M9 4v5H4M15 4v5h5M9 20v-5H4M15 20v-5h5"></path></svg>';
+      var label = function () { var on = wrap.classList.contains("mm-full"); var txt = ISML() ? (on ? "പൂർണ്ണ സ്ക്രീൻ അടയ്ക്കുക" : "പൂർണ്ണ സ്ക്രീൻ") : (on ? "Exit full screen" : "Full screen"); fb.setAttribute("aria-label", txt); fb.title = txt; fb.setAttribute("aria-pressed", String(on)); };
+      var settle = function () { try { map.invalidateSize(); } catch (e) {} setTimeout(function () { try { map.invalidateSize(); } catch (e) {} if (form && form.classList.contains("is-open")) { try { var op = form.offsetParent || form.parentNode, a = ctl.getBoundingClientRect(), b = op.getBoundingClientRect(); form.style.top = Math.round(a.bottom - b.top + 8) + "px"; } catch (e) {} } }, 120); };
+      var nativeOn = function () { return !!(document.fullscreenElement || document.webkitFullscreenElement); };
+      var enter = function () {
+        if (wrap.classList.contains("mm-full")) return;
+        wrap.classList.add("mm-full"); document.documentElement.classList.add("mm-noscroll");
+        try { history.pushState({ mmFull: 1 }, ""); } catch (e) {}
+        try { var rq = wrap.requestFullscreen || wrap.webkitRequestFullscreen; if (rq) { var pr = rq.call(wrap); if (pr && pr.catch) pr.catch(function () {}); } } catch (e) {}
+        label(); settle();
+      };
+      var leave = function (fromHistory) {
+        if (!wrap.classList.contains("mm-full")) return;
+        wrap.classList.remove("mm-full"); document.documentElement.classList.remove("mm-noscroll");
+        try { if (nativeOn()) { (document.exitFullscreen || document.webkitExitFullscreen).call(document); } } catch (e) {}
+        if (!fromHistory) { try { if (history.state && history.state.mmFull) history.back(); } catch (e) {} }
+        label(); settle();
+      };
+      fb.addEventListener("click", function () { if (wrap.classList.contains("mm-full")) leave(false); else enter(); });
+      document.addEventListener("keydown", function (ev) { if (ev.key === "Escape" && wrap.classList.contains("mm-full") && !(form && form.classList.contains("is-open")) && !nativeOn()) leave(false); });
+      document.addEventListener("fullscreenchange", function () { if (!nativeOn() && wrap.classList.contains("mm-full")) leave(false); });
+      document.addEventListener("webkitfullscreenchange", function () { if (!nativeOn() && wrap.classList.contains("mm-full")) leave(false); });
+      window.addEventListener("popstate", function () { if (wrap.classList.contains("mm-full")) leave(true); });
+      if (window.MutationObserver) new MutationObserver(label).observe(document.documentElement, { attributes: true, attributeFilter: ["lang"] });
+      ctl.appendChild(fb); label();
+    })();
     if (cfg.nearest !== false) {
       var nbtn = document.createElement("button"); nbtn.type = "button"; nbtn.className = "mm-btn"; nearBtn = nbtn; nbtn.textContent = t("near"); ctl.insertBefore(nbtn, layersBtn);
       nbtn.addEventListener("click", function () {
