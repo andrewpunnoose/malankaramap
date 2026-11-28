@@ -235,7 +235,12 @@
        colour, land -> near-white / near-black with a faint texture) so the colours match the Terrain map. The last layer in each list is the English place-name layer, which Malayalam mode drops. */
     function hybrid(dk) {
       var terr = L.tileLayer(ESRI + "World_Terrain_Base/MapServer/tile/{z}/{y}/{x}", { maxZoom: 19, maxNativeZoom: 8, className: dk ? "mm-inv" : "", attribution: "Terrain © Esri, USGS, NOAA" });
-      var deep = L.tileLayer(ESRI + "World_Imagery/MapServer/tile/{z}/{y}/{x}", { maxZoom: 19, maxNativeZoom: 18, className: dk ? "mm-td" : "mm-tl", opacity: 0, attribution: "Imagery © Esri, Maxar, Earthstar Geographics" });
+      /* iPhone / iPad / Safari ignore the SVG recolour filter on map tiles, which left raw satellite imagery showing when zoomed in.
+         There the zoomed-in layer is Esri's plain Light / Dark Gray map instead, which needs no filter. */
+      var ua = navigator.userAgent || "", noSvgFilter = window.MM_FORCE_GRAY === true || /iPad|iPhone|iPod/.test(ua) || (navigator.platform === "MacIntel" && navigator.maxTouchPoints > 1) || /^((?!chrome|chromium|android|crios|fxios|edg).)*safari/i.test(ua);
+      var deep = noSvgFilter
+        ? L.tileLayer(ESRI + "Canvas/World_" + (dk ? "Dark" : "Light") + "_Gray_Base/MapServer/tile/{z}/{y}/{x}", { maxZoom: 19, maxNativeZoom: 16, opacity: 0, attribution: "Basemap © Esri" })
+        : L.tileLayer(ESRI + "World_Imagery/MapServer/tile/{z}/{y}/{x}", { maxZoom: 19, maxNativeZoom: 18, className: dk ? "mm-td" : "mm-tl", opacity: 0, attribution: "Imagery © Esri, Maxar, Earthstar Geographics" });
       deep._mmDeep = true;
       var ref = L.tileLayer(ESRI + "Canvas/World_" + (dk ? "Dark" : "Light") + "_Gray_Reference/MapServer/tile/{z}/{y}/{x}", { maxZoom: 19, maxNativeZoom: 16, pane: "mmLabels" });
       return [terr, deep, ref];
